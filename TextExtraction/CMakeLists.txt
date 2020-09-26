@@ -3,13 +3,24 @@ cmake_minimum_required (VERSION 2.6)
 
 
 add_executable(TextExtraction 
+lib/interpreter/IPDFInterpreterHandler.h
+lib/interpreter/IPDFRecursiveInterpreterHandler.h
+lib/interpreter/PDFInterpreter.cpp
+lib/interpreter/PDFInterpreter.h
+lib/interpreter/PDFRecursiveInterpreter.cpp
+lib/interpreter/PDFRecursiveInterpreter.h
+lib/text-placements/TextPlacement.h
+lib/text-placements/TextPlacementsCollector.cpp
+lib/text-placements/TextPlacementsCollector.h
+lib/text-placements/TPCollectionState.cpp
+lib/text-placements/TPCollectionState.h
+lib/text-placements/Transformations.cpp
+lib/text-placements/Transformations.h
+ErrorsAndWarnings.h
 extract-text-cli.cpp
+TextExtraction.cpp
+TextExtraction.h
 )
-
-source_group(Main FILES
-extract-text-cli.cpp
-)
-
 
 if(PDFHUMMUS_NO_DCT)
 	add_definitions(-DPDFHUMMUS_NO_DCT=1)

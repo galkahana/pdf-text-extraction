@@ -3,6 +3,8 @@
 
 #include "EStatusCode.h"
 
+#include "TextExtraction.h"
+
 using namespace std;
 using namespace PDFHummus;
 
@@ -31,16 +33,25 @@ int main(int argc, char* argv[])
             ShowUsage(argv[0]);
             return 0;
         } else {
-            std::cerr << "Unrecognized option " << arg << std::endl;
+            cerr << "Unrecognized option " << arg << std::endl;
             ShowUsage(argv[0]);
             return 1;
         }
     }    
 
-
-    EStatusCode status = eSuccess;
+    TextExtraction textExtraction;
+    EStatusCode status;
 
     // execute code
+    status = textExtraction.ExtractText(filePath);
+
+    if(status != eSuccess) {
+        cerr << "Error: " << textExtraction.LatestError.description.c_str() << endl;
+    }
+    TextExtractionWarningList::iterator it = textExtraction.LatestWarnings.begin();
+    for(; it != textExtraction.LatestWarnings.end(); ++it) {
+        cerr << "Warning: " << it->description.c_str() << endl;
+    }    
 
     return  status == eSuccess ? 0:1;
 }
