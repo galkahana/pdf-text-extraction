@@ -28,9 +28,9 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser) {
         PDFRecursiveInterpreter interpreter;
         TextPlacementsCollector collector;
         interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), &collector);  
-        PlacedTextOperationResultList& texts = collector.onDone();
+        TextElementList& texts = collector.onDone();
 
-        textsForPages.push_back(PlacedTextOperationResultList(texts));
+        textsForPages.push_back(TextElementList(texts));
     }    
 
 
@@ -38,38 +38,41 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser) {
 }
 
 EStatusCode TextExtraction::Translate(PDFParser* inParser) {
-    PlacedTextOperationResultListList::iterator pagesIt = textsForPages.begin();
+    TextElementListList::iterator pagesIt = textsForPages.begin();
 
     for(; pagesIt != textsForPages.end(); ++pagesIt) {
-        PlacedTextOperationResultList::iterator resultsIt = pagesIt->begin();
-        for(; resultsIt != pagesIt->end(); ++resultsIt) {
-            // Determine a decoder for the text font
-            RefCountPtr<PDFDictionary> fontDict;
-            if(resultsIt->textState.fontRef->GetType() == PDFObject::ePDFObjectDictionary) {
-                fontDict = (PDFDictionary*)resultsIt->textState.fontRef.GetPtr();
-            }
-            else if(resultsIt->textState.fontRef->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
-                PDFObjectCastPtr<PDFDictionary> parsedFontDict(inParser->ParseNewObject(
-                    ((PDFIndirectObjectReference*)resultsIt->textState.fontRef.GetPtr())->mObjectID
-                ));
-                if(!!parsedFontDict) {
-                    fontDict = parsedFontDict.GetPtr();
+        TextElementList::iterator textElementsIt = pagesIt->begin();
+        for(; textElementsIt != pagesIt->end(); ++textElementsIt) {
+            PlacedTextCommandList::iterator commandIt = textElementsIt->texts.begin();
+            for(; commandIt != textElementsIt->texts.end(); ++commandIt) {
+                // Determine a decoder for the text font
+                RefCountPtr<PDFDictionary> fontDict;
+                if(commandIt->textState.fontRef->GetType() == PDFObject::ePDFObjectDictionary) {
+                    fontDict = (PDFDictionary*)commandIt->textState.fontRef.GetPtr();
                 }
-            }
-            if(!!fontDict) {
-                FontDecoder decoder(inParser, fontDict.GetPtr());
-                PlacedTextRecordList::iterator recordsIt = resultsIt->text.begin();
-                for(; recordsIt != resultsIt->text.end();++recordsIt) {
-                    if(recordsIt->isText) {
-                        // Translate the text
-                        FontDecoderResult result = decoder.Translate(recordsIt->asBytes);
-                        recordsIt->asText = result.asText;
-                        recordsIt->translationMethod = result.translationMethod;
+                else if(commandIt->textState.fontRef->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
+                    PDFObjectCastPtr<PDFDictionary> parsedFontDict(inParser->ParseNewObject(
+                        ((PDFIndirectObjectReference*)commandIt->textState.fontRef.GetPtr())->mObjectID
+                    ));
+                    if(!!parsedFontDict) {
+                        fontDict = parsedFontDict.GetPtr();
+                    }
+                }
+                if(!!fontDict) {
+                    FontDecoder decoder(inParser, fontDict.GetPtr());
+                    PlacedTextCommandArgumentList::iterator argumentIt = commandIt->text.begin();
+                    for(;argumentIt != commandIt->text.end();++argumentIt) {
+                        if(argumentIt->isText) {
+                            // Translate the text
+                            FontDecoderResult result = decoder.Translate(argumentIt->asBytes);
+                            argumentIt->asText = result.asText;
+                            argumentIt->translationMethod = result.translationMethod;
 
-                        // Accumulate
-                        resultsIt->allTextAsBytes.insert(resultsIt->allTextAsBytes.end(), recordsIt->asBytes.begin(), recordsIt->asBytes.end());
-                        resultsIt->allTextAsText+= (result.asText.empty() ? string(" ") : result.asText);
-                        resultsIt->allTextTranslationMethod = result.translationMethod;
+                            // Accumulate all args for a command
+                            commandIt->allTextAsBytes.insert(commandIt->allTextAsBytes.end(), argumentIt->asBytes.begin(), argumentIt->asBytes.end());
+                            commandIt->allTextAsText+= (result.asText.empty() ? string(" ") : result.asText);
+                            commandIt->allTextTranslationMethod = result.translationMethod;
+                        }
                     }
                 }
             }
@@ -115,11 +118,6 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath) {
         status = Translate(&parser);
         if(status != eSuccess)
             break;
-
-
-        // 2nd phase - translate encoded bytes to text strings.
-        //var state = {fontDecoders:{}};
-        //translate(state,pdfReader,pagesPlacements,formsPlacements);
 
         // 3rd phase - compute dimensions
         //computeDimensions(state,pdfReader,pagesPlacements,formsPlacements);

@@ -54,9 +54,12 @@ void TPCollectionState::EndTextPlacement() {
     target.rise = source.rise;
 
     textElementTextStack.clear();
+
+    textElements.push_back({PlacedTextCommandList(texts)});
+    texts.clear();
 }
 
-void TPCollectionState::PushPlacedTextOperations(const PlacedTextRecordList& inOperations) {
+void TPCollectionState::PushPlacedTextOperations(const PlacedTextCommandArgumentList& inOperations) {
     texts.push_back({
         inOperations,
         {

@@ -59,14 +59,14 @@ void TextPlacementsCollector::TStar() {
     Td(0,-state.CurrentTextState().leading);    
 }
 
-void TextPlacementsCollector::textPlacement(const PlacedTextRecord& inTextPlacementOperation) {
-    PlacedTextRecordList placements;
+void TextPlacementsCollector::textPlacement(const PlacedTextCommandArgument& inTextPlacementOperation) {
+    PlacedTextCommandArgumentList placements;
     placements.push_back(inTextPlacementOperation);
     textPlacement(placements);
     
 }
 
-void TextPlacementsCollector::textPlacement(const PlacedTextRecordList& inTextPlacementOperations) {
+void TextPlacementsCollector::textPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations) {
     state.PushPlacedTextOperations(inTextPlacementOperations);
   
 }
@@ -166,7 +166,7 @@ bool TextPlacementsCollector::onOperation(
         Quote(inOperands.back());
 
     } else if(inOperation == "TJ") {
-        PlacedTextRecordList placements;
+        PlacedTextCommandArgumentList placements;
         PDFObjectCastPtr<PDFArray> arg;
 
         arg = inOperands.back();
@@ -257,8 +257,8 @@ void TextPlacementsCollector::onXObjectDoEnd(
     resourcesStack.pop_back();        
 }
 
-PlacedTextOperationResultList& TextPlacementsCollector::onDone() {
+TextElementList& TextPlacementsCollector::onDone() {
     resourcesStack.clear();
 
-    return state.texts;
+    return state.textElements;
 }

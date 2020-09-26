@@ -33,12 +33,14 @@ public:
     void StartTextElement();
     void EndTextPlacement();
 
-    void PushPlacedTextOperations(const PlacedTextRecordList& inOperations);
+    void PushPlacedTextOperations(const PlacedTextCommandArgumentList& inOperations);
 
-    PlacedTextOperationResultList texts;
+    TextElementList textElements;
 
 private:
     bool isInTextElement;
     GraphicStateList graphicStateStack;
     TextStateList textElementTextStack;
+
+    PlacedTextCommandList texts;
 };

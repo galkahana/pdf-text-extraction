@@ -49,7 +49,7 @@ public:
     virtual ~TextPlacementsCollector();
 
 
-    PlacedTextOperationResultList& onDone(); // finished notification from our benefactors. for cleanup and result return
+    TextElementList& onDone(); // finished notification from our benefactors. for cleanup and result return
 
     // IPDFRecursiveInterpreterHandler implementation
     virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands);
@@ -74,8 +74,8 @@ private:
     void TStar();
     void Quote(PDFObject* inObject);
 
-    void textPlacement(const PlacedTextRecord& inTextPlacementOperation);
-    void textPlacement(const PlacedTextRecordList& inTextPlacementOperations);
+    void textPlacement(const PlacedTextCommandArgument& inTextPlacementOperation);
+    void textPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations);
 
 
 };

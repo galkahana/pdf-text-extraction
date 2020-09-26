@@ -14,13 +14,15 @@ enum ETranslationMethod {
     eTranslationMethodDefault
 };
 
-struct PlacedTextRecord {
-    PlacedTextRecord(double inPos) {
+// PlacedTextCommandArgument matches an argument to a text placement command.
+// Mostly it'll be text, but for TJ it might be a text or a position
+struct PlacedTextCommandArgument {
+    PlacedTextCommandArgument(double inPos) {
         isText = false;
         pos = inPos;
     }
 
-    PlacedTextRecord(const std::string& inEncodedText, const ByteList& inBytes) {
+    PlacedTextCommandArgument(const std::string& inEncodedText, const ByteList& inBytes) {
         isText = true;
         asEncodedText = inEncodedText;
         asBytes = inBytes;
@@ -44,7 +46,7 @@ struct PlacedTextRecord {
 
 };
 
-typedef std::list<PlacedTextRecord> PlacedTextRecordList;
+typedef std::list<PlacedTextCommandArgument> PlacedTextCommandArgumentList;
 
 struct TextState {
     TextState():fontRef() {
@@ -92,9 +94,12 @@ struct TextState {
     double fontSize;
 };
 
-struct PlacedTextOperationResult {
+// PlacedTextCommand matches a text placement command like TJ, Tj etc.
+// the "text" param matches the list of arguments it got. most of the time it's a single
+// text, but for TJ it might be an array of text of position
+struct PlacedTextCommand {
     // Provided by first phase, of extraction
-    PlacedTextRecordList text;
+    PlacedTextCommandArgumentList text;
     double ctm[6];
     TextState textState;
 
@@ -104,7 +109,16 @@ struct PlacedTextOperationResult {
     ByteList allTextAsBytes;
 };
 
-typedef std::list<PlacedTextOperationResult> PlacedTextOperationResultList;
+typedef std::list<PlacedTextCommand> PlacedTextCommandList;
+
+// TextElement matches a pdf text element, which is what's between an BT...ET sequance.
+// Text element boundaries provide some hints for later attempts to determine the end result text
+// and what goes with what
+struct TextElement {
+    PlacedTextCommandList texts;
+};
+
+typedef std::list<TextElement> TextElementList;
 
 
 // This is for end result...might not be fitting here....
