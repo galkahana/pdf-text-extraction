@@ -86,5 +86,13 @@ void PDFInterpreter::InterpretXObjectContents(
     PDFParser* inParser,
     PDFStreamInput* inXObject,
     IPDFInterpreterHandler* inHandler) {
-    InterpretContentStream(inParser->StartReadingObjectsFromStream(inXObject), inHandler);
+    InterpretStreamContents(inParser, inXObject, inHandler);
+}
+
+void PDFInterpreter::InterpretStreamContents(
+    PDFParser* inParser,
+    PDFStreamInput* inStream,
+    IPDFInterpreterHandler* inHandler) {
+    InterpretContentStream(inParser->StartReadingObjectsFromStream(inStream), inHandler);
+
 }

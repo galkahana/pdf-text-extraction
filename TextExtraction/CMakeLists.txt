@@ -3,12 +3,18 @@ cmake_minimum_required (VERSION 2.6)
 
 
 add_executable(TextExtraction 
+lib/font-translation/Encoding.cpp
+lib/font-translation/Encoding.h
+lib/font-translation/FontDecoder.cpp
+lib/font-translation/FontDecoder.h
 lib/interpreter/IPDFInterpreterHandler.h
 lib/interpreter/IPDFRecursiveInterpreterHandler.h
 lib/interpreter/PDFInterpreter.cpp
 lib/interpreter/PDFInterpreter.h
 lib/interpreter/PDFRecursiveInterpreter.cpp
 lib/interpreter/PDFRecursiveInterpreter.h
+lib/text-placements/Bytes.cpp
+lib/text-placements/Bytes.h
 lib/text-placements/TextPlacement.h
 lib/text-placements/TextPlacementsCollector.cpp
 lib/text-placements/TextPlacementsCollector.h

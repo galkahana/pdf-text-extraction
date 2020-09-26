@@ -12,6 +12,7 @@
 #include "PDFParser.h"
 
 #include "Transformations.h"
+#include "Bytes.h"
 
 using namespace std;
 
@@ -58,36 +59,14 @@ void TextPlacementsCollector::TStar() {
     Td(0,-state.CurrentTextState().leading);    
 }
 
-ByteList TextPlacementsCollector::ToBytesList(PDFObject* inObject) {
-    ByteList result;
-    
-    switch(inObject->GetType())
-    {
-        case PDFObject::ePDFObjectLiteralString: {
-            string str = ((PDFLiteralString*)inObject)->GetValue();
-            for(string::iterator it = str.begin();it != str.end(); ++it)
-                result.push_back((IOBasicTypes::Byte)(*it));
-            break;
-        }
-        case PDFObject::ePDFObjectHexString: {
-            string str = ((PDFHexString*)inObject)->GetValue();
-            for(string::iterator it = str.begin();it != str.end(); ++it)
-                result.push_back((IOBasicTypes::Byte)(*it));
-            break;
-        }
-    }
-
-    return result;  
-}
-
-void TextPlacementsCollector::textPlacement(const PlacedTextOperation& inTextPlacementOperation) {
-    PlacedTextOperationList placements;
+void TextPlacementsCollector::textPlacement(const PlacedTextRecord& inTextPlacementOperation) {
+    PlacedTextRecordList placements;
     placements.push_back(inTextPlacementOperation);
     textPlacement(placements);
     
 }
 
-void TextPlacementsCollector::textPlacement(const PlacedTextOperationList& inTextPlacementOperations) {
+void TextPlacementsCollector::textPlacement(const PlacedTextRecordList& inTextPlacementOperations) {
     state.PushPlacedTextOperations(inTextPlacementOperations);
   
 }
@@ -187,7 +166,7 @@ bool TextPlacementsCollector::onOperation(
         Quote(inOperands.back());
 
     } else if(inOperation == "TJ") {
-        PlacedTextOperationList placements;
+        PlacedTextRecordList placements;
         PDFObjectCastPtr<PDFArray> arg;
 
         arg = inOperands.back();
@@ -278,7 +257,7 @@ void TextPlacementsCollector::onXObjectDoEnd(
     resourcesStack.pop_back();        
 }
 
-PlacedTextOperationWithEnvList& TextPlacementsCollector::onDone() {
+PlacedTextOperationResultList& TextPlacementsCollector::onDone() {
     resourcesStack.clear();
 
     return state.texts;

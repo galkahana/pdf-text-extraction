@@ -9,7 +9,7 @@
 #include <string>
 #include <list>
 
-typedef std::list<PlacedTextOperationWithEnvList> PlacedTextOperationWithEnvListList;
+typedef std::list<PlacedTextOperationResultList> PlacedTextOperationResultListList;
 
 class PDFParser;
 
@@ -27,9 +27,10 @@ class TextExtraction {
         TextExtractionWarningList LatestWarnings;  
 
     private:
-        PlacedTextOperationWithEnvListList textsForPages;
+        PlacedTextOperationResultListList textsForPages;
 
 
         PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser);
+        PDFHummus::EStatusCode Translate(PDFParser* inParser);
 
 };

@@ -56,7 +56,7 @@ void TPCollectionState::EndTextPlacement() {
     textElementTextStack.clear();
 }
 
-void TPCollectionState::PushPlacedTextOperations(const PlacedTextOperationList& inOperations) {
+void TPCollectionState::PushPlacedTextOperations(const PlacedTextRecordList& inOperations) {
     texts.push_back({
         inOperations,
         {

@@ -33,9 +33,9 @@ public:
     void StartTextElement();
     void EndTextPlacement();
 
-    void PushPlacedTextOperations(const PlacedTextOperationList& inOperations);
+    void PushPlacedTextOperations(const PlacedTextRecordList& inOperations);
 
-    PlacedTextOperationWithEnvList texts;
+    PlacedTextOperationResultList texts;
 
 private:
     bool isInTextElement;

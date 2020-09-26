@@ -1,28 +1,34 @@
 #pragma once
 
-#include "IOBasicTypes.h"
 #include "RefCountPtr.h"
 #include "PDFObject.h"
+#include "Bytes.h"
 
 #include <string>
 #include <list>
 
-typedef std::list<IOBasicTypes::Byte> ByteList;
 
-struct PlacedTextOperation {
-    PlacedTextOperation(double inPos) {
+enum ETranslationMethod {
+    eTranslationMethodToUnicode,
+    eTranslationMethodSimpleEncoding,
+    eTranslationMethodDefault
+};
+
+struct PlacedTextRecord {
+    PlacedTextRecord(double inPos) {
         isText = false;
         pos = inPos;
     }
 
-    PlacedTextOperation(const std::string& inEncodedText, const ByteList& inBytes) {
+    PlacedTextRecord(const std::string& inEncodedText, const ByteList& inBytes) {
         isText = true;
         asEncodedText = inEncodedText;
         asBytes = inBytes;
     }
 
+    // Provided by first phase, of extraction
 
-    // flag
+    // choice of what's represented
     bool isText;
     
     // as text
@@ -31,7 +37,14 @@ struct PlacedTextOperation {
 
     // as position
     double pos;
+
+    // Provided by 2nd phase, of translation
+    ETranslationMethod translationMethod;
+    std::string asText;
+
 };
+
+typedef std::list<PlacedTextRecord> PlacedTextRecordList;
 
 struct TextState {
     TextState():fontRef() {
@@ -79,15 +92,19 @@ struct TextState {
     double fontSize;
 };
 
-typedef std::list<PlacedTextOperation> PlacedTextOperationList;
-
-struct PlacedTextOperationWithEnv {
-    PlacedTextOperationList text;
+struct PlacedTextOperationResult {
+    // Provided by first phase, of extraction
+    PlacedTextRecordList text;
     double ctm[6];
     TextState textState;
+
+    // Provided by second phase, of translation
+    ETranslationMethod allTextTranslationMethod;
+    std::string allTextAsText;
+    ByteList allTextAsBytes;
 };
 
-typedef std::list<PlacedTextOperationWithEnv> PlacedTextOperationWithEnvList;
+typedef std::list<PlacedTextOperationResult> PlacedTextOperationResultList;
 
 
 // This is for end result...might not be fitting here....
