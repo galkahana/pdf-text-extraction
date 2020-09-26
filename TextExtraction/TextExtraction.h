@@ -2,10 +2,14 @@
 
 #include "EStatusCode.h"
 
+#include "./lib/text-placements/TextPlacement.h"
+
 #include "ErrorsAndWarnings.h"
 
 #include <string>
 #include <list>
+
+typedef std::list<PlacedTextOperationWithEnvList> PlacedTextOperationWithEnvListList;
 
 class PDFParser;
 
@@ -23,6 +27,9 @@ class TextExtraction {
         TextExtractionWarningList LatestWarnings;  
 
     private:
+        PlacedTextOperationWithEnvListList textsForPages;
+
+
         PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser);
 
 };

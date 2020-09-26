@@ -1,6 +1,8 @@
 #pragma once
 
 #include "IOBasicTypes.h"
+#include "RefCountPtr.h"
+#include "PDFObject.h"
 
 #include <string>
 #include <list>
@@ -32,7 +34,7 @@ struct PlacedTextOperation {
 };
 
 struct TextState {
-    TextState() {
+    TextState():fontRef() {
         charSpace = 0;
         wordSpace = 0;
         scale = 100;
@@ -44,7 +46,7 @@ struct TextState {
         tlm[1] = tlm[2] = tlm[4] = tlm[5] = 0;
         tmDirty = true;
         tlmDirty = true;
-        // font = null;
+        fontSize = 0;
     }
 
     TextState(const TextState& inOther) {
@@ -59,6 +61,8 @@ struct TextState {
             tlm[i] = inOther.tlm[i];
         tmDirty = inOther.tmDirty;
         tlmDirty = inOther.tlmDirty;
+        fontRef = inOther.fontRef;
+        fontSize = inOther.fontSize;
     }
 
     double charSpace;
@@ -71,6 +75,8 @@ struct TextState {
     double tlm[6];
     bool tmDirty;
     bool tlmDirty;
+    RefCountPtr<PDFObject> fontRef;
+    double fontSize;
 };
 
 typedef std::list<PlacedTextOperation> PlacedTextOperationList;

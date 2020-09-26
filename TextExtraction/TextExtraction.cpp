@@ -26,8 +26,11 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser) {
         PDFRecursiveInterpreter interpreter;
         TextPlacementsCollector collector;
         interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), &collector);  
+        PlacedTextOperationWithEnvList& texts = collector.onDone();
 
         // now do something with the collected result.... 
+
+        textsForPages.push_back(PlacedTextOperationWithEnvList(texts));
     }    
 
 

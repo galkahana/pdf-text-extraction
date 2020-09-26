@@ -47,24 +47,51 @@ static PDFObject* FindInheritedResources(PDFParser* inParser,PDFDictionary* inDi
 	}
 }
 
-static ObjectIDType FindFormInResources(const string& inFormName,PDFParser* inParser,PDFDictionary* inDictionary) {
-    PDFObjectCastPtr<PDFDictionary> resourcesDict(FindInheritedResources(inParser, inDictionary));
+// internal class implementation for interpreter context
+class InterpreterContext: public IInterpreterContext {
+    public:
+        InterpreterContext(PDFParser* inParser, PDFDictionary* inContentParent);
+    
+        virtual PDFDictionary* FindResourceCategory(const string& inResourceCategory);
+        virtual PDFObject* FindResource(const string& inResourceName, const string& inResourceCategory);
+        virtual PDFParser* GetParser();
+    private:
+        PDFParser* parser;
+        PDFDictionary* contentParent;
+
+};
+
+InterpreterContext::InterpreterContext(PDFParser* inParser, PDFDictionary* inContentParent) {
+    parser = inParser;
+    contentParent = inContentParent;    
+}
+
+PDFDictionary* InterpreterContext::FindResourceCategory(const string& inResourceCategory) {
+    PDFObjectCastPtr<PDFDictionary> resourcesDict(FindInheritedResources(parser, contentParent));
 
     if(!resourcesDict)
-        return 0;
+        return NULL;
 
-    PDFObjectCastPtr<PDFDictionary> xobjectsDictionary(inParser->QueryDictionaryObject(resourcesDict.GetPtr(), "XObject"));
+    PDFObjectCastPtr<PDFDictionary> categoryDictionary(parser->QueryDictionaryObject(resourcesDict.GetPtr(), inResourceCategory));
 
-    if(!xobjectsDictionary)
-        return 0;
+    if(!categoryDictionary)
+        return NULL;
 
-    PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef(xobjectsDictionary->QueryDirectObject(inFormName));
-
-    if(!xobjectRef)
-        return 0;
-
-    return xobjectRef->mObjectID;
+    categoryDictionary->AddRef(); // wanted the objectcastptr to also verify for dict...so make sure to keep this object alive here...
+    return categoryDictionary.GetPtr();
 }
+
+PDFObject* InterpreterContext::FindResource(const string& inResourceName, const string& inResourceCategory) {
+    RefCountPtr<PDFDictionary> categoryDict = FindResourceCategory(inResourceCategory);
+
+    return categoryDict->QueryDirectObject(inResourceName);
+}
+
+PDFParser* InterpreterContext::GetParser() {
+    return parser;
+}
+
+
 
 PDFRecursiveInterpreter::PDFRecursiveInterpreter(void) {
 
@@ -82,6 +109,9 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
 ) {
     PDFObjectVector operandsStack;
     bool shouldContinue = true;
+
+    InterpreterContext context(inParser, inContentParent);
+    inHandler->onResourcesRead(&context);
 
     PDFObject* anObject = inObjectParser->ParseNewObject();
 
@@ -109,7 +139,8 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
             if(shouldResurseIntoForm) {
                 // k. user didn't cancel, let's dive into form
                 LongFilePositionType currentPosition = inParser->GetParserStream()->GetCurrentPosition();
-                ObjectIDType formObjectID = FindFormInResources(formName, inParser, inContentParent);
+                PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = context.FindResource(formName, "XObject");
+                ObjectIDType formObjectID = !xobjectRef ? 0 : xobjectRef->mObjectID;
                 PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
                 if(!!formObject) {
                     bool shouldRecurse = inHandler->onXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);

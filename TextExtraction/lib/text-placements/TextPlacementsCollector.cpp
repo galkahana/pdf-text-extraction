@@ -6,6 +6,10 @@
 #include "PDFHexString.h"
 #include "PDFObjectCast.h"
 #include "PDFArray.h"
+#include "PDFDictionary.h"
+#include "PDFIndirectObjectReference.h"
+#include "PDFObjectCast.h"
+#include "PDFParser.h"
 
 #include "Transformations.h"
 
@@ -16,7 +20,6 @@ TextPlacementsCollector::TextPlacementsCollector() {
 }
 
 TextPlacementsCollector::~TextPlacementsCollector() {
-
 }
 
 void TextPlacementsCollector::Tc(double inCharSpace) {
@@ -120,14 +123,13 @@ bool TextPlacementsCollector::onOperation(
         }
     } else if(inOperation == "gs") {
         string gsName = ParsedPrimitiveHelper(inOperands.back()).ToString();
-        // TODO, pick the font reference from the extgstate font
-        /*
-            if(resources.extGStates[gstateName.value]) {
-                if(resources.extGStates[gstateName.value].font)
-                    state.currentTextState().text.font = _.extend({},resources.extGStates[gstateName.value].font);
-                }
-            }
-        */
+        Resources& currentResources = resourcesStack.back();
+
+        StringToGStateMap::iterator it = currentResources.gStates.find(gsName);
+        if(it != currentResources.gStates.end()) {
+            state.CurrentTextState().fontRef = it->second.fontRef;
+            state.CurrentTextState().fontSize = it->second.fontSize;
+        } // gstate not found, or does not have a fount...so not included in the first place...
 
     // Text State Operators
     } else if(inOperation == "Tc") {
@@ -143,16 +145,13 @@ bool TextPlacementsCollector::onOperation(
     } else if(inOperation == "Tf") {
         double size = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
         string fontName = ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).ToString();
+        Resources& currentResources = resourcesStack.back();
 
-        // TODO, pick the font reference and set it
-        /*
-            if(resources.fonts[fontName.value]) {
-                state.currentTextState().font = {
-                    reference:resources.fonts[fontName.value],
-                    size: size.value
-                }
-            }
-        */
+        StringToFontMap::iterator it = currentResources.fonts.find(fontName);
+        if(it != currentResources.fonts.end()) {
+            state.CurrentTextState().fontRef = it->second.fontRef;
+        } // should i have a default font policy here?! 80-20 gal, 80-20.
+        state.CurrentTextState().fontSize = size;
     } else if(inOperation == "BT") {
         state.StartTextElement();
     } else if(inOperation == "ET") {
@@ -212,4 +211,75 @@ bool TextPlacementsCollector::onOperation(
 
     return true;
 
+}
+
+
+bool TextPlacementsCollector::onResourcesRead(IInterpreterContext* inContext) {
+    resourcesStack.push_back(Resources());
+
+    Resources& currentResources = resourcesStack.back();
+
+    // read extgstates for font references
+    RefCountPtr<PDFDictionary> gstateCategoryDict = inContext->FindResourceCategory("ExtGState");
+    if(!!gstateCategoryDict) {
+        MapIterator<PDFNameToPDFObjectMap> it = gstateCategoryDict->GetIterator();
+
+        while(it.MoveNext()) {
+            PDFObject* gsInCat = it.GetValue();
+
+            PDFDictionary* gsAsDict;
+            if(gsInCat->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
+                PDFObjectCastPtr<PDFDictionary> gsAsDictQ = inContext->GetParser()->ParseNewObject(((PDFIndirectObjectReference*)gsInCat)->mObjectID);
+                gsAsDict = gsAsDictQ.GetPtr();
+                gsAsDictQ->AddRef();
+            }
+            else if(gsInCat->GetType() == PDFObject::ePDFObjectDictionary) {
+                gsAsDict = (PDFDictionary*)gsInCat;
+            }
+
+            if(gsAsDict) {
+                // all i care about are font entries, so store it so i dont have to parse later (will cause trouble with interpretation)
+                PDFObjectCastPtr<PDFArray> fontDesc = inContext->GetParser()->QueryDictionaryObject(gsAsDict, "Font");
+                if(!!fontDesc) {
+                    RefCountPtr<PDFObject> fontRef = fontDesc->QueryObject(0);
+                    RefCountPtr<PDFObject> size = fontDesc->QueryObject(1);
+                    double fontSize = ParsedPrimitiveHelper(size.GetPtr()).GetAsDouble();
+
+
+                    currentResources.gStates.insert(StringToGStateMap::value_type(it.GetKey()->GetValue(), GSState(fontRef, fontSize)));
+                }
+                gsAsDict->Release();
+            }
+        }
+    }
+
+    // read font references
+    RefCountPtr<PDFDictionary> fontCategoryDict = inContext->FindResourceCategory("Font");
+    if(!!fontCategoryDict) {
+        MapIterator<PDFNameToPDFObjectMap> it = fontCategoryDict->GetIterator();
+
+        while(it.MoveNext()) {
+            RefCountPtr<PDFObject> fontRef;
+            fontRef = it.GetValue();
+
+            currentResources.fonts.insert(StringToFontMap::value_type(it.GetKey()->GetValue(), Font(fontRef)));
+        }
+    }    
+
+    return true;
+}
+
+void TextPlacementsCollector::onXObjectDoEnd(
+    const std::string& inXObjectRefName,
+    ObjectIDType inXObjectObjectID,
+    PDFStreamInput* inXObject,
+    PDFParser* inParser) {
+    // im only use it to pop one level off the resources stack
+    resourcesStack.pop_back();        
+}
+
+PlacedTextOperationWithEnvList& TextPlacementsCollector::onDone() {
+    resourcesStack.clear();
+
+    return state.texts;
 }

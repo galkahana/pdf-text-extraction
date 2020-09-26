@@ -1,11 +1,10 @@
 #pragma once
+#include "IPDFRecursiveInterpreterHandler.h"
 
 class PDFParser;
 class PDFDictionary;
 class PDFStreamInput;
 class PDFObjectParser;
-
-class IPDFRecursiveInterpreterHandler;
 
 class PDFRecursiveInterpreter {
 public:
@@ -20,7 +19,7 @@ public:
     bool InterpretXObjectContents(
         PDFParser* inParser,
         PDFStreamInput* inXObject,
-        IPDFRecursiveInterpreterHandler* inHandler);
+        IPDFRecursiveInterpreterHandler* inHandler); 
 
 private:
     bool InterpretContentStream(
