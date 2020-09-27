@@ -55,6 +55,12 @@ public:
     virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands);
 
     virtual bool onResourcesRead(IInterpreterContext* inContext);
+    virtual bool onXObjectDoStart(
+        const std::string& inXObjectRefName,
+        ObjectIDType inXObjectObjectID,
+        PDFStreamInput* inXObject,
+        PDFParser* inParser);
+
     virtual void onXObjectDoEnd(
         const std::string& inXObjectRefName,
         ObjectIDType inXObjectObjectID,
@@ -71,6 +77,7 @@ private:
     void TL(double inLeading);
     void Td(double inX, double inY);
     void setTm(const double (&matrix)[6]);
+    void cm(const double (&matrix)[6]);
     void TStar();
     void Quote(PDFObject* inObject);
 

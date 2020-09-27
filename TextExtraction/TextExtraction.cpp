@@ -41,6 +41,9 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser) {
 }
 
 PDFDictionary* TextExtraction::QueryFontForCommand(PDFParser* inParser, PlacedTextCommand& inCommand) {
+    if(!inCommand.textState.fontRef)
+        return NULL;
+
     if(inCommand.textState.fontRef->GetType() == PDFObject::ePDFObjectDictionary) {
         return (PDFDictionary*)inCommand.textState.fontRef.GetPtr();
     }
@@ -147,8 +150,8 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                         }
                     }    
 
-                    double descentPlacement = ((decoder.descent || 0) + item.textState.rise)*item.textState.fontSize/1000;
-                    double ascentPlacement = ((decoder.ascent) || 0 + item.textState.rise)*item.textState.fontSize/1000;
+                    double descentPlacement = (decoder.descent + item.textState.rise)*item.textState.fontSize/1000;
+                    double ascentPlacement = (decoder.ascent + item.textState.rise)*item.textState.fontSize/1000;
                     item.localBBox[0] = minPlacement;
                     item.localBBox[1] = descentPlacement;
                     item.localBBox[2] = maxPlacement;

@@ -26,6 +26,7 @@ private:
         PDFParser* inParser,
         PDFDictionary* inContentParent,
         PDFObjectParser* inObjectParser,
+        IInterpreterContext* inContext,
         IPDFRecursiveInterpreterHandler* inHandler
     );
 };

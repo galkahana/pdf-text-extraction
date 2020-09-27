@@ -105,13 +105,11 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
     PDFParser* inParser,
     PDFDictionary* inContentParent,
     PDFObjectParser* inObjectParser,
+    IInterpreterContext* inContext,
     IPDFRecursiveInterpreterHandler* inHandler
 ) {
     PDFObjectVector operandsStack;
     bool shouldContinue = true;
-
-    InterpreterContext context(inParser, inContentParent);
-    inHandler->onResourcesRead(&context);
 
     PDFObject* anObject = inObjectParser->ParseNewObject();
 
@@ -139,7 +137,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
             if(shouldResurseIntoForm) {
                 // k. user didn't cancel, let's dive into form
                 LongFilePositionType currentPosition = inParser->GetParserStream()->GetCurrentPosition();
-                PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = context.FindResource(formName, "XObject");
+                PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = inContext->FindResource(formName, "XObject");
                 ObjectIDType formObjectID = !xobjectRef ? 0 : xobjectRef->mObjectID;
                 PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
                 if(!!formObject) {
@@ -181,12 +179,15 @@ bool PDFRecursiveInterpreter::InterpretPageContents(
     RefCountPtr<PDFObject> contents(inParser->QueryDictionaryObject(inPage, scContents));
     if(!contents)
         return true;
+        
+    InterpreterContext context(inParser, inPage);
+    inHandler->onResourcesRead(&context);
 
     if(contents->GetType() == PDFObject::ePDFObjectArray) {
-        return InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStreams((PDFArray*)contents.GetPtr()), inHandler);
+        return InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStreams((PDFArray*)contents.GetPtr()),&context, inHandler);
     }
     else if(contents->GetType() == PDFObject::ePDFObjectStream) {
-        return InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStream((PDFStreamInput*)contents.GetPtr()), inHandler);
+        return InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStream((PDFStreamInput*)contents.GetPtr()),&context , inHandler);
     }
 
     return true;
@@ -197,6 +198,9 @@ bool PDFRecursiveInterpreter::InterpretXObjectContents(
     PDFStreamInput* inXObject,
     IPDFRecursiveInterpreterHandler* inHandler) {
     RefCountPtr<PDFDictionary> xobjectDict(inXObject->QueryStreamDictionary());
+    
+    InterpreterContext context(inParser, xobjectDict.GetPtr());
+    inHandler->onResourcesRead(&context);
 
-    return InterpretContentStream(inParser, xobjectDict.GetPtr(), inParser->StartReadingObjectsFromStream(inXObject), inHandler);
+    return InterpretContentStream(inParser, xobjectDict.GetPtr(), inParser->StartReadingObjectsFromStream(inXObject),&context, inHandler);
 }

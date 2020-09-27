@@ -10,6 +10,7 @@
 #include "PDFIndirectObjectReference.h"
 #include "PDFObjectCast.h"
 #include "PDFParser.h"
+#include "PDFStreamInput.h"
 
 #include "Transformations.h"
 #include "Bytes.h"
@@ -80,6 +81,13 @@ void TextPlacementsCollector::Quote(PDFObject* inObject) {
     textPlacement({asEncodedText, asBytes});        
 }
 
+void TextPlacementsCollector::cm(const double (&matrix)[6]) {
+    double result[6];
+
+    multiplyMatrix(matrix ,state.CurrentGraphicState().ctm, result);
+    copyMatrix(result, state.CurrentGraphicState().ctm);
+}
+
 bool TextPlacementsCollector::onOperation(
     const std::string& inOperation,  
     const PDFObjectVector& inOperands) {
@@ -91,13 +99,10 @@ bool TextPlacementsCollector::onOperation(
         state.PopGraphicState();
     } else if(inOperation == "cm") {
         double matrix[6];
-        double result[6];
-
         for(int i=0;i<6;++i) {
              matrix[i] = ParsedPrimitiveHelper(inOperands[i]).GetAsDouble();
         }
-        multiplyMatrix(matrix ,state.CurrentGraphicState().ctm, result);
-        copyMatrix(result, state.CurrentGraphicState().ctm);
+        cm(matrix);
     } else if(inOperation == "gs") {
         string gsName = ParsedPrimitiveHelper(inOperands.back()).ToString();
         Resources& currentResources = resourcesStack.back();
@@ -246,13 +251,41 @@ bool TextPlacementsCollector::onResourcesRead(IInterpreterContext* inContext) {
     return true;
 }
 
+bool TextPlacementsCollector::onXObjectDoStart(
+        const std::string& inXObjectRefName,
+        ObjectIDType inXObjectObjectID,
+        PDFStreamInput* inXObject,
+        PDFParser* inParser) {
+    // the equivalent of q, so any internal transformations do not effect the outside. specifically what im gonna
+    // do now to emulate form placement matrix changes
+    state.PushGraphicState();
+    // apply form matrix
+    RefCountPtr<PDFDictionary> formDict = inXObject->QueryStreamDictionary();
+    PDFObjectCastPtr<PDFArray> formMatrix = inParser->QueryDictionaryObject(formDict.GetPtr(), "Matrix");
+    if(!!formMatrix) {
+        double matrix[6];
+        for(int i=0;i<6;++i) {
+            RefCountPtr<PDFObject> item = formMatrix->QueryObject(i);
+             matrix[i] = ParsedPrimitiveHelper(item.GetPtr()).GetAsDouble();
+        }
+        cm(matrix);
+    }
+
+    return true;
+}
+
 void TextPlacementsCollector::onXObjectDoEnd(
     const std::string& inXObjectRefName,
     ObjectIDType inXObjectObjectID,
     PDFStreamInput* inXObject,
     PDFParser* inParser) {
-    // im only use it to pop one level off the resources stack
+
+    // pop resources stack (was placed on resources read, which comes right when you start reading the form)
     resourcesStack.pop_back();        
+
+    // the equivalent of Q removing all artifacts of the form state changes
+    state.PopGraphicState();
+
 }
 
 TextElementList& TextPlacementsCollector::onDone() {

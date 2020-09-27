@@ -52,6 +52,8 @@ void TPCollectionState::EndTextPlacement() {
     target.scale = source.scale;
     target.leading = source.leading;
     target.rise = source.rise;
+    target.fontRef = source.fontRef;
+    target.fontSize = source.fontSize;
 
     textElementTextStack.clear();
 
