@@ -37,7 +37,7 @@ class TextExtraction {
         TextExtraction();
         virtual ~TextExtraction();
 
-        PDFHummus::EStatusCode ExtractText(const std::string& inFilePath);
+        PDFHummus::EStatusCode ExtractText(const std::string& inFilePath, long inStartPage=0, long inEndPage=-1);
 
         TextExtractionError LatestError;
         TextExtractionWarningList LatestWarnings;  
@@ -62,7 +62,7 @@ class TextExtraction {
         PDFObjectToFontDecoderMap embeddedFontDecoderCache;
 
 
-        PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser);
+        PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage);
         PDFHummus::EStatusCode Translate(PDFParser* inParser);
         PDFHummus::EStatusCode ComputeDimensions(PDFParser* inParser);
         PDFHummus::EStatusCode ComputeResultPlacements();

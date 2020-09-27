@@ -25,10 +25,17 @@ TextExtraction::~TextExtraction() {
     textsForPages.clear();
 }
 
-EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser) {
+EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage) {
     EStatusCode status = eSuccess;
+    unsigned long start = (unsigned long)(inStartPage >= 0 ? inStartPage : (inParser->GetPagesCount() - inStartPage));
+    unsigned long end = (unsigned long)(inEndPage >= 0 ? inEndPage :  (inParser->GetPagesCount() - inEndPage));
 
-    for(unsigned long i=0;i<inParser->GetPagesCount();++i) {
+    if(end > inParser->GetPagesCount()-1)
+        end = inParser->GetPagesCount()-1;
+    if(start > end)
+        start = end;
+
+    for(unsigned long i=start;i<=end;++i) {
         RefCountPtr<PDFDictionary> pageObject(inParser->ParsePage(i));
         PDFRecursiveInterpreter interpreter;
         TextPlacementsCollector collector;
@@ -210,7 +217,7 @@ EStatusCode TextExtraction::ComputeResultPlacements() {
 }
 
 
-EStatusCode TextExtraction::ExtractText(const std::string& inFilePath) {
+EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inStartPage, long inEndPage) {
     EStatusCode status = eSuccess;
     InputFile sourceFile;
 
@@ -242,7 +249,7 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath) {
         }
 
         // 1st phase - extract text placements
-        status = ExtractTextPlacements(&parser);
+        status = ExtractTextPlacements(&parser, inStartPage, inEndPage);
         if(status != eSuccess)
             break;
 
@@ -361,12 +368,11 @@ std::string TextExtraction::GetResultsAsText() {
             lineResult<<latestItem.text;
             ++itCommands;
             for(; itCommands != sortedPageTextCommands.end();++itCommands) {
-                if(AreSameLine(latestItem, *itCommands)) {
-                    lineResult<<itCommands->text;
-                } else {
+                if(!AreSameLine(latestItem, *itCommands)) {
                     result<<lineResult.str()<<scCRLN;
-                    lineResult.str(itCommands->text);
+                    lineResult.str(scEmpty);
                 }
+                lineResult<<itCommands->text;
                 latestItem = *itCommands;
             }
             result<<lineResult.str()<<scCRLN;
