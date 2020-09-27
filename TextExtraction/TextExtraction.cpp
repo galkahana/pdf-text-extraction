@@ -10,6 +10,8 @@
 #include "./lib/text-placements/Transformations.h"
 #include "./lib/font-translation/FontDecoder.h"
 
+#include <algorithm>
+
 using namespace std;
 using namespace PDFHummus;
 
@@ -40,18 +42,30 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser) {
     return status;
 }
 
-PDFDictionary* TextExtraction::QueryFontForCommand(PDFParser* inParser, PlacedTextCommand& inCommand) {
+FontDecoder* TextExtraction::GetDecoderForCommand(PDFParser* inParser, PlacedTextCommand& inCommand) {
     if(!inCommand.textState.fontRef)
         return NULL;
 
     if(inCommand.textState.fontRef->GetType() == PDFObject::ePDFObjectDictionary) {
-        return (PDFDictionary*)inCommand.textState.fontRef.GetPtr();
+        RefCountPtr<PDFObject> fontDict = inCommand.textState.fontRef.GetPtr();
+        // embedded, check cache first
+        PDFObjectToFontDecoderMap::iterator it = embeddedFontDecoderCache.find(fontDict);
+        if(it == embeddedFontDecoderCache.end()) {
+            // ok. there's none, use this chance to create a new one
+            it = embeddedFontDecoderCache.insert(PDFObjectToFontDecoderMap::value_type(fontDict, FontDecoder(inParser, (PDFDictionary*)fontDict.GetPtr()))).first;
+        }
+        return  &(it->second);
     }
     else if(inCommand.textState.fontRef->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
-        return (PDFDictionary*)inParser->ParseNewObject(
-            ((PDFIndirectObjectReference*)inCommand.textState.fontRef.GetPtr())->mObjectID
-        );
-
+        ObjectIDType id = ((PDFIndirectObjectReference*)(inCommand.textState.fontRef.GetPtr()))->mObjectID;
+        ObjectIDTypeToFontDecoderMap::iterator it = refrencedFontDecoderCache.find(id);
+        if(it == refrencedFontDecoderCache.end()) {
+            PDFObjectCastPtr<PDFDictionary> fontDict = inParser->ParseNewObject(id);
+            if(!fontDict)
+                return NULL;
+            it = refrencedFontDecoderCache.insert(ObjectIDTypeToFontDecoderMap::value_type(id, FontDecoder(inParser, fontDict.GetPtr()))).first;
+        }        
+        return &(it->second);
     }
     return NULL;
 }
@@ -65,14 +79,13 @@ EStatusCode TextExtraction::Translate(PDFParser* inParser) {
             PlacedTextCommandList::iterator commandIt = textElementsIt->texts.begin();
             for(; commandIt != textElementsIt->texts.end(); ++commandIt) {
                 // Determine a decoder for the text font
-                RefCountPtr<PDFDictionary> fontDict = QueryFontForCommand(inParser, *commandIt);
-                if(!!fontDict) {
-                    FontDecoder decoder(inParser, fontDict.GetPtr());
+                FontDecoder* decoder = GetDecoderForCommand(inParser, *commandIt);
+                if(decoder) {
                     PlacedTextCommandArgumentList::iterator argumentIt = commandIt->text.begin();
                     for(;argumentIt != commandIt->text.end();++argumentIt) {
                         if(argumentIt->isText) {
                             // Translate the text
-                            FontDecoderResult result = decoder.Translate(argumentIt->asBytes);
+                            FontDecoderResult result = decoder->Translate(argumentIt->asBytes);
                             argumentIt->asText = result.asText;
                             argumentIt->translationMethod = result.translationMethod;
 
@@ -111,9 +124,8 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                     copyMatrix(nextPlacementDefaultTm, item.textState.tm);
 
                 // Compute matrix and placement after this text
-                RefCountPtr<PDFDictionary> fontDict = QueryFontForCommand(inParser, *commandIt);
-                if(!!fontDict) {
-                    FontDecoder decoder(inParser, fontDict.GetPtr());
+                FontDecoder* decoder = GetDecoderForCommand(inParser, *commandIt);
+                if(decoder) {
                     double accumulatedDisplacement = 0;
                     double minPlacement = 0;
                     double maxPlacement = 0;
@@ -123,7 +135,7 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                     PlacedTextCommandArgumentList::iterator argumentIt = commandIt->text.begin();
                     for(;argumentIt != commandIt->text.end();++argumentIt) {
                         if(argumentIt->isText) {
-                            DispositionResultList dispositions = decoder.ComputeDisplacements(argumentIt->asBytes);
+                            DispositionResultList dispositions = decoder->ComputeDisplacements(argumentIt->asBytes);
                             DispositionResultList::iterator itDispositions = dispositions.begin();
                             for(; itDispositions != dispositions.end(); ++itDispositions) {
                                 double displacement = itDispositions->width;
@@ -150,8 +162,8 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                         }
                     }    
 
-                    double descentPlacement = (decoder.descent + item.textState.rise)*item.textState.fontSize/1000;
-                    double ascentPlacement = (decoder.ascent + item.textState.rise)*item.textState.fontSize/1000;
+                    double descentPlacement = (decoder->descent + item.textState.rise)*item.textState.fontSize/1000;
+                    double ascentPlacement = (decoder->ascent + item.textState.rise)*item.textState.fontSize/1000;
                     item.localBBox[0] = minPlacement;
                     item.localBBox[1] = descentPlacement;
                     item.localBBox[2] = maxPlacement;
@@ -207,6 +219,8 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath) {
     LatestError.description = scEmpty;
 
     textPlacementsForPages.clear();
+    refrencedFontDecoderCache.clear();
+    embeddedFontDecoderCache.clear();
     textsForPages.clear();
 
     do {
@@ -245,12 +259,122 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath) {
 
         // 5th phase - cleanup interim structs
         textPlacementsForPages.clear();
+        refrencedFontDecoderCache.clear();
+        embeddedFontDecoderCache.clear();
 
     } while(false);
 
     return status;
 }
 
+const double LINE_HEIGHT_THRESHOLD = 5;
+
+int GetOrientationCode(const ResultTextCommand& a) {
+    // a very symplistic heuristics to try and logically group different text orientations in a way that makes sense
+
+    // 1 0 0 1
+    if(a.matrix[0] > 0 && a.matrix[3] > 0)
+        return 0;
+
+    // 0 1 -1 0
+    if(a.matrix[1] > 0 && a.matrix[2] < 0)
+        return 1;
+
+    // -1 0 0 -1
+    if(a.matrix[0] < 0 && a.matrix[3] < 0)
+        return 2;
+
+    // 0 -1 1 0 or other
+    return 3;
+}
+
+bool CompareForOrientation(const ResultTextCommand& a, const ResultTextCommand& b, int code) {
+    if(code == 0) {
+        if(abs(a.globalBbox[1] - b.globalBbox[1]) > LINE_HEIGHT_THRESHOLD)
+            return b.globalBbox[1] < a.globalBbox[1];
+        else
+            return a.globalBbox[0] < b.globalBbox[0];    
+
+    } else if(code == 1) {
+        if(abs(a.globalBbox[0] - b.globalBbox[0]) > LINE_HEIGHT_THRESHOLD)
+            return a.globalBbox[0] <  b.globalBbox[0];
+        else
+            return a.globalBbox[1] < b.globalBbox[1];    
+
+    } else if(code == 2) {
+        if(abs(a.globalBbox[1] - b.globalBbox[1]) > LINE_HEIGHT_THRESHOLD)
+            return a.globalBbox[1] < b.globalBbox[1];
+        else
+            return b.globalBbox[0] < a.globalBbox[0];    
+           
+    } else {
+        // code 3
+        if(abs(a.globalBbox[0] - b.globalBbox[0]) > LINE_HEIGHT_THRESHOLD)
+            return b.globalBbox[0] < a.globalBbox[0];
+        else
+            return b.globalBbox[1] < a.globalBbox[1];    
+    }
+    
+}
+
+bool CompareResultTextCommand(const ResultTextCommand& a, const ResultTextCommand& b) {
+    int codeA = GetOrientationCode(a);
+    int codeB = GetOrientationCode(b);
+
+    if(codeA == codeB) {
+        return CompareForOrientation(a,b,codeA);
+    }
+    
+    return codeA < codeB;
+}
+
+static const string scCRLN = "\r\n";
+
+typedef std::vector<ResultTextCommand> ResultTextCommandVector;
+
+bool AreSameLine(const ResultTextCommand& a, const ResultTextCommand& b) {
+    int codeA = GetOrientationCode(a);
+    int codeB = GetOrientationCode(b);
+
+    if(codeA != codeB)
+        return false;
+
+    if(codeA == 0 || codeA == 2) {
+        return abs(a.globalBbox[1] - b.globalBbox[1]) <= LINE_HEIGHT_THRESHOLD;
+    } else {
+        return abs(a.globalBbox[0] - b.globalBbox[0]) <= LINE_HEIGHT_THRESHOLD;
+    }
+}
+
+std::string TextExtraction::GetResultsAsText() {
+    stringstream result;
+    ResultTextCommandListList::iterator itPages = textsForPages.begin();
+    for(; itPages != textsForPages.end();++itPages) {
+        ResultTextCommandVector sortedPageTextCommands(itPages->begin(), itPages->end());
+        sort(sortedPageTextCommands.begin(), sortedPageTextCommands.end(), CompareResultTextCommand);
+
+        ResultTextCommandVector::iterator itCommands = sortedPageTextCommands.begin();
+        if(itCommands != sortedPageTextCommands.end()) {
+            // k. got some text, let's build it
+            stringstream lineResult;
+            ResultTextCommand& latestItem = *itCommands;
+            lineResult<<latestItem.text;
+            ++itCommands;
+            for(; itCommands != sortedPageTextCommands.end();++itCommands) {
+                if(AreSameLine(latestItem, *itCommands)) {
+                    lineResult<<itCommands->text;
+                } else {
+                    result<<lineResult.str()<<scCRLN;
+                    lineResult.str(itCommands->text);
+                }
+                latestItem = *itCommands;
+            }
+            result<<lineResult.str()<<scCRLN;
+        }     
+    }
+
+    return result.str();
+}
 
 
 EStatusCode TextExtraction::DecryptPDFForDebugging(

@@ -65,6 +65,10 @@ int main(int argc, char* argv[])
             cerr << "Warning: " << it->description.c_str() << endl;
         }    
 
+        if(status == eSuccess) {
+            cout<<textExtraction.GetResultsAsText().c_str();
+        }
+
     }
 
 
