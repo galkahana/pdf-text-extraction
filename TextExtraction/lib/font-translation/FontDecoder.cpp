@@ -8,9 +8,11 @@
 #include "PDFObjectCast.h"
 #include "PDFStreamInput.h"
 #include "PDFArray.h"
-#include "Encoding.h"
 #include "PDFName.h"
 #include "UnicodeString.h"
+
+#include "StandardFontsDimensions.h"
+#include "Encoding.h"
 
 #include "../interpreter/PDFInterpreter.h"
 #include "../text-placements/Bytes.h"
@@ -19,6 +21,7 @@ using namespace std;
 using namespace PDFHummus;
 
 static const Encoding scEncoding;
+static const StandardFontsDimensions scStandardFontsDimensions;
 
 static unsigned long beToNum(const ByteList& inBytes) {
     unsigned long result = 0;
@@ -196,6 +199,97 @@ void FontDecoder::ParseSimpleFontEncoding(PDFParser* inParser, PDFObject* inEnco
     }
 }
 
+void FontDecoder::ParseFontDescriptor(PDFParser* inParser, PDFDictionary* inFont) {
+    PDFObjectCastPtr<PDFDictionary> fontDescriptor = inParser->QueryDictionaryObject(inFont,"FontDescriptor");
+    if(!!fontDescriptor) {
+        // complete info with font descriptor
+        RefCountPtr<PDFObject> descentObject = inParser->QueryDictionaryObject(fontDescriptor.GetPtr(),"Descent");
+        RefCountPtr<PDFObject> ascentObject = inParser->QueryDictionaryObject(fontDescriptor.GetPtr(),"Ascent"); 
+        RefCountPtr<PDFObject> missingWidthObject = inParser->QueryDictionaryObject(fontDescriptor.GetPtr(),"MissingWidth"); 
+        if(!!descentObject)
+            descent = ParsedPrimitiveHelper(descentObject.GetPtr()).GetAsDouble();
+        if(!!ascentObject)
+            ascent = ParsedPrimitiveHelper(ascentObject.GetPtr()).GetAsDouble(); 
+        if(!!missingWidthObject) {
+            defaultWidth = ParsedPrimitiveHelper(missingWidthObject.GetPtr()).GetAsDouble(); 
+        }
+        else {
+            defaultWidth = 0;
+        }
+    }
+}
+
+void FontDecoder::ParseSimpleFontDimensions(PDFParser* inParser, PDFDictionary* inFont) {
+    RefCountPtr<PDFObject> firstCharObject = inParser->QueryDictionaryObject(inFont,"FirstChar");
+    RefCountPtr<PDFObject> lastCharObject = inParser->QueryDictionaryObject(inFont,"LastChar"); 
+    PDFObjectCastPtr<PDFArray> widthsArray = inParser->QueryDictionaryObject(inFont,"Widths");
+
+    if(!!firstCharObject && !!lastCharObject && !!widthsArray) {
+        unsigned long firstChar = (unsigned long)ParsedPrimitiveHelper(firstCharObject.GetPtr()).GetAsInteger();
+        unsigned long lastChar = (unsigned long)ParsedPrimitiveHelper(lastCharObject.GetPtr()).GetAsInteger();
+        for(unsigned long i = firstChar; i<=lastChar && (i-firstChar) < widthsArray->GetLength();++i) {
+            widths[i] = ParsedPrimitiveHelper(inParser->QueryArrayObject(widthsArray.GetPtr(), i - firstChar)).GetAsDouble();
+        }
+    } else {
+        // wtf. probably one of the standard fonts. aha! [will also take care of ascent descent]
+        PDFObjectCastPtr<PDFName> baseFontObject = inParser->QueryDictionaryObject(inFont,"BaseFont");
+        if(!!baseFontObject) {
+            const FontWidthDescriptor* descriptor = scStandardFontsDimensions.FindStandardFont(baseFontObject->GetValue());
+            if(descriptor) {
+                ascent = descriptor->ascent;
+                descent = descriptor->descent;
+                isMonospaced = descriptor->isMonospaced;
+                monospaceWidth = descriptor->monospaceWidth;
+                widths = descriptor->widths;
+            }
+        }
+    }
+
+    ParseFontDescriptor(inParser, inFont);
+}
+
+void FontDecoder::ParseCIDFontDimensions(PDFParser* inParser, PDFDictionary* inFont) {
+    // get the descendents font
+    PDFObjectCastPtr<PDFArray> descendentFonts = inParser->QueryDictionaryObject(inFont, "DescendantFonts");
+    PDFObjectCastPtr<PDFDictionary> descendentFont = inParser->QueryArrayObject(descendentFonts.GetPtr(), 0);
+    // default width is easily accessible directly via DW
+    RefCountPtr<PDFObject> defaultWidthObject = inParser->QueryDictionaryObject(descendentFont.GetPtr(), "DW");
+    defaultWidth = !!defaultWidthObject ? ParsedPrimitiveHelper(defaultWidthObject.GetPtr()).GetAsDouble() : 1000;
+
+    PDFObjectCastPtr<PDFArray> widthsArray = inParser->QueryDictionaryObject(descendentFont.GetPtr(), "W");
+    if(!!widthsArray) {
+        SingleValueContainerIterator<PDFObjectVector> it = widthsArray->GetIterator();
+        it.MoveNext();
+        while(!it.IsFinished()) {
+            unsigned long cFirst = (unsigned long)ParsedPrimitiveHelper(it.GetItem()).GetAsInteger();
+            it.MoveNext();
+            if(it.GetItem()->GetType() == PDFObject::ePDFObjectArray) {
+                // specified widths
+                PDFArray* asArray = (PDFArray*)it.GetItem();
+                it.MoveNext();
+                
+                SingleValueContainerIterator<PDFObjectVector> itArray = widthsArray->GetIterator();
+                unsigned long j=0;
+                while(itArray.MoveNext()) {
+                    widths[cFirst + j] = ParsedPrimitiveHelper(itArray.GetItem()).GetAsDouble();
+                    ++j;
+                }
+            } else {
+                // same width for range
+                unsigned long cLast = (unsigned long)ParsedPrimitiveHelper(it.GetItem()).GetAsInteger();
+                it.MoveNext();
+                double width = ParsedPrimitiveHelper(it.GetItem()).GetAsDouble();
+                it.MoveNext();
+                for(unsigned long j=cFirst;j<=cLast;++j) {
+                    widths[j] = width;
+                }
+            }
+        }
+    }
+
+    ParseFontDescriptor(inParser, descendentFont.GetPtr());
+}
+
 void FontDecoder::ParseFontData(PDFParser* inParser, PDFDictionary* inFont) {
 
     RefCountPtr<PDFObject> subType = inFont->QueryDirectObject("Subtype");
@@ -214,18 +308,20 @@ void FontDecoder::ParseFontData(PDFParser* inParser, PDFDictionary* inFont) {
             ParseSimpleFontEncoding(inParser, encoding.GetPtr(), inFont);
 
     } 
-    
-    /*
 
-    // parse dimensions information
-    if(self.isSimpleFont) {
-        parseSimpleFontDimensions(self,pdfReader,font);
+    widths.clear();
+    ascent = 0;
+    descent = 0;
+    isMonospaced = false;
+    monospaceWidth = 0;
+    defaultWidth = 0;
+
+    if(isSimpleFont) {
+        ParseSimpleFontDimensions(inParser, inFont);
     }
     else {
-        parseCIDFontDimensions(self, pdfReader, font);
+        ParseCIDFontDimensions(inParser, inFont);
     }
-
-    */
 }
 
 string FontDecoder::ToUnicodeEncoding(const ByteList& inAsBytes) {
@@ -285,4 +381,64 @@ FontDecoderResult FontDecoder::Translate(const ByteList& inAsBytes) {
     else {
         return {ToDefaultEncoding(inAsBytes), eTranslationMethodDefault};
     }
+}
+
+double FontDecoder::GetCodeWidth(unsigned long inCode) {
+    ULongToDoubleMap::iterator it = widths.find(inCode);
+    if(it == widths.end())
+        return defaultWidth;
+    else
+        return it->second;
+}
+
+DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsBytes) {
+    DispositionResultList result;
+    ByteList::const_iterator it = inAsBytes.begin();
+
+    if(isSimpleFont) {
+        // one code per cells
+        for(; it!= inAsBytes.end();++it) {
+            result.push_back({
+                (isMonospaced ? monospaceWidth : GetCodeWidth(*it)) / 1000.00
+                ,
+                *it
+            });
+        }
+    } else if (hasToUnicode) {
+        // determine code per toUnicode (should be cmap, but i aint parsing it now, so toUnicode will do).
+        // assuming horizontal writing mode
+        while(it != inAsBytes.end()) {
+            unsigned long value = *it;
+            ++it;
+            while(it != inAsBytes.end()) {
+                if(toUnicodeMap.find(value) != toUnicodeMap.end()) {
+                    // could be our guy, make sure next one not good too
+                    if(toUnicodeMap.find(value*256 + *it) == toUnicodeMap.end())
+                        break;
+                    // next one is good too, continue
+                }
+                value = value*256 + *it;
+                ++it;
+            }
+
+            result.push_back({
+                (isMonospaced ? monospaceWidth : GetCodeWidth(value)) / 1000.00
+                ,
+                value
+            });
+        }        
+    } else {
+        // default to 2 bytes. though i shuld be reading the cmap. and so also get the writing mode
+        for(; it!= inAsBytes.end();++it) {
+            unsigned long value = *it;
+            ++it;
+            value = value*256 + *it;
+            result.push_back({
+                (isMonospaced ? monospaceWidth : GetCodeWidth(value)) / 1000.00
+                ,
+                value
+            });
+        }        
+    }
+    return result;
 }

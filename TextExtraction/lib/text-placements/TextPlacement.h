@@ -4,6 +4,8 @@
 #include "PDFObject.h"
 #include "Bytes.h"
 
+#include "Transformations.h"
+
 #include <string>
 #include <list>
 
@@ -101,12 +103,15 @@ struct PlacedTextCommand {
     // Provided by first phase, of extraction
     PlacedTextCommandArgumentList text;
     double ctm[6];
-    TextState textState;
+    TextState textState; // tm member updated by third phase, of dimensions computation
 
     // Provided by second phase, of translation
     ETranslationMethod allTextTranslationMethod;
     std::string allTextAsText;
     ByteList allTextAsBytes;
+
+    // Provided by third phase, of dimensions computation
+    double localBBox[4];
 };
 
 typedef std::list<PlacedTextCommand> PlacedTextCommandList;
@@ -121,8 +126,19 @@ struct TextElement {
 typedef std::list<TextElement> TextElementList;
 
 
-// This is for end result...might not be fitting here....
-struct TextPlacement {
+struct ResultTextCommand {
+    ResultTextCommand(
+        const std::string& inText,
+        const double (&inMatrix)[6],
+        const double (&inLocalBox)[4],
+        const double (&inGlobalBox)[4]
+    ) {
+        text = inText;
+        copyMatrix(inMatrix, matrix);
+        copyBox(inLocalBox, localBbox);
+        copyBox(inGlobalBox, globalBbox);
+    }
+
     std::string text;
     double matrix[6];
     double localBbox[4];
@@ -131,4 +147,4 @@ struct TextPlacement {
 
 
 // can be used to represent all text placements, or all text placements in a page
-typedef std::list<TextPlacement> TextPlacementList;
+typedef std::list<ResultTextCommand> ResultTextCommandList;

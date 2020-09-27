@@ -7,6 +7,8 @@ lib/font-translation/Encoding.cpp
 lib/font-translation/Encoding.h
 lib/font-translation/FontDecoder.cpp
 lib/font-translation/FontDecoder.h
+lib/font-translation/StandardFontsDimensions.cpp
+lib/font-translation/StandardFontsDimensions.h
 lib/interpreter/IPDFInterpreterHandler.h
 lib/interpreter/IPDFRecursiveInterpreterHandler.h
 lib/interpreter/PDFInterpreter.cpp

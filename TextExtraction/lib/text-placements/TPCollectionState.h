@@ -2,23 +2,22 @@
 
 #include <list>
 
+#include "Transformations.h"
 #include "TextPlacement.h"
 
-struct GraphicState {
-    GraphicState(): text() {
-        ctm[0] = ctm[3] = 1;
-        ctm[1] = ctm[2] = ctm[4] = ctm[5] = 0;
+struct GraphicalState {
+    GraphicalState(): text() {
+        copyMatrix({1,0,0,1,0,0}, ctm);
     }
-    GraphicState(const GraphicState& otherState): text(otherState.text) {
-        for(int i=0;i<6;++i)
-            ctm[i] = otherState.ctm[i];
+    GraphicalState(const GraphicalState& otherState): text(otherState.text) {
+        copyMatrix(otherState.ctm, ctm);
     }
     double ctm[6];
     TextState text;
 };
 
 typedef std::list<TextState> TextStateList;
-typedef std::list<GraphicState> GraphicStateList;
+typedef std::list<GraphicalState> GraphicStateList;
 
 class TPCollectionState {
 public:
@@ -28,7 +27,7 @@ public:
     void PushGraphicState();
     void PopGraphicState();
 
-    GraphicState& CurrentGraphicState();
+    GraphicalState& CurrentGraphicState();
     TextState& CurrentTextState();
     void StartTextElement();
     void EndTextPlacement();

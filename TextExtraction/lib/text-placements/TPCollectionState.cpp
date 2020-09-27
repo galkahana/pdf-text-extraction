@@ -2,7 +2,7 @@
 
 TPCollectionState::TPCollectionState() {
     isInTextElement = false;
-    graphicStateStack.push_back(GraphicState());
+    graphicStateStack.push_back(GraphicalState());
 }
 
 TPCollectionState::~TPCollectionState() {
@@ -11,7 +11,7 @@ TPCollectionState::~TPCollectionState() {
 }
 
 void TPCollectionState::PushGraphicState() {
-    graphicStateStack.push_back(GraphicState(graphicStateStack.back()));
+    graphicStateStack.push_back(GraphicalState(graphicStateStack.back()));
     if(isInTextElement)
         textElementTextStack.push_back(TextState(textElementTextStack.back()));
 }
@@ -23,7 +23,7 @@ void TPCollectionState::PopGraphicState() {
         textElementTextStack.pop_back();
 }
 
-GraphicState& TPCollectionState::CurrentGraphicState() {
+GraphicalState& TPCollectionState::CurrentGraphicState() {
     return graphicStateStack.back();
 }
 

@@ -97,9 +97,7 @@ bool TextPlacementsCollector::onOperation(
              matrix[i] = ParsedPrimitiveHelper(inOperands[i]).GetAsDouble();
         }
         multiplyMatrix(matrix ,state.CurrentGraphicState().ctm, result);
-        for(int i=0;i<6;++i) {
-            state.CurrentGraphicState().ctm[i] = result[i];
-        }
+        copyMatrix(result, state.CurrentGraphicState().ctm);
     } else if(inOperation == "gs") {
         string gsName = ParsedPrimitiveHelper(inOperands.back()).ToString();
         Resources& currentResources = resourcesStack.back();
