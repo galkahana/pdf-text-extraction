@@ -1,7 +1,8 @@
 #pragma once
 
 #include "IOBasicTypes.h"
-#include "../text-placements/TextPlacement.h"
+#include "Translation.h"
+#include "../pdf-writer-enhancers/Bytes.h"
 
 #include <string>
 #include <list>

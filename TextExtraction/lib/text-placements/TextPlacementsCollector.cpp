@@ -13,7 +13,7 @@
 #include "PDFStreamInput.h"
 
 #include "Transformations.h"
-#include "Bytes.h"
+#include "../pdf-writer-enhancers/Bytes.h"
 
 using namespace std;
 

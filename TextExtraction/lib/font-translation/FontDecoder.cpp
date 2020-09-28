@@ -11,11 +11,12 @@
 #include "PDFName.h"
 #include "UnicodeString.h"
 
+#include "../interpreter/PDFInterpreter.h"
+#include "../pdf-writer-enhancers/Bytes.h"
+
 #include "StandardFontsDimensions.h"
 #include "Encoding.h"
 
-#include "../interpreter/PDFInterpreter.h"
-#include "../text-placements/Bytes.h"
 
 using namespace std;
 using namespace PDFHummus;

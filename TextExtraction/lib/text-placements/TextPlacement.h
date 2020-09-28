@@ -2,7 +2,9 @@
 
 #include "RefCountPtr.h"
 #include "PDFObject.h"
-#include "Bytes.h"
+
+#include "../pdf-writer-enhancers/Bytes.h"
+#include "../font-translation/Translation.h"
 
 #include "Transformations.h"
 
@@ -10,11 +12,6 @@
 #include <list>
 
 
-enum ETranslationMethod {
-    eTranslationMethodToUnicode,
-    eTranslationMethodSimpleEncoding,
-    eTranslationMethodDefault
-};
 
 // PlacedTextCommandArgument matches an argument to a text placement command.
 // Mostly it'll be text, but for TJ it might be a text or a position
