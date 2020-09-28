@@ -21,6 +21,7 @@ static void ShowUsage(const string& name)
               << "\t-s, --start <d>\t\t\tstart text extraction from a page index. use negative numbers to subtract from pages count\n"
               << "\t-e, --end <d>\t\t\tend text extraction upto page index. use negative numbers to subtract from pages count\n"
               << "\t-o, --output /path/to/file\twrite result to output file\n"
+              << "\t-q, --quiet\t\t\tquiet run. only shows errors and warnings\n"
               << "\t-h, --help\t\t\tShow this help message\n"
               << "\t-d, --debug /path/to/file\tcreate debug output file\n"
               << endl;
@@ -41,12 +42,15 @@ int main(int argc, char* argv[])
     string outputFilePath = "";
     long startPage = 0;
     long endPage = -1;
+    bool quiet = false;
 
     for (int i = 2; i < argc; ++i) {
         std::string arg = argv[i];
         if ((arg == "-h") || (arg == "--help")) {
             ShowUsage(argv[0]);
             return 0;
+        } else if ((arg == "-q") || (arg == "--quiet")) {
+            quiet = true;
         } else if ((arg == "-s") || (arg == "--start")) {
             if (i + 1 < argc) {
                 startPage = Long(argv[++i]);
@@ -99,7 +103,7 @@ int main(int argc, char* argv[])
             cerr << "Warning: " << it->description.c_str() << endl;
         }    
 
-        if(status == eSuccess) {
+        if(status == eSuccess && !quiet) {
 
             if(writeToOutputFile) {
                 OutputFile outputFile;

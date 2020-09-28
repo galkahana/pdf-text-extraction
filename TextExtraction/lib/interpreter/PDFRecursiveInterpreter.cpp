@@ -18,6 +18,8 @@ using namespace PDFHummus;
 
 static const string scContents = "Contents";
 static const string scDo = "Do";
+static const string scID = "ID";
+static const string scEI = "EI";
 
 static void FreeObjectVector(PDFObjectVector& ioVector) {
 	PDFObjectVector::iterator it = ioVector.begin();
@@ -101,6 +103,58 @@ PDFRecursiveInterpreter::~PDFRecursiveInterpreter(void) {
 
 }
 
+static const Byte scEISample[2] = {'E','I'};
+static const Byte scWhiteSpaces[6] = {0,0x9,0xA,0xC,0xD,0x20};
+
+static const bool IsEIFinishSample(Byte (&buffer)[3]) {
+    // check that last 2 are EI
+    if(buffer[2] != scEISample[1])
+        return false;
+    if(buffer[1] != scEISample[0])
+        return false;
+    // first buffer should be some PDF space buffer
+    return (
+        buffer[0] == scWhiteSpaces[0] ||
+        buffer[0] == scWhiteSpaces[1] ||
+        buffer[0] == scWhiteSpaces[2] ||
+        buffer[0] == scWhiteSpaces[3] ||
+        buffer[0] == scWhiteSpaces[4] ||
+        buffer[0] == scWhiteSpaces[5]
+    );
+}
+
+void PDFRecursiveInterpreter::SkipInlinImageTillEI(PDFObjectParser* inObjectParser) {
+    /*
+        So, what we're gonna do is this.
+        now we're at DI...need to get to EI.
+        it's a bit hard to tell how we'll know, but fairly safe to assume
+        that there'll be a PDF space char/line char and then EI. samples
+        seem to show an extra > prior...but i'm not seeing any evidences in the spec, so ignore.
+        wish specs had better explanation on how to skip them...which does not seem to mean to actually
+        decode the image data.
+    */
+   IByteReader* reader = inObjectParser->StartExternalRead();
+   Byte buffer[3];
+
+    do {
+        // read first 3 bytes
+        if(reader->Read(buffer,3) != 3)
+            break;
+
+        // read next chars, 1 at a time till finiding EI after a space/el
+        while(!IsEIFinishSample(buffer)) {
+            buffer[0] = buffer[1];
+            buffer[1] = buffer[2];
+            if(reader->Read(buffer+2,1) != 1)
+                break;
+        }
+
+
+    } while(false);
+
+   inObjectParser->EndExternalRead();
+}
+
 bool PDFRecursiveInterpreter::InterpretContentStream(
     PDFParser* inParser,
     PDFDictionary* inContentParent,
@@ -116,25 +170,37 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
     while(!!anObject && shouldContinue) {
         if(anObject->GetType() == PDFObject::ePDFObjectSymbol) {
             PDFSymbol* anOperand = (PDFSymbol*)anObject;
+            // Call handler for operation event
             shouldContinue = inHandler->onOperation(anOperand->GetValue(), operandsStack);
-            bool shouldResurseIntoForm = false;
+            
+            bool shouldRecurseIntoForm = false;
+            bool shouldSkipInlineImage = false;
             string formName;
 
+            // Some control decisions for the interpreter on special kinds of operations
             if(anOperand->GetValue() == scDo) {
                 // should recurse into form. save name for now
                 if(operandsStack.size() == 1 && operandsStack[0]->GetType() == PDFObject::ePDFObjectName) {
                     formName = ((PDFName*)operandsStack[0])->GetValue();
-                    shouldResurseIntoForm = true;
+                    shouldRecurseIntoForm = true;
                 }
             }
 
+            if(anOperand->GetValue() == scID && inHandler->ShouldSkipInlineImage()) {
+                // mark for skipping the content of this image
+                shouldSkipInlineImage = true;
+            }
+
+            // release operations and operands
             anOperand->Release();
             FreeObjectVector(operandsStack);
 
             if(!shouldContinue)
                 break;
 
-            if(shouldResurseIntoForm) {
+            // now for implementing the special operations
+
+            if(shouldRecurseIntoForm) {
                 // k. user didn't cancel, let's dive into form
                 LongFilePositionType currentPosition = inParser->GetParserStream()->GetCurrentPosition();
                 PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = inContext->FindResource(formName, "XObject");
@@ -155,6 +221,10 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
 
                 // restore stream position (hopefully this is enough to continue from where we were...)
                 inParser->GetParserStream()->SetPosition(currentPosition);
+            } else if(shouldSkipInlineImage) {
+                SkipInlinImageTillEI(inObjectParser);
+                // for completion, have onOperation for EI
+                shouldContinue = inHandler->onOperation(scEI, PDFObjectVector());
             }
         }
         else {

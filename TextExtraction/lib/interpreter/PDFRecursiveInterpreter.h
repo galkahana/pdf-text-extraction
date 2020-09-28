@@ -29,4 +29,7 @@ private:
         IInterpreterContext* inContext,
         IPDFRecursiveInterpreterHandler* inHandler
     );
+    void SkipInlinImageTillEI(
+        PDFObjectParser* inObjectParser
+    );
 };

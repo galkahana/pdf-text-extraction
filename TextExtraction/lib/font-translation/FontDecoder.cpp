@@ -357,8 +357,11 @@ string FontDecoder::ToSimpleEncoding(const ByteList& inAsBytes) {
     for(; it!= inAsBytes.end();++it) {
         ByteToStringMap::iterator entryIt = fromSimpleEncodingMap.find(*it);
         if(entryIt != fromSimpleEncodingMap.end()) {
-            const ULongList& mapping = scEncoding.AdobeGlyphList.find(entryIt->second)->second;
-            buffer.insert(buffer.end(), mapping.begin(), mapping.end());
+            StringToULongListMap::const_iterator aglIt = scEncoding.AdobeGlyphList.find(entryIt->second);
+            if(aglIt != scEncoding.AdobeGlyphList.end()) {
+                const ULongList& mapping = scEncoding.AdobeGlyphList.find(entryIt->second)->second;
+                buffer.insert(buffer.end(), mapping.begin(), mapping.end());
+            }
         }
     }
 

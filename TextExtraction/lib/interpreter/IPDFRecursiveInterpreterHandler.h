@@ -70,4 +70,8 @@ public:
     // bool allows you to stop interpretation, like onOperation return result
     virtual bool onResourcesRead(IInterpreterContext* inContext){return true;}
 
+    // Inline images are not normal operator/operands sequance in a content stream.
+    // implementing this method allows you to instruct the interpreter to skip them.
+    // this should normally be the case unless you have the intention of reading them yourself
+    virtual bool ShouldSkipInlineImage() {return true;}
 };
