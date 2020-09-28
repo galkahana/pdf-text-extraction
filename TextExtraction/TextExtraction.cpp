@@ -27,8 +27,8 @@ TextExtraction::~TextExtraction() {
 
 EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage) {
     EStatusCode status = eSuccess;
-    unsigned long start = (unsigned long)(inStartPage >= 0 ? inStartPage : (inParser->GetPagesCount() - inStartPage));
-    unsigned long end = (unsigned long)(inEndPage >= 0 ? inEndPage :  (inParser->GetPagesCount() - inEndPage));
+    unsigned long start = (unsigned long)(inStartPage >= 0 ? inStartPage : (inParser->GetPagesCount() + inStartPage));
+    unsigned long end = (unsigned long)(inEndPage >= 0 ? inEndPage :  (inParser->GetPagesCount() + inEndPage));
 
     if(end > inParser->GetPagesCount()-1)
         end = inParser->GetPagesCount()-1;
