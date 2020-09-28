@@ -175,6 +175,10 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
     IInterpreterContext* inContext,
     IPDFRecursiveInterpreterHandler* inHandler
 ) {
+    if(inObjectParser == NULL) // hmmm. something didn't work with creating an object parser. possibly an uknown
+                               // filter?
+        return true;
+
     PDFObjectVector operandsStack;
     bool shouldContinue = true;
 
