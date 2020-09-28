@@ -5,6 +5,7 @@ class PDFParser;
 class PDFDictionary;
 class PDFStreamInput;
 class PDFObjectParser;
+class InterpreterContext;
 
 class PDFRecursiveInterpreter {
 public:
@@ -26,7 +27,7 @@ private:
         PDFParser* inParser,
         PDFDictionary* inContentParent,
         PDFObjectParser* inObjectParser,
-        IInterpreterContext* inContext,
+        InterpreterContext* inContext,
         IPDFRecursiveInterpreterHandler* inHandler
     );
     void SkipInlinImageTillEI(

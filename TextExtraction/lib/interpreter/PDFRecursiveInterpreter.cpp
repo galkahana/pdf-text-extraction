@@ -168,16 +168,29 @@ void PDFRecursiveInterpreter::SkipInlinImageTillEI(PDFObjectParser* inObjectPars
    inObjectParser->EndExternalRead();
 }
 
+static const string scForm = "Form";
+
+static bool IsForm(PDFStreamInput* formCandidate) {
+    // check its subtype...don't wanna get into an image....
+    RefCountPtr<PDFDictionary> formDict = formCandidate->QueryStreamDictionary();
+    if(!formCandidate)
+        return false;
+    PDFObjectCastPtr<PDFName> formSubtype = formDict->QueryDirectObject("Subtype"); 
+    return formSubtype->GetValue() == scForm;
+}
+
 bool PDFRecursiveInterpreter::InterpretContentStream(
     PDFParser* inParser,
     PDFDictionary* inContentParent,
     PDFObjectParser* inObjectParser,
-    IInterpreterContext* inContext,
+    InterpreterContext* inContext,
     IPDFRecursiveInterpreterHandler* inHandler
 ) {
     if(inObjectParser == NULL) // hmmm. something didn't work with creating an object parser. possibly an uknown
                                // filter?
         return true;
+
+    inContext->SetObjectParser(inObjectParser);
 
     PDFObjectVector operandsStack;
     bool shouldContinue = true;
@@ -223,7 +236,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                 PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = inContext->FindResource(formName, "XObject");
                 ObjectIDType formObjectID = !xobjectRef ? 0 : xobjectRef->mObjectID;
                 PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
-                if(!!formObject) {
+                if(!!formObject && IsForm(formObject.GetPtr())) {  
                     bool shouldRecurse = inHandler->onXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);
                     if(shouldRecurse) {
                         PDFRecursiveInterpreter subordinateInterpreter;
