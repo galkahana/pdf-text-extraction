@@ -11,6 +11,7 @@ class PDFObject;
 class PDFStreamInput;
 class PDFParser;
 class PDFDictionary;
+class PDFObjectParser;
 
 typedef std::vector<PDFObject*> PDFObjectVector;
 typedef std::list<std::string> StringList;
@@ -18,13 +19,18 @@ typedef std::list<std::string> StringList;
 class IInterpreterContext {
     public:
 
-    // Use Responsibly, only when you get it...dont save ref and use later!! don't wanna go parsing other stuff
-    // while in operator intepretation. will screw up reading.
-
+    // Use GetParser, FindResourceCategory and FindResource Responsibly, only while in "onResourcesRead" and especially not while
+    // the content stream is being intrepreted....otherwise the reading will be harmed.
+    // that's why it'd be good practice to read what resources you might need for later interpretation...in advance.
+    virtual PDFParser* GetParser() = 0;
     virtual PDFDictionary* FindResourceCategory(const std::string& inResourceCategory) = 0;
     virtual PDFObject* FindResource(const std::string& inResourceName, const std::string& inResourceCategory) = 0;
-    
-    virtual PDFParser* GetParser() = 0;
+
+    // GetObjectParser fetches you the object parser the interpreter is using to read operators and operands.
+    // You can use this guy  while interpretation. no worries. even read ahead...
+    // this is good for cases where you want to read operators/operands in advance or even read ahead in the stream.
+    // note that parser will become available only once intepretation starts!
+    virtual PDFObjectParser* GetObjectParser() =0;
 };
 
 
@@ -40,7 +46,7 @@ public:
     // required!
 
     // return boolean marks whether to continue or not (true or false)
-	virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands) = 0;
+	virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext) = 0;
 
 
     // Optional helpers

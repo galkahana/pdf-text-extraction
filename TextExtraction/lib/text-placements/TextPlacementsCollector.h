@@ -52,7 +52,7 @@ public:
     TextElementList& onDone(); // finished notification from our benefactors. for cleanup and result return
 
     // IPDFRecursiveInterpreterHandler implementation
-    virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands);
+    virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext);
 
     virtual bool onResourcesRead(IInterpreterContext* inContext);
     virtual bool onXObjectDoStart(

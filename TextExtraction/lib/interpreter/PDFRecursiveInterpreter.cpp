@@ -57,15 +57,24 @@ class InterpreterContext: public IInterpreterContext {
         virtual PDFDictionary* FindResourceCategory(const string& inResourceCategory);
         virtual PDFObject* FindResource(const string& inResourceName, const string& inResourceCategory);
         virtual PDFParser* GetParser();
+        virtual PDFObjectParser* GetObjectParser();
+
+        void SetObjectParser(PDFObjectParser* inObjectParser);
     private:
         PDFParser* parser;
         PDFDictionary* contentParent;
+        PDFObjectParser* objectParser;
 
 };
 
 InterpreterContext::InterpreterContext(PDFParser* inParser, PDFDictionary* inContentParent) {
     parser = inParser;
-    contentParent = inContentParent;    
+    contentParent = inContentParent;
+    objectParser = NULL;
+}
+
+void InterpreterContext::SetObjectParser(PDFObjectParser* inObjectParser) {
+    objectParser = inObjectParser;    
 }
 
 PDFDictionary* InterpreterContext::FindResourceCategory(const string& inResourceCategory) {
@@ -91,6 +100,10 @@ PDFObject* InterpreterContext::FindResource(const string& inResourceName, const 
 
 PDFParser* InterpreterContext::GetParser() {
     return parser;
+}
+
+PDFObjectParser* InterpreterContext::GetObjectParser() {
+    return objectParser;
 }
 
 
@@ -171,7 +184,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
         if(anObject->GetType() == PDFObject::ePDFObjectSymbol) {
             PDFSymbol* anOperand = (PDFSymbol*)anObject;
             // Call handler for operation event
-            shouldContinue = inHandler->onOperation(anOperand->GetValue(), operandsStack);
+            shouldContinue = inHandler->onOperation(anOperand->GetValue(), operandsStack, inContext);
             
             bool shouldRecurseIntoForm = false;
             bool shouldSkipInlineImage = false;
@@ -224,7 +237,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
             } else if(shouldSkipInlineImage) {
                 SkipInlinImageTillEI(inObjectParser);
                 // for completion, have onOperation for EI
-                shouldContinue = inHandler->onOperation(scEI, PDFObjectVector());
+                shouldContinue = inHandler->onOperation(scEI, PDFObjectVector(), inContext);
             }
         }
         else {

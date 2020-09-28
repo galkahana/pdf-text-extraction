@@ -90,7 +90,8 @@ void TextPlacementsCollector::cm(const double (&matrix)[6]) {
 
 bool TextPlacementsCollector::onOperation(
     const std::string& inOperation,  
-    const PDFObjectVector& inOperands) {
+    const PDFObjectVector& inOperands,
+    IInterpreterContext* inContext) {
 
     // Graphic State Operators
     if (inOperation == "q") {
