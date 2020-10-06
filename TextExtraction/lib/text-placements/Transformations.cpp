@@ -39,10 +39,10 @@ void copyBox(const double (&box)[4], double (&boxResult)[4]) {
 void transformBox(const double (&box)[4],const double (&mtx)[6], double (&boxResult)[4]) {
     double t[4][2];
 
-    transformVector({box[0], box[1]}, mtx, t[0]);
-    transformVector({box[0], box[3]}, mtx, t[1]);
-    transformVector({box[2], box[3]}, mtx, t[2]);
-    transformVector({box[2], box[1]}, mtx, t[3]);
+    transformVector((double[2]){box[0], box[1]}, mtx, t[0]);
+    transformVector((double[2]){box[0], box[3]}, mtx, t[1]);
+    transformVector((double[2]){box[2], box[3]}, mtx, t[2]);
+    transformVector((double[2]){box[2], box[1]}, mtx, t[3]);
 
     double minX,minY,maxX,maxY;
     
@@ -61,5 +61,5 @@ void transformBox(const double (&box)[4],const double (&mtx)[6], double (&boxRes
             maxY = t[i][1];
     }
 
-    copyBox({minX, minY, maxX, maxY}, boxResult);
+    copyBox((double[4]){minX, minY, maxX, maxY}, boxResult);
 }

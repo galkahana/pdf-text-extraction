@@ -41,14 +41,14 @@ void TextPlacementsCollector::setTm(const double (&matrix)[6]) {
         state.CurrentTextState().tlm[i] = matrix[i];
         state.CurrentTextState().tm[i] = matrix[i];
     }
-    state.CurrentTextState().tmDirty;
-    state.CurrentTextState().tlmDirty;
+    state.CurrentTextState().tmDirty = true;
+    state.CurrentTextState().tlmDirty = true;
 }
 
 void TextPlacementsCollector::Td(double inX, double inY) {
     double result[6];
 
-    multiplyMatrix({1,0,0,1,inX,inY}, state.CurrentTextState().tlm, result);
+    multiplyMatrix((double [6]){1,0,0,1,inX,inY}, state.CurrentTextState().tlm, result);
     setTm(result);
 }
 
@@ -78,7 +78,7 @@ void TextPlacementsCollector::Quote(PDFObject* inObject) {
     string asEncodedText = ParsedPrimitiveHelper(inObject).ToString();
     ByteList asBytes = ToBytesList(inObject);
 
-    textPlacement({asEncodedText, asBytes});        
+    textPlacement(PlacedTextCommandArgument(asEncodedText, asBytes));        
 }
 
 void TextPlacementsCollector::cm(const double (&matrix)[6]) {
@@ -161,7 +161,7 @@ bool TextPlacementsCollector::onOperation(
         string asEncodedText = ParsedPrimitiveHelper(inOperands.back()).ToString();
         ByteList asBytes = ToBytesList(inOperands.back());
 
-        textPlacement({asEncodedText, asBytes});
+        textPlacement(PlacedTextCommandArgument(asEncodedText, asBytes));
     } else if(inOperation == "\'") {
         Quote(inOperands.back());
     } else if(inOperation == "\"") {
@@ -181,10 +181,10 @@ bool TextPlacementsCollector::onOperation(
                 if(item->GetType() == PDFObject::ePDFObjectLiteralString || item->GetType() == PDFObject::ePDFObjectHexString) {
                     string asEncodedText = ParsedPrimitiveHelper(item).ToString();
                     ByteList asBytes = ToBytesList(item);
-                    placements.push_back({asEncodedText, asBytes});
+                    placements.push_back(PlacedTextCommandArgument(asEncodedText, asBytes));
                 }
                 else {
-                    placements.push_back({ParsedPrimitiveHelper(item).GetAsDouble()});
+                    placements.push_back(PlacedTextCommandArgument(ParsedPrimitiveHelper(item).GetAsDouble()));
                 }
             }
 

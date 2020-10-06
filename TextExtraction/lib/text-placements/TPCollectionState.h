@@ -7,7 +7,7 @@
 
 struct GraphicalState {
     GraphicalState(): text() {
-        copyMatrix({1,0,0,1,0,0}, ctm);
+        copyMatrix((double [6]){1,0,0,1,0,0}, ctm);
     }
     GraphicalState(const GraphicalState& otherState): text(otherState.text) {
         copyMatrix(otherState.ctm, ctm);

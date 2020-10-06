@@ -377,13 +377,13 @@ string FontDecoder::ToDefaultEncoding(const ByteList& inAsBytes) {
 
 FontDecoderResult FontDecoder::Translate(const ByteList& inAsBytes) {
     if(hasToUnicode) {
-        return {ToUnicodeEncoding(inAsBytes), eTranslationMethodToUnicode};
+        return (FontDecoderResult){ToUnicodeEncoding(inAsBytes), eTranslationMethodToUnicode};
     }
     else if(hasSimpleEncoding) {
-        return {ToSimpleEncoding(inAsBytes), eTranslationMethodSimpleEncoding};
+        return (FontDecoderResult){ToSimpleEncoding(inAsBytes), eTranslationMethodSimpleEncoding};
     }
     else {
-        return {ToDefaultEncoding(inAsBytes), eTranslationMethodDefault};
+        return (FontDecoderResult){ToDefaultEncoding(inAsBytes), eTranslationMethodDefault};
     }
 }
 
@@ -402,7 +402,7 @@ DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsByte
     if(isSimpleFont) {
         // one code per cells
         for(; it!= inAsBytes.end();++it) {
-            result.push_back({
+            result.push_back((DispositionResult){
                 (isMonospaced ? monospaceWidth : GetCodeWidth(*it)) / 1000.00
                 ,
                 *it
@@ -425,7 +425,7 @@ DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsByte
                 ++it;
             }
 
-            result.push_back({
+            result.push_back((DispositionResult){
                 (isMonospaced ? monospaceWidth : GetCodeWidth(value)) / 1000.00
                 ,
                 value
@@ -437,7 +437,7 @@ DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsByte
             unsigned long value = *it;
             ++it;
             value = value*256 + *it;
-            result.push_back({
+            result.push_back((DispositionResult){
                 (isMonospaced ? monospaceWidth : GetCodeWidth(value)) / 1000.00
                 ,
                 value

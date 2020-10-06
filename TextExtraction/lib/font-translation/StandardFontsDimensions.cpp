@@ -1629,30 +1629,30 @@ StandardFontsDimensions::StandardFontsDimensions() {
     ULongToDoubleMap buffer;
 
     // init fonts map
-    fonts["Courier"] = {629, -157, 600};
-    fonts["Courier-Bold"] = {629, -157, 600};
-    fonts["Courier-BoldOblique"] = {629, -157, 600};
-    fonts["Courier-Oblique"] = {629, -157, 600};
+    fonts["Courier"] = FontWidthDescriptor(629, -157, 600);
+    fonts["Courier-Bold"] = FontWidthDescriptor(629, -157, 600);
+    fonts["Courier-BoldOblique"] = FontWidthDescriptor(629, -157, 600);
+    fonts["Courier-Oblique"] = FontWidthDescriptor(629, -157, 600);
     initHelveticaMap(buffer);
-    fonts["Helvetica"] = {718, -207, buffer};
+    fonts["Helvetica"] = FontWidthDescriptor(718, -207, buffer);
     initHelveticaBoldMap(buffer);
-    fonts["Helvetica-Bold"] = {718, -207, buffer};
+    fonts["Helvetica-Bold"] = FontWidthDescriptor(718, -207, buffer);
     initHelveticaBoldObliqueMap(buffer);
-    fonts["Helvetica-BoldOblique"] = {718, -207, buffer};
+    fonts["Helvetica-BoldOblique"] = FontWidthDescriptor(718, -207, buffer);
     initHelveticaObliqueMap(buffer);
-    fonts["Helvetica-Oblique"] = {718, -207, buffer};
+    fonts["Helvetica-Oblique"] = FontWidthDescriptor(718, -207, buffer);
     initSymbolMap(buffer);
-    fonts["Symbol"] = {1010, -293, buffer};
+    fonts["Symbol"] = FontWidthDescriptor(1010, -293, buffer);
     initTimesBoldMap(buffer);
-    fonts["Times-Bold"] = {683, -217, buffer};
+    fonts["Times-Bold"] = FontWidthDescriptor(683, -217, buffer);
     initTimesBoldItalicMap(buffer);
-    fonts["Times-BoldItalic"] = {683, -217, buffer};
+    fonts["Times-BoldItalic"] = FontWidthDescriptor(683, -217, buffer);
     initTimesItalicMap(buffer);
-    fonts["Times-Italic"] = {683, -217, buffer};
+    fonts["Times-Italic"] = FontWidthDescriptor(683, -217, buffer);
     initTimesRomaMap(buffer);
-    fonts["Times-Roman"] = {683, -217, buffer};
+    fonts["Times-Roman"] = FontWidthDescriptor(683, -217, buffer);
     initZapfDingbats(buffer);
-    fonts["ZapfDingbats"] = {820, -143, buffer};
+    fonts["ZapfDingbats"] = FontWidthDescriptor(820, -143, buffer);
 }
 
 const FontWidthDescriptor* StandardFontsDimensions::FindStandardFont(const std::string& inFontName) const {

@@ -153,7 +153,7 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                                     minPlacement = accumulatedDisplacement;
                                 if(accumulatedDisplacement>maxPlacement)
                                     maxPlacement = accumulatedDisplacement;
-                                multiplyMatrix({1,0,0,1,tx,0}, nextPlacementDefaultTm, buffer);
+                                multiplyMatrix((double[6]){1,0,0,1,tx,0}, nextPlacementDefaultTm, buffer);
                                 copyMatrix(buffer,nextPlacementDefaultTm);
                             }
                         }
@@ -164,7 +164,7 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                                 minPlacement = accumulatedDisplacement;
                             if(accumulatedDisplacement>maxPlacement)
                                 maxPlacement = accumulatedDisplacement;
-                            multiplyMatrix({1,0,0,1,tx,0}, nextPlacementDefaultTm, buffer);
+                            multiplyMatrix((double[6]){1,0,0,1,tx,0}, nextPlacementDefaultTm, buffer);
                             copyMatrix(buffer,nextPlacementDefaultTm);
                         }
                     }    
@@ -203,12 +203,12 @@ EStatusCode TextExtraction::ComputeResultPlacements() {
                 
                 multiplyMatrix(textPlacement.textState.tm,textPlacement.ctm, mtxBuffer);
                 transformBox(textPlacement.localBBox, mtxBuffer, boxBuffer);
-                pageResults.push_back({
+                pageResults.push_back(ResultTextCommand(
                     textPlacement.allTextAsText,
                     mtxBuffer,
                     textPlacement.localBBox,
                     boxBuffer
-                });
+                ));
             }
         }
     }
@@ -222,7 +222,7 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
     InputFile sourceFile;
 
     LatestWarnings.clear();
-    LatestError.code = ETextExtractionError::eErrorNone;
+    LatestError.code = eErrorNone;
     LatestError.description = scEmpty;
 
     textPlacementsForPages.clear();
@@ -233,7 +233,7 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
     do {
         status = sourceFile.OpenFile(inFilePath);
         if (status != eSuccess) {
-            LatestError.code = ETextExtractionError::eErrorFileNotReadable;
+            LatestError.code = eErrorFileNotReadable;
             LatestError.description = string("Cannot read template file ") + inFilePath;
             break;
         }
@@ -243,7 +243,7 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
         status = parser.StartPDFParsing(sourceFile.GetInputStream());
         if(status != eSuccess)
         {
-            LatestError.code = ETextExtractionError::eErrorInternalPDFWriter;
+            LatestError.code = eErrorInternalPDFWriter;
             LatestError.description = string("Failed to parse template file");
             break;
         }

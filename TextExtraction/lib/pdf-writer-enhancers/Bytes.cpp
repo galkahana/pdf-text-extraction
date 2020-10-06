@@ -23,6 +23,9 @@ ByteList ToBytesList(PDFObject* inObject) {
                 result.push_back((IOBasicTypes::Byte)(*it));
             break;
         }
+        default: {
+            // nothing
+        }
     }
 
     return result;  
