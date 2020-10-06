@@ -57,12 +57,13 @@ void TPCollectionState::EndTextPlacement() {
 
     textElementTextStack.clear();
 
-    textElements.push_back((TextElement){PlacedTextCommandList(texts)});
+    TextElement el = {PlacedTextCommandList(texts)};
+    textElements.push_back(el);
     texts.clear();
 }
 
 void TPCollectionState::PushPlacedTextOperations(const PlacedTextCommandArgumentList& inOperations) {
-    texts.push_back((PlacedTextCommand){
+    PlacedTextCommand el = {
         inOperations,
         {
             CurrentGraphicState().ctm[0],
@@ -73,5 +74,6 @@ void TPCollectionState::PushPlacedTextOperations(const PlacedTextCommandArgument
             CurrentGraphicState().ctm[5]
         },
         TextState(CurrentTextState())
-    });
+    };
+    texts.push_back(el);
 }

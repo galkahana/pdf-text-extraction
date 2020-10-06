@@ -48,7 +48,9 @@ void TextPlacementsCollector::setTm(const double (&matrix)[6]) {
 void TextPlacementsCollector::Td(double inX, double inY) {
     double result[6];
 
-    multiplyMatrix((double [6]){1,0,0,1,inX,inY}, state.CurrentTextState().tlm, result);
+    double tMatrix[6] = {1,0,0,1,inX,inY};
+
+    multiplyMatrix(tMatrix, state.CurrentTextState().tlm, result);
     setTm(result);
 }
 

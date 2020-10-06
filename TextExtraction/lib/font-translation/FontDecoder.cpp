@@ -377,13 +377,16 @@ string FontDecoder::ToDefaultEncoding(const ByteList& inAsBytes) {
 
 FontDecoderResult FontDecoder::Translate(const ByteList& inAsBytes) {
     if(hasToUnicode) {
-        return (FontDecoderResult){ToUnicodeEncoding(inAsBytes), eTranslationMethodToUnicode};
+        FontDecoderResult res = {ToUnicodeEncoding(inAsBytes), eTranslationMethodToUnicode};
+        return res;
     }
     else if(hasSimpleEncoding) {
-        return (FontDecoderResult){ToSimpleEncoding(inAsBytes), eTranslationMethodSimpleEncoding};
+        FontDecoderResult res = {ToSimpleEncoding(inAsBytes), eTranslationMethodSimpleEncoding};
+        return res;
     }
     else {
-        return (FontDecoderResult){ToDefaultEncoding(inAsBytes), eTranslationMethodDefault};
+        FontDecoderResult res = {ToDefaultEncoding(inAsBytes), eTranslationMethodDefault};
+        return res;
     }
 }
 
@@ -402,11 +405,12 @@ DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsByte
     if(isSimpleFont) {
         // one code per cells
         for(; it!= inAsBytes.end();++it) {
-            result.push_back((DispositionResult){
+            DispositionResult item = {
                 (isMonospaced ? monospaceWidth : GetCodeWidth(*it)) / 1000.00
                 ,
                 *it
-            });
+            };
+            result.push_back(item);
         }
     } else if (hasToUnicode) {
         // determine code per toUnicode (should be cmap, but i aint parsing it now, so toUnicode will do).
@@ -425,11 +429,13 @@ DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsByte
                 ++it;
             }
 
-            result.push_back((DispositionResult){
+            DispositionResult item = {
                 (isMonospaced ? monospaceWidth : GetCodeWidth(value)) / 1000.00
                 ,
                 value
-            });
+            };
+
+            result.push_back(item);
         }        
     } else {
         // default to 2 bytes. though i shuld be reading the cmap. and so also get the writing mode
@@ -437,11 +443,12 @@ DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsByte
             unsigned long value = *it;
             ++it;
             value = value*256 + *it;
-            result.push_back((DispositionResult){
+            DispositionResult item = {
                 (isMonospaced ? monospaceWidth : GetCodeWidth(value)) / 1000.00
                 ,
                 value
-            });
+            };
+            result.push_back(item);
         }        
     }
     return result;

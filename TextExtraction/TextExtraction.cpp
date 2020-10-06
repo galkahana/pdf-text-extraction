@@ -153,7 +153,8 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                                     minPlacement = accumulatedDisplacement;
                                 if(accumulatedDisplacement>maxPlacement)
                                     maxPlacement = accumulatedDisplacement;
-                                multiplyMatrix((double[6]){1,0,0,1,tx,0}, nextPlacementDefaultTm, buffer);
+                                double txMatrix[6] = {1,0,0,1,tx,0};  
+                                multiplyMatrix(txMatrix, nextPlacementDefaultTm, buffer);
                                 copyMatrix(buffer,nextPlacementDefaultTm);
                             }
                         }
@@ -164,7 +165,8 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                                 minPlacement = accumulatedDisplacement;
                             if(accumulatedDisplacement>maxPlacement)
                                 maxPlacement = accumulatedDisplacement;
-                            multiplyMatrix((double[6]){1,0,0,1,tx,0}, nextPlacementDefaultTm, buffer);
+                            double txMatrix[6] = {1,0,0,1,tx,0};  
+                            multiplyMatrix(txMatrix, nextPlacementDefaultTm, buffer);
                             copyMatrix(buffer,nextPlacementDefaultTm);
                         }
                     }    
