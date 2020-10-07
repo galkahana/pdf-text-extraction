@@ -6,7 +6,8 @@
         #include <icui18n.h>
     #elif INCLUDE_ICU
         #include <icu.h>
+    #elif INCLUDE_UBIDI
+        #include "unicode/ubidi.h"
     #endif
-
 
 #endif

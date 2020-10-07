@@ -71,7 +71,8 @@ add_dependencies(TextExtraction PDFWriter) #add_dependencies makes sure that dep
 
 # ICU deps
 
-if (WIN32)
+# try winsdk native
+if(WIN32)
 	include(CheckIncludeFile)
 	# Win 10 SDK as internal icu support. use it, if available. there are unfortunate variants
 	check_include_file(icucommon.h HAVE_ICUCOMMON)
@@ -80,6 +81,7 @@ if (WIN32)
 	endif(NOT HAVE_ICUCOMMON)
 
 	if(HAVE_ICUCOMMON OR HAVE_ICU)
+		set(SUPPORT_ICU_BIDI 1)
 		message("Found system ICU support on winsdk")
 		ADD_DEFINITIONS(-DSUPPORT_ICU_BIDI=1)
 		# now for minor diffs in which file is included
@@ -91,7 +93,28 @@ if (WIN32)
 			target_link_libraries(TextExtraction icu.lib)			
 		endif(HAVE_ICUCOMMON)
 	endif(HAVE_ICUCOMMON OR HAVE_ICU)
-endif (WIN32)
+endif(WIN32)
+# try to find a pre-installed package
+if(NOT SUPPORT_ICU_BIDI)
+	include(FindPkgConfig)
+	if(APPLE)
+		set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/local/opt/icu4c/lib/pkgconfig")
+	endif(APPLE)
+	FIND_PACKAGE(PkgConfig)
+	PKG_CHECK_MODULES(ICU icu-io icu-i18n icu-uc)
+	if(ICU_FOUND)
+		message("Found pre-installed icu package")
+		# some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
+		ADD_DEFINITIONS(-DU_SHOW_CPLUSPLUS_API=0)
+		# done tricky parts
+		include_directories(${ICU_INCLUDE_DIRS})
+		target_link_libraries(TextExtraction ${ICU_LDFLAGS})
+
+		set(SUPPORT_ICU_BIDI 1)
+		ADD_DEFINITIONS(-DSUPPORT_ICU_BIDI=1)
+		ADD_DEFINITIONS(-DINCLUDE_UBIDI)
+	endif(ICU_FOUND)
+endif(NOT SUPPORT_ICU_BIDI)
 
 target_link_libraries (TextExtraction PDFWriter)
 target_link_libraries (TextExtraction ${LIBAESGM_LDFLAGS})
