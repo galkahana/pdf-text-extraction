@@ -51,7 +51,7 @@ class TextExtraction {
             const std::string& inTargetOutputFilePath
         );
 
-        std::string GetResultsAsText();
+        std::string GetResultsAsText(int bidiFlag);
 
     private:
         // interim work construct

@@ -8,6 +8,7 @@ filepath - pdf file path
 Options:
         -s, --start <d>                 start text extraction from a page index. use negative numbers to subtract from pages count
         -e, --end <d>                   end text extraction upto page index. use negative numbers to subtract from pages count
+        -b, --bidi <RTL|LTR>            use bidi algo to convert visual to logical. provide default direction per document writing direction.
         -o, --output /path/to/file      write result to output file
         -q, --quiet                     quiet run. only shows errors and warnings
         -h, --help                      Show this help message
@@ -64,6 +65,12 @@ cmake .. -DCMAKE_INSTALL_PREFIX="..\etc\install"
 cd ..
 
 cmake --build ./build/TextExtraction --config release --target install
+```
+
+As a shortcut, if you just want a one time install to a folder after you built the targets (maybe im confusing here and you could do that also prior to build), you can use the default cmake config method (just `cmake ..`) and define the install folder when running the install command:
+
+```bash
+cmake --install ./build/TextExtraction --prefix ./etc/install
 ```
 
 This will install the TextExtraction executable.

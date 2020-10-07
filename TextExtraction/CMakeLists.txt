@@ -3,6 +3,8 @@ cmake_minimum_required (VERSION 2.6)
 
 
 add_executable(TextExtraction 
+lib/bidi/BidiConversion.cpp
+lib/bidi/BidiConversion.h
 lib/font-translation/Encoding.cpp
 lib/font-translation/Encoding.h
 lib/font-translation/FontDecoder.cpp
@@ -66,6 +68,29 @@ else(NOT PDFHUMMUS_NO_PNG)
 endif(NOT PDFHUMMUS_NO_PNG)
 
 add_dependencies(TextExtraction PDFWriter) #add_dependencies makes sure that dependencies are built before main target
+
+# ICU deps
+
+if (WIN32)
+	# Win 10 SDK as internal icu support. use it, if available. there are unfortunate variants
+	check_include_file(icucommon.h HAVE_ICUCOMMON)
+	if(NOT HAVE_ICUCOMMON)
+		check_include_file(icu.h HAVE_ICU)
+	endif(NOT HAVE_ICUCOMMON)
+
+	if(HAVE_ICUCOMMON OR HAVE_ICU)
+		message("Found system ICU support on winsdk")
+		ADD_DEFINITIONS(-DSUPPORT_ICU_BIDI=1)
+		# now for minor diffs in which file is included
+		if(HAVE_ICUCOMMON)
+			ADD_DEFINITIONS(-DINCLUDE_ICUCOMMON)
+			target_link_libraries(TextExtraction icuuc.lib icuin.lib)
+		else(HAVE_ICUCOMMON) 
+			ADD_DEFINITIONS(-DINCLUDE_ICU)
+			target_link_libraries(TextExtraction icu.lib)			
+		endif(HAVE_ICUCOMMON)
+	endif(HAVE_ICUCOMMON OR HAVE_ICU)
+endif (WIN32)
 
 target_link_libraries (TextExtraction PDFWriter)
 target_link_libraries (TextExtraction ${LIBAESGM_LDFLAGS})

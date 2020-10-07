@@ -20,12 +20,16 @@ static void ShowUsage(const string& name)
               << "Options:\n"
               << "\t-s, --start <d>\t\t\tstart text extraction from a page index. use negative numbers to subtract from pages count\n"
               << "\t-e, --end <d>\t\t\tend text extraction upto page index. use negative numbers to subtract from pages count\n"
+              << "\t-b, --bidi <RTL|LTR>\t\tuse bidi algo to convert visual to logical. provide default direction per document writing direction.\n"
               << "\t-o, --output /path/to/file\twrite result to output file\n"
               << "\t-q, --quiet\t\t\tquiet run. only shows errors and warnings\n"
               << "\t-h, --help\t\t\tShow this help message\n"
               << "\t-d, --debug /path/to/file\tcreate debug output file\n"
               << endl;
 }
+
+static const string BIDI_LTR = "LTR";
+static const string BIDI_RTL = "RTL";
 
 
 int main(int argc, char* argv[])
@@ -43,6 +47,7 @@ int main(int argc, char* argv[])
     long startPage = 0;
     long endPage = -1;
     bool quiet = false;
+    long bidiFlag = -1;
 
     for (int i = 2; i < argc; ++i) {
         std::string arg = argv[i];
@@ -64,7 +69,22 @@ int main(int argc, char* argv[])
             } else {
                 std::cerr << "--end option requires one argument, which is the page to end." << std::endl;
                 return 1;                 
-            }            
+            }        
+        } else if ((arg == "-b") || (arg == "--bidi")) {
+            if (i + 1 < argc) {
+                string argString = argv[++i];
+                if(argString == BIDI_LTR)
+                    bidiFlag = 0;
+                else if(argString == BIDI_RTL)
+                    bidiFlag = 1;
+                else {
+                    std::cerr << "--bidi option requires one argument to specify document direction, use LTR or RTL." << std::endl;
+                    return 1;                     
+                }
+            } else {
+                std::cerr << "--bidi option requires one argument to specify document direction, use LTR or RTL." << std::endl;
+                return 1;                 
+            } 
         } else if((arg == "-d") || (arg == "--debug")) {
             debugging = true;
             if (i + 1 < argc) {
@@ -112,7 +132,7 @@ int main(int argc, char* argv[])
                     cerr << "Error: Cannot open target file path for writing in" << outputFilePath.c_str() << endl;
                 }
                 else {
-                    string result = textExtraction.GetResultsAsText();
+                    string result = textExtraction.GetResultsAsText(bidiFlag);
                     InputStringStream textStream(result);		
                     OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
 		            status = streamCopier.CopyToOutputStream(&textStream);
@@ -120,7 +140,7 @@ int main(int argc, char* argv[])
 
             }
             else {
-                cout<<textExtraction.GetResultsAsText().c_str();
+                cout<<textExtraction.GetResultsAsText(bidiFlag).c_str();
             }
         }
 
