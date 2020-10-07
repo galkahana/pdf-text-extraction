@@ -72,6 +72,7 @@ add_dependencies(TextExtraction PDFWriter) #add_dependencies makes sure that dep
 # ICU deps
 
 if (WIN32)
+	include(CheckIncludeFile)
 	# Win 10 SDK as internal icu support. use it, if available. there are unfortunate variants
 	check_include_file(icucommon.h HAVE_ICUCOMMON)
 	if(NOT HAVE_ICUCOMMON)
