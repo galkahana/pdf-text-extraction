@@ -20,7 +20,9 @@ static void ShowUsage(const string& name)
               << "Options:\n"
               << "\t-s, --start <d>\t\t\tstart text extraction from a page index. use negative numbers to subtract from pages count\n"
               << "\t-e, --end <d>\t\t\tend text extraction upto page index. use negative numbers to subtract from pages count\n"
+#if (SUPPORT_ICU_BIDI==1)
               << "\t-b, --bidi <RTL|LTR>\t\tuse bidi algo to convert visual to logical. provide default direction per document writing direction.\n"
+#endif
               << "\t-o, --output /path/to/file\twrite result to output file\n"
               << "\t-q, --quiet\t\t\tquiet run. only shows errors and warnings\n"
               << "\t-h, --help\t\t\tShow this help message\n"
@@ -69,7 +71,8 @@ int main(int argc, char* argv[])
             } else {
                 std::cerr << "--end option requires one argument, which is the page to end." << std::endl;
                 return 1;                 
-            }        
+            }    
+#if (SUPPORT_ICU_BIDI==1)                
         } else if ((arg == "-b") || (arg == "--bidi")) {
             if (i + 1 < argc) {
                 string argString = argv[++i];
@@ -85,6 +88,7 @@ int main(int argc, char* argv[])
                 std::cerr << "--bidi option requires one argument to specify document direction, use LTR or RTL." << std::endl;
                 return 1;                 
             } 
+#endif
         } else if((arg == "-d") || (arg == "--debug")) {
             debugging = true;
             if (i + 1 < argc) {
