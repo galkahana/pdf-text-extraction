@@ -24,7 +24,7 @@ To build/develop You will need:
 2. cmake - download from here - https://cmake.org/
 
 
-# Building the project
+# Building and Installing the project
 
 Once you installed pre-reqs, you can now build the project.
 
@@ -38,9 +38,8 @@ cd build
 cmake ..
 ```
 
-If you do this, this will generate a project file that can be used to build the project from.
-The nature of the project file is dependent on the default generator selected for your environment.
-For example, if you are on a PC and installed visual studio, it will generate a visual studio project. You can see the .sln file right there in the root of the build folder. you can even open it and use it for debugging. Same goes for OSX...although out of my experiance it's most chance that it'll build a plain makefile there. If you want to affect what generator gets chosen (so, for example, you can create an xcode project) use `cmake -g <GENERATOR NAME> ..` when running the cmake command. To know which generator names exist, run `cmake --help` and the "Generators" section.
+I won't go on about cmake here, you can check out their website. going forward i'll stick to describing the minimal set of commands
+you can use for building and installing.
 
 
 ## build and install
@@ -55,26 +54,13 @@ cmake --build build --config release
 
 This will build the project inside the build folder. You will be able to look up the result execultable per how you normally do when building with the relevant build environment. For example, for windows,  the TextExtraction/Release folder will have the result file.
 
-If you want, you can use the "install", after an initial build as specified, target to specify where to install the result executable (and accompanying files).
-
-Use this to specify and later build the install to occur in the `./etc/install` folder relative to the root:
-
-```bash
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX="..\etc\install"
-cd ..
-
-cmake --build ./build/TextExtraction --config release --target install
-```
-
-As a shortcut, if you just want a one time install to a folder after you built the targets (maybe im confusing here and you could do that also prior to build), you can use the default cmake config method (just `cmake ..`) and define the install folder when running the install command:
+If you want, you can use the "install" verb of cmake to install a built product. use the prefix param to specify where you want the result to be installed to
 
 ```bash
 cmake --install ./build/TextExtraction --prefix ./etc/install
 ```
 
-This will install the TextExtraction executable.
-For developers - to install all projects (including pdfwriter libraries), use `.` instead of `./TextExtraction`
+This will install the TextExtraction executable in ./etc/install.
 
 # Running
 The end result is an executable, so just run it from comman line (it's a regular cli).
@@ -83,6 +69,29 @@ The minimal run requires a file path to a PDF from which you would like read the
 ```console
 etc\install\bin\TextExtraction.exe sample.pdf
 ```
+
+# Bidirectional text support
+The PDF contains text as drawing instructions. as a result what's being parsed is per the _visual_ order of text.
+This doesn't matter much if your text is latin, or wholy left to right. However when the PDF has right to left text, either by itself or combined with left-to-right text or even numbers, the parsed text will appear to be reversed, or otherwise disorganized.
+To take care of this there is support for Bidi reversal algorithm. This algorithm is implemented in ICU library, and this executable will use it if instructed so, and if ICU library is available.
+
+BIDI conversion is turned off by default, as it does carry some performance price, however you can unlock it by using the USE_BIDI configuration variable. When calling `cmake` for congiruation, add `-DUSE_BIDI=1`. like this:
+
+```bash
+# only if you didnt create build lib yet
+mkdir build
+# then...
+cd build
+cmake .. -DUSE_BIDI=1
+```
+
+the module code does not come with ICU library pre-bundled with the code, so it will attempt to install it and if succesful, BIDI conversion will be supported. You can tell that BIDI conversion is supported by checking the help text of `TextExtraction`. If it shows the `-b, --bidi <RTL|LTR>` option, then it is available.
+
+ICU Library installation process will try the following:
+1. On windows specifically, it will try to use the existing Win10 SDK natively installed ICU library
+2. Either on windows or other platform it will then try to find a pre-installed pacakge. For example, your Mac might already have it installed. you can help with a good ol' `brew install icu4c`.
+3. If didn't work, then it will try to download ICU67 from it's source, and compile it. on most envs it will use the ICU makefile config, and on windows it will use the msbuild (this attempts to follow the instructions from icu). i think mingw will not work here...but you can try...and you can tweak `./TextExtraction/CMakeLists.txt` to try and make it work. there are pointers there for info.
+
 
 # Using the code
 
