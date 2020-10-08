@@ -1,5 +1,5 @@
 project(TextExtraction)
-cmake_minimum_required (VERSION 3.18)
+cmake_minimum_required (VERSION 3.10)
 
 # sillyness i should handle better sometime from within pdfwriter
 if(CMAKE_GENERATOR STREQUAL "Xcode")

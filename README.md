@@ -62,6 +62,16 @@ cmake --install ./build/TextExtraction --prefix ./etc/install
 
 This will install the TextExtraction executable in ./etc/install.
 
+if you do not have `cmake --install` as option, you a regular build with prefix instead, like this:
+
+```bash
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX="..\etc\install"
+cd ..
+
+cmake --build build/TextExtraction --config release --target install
+```
+
 # Running
 The end result is an executable, so just run it from comman line (it's a regular cli).
 
