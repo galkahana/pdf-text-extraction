@@ -101,24 +101,26 @@ endif(WIN32)
 # try to find a pre-installed package
 # got help from https://github.com/korfuri/client_cpp/blob/master/prometheus/CMakeLists.txt
 if(NOT SUPPORT_ICU_BIDI)
-	include(FindPkgConfig)
-	if(APPLE)
-		set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/local/opt/icu4c/lib/pkgconfig")
-	endif(APPLE)
 	FIND_PACKAGE(PkgConfig)
-	PKG_CHECK_MODULES(ICU icu-io icu-i18n icu-uc)
-	if(ICU_FOUND)
-		message("Found pre-installed icu package")
-		# some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
-		ADD_DEFINITIONS(-DU_SHOW_CPLUSPLUS_API=0)
-		# done tricky parts
-		include_directories(${ICU_INCLUDE_DIRS})
-		target_link_libraries(TextExtraction ${ICU_LDFLAGS})
+	if(PKG_CONFIG_FOUND)
+		if (APPLE)
+		# Find homebrew's libicu on Mac OS although it is hidden pretty well
+		set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/local/opt/icu4c/lib/pkgconfig")
+		endif()	
+		PKG_CHECK_MODULES(ICU icu-io icu-i18n icu-uc)
+		if(ICU_FOUND)
+			message("Found pre-installed icu package")
+			# some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
+			ADD_DEFINITIONS(-DU_SHOW_CPLUSPLUS_API=0)
+			# done tricky parts
+			include_directories(${ICU_INCLUDE_DIRS})
+			target_link_libraries(TextExtraction ${ICU_LDFLAGS})
 
-		set(SUPPORT_ICU_BIDI 1)
-		ADD_DEFINITIONS(-DSUPPORT_ICU_BIDI=1)
-		ADD_DEFINITIONS(-DINCLUDE_UBIDI)
-	endif(ICU_FOUND)
+			set(SUPPORT_ICU_BIDI 1)
+			ADD_DEFINITIONS(-DSUPPORT_ICU_BIDI=1)
+			ADD_DEFINITIONS(-DINCLUDE_UBIDI)
+		endif(ICU_FOUND)
+	endif(PKG_CONFIG_FOUND)
 endif(NOT SUPPORT_ICU_BIDI)
 
 # ok. still not found, let's download and build
