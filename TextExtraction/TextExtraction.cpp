@@ -9,6 +9,7 @@
 #include "./lib/text-placements/TextPlacementsCollector.h"
 #include "./lib/text-placements/Transformations.h"
 #include "./lib/font-translation/FontDecoder.h"
+#include "./lib/bidi/BidiConversion.h"
 
 #include <algorithm>
 
@@ -355,9 +356,11 @@ bool AreSameLine(const ResultTextCommand& a, const ResultTextCommand& b) {
     }
 }
 
-std::string TextExtraction::GetResultsAsText() {
+std::string TextExtraction::GetResultsAsText(int bidiFlag) {
     stringstream result;
+    BidiConversion bidi;
     ResultTextCommandListList::iterator itPages = textsForPages.begin();
+
     for(; itPages != textsForPages.end();++itPages) {
         ResultTextCommandVector sortedPageTextCommands(itPages->begin(), itPages->end());
         sort(sortedPageTextCommands.begin(), sortedPageTextCommands.end(), CompareResultTextCommand);
@@ -371,13 +374,29 @@ std::string TextExtraction::GetResultsAsText() {
             ++itCommands;
             for(; itCommands != sortedPageTextCommands.end();++itCommands) {
                 if(!AreSameLine(latestItem, *itCommands)) {
-                    result<<lineResult.str()<<scCRLN;
+                    if(bidiFlag == -1) {
+                        result<<lineResult.str();
+                    }
+                    else {
+                        string bidiResult;
+                        bidi.ConvertVisualToLogical(lineResult.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
+                        result<<bidiResult;
+                    }
+                    result<<scCRLN;
                     lineResult.str(scEmpty);
                 }
                 lineResult<<itCommands->text;
                 latestItem = *itCommands;
             }
-            result<<lineResult.str()<<scCRLN;
+            if(bidiFlag == -1) {
+                result<<lineResult.str();
+            }
+            else {
+                string bidiResult;
+                bidi.ConvertVisualToLogical(lineResult.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
+                result<<bidiResult;
+            }
+            result<<scCRLN;
         }     
     }
 

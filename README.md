@@ -8,6 +8,7 @@ filepath - pdf file path
 Options:
         -s, --start <d>                 start text extraction from a page index. use negative numbers to subtract from pages count
         -e, --end <d>                   end text extraction upto page index. use negative numbers to subtract from pages count
+        -b, --bidi <RTL|LTR>            use bidi algo to convert visual to logical. provide default direction per document writing direction.
         -o, --output /path/to/file      write result to output file
         -q, --quiet                     quiet run. only shows errors and warnings
         -h, --help                      Show this help message
@@ -23,7 +24,7 @@ To build/develop You will need:
 2. cmake - download from here - https://cmake.org/
 
 
-# Building the project
+# Building and Installing the project
 
 Once you installed pre-reqs, you can now build the project.
 
@@ -37,9 +38,8 @@ cd build
 cmake ..
 ```
 
-If you do this, this will generate a project file that can be used to build the project from.
-The nature of the project file is dependent on the default generator selected for your environment.
-For example, if you are on a PC and installed visual studio, it will generate a visual studio project. You can see the .sln file right there in the root of the build folder. you can even open it and use it for debugging. Same goes for OSX...although out of my experiance it's most chance that it'll build a plain makefile there. If you want to affect what generator gets chosen (so, for example, you can create an xcode project) use `cmake -g <GENERATOR NAME> ..` when running the cmake command. To know which generator names exist, run `cmake --help` and the "Generators" section.
+I won't go on about cmake here, you can check out their website. going forward i'll stick to describing the minimal set of commands
+you can use for building and installing.
 
 
 ## build and install
@@ -54,20 +54,23 @@ cmake --build build --config release
 
 This will build the project inside the build folder. You will be able to look up the result execultable per how you normally do when building with the relevant build environment. For example, for windows,  the TextExtraction/Release folder will have the result file.
 
-If you want, you can use the "install", after an initial build as specified, target to specify where to install the result executable (and accompanying files).
+If you want, you can use the "install" verb of cmake to install a built product. use the prefix param to specify where you want the result to be installed to
 
-Use this to specify and later build the install to occur in the `./etc/install` folder relative to the root:
+```bash
+cmake --install ./build/TextExtraction --prefix ./etc/install
+```
+
+This will install the TextExtraction executable in ./etc/install.
+
+if you do not have `cmake --install` as option, you a regular build with prefix instead, like this:
 
 ```bash
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX="..\etc\install"
 cd ..
 
-cmake --build ./build/TextExtraction --config release --target install
+cmake --build build/TextExtraction --config release --target install
 ```
-
-This will install the TextExtraction executable.
-For developers - to install all projects (including pdfwriter libraries), use `.` instead of `./TextExtraction`
 
 # Running
 The end result is an executable, so just run it from comman line (it's a regular cli).
@@ -76,6 +79,29 @@ The minimal run requires a file path to a PDF from which you would like read the
 ```console
 etc\install\bin\TextExtraction.exe sample.pdf
 ```
+
+# Bidirectional text support
+The PDF contains text as drawing instructions. as a result what's being parsed is per the _visual_ order of text.
+This doesn't matter much if your text is latin, or wholy left to right. However when the PDF has right to left text, either by itself or combined with left-to-right text or even numbers, the parsed text will appear to be reversed, or otherwise disorganized.
+To take care of this there is support for Bidi reversal algorithm. This algorithm is implemented in ICU library, and this executable will use it if instructed so, and if ICU library is available.
+
+BIDI conversion is turned off by default, as it does carry some performance price, however you can unlock it by using the USE_BIDI configuration variable. When calling `cmake` for congiruation, add `-DUSE_BIDI=1`. like this:
+
+```bash
+# only if you didnt create build lib yet
+mkdir build
+# then...
+cd build
+cmake .. -DUSE_BIDI=1
+```
+
+the module code does not come with ICU library pre-bundled with the code, so it will attempt to install it and if succesful, BIDI conversion will be supported. You can tell that BIDI conversion is supported by checking the help text of `TextExtraction`. If it shows the `-b, --bidi <RTL|LTR>` option, then it is available.
+
+ICU Library installation process will try the following:
+1. On windows specifically, it will try to use the existing Win10 SDK natively installed ICU library
+2. Either on windows or other platform it will then try to find a pre-installed pacakge. For example, your Mac might already have it installed. you can help with a good ol' `brew install icu4c`.
+3. If didn't work, then it will try to download ICU67 from it's source, and compile it. on most envs it will use the ICU makefile config, and on windows it will use the msbuild (this attempts to follow the instructions from icu). i think mingw will not work here...but you can try...and you can tweak `./TextExtraction/CMakeLists.txt` to try and make it work. there are pointers there for info.
+
 
 # Using the code
 
@@ -93,6 +119,5 @@ This text extraction algorithm is based on a previous Javascript based implement
 This implementation was extended in the following manners:
 - Computed structure is equivalent to the Javascript one, however the public output is text, for the sake of convenience. The code includes some heuristics to determine the text from this structure. The implementaiton is equivalent to the only usage i had back then...and it turned out quite good for my needs. I extended it to support multiple text orientations.
 - I put in some code to better treat inline images, and skip them, so as not to interfere with the general interpretation. This should take care of some missing texts i had back then.
-
-I didn't deal with Bidi text implementation here. frankly creating a bidi cross platform with ICU bidi lib inclusion is an art im yet to master. im sure it should be simpler with what local implementation you have, and you can use the output text as input to that implementation, it being _prefectly logical_.
+- bidi support included via ICU
 
