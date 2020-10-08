@@ -76,7 +76,7 @@ add_dependencies(TextExtraction PDFWriter) #add_dependencies makes sure that dep
 
 # try winsdk native
 # i wrote this totally bymyself thank you
-if(WIN32)
+if(LALALA AND WIN32)
 	include(CheckIncludeFile)
 	# Win 10 SDK as internal icu support. use it, if available. there are unfortunate variants
 	check_include_file(icucommon.h HAVE_ICUCOMMON)
@@ -97,7 +97,7 @@ if(WIN32)
 			target_link_libraries(TextExtraction icu.lib)			
 		endif(HAVE_ICUCOMMON)
 	endif(HAVE_ICUCOMMON OR HAVE_ICU)
-endif(WIN32)
+endif(LALALA AND WIN32)
 # try to find a pre-installed package
 # got help from https://github.com/korfuri/client_cpp/blob/master/prometheus/CMakeLists.txt
 if(NOT SUPPORT_ICU_BIDI)
@@ -125,68 +125,120 @@ endif(NOT SUPPORT_ICU_BIDI)
 
 # ok. still not found, let's download and build
 # mostly copied from https://github.com/meta-toolkit/meta-cmake/blob/master/FindOrBuildICU.cmake
-# maybe i should just include them...but they had this aweful thing
-# with the failing compiler checks on darwin
-if(NOT SUPPORT_ICU_BIDI AND NOT WIN32)
+# and figured out the windows part myself. skipped mingw, you can add if you need it, or just use that cmake as is
+if(NOT SUPPORT_ICU_BIDI)
 	include(ExternalProject)
-
 	set(ICU_EP_PREFIX ${PROJECT_BINARY_DIR}/libIcu)
-	set(ICU_EP_LIBICUDATA ${ICU_EP_PREFIX}/lib/libicudata.a)
-	set(ICU_EP_LIBICUI18N ${ICU_EP_PREFIX}/lib/libicui18n.a)
-	set(ICU_EP_LIBICUUC ${ICU_EP_PREFIX}/lib/libicuuc.a)
-	set(ICU_EP_PATCH_COMMAND "")	
-    #set(ICU_CFLAGS "-fPIC")
-    #set(ICU_CXXFLAGS "-fPIC")
+	set(ICU_DOWNLOAD_URL "https://github.com/unicode-org/icu/releases/download/release-67-1/icu4c-67_1-src.tgz")
+
+	if(MSVC)
+		set(ICU_INCLUDE_DIRS ${ICU_EP_PREFIX}/src/libIcu/include)
+		set(ICU_EP_LIBICUUC ${ICU_EP_PREFIX}/src/libIcu/lib/icuuc.lib)
+		set(ICU_EP_LIBICUIN ${ICU_EP_PREFIX}/src/libIcu/lib/icuin.lib)
+		set(ICU_EP_LIBICUDT ${ICU_EP_PREFIX}/src/libIcu/lib/icudt.lib)
+		set(ICU_EP_LIBICUUC_BIN ${ICU_EP_PREFIX}/src/libIcu/bin/icuuc67.dll)
+		set(ICU_EP_LIBICUIN_BIN ${ICU_EP_PREFIX}/src/libIcu/bin/icuin67.dll)
+		set(ICU_EP_LIBICUDT_BIN ${ICU_EP_PREFIX}/src/libIcu/bin/icudt67.dll)
 
 
-	ExternalProject_Add(
-		libIcu
-		PREFIX
-        	${ICU_EP_PREFIX}
-        DOWNLOAD_DIR
-        	${ICU_EP_PREFIX}
-        URL
-        	"https://github.com/unicode-org/icu/releases/download/release-67-1/icu4c-67_1-src.tgz"
-        PATCH_COMMAND
-        	${ICU_EP_PATCH_COMMAND}
-        CONFIGURE_COMMAND
-          ${CMAKE_COMMAND} -E env
-		    # Gal: i removed the following two, for some reason tests fail checking on them....
-            # CC=${CMAKE_C_COMPILER}
-            # CXX=${CMAKE_CXX_COMPILER}		  
-            CFLAGS=${ICU_CFLAGS}
-            CXXFLAGS=${ICU_CXXFLAGS}
-          sh ${ICU_EP_PREFIX}/src/libIcu/source/configure
-            --disable-shared --enable-static --disable-dyload --disable-extras
-            --disable-tests --disable-samples --disable-icuio --with-data-packaging=static
-            --prefix=<INSTALL_DIR>
-		BUILD_COMMAND
-        	make ${ICU_MAKE_EXTRA_FLAGS}
-        INSTALL_COMMAND
-        	make install
-        BUILD_BYPRODUCTS
-        	${ICU_EP_LIBICUDATA};${ICU_EP_LIBICUI18N};${ICU_EP_LIBICUUC}
-	)
+		# to save time and avoid silly failures...specify just the targets we need for the aforementioned libs
+		# ...and msbuild sln builds shared libs...so have to copy to final destination as well
+		set(ICU_TARGETS /target:common /target:i18n)
+		ExternalProject_Add(
+					libIcu
+					PREFIX
+						${ICU_EP_PREFIX}
+					DOWNLOAD_DIR
+						${ICU_EP_PREFIX}
+					URL
+						${ICU_DOWNLOAD_URL}
+					PATCH_COMMAND ""
+					CONFIGURE_COMMAND ""
+					BUILD_IN_SOURCE 1
+					BUILD_COMMAND msbuild /p:Configuration=Release /p:Platform=Win32 /p:SkipUWP=true <DOWNLOAD_DIR>/src/libIcu/source/allinone/allinone.sln ${ICU_TARGETS}
+					COMMAND ${CMAKE_COMMAND} -E copy_directory
+						${ICU_EP_PREFIX}/src/libIcu/bin
+						${PROJECT_BINARY_DIR}/$<CONFIG>
+					INSTALL_COMMAND   ""
+					BUILD_BYPRODUCTS ${ICU_EP_LIBICUDATA};${ICU_EP_LIBICUI18N};${ICU_EP_LIBICUUC};${ICU_EP_LIBICUUC_BIN}${ICU_EP_LIBICUIN_BIN};${ICU_EP_LIBICUDT_BIN}
+				)
 
-	set(ICU_INCLUDE_DIRS ${ICU_EP_PREFIX}/include)
-	add_library(icudata IMPORTED STATIC)
-	set_target_properties(icudata PROPERTIES IMPORTED_LOCATION
-	${ICU_EP_LIBICUDATA})
-	add_dependencies(icudata libIcu)
+		add_library(icuuc IMPORTED SHARED)
+		set_target_properties(icuuc PROPERTIES IMPORTED_IMPLIB
+		${ICU_EP_LIBICUUC})
+		set_target_properties(icuuc PROPERTIES IMPORTED_LOCATION
+		${ICU_EP_LIBICUUC_BIN})
+		add_dependencies(icuuc libIcu)
 
-	add_library(icui18n IMPORTED STATIC)
-	set_target_properties(icui18n PROPERTIES IMPORTED_LOCATION
-	${ICU_EP_LIBICUI18N})
-	add_dependencies(icui18n libIcu)
+		add_library(icuin IMPORTED SHARED)
+		set_target_properties(icuin PROPERTIES IMPORTED_IMPLIB
+		${ICU_EP_LIBICUIN})
+		set_target_properties(icuin PROPERTIES IMPORTED_LOCATION
+		${ICU_EP_LIBICUIN_BIN})
+		add_dependencies(icuin libIcu)
 
-	add_library(icuuc IMPORTED STATIC)
-	set_target_properties(icuuc PROPERTIES IMPORTED_LOCATION
-	${ICU_EP_LIBICUUC})
-	add_dependencies(icuuc libIcu)
+		add_library(icudt IMPORTED SHARED)
+		set_target_properties(icudt PROPERTIES IMPORTED_IMPLIB
+		${ICU_EP_LIBICUDT})
+		set_target_properties(icudt PROPERTIES IMPORTED_LOCATION
+		${ICU_EP_LIBICUDT_BIN})
+		add_dependencies(icudt libIcu)		
 
-	set(ICU_LIBRARIES icui18n icuuc icudata)
+		set(ICU_LIBRARIES icuuc icuin icudt)
+	else(MSVC) # original has also support for mingw...if you want that refer to...source
+		set(ICU_INCLUDE_DIRS ${ICU_EP_PREFIX}/include)
+		set(ICU_EP_LIBICUDATA ${ICU_EP_PREFIX}/lib/libicudata.a)
+		set(ICU_EP_LIBICUI18N ${ICU_EP_PREFIX}/lib/libicui18n.a)
+		set(ICU_EP_LIBICUUC ${ICU_EP_PREFIX}/lib/libicuuc.a)
 
-	message("Downloaded and built icu")	
+		ExternalProject_Add(
+			libIcu
+			PREFIX
+				${ICU_EP_PREFIX}
+			DOWNLOAD_DIR
+				${ICU_EP_PREFIX}
+			URL
+				${ICU_DOWNLOAD_URL}
+			PATCH_COMMAND ""
+			CONFIGURE_COMMAND
+			${CMAKE_COMMAND} -E env
+				# Gal: i removed the following two from darwin, for some reason tests fail checking on them....
+				# CC=${CMAKE_C_COMPILER}
+				# CXX=${CMAKE_CXX_COMPILER}		  
+				CFLAGS=${ICU_CFLAGS}
+				CXXFLAGS=${ICU_CXXFLAGS}
+			sh ${ICU_EP_PREFIX}/src/libIcu/source/configure
+				--disable-shared --enable-static --disable-dyload --disable-extras
+				--disable-tests --disable-samples --disable-icuio --with-data-packaging=static
+				--prefix=<INSTALL_DIR>
+			BUILD_COMMAND
+				make ${ICU_MAKE_EXTRA_FLAGS}
+			INSTALL_COMMAND
+				make install
+			BUILD_BYPRODUCTS
+				${ICU_EP_LIBICUDATA};${ICU_EP_LIBICUI18N};${ICU_EP_LIBICUUC}
+		)
+
+		add_library(icudata IMPORTED STATIC)
+		set_target_properties(icudata PROPERTIES IMPORTED_LOCATION
+		${ICU_EP_LIBICUDATA})
+		add_dependencies(icudata libIcu)
+
+		add_library(icui18n IMPORTED STATIC)
+		set_target_properties(icui18n PROPERTIES IMPORTED_LOCATION
+		${ICU_EP_LIBICUI18N})
+		add_dependencies(icui18n libIcu)
+
+		add_library(icuuc IMPORTED STATIC)
+		set_target_properties(icuuc PROPERTIES IMPORTED_LOCATION
+		${ICU_EP_LIBICUUC})
+		add_dependencies(icuuc libIcu)
+
+		set(ICU_LIBRARIES icui18n icuuc icudata)
+	endif(MSVC)
+
+
+	message("Will downloading and building icu")	
 	# some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
 	ADD_DEFINITIONS(-DU_SHOW_CPLUSPLUS_API=0)
 	# done tricky parts
@@ -195,9 +247,8 @@ if(NOT SUPPORT_ICU_BIDI AND NOT WIN32)
 
 	set(SUPPORT_ICU_BIDI 1)
 	ADD_DEFINITIONS(-DSUPPORT_ICU_BIDI=1)
-	ADD_DEFINITIONS(-DINCLUDE_UBIDI)
-
-endif(NOT SUPPORT_ICU_BIDI AND NOT WIN32)
+	ADD_DEFINITIONS(-DINCLUDE_UBIDI)	
+endif(NOT SUPPORT_ICU_BIDI)
 
 # End ICU deps
 
