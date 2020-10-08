@@ -109,6 +109,5 @@ This text extraction algorithm is based on a previous Javascript based implement
 This implementation was extended in the following manners:
 - Computed structure is equivalent to the Javascript one, however the public output is text, for the sake of convenience. The code includes some heuristics to determine the text from this structure. The implementaiton is equivalent to the only usage i had back then...and it turned out quite good for my needs. I extended it to support multiple text orientations.
 - I put in some code to better treat inline images, and skip them, so as not to interfere with the general interpretation. This should take care of some missing texts i had back then.
-
-I didn't deal with Bidi text implementation here. frankly creating a bidi cross platform with ICU bidi lib inclusion is an art im yet to master. im sure it should be simpler with what local implementation you have, and you can use the output text as input to that implementation, it being _prefectly logical_.
+- bidi support included via ICU
 
