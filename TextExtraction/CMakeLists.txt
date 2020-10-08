@@ -76,7 +76,7 @@ add_dependencies(TextExtraction PDFWriter) #add_dependencies makes sure that dep
 
 # try winsdk native
 # i wrote this totally bymyself thank you
-if(LALALA AND WIN32)
+if(WIN32)
 	include(CheckIncludeFile)
 	# Win 10 SDK as internal icu support. use it, if available. there are unfortunate variants
 	check_include_file(icucommon.h HAVE_ICUCOMMON)
@@ -97,7 +97,7 @@ if(LALALA AND WIN32)
 			target_link_libraries(TextExtraction icu.lib)			
 		endif(HAVE_ICUCOMMON)
 	endif(HAVE_ICUCOMMON OR HAVE_ICU)
-endif(LALALA AND WIN32)
+endif(WIN32)
 # try to find a pre-installed package
 # got help from https://github.com/korfuri/client_cpp/blob/master/prometheus/CMakeLists.txt
 if(NOT SUPPORT_ICU_BIDI)
@@ -132,13 +132,25 @@ if(NOT SUPPORT_ICU_BIDI)
 	set(ICU_DOWNLOAD_URL "https://github.com/unicode-org/icu/releases/download/release-67-1/icu4c-67_1-src.tgz")
 
 	if(MSVC)
+		if(CMAKE_VS_PLATFORM_NAME STREQUAL "x64") 
+			set(ICU_LIB ${ICU_EP_PREFIX}/src/libIcu/lib64)
+			set(ICU_BIN ${ICU_EP_PREFIX}/src/libIcu/bin64)
+		else(CMAKE_VS_PLATFORM_NAME STREQUAL "x64")
+			set(ICU_LIB ${ICU_EP_PREFIX}/src/libIcu/lib)
+			set(ICU_BIN ${ICU_EP_PREFIX}/src/libIcu/bin)
+		endif(CMAKE_VS_PLATFORM_NAME STREQUAL "x64")
+
 		set(ICU_INCLUDE_DIRS ${ICU_EP_PREFIX}/src/libIcu/include)
-		set(ICU_EP_LIBICUUC ${ICU_EP_PREFIX}/src/libIcu/lib/icuuc.lib)
-		set(ICU_EP_LIBICUIN ${ICU_EP_PREFIX}/src/libIcu/lib/icuin.lib)
-		set(ICU_EP_LIBICUDT ${ICU_EP_PREFIX}/src/libIcu/lib/icudt.lib)
-		set(ICU_EP_LIBICUUC_BIN ${ICU_EP_PREFIX}/src/libIcu/bin/icuuc67.dll)
-		set(ICU_EP_LIBICUIN_BIN ${ICU_EP_PREFIX}/src/libIcu/bin/icuin67.dll)
-		set(ICU_EP_LIBICUDT_BIN ${ICU_EP_PREFIX}/src/libIcu/bin/icudt67.dll)
+		set(ICU_EP_LIBICUUC ${ICU_LIB}/icuuc.lib)
+		set(ICU_EP_LIBICUUC_DEBUG ${ICU_LIB}/icuucd.lib)
+		set(ICU_EP_LIBICUIN ${ICU_LIB}/icuin.lib)
+		set(ICU_EP_LIBICUIN_DEBUG ${ICU_LIB}/icuind.lib)
+		set(ICU_EP_LIBICUDT ${ICU_LIB}/icudt.lib)
+		set(ICU_EP_LIBICUUC_BIN ${ICU_BIN}/icuuc67.dll)
+		set(ICU_EP_LIBICUUC_BIN_DEBUG ${ICU_BIN}/icuuc67d.dll)
+		set(ICU_EP_LIBICUIN_BIN ${ICU_BIN}/icuin67.dll)
+		set(ICU_EP_LIBICUIN_BIN_DEBUG ${ICU_BIN}/icuin67d.dll)
+		set(ICU_EP_LIBICUDT_BIN ${ICU_BIN}/icudt67.dll)
 
 
 		# to save time and avoid silly failures...specify just the targets we need for the aforementioned libs
@@ -155,26 +167,34 @@ if(NOT SUPPORT_ICU_BIDI)
 					PATCH_COMMAND ""
 					CONFIGURE_COMMAND ""
 					BUILD_IN_SOURCE 1
-					BUILD_COMMAND msbuild /p:Configuration=Release /p:Platform=Win32 /p:SkipUWP=true <DOWNLOAD_DIR>/src/libIcu/source/allinone/allinone.sln ${ICU_TARGETS}
+					BUILD_COMMAND msbuild /p:Configuration=$<CONFIG> /p:Platform=${CMAKE_VS_PLATFORM_NAME} /p:SkipUWP=true <DOWNLOAD_DIR>/src/libIcu/source/allinone/allinone.sln ${ICU_TARGETS}
 					COMMAND ${CMAKE_COMMAND} -E copy_directory
-						${ICU_EP_PREFIX}/src/libIcu/bin
+						${ICU_BIN}
 						${PROJECT_BINARY_DIR}/$<CONFIG>
 					INSTALL_COMMAND   ""
-					BUILD_BYPRODUCTS ${ICU_EP_LIBICUDATA};${ICU_EP_LIBICUI18N};${ICU_EP_LIBICUUC};${ICU_EP_LIBICUUC_BIN}${ICU_EP_LIBICUIN_BIN};${ICU_EP_LIBICUDT_BIN}
+					BUILD_BYPRODUCTS ${ICU_EP_LIBICUUC};${ICU_EP_LIBICUIN};${ICU_EP_LIBICUDT};${ICU_EP_LIBICUUC_DEBUG};${ICU_EP_LIBICUIN_DEBUG}
 				)
 
 		add_library(icuuc IMPORTED SHARED)
-		set_target_properties(icuuc PROPERTIES IMPORTED_IMPLIB
+		set_target_properties(icuuc PROPERTIES IMPORTED_IMPLIB_RELEASE
 		${ICU_EP_LIBICUUC})
-		set_target_properties(icuuc PROPERTIES IMPORTED_LOCATION
+		set_target_properties(icuuc PROPERTIES IMPORTED_IMPLIB_DEBUG
+		${ICU_EP_LIBICUUC_DEBUG})
+		set_target_properties(icuuc PROPERTIES IMPORTED_LOCATION_RELEASE
 		${ICU_EP_LIBICUUC_BIN})
+		set_target_properties(icuuc PROPERTIES IMPORTED_LOCATION_DEBUG
+		${ICU_EP_LIBICUUC_BIN_DEBUG})
 		add_dependencies(icuuc libIcu)
 
 		add_library(icuin IMPORTED SHARED)
-		set_target_properties(icuin PROPERTIES IMPORTED_IMPLIB
+		set_target_properties(icuin PROPERTIES IMPORTED_IMPLIB_RELEASE
 		${ICU_EP_LIBICUIN})
-		set_target_properties(icuin PROPERTIES IMPORTED_LOCATION
+		set_target_properties(icuin PROPERTIES IMPORTED_IMPLIB_DEBUG
+		${ICU_EP_LIBICUIN_DEBUG})
+		set_target_properties(icuin PROPERTIES IMPORTED_LOCATION_RELEASE
 		${ICU_EP_LIBICUIN_BIN})
+		set_target_properties(icuin PROPERTIES IMPORTED_LOCATION_DEBUG
+		${ICU_EP_LIBICUIN_BIN_DEBUG})
 		add_dependencies(icuin libIcu)
 
 		add_library(icudt IMPORTED SHARED)
@@ -185,6 +205,13 @@ if(NOT SUPPORT_ICU_BIDI)
 		add_dependencies(icudt libIcu)		
 
 		set(ICU_LIBRARIES icuuc icuin icudt)
+
+		# and make sure to have the dlls in target install
+		install(DIRECTORY ${ICU_BIN}/
+			DESTINATION bin
+			FILES_MATCHING
+			PATTERN "*.dll"
+		)		
 	else(MSVC) # original has also support for mingw...if you want that refer to...source
 		set(ICU_INCLUDE_DIRS ${ICU_EP_PREFIX}/include)
 		set(ICU_EP_LIBICUDATA ${ICU_EP_PREFIX}/lib/libicudata.a)
