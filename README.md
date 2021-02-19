@@ -42,7 +42,7 @@ I won't go on about cmake here, you can check out their website. going forward i
 you can use for building and installing.
 
 
-## build and install
+## Build and install
 
 Once you got the project file, you can now build the project. If you created an IDE file, you can use the IDE file to build the project.
 Alternatively you can do so from the command line, again using cmake. 
@@ -54,7 +54,7 @@ cmake --build build --config release
 
 This will build the project inside the build folder. You will be able to look up the result execultable per how you normally do when building with the relevant build environment. For example, for windows,  the TextExtraction/Release folder will have the result file.
 
-If you want, you can use the "install" verb of cmake to install a built product. use the prefix param to specify where you want the result to be installed to
+If you want, you can use the "install" verb of cmake to install a built product. Use the prefix param to specify where you want the result to be installed to
 
 ```bash
 cmake --install ./build/TextExtraction --prefix ./etc/install
@@ -62,7 +62,7 @@ cmake --install ./build/TextExtraction --prefix ./etc/install
 
 This will install the TextExtraction executable in ./etc/install.
 
-if you do not have `cmake --install` as option, you a regular build with prefix instead, like this:
+if you do not have `cmake --install` as option, you can use a regular build with install target instead, and specify the install target in configuration stage, like this:
 
 ```bash
 cd build
@@ -81,8 +81,8 @@ etc\install\bin\TextExtraction.exe sample.pdf
 ```
 
 # Bidirectional text support
-The PDF contains text as drawing instructions. as a result what's being parsed is per the _visual_ order of text.
-This doesn't matter much if your text is latin, or wholy left to right. However when the PDF has right to left text, either by itself or combined with left-to-right text or even numbers, the parsed text will appear to be reversed, or otherwise disorganized.
+PDF files contain text as drawing instructions. As a result what's being parsed is per the _visual_ order of text.
+This doesn't matter much if your text is latin, or wholly left to right. However when the PDF has right to left text, either by itself or combined with left-to-right text or even numbers, the parsed text will appear to be reversed, or otherwise disorganized.
 To take care of this there is support for Bidi reversal algorithm. This algorithm is implemented in ICU library, and this executable will use it if instructed so, and if ICU library is available.
 
 BIDI conversion is turned off by default, as it does carry some performance price, however you can unlock it by using the USE_BIDI configuration variable. When calling `cmake` for congiruation, add `-DUSE_BIDI=1`. like this:
@@ -112,11 +112,11 @@ You are also welcome to use the `PDFRecursiveInterpreter` directly for any conte
 License is Apache2, and provided [here](./LICENSE)
 
 # Features and implementation details
-This implementaiton is based on hummus PDF library. Specifically it implements a `PDFRecursiveInterpreter` which helps when looking to interpret PDF content streams. This has value in many possible implementations including content detection, content extraction, rendering etc. The interpreter is named recursive because it seemlessly interprets forms content used in the content stream, so you don't have to deal with it. It does allow you to cache your results and so avoid recursing into forms - when you wish to.
+This implementation is based on hummus PDF library. It implements a `PDFRecursiveInterpreter` which helps when looking to interpret PDF content streams. This has value in many possible implementations including content detection, content extraction, rendering etc. The interpreter is named recursive because it seemlessly interprets forms content used in the content stream, so you don't have to deal with it. It does allow you to cache your results and so avoid recursing into forms - when you wish to.
 
 This text extraction algorithm is based on a previous Javascript based implementation that was described here - https://pdfhummus.com/post/156548561656/extracting-text-from-pdf-files. Most limitations stated there are true to this implementation.
 
-This implementation was extended in the following manners:
+This implementation has a few enhancments on top of the original:
 - Computed structure is equivalent to the Javascript one, however the public output is text, for the sake of convenience. The code includes some heuristics to determine the text from this structure. The implementaiton is equivalent to the only usage i had back then...and it turned out quite good for my needs. I extended it to support multiple text orientations.
 - I put in some code to better treat inline images, and skip them, so as not to interfere with the general interpretation. This should take care of some missing texts i had back then.
 - bidi support included via ICU
