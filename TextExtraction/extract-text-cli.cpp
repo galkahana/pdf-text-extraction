@@ -127,7 +127,7 @@ int main(int argc, char* argv[])
             cerr << "Warning: " << it->description.c_str() << endl;
         }    
 
-        if(status == eSuccess && !quiet) {
+        if(status == eSuccess) {
 
             if(writeToOutputFile) {
                 OutputFile outputFile;
@@ -143,7 +143,7 @@ int main(int argc, char* argv[])
                 }
 
             }
-            else {
+            else if(!quiet) {
                 cout<<textExtraction.GetResultsAsText(bidiFlag).c_str();
             }
         }
