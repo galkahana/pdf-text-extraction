@@ -362,17 +362,16 @@ std::string TextExtraction::GetResultsAsText(int bidiFlag) {
     ResultTextCommandListList::iterator itPages = textsForPages.begin();
 
     for(; itPages != textsForPages.end();++itPages) {
-        ResultTextCommandVector sortedPageTextCommands(itPages->begin(), itPages->end());
-        sort(sortedPageTextCommands.begin(), sortedPageTextCommands.end(), CompareResultTextCommand);
+        ResultTextCommandVector pageTextCommands(itPages->begin(), itPages->end());
 
-        ResultTextCommandVector::iterator itCommands = sortedPageTextCommands.begin();
-        if(itCommands != sortedPageTextCommands.end()) {
+        ResultTextCommandVector::iterator itCommands = pageTextCommands.begin();
+        if(itCommands != pageTextCommands.end()) {
             // k. got some text, let's build it
             stringstream lineResult;
             ResultTextCommand& latestItem = *itCommands;
             lineResult<<latestItem.text;
             ++itCommands;
-            for(; itCommands != sortedPageTextCommands.end();++itCommands) {
+            for(; itCommands != pageTextCommands.end();++itCommands) {
                 if(!AreSameLine(latestItem, *itCommands)) {
                     if(bidiFlag == -1) {
                         result<<lineResult.str();
