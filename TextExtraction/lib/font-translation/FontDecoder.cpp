@@ -73,7 +73,7 @@ static const ByteToStringMap*  GetStandardEncodingMap(const string& inEncodingNa
         return &(scEncoding.MacExpertEncoding);
 
     if(inEncodingName == "MacRomanEncoding")
-        return &(scEncoding.MacExpertEncoding);
+        return &(scEncoding.MacRomanEncoding);
 
     return NULL; 
 }  
