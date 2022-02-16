@@ -3,6 +3,7 @@
 #include "PDFParser.h"
 #include "PDFIndirectObjectReference.h"
 #include "PDFWriter.h"
+#include "InputByteArrayStream.h"
 
 
 #include "./lib/interpreter/PDFRecursiveInterpreter.h"
@@ -219,10 +220,8 @@ EStatusCode TextExtraction::ComputeResultPlacements() {
     return eSuccess;
 }
 
-
-EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inStartPage, long inEndPage) {
+EStatusCode TextExtraction::ExtractText(IByteReaderWithPosition* inSourceStream, long inStartPage, long inEndPage){
     EStatusCode status = eSuccess;
-    InputFile sourceFile;
 
     LatestWarnings.clear();
     LatestError.code = eErrorNone;
@@ -233,48 +232,55 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
     embeddedFontDecoderCache.clear();
     textsForPages.clear();
 
-    do {
-        status = sourceFile.OpenFile(inFilePath);
-        if (status != eSuccess) {
-            LatestError.code = eErrorFileNotReadable;
-            LatestError.description = string("Cannot read template file ") + inFilePath;
-            break;
-        }
+    PDFParser parser;
+    status = parser.StartPDFParsing(inSourceStream);
+    if(status != eSuccess)
+    {
+        LatestError.code = eErrorInternalPDFWriter;
+        LatestError.description = string("Failed to parse template file");
+        return status;
+    }
 
+    // 1st phase - extract text placements
+    status = ExtractTextPlacements(&parser, inStartPage, inEndPage);
+    if(status != eSuccess)
+        return status;
 
-        PDFParser parser;
-        status = parser.StartPDFParsing(sourceFile.GetInputStream());
-        if(status != eSuccess)
-        {
-            LatestError.code = eErrorInternalPDFWriter;
-            LatestError.description = string("Failed to parse template file");
-            break;
-        }
+    // 2nd phase - translate encoded bytes to text strings.
+    status = Translate(&parser);
+    if(status != eSuccess)
+        return status;
 
-        // 1st phase - extract text placements
-        status = ExtractTextPlacements(&parser, inStartPage, inEndPage);
-        if(status != eSuccess)
-            break;
+    // 3rd phase - compute dimensions
+    status = ComputeDimensions(&parser);
 
-        // 2nd phase - translate encoded bytes to text strings.
-        status = Translate(&parser);
-        if(status != eSuccess)
-            break;
+    // 4th phase - flatten page placments, and simplify constructs
+    status = ComputeResultPlacements();
 
-        // 3rd phase - compute dimensions
-        status = ComputeDimensions(&parser);
-
-        // 4th phase - flatten page placments, and simplify constructs
-        status = ComputeResultPlacements();
-
-        // 5th phase - cleanup interim structs
-        textPlacementsForPages.clear();
-        refrencedFontDecoderCache.clear();
-        embeddedFontDecoderCache.clear();
-
-    } while(false);
-
+    // 5th phase - cleanup interim structs
+    textPlacementsForPages.clear();
+    refrencedFontDecoderCache.clear();
+    embeddedFontDecoderCache.clear();
+    
     return status;
+}
+
+EStatusCode TextExtraction::ExtractText(const uintptr_t pdf_data, uint32_t pdf_size, long inStartPage, long inEndPage){
+    InputByteArrayStream sourceBuff(reinterpret_cast<IOBasicTypes::Byte*>(pdf_data), pdf_size);
+    return ExtractText(&sourceBuff, inStartPage, inEndPage);
+}
+
+EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inStartPage, long inEndPage) {
+    EStatusCode status = eSuccess;
+    InputFile sourceFile;
+
+    status = sourceFile.OpenFile(inFilePath);
+    if (status != eSuccess) {
+        LatestError.code = eErrorFileNotReadable;
+        LatestError.description = string("Cannot read template file ") + inFilePath;
+        return status;
+    }
+    return ExtractText(sourceFile.GetInputStream(), inStartPage, inEndPage);
 }
 
 const double LINE_HEIGHT_THRESHOLD = 5;

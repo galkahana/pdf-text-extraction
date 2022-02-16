@@ -3,6 +3,7 @@
 #include "EStatusCode.h"
 
 #include "ObjectsBasicTypes.h"
+#include "IByteReaderWithPosition.h"
 
 #include "./lib/text-placements/TextPlacement.h"
 
@@ -37,7 +38,9 @@ class TextExtraction {
         TextExtraction();
         virtual ~TextExtraction();
 
+        PDFHummus::EStatusCode ExtractText(IByteReaderWithPosition* inSourceStream, long inStartPage, long inEndPage);
         PDFHummus::EStatusCode ExtractText(const std::string& inFilePath, long inStartPage=0, long inEndPage=-1);
+        PDFHummus::EStatusCode ExtractText(const uintptr_t pdf_data, uint32_t pdf_size, long inStartPage=0, long inEndPage=-1);
 
         TextExtractionError LatestError;
         TextExtractionWarningList LatestWarnings;  
