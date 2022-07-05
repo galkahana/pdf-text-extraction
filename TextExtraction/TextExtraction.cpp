@@ -12,6 +12,7 @@
 #include "./lib/bidi/BidiConversion.h"
 
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 using namespace PDFHummus;
