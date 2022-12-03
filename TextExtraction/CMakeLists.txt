@@ -310,3 +310,8 @@ endif(APPLE)
 install(TARGETS TextExtraction
     RUNTIME DESTINATION bin COMPONENT executable
 )
+
+
+ADD_SUBDIRECTORY(tests)
+
+enable_testing()

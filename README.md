@@ -23,7 +23,6 @@ To build/develop You will need:
 1. a compiler. for win you can use vs studio. choose community version - https://visualstudio.microsoft.com/
 2. cmake - download from here - https://cmake.org/
 
-
 # Building and Installing the project
 
 Once you installed pre-reqs, you can now build the project.
@@ -71,6 +70,32 @@ cd ..
 
 cmake --build build/TextExtraction --config release --target install
 ```
+
+## testing
+
+This project uses ctest for running tests. ctest is part of cmake and should be installed as part of cmake installation.
+To run the project tests (after having created the project files in ./build) go:
+
+```bash
+ctest --test-dir build
+```
+
+This should scan the folders for tests and run them.
+
+
+## VSCode usage
+
+If you are developing this project using vscode here's some suggestions to help you:  
+- install vscode C++ extensions:
+        - C/C++
+        - C/C++ Extension Pack
+        - C/C++ Themes
+- install vscode cmake extensions:
+        - Cmake
+        - Cmake Tools
+        - CMake Test Explorder
+
+This should help you enable testing and debugging in vscode. Specifically you can debug the TextExtrction CLI with the `(lldb) launch` debug target, and the tests are debuggable as well.
 
 # Running
 The end result is an executable, so just run it from comman line (it's a regular cli).

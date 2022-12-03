@@ -41,9 +41,6 @@ xcode/Build
 xcode/DerivedData
 .DS_Store
 
-#VSCode unswated#
-#################
-.vscode
 
 #unwanted other sources #
 ########################
@@ -59,3 +56,6 @@ Downloads
 
 # notes etc.
 etc
+
+# cmake testing
+Testing
