@@ -82,6 +82,7 @@ InputFileStream.cpp
 InputFlateDecodeStream.cpp
 InputLZWDecodeStream.cpp
 InputLimitedStream.cpp
+InputOffsetStream.cpp
 InputRC4XcodeStream.cpp
 InputPFBDecodeStream.cpp
 InputPredictorPNGOptimumStream.cpp
@@ -207,6 +208,7 @@ CIDFontWriter.h
 CMYKRGBColor.h
 ContainerIterator.h
 DecryptionHelper.h
+Deletable.h
 DescendentFontWriter.h
 DictionaryContext.h
 DictOperand.h
@@ -234,6 +236,7 @@ IByteReaderWithPosition.h
 IByteWriter.h
 IByteWriterWithPosition.h
 IContentContextListener.h
+IDeletable.h
 IDescendentFontWriter.h
 IDocumentContextExtender.h
 IFontDescriptorHelper.h
@@ -254,6 +257,7 @@ InputFileStream.h
 InputFlateDecodeStream.h
 InputLZWDecodeStream.h
 InputLimitedStream.h
+InputOffsetStream.h
 InputRC4XcodeStream.h
 InputPFBDecodeStream.h
 InputPredictorPNGOptimumStream.h
@@ -559,6 +563,8 @@ InputLZWDecodeStream.cpp
 InputLZWDecodeStream.h
 InputLimitedStream.cpp
 InputLimitedStream.h
+InputOffsetStream.cpp
+InputOffsetStream.h
 InputRC4XcodeStream.cpp
 InputRC4XcodeStream.h
 InputStreamSkipperStream.cpp
@@ -640,6 +646,8 @@ UppercaseSequance.h
 )
 
 source_group("PDF Embedding\\Parsed Objects" FILES
+Deletable.h
+IDeletable.h
 PDFArray.cpp
 PDFArray.h
 PDFBoolean.cpp
