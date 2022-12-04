@@ -50,6 +50,7 @@
 using namespace PDFHummus;
 
 #define MAX_XREF_SIZE 9999999999LL
+#define MAX_HEADER_SCAN_POSITION 1024
 
 PDFParser::PDFParser(void)
 {
@@ -177,7 +178,7 @@ EStatusCode PDFParser::ParseHeaderLine()
 		}
 
 		tokenizerResult = tokenizer.GetNextToken();
-	} while (tokenizerResult.first && mStream.GetCurrentPosition() < 1024);
+	} while (tokenizerResult.first && mStream.GetCurrentPosition() < MAX_HEADER_SCAN_POSITION);
 
 	TRACE_LOG("PDFParser::ParseHeaderLine, file does not begin as a PDF file. a PDF file should contain \"%%PDF-\" within the first 1024 bytes.");
 	return PDFHummus::eFailure;

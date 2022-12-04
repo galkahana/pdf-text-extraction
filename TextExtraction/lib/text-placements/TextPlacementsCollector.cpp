@@ -101,12 +101,18 @@ bool TextPlacementsCollector::onOperation(
     } else if(inOperation == "Q") {
         state.PopGraphicState();
     } else if(inOperation == "cm") {
+        if(inOperands.size() < 6)
+            return true; // too few params? ignore
+
         double matrix[6];
         for(int i=0;i<6;++i) {
              matrix[i] = ParsedPrimitiveHelper(inOperands[i]).GetAsDouble();
         }
         cm(matrix);
     } else if(inOperation == "gs") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         string gsName = ParsedPrimitiveHelper(inOperands.back()).ToString();
         Resources& currentResources = resourcesStack.back();
 
@@ -118,24 +124,44 @@ bool TextPlacementsCollector::onOperation(
 
     // Text State Operators
     } else if(inOperation == "Tc") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         Tc(ParsedPrimitiveHelper(inOperands.back()).GetAsDouble());
     } else if(inOperation == "Tw") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         Tw(ParsedPrimitiveHelper(inOperands.back()).GetAsDouble());
     } else if(inOperation == "Tz") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         state.CurrentTextState().scale = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
     } else if(inOperation == "TL") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         TL(ParsedPrimitiveHelper(inOperands.back()).GetAsDouble());        
     } else if(inOperation == "Ts") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         state.CurrentTextState().rise = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
     } else if(inOperation == "Tf") {
-        double size = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
-        string fontName = ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).ToString();
-        Resources& currentResources = resourcesStack.back();
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
 
-        StringToFontMap::iterator it = currentResources.fonts.find(fontName);
-        if(it != currentResources.fonts.end()) {
-            state.CurrentTextState().fontRef = it->second.fontRef;
-        } // should i have a default font policy here?! 80-20 gal, 80-20.
+        double size = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
+        if(inOperands.size() > 1) {
+            string fontName = ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).ToString();
+            Resources& currentResources = resourcesStack.back();
+
+            StringToFontMap::iterator it = currentResources.fonts.find(fontName);
+            if(it != currentResources.fonts.end()) {
+                state.CurrentTextState().fontRef = it->second.fontRef;
+            } // should i have a default font policy here?! 80-20 gal, 80-20.
+        }
         state.CurrentTextState().fontSize = size;
     } else if(inOperation == "BT") {
         state.StartTextElement();
@@ -143,13 +169,22 @@ bool TextPlacementsCollector::onOperation(
         state.EndTextPlacement();
         // Text positioining operators
     } else if(inOperation == "Td") {
+        if(inOperands.size() < 2)
+            return true; // too few params? ignore
+
         Td(ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).GetAsDouble(), ParsedPrimitiveHelper(inOperands.back()).GetAsDouble());
     } else if(inOperation == "TD") {
+        if(inOperands.size() < 2)
+            return true; // too few params? ignore
+
         double param1 = ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).GetAsDouble();
         double param2 =  ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
         TL(-param2);
         Td(param1, param2);
     } else if(inOperation == "Tm") {
+        if(inOperands.size() < 6)
+            return true; // too few params? ignore
+
         double matrix[6];
 
         for(int i=0;i<6;++i) {
@@ -160,18 +195,30 @@ bool TextPlacementsCollector::onOperation(
         TStar();
     // Text placement operators
     } else if(inOperation == "Tj") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         string asEncodedText = ParsedPrimitiveHelper(inOperands.back()).ToString();
         ByteList asBytes = ToBytesList(inOperands.back());
 
         textPlacement(PlacedTextCommandArgument(asEncodedText, asBytes));
     } else if(inOperation == "\'") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+
         Quote(inOperands.back());
     } else if(inOperation == "\"") {
+        if(inOperands.size() < 3)
+            return true; // too few params? ignore
+
         Tw(ParsedPrimitiveHelper(inOperands[inOperands.size()-3]).GetAsDouble());
         Tc(ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).GetAsDouble());
         Quote(inOperands.back());
 
     } else if(inOperation == "TJ") {
+        if(inOperands.size() < 1)
+            return true; // too few params? ignore
+        
         PlacedTextCommandArgumentList placements;
         PDFObjectCastPtr<PDFArray> arg;
 

@@ -42,6 +42,9 @@ void TPCollectionState::StartTextElement() {
 }
 
 void TPCollectionState::EndTextPlacement() {
+    if(!isInTextElement) // ET without BT. ignore.
+        return;
+
     isInTextElement = false;
 
     // copy persisted data to top text state
