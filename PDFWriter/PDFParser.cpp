@@ -1210,6 +1210,9 @@ void PDFParser::MergeXrefWithMainXref(XrefEntryInputVector& inTableToMerge, Obje
     if(inMergedTableSize > mXrefSize)
         mXrefSize = inMergedTableSize;
 
+	// make sure we have enough room
+	ExtendXrefToSize(mXrefTable, inTableToMerge.size());
+
 	for(ObjectIDType i = 0; i < inTableToMerge.size(); ++i) // iterate by input table size which is what we actually want to read from (and not the logical size)
 	{
 		if(inTableToMerge[i].mType != eXrefEntryUndefined)

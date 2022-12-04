@@ -12,6 +12,9 @@ set_property (TEST TextExtractionNoInputPrintsUsage PROPERTY PASS_REGULAR_EXPRES
 add_test(NAME TextExtractionSimpleInputPrintsText COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/HighLevelContentContext.pdf)
 set_property (TEST TextExtractionSimpleInputPrintsText PROPERTY PASS_REGULAR_EXPRESSION "PathsSquares\nCirclesRectangles")
 
+# my cv test
+add_test(NAME TextExtractionCVInputPrintsText COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/GalKahanaCV2022.pdf)
+
 # fuzz testing
 file(GLOB fuzztestfiles ${CMAKE_CURRENT_SOURCE_DIR}/Materials/FuzzTests/*)
 foreach (fuzztestfile ${fuzztestfiles})
