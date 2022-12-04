@@ -139,7 +139,12 @@ License is Apache2, and provided [here](./LICENSE)
 # Features and implementation details
 This implementation is based on hummus PDF library. It implements a `PDFRecursiveInterpreter` which helps when looking to interpret PDF content streams. This has value in many possible implementations including content detection, content extraction, rendering etc. The interpreter is named recursive because it seemlessly interprets forms content used in the content stream, so you don't have to deal with it. It does allow you to cache your results and so avoid recursing into forms - when you wish to.
 
-This text extraction algorithm is based on a previous Javascript based implementation that was described here - https://pdfhummus.com/post/156548561656/extracting-text-from-pdf-files. Most limitations stated there are true to this implementation.
+This text extraction algorithm is based on a previous Javascript based implementation that was described here - https://pdfhummus.com/post/156548561656/extracting-text-from-pdf-files. Most limitations stated there are true to this implementation:
+
+1. No support of vertical writing fonts. In calculating the text measures i’m assuming horizontal. 
+2. No support for large fonts (CIDs) that don’t hold unicode map (that is, only got a predefined Cmap name).
+The 2nd is a little cryptic. Thing is i wasn't 100% sure how to deal with those CID fonts texts and translate them properly. maybe some sample files of such cases can help me figure it out. i reckon there shouldn't be many of those in the wild cause i think most of them do have a unicode map.
+
 
 This implementation has a few enhancments on top of the original:
 - Computed structure is equivalent to the Javascript one, however the public output is text, for the sake of convenience. The code includes some heuristics to determine the text from this structure. The implementaiton is equivalent to the only usage i had back then...and it turned out quite good for my needs. I extended it to support multiple text orientations.
