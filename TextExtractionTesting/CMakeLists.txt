@@ -17,6 +17,7 @@ set_property (TEST TextExtractionSimpleInputPrintsText PROPERTY PASS_REGULAR_EXP
 
 # my cv test
 add_test(NAME TextExtractionCVInputPrintsText COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/GalKahanaCV2022.pdf)
+set_property (TEST TextExtractionCVInputPrintsText PROPERTY PASS_REGULAR_EXPRESSION "Curriculum Vitae")
 
 # fuzz testing
 file(GLOB fuzztestfiles ${CMAKE_CURRENT_SOURCE_DIR}/Materials/FuzzTests/*)
