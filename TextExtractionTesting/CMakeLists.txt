@@ -4,6 +4,9 @@ cmake_minimum_required (VERSION 3.10)
 ## testing
 enable_testing()
 
+# dummy target to make sure we got TextExtraction going
+add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} DEPENDS TextExtraction)
+
 # empty test
 add_test(NAME TextExtractionNoInputPrintsUsage COMMAND TextExtraction)
 set_property (TEST TextExtractionNoInputPrintsUsage PROPERTY PASS_REGULAR_EXPRESSION "Usage:")
@@ -27,3 +30,4 @@ set_property (TEST FuzzTest_output-output-dummy.txt-34544.pdf PROPERTY PASS_REGU
 set_property (TEST FuzzTest_radamsa-dummy-20507.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 set_property (TEST FuzzTest_radamsa-dummy-27773.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 set_property (TEST FuzzTest_radamsa-dummy-47574.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
+
