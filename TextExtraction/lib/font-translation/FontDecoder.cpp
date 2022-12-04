@@ -94,7 +94,11 @@ UnicodeMapReader::UnicodeMapReader(ULongToULongListMap& inResult):result(inResul
 bool UnicodeMapReader::onOperation(const std::string& inOperation, const PDFObjectVector& inOperands) {
     if(inOperation == "endbfchar") {
         // Operands are pairs. always of the form <codeByte> <unicodes>
-        for(unsigned long i=0;i<inOperands.size();i+=2) {
+
+        // make sure i got pairs. skip last one if not
+        unsigned long limit = inOperands.size() - inOperands.size() % 2;
+
+        for(unsigned long i=0;i<limit;i+=2) {
             ByteList byteCode = ToBytesList(inOperands[i]);
             ByteList unicodes = ToBytesList(inOperands[i+1]);
 
@@ -102,7 +106,11 @@ bool UnicodeMapReader::onOperation(const std::string& inOperation, const PDFObje
         }
     } else if(inOperation == "endbfrange") {
         // Operands are 3. two codesBytes and then either a unicode start range or array of unicodes
-        for(unsigned long i=0;i<inOperands.size();i+=3) {
+
+        // make sure i got 3s. skip last one if not
+        unsigned long limit = inOperands.size() - inOperands.size() % 3;
+
+        for(unsigned long i=0;i<limit;i+=3) {
             unsigned long startCode = beToNum(ToBytesList(inOperands[i]));
             unsigned long endCode = beToNum(ToBytesList(inOperands[i+1]));
 

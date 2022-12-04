@@ -237,7 +237,7 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
         status = sourceFile.OpenFile(inFilePath);
         if (status != eSuccess) {
             LatestError.code = eErrorFileNotReadable;
-            LatestError.description = string("Cannot read template file ") + inFilePath;
+            LatestError.description = string("Cannot read file ") + inFilePath;
             break;
         }
 
@@ -247,7 +247,7 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
         if(status != eSuccess)
         {
             LatestError.code = eErrorInternalPDFWriter;
-            LatestError.description = string("Failed to parse template file");
+            LatestError.description = string("Failed to parse file");
             break;
         }
 

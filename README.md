@@ -23,7 +23,6 @@ To build/develop You will need:
 1. a compiler. for win you can use vs studio. choose community version - https://visualstudio.microsoft.com/
 2. cmake - download from here - https://cmake.org/
 
-
 # Building and Installing the project
 
 Once you installed pre-reqs, you can now build the project.
@@ -72,6 +71,32 @@ cd ..
 cmake --build build/TextExtraction --config release --target install
 ```
 
+## testing
+
+This project uses ctest for running tests. ctest is part of cmake and should be installed as part of cmake installation.
+To run the project tests (after having created the project files in ./build) go:
+
+```bash
+ctest --test-dir build
+```
+
+This should scan the folders for tests and run them.
+
+
+## VSCode usage
+
+If you are developing this project using vscode here's some suggestions to help you:  
+- install vscode C++ extensions:
+        - C/C++
+        - C/C++ Extension Pack
+        - C/C++ Themes
+- install vscode cmake extensions:
+        - Cmake
+        - Cmake Tools
+        - CMake Test Explorder
+
+This should help you enable testing and debugging in vscode. Specifically you can debug the TextExtrction CLI with the `(lldb) launch` debug target, and the tests are debuggable as well.
+
 # Running
 The end result is an executable, so just run it from comman line (it's a regular cli).
 
@@ -114,7 +139,12 @@ License is Apache2, and provided [here](./LICENSE)
 # Features and implementation details
 This implementation is based on hummus PDF library. It implements a `PDFRecursiveInterpreter` which helps when looking to interpret PDF content streams. This has value in many possible implementations including content detection, content extraction, rendering etc. The interpreter is named recursive because it seemlessly interprets forms content used in the content stream, so you don't have to deal with it. It does allow you to cache your results and so avoid recursing into forms - when you wish to.
 
-This text extraction algorithm is based on a previous Javascript based implementation that was described here - https://pdfhummus.com/post/156548561656/extracting-text-from-pdf-files. Most limitations stated there are true to this implementation.
+This text extraction algorithm is based on a previous Javascript based implementation that was described here - https://pdfhummus.com/post/156548561656/extracting-text-from-pdf-files. Most limitations stated there are true to this implementation:
+
+1. No support of vertical writing fonts. In calculating the text measures i’m assuming horizontal. 
+2. No support for large fonts (CIDs) that don’t hold unicode map (that is, only got a predefined Cmap name).
+The 2nd is a little cryptic. Thing is i wasn't 100% sure how to deal with those CID fonts texts and translate them properly. maybe some sample files of such cases can help me figure it out. i reckon there shouldn't be many of those in the wild cause i think most of them do have a unicode map.
+
 
 This implementation has a few enhancments on top of the original:
 - Computed structure is equivalent to the Javascript one, however the public output is text, for the sake of convenience. The code includes some heuristics to determine the text from this structure. The implementaiton is equivalent to the only usage i had back then...and it turned out quite good for my needs. I extended it to support multiple text orientations.

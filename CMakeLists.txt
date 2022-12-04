@@ -15,3 +15,6 @@ ADD_SUBDIRECTORY(FreeType)
 ADD_SUBDIRECTORY(LibPng)
 ADD_SUBDIRECTORY(PDFWriter)
 ADD_SUBDIRECTORY(TextExtraction)
+
+enable_testing()
+ADD_SUBDIRECTORY(TextExtractionTesting)
