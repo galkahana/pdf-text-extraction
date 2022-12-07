@@ -12,11 +12,43 @@
 #include "./lib/bidi/BidiConversion.h"
 
 #include <algorithm>
+#include <math.h>
 
 using namespace std;
 using namespace PDFHummus;
 
 static const string scEmpty = "";
+static const char scSpace = ' ';
+
+void unionLeftBoxToRight(const double (&inLeftBox)[4], double (&refRightBox)[4]) {
+    // union left box to right box resulting in a box that contains both
+    
+    if(inLeftBox[0] < refRightBox[0])
+        refRightBox[0] = inLeftBox[0];
+    if(inLeftBox[1] < refRightBox[1])
+        refRightBox[1] = inLeftBox[1];
+    if(inLeftBox[2] > refRightBox[2])
+        refRightBox[2] = inLeftBox[2];
+    if(inLeftBox[3] > refRightBox[3])
+        refRightBox[3] = inLeftBox[3];
+}
+
+double boxHeight(const double (&inBox)[4]) {
+    return inBox[3] - inBox[1];
+}
+
+double boxWidth(const double (&inBox)[4]) {
+    return inBox[2] - inBox[0];
+}
+
+double boxTop(const double (&inBox)[4]) {
+    return inBox[3];
+}
+
+double boxBottom(const double (&inBox)[4]) {
+    return inBox[1];
+}
+
 
 TextExtraction::TextExtraction() {
 
@@ -178,6 +210,7 @@ EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
                     item.localBBox[1] = descentPlacement;
                     item.localBBox[2] = maxPlacement;
                     item.localBBox[3] = ascentPlacement;
+                    item.spaceWidth = decoder->spaceWidth*item.textState.fontSize*item.textState.scale/100;
                 }
             }
         }
@@ -202,15 +235,15 @@ EStatusCode TextExtraction::ComputeResultPlacements() {
             PlacedTextCommandList::iterator commandIt = textElementsIt->texts.begin();
             for(; commandIt != textElementsIt->texts.end(); ++commandIt) {
                 ResultTextCommandList& pageResults = textsForPages.back();
-                PlacedTextCommand& textPlacement = *commandIt;
-                
+                PlacedTextCommand& textPlacement = *commandIt;    
                 multiplyMatrix(textPlacement.textState.tm,textPlacement.ctm, mtxBuffer);
                 transformBox(textPlacement.localBBox, mtxBuffer, boxBuffer);
                 pageResults.push_back(ResultTextCommand(
                     textPlacement.allTextAsText,
                     mtxBuffer,
                     textPlacement.localBBox,
-                    boxBuffer
+                    boxBuffer,
+                    textPlacement.spaceWidth
                 ));
             }
         }
@@ -338,8 +371,6 @@ bool CompareResultTextCommand(const ResultTextCommand& a, const ResultTextComman
     return codeA < codeB;
 }
 
-static const string scCRLN = "\r\n";
-
 typedef std::vector<ResultTextCommand> ResultTextCommandVector;
 
 bool AreSameLine(const ResultTextCommand& a, const ResultTextCommand& b) {
@@ -356,48 +387,105 @@ bool AreSameLine(const ResultTextCommand& a, const ResultTextCommand& b) {
     }
 }
 
-std::string TextExtraction::GetResultsAsText(int bidiFlag) {
+unsigned long GuessHorizontalSpacingBetweenPlacements(const ResultTextCommand& left, const ResultTextCommand& right) {
+    double leftTextRightEdge = left.globalBbox[2];
+    double rightTextLeftEdge = right.globalBbox[0];
+
+    if(leftTextRightEdge > rightTextLeftEdge)
+        return 0; // left text is overflowing into right text
+
+    double distance = rightTextLeftEdge - leftTextRightEdge;
+    double spaceWidth = left.spaceWidth;
+
+    if(spaceWidth == 0 && boxWidth(left.globalBbox) > 0) {
+        // if no available space width from font info, try to evaluate per the left string width/char length...not the best...but
+        // easy.
+        spaceWidth = boxWidth(left.globalBbox) / left.text.length();
+    }
+
+    if(spaceWidth == 0)
+        return 0; // protect from 0 errors
+
+    return (unsigned long)floor(distance/spaceWidth);
+}
+
+static const string scCRLN = "\r\n";
+
+void TextExtraction::MergeLineStreamToResultString(
+    const stringstream& inStream, 
+    int bidiFlag,
+    bool shouldAddSpacesPerLines, 
+    const double (&inLineBox)[4],
+    const double (&inPrevLineBox)[4],
+    stringstream& refStream
+) {
+    BidiConversion bidi;
+
+    // add spaces before line, per distance from last line
+    if(shouldAddSpacesPerLines && boxTop(inLineBox) < boxBottom(inPrevLineBox)) {
+        unsigned long verticalLines = floor((boxBottom(inPrevLineBox) - boxTop(inLineBox))/boxHeight(inPrevLineBox));
+        for(unsigned long i=0;i<verticalLines;++i)
+            refStream<<scCRLN;
+    }
+
+
+    if(bidiFlag == -1) {
+        refStream<<inStream.str();
+    }
+    else {
+        string bidiResult;
+        bidi.ConvertVisualToLogical(inStream.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
+        refStream<<bidiResult;
+    }
+    refStream<<scCRLN;
+
+}
+
+std::string TextExtraction::GetResultsAsText(int bidiFlag, ESpacing spacingFlag) {
     stringstream result;
     BidiConversion bidi;
     ResultTextCommandListList::iterator itPages = textsForPages.begin();
+    double lineBox[4];
+    double prevLineBox[4];
+    bool isFirstLineInPage;
+    bool addVerticalSpaces = spacingFlag & TextExtraction::eSpacingVertical;
+    bool addHorizontalSpaces = spacingFlag & TextExtraction::eSpacingHorizontal;
 
     for(; itPages != textsForPages.end();++itPages) {
         ResultTextCommandVector sortedPageTextCommands(itPages->begin(), itPages->end());
         sort(sortedPageTextCommands.begin(), sortedPageTextCommands.end(), CompareResultTextCommand);
 
         ResultTextCommandVector::iterator itCommands = sortedPageTextCommands.begin();
-        if(itCommands != sortedPageTextCommands.end()) {
-            // k. got some text, let's build it
-            stringstream lineResult;
-            ResultTextCommand& latestItem = *itCommands;
-            lineResult<<latestItem.text;
-            ++itCommands;
-            for(; itCommands != sortedPageTextCommands.end();++itCommands) {
-                if(!AreSameLine(latestItem, *itCommands)) {
-                    if(bidiFlag == -1) {
-                        result<<lineResult.str();
-                    }
-                    else {
-                        string bidiResult;
-                        bidi.ConvertVisualToLogical(lineResult.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
-                        result<<bidiResult;
-                    }
-                    result<<scCRLN;
-                    lineResult.str(scEmpty);
+        if(itCommands == sortedPageTextCommands.end())
+            continue;
+
+        // k. got some text, let's build it
+        stringstream lineResult;
+        ResultTextCommand& latestItem = *itCommands;
+        bool hasPreviousLineInPage = false;
+        copyBox(itCommands->globalBbox, lineBox);
+        lineResult<<latestItem.text;
+        ++itCommands;
+        for(; itCommands != sortedPageTextCommands.end();++itCommands) {
+            if(AreSameLine(latestItem, *itCommands)) {
+                if(addHorizontalSpaces) {
+                    unsigned long spaces = GuessHorizontalSpacingBetweenPlacements(latestItem, *itCommands);
+                    if(spaces != 0)
+                        lineResult<<string(spaces, scSpace);
                 }
-                lineResult<<itCommands->text;
-                latestItem = *itCommands;
+                unionLeftBoxToRight(itCommands->globalBbox, lineBox);
+            } else {
+                // merge complete line to accumulated text, and start a fresh line with fresh accumulators
+                MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox, result);
+                lineResult.str(scEmpty);
+                copyBox(lineBox, prevLineBox);
+                copyBox(itCommands->globalBbox, lineBox);
+                hasPreviousLineInPage = true;
             }
-            if(bidiFlag == -1) {
-                result<<lineResult.str();
-            }
-            else {
-                string bidiResult;
-                bidi.ConvertVisualToLogical(lineResult.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
-                result<<bidiResult;
-            }
-            result<<scCRLN;
-        }     
+            lineResult<<itCommands->text;
+            latestItem = *itCommands;
+        }
+        MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox, result);
     }
 
     return result.str();

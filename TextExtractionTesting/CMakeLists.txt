@@ -13,7 +13,7 @@ set_property (TEST TextExtractionNoInputPrintsUsage PROPERTY PASS_REGULAR_EXPRES
 
 # simple file test
 add_test(NAME TextExtractionSimpleInputPrintsText COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/HighLevelContentContext.pdf)
-set_property (TEST TextExtractionSimpleInputPrintsText PROPERTY PASS_REGULAR_EXPRESSION "PathsSquares\nCirclesRectangles")
+set_property (TEST TextExtractionSimpleInputPrintsText PROPERTY PASS_REGULAR_EXPRESSION "Paths[ \t\r\n]*Squares[ \\t\r\n]*Circles[ \t\r\n]*Rectangles")
 
 # my cv test
 add_test(NAME TextExtractionCVInputPrintsText COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/GalKahanaCV2022.pdf)

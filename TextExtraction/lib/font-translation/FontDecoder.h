@@ -39,6 +39,7 @@ public:
 
     double ascent;
     double descent;
+    double spaceWidth;
 private:
     bool isSimpleFont;
     bool hasToUnicode;
