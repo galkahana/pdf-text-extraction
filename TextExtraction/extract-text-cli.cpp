@@ -18,20 +18,25 @@ static void ShowUsage(const string& name)
     cerr << "Usage: " << name << " filepath <option(s)>\n"
               << "filepath - pdf file path\n"
               << "Options:\n"
-              << "\t-s, --start <d>\t\t\tstart text extraction from a page index. use negative numbers to subtract from pages count\n"
-              << "\t-e, --end <d>\t\t\tend text extraction upto page index. use negative numbers to subtract from pages count\n"
+              << "\t-s, --start <d>\t\t\t\tstart text extraction from a page index. use negative numbers to subtract from pages count\n"
+              << "\t-e, --end <d>\t\t\t\tend text extraction upto page index. use negative numbers to subtract from pages count\n"
 #if (SUPPORT_ICU_BIDI==1)
-              << "\t-b, --bidi <RTL|LTR>\t\tuse bidi algo to convert visual to logical. provide default direction per document writing direction.\n"
+              << "\t-b, --bidi <RTL|LTR>\t\t\tuse bidi algo to convert visual to logical. provide default direction per document writing direction.\n"
 #endif
-              << "\t-o, --output /path/to/file\twrite result to output file\n"
-              << "\t-q, --quiet\t\t\tquiet run. only shows errors and warnings\n"
-              << "\t-h, --help\t\t\tShow this help message\n"
-              << "\t-d, --debug /path/to/file\tcreate debug output file\n"
+              << "\t-p, --spacing <BOTH|HOR|VER|NONE>\tadd spaces between pieces of text considering their relative positions. default is BOTH.\n"
+              << "\t-o, --output /path/to/file\t\twrite result to output file\n"
+              << "\t-q, --quiet\t\t\t\tquiet run. only shows errors and warnings\n"
+              << "\t-h, --help\t\t\t\tShow this help message\n"
+              << "\t-d, --debug /path/to/file\t\tcreate debug output file\n"
               << endl;
 }
 
 static const string BIDI_LTR = "LTR";
 static const string BIDI_RTL = "RTL";
+static const string SPACING_BOTH = "BOTH";
+static const string SPACING_HOR = "HOR";
+static const string SPACING_VER = "VER";
+static const string SPACING_NONE = "NONE";
 
 
 int main(int argc, char* argv[])
@@ -46,6 +51,7 @@ int main(int argc, char* argv[])
     string debugPath = "";
     bool writeToOutputFile = false;
     string outputFilePath = "";
+    TextExtraction::ESpacing spacing = TextExtraction::eSpacingBoth;
     long startPage = 0;
     long endPage = -1;
     bool quiet = false;
@@ -89,6 +95,26 @@ int main(int argc, char* argv[])
                 return 1;                 
             } 
 #endif
+        } else if((arg == "-p") || (arg == "--spacing")) {
+            if (i + 1 < argc) {
+                string argString = argv[++i];
+                if(argString == SPACING_BOTH)
+                    spacing = TextExtraction::eSpacingBoth;
+                else if(argString == SPACING_HOR)
+                    spacing = TextExtraction::eSpacingHorizontal;
+                else if(argString == SPACING_VER)
+                    spacing = TextExtraction::eSpacingVertical;
+                else if(argString == SPACING_NONE)
+                    spacing = TextExtraction::eSpacingNone;
+                else {
+                    std::cerr << "--spacing option requires one argument, which is the spaces addition policy. Use either BOTH, HOR (for horizontal only), VER (for vertical only) or NONE." << std::endl;
+                    return 1;                 
+                }
+            } else {
+                std::cerr << "--spacing option requires one argument, which is the spaces addition policy. Use either BOTH, HOR (for horizontal only), VER (for vertical only) or NONE." << std::endl;
+                return 1;                 
+            }            
+
         } else if((arg == "-d") || (arg == "--debug")) {
             debugging = true;
             if (i + 1 < argc) {
@@ -136,7 +162,7 @@ int main(int argc, char* argv[])
                     cerr << "Error: Cannot open target file path for writing in" << outputFilePath.c_str() << endl;
                 }
                 else {
-                    string result = textExtraction.GetResultsAsText(bidiFlag);
+                    string result = textExtraction.GetResultsAsText(bidiFlag, spacing);
                     InputStringStream textStream(result);		
                     OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
 		            status = streamCopier.CopyToOutputStream(&textStream);
@@ -144,7 +170,7 @@ int main(int argc, char* argv[])
 
             }
             else if(!quiet) {
-                cout<<textExtraction.GetResultsAsText(bidiFlag).c_str();
+                cout<<textExtraction.GetResultsAsText(bidiFlag, spacing).c_str();
             }
         }
 

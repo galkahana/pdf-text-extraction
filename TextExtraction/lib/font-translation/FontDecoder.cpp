@@ -21,6 +21,9 @@
 using namespace std;
 using namespace PDFHummus;
 
+#define SPACE_CODE 32
+#define M_CODE 77
+
 static const Encoding scEncoding;
 static const StandardFontsDimensions scStandardFontsDimensions;
 
@@ -277,7 +280,7 @@ void FontDecoder::ParseCIDFontDimensions(PDFParser* inParser, PDFDictionary* inF
                 PDFArray* asArray = (PDFArray*)it.GetItem();
                 it.MoveNext();
                 
-                SingleValueContainerIterator<PDFObjectVector> itArray = widthsArray->GetIterator();
+                SingleValueContainerIterator<PDFObjectVector> itArray = asArray->GetIterator();
                 unsigned long j=0;
                 while(itArray.MoveNext()) {
                     widths[cFirst + j] = ParsedPrimitiveHelper(itArray.GetItem()).GetAsDouble();
@@ -331,6 +334,8 @@ void FontDecoder::ParseFontData(PDFParser* inParser, PDFDictionary* inFont) {
     else {
         ParseCIDFontDimensions(inParser, inFont);
     }
+    double computedSpaceWidth = GetCodeWidth(SPACE_CODE);
+    spaceWidth = (isMonospaced ? monospaceWidth : (computedSpaceWidth == 0 ?  GetCodeWidth(M_CODE) : computedSpaceWidth))/1000;
 }
 
 string FontDecoder::ToUnicodeEncoding(const ByteList& inAsBytes) {

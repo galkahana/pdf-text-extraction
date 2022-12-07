@@ -9,6 +9,7 @@
 #include "ErrorsAndWarnings.h"
 #include "RefCountPtr.h"
 
+#include <sstream>
 #include <string>
 #include <list>
 
@@ -34,6 +35,15 @@ typedef std::map< RefCountPtr<PDFObject>, FontDecoder,  LessRefCountPDFObject> P
 class TextExtraction {
 
     public:
+
+        enum ESpacing
+        {
+            eSpacingNone = 0,
+            eSpacingHorizontal = 1,
+            eSpacingVertical = 2,
+            eSpacingBoth = 3
+        };
+
         TextExtraction();
         virtual ~TextExtraction();
 
@@ -51,7 +61,7 @@ class TextExtraction {
             const std::string& inTargetOutputFilePath
         );
 
-        std::string GetResultsAsText(int bidiFlag);
+        std::string GetResultsAsText(int bidiFlag, ESpacing spacingFlag);
 
     private:
         // interim work construct
@@ -68,5 +78,12 @@ class TextExtraction {
         PDFHummus::EStatusCode ComputeResultPlacements();
 
         FontDecoder* GetDecoderForCommand(PDFParser* inParser, PlacedTextCommand& inCommand);
-
+        void MergeLineStreamToResultString(    
+            const std::stringstream& inStream, 
+            int bidiFlag,
+            bool shouldAddSpacesPerLines, 
+            const double (&inLineBox)[4],
+            const double (&inPrevLineBox)[4],
+            std::stringstream& refStream
+        );
 };
