@@ -6,13 +6,14 @@ Options exists to output to file, choose pages range etc.
 Usage: TextExtraction.exe filepath <option(s)>
 filepath - pdf file path
 Options:
-        -s, --start <d>                 start text extraction from a page index. use negative numbers to subtract from pages count
-        -e, --end <d>                   end text extraction upto page index. use negative numbers to subtract from pages count
-        -b, --bidi <RTL|LTR>            use bidi algo to convert visual to logical. provide default direction per document writing direction.
-        -o, --output /path/to/file      write result to output file
-        -q, --quiet                     quiet run. only shows errors and warnings
-        -h, --help                      Show this help message
-        -d, --debug /path/to/file       create debug output file
+        -s, --start <d>                         start text extraction from a page index. use negative numbers to subtract from pages count
+        -e, --end <d>                           end text extraction upto page index. use negative numbers to subtract from pages count
+        -b, --bidi <RTL|LTR>                    use bidi algo to convert visual to logical. provide default direction per document writing direction.
+        -p, --spacing <BOTH|HOR|VER|NONE>       add spaces between pieces of text considering their relative positions. default is BOTH.
+        -o, --output /path/to/file              write result to output file
+        -q, --quiet                             quiet run. only shows errors and warnings
+        -h, --help                              Show this help message
+        -d, --debug /path/to/file               create debug output file
 ```
 
 # First time around
