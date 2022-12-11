@@ -1,5 +1,6 @@
 #pragma once
 
+void unitMatrix(double (&mtxResult)[6]);
 void copyMatrix(const double (&mtx)[6], double (&mtxResult)[6]);
 void multiplyMatrix(const double (&mtxA)[6], const double (&mtxB)[6], double (&mtxResult)[6]);
 void copyBox(const double (&box)[4], double (&boxResult)[4]);

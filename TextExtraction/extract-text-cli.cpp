@@ -9,6 +9,7 @@
 #include "IByteReaderWithPosition.h"
 
 #include "TextExtraction.h"
+#include "./lib/text-composition/TextComposer.h"
 
 using namespace std;
 using namespace PDFHummus;
@@ -51,7 +52,7 @@ int main(int argc, char* argv[])
     string debugPath = "";
     bool writeToOutputFile = false;
     string outputFilePath = "";
-    TextExtraction::ESpacing spacing = TextExtraction::eSpacingBoth;
+    TextComposer::ESpacing spacing = TextComposer::eSpacingBoth;
     long startPage = 0;
     long endPage = -1;
     bool quiet = false;
@@ -99,13 +100,13 @@ int main(int argc, char* argv[])
             if (i + 1 < argc) {
                 string argString = argv[++i];
                 if(argString == SPACING_BOTH)
-                    spacing = TextExtraction::eSpacingBoth;
+                    spacing = TextComposer::eSpacingBoth;
                 else if(argString == SPACING_HOR)
-                    spacing = TextExtraction::eSpacingHorizontal;
+                    spacing = TextComposer::eSpacingHorizontal;
                 else if(argString == SPACING_VER)
-                    spacing = TextExtraction::eSpacingVertical;
+                    spacing = TextComposer::eSpacingVertical;
                 else if(argString == SPACING_NONE)
-                    spacing = TextExtraction::eSpacingNone;
+                    spacing = TextComposer::eSpacingNone;
                 else {
                     std::cerr << "--spacing option requires one argument, which is the spaces addition policy. Use either BOTH, HOR (for horizontal only), VER (for vertical only) or NONE." << std::endl;
                     return 1;                 

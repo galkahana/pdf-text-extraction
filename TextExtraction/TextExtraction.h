@@ -2,48 +2,25 @@
 
 #include "EStatusCode.h"
 
-#include "ObjectsBasicTypes.h"
-
-#include "./lib/text-placements/TextPlacement.h"
+#include "./lib/text-parsing/ParsedTextPlacement.h"
+#include "./lib/text-parsing/ITextInterpreterHandler.h"
+#include "./lib/text-composition/TextComposer.h"
 
 #include "ErrorsAndWarnings.h"
-#include "RefCountPtr.h"
+
+class PDFParser;
 
 #include <sstream>
 #include <string>
 #include <list>
 
-typedef std::list<TextElementList> TextElementListList;
-typedef std::list<ResultTextCommandList> ResultTextCommandListList;
-
-class PDFObject;
-class PDFParser;
-class PDFDictionary;
-class FontDecoder;
-
-struct LessRefCountPDFObject {
-    bool operator()( const RefCountPtr<PDFObject>& lhs, const RefCountPtr<PDFObject>& rhs ) const {
-        return lhs.GetPtr() < rhs.GetPtr();
-    }
-};  
-
+typedef std::list<ParsedTextPlacementList> ParsedTextPlacementListList;
 typedef std::list<TextExtractionWarning> TextExtractionWarningList;
 
-typedef std::map<ObjectIDType, FontDecoder> ObjectIDTypeToFontDecoderMap;
-typedef std::map< RefCountPtr<PDFObject>, FontDecoder,  LessRefCountPDFObject> PDFObjectToFontDecoderMap;
 
-class TextExtraction {
+class TextExtraction : public ITextInterpreterHandler {
 
     public:
-
-        enum ESpacing
-        {
-            eSpacingNone = 0,
-            eSpacingHorizontal = 1,
-            eSpacingVertical = 2,
-            eSpacingBoth = 3
-        };
-
         TextExtraction();
         virtual ~TextExtraction();
 
@@ -53,7 +30,7 @@ class TextExtraction {
         TextExtractionWarningList LatestWarnings;  
 
         // end result construct
-        ResultTextCommandListList textsForPages;
+        ParsedTextPlacementListList textsForPages;
 
         // just descrypt input file to its easier to read its contnets
         PDFHummus::EStatusCode DecryptPDFForDebugging(
@@ -61,29 +38,11 @@ class TextExtraction {
             const std::string& inTargetOutputFilePath
         );
 
-        std::string GetResultsAsText(int bidiFlag, ESpacing spacingFlag);
+        std::string GetResultsAsText(int bidiFlag, TextComposer::ESpacing spacingFlag);
+
+        // ITextInterpreterHandler implementation
+        virtual bool onParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement); 
 
     private:
-        // interim work construct
-        TextElementListList textPlacementsForPages;
-
-        // font decoders caches
-        ObjectIDTypeToFontDecoderMap refrencedFontDecoderCache;
-        PDFObjectToFontDecoderMap embeddedFontDecoderCache;
-
-
         PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage);
-        PDFHummus::EStatusCode Translate(PDFParser* inParser);
-        PDFHummus::EStatusCode ComputeDimensions(PDFParser* inParser);
-        PDFHummus::EStatusCode ComputeResultPlacements();
-
-        FontDecoder* GetDecoderForCommand(PDFParser* inParser, PlacedTextCommand& inCommand);
-        void MergeLineStreamToResultString(    
-            const std::stringstream& inStream, 
-            int bidiFlag,
-            bool shouldAddSpacesPerLines, 
-            const double (&inLineBox)[4],
-            const double (&inPrevLineBox)[4],
-            std::stringstream& refStream
-        );
 };

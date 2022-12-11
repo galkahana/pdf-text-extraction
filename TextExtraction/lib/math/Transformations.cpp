@@ -1,4 +1,9 @@
 
+void unitMatrix(double (&mtxResult)[6]) {
+    mtxResult[0] = mtxResult[3] = 1;
+    mtxResult[1] = mtxResult[2] = mtxResult[4] = mtxResult[5] = 0;
+}
+
 void copyMatrix(const double (&mtx)[6], double (&mtxResult)[6]) {
     mtxResult[0] = mtx[0];
     mtxResult[1] = mtx[1];

@@ -1,54 +1,16 @@
 #include "TextExtraction.h"
+
 #include "InputFile.h"
 #include "PDFParser.h"
-#include "PDFIndirectObjectReference.h"
 #include "PDFWriter.h"
 
 
 #include "./lib/interpreter/PDFRecursiveInterpreter.h"
-#include "./lib/text-placements/TextPlacementsCollector.h"
-#include "./lib/text-placements/Transformations.h"
-#include "./lib/font-translation/FontDecoder.h"
-#include "./lib/bidi/BidiConversion.h"
-
-#include <algorithm>
-#include <math.h>
+#include "./lib/graphic-content-parsing/GraphicContentInterpreter.h"
+#include "./lib/text-parsing/TextInterpreter.h"
 
 using namespace std;
 using namespace PDFHummus;
-
-static const string scEmpty = "";
-static const char scSpace = ' ';
-
-void unionLeftBoxToRight(const double (&inLeftBox)[4], double (&refRightBox)[4]) {
-    // union left box to right box resulting in a box that contains both
-    
-    if(inLeftBox[0] < refRightBox[0])
-        refRightBox[0] = inLeftBox[0];
-    if(inLeftBox[1] < refRightBox[1])
-        refRightBox[1] = inLeftBox[1];
-    if(inLeftBox[2] > refRightBox[2])
-        refRightBox[2] = inLeftBox[2];
-    if(inLeftBox[3] > refRightBox[3])
-        refRightBox[3] = inLeftBox[3];
-}
-
-double boxHeight(const double (&inBox)[4]) {
-    return inBox[3] - inBox[1];
-}
-
-double boxWidth(const double (&inBox)[4]) {
-    return inBox[2] - inBox[0];
-}
-
-double boxTop(const double (&inBox)[4]) {
-    return inBox[3];
-}
-
-double boxBottom(const double (&inBox)[4]) {
-    return inBox[1];
-}
-
 
 TextExtraction::TextExtraction() {
 
@@ -58,200 +20,38 @@ TextExtraction::~TextExtraction() {
     textsForPages.clear();
 }
 
+bool TextExtraction::onParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) {
+    textsForPages.back().push_back(inParsedTextPlacement);
+    return true;
+}
+
 EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage) {
     EStatusCode status = eSuccess;
     unsigned long start = (unsigned long)(inStartPage >= 0 ? inStartPage : (inParser->GetPagesCount() + inStartPage));
     unsigned long end = (unsigned long)(inEndPage >= 0 ? inEndPage :  (inParser->GetPagesCount() + inEndPage));
+    TextInterpeter textInterpeter(this);
+    GraphicContentInterpreter interpreter;
 
     if(end > inParser->GetPagesCount()-1)
         end = inParser->GetPagesCount()-1;
     if(start > end)
         start = end;
 
-    for(unsigned long i=start;i<=end;++i) {
+    for(unsigned long i=start;i<=end && status == eSuccess;++i) {
         RefCountPtr<PDFDictionary> pageObject(inParser->ParsePage(i));
-        PDFRecursiveInterpreter interpreter;
-        TextPlacementsCollector collector;
-        interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), &collector);  
-        TextElementList& texts = collector.onDone();
-
-        textPlacementsForPages.push_back(TextElementList(texts));
+        if(!pageObject) {
+            status = eFailure;
+            break;
+        }
+        textsForPages.push_back(ParsedTextPlacementList());
+        // the interpreter will trigger the textInterpreter which in turn will trigger this object to collect text elements
+        interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), &textInterpeter);  
     }    
-
 
     return status;
 }
 
-FontDecoder* TextExtraction::GetDecoderForCommand(PDFParser* inParser, PlacedTextCommand& inCommand) {
-    if(!inCommand.textState.fontRef)
-        return NULL;
-
-    if(inCommand.textState.fontRef->GetType() == PDFObject::ePDFObjectDictionary) {
-        RefCountPtr<PDFObject> fontDict = inCommand.textState.fontRef.GetPtr();
-        // embedded, check cache first
-        PDFObjectToFontDecoderMap::iterator it = embeddedFontDecoderCache.find(fontDict);
-        if(it == embeddedFontDecoderCache.end()) {
-            // ok. there's none, use this chance to create a new one
-            it = embeddedFontDecoderCache.insert(PDFObjectToFontDecoderMap::value_type(fontDict, FontDecoder(inParser, (PDFDictionary*)fontDict.GetPtr()))).first;
-        }
-        return  &(it->second);
-    }
-    else if(inCommand.textState.fontRef->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
-        ObjectIDType id = ((PDFIndirectObjectReference*)(inCommand.textState.fontRef.GetPtr()))->mObjectID;
-        ObjectIDTypeToFontDecoderMap::iterator it = refrencedFontDecoderCache.find(id);
-        if(it == refrencedFontDecoderCache.end()) {
-            PDFObjectCastPtr<PDFDictionary> fontDict = inParser->ParseNewObject(id);
-            if(!fontDict)
-                return NULL;
-            it = refrencedFontDecoderCache.insert(ObjectIDTypeToFontDecoderMap::value_type(id, FontDecoder(inParser, fontDict.GetPtr()))).first;
-        }        
-        return &(it->second);
-    }
-    return NULL;
-}
-
-EStatusCode TextExtraction::Translate(PDFParser* inParser) {
-    TextElementListList::iterator pagesIt = textPlacementsForPages.begin();
-
-    for(; pagesIt != textPlacementsForPages.end(); ++pagesIt) {
-        TextElementList::iterator textElementsIt = pagesIt->begin();
-        for(; textElementsIt != pagesIt->end(); ++textElementsIt) {
-            PlacedTextCommandList::iterator commandIt = textElementsIt->texts.begin();
-            for(; commandIt != textElementsIt->texts.end(); ++commandIt) {
-                // Determine a decoder for the text font
-                FontDecoder* decoder = GetDecoderForCommand(inParser, *commandIt);
-                if(decoder) {
-                    PlacedTextCommandArgumentList::iterator argumentIt = commandIt->text.begin();
-                    for(;argumentIt != commandIt->text.end();++argumentIt) {
-                        if(argumentIt->isText) {
-                            // Translate the text
-                            FontDecoderResult result = decoder->Translate(argumentIt->asBytes);
-                            argumentIt->asText = result.asText;
-                            argumentIt->translationMethod = result.translationMethod;
-
-                            // Accumulate all args for a command
-                            commandIt->allTextAsBytes.insert(commandIt->allTextAsBytes.end(), argumentIt->asBytes.begin(), argumentIt->asBytes.end());
-                            commandIt->allTextAsText+= (result.asText.empty() ? string(" ") : result.asText);
-                            commandIt->allTextTranslationMethod = result.translationMethod;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    return eSuccess;
-}
-
-
-EStatusCode TextExtraction::ComputeDimensions(PDFParser* inParser) {
-    double buffer[6];
-
-    // iterate the placements computing bounding boxes
-    TextElementListList::iterator pagesIt = textPlacementsForPages.begin();
-
-    for(; pagesIt != textPlacementsForPages.end(); ++pagesIt) {
-        // this is a BT..ET sequance (some would call it - at text element....)
-        TextElementList::iterator textElementsIt = pagesIt->begin();
-        for(; textElementsIt != pagesIt->end(); ++textElementsIt) {
-            bool hasDefaultTm = false;
-            double nextPlacementDefaultTm[6] = {1,0,0,1,0,0};
-            PlacedTextCommandList::iterator commandIt = textElementsIt->texts.begin();
-            for(; commandIt != textElementsIt->texts.end(); ++commandIt) {
-                PlacedTextCommand& item = *commandIt;
-                // if matrix is not dirty (no matrix changing operators were running betwee items), replace with computed matrix of the previous round.
-                if(!item.textState.tmDirty && hasDefaultTm)
-                    copyMatrix(nextPlacementDefaultTm, item.textState.tm);
-
-                // Compute matrix and placement after this text
-                FontDecoder* decoder = GetDecoderForCommand(inParser, *commandIt);
-                if(decoder) {
-                    double accumulatedDisplacement = 0;
-                    double minPlacement = 0;
-                    double maxPlacement = 0;
-                    copyMatrix(item.textState.tm, nextPlacementDefaultTm);
-                    hasDefaultTm = true;
-
-                    PlacedTextCommandArgumentList::iterator argumentIt = commandIt->text.begin();
-                    for(;argumentIt != commandIt->text.end();++argumentIt) {
-                        if(argumentIt->isText) {
-                            DispositionResultList dispositions = decoder->ComputeDisplacements(argumentIt->asBytes);
-                            DispositionResultList::iterator itDispositions = dispositions.begin();
-                            for(; itDispositions != dispositions.end(); ++itDispositions) {
-                                double displacement = itDispositions->width;
-                                unsigned long charCode = itDispositions->code;
-                                double tx = (displacement*item.textState.fontSize + item.textState.charSpace + (charCode == 32 ? item.textState.wordSpace:0))*item.textState.scale/100; 
-                                accumulatedDisplacement+=tx;
-                                if(accumulatedDisplacement<minPlacement)
-                                    minPlacement = accumulatedDisplacement;
-                                if(accumulatedDisplacement>maxPlacement)
-                                    maxPlacement = accumulatedDisplacement;
-                                double txMatrix[6] = {1,0,0,1,tx,0};  
-                                multiplyMatrix(txMatrix, nextPlacementDefaultTm, buffer);
-                                copyMatrix(buffer,nextPlacementDefaultTm);
-                            }
-                        }
-                        else {
-                            double tx = ((-argumentIt->pos/1000)*item.textState.fontSize)*item.textState.scale/100;
-                            accumulatedDisplacement+=tx;
-                            if(accumulatedDisplacement<minPlacement)
-                                minPlacement = accumulatedDisplacement;
-                            if(accumulatedDisplacement>maxPlacement)
-                                maxPlacement = accumulatedDisplacement;
-                            double txMatrix[6] = {1,0,0,1,tx,0};  
-                            multiplyMatrix(txMatrix, nextPlacementDefaultTm, buffer);
-                            copyMatrix(buffer,nextPlacementDefaultTm);
-                        }
-                    }    
-
-                    double descentPlacement = (decoder->descent + item.textState.rise)*item.textState.fontSize/1000;
-                    double ascentPlacement = (decoder->ascent + item.textState.rise)*item.textState.fontSize/1000;
-                    item.localBBox[0] = minPlacement;
-                    item.localBBox[1] = descentPlacement;
-                    item.localBBox[2] = maxPlacement;
-                    item.localBBox[3] = ascentPlacement;
-                    item.spaceWidth = decoder->spaceWidth*item.textState.fontSize*item.textState.scale/100;
-                }
-            }
-        }
-    }
-
-    return eSuccess;
-}
-
-EStatusCode TextExtraction::ComputeResultPlacements() {
-    // there's flattening of the text element level, no longer required
-    // and computing of final constructs, so that each page will only have
-    // a list of text per text commands, and each command is represented by a single ResultTextCommand
-    double mtxBuffer[6];
-    double boxBuffer[4];
-
-    TextElementListList::iterator pagesIt = textPlacementsForPages.begin();
-
-    for(; pagesIt != textPlacementsForPages.end(); ++pagesIt) {
-        textsForPages.push_back(ResultTextCommandList());
-        TextElementList::iterator textElementsIt = pagesIt->begin();
-        for(; textElementsIt != pagesIt->end(); ++textElementsIt) {
-            PlacedTextCommandList::iterator commandIt = textElementsIt->texts.begin();
-            for(; commandIt != textElementsIt->texts.end(); ++commandIt) {
-                ResultTextCommandList& pageResults = textsForPages.back();
-                PlacedTextCommand& textPlacement = *commandIt;    
-                multiplyMatrix(textPlacement.textState.tm,textPlacement.ctm, mtxBuffer);
-                transformBox(textPlacement.localBBox, mtxBuffer, boxBuffer);
-                pageResults.push_back(ResultTextCommand(
-                    textPlacement.allTextAsText,
-                    mtxBuffer,
-                    textPlacement.localBBox,
-                    boxBuffer,
-                    textPlacement.spaceWidth
-                ));
-            }
-        }
-    }
-
-    return eSuccess;
-}
-
+static const string scEmpty = "";
 
 EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inStartPage, long inEndPage) {
     EStatusCode status = eSuccess;
@@ -261,9 +61,6 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
     LatestError.code = eErrorNone;
     LatestError.description = scEmpty;
 
-    textPlacementsForPages.clear();
-    refrencedFontDecoderCache.clear();
-    embeddedFontDecoderCache.clear();
     textsForPages.clear();
 
     do {
@@ -284,211 +81,25 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
             break;
         }
 
-        // 1st phase - extract text placements
         status = ExtractTextPlacements(&parser, inStartPage, inEndPage);
         if(status != eSuccess)
             break;
-
-        // 2nd phase - translate encoded bytes to text strings.
-        status = Translate(&parser);
-        if(status != eSuccess)
-            break;
-
-        // 3rd phase - compute dimensions
-        status = ComputeDimensions(&parser);
-
-        // 4th phase - flatten page placments, and simplify constructs
-        status = ComputeResultPlacements();
-
-        // 5th phase - cleanup interim structs
-        textPlacementsForPages.clear();
-        refrencedFontDecoderCache.clear();
-        embeddedFontDecoderCache.clear();
 
     } while(false);
 
     return status;
 }
 
-const double LINE_HEIGHT_THRESHOLD = 5;
 
-int GetOrientationCode(const ResultTextCommand& a) {
-    // a very symplistic heuristics to try and logically group different text orientations in a way that makes sense
-
-    // 1 0 0 1
-    if(a.matrix[0] > 0 && a.matrix[3] > 0)
-        return 0;
-
-    // 0 1 -1 0
-    if(a.matrix[1] > 0 && a.matrix[2] < 0)
-        return 1;
-
-    // -1 0 0 -1
-    if(a.matrix[0] < 0 && a.matrix[3] < 0)
-        return 2;
-
-    // 0 -1 1 0 or other
-    return 3;
-}
-
-bool CompareForOrientation(const ResultTextCommand& a, const ResultTextCommand& b, int code) {
-    if(code == 0) {
-        if(abs(a.globalBbox[1] - b.globalBbox[1]) > LINE_HEIGHT_THRESHOLD)
-            return b.globalBbox[1] < a.globalBbox[1];
-        else
-            return a.globalBbox[0] < b.globalBbox[0];    
-
-    } else if(code == 1) {
-        if(abs(a.globalBbox[0] - b.globalBbox[0]) > LINE_HEIGHT_THRESHOLD)
-            return a.globalBbox[0] <  b.globalBbox[0];
-        else
-            return a.globalBbox[1] < b.globalBbox[1];    
-
-    } else if(code == 2) {
-        if(abs(a.globalBbox[1] - b.globalBbox[1]) > LINE_HEIGHT_THRESHOLD)
-            return a.globalBbox[1] < b.globalBbox[1];
-        else
-            return b.globalBbox[0] < a.globalBbox[0];    
-           
-    } else {
-        // code 3
-        if(abs(a.globalBbox[0] - b.globalBbox[0]) > LINE_HEIGHT_THRESHOLD)
-            return b.globalBbox[0] < a.globalBbox[0];
-        else
-            return b.globalBbox[1] < a.globalBbox[1];    
-    }
-    
-}
-
-bool CompareResultTextCommand(const ResultTextCommand& a, const ResultTextCommand& b) {
-    int codeA = GetOrientationCode(a);
-    int codeB = GetOrientationCode(b);
-
-    if(codeA == codeB) {
-        return CompareForOrientation(a,b,codeA);
-    }
-    
-    return codeA < codeB;
-}
-
-typedef std::vector<ResultTextCommand> ResultTextCommandVector;
-
-bool AreSameLine(const ResultTextCommand& a, const ResultTextCommand& b) {
-    int codeA = GetOrientationCode(a);
-    int codeB = GetOrientationCode(b);
-
-    if(codeA != codeB)
-        return false;
-
-    if(codeA == 0 || codeA == 2) {
-        return abs(a.globalBbox[1] - b.globalBbox[1]) <= LINE_HEIGHT_THRESHOLD;
-    } else {
-        return abs(a.globalBbox[0] - b.globalBbox[0]) <= LINE_HEIGHT_THRESHOLD;
-    }
-}
-
-unsigned long GuessHorizontalSpacingBetweenPlacements(const ResultTextCommand& left, const ResultTextCommand& right) {
-    double leftTextRightEdge = left.globalBbox[2];
-    double rightTextLeftEdge = right.globalBbox[0];
-
-    if(leftTextRightEdge > rightTextLeftEdge)
-        return 0; // left text is overflowing into right text
-
-    double distance = rightTextLeftEdge - leftTextRightEdge;
-    double spaceWidth = left.spaceWidth;
-
-    if(spaceWidth == 0 && boxWidth(left.globalBbox) > 0) {
-        // if no available space width from font info, try to evaluate per the left string width/char length...not the best...but
-        // easy.
-        spaceWidth = boxWidth(left.globalBbox) / left.text.length();
-    }
-
-    if(spaceWidth == 0)
-        return 0; // protect from 0 errors
-
-    return (unsigned long)floor(distance/spaceWidth);
-}
-
-static const string scCRLN = "\r\n";
-
-void TextExtraction::MergeLineStreamToResultString(
-    const stringstream& inStream, 
-    int bidiFlag,
-    bool shouldAddSpacesPerLines, 
-    const double (&inLineBox)[4],
-    const double (&inPrevLineBox)[4],
-    stringstream& refStream
-) {
-    BidiConversion bidi;
-
-    // add spaces before line, per distance from last line
-    if(shouldAddSpacesPerLines && boxTop(inLineBox) < boxBottom(inPrevLineBox)) {
-        unsigned long verticalLines = floor((boxBottom(inPrevLineBox) - boxTop(inLineBox))/boxHeight(inPrevLineBox));
-        for(unsigned long i=0;i<verticalLines;++i)
-            refStream<<scCRLN;
-    }
-
-
-    if(bidiFlag == -1) {
-        refStream<<inStream.str();
-    }
-    else {
-        string bidiResult;
-        bidi.ConvertVisualToLogical(inStream.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
-        refStream<<bidiResult;
-    }
-    refStream<<scCRLN;
-
-}
-
-std::string TextExtraction::GetResultsAsText(int bidiFlag, ESpacing spacingFlag) {
-    stringstream result;
-    BidiConversion bidi;
-    ResultTextCommandListList::iterator itPages = textsForPages.begin();
-    double lineBox[4];
-    double prevLineBox[4];
-    bool isFirstLineInPage;
-    bool addVerticalSpaces = spacingFlag & TextExtraction::eSpacingVertical;
-    bool addHorizontalSpaces = spacingFlag & TextExtraction::eSpacingHorizontal;
+std::string TextExtraction::GetResultsAsText(int bidiFlag, TextComposer::ESpacing spacingFlag) {
+    ParsedTextPlacementListList::iterator itPages = textsForPages.begin();
+    TextComposer composer(bidiFlag, spacingFlag);
 
     for(; itPages != textsForPages.end();++itPages) {
-        ResultTextCommandVector sortedPageTextCommands(itPages->begin(), itPages->end());
-        sort(sortedPageTextCommands.begin(), sortedPageTextCommands.end(), CompareResultTextCommand);
-
-        ResultTextCommandVector::iterator itCommands = sortedPageTextCommands.begin();
-        if(itCommands == sortedPageTextCommands.end())
-            continue;
-
-        // k. got some text, let's build it
-        stringstream lineResult;
-        ResultTextCommand& latestItem = *itCommands;
-        bool hasPreviousLineInPage = false;
-        copyBox(itCommands->globalBbox, lineBox);
-        lineResult<<latestItem.text;
-        ++itCommands;
-        for(; itCommands != sortedPageTextCommands.end();++itCommands) {
-            if(AreSameLine(latestItem, *itCommands)) {
-                if(addHorizontalSpaces) {
-                    unsigned long spaces = GuessHorizontalSpacingBetweenPlacements(latestItem, *itCommands);
-                    if(spaces != 0)
-                        lineResult<<string(spaces, scSpace);
-                }
-                unionLeftBoxToRight(itCommands->globalBbox, lineBox);
-            } else {
-                // merge complete line to accumulated text, and start a fresh line with fresh accumulators
-                MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox, result);
-                lineResult.str(scEmpty);
-                copyBox(lineBox, prevLineBox);
-                copyBox(itCommands->globalBbox, lineBox);
-                hasPreviousLineInPage = true;
-            }
-            lineResult<<itCommands->text;
-            latestItem = *itCommands;
-        }
-        MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox, result);
+        composer.ComposeText(*itPages);
     }
 
-    return result.str();
+    return composer.GetText();
 }
 
 
