@@ -87,14 +87,14 @@ class UnicodeMapReader : public IPDFInterpreterHandler {
 
     UnicodeMapReader(ULongToULongListMap& inResult);
 
-    virtual bool onOperation(const std::string& inOperation, const PDFObjectVector& inOperands);
+    virtual bool OnOperation(const std::string& inOperation, const PDFObjectVector& inOperands);
 
     ULongToULongListMap& result;
 };
 
 UnicodeMapReader::UnicodeMapReader(ULongToULongListMap& inResult):result(inResult) {}
 
-bool UnicodeMapReader::onOperation(const std::string& inOperation, const PDFObjectVector& inOperands) {
+bool UnicodeMapReader::OnOperation(const std::string& inOperation, const PDFObjectVector& inOperands) {
     if(inOperation == "endbfchar") {
         // Operands are pairs. always of the form <codeByte> <unicodes>
 

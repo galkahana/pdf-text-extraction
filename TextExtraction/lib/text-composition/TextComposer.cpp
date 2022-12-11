@@ -12,7 +12,7 @@ using namespace std;
 static const string scEmpty = "";
 static const char scSpace = ' ';
 
-void unionLeftBoxToRight(const double (&inLeftBox)[4], double (&refRightBox)[4]) {
+void UnionLeftBoxToRight(const double (&inLeftBox)[4], double (&refRightBox)[4]) {
     // union left box to right box resulting in a box that contains both
     
     if(inLeftBox[0] < refRightBox[0])
@@ -25,19 +25,19 @@ void unionLeftBoxToRight(const double (&inLeftBox)[4], double (&refRightBox)[4])
         refRightBox[3] = inLeftBox[3];
 }
 
-double boxHeight(const double (&inBox)[4]) {
+double BoxHeight(const double (&inBox)[4]) {
     return inBox[3] - inBox[1];
 }
 
-double boxWidth(const double (&inBox)[4]) {
+double BoxWidth(const double (&inBox)[4]) {
     return inBox[2] - inBox[0];
 }
 
-double boxTop(const double (&inBox)[4]) {
+double BoxTop(const double (&inBox)[4]) {
     return inBox[3];
 }
 
-double boxBottom(const double (&inBox)[4]) {
+double BoxBottom(const double (&inBox)[4]) {
     return inBox[1];
 }
 
@@ -138,10 +138,10 @@ unsigned long GuessHorizontalSpacingBetweenPlacements(const ParsedTextPlacement&
     double distance = rightTextLeftEdge - leftTextRightEdge;
     double spaceWidth = left.spaceWidth;
 
-    if(spaceWidth == 0 && boxWidth(left.globalBbox) > 0) {
+    if(spaceWidth == 0 && BoxWidth(left.globalBbox) > 0) {
         // if no available space width from font info, try to evaluate per the left string width/char length...not the best...but
         // easy.
-        spaceWidth = boxWidth(left.globalBbox) / left.text.length();
+        spaceWidth = BoxWidth(left.globalBbox) / left.text.length();
     }
 
     if(spaceWidth == 0)
@@ -162,8 +162,8 @@ void TextComposer::MergeLineStreamToResultString(
     BidiConversion bidi;
 
     // add spaces before line, per distance from last line
-    if(shouldAddSpacesPerLines && boxTop(inLineBox) < boxBottom(inPrevLineBox)) {
-        unsigned long verticalLines = floor((boxBottom(inPrevLineBox) - boxTop(inLineBox))/boxHeight(inPrevLineBox));
+    if(shouldAddSpacesPerLines && BoxTop(inLineBox) < BoxBottom(inPrevLineBox)) {
+        unsigned long verticalLines = floor((BoxBottom(inPrevLineBox) - BoxTop(inLineBox))/BoxHeight(inPrevLineBox));
         for(unsigned long i=0;i<verticalLines;++i)
             buffer<<scCRLN;
     }
@@ -199,7 +199,7 @@ void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) 
     stringstream lineResult;
     ParsedTextPlacement& latestItem = *itCommands;
     bool hasPreviousLineInPage = false;
-    copyBox(itCommands->globalBbox, lineBox);
+    CopyBox(itCommands->globalBbox, lineBox);
     lineResult<<latestItem.text;
     ++itCommands;
     for(; itCommands != sortedTextCommands.end();++itCommands) {
@@ -209,13 +209,13 @@ void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) 
                 if(spaces != 0)
                     lineResult<<string(spaces, scSpace);
             }
-            unionLeftBoxToRight(itCommands->globalBbox, lineBox);
+            UnionLeftBoxToRight(itCommands->globalBbox, lineBox);
         } else {
             // merge complete line to accumulated text, and start a fresh line with fresh accumulators
             MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox);
             lineResult.str(scEmpty);
-            copyBox(lineBox, prevLineBox);
-            copyBox(itCommands->globalBbox, lineBox);
+            CopyBox(lineBox, prevLineBox);
+            CopyBox(itCommands->globalBbox, lineBox);
             hasPreviousLineInPage = true;
         }
         lineResult<<itCommands->text;

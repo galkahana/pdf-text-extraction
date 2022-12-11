@@ -8,10 +8,10 @@
 
 struct ContentGraphicState {
     ContentGraphicState(): textGraphicState() {
-        unitMatrix(ctm);
+        UnitMatrix(ctm);
     }
     ContentGraphicState(const ContentGraphicState& otherState): textGraphicState(otherState.textGraphicState) {
-        copyMatrix(otherState.ctm, ctm);
+        CopyMatrix(otherState.ctm, ctm);
     }
     double ctm[6];
     TextGraphicState textGraphicState;

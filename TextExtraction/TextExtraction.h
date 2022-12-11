@@ -41,7 +41,7 @@ class TextExtraction : public ITextInterpreterHandler {
         std::string GetResultsAsText(int bidiFlag, TextComposer::ESpacing spacingFlag);
 
         // ITextInterpreterHandler implementation
-        virtual bool onParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement); 
+        virtual bool OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement); 
 
     private:
         PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage);

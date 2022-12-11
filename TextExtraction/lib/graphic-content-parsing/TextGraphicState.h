@@ -11,8 +11,8 @@ struct TextGraphicState {
         scale = 100;
         leading = 0;
         rise = 0;
-        unitMatrix(tm);
-        unitMatrix(tlm);
+        UnitMatrix(tm);
+        UnitMatrix(tlm);
         tmDirty = true;
         tlmDirty = true;
         fontSize = 0;
@@ -24,8 +24,8 @@ struct TextGraphicState {
         scale = inOther.scale;
         leading = inOther.leading;
         rise = inOther.rise;
-        copyMatrix(inOther.tm, tm);
-        copyMatrix(inOther.tlm, tlm);
+        CopyMatrix(inOther.tm, tm);
+        CopyMatrix(inOther.tlm, tlm);
         tmDirty = inOther.tmDirty;
         tlmDirty = inOther.tlmDirty;
         fontRef = inOther.fontRef;

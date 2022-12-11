@@ -13,9 +13,9 @@ struct ParsedTextPlacement {
         const double inSpaceWidth
     ) {
         text = inText;
-        copyMatrix(inMatrix, matrix);
-        copyBox(inLocalBox, localBbox);
-        copyBox(inGlobalBox, globalBbox);
+        CopyMatrix(inMatrix, matrix);
+        CopyBox(inLocalBox, localBbox);
+        CopyBox(inGlobalBox, globalBbox);
         spaceWidth = inSpaceWidth;
     }
 

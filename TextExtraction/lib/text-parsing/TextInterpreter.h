@@ -27,11 +27,11 @@ class TextInterpeter: public IGraphicContentInterpreterHandler {
         virtual ~TextInterpeter(void);
 
 
-        void setHandler(ITextInterpreterHandler* inHandler);
+        void SetHandler(ITextInterpreterHandler* inHandler);
 
         // IGraphicContentInterpreterHandler implementation
-        virtual bool onTextElementComplete(const TextElement& inTextElement);
-        virtual bool onResourcesRead(const Resources& inResources, IInterpreterContext* inContext);
+        virtual bool OnTextElementComplete(const TextElement& inTextElement);
+        virtual bool OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext);
 
     private:
         ITextInterpreterHandler* handler;
@@ -40,7 +40,7 @@ class TextInterpeter: public IGraphicContentInterpreterHandler {
         ObjectIDTypeToFontDecoderMap refrencedFontDecoders;
         PDFObjectToFontDecoderMap embeddedFontDecoders;
         
-        FontDecoder* getDecoderForFont(PDFObject* inFontReference);     
-        void resetInterpretationState();
+        FontDecoder* GetDecoderForFont(PDFObject* inFontReference);     
+        void ResetInterpretationState();
 
 };

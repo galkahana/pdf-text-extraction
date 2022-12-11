@@ -45,7 +45,7 @@ void PDFInterpreter::InterpretContentStream(
     while(!!anObject) {
         if(anObject->GetType() == PDFObject::ePDFObjectSymbol) {
             PDFSymbol* anOperand = (PDFSymbol*)anObject;
-            bool shouldContinue = inHandler->onOperation(anOperand->GetValue(), operandsStack);
+            bool shouldContinue = inHandler->OnOperation(anOperand->GetValue(), operandsStack);
 
             anOperand->Release();
             FreeObjectVector(operandsStack);

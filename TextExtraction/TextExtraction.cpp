@@ -20,7 +20,7 @@ TextExtraction::~TextExtraction() {
     textsForPages.clear();
 }
 
-bool TextExtraction::onParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) {
+bool TextExtraction::OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) {
     textsForPages.back().push_back(inParsedTextPlacement);
     return true;
 }

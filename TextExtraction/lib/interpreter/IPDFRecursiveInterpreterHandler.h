@@ -36,7 +36,7 @@ class IInterpreterContext {
 
 /**
  * This interpreter will recurse into forms contents on "Do" operations. 
- * The Do operation will still call to onOperation when starting the xobject operation.
+ * The Do operation will still call to OnOperation when starting the xobject operation.
  **/
 
 class IPDFRecursiveInterpreterHandler 
@@ -46,7 +46,7 @@ public:
     // required!
 
     // return boolean marks whether to continue or not (true or false)
-	virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext) = 0;
+	virtual bool OnOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext) = 0;
 
 
     // Optional helpers
@@ -54,7 +54,7 @@ public:
     // going to recurse into a form. allows to adapt current matrix n such if you are drawing,
     // as well as skip this form, if you already got cached result.
     // use result to tell it to skip this form. true for continue with this form recursion, false for skip this
-    virtual bool onXObjectDoStart(
+    virtual bool OnXObjectDoStart(
         const std::string& inXObjectRefName,
         ObjectIDType inXObjectObjectID,
         PDFStreamInput* inXObject,
@@ -62,7 +62,7 @@ public:
 
     // ended form recursion. this is a good place to cache the form reuslts if you want to reuse them
     // when the form objectid comes up next on start
-    virtual void onXObjectDoEnd(
+    virtual void OnXObjectDoEnd(
         const std::string& inXObjectRefName,
         ObjectIDType inXObjectObjectID,
         PDFStreamInput* inXObject,
@@ -74,7 +74,7 @@ public:
     // this method is called both at top level and when recursing to forms.
     // you can use onEnd and onXObjectEnd to release any resources read for that level
     // bool allows you to stop interpretation, like onOperation return result
-    virtual bool onResourcesRead(IInterpreterContext* inContext){return true;}
+    virtual bool OnResourcesRead(IInterpreterContext* inContext){return true;}
 
     // Inline images are not normal operator/operands sequance in a content stream.
     // implementing this method allows you to instruct the interpreter to skip them.

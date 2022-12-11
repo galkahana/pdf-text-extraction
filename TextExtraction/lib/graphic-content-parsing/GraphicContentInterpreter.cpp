@@ -24,7 +24,7 @@ GraphicContentInterpreter::GraphicContentInterpreter(void) {
 }
 
 GraphicContentInterpreter::~GraphicContentInterpreter(void) {
-    resetInterpretationState();
+    ResetInterpretationState();
 }
 
 bool GraphicContentInterpreter::InterpretPageContents(
@@ -38,18 +38,18 @@ bool GraphicContentInterpreter::InterpretPageContents(
     PDFRecursiveInterpreter interpreter;
 
     handler = inHandler;
-    initInterpretationState();
+    InitInterpretationState();
     bool result = interpreter.InterpretPageContents(inParser, inPage, this); 
-    handler->onDone();
-    resetInterpretationState();
+    handler->OnDone();
+    ResetInterpretationState();
     return result;
 }
 
-void GraphicContentInterpreter::initInterpretationState() {
+void GraphicContentInterpreter::InitInterpretationState() {
     graphicStateStack.push_back(ContentGraphicState());
 }
 
-void GraphicContentInterpreter::resetInterpretationState() {
+void GraphicContentInterpreter::ResetInterpretationState() {
     handler = NULL;
 
     resourcesStack.clear();
@@ -60,7 +60,7 @@ void GraphicContentInterpreter::resetInterpretationState() {
 }
 
 
-bool GraphicContentInterpreter::onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext) {
+bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext) {
     if (inOperation == "q") {
         return qCommand();
     } else if(inOperation == "Q") {
@@ -106,18 +106,18 @@ bool GraphicContentInterpreter::onOperation(const std::string& inOperation,  con
     return true;
 }
 
-void GraphicContentInterpreter::pushGraphicState() {
+void GraphicContentInterpreter::PushGraphicState() {
     graphicStateStack.push_back(ContentGraphicState(graphicStateStack.back()));
     if(isInTextElement)
         textGraphicStateStack.push_back(TextGraphicState(textGraphicStateStack.back()));    
 }
 
 bool GraphicContentInterpreter::qCommand() {
-    pushGraphicState();
+    PushGraphicState();
     return true;
 }
 
-void GraphicContentInterpreter::popGraphicState() {
+void GraphicContentInterpreter::PopGraphicState() {
     if(graphicStateStack.size() > 1)
         graphicStateStack.pop_back();
     if(isInTextElement && textGraphicStateStack.size() > 1)
@@ -126,19 +126,19 @@ void GraphicContentInterpreter::popGraphicState() {
 
 
 bool GraphicContentInterpreter::QCommand() {
-    popGraphicState();
+    PopGraphicState();
     return true;
 }
 
-ContentGraphicState& GraphicContentInterpreter::currentGraphicState() {
+ContentGraphicState& GraphicContentInterpreter::CurrentGraphicState() {
     return graphicStateStack.back();
 }
 
 void GraphicContentInterpreter::cm(const double (&matrix)[6]) {
     double buffer[6];
 
-    multiplyMatrix(matrix ,currentGraphicState().ctm, buffer);
-    copyMatrix(buffer, currentGraphicState().ctm);
+    MultiplyMatrix(matrix ,CurrentGraphicState().ctm, buffer);
+    CopyMatrix(buffer, CurrentGraphicState().ctm);
 }
 
 bool GraphicContentInterpreter::cmCommand(const PDFObjectVector& inOperands) {
@@ -153,7 +153,7 @@ bool GraphicContentInterpreter::cmCommand(const PDFObjectVector& inOperands) {
     return true;
 }
 
-TextGraphicState& GraphicContentInterpreter::currentTextState() {
+TextGraphicState& GraphicContentInterpreter::CurrentTextState() {
     if(isInTextElement) {
         return textGraphicStateStack.back();
     }
@@ -170,14 +170,14 @@ bool GraphicContentInterpreter::gsCommand(const PDFObjectVector& inOperands) {
 
     StringToGStateMap::iterator it = currentResources.gStates.find(gsName);
     if(it != currentResources.gStates.end()) {
-        currentTextState().fontRef = it->second.fontRef;
-        currentTextState().fontSize = it->second.fontSize;
+        CurrentTextState().fontRef = it->second.fontRef;
+        CurrentTextState().fontSize = it->second.fontSize;
     } // gstate will not be found if name is wrong, or that it didn't get collected cause didn't have interesting info for the task at hand
     return true;
 }
 
 void GraphicContentInterpreter::Tc(double inCharSpace) {
-    currentTextState().charSpace = inCharSpace;
+    CurrentTextState().charSpace = inCharSpace;
 }
 
 bool GraphicContentInterpreter::TcCommand(const PDFObjectVector& inOperands) {
@@ -189,7 +189,7 @@ bool GraphicContentInterpreter::TcCommand(const PDFObjectVector& inOperands) {
 }
 
 void GraphicContentInterpreter::Tw(double inWordSpace) {
-    currentTextState().wordSpace = inWordSpace;
+    CurrentTextState().wordSpace = inWordSpace;
 }
 
 bool GraphicContentInterpreter::TwCommand(const PDFObjectVector& inOperands) {
@@ -204,12 +204,12 @@ bool GraphicContentInterpreter::TzCommand(const PDFObjectVector& inOperands) {
     if(inOperands.size() < 1)
         return true; // too few params? ignore
 
-    currentTextState().scale = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
+    CurrentTextState().scale = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
     return true;
 }
 
 void GraphicContentInterpreter::TL(double inLeading) {
-    currentTextState().leading = inLeading;
+    CurrentTextState().leading = inLeading;
 }
 
 bool GraphicContentInterpreter::TLCommand(const PDFObjectVector& inOperands) {
@@ -225,7 +225,7 @@ bool GraphicContentInterpreter::TsCommand(const PDFObjectVector& inOperands) {
     if(inOperands.size() < 1)
         return true; // too few params? ignore
 
-    currentTextState().rise = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
+    CurrentTextState().rise = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
     return true;
 }
 
@@ -240,14 +240,14 @@ bool GraphicContentInterpreter::TfCommand(const PDFObjectVector& inOperands) {
 
         StringToFontMap::iterator it = currentResources.fonts.find(fontName);
         if(it != currentResources.fonts.end()) {
-            currentTextState().fontRef = it->second.fontRef;
+            CurrentTextState().fontRef = it->second.fontRef;
         } // should i have a default font policy here?! 80-20 gal, 80-20.
     }
-    currentTextState().fontSize = size;
+    CurrentTextState().fontSize = size;
     return true;
 }
 
-void GraphicContentInterpreter::startTextElement() {
+void GraphicContentInterpreter::StartTextElement() {
     isInTextElement = true;
     currentTextElementCommands.clear();
     textGraphicStateStack.clear();
@@ -256,11 +256,11 @@ void GraphicContentInterpreter::startTextElement() {
 
 
 bool GraphicContentInterpreter::BTCommand() {
-    startTextElement();
+    StartTextElement();
     return true;
 }
 
-bool GraphicContentInterpreter::endTextElement() {
+bool GraphicContentInterpreter::EndTextElement() {
     if(!isInTextElement) // ET without BT. ignore.
         return true;
 
@@ -286,18 +286,18 @@ bool GraphicContentInterpreter::endTextElement() {
     textGraphicStateStack.clear();
 
     // forward the new text element to the client
-    return handler->onTextElementComplete(el);
+    return handler->OnTextElementComplete(el);
 }
 
 bool GraphicContentInterpreter::ETCommand() {
-    return endTextElement();
+    return EndTextElement();
 }
 
 void GraphicContentInterpreter::setTm(const double (&matrix)[6]) {
-    TextGraphicState& state = currentTextState();
+    TextGraphicState& state = CurrentTextState();
 
-    copyMatrix(matrix, state.tlm);
-    copyMatrix(matrix, state.tm);
+    CopyMatrix(matrix, state.tlm);
+    CopyMatrix(matrix, state.tm);
     state.tmDirty = true;
     state.tlmDirty = true;
 }
@@ -308,7 +308,7 @@ void GraphicContentInterpreter::Td(double inX, double inY) {
 
     double tMatrix[6] = {1,0,0,1,inX,inY};
 
-    multiplyMatrix(tMatrix, currentTextState().tlm, result);
+    MultiplyMatrix(tMatrix, CurrentTextState().tlm, result);
     setTm(result);
 }
 
@@ -349,7 +349,7 @@ void GraphicContentInterpreter::TStar() {
     // but we know better. leading goes below,
     // not up. this is further explicated by
     // the TD explanation
-    Td(0,-currentTextState().leading);    
+    Td(0,-CurrentTextState().leading);    
 }
 
 bool GraphicContentInterpreter::TStarCommand() {
@@ -357,17 +357,17 @@ bool GraphicContentInterpreter::TStarCommand() {
     return true;
 }
 
-void GraphicContentInterpreter::recordTextPlacement(const PlacedTextCommandArgument& inTextPlacementOperation) {
+void GraphicContentInterpreter::RecordTextPlacement(const PlacedTextCommandArgument& inTextPlacementOperation) {
     PlacedTextCommandArgumentList placements;
     placements.push_back(inTextPlacementOperation);
-    recordTextPlacement(placements);
+    RecordTextPlacement(placements);
 }
 
-void GraphicContentInterpreter::recordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations) {
+void GraphicContentInterpreter::RecordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations) {
     PlacedTextCommand el = {
         inTextPlacementOperations,
-        ContentGraphicState(currentGraphicState()),
-        TextGraphicState(currentTextState())
+        ContentGraphicState(CurrentGraphicState()),
+        TextGraphicState(CurrentTextState())
     };
     currentTextElementCommands.push_back(el);
 }
@@ -376,13 +376,13 @@ bool GraphicContentInterpreter::TjCommand(const PDFObjectVector& inOperands) {
     if(inOperands.size() < 1)
         return true; // too few params? ignore
 
-    recordTextPlacement(PlacedTextCommandArgument(ToBytesList(inOperands.back())));
+    RecordTextPlacement(PlacedTextCommandArgument(ToBytesList(inOperands.back())));
     return true;
 }
 
 void GraphicContentInterpreter::Quote(PDFObject* inObject) {
     TStar();
-    recordTextPlacement(PlacedTextCommandArgument(ToBytesList(inObject)));        
+    RecordTextPlacement(PlacedTextCommandArgument(ToBytesList(inObject)));        
 }
 
 bool GraphicContentInterpreter::QuoteCommand(const PDFObjectVector& inOperands) {
@@ -426,11 +426,11 @@ bool GraphicContentInterpreter::TJCommand(const PDFObjectVector& inOperands) {
         }
     }
 
-    recordTextPlacement(placements);
+    RecordTextPlacement(placements);
     return true;
 }
 
-bool GraphicContentInterpreter::onResourcesRead(IInterpreterContext* inContext) {
+bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) {
     resourcesStack.push_back(Resources()); // pushs on page start, and also on any drawn xobject start
 
     Resources& currentResources = resourcesStack.back();
@@ -482,17 +482,17 @@ bool GraphicContentInterpreter::onResourcesRead(IInterpreterContext* inContext) 
         }
     }    
 
-    return handler->onResourcesRead(currentResources, inContext);
+    return handler->OnResourcesRead(currentResources, inContext);
 }
 
-bool GraphicContentInterpreter::onXObjectDoStart(
+bool GraphicContentInterpreter::OnXObjectDoStart(
         const std::string& inXObjectRefName,
         ObjectIDType inXObjectObjectID,
         PDFStreamInput* inXObject,
         PDFParser* inParser) {
     // the equivalent of q, so any internal transformations do not effect the outside. specifically what im gonna
     // do now to emulate form placement matrix changes
-    pushGraphicState();
+    PushGraphicState();
 
     // apply form matrix
     RefCountPtr<PDFDictionary> formDict = inXObject->QueryStreamDictionary();
@@ -510,7 +510,7 @@ bool GraphicContentInterpreter::onXObjectDoStart(
     return true;
 }
 
-void GraphicContentInterpreter::onXObjectDoEnd(
+void GraphicContentInterpreter::OnXObjectDoEnd(
     const std::string& inXObjectRefName,
     ObjectIDType inXObjectObjectID,
     PDFStreamInput* inXObject,
@@ -520,6 +520,6 @@ void GraphicContentInterpreter::onXObjectDoEnd(
     resourcesStack.pop_back();        
 
     // the equivalent of Q removing all artifacts of the form state changes
-    popGraphicState();
+    PopGraphicState();
 
 }

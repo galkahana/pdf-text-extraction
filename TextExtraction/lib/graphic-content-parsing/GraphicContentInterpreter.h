@@ -29,16 +29,16 @@ public:
 
 
     // IPDFRecursiveInterpreterHandler implementation
-    virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext);
+    virtual bool OnOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext);
 
-    virtual bool onResourcesRead(IInterpreterContext* inContext);
-    virtual bool onXObjectDoStart(
+    virtual bool OnResourcesRead(IInterpreterContext* inContext);
+    virtual bool OnXObjectDoStart(
         const std::string& inXObjectRefName,
         ObjectIDType inXObjectObjectID,
         PDFStreamInput* inXObject,
         PDFParser* inParser);
 
-    virtual void onXObjectDoEnd(
+    virtual void OnXObjectDoEnd(
         const std::string& inXObjectRefName,
         ObjectIDType inXObjectObjectID,
         PDFStreamInput* inXObject,
@@ -54,8 +54,8 @@ private:
 
     IGraphicContentInterpreterHandler* handler;
 
-    void initInterpretationState();
-    void resetInterpretationState();
+    void InitInterpretationState();
+    void ResetInterpretationState();
 
 
     // interpreted commands
@@ -80,11 +80,11 @@ private:
     bool DoubleQuoteCommand(const PDFObjectVector& inOperands);
     bool TJCommand(const PDFObjectVector& inOperands);
 
-    void pushGraphicState();
-    void popGraphicState();
-    ContentGraphicState& currentGraphicState();
+    void PushGraphicState();
+    void PopGraphicState();
+    ContentGraphicState& CurrentGraphicState();
 
-    TextGraphicState& currentTextState();
+    TextGraphicState& CurrentTextState();
 
     void cm(const double (&matrix)[6]);
     void Tc(double inCharSpace);
@@ -95,9 +95,9 @@ private:
     void TStar();
     void Quote(PDFObject* inObject);
 
-    void startTextElement();
-    bool endTextElement();
+    void StartTextElement();
+    bool EndTextElement();
 
-    void recordTextPlacement(const PlacedTextCommandArgument& inTextPlacementOperation);
-    void recordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations);    
+    void RecordTextPlacement(const PlacedTextCommandArgument& inTextPlacementOperation);
+    void RecordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations);    
 };

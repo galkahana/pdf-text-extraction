@@ -17,24 +17,24 @@
 using namespace std;
 
 TextInterpeter::TextInterpeter(void) {
-    setHandler(NULL);
+    SetHandler(NULL);
 }
 
 TextInterpeter::TextInterpeter(ITextInterpreterHandler* inHandler) {
-    setHandler(inHandler);
+    SetHandler(inHandler);
 }
 
 
 TextInterpeter::~TextInterpeter(void) {
-    resetInterpretationState();
+    ResetInterpretationState();
 }
 
-void TextInterpeter::resetInterpretationState() {
+void TextInterpeter::ResetInterpretationState() {
     refrencedFontDecoders.clear();
     embeddedFontDecoders.clear();
 }
 
-FontDecoder* TextInterpeter::getDecoderForFont(PDFObject* inFontReference) {
+FontDecoder* TextInterpeter::GetDecoderForFont(PDFObject* inFontReference) {
     if(!inFontReference)
         return NULL;
 
@@ -52,7 +52,7 @@ FontDecoder* TextInterpeter::getDecoderForFont(PDFObject* inFontReference) {
     return NULL;
 }
 
-bool TextInterpeter::onTextElementComplete(const TextElement& inTextElement) {
+bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
     if(!handler)
         return true;
 
@@ -68,14 +68,14 @@ bool TextInterpeter::onTextElementComplete(const TextElement& inTextElement) {
         const PlacedTextCommand& item = *commandIt;
     
         // Determine a decoder for the text font
-        FontDecoder* decoder = getDecoderForFont(item.textState.fontRef.GetPtr());
+        FontDecoder* decoder = GetDecoderForFont(item.textState.fontRef.GetPtr());
         if(!decoder)
             continue;
 
         double accumulatedDisplacement = 0;
         double minPlacement = 0;
         double maxPlacement = 0;
-        copyMatrix(item.textState.tm, nextPlacementDefaultTm);
+        CopyMatrix(item.textState.tm, nextPlacementDefaultTm);
         hasDefaultTm = true;
 
 
@@ -102,8 +102,8 @@ bool TextInterpeter::onTextElementComplete(const TextElement& inTextElement) {
                     if(accumulatedDisplacement>maxPlacement)
                         maxPlacement = accumulatedDisplacement;
                     double txMatrix[6] = {1,0,0,1,tx,0};  
-                    multiplyMatrix(txMatrix, nextPlacementDefaultTm, matrixBuffer);
-                    copyMatrix(matrixBuffer,nextPlacementDefaultTm);
+                    MultiplyMatrix(txMatrix, nextPlacementDefaultTm, matrixBuffer);
+                    CopyMatrix(matrixBuffer,nextPlacementDefaultTm);
                 }
 
             } else {
@@ -116,8 +116,8 @@ bool TextInterpeter::onTextElementComplete(const TextElement& inTextElement) {
                 if(accumulatedDisplacement>maxPlacement)
                     maxPlacement = accumulatedDisplacement;
                 double txMatrix[6] = {1,0,0,1,tx,0};  
-                multiplyMatrix(txMatrix, nextPlacementDefaultTm, matrixBuffer);
-                copyMatrix(matrixBuffer,nextPlacementDefaultTm);
+                MultiplyMatrix(txMatrix, nextPlacementDefaultTm, matrixBuffer);
+                CopyMatrix(matrixBuffer,nextPlacementDefaultTm);
             }
         }
 
@@ -128,8 +128,8 @@ bool TextInterpeter::onTextElementComplete(const TextElement& inTextElement) {
         string text = textBuffer.str();
         double globalBBox[4];
         
-        multiplyMatrix(item.textState.tm,item.graphicState.ctm, matrixBuffer);
-        transformBox(localBBox, matrixBuffer, globalBBox);
+        MultiplyMatrix(item.textState.tm,item.graphicState.ctm, matrixBuffer);
+        TransformBox(localBBox, matrixBuffer, globalBBox);
 
         ParsedTextPlacement placement(
                 text,
@@ -140,7 +140,7 @@ bool TextInterpeter::onTextElementComplete(const TextElement& inTextElement) {
 
         );
 
-        shouldContinue = handler->onParsedTextPlacementComplete(placement);
+        shouldContinue = handler->OnParsedTextPlacementComplete(placement);
     }
 
     return shouldContinue;
@@ -149,7 +149,7 @@ bool TextInterpeter::onTextElementComplete(const TextElement& inTextElement) {
 
 
 
-bool TextInterpeter::onResourcesRead(const Resources& inResources, IInterpreterContext* inContext) {
+bool TextInterpeter::OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext) {
     // this is used to parse font references in advance and convert them to "Decoders". decoders are later
     // used to both translate and compute dimensions of texts, as the text gets intepreted
     StringToFontMap::const_iterator it = inResources.fonts.begin();
@@ -181,6 +181,6 @@ bool TextInterpeter::onResourcesRead(const Resources& inResources, IInterpreterC
 }
 
 
-void TextInterpeter::setHandler(ITextInterpreterHandler* inHandler) {
+void TextInterpeter::SetHandler(ITextInterpreterHandler* inHandler) {
     handler = inHandler;
 }

@@ -5,5 +5,5 @@
 class ITextInterpreterHandler {
 
 public:
-    virtual bool onParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) = 0; 
+    virtual bool OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) = 0; 
 };
