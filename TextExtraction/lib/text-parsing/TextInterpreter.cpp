@@ -66,7 +66,16 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
     for(; commandIt != inTextElement.texts.end() && shouldContinue; ++commandIt) {
         stringstream textBuffer;
         const PlacedTextCommand& item = *commandIt;
-    
+
+        // local copy of the item.textState.tm, cause there'll be modifying
+        double itemTextStateTm[6];
+
+        // if matrix is not dirty (no matrix changing operators were running betwee items), replace with computed matrix of the previous round.
+        if(!item.textState.tmDirty && hasDefaultTm)
+            CopyMatrix(nextPlacementDefaultTm, itemTextStateTm);
+        else
+            CopyMatrix(item.textState.tm, itemTextStateTm);
+
         // Determine a decoder for the text font
         FontDecoder* decoder = GetDecoderForFont(item.textState.fontRef.GetPtr());
         if(!decoder)
@@ -75,7 +84,7 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
         double accumulatedDisplacement = 0;
         double minPlacement = 0;
         double maxPlacement = 0;
-        CopyMatrix(item.textState.tm, nextPlacementDefaultTm);
+        CopyMatrix(itemTextStateTm, nextPlacementDefaultTm);
         hasDefaultTm = true;
 
 
@@ -128,7 +137,7 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
         string text = textBuffer.str();
         double globalBBox[4];
         
-        MultiplyMatrix(item.textState.tm,item.graphicState.ctm, matrixBuffer);
+        MultiplyMatrix(itemTextStateTm,item.graphicState.ctm, matrixBuffer);
         TransformBox(localBBox, matrixBuffer, globalBBox);
 
         ParsedTextPlacement placement(
