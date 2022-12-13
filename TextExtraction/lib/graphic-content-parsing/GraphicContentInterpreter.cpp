@@ -40,7 +40,6 @@ bool GraphicContentInterpreter::InterpretPageContents(
     handler = inHandler;
     InitInterpretationState();
     bool result = interpreter.InterpretPageContents(inParser, inPage, this); 
-    handler->OnDone();
     ResetInterpretationState();
     return result;
 }
@@ -49,9 +48,14 @@ void GraphicContentInterpreter::InitInterpretationState() {
     graphicStateStack.push_back(ContentGraphicState());
 }
 
+void GraphicContentInterpreter::ClearCurrentPath() {
+    currentPath.subPaths.clear();
+}
+
 void GraphicContentInterpreter::ResetInterpretationState() {
     handler = NULL;
 
+    ClearCurrentPath();
     resourcesStack.clear();
     graphicStateStack.clear();
     textGraphicStateStack.clear();
@@ -62,14 +66,18 @@ void GraphicContentInterpreter::ResetInterpretationState() {
 
 bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  const PDFObjectVector& inOperands, IInterpreterContext* inContext) {
     if (inOperation == "q") {
+        // graphic state operators
         return qCommand();
     } else if(inOperation == "Q") {
         return QCommand();
     } else if(inOperation == "cm") {
         return cmCommand(inOperands);
+    } else if(inOperation == "w") {
+        return wCommand(inOperands);
     } else if(inOperation == "gs") {
         return gsCommand(inOperands);
     } else if(inOperation == "Tc") {
+        // text state operators
         return TcCommand(inOperands);
     } else if(inOperation == "Tw") {
         return TwCommand(inOperands);
@@ -86,6 +94,7 @@ bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  con
     } else if(inOperation == "ET") {
         return ETCommand();
     } else if(inOperation == "Td") {
+        // text positioining operators
         return TdCommand(inOperands);
     } else if(inOperation == "TD") {
         return TDCommand(inOperands);
@@ -94,6 +103,7 @@ bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  con
     } else if(inOperation == "T*") {
         return TStarCommand();
     } else if(inOperation == "Tj") {
+        // text placement operators
         return TjCommand(inOperands);
     } else if(inOperation == "\'") {
         return QuoteCommand(inOperands);
@@ -101,6 +111,43 @@ bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  con
         return DoubleQuoteCommand(inOperands);
     } else if(inOperation == "TJ") {
         return TJCommand(inOperands);
+    } else if(inOperation == "m") {
+        // path construction operators
+        return mCommand(inOperands);
+    } else if(inOperation == "l") {
+        return lCommand(inOperands);
+    } else if(inOperation == "c") {
+        return cCommand(inOperands);
+    } else if(inOperation == "v") {
+        return vCommand(inOperands);
+    } else if(inOperation == "y") {
+        return yCommand(inOperands);
+    } else if(inOperation == "h") {
+        return hCommand(inOperands);
+    } else if(inOperation == "re") {
+        return reCommand(inOperands);
+    } else if(inOperation == "S") {
+        // path painting operators
+        return SCommand(inOperands);
+    } else if(inOperation == "s") {
+        return sCommand(inOperands);
+    } else if(inOperation == "f") {
+        return fCommand(inOperands);
+    } else if(inOperation == "F") {
+        // used for compatibility...equivalent to "f"
+        return fCommand(inOperands);
+    } else if(inOperation == "f*") {
+        return fStarCommand(inOperands);
+    } else if(inOperation == "B") {
+        return BCommand(inOperands);
+    } else if(inOperation == "B*") {
+        return BStarCommand(inOperands);
+    } else if(inOperation == "b") {
+        return bCommand(inOperands);
+    } else if(inOperation == "b*") {
+        return bStarCommand(inOperands);
+    } else if(inOperation == "n") {
+        return nCommand(inOperands);
     }
 
     return true;
@@ -153,6 +200,14 @@ bool GraphicContentInterpreter::cmCommand(const PDFObjectVector& inOperands) {
     return true;
 }
 
+bool GraphicContentInterpreter::wCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 1)
+        return true; // too few params? ignore
+
+    CurrentGraphicState().lineWidth = ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
+    return true;
+}
+
 TextGraphicState& GraphicContentInterpreter::CurrentTextState() {
     if(isInTextElement) {
         return textGraphicStateStack.back();
@@ -170,8 +225,14 @@ bool GraphicContentInterpreter::gsCommand(const PDFObjectVector& inOperands) {
 
     StringToGStateMap::iterator it = currentResources.gStates.find(gsName);
     if(it != currentResources.gStates.end()) {
-        CurrentTextState().fontRef = it->second.fontRef;
-        CurrentTextState().fontSize = it->second.fontSize;
+        if(it->second.hasFont) {
+            CurrentTextState().fontRef = it->second.fontRef;
+            CurrentTextState().fontSize = it->second.fontSize;
+        }
+
+        if(it->second.hasLineWidth) {
+            CurrentGraphicState().lineWidth = it->second.lineWidth;
+        }
     } // gstate will not be found if name is wrong, or that it didn't get collected cause didn't have interesting info for the task at hand
     return true;
 }
@@ -430,6 +491,232 @@ bool GraphicContentInterpreter::TJCommand(const PDFObjectVector& inOperands) {
     return true;
 }
 
+void GraphicContentInterpreter::StartNewSubpathWithPoint(const PathPoint& inPoint) {
+    SubPath newSubPath;
+
+    newSubPath.components.push_back(PathComponent(inPoint));
+    currentPath.subPaths.push_back(newSubPath);
+}
+
+bool GraphicContentInterpreter::mCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 2)
+        return true; // too few params? ignore
+
+    double x = ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).GetAsDouble();
+    double y =  ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
+
+    StartNewSubpathWithPoint(PathPoint(x,y));
+
+    return true;
+}
+
+bool GraphicContentInterpreter::NoCurrentPoint() {
+    return currentPath.subPaths.size() == 0 || currentPath.subPaths.back().components.size() == 0;
+}
+
+bool GraphicContentInterpreter::AppendComponentToCurrentPath(const PathComponent& inComponent) {
+    if(NoCurrentPoint())
+        return true; // no current point, so cant append.
+
+    // now it's only a question if the current subpath is closed, in which case we should start a new
+    // subpath using the current point as first point and then add the new path component...or if it's
+    // open in which case we can just append the new component to the current subpath
+
+    SubPath& currentSubPath = currentPath.subPaths.back();
+
+    if(currentSubPath.isClosed) {
+        StartNewSubpathWithPoint(currentSubPath.components.back().to);
+    }
+
+    currentPath.subPaths.back().components.push_back(inComponent);
+
+    return true;
+ }
+
+bool GraphicContentInterpreter::lCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 2)
+        return true; // too few params? ignore
+
+    double x = ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).GetAsDouble();
+    double y =  ParsedPrimitiveHelper(inOperands.back()).GetAsDouble();
+
+    return AppendComponentToCurrentPath(PathComponent(PathPoint(x,y)));
+}
+
+bool GraphicContentInterpreter::cCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 6)
+        return true; // too few params? ignore
+
+    PathPoint control1(ParsedPrimitiveHelper(inOperands[0]).GetAsDouble(), ParsedPrimitiveHelper(inOperands[1]).GetAsDouble());
+    PathPoint control2(ParsedPrimitiveHelper(inOperands[2]).GetAsDouble(), ParsedPrimitiveHelper(inOperands[3]).GetAsDouble());
+    PathPoint to(ParsedPrimitiveHelper(inOperands[4]).GetAsDouble(), ParsedPrimitiveHelper(inOperands[5]).GetAsDouble());
+
+    return AppendComponentToCurrentPath(PathComponent(to, control1, control2));
+}
+
+bool GraphicContentInterpreter::vCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 4)
+        return true; // too few params? ignore
+
+    if(NoCurrentPoint())
+        return true; // no current point, and its supposed to be used as a control point
+
+    PathPoint control1(currentPath.subPaths.back().components.back().to);
+    PathPoint control2(ParsedPrimitiveHelper(inOperands[0]).GetAsDouble(), ParsedPrimitiveHelper(inOperands[1]).GetAsDouble());
+    PathPoint to(ParsedPrimitiveHelper(inOperands[2]).GetAsDouble(), ParsedPrimitiveHelper(inOperands[3]).GetAsDouble());
+
+    return AppendComponentToCurrentPath(PathComponent(to, control1, control2));
+}
+
+bool GraphicContentInterpreter::yCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 4)
+        return true; // too few params? ignore
+
+    PathPoint control1(ParsedPrimitiveHelper(inOperands[0]).GetAsDouble(), ParsedPrimitiveHelper(inOperands[1]).GetAsDouble());
+    PathPoint control2(ParsedPrimitiveHelper(inOperands[2]).GetAsDouble(), ParsedPrimitiveHelper(inOperands[3]).GetAsDouble());
+    PathPoint to(control2);
+
+    return AppendComponentToCurrentPath(PathComponent(to, control1, control2));
+}
+
+bool GraphicContentInterpreter::CloseCurrentPath() {
+    if(NoCurrentPoint())
+        return true; // no points in current subpath, so nothing to tie back to, skip
+
+    SubPath& currentSubPath = currentPath.subPaths.back();
+
+    if(currentSubPath.isClosed)
+        return true; // subpath already closed...so nothing more to do here
+
+    // explictly push the first point as last point and mark path as closed.
+    currentSubPath.components.push_back(PathComponent(*currentSubPath.components.begin()));
+    currentSubPath.isClosed = true;
+
+    return true;
+}
+
+void GraphicContentInterpreter::CloseAllSubPaths() {
+    SubPathList::iterator it = currentPath.subPaths.begin();
+
+    for(; it != currentPath.subPaths.end(); ++it) {
+        SubPath& currentSubPath = *it;
+
+        if(currentSubPath.isClosed)
+            continue; // subpath already closed...so nothing more to do here
+
+        // explictly push the first point as last point and mark path as closed.
+        currentSubPath.components.push_back(PathComponent(*currentSubPath.components.begin()));
+        currentSubPath.isClosed = true;
+
+    }
+} 
+
+bool GraphicContentInterpreter::hCommand(const PDFObjectVector& inOperands) {
+    return CloseCurrentPath();
+}
+
+bool GraphicContentInterpreter::reCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 4)
+        return true; // too few params? ignore
+
+    double x = ParsedPrimitiveHelper(inOperands[0]).GetAsDouble();
+    double y =  ParsedPrimitiveHelper(inOperands[1]).GetAsDouble();
+    double width = ParsedPrimitiveHelper(inOperands[2]).GetAsDouble();
+    double height =  ParsedPrimitiveHelper(inOperands[3]).GetAsDouble();
+
+    SubPath newSubPath;
+
+    newSubPath.components.push_back(PathComponent(PathPoint(x,y))); // x y m
+    newSubPath.components.push_back(PathComponent(PathPoint(x+width,y))); // (x+width) y l
+    newSubPath.components.push_back(PathComponent(PathPoint(x+width,y+height))); // (x+width) (y+height) l
+    newSubPath.components.push_back(PathComponent(PathPoint(x,y+height))); // x (y+height) l
+    // h
+    newSubPath.components.push_back(PathComponent(PathPoint(x,y)));
+    newSubPath.isClosed = true;
+
+    currentPath.subPaths.push_back(newSubPath);
+
+    return true;
+}
+
+bool GraphicContentInterpreter::PaintCurrentPath(bool inShouldStroke, bool inShouldFill, EFillMethod inFillMethod) {
+     if(NoCurrentPoint()) // no path, ignore
+        return true;
+
+    PathElement pathElement = {
+        Path(currentPath),
+        ContentGraphicState(CurrentGraphicState()),
+        inShouldStroke,
+        inShouldFill,
+        inFillMethod
+    };
+
+    ClearCurrentPath();
+
+    return handler->OnPathPainted(pathElement);   
+}
+
+bool GraphicContentInterpreter::SCommand(const PDFObjectVector& inOperands) {
+    return PaintCurrentPath(
+        true,
+        false,
+        eFillMethodNonZeroWindingNumberRule // just a dummy
+    );
+}
+
+bool GraphicContentInterpreter::sCommand(const PDFObjectVector& inOperands) {
+    return CloseCurrentPath() && SCommand(inOperands);
+}
+
+bool GraphicContentInterpreter::fCommand(const PDFObjectVector& inOperands) {
+    CloseAllSubPaths();
+
+    return PaintCurrentPath(
+        false,
+        true,
+        eFillMethodNonZeroWindingNumberRule
+    );
+}
+
+bool GraphicContentInterpreter::fStarCommand(const PDFObjectVector& inOperands) {
+    return PaintCurrentPath(
+        false,
+        true,
+        eFillMethodEventOddRule
+    );
+}
+
+bool GraphicContentInterpreter::BCommand(const PDFObjectVector& inOperands) {
+    CloseAllSubPaths();
+
+    return PaintCurrentPath(
+        true,
+        true,
+        eFillMethodNonZeroWindingNumberRule
+    );
+}
+
+bool GraphicContentInterpreter::BStarCommand(const PDFObjectVector& inOperands) {
+    return PaintCurrentPath(
+        true,
+        true,
+        eFillMethodEventOddRule
+    );
+}
+
+bool GraphicContentInterpreter::bCommand(const PDFObjectVector& inOperands) {
+    return CloseCurrentPath() && BCommand(inOperands);
+}
+
+bool GraphicContentInterpreter::bStarCommand(const PDFObjectVector& inOperands) {
+    return CloseCurrentPath() && BStarCommand(inOperands);
+}
+
+bool GraphicContentInterpreter::nCommand(const PDFObjectVector& inOperands) {
+    ClearCurrentPath();
+    return true;
+}
+
 bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) {
     resourcesStack.push_back(Resources()); // pushs on page start, and also on any drawn xobject start
 
@@ -456,14 +743,29 @@ bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) 
             if(gsAsDict) {
                 // all i care about are font entries, so store it so i dont have to parse later (will cause trouble with interpretation)
                 PDFObjectCastPtr<PDFArray> fontDesc = inContext->GetParser()->QueryDictionaryObject(gsAsDict, "Font");
-                if(!!fontDesc) {
-                    RefCountPtr<PDFObject> fontRef = fontDesc->QueryObject(0);
-                    RefCountPtr<PDFObject> size = fontDesc->QueryObject(1);
-                    double fontSize = ParsedPrimitiveHelper(size.GetPtr()).GetAsDouble();
+                RefCountPtr<PDFObject> lineWidthDesc = inContext->GetParser()->QueryDictionaryObject(gsAsDict, "LW");
 
+                if(!!fontDesc || !!lineWidthDesc) {
+                    GSState gState;
 
-                    currentResources.gStates.insert(StringToGStateMap::value_type(it.GetKey()->GetValue(), GSState(fontRef, fontSize)));
+                    if(!!fontDesc) {
+                        RefCountPtr<PDFObject> fontRef = fontDesc->QueryObject(0);
+                        RefCountPtr<PDFObject> size = fontDesc->QueryObject(1);
+                        double fontSize = ParsedPrimitiveHelper(size.GetPtr()).GetAsDouble();
+                        gState.fontRef = fontRef;
+                        gState.fontSize = fontSize;
+                        gState.hasFont = true;
+                    }
+
+                    if(!!lineWidthDesc) {
+                        double lineWidth = ParsedPrimitiveHelper(lineWidthDesc.GetPtr()).GetAsDouble();
+                        gState.lineWidth = lineWidth;
+                        gState.hasLineWidth = true;
+                    }
+
+                    currentResources.gStates.insert(StringToGStateMap::value_type(it.GetKey()->GetValue(), gState));
                 }
+
                 gsAsDict->Release();
             }
         }

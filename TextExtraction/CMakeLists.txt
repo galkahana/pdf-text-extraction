@@ -16,6 +16,8 @@ lib/graphic-content-parsing/ContentGraphicState.h
 lib/graphic-content-parsing/GraphicContentInterpreter.cpp
 lib/graphic-content-parsing/GraphicContentInterpreter.h
 lib/graphic-content-parsing/IGraphicContentInterpreterHandler.h
+lib/graphic-content-parsing/Path.h
+lib/graphic-content-parsing/PathElement.h
 lib/graphic-content-parsing/Resources.h
 lib/graphic-content-parsing/TextElement.h
 lib/graphic-content-parsing/TextGraphicState.h

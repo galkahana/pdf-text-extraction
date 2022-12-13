@@ -6,13 +6,19 @@
 #include <map>
 
 struct GSState {
-    GSState(RefCountPtr<PDFObject> inRef, double inSize) {
-        fontRef = inRef;
-        fontSize = inSize;
+    GSState() {
+        hasFont = false;
+        hasLineWidth = false;
     }
 
+    // Font
+    bool hasFont;
     RefCountPtr<PDFObject> fontRef;
     double fontSize;
+
+    // LineWidth
+    bool hasLineWidth;
+    double lineWidth;
 };
 
 

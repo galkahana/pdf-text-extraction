@@ -1,6 +1,8 @@
 #pragma once
 
-#include "../graphic-content-parsing/IGraphicContentInterpreterHandler.h"
+#include "../graphic-content-parsing/TextElement.h"
+#include "../graphic-content-parsing/Resources.h"
+
 #include "ITextInterpreterHandler.h"
 
 #include "ObjectsBasicTypes.h"
@@ -11,6 +13,8 @@ class PDFObject;
 
 #include <map>
 
+class IInterpreterContext;
+
 struct LessRefCountPDFObject {
     bool operator()( const RefCountPtr<PDFObject>& lhs, const RefCountPtr<PDFObject>& rhs ) const {
         return lhs.GetPtr() < rhs.GetPtr();
@@ -20,7 +24,7 @@ struct LessRefCountPDFObject {
 typedef std::map<ObjectIDType, FontDecoder> ObjectIDTypeToFontDecoderMap;
 typedef std::map<RefCountPtr<PDFObject>, FontDecoder,  LessRefCountPDFObject> PDFObjectToFontDecoderMap;
 
-class TextInterpeter: public IGraphicContentInterpreterHandler {
+class TextInterpeter {
     public:
         TextInterpeter(void);
         TextInterpeter(ITextInterpreterHandler* inHandler);
@@ -29,10 +33,12 @@ class TextInterpeter: public IGraphicContentInterpreterHandler {
 
         void SetHandler(ITextInterpreterHandler* inHandler);
 
-        // IGraphicContentInterpreterHandler implementation
-        virtual bool OnTextElementComplete(const TextElement& inTextElement);
-        virtual bool OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext);
+        // forwarded by external party implementing IGraphicContentInterpreterHandler
+        // with only what's relevant to text
+        bool OnTextElementComplete(const TextElement& inTextElement);
+        bool OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext);
 
+        void ResetInterpretationState();
     private:
         ITextInterpreterHandler* handler;
 
@@ -41,6 +47,5 @@ class TextInterpeter: public IGraphicContentInterpreterHandler {
         PDFObjectToFontDecoderMap embeddedFontDecoders;
         
         FontDecoder* GetDecoderForFont(PDFObject* inFontReference);     
-        void ResetInterpretationState();
 
 };

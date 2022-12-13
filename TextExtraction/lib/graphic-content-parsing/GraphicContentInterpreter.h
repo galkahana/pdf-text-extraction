@@ -7,6 +7,8 @@
 #include "TextGraphicState.h"
 #include "Resources.h"
 #include "TextElement.h"
+#include "Path.h"
+#include "PathElement.h"
 
 #include <list>
 #include <map>
@@ -48,6 +50,7 @@ private:
     ResourcesList resourcesStack;
     GraphicStateList graphicStateStack;
     TextGraphicStateList textGraphicStateStack;
+    Path currentPath;
 
     bool isInTextElement;
     PlacedTextCommandList currentTextElementCommands;
@@ -62,6 +65,7 @@ private:
     bool qCommand();
     bool QCommand();
     bool cmCommand(const PDFObjectVector& inOperands);
+    bool wCommand(const PDFObjectVector& inOperands);
     bool gsCommand(const PDFObjectVector& inOperands);
     bool TcCommand(const PDFObjectVector& inOperands);
     bool TwCommand(const PDFObjectVector& inOperands);
@@ -79,12 +83,35 @@ private:
     bool QuoteCommand(const PDFObjectVector& inOperands);
     bool DoubleQuoteCommand(const PDFObjectVector& inOperands);
     bool TJCommand(const PDFObjectVector& inOperands);
+    bool mCommand(const PDFObjectVector& inOperands);
+    bool lCommand(const PDFObjectVector& inOperands);
+    bool cCommand(const PDFObjectVector& inOperands);
+    bool vCommand(const PDFObjectVector& inOperands);
+    bool yCommand(const PDFObjectVector& inOperands);
+    bool hCommand(const PDFObjectVector& inOperands);
+    bool reCommand(const PDFObjectVector& inOperands);
+    bool SCommand(const PDFObjectVector& inOperands);
+    bool sCommand(const PDFObjectVector& inOperands);
+    bool fCommand(const PDFObjectVector& inOperands);
+    bool fStarCommand(const PDFObjectVector& inOperands);
+    bool BCommand(const PDFObjectVector& inOperands);
+    bool BStarCommand(const PDFObjectVector& inOperands);
+    bool bCommand(const PDFObjectVector& inOperands);
+    bool bStarCommand(const PDFObjectVector& inOperands);
+    bool nCommand(const PDFObjectVector& inOperands);
 
     void PushGraphicState();
     void PopGraphicState();
     ContentGraphicState& CurrentGraphicState();
 
     TextGraphicState& CurrentTextState();
+
+    void ClearCurrentPath();
+    void StartNewSubpathWithPoint(const PathPoint& inPoint);
+    bool AppendComponentToCurrentPath(const PathComponent& inComponent);
+    bool CloseCurrentPath();
+    bool NoCurrentPoint();
+    void CloseAllSubPaths();
 
     void cm(const double (&matrix)[6]);
     void Tc(double inCharSpace);
@@ -99,5 +126,7 @@ private:
     bool EndTextElement();
 
     void RecordTextPlacement(const PlacedTextCommandArgument& inTextPlacementOperation);
-    void RecordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations);    
+    void RecordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations);
+
+    bool PaintCurrentPath(bool inShouldStroke, bool inShouldFill, EFillMethod inFillMethod);
 };

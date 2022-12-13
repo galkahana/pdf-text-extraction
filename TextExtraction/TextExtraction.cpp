@@ -7,12 +7,11 @@
 
 #include "./lib/interpreter/PDFRecursiveInterpreter.h"
 #include "./lib/graphic-content-parsing/GraphicContentInterpreter.h"
-#include "./lib/text-parsing/TextInterpreter.h"
 
 using namespace std;
 using namespace PDFHummus;
 
-TextExtraction::TextExtraction() {
+TextExtraction::TextExtraction():textInterpeter(this) {
 
 }
     
@@ -25,12 +24,26 @@ bool TextExtraction::OnParsedTextPlacementComplete(const ParsedTextPlacement& in
     return true;
 }
 
+
+bool TextExtraction::OnTextElementComplete(const TextElement& inTextElement) {
+    return textInterpeter.OnTextElementComplete(inTextElement);
+}
+
+bool TextExtraction::OnPathPainted(const PathElement& inPathElement) {
+    // TODO
+    return true;
+}
+
+bool TextExtraction::OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext) {
+    return textInterpeter.OnResourcesRead(inResources, inContext);
+}
+
 EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage) {
     EStatusCode status = eSuccess;
     unsigned long start = (unsigned long)(inStartPage >= 0 ? inStartPage : (inParser->GetPagesCount() + inStartPage));
     unsigned long end = (unsigned long)(inEndPage >= 0 ? inEndPage :  (inParser->GetPagesCount() + inEndPage));
-    TextInterpeter textInterpeter(this);
     GraphicContentInterpreter interpreter;
+
 
     if(end > inParser->GetPagesCount()-1)
         end = inParser->GetPagesCount()-1;
@@ -45,8 +58,10 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inSt
         }
         textsForPages.push_back(ParsedTextPlacementList());
         // the interpreter will trigger the textInterpreter which in turn will trigger this object to collect text elements
-        interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), &textInterpeter);  
+        interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), this);  
     }    
+
+    textInterpeter.ResetInterpretationState();
 
     return status;
 }
