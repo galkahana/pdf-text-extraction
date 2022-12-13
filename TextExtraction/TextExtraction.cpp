@@ -11,13 +11,25 @@
 using namespace std;
 using namespace PDFHummus;
 
-TextExtraction::TextExtraction():textInterpeter(this) {
+TextExtraction::TextExtraction():
+    textInterpeter(this), 
+    tableLineInterpreter(this)  // TMP
+{
 
 }
     
 TextExtraction::~TextExtraction() {
     textsForPages.clear();
 }
+
+bool TextExtraction::OnParsedHorizontalLinePlacementComplete(const ParsedLinePlacement& inParsedLine) { // TMP
+    return true;
+}
+
+bool TextExtraction::OnParsedVerticalLinePlacementComplete(const ParsedLinePlacement& inParsedLine) { // TMP
+    return true;
+}
+
 
 bool TextExtraction::OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) {
     textsForPages.back().push_back(inParsedTextPlacement);
@@ -30,8 +42,7 @@ bool TextExtraction::OnTextElementComplete(const TextElement& inTextElement) {
 }
 
 bool TextExtraction::OnPathPainted(const PathElement& inPathElement) {
-    // TODO
-    return true;
+    return tableLineInterpreter.OnPathPainted(inPathElement);
 }
 
 bool TextExtraction::OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext) {

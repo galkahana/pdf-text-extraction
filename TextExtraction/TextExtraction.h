@@ -7,6 +7,8 @@
 #include "./lib/text-composition/TextComposer.h"
 #include "./lib/graphic-content-parsing/IGraphicContentInterpreterHandler.h"
 #include "./lib/text-parsing/TextInterpreter.h"
+#include  "./lib/table-line-parsing/TableLineInterpreter.h" // TMP
+#include  "./lib/table-line-parsing/ITableLineInterpreterHandler.h" // TMP
 
 #include "ErrorsAndWarnings.h"
 
@@ -20,7 +22,7 @@ typedef std::list<ParsedTextPlacementList> ParsedTextPlacementListList;
 typedef std::list<TextExtractionWarning> TextExtractionWarningList;
 
 
-class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterpreterHandler {
+class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterpreterHandler, ITableLineInterpreterHandler { // TMP
 
     public:
         TextExtraction();
@@ -50,8 +52,13 @@ class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterprete
         // ITextInterpreterHandler implementation
         virtual bool OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement); 
 
+        // ITableLineInterpreterHandler implementation // TMP
+        virtual bool OnParsedHorizontalLinePlacementComplete(const ParsedLinePlacement& inParsedLine); 
+        virtual bool OnParsedVerticalLinePlacementComplete(const ParsedLinePlacement& inParsedLine); 
+
     private:
         TextInterpeter textInterpeter;
+        TableLineInterpreter tableLineInterpreter; // TMP
 
         PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage);
 };

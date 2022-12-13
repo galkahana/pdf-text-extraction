@@ -33,6 +33,10 @@ lib/pdf-writer-enhancers/Bytes.cpp
 lib/pdf-writer-enhancers/Bytes.h
 lib/text-composition/TextComposer.cpp
 lib/text-composition/TextComposer.h
+lib/table-line-parsing/ITableLineInterpreterHandler.h
+lib/table-line-parsing/ParsedLinePlacement.h
+lib/table-line-parsing/TableLineInterpreter.cpp
+lib/table-line-parsing/TableLineInterpreter.h
 lib/text-parsing/ITextInterpreterHandler.h
 lib/text-parsing/ParsedTextPlacement.h
 lib/text-parsing/TextInterpreter.cpp
