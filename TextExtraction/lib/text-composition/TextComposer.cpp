@@ -177,8 +177,6 @@ void TextComposer::MergeLineStreamToResultString(
         bidi.ConvertVisualToLogical(inStream.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
         buffer<<bidiResult;
     }
-    buffer<<scCRLN;
-
 }
 
 void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) {
@@ -213,6 +211,7 @@ void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) 
         } else {
             // merge complete line to accumulated text, and start a fresh line with fresh accumulators
             MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox);
+            buffer<<scCRLN;
             lineResult.str(scEmpty);
             CopyBox(lineBox, prevLineBox);
             CopyBox(itCommands->globalBbox, lineBox);
@@ -223,6 +222,10 @@ void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) 
     }
     MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox);
 
+}
+
+void TextComposer::AppendText(const std::string inText) {
+    buffer<<inText;
 }
 
 std::string TextComposer::GetText() {

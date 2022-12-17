@@ -85,6 +85,16 @@ bool TableLineInterpreter::OnPathPainted(const PathElement& inPathElement) {
     TransformVector(localPointOne, inPathElement.graphicState.ctm,globalPointOne);
     TransformVector(localPointTwo, inPathElement.graphicState.ctm,globalPointTwo);
 
+    // compute effective width. see the effect of scale
+    double widthVector[2] = {inPathElement.graphicState.lineWidth, inPathElement.graphicState.lineWidth};
+    double globalWidthVector[2];
+    double scaleMatrix[6];
+    CopyMatrix(inPathElement.graphicState.ctm, scaleMatrix);
+    scaleMatrix[4] = scaleMatrix[5] = 0;
+    TransformVector(widthVector, scaleMatrix, globalWidthVector);
+    globalWidthVector[0] = abs(globalWidthVector[0]);
+    globalWidthVector[1] = abs(globalWidthVector[1]);
+
     if(abs(globalPointOne[0] - globalPointTwo[0]) < DOUBLE_EPSILON) {
         // x is the same, so vertical line
 
@@ -95,9 +105,10 @@ bool TableLineInterpreter::OnPathPainted(const PathElement& inPathElement) {
             localPointTwo,
             inPathElement.graphicState.ctm,
             inPathElement.graphicState.lineWidth,
+            true,
             isOneTheTop ? globalPointOne : globalPointTwo,
-            isOneTheTop ? globalPointTwo : globalPointOne
-
+            isOneTheTop ? globalPointTwo : globalPointOne,
+            globalWidthVector
         );
 
         return handler->OnParsedVerticalLinePlacementComplete(linePlacement);
@@ -111,8 +122,10 @@ bool TableLineInterpreter::OnPathPainted(const PathElement& inPathElement) {
             localPointTwo,
             inPathElement.graphicState.ctm,
             inPathElement.graphicState.lineWidth,
+            false,
             isOneTheLeft ? globalPointOne : globalPointTwo,
-            isOneTheLeft ? globalPointTwo : globalPointOne
+            isOneTheLeft ? globalPointTwo : globalPointOne,
+            globalWidthVector
 
         );
 

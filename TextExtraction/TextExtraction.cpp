@@ -11,25 +11,13 @@
 using namespace std;
 using namespace PDFHummus;
 
-TextExtraction::TextExtraction():
-    textInterpeter(this), 
-    tableLineInterpreter(this)  // TMP
-{
+TextExtraction::TextExtraction():textInterpeter(this) {
 
 }
     
 TextExtraction::~TextExtraction() {
     textsForPages.clear();
 }
-
-bool TextExtraction::OnParsedHorizontalLinePlacementComplete(const ParsedLinePlacement& inParsedLine) { // TMP
-    return true;
-}
-
-bool TextExtraction::OnParsedVerticalLinePlacementComplete(const ParsedLinePlacement& inParsedLine) { // TMP
-    return true;
-}
-
 
 bool TextExtraction::OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) {
     textsForPages.back().push_back(inParsedTextPlacement);
@@ -42,8 +30,10 @@ bool TextExtraction::OnTextElementComplete(const TextElement& inTextElement) {
 }
 
 bool TextExtraction::OnPathPainted(const PathElement& inPathElement) {
-    return tableLineInterpreter.OnPathPainted(inPathElement);
+    // IGNORE (not relevant for text extraction)
+    return true;
 }
+
 
 bool TextExtraction::OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext) {
     return textInterpeter.OnResourcesRead(inResources, inContext);
@@ -116,6 +106,7 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
     return status;
 }
 
+static const string scCRLN = "\r\n";
 
 std::string TextExtraction::GetResultsAsText(int bidiFlag, TextComposer::ESpacing spacingFlag) {
     ParsedTextPlacementListList::iterator itPages = textsForPages.begin();
@@ -123,6 +114,7 @@ std::string TextExtraction::GetResultsAsText(int bidiFlag, TextComposer::ESpacin
 
     for(; itPages != textsForPages.end();++itPages) {
         composer.ComposeText(*itPages);
+        composer.AppendText(scCRLN);
     }
 
     return composer.GetText();

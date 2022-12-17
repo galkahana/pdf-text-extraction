@@ -2,23 +2,23 @@
 
 #include <string>
 
-enum ETextExtractionWarning {
+enum EExtractionWarning {
     eWarningNone = 0, // null, means no warning
 };
 
-enum ETextExtractionError {
+enum EExtractionError {
     eErrorNone = 0, // null means no error
     eErrorFileNotReadable = 301,
     eErrorInternalPDFWriter = 302
 };
 
 
-struct TextExtractionError {
-    ETextExtractionError code;
+struct ExtractionError {
+    EExtractionError code;
     std::string description;
 };
 
-struct TextExtractionWarning {
-    ETextExtractionWarning code;
+struct ExtractionWarning {
+    EExtractionWarning code;
     std::string description;
 };

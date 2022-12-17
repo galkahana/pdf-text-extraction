@@ -13,6 +13,7 @@ struct ContentGraphicState {
     }
     ContentGraphicState(const ContentGraphicState& otherState): textGraphicState(otherState.textGraphicState) {
         CopyMatrix(otherState.ctm, ctm);
+        lineWidth = otherState.lineWidth;
     }
     double ctm[6];
     double lineWidth;
