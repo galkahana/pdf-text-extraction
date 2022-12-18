@@ -126,6 +126,18 @@ Table CreateTable(const Lines& inLines) {
         }
     }
 
+    /**
+     * A note about what's not currently done here about split cells. A header row could span multiple columns and may internally be split
+     * to rows and columns to describe the columns. One can easily reuse the table composer with what lines are determined to be intersecting
+     * within a single cell (those lines that are NOT row lines, for instance, and columns that don't intersect top to bottom) to recreate that
+     * internal split structure. At this point in time im keeping this out of scope, because at this point in time i'm extracting table to CSV
+     * which does not allow for such header splitting. This is more relevant to more complex spreadsheets like excel, google sheets and mac numbers
+     * which i'm not trying to export to...cause the format is too complex for such a 80-20 implementation like we're trying to do here.
+     * BUT if at any point i will change to export to something that can handle split cells....then this parsing would make sense and the cells data
+     * may be enhanced. It souldn't be that big a difference, just that a table cell might contain a Table as an alternative to just text placements
+     * (or in addition to still make it simple to export to CSV).
+     */
+
     return result;
 }
 
