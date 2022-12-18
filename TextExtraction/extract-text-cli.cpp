@@ -7,6 +7,7 @@
 #include "InputStringStream.h"
 #include "OutputStreamTraits.h"
 #include "IByteReaderWithPosition.h"
+#include "IByteWriterWithPosition.h"
 
 #include "TextExtraction.h"
 #include "TableExtraction.h"
@@ -44,6 +45,7 @@ static const string SPACING_NONE = "NONE";
 static const string scCSVExtension = ".csv";
 static const string scDot = ".";
 
+static const Byte scUTF8Bom[3] = {0xEF,0xBB,0xBF};
 
 int main(int argc, char* argv[])
 {
@@ -182,6 +184,7 @@ int main(int argc, char* argv[])
                             if (status != eSuccess) {
                                 cerr << "Error: Cannot open target file path for writing in" << fileFullPath.c_str() << endl;
                             } else {
+                                outputFile.GetOutputStream()->Write(scUTF8Bom,3);
                                 string result = tableExtraction.GetTableAsCSVText(*itTables,bidiFlag, spacing);
                                 InputStringStream textStream(result);		
                                 OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
@@ -217,8 +220,9 @@ int main(int argc, char* argv[])
                         cerr << "Error: Cannot open target file path for writing in" << outputFilePath.c_str() << endl;
                     }
                     else {
+                        outputFile.GetOutputStream()->Write(scUTF8Bom,3);
                         string result = textExtraction.GetResultsAsText(bidiFlag, spacing);
-                        InputStringStream textStream(result);		
+                        InputStringStream textStream(result);
                         OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
                         status = streamCopier.CopyToOutputStream(&textStream);
                     }
