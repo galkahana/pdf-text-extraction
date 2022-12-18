@@ -25,9 +25,9 @@ static void ShowUsage(const string& name)
 #if (SUPPORT_ICU_BIDI==1)
               << "\t-b, --bidi <RTL|LTR>\t\t\tuse bidi algo to convert visual to logical. provide default direction per document writing direction.\n"
 #endif
-              << "\t-p, --spacing <BOTH|HOR|VER|NONE>\tadd spaces between pieces of text considering their relative positions. default is BOTH.\n"
-              << "\t-t, --tables\t\t\t\textract tables instead of text as csv content\n"
-              << "\t-o, --output /path/to/file\t\twrite result to output file\n"
+              << "\t-p, --spacing <BOTH|HOR|VER|NONE>\tadd spaces between pieces of text considering their relative positions. default is BOTH\n"
+              << "\t-t, --tables\t\t\t\textract tables instead of text. Each table is represented in CSV\n"
+              << "\t-o, --output /path/to/file\t\twrite result to output file (or files for tables export)\n"
               << "\t-q, --quiet\t\t\t\tquiet run. only shows errors and warnings\n"
               << "\t-h, --help\t\t\t\tShow this help message\n"
               << "\t-d, --debug /path/to/file\t\tcreate debug output file\n"
