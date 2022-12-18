@@ -161,48 +161,6 @@ LinesList DetermineTablesLines(const Lines& inLines, const double (&inScopeBox)[
 typedef vector<ParsedLinePlacement> ParsedLinePlacementVector;
 
 
-bool IsHorizontalLineInBox(const ParsedLinePlacement& inHorizontalLine, const double (&inCellBox)[4]) {
-
-    // too high
-    if(inHorizontalLine.globalPointOne[1] - inHorizontalLine.effectiveLineWidth[1] > inCellBox[3] + INTERSECT_THRESHOLD)
-        return false;
-
-    // too low
-    if(inHorizontalLine.globalPointOne[1] + inHorizontalLine.effectiveLineWidth[1] < inCellBox[1] - INTERSECT_THRESHOLD)
-        return false;
-
-    // too much to the left
-    if(inHorizontalLine.globalPointTwo[0] + inHorizontalLine.effectiveLineWidth[0] < inCellBox[0] - INTERSECT_THRESHOLD)
-        return false;
-
-    // too much to the right
-    if(inHorizontalLine.globalPointOne[0] - inHorizontalLine.effectiveLineWidth[0] > inCellBox[2] + INTERSECT_THRESHOLD)
-        return false;
-
-    return true;
-}
-
-bool IsVerticalLineInBox(const ParsedLinePlacement& inVerticalLine, const double (&inCellBox)[4]) {
-
-    // too high
-    if(inVerticalLine.globalPointTwo[1] - inVerticalLine.effectiveLineWidth[1] > inCellBox[3] + INTERSECT_THRESHOLD)
-        return false;
-
-    // too low
-    if(inVerticalLine.globalPointOne[1] + inVerticalLine.effectiveLineWidth[1] < inCellBox[1] - INTERSECT_THRESHOLD)
-        return false;
-
-    // too much to the left
-    if(inVerticalLine.globalPointOne[0] + inVerticalLine.effectiveLineWidth[0] < inCellBox[0] - INTERSECT_THRESHOLD)
-        return false;
-
-    // too much to the right
-    if(inVerticalLine.globalPointOne[0] - inVerticalLine.effectiveLineWidth[0] > inCellBox[2] + INTERSECT_THRESHOLD)
-        return false;
-
-    return true;
-}
-
 Lines ComputeCellInternalLines(
     const ParsedLinePlacementVector& inSortedHoriztonalLines, 
     const ParsedLinePlacementVector&  inSortedVerticalLines, 
@@ -211,20 +169,76 @@ Lines ComputeCellInternalLines(
     Lines result;
 
     // This leaves much room for improvement...i got the lines sorted...can do binary search instead of iterating all.
-    // rmmbr this is done on a PER CELL basis
+    // rmmbr this is done on a PER CELL basis.
+    // binary searching to make me feel better about this.
 
-    ParsedLinePlacementVector::const_iterator it = inSortedHoriztonalLines.begin();
 
-    for(; it != inSortedHoriztonalLines.end(); ++it) {
-        if(IsHorizontalLineInBox(*it, inCellBox))
-            result.horizontalLines.push_back(*it);
+    // horizontal lines first
+    int start = 0;
+    int end = inSortedHoriztonalLines.size();
+
+    // binary search the highest horizontal line that's lower than the box top
+    while(end - start > 1) {
+        int candidateIndex = start + floor((end - start)/2.0);
+
+        if(inSortedHoriztonalLines[candidateIndex].globalPointOne[1] - inSortedHoriztonalLines[candidateIndex].effectiveLineWidth[1]  > inCellBox[3] + INTERSECT_THRESHOLD) {
+            start = candidateIndex + 1;
+        } else {
+            end = candidateIndex;
+        }
     }
 
-    it = inSortedVerticalLines.begin();
+    for(int i=start; i<=inSortedHoriztonalLines.size(); ++i) {
+        const ParsedLinePlacement& theLine = inSortedHoriztonalLines[i];
 
-    for(; it != inSortedVerticalLines.end(); ++it) {
-        if(IsVerticalLineInBox(*it, inCellBox))
-            result.verticalLines.push_back(*it);
+        // horizontal line is too low...can stop now
+        if (theLine.globalPointOne[1] + theLine.effectiveLineWidth[1]  < inCellBox[1] - INTERSECT_THRESHOLD)
+            break;
+
+        // too much to the left
+        if(theLine.globalPointTwo[0] + theLine.effectiveLineWidth[0] < inCellBox[0] - INTERSECT_THRESHOLD)
+            continue;
+
+        // too much to the right
+        if(theLine.globalPointOne[0] - theLine.effectiveLineWidth[0] > inCellBox[2] + INTERSECT_THRESHOLD)
+            continue;
+
+        // just right...put it in
+        result.horizontalLines.push_back(theLine);
+    }
+
+    // now for vertical lines
+    start = 0;
+    end = inSortedVerticalLines.size();
+
+    // binary search the leftest vertical line that's righter than the box left
+    while(end - start > 1) {
+        int candidateIndex = start + floor((end - start)/2.0);
+
+        if(inSortedVerticalLines[candidateIndex].globalPointOne[0] + inSortedVerticalLines[candidateIndex].effectiveLineWidth[0] < inCellBox[0] - INTERSECT_THRESHOLD) {
+            start = candidateIndex + 1;
+        } else {
+            end = candidateIndex;
+        }
+    }    
+
+    for(int i=start; i<=inSortedVerticalLines.size(); ++i) {
+        const ParsedLinePlacement& theLine = inSortedVerticalLines[i];
+
+        // too much to the right, can stop now
+        if(theLine.globalPointOne[0] - theLine.effectiveLineWidth[0] > inCellBox[2] + INTERSECT_THRESHOLD)
+            break;
+
+        // too high
+        if(theLine.globalPointTwo[1] - theLine.effectiveLineWidth[1] > inCellBox[3] + INTERSECT_THRESHOLD)
+            continue;
+
+        // too low
+        if(theLine.globalPointOne[1] + theLine.effectiveLineWidth[1] < inCellBox[1] - INTERSECT_THRESHOLD)
+            continue;
+
+        // just right...put it in
+        result.verticalLines.push_back(theLine);
     }
 
     return result;
@@ -342,7 +356,13 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4]) {
                 itCells->rightLine.globalPointOne[0] + itCells->rightLine.effectiveLineWidth[0]/2,
                 itRows->topLine.globalPointOne[1] + itRows->topLine.effectiveLineWidth[1]/2,
             };
-            LinesList internalTablesLinesList = DetermineTablesLines(ComputeCellInternalLines(sortedHoriztonalLines, sortedVerticalLines, cellBox), cellBox);
+            Lines linesInBox = ComputeCellInternalLines(sortedHoriztonalLines, sortedVerticalLines, cellBox);
+            if(linesInBox.horizontalLines.size() <= 2 && linesInBox.verticalLines.size() <= 2 ) {
+                // k no internal lines...just the 4 lines (or somehow...not even thems) of the cell
+                continue;
+            }
+
+            LinesList internalTablesLinesList = DetermineTablesLines(linesInBox, cellBox);
             LinesList::iterator it = internalTablesLinesList.begin();
             for(; it != internalTablesLinesList.end(); ++it) {
                 Result<Table> tableResult = CreateTable(*it, cellBox);
