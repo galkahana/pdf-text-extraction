@@ -1,4 +1,8 @@
 
+void ZeroVector(double (&vectorResult)[2]) {
+    vectorResult[0] = vectorResult[1] = 0;
+}
+
 void UnitMatrix(double (&mtxResult)[6]) {
     mtxResult[0] = mtxResult[3] = 1;
     mtxResult[1] = mtxResult[2] = mtxResult[4] = mtxResult[5] = 0;

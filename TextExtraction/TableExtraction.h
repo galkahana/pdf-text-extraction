@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EStatusCode.h"
+#include "PDFRectangle.h"
 
 #include "./lib/text-parsing/ParsedTextPlacement.h"
 #include "./lib/text-parsing/ITextInterpreterHandler.h"
@@ -23,6 +24,7 @@ class PDFParser;
 typedef std::list<ParsedTextPlacementList> ParsedTextPlacementListList;
 typedef std::list<TableList> TableListList;
 typedef std::list<ExtractionWarning> ExtractionWarningList;
+typedef std::list<PDFRectangle> PDFRectangleList;
 
 class TableExtraction : public ITextInterpreterHandler, IGraphicContentInterpreterHandler, ITableLineInterpreterHandler {
 
@@ -58,6 +60,7 @@ class TableExtraction : public ITextInterpreterHandler, IGraphicContentInterpret
 
         ParsedTextPlacementListList textsForPages;
         LinesList tableLinesForPages;
+        PDFRectangleList mediaBoxesForPages;
 
 
         PDFHummus::EStatusCode ExtractTablePlacements(PDFParser* inParser, long inStartPage, long inEndPage);

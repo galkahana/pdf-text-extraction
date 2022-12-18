@@ -10,5 +10,5 @@ class TableComposer {
         TableComposer();
         virtual ~TableComposer();
 
-        TableList ComposeTables(const Lines& inLines, const ParsedTextPlacementList& inTextPlacements);
+        TableList ComposeTables(const Lines& inLines, const ParsedTextPlacementList& inTextPlacements, const double (&inScopeBox)[4]);
 };

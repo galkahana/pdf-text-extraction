@@ -1,3 +1,4 @@
+#pragma once
 
 enum EResult {
    EResultOk,
@@ -13,7 +14,7 @@ class Result {
         bool IsOK();
         bool IsErr();
 
-        T GetValue();
+        T& GetValue();
 
         T GetValueOrDefault(T inDefaultValue);
 
@@ -46,7 +47,7 @@ bool Result<T>::IsErr() {
 }
 
 template <typename T>
-T Result<T>::GetValue() {
+T& Result<T>::GetValue() {
     return value;
 }
 

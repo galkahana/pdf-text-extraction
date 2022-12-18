@@ -3,6 +3,7 @@
 #include "InputFile.h"
 #include "PDFParser.h"
 #include "PDFWriter.h"
+#include "PDFPageInput.h"
 
 
 #include "./lib/interpreter/PDFRecursiveInterpreter.h"
@@ -27,6 +28,7 @@ TableExtraction::~TableExtraction() {
     textsForPages.clear();
     tableLinesForPages.clear();
     tablesForPages.clear();
+    mediaBoxesForPages.clear();
 }
 
 bool TableExtraction::OnParsedHorizontalLinePlacementComplete(const ParsedLinePlacement& inParsedLine) {
@@ -76,6 +78,10 @@ EStatusCode TableExtraction::ExtractTablePlacements(PDFParser* inParser, long in
             status = eFailure;
             break;
         }
+
+        PDFPageInput pageInput(inParser,pageObject.GetPtr());
+
+        mediaBoxesForPages.push_back(pageInput.GetMediaBox());
         textsForPages.push_back(ParsedTextPlacementList());
         tableLinesForPages.push_back(Lines());
         // the interpreter will trigger the textInterpreter which in turn will trigger this object to collect text elements
@@ -100,6 +106,7 @@ EStatusCode TableExtraction::ExtractTables(const std::string& inFilePath, long i
     textsForPages.clear();
     tableLinesForPages.clear();
     tablesForPages.clear();
+    mediaBoxesForPages.clear();
 
     do {
         status = sourceFile.OpenFile(inFilePath);
@@ -134,10 +141,15 @@ void TableExtraction::ComposeTables() {
     TableComposer tableComposer;
     ParsedTextPlacementListList::iterator itTextsforPages = textsForPages.begin();
     LinesList::iterator itTablesLinesForPages = tableLinesForPages.begin();
+    PDFRectangleList::iterator itMediaBoxForPages = mediaBoxesForPages.begin();
 
     // iterate the pages (lists are supposed to be synced)
-    for(; itTextsforPages != textsForPages.end() &&  itTablesLinesForPages != tableLinesForPages.end(); ++itTextsforPages, ++itTablesLinesForPages) {
-        tablesForPages.push_back(tableComposer.ComposeTables(*itTablesLinesForPages, *itTextsforPages));
+    for(; itTextsforPages != textsForPages.end() &&  
+            itTablesLinesForPages != tableLinesForPages.end() && 
+            itMediaBoxForPages != mediaBoxesForPages.end(); 
+            ++itTextsforPages, ++itTablesLinesForPages, ++itMediaBoxForPages) {
+        double pageScopeBox[4] ={itMediaBoxForPages->LowerLeftX, itMediaBoxForPages->LowerLeftY, itMediaBoxForPages->UpperRightX, itMediaBoxForPages->UpperRightY};
+        tablesForPages.push_back(tableComposer.ComposeTables(*itTablesLinesForPages, *itTextsforPages, pageScopeBox));
     }
 }
 

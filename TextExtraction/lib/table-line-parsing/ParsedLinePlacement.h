@@ -4,6 +4,17 @@
 #include "../graphic-content-parsing/Path.h"
 
 struct ParsedLinePlacement {
+    ParsedLinePlacement() {
+        ZeroVector(localPointOne);
+        ZeroVector(localPointTwo);
+        UnitMatrix(matrix);
+        lineWidth = 1;
+        isVertical = false;
+        ZeroVector(globalPointOne);
+        ZeroVector(globalPointTwo);
+        ZeroVector(effectiveLineWidth);
+    }
+
     ParsedLinePlacement(
         const double (&inLocalPointOne)[2],
         const double (&inLocalPointTwo)[2],
