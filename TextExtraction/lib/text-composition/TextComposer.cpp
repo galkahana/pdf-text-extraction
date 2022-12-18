@@ -136,7 +136,7 @@ unsigned long GuessHorizontalSpacingBetweenPlacements(const ParsedTextPlacement&
         return 0; // left text is overflowing into right text
 
     double distance = rightTextLeftEdge - leftTextRightEdge;
-    double spaceWidth = left.spaceWidth;
+    double spaceWidth = left.globalSpaceWidth[0];
 
     if(spaceWidth == 0 && BoxWidth(left.globalBbox) > 0) {
         // if no available space width from font info, try to evaluate per the left string width/char length...not the best...but

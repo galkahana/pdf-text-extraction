@@ -136,16 +136,27 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
         double spaceWidth = decoder->spaceWidth*item.textState.fontSize*item.textState.scale/100;
         string text = textBuffer.str();
         double globalBBox[4];
+        double scaleMatrix[6];
+        double globalWidthVector[2];
+        double widthVector[2] = {spaceWidth,0};
         
         MultiplyMatrix(itemTextStateTm,item.graphicState.ctm, matrixBuffer);
         TransformBox(localBBox, matrixBuffer, globalBBox);
+
+        CopyMatrix(item.graphicState.ctm, scaleMatrix);
+        scaleMatrix[4] = scaleMatrix[5] = 0;
+        TransformVector(widthVector, scaleMatrix, globalWidthVector);
+        globalWidthVector[0] = abs(globalWidthVector[0]);
+        globalWidthVector[1] = abs(globalWidthVector[1]);
+
 
         ParsedTextPlacement placement(
                 text,
                 matrixBuffer,
                 localBBox,
                 globalBBox,
-                spaceWidth
+                spaceWidth,
+                globalWidthVector
 
         );
 

@@ -10,13 +10,15 @@ struct ParsedTextPlacement {
         const double (&inMatrix)[6],
         const double (&inLocalBox)[4],
         const double (&inGlobalBox)[4],
-        const double inSpaceWidth
+        const double inSpaceWidth,
+        const double (&inGlobalSpaceWidth)[2]
     ) {
         text = inText;
         CopyMatrix(inMatrix, matrix);
         CopyBox(inLocalBox, localBbox);
         CopyBox(inGlobalBox, globalBbox);
         spaceWidth = inSpaceWidth;
+        CopyVector(inGlobalSpaceWidth, globalSpaceWidth);
     }
 
     std::string text;
@@ -24,4 +26,5 @@ struct ParsedTextPlacement {
     double localBbox[4];
     double globalBbox[4];
     double spaceWidth;
+    double globalSpaceWidth[2];
 };
