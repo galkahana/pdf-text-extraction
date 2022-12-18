@@ -1,7 +1,7 @@
 # pragma once
 
 #include "../text-composition/TextComposer.h"
-#include "../tables-composition/Table.h"
+#include "../table-composition/Table.h"
 
 class TableCSVExport {
     public:

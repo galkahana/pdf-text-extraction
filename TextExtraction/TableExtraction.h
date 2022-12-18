@@ -9,8 +9,8 @@
 #include "./lib/text-parsing/TextInterpreter.h"
 #include "./lib/table-line-parsing/TableLineInterpreter.h"
 #include "./lib/table-line-parsing/ITableLineInterpreterHandler.h"
-#include "./lib/tables-composition/Lines.h"
-#include "./lib/tables-composition/Table.h"
+#include "./lib/table-composition/Lines.h"
+#include "./lib/table-composition/Table.h"
 
 #include "ErrorsAndWarnings.h"
 
@@ -21,7 +21,6 @@ class PDFParser;
 #include <list>
 
 typedef std::list<ParsedTextPlacementList> ParsedTextPlacementListList;
-typedef std::list<Table> TableList;
 typedef std::list<TableList> TableListList;
 typedef std::list<ExtractionWarning> ExtractionWarningList;
 

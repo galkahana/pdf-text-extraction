@@ -6,8 +6,6 @@
 #include <list>
 #include <sstream>
 
-typedef std::list<ParsedTextPlacement> ParsedTextPlacementList;
-
 class TextComposer {
     public:
 

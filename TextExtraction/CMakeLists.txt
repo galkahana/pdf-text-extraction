@@ -40,8 +40,10 @@ lib/table-line-parsing/ITableLineInterpreterHandler.h
 lib/table-line-parsing/ParsedLinePlacement.h
 lib/table-line-parsing/TableLineInterpreter.cpp
 lib/table-line-parsing/TableLineInterpreter.h
-lib/tables-composition/Lines.h
-lib/tables-composition/Table.h
+lib/table-composition/Lines.h
+lib/table-composition/Table.h
+lib/table-composition/TableComposer.cpp
+lib/table-composition/TableComposer.h
 lib/text-composition/TextComposer.cpp
 lib/text-composition/TextComposer.h
 lib/text-parsing/ITextInterpreterHandler.h

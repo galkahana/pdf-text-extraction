@@ -177,18 +177,19 @@ int main(int argc, char* argv[])
                         TableList::iterator itTables = itPages->begin();
                         for(; itTables != itPages->end() && status == eSuccess; ++itTables) {
                             OutputFile outputFile;
-                            status = outputFile.OpenFile(filePath + scCSVExtension);
+                            string fileFullPath = filePath + scCSVExtension;
+                            status = outputFile.OpenFile(fileFullPath);
                             if (status != eSuccess) {
-                                cerr << "Error: Cannot open target file path for writing in" << filePath.c_str() << endl;
+                                cerr << "Error: Cannot open target file path for writing in" << fileFullPath.c_str() << endl;
                             } else {
                                 string result = tableExtraction.GetTableAsCSVText(*itTables,bidiFlag, spacing);
                                 InputStringStream textStream(result);		
                                 OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
                                 status = streamCopier.CopyToOutputStream(&textStream);
-                                ++ordinal;
-                                filePath = baseOutputFilePath + Int(ordinal).ToString();
+                                cerr << "Wrote table to " << fileFullPath.c_str() << endl;
                             }
-
+                            ++ordinal;
+                            filePath = baseOutputFilePath + Int(ordinal).ToString();
                         }
                     }
                 } else if(!quiet) {
@@ -221,6 +222,7 @@ int main(int argc, char* argv[])
                         OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
                         status = streamCopier.CopyToOutputStream(&textStream);
                     }
+                    cout <<"Wrote text to " << outputFilePath.c_str() << endl;
 
                 }
                 else if(!quiet) {

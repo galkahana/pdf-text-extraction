@@ -3,6 +3,7 @@
 #include "../math/Transformations.h"
 
 #include <string>
+#include <list>
 
 struct ParsedTextPlacement {
     ParsedTextPlacement(
@@ -28,3 +29,6 @@ struct ParsedTextPlacement {
     double spaceWidth;
     double globalSpaceWidth[2];
 };
+
+
+typedef std::list<ParsedTextPlacement> ParsedTextPlacementList;

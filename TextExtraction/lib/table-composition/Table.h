@@ -4,6 +4,7 @@
 #include "../text-parsing/ParsedTextPlacement.h"
 
 #include <vector>
+#include <list>
 
 struct CellInRow {
     ParsedLinePlacement leftLine;
@@ -27,3 +28,5 @@ typedef std::vector<Row> RowVector;
 struct Table {
     RowVector rows;
 };
+
+typedef std::list<Table> TableList;
