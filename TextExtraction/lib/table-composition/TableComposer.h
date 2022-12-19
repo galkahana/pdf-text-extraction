@@ -11,4 +11,7 @@ class TableComposer {
         virtual ~TableComposer();
 
         TableList ComposeTables(const Lines& inLines, const ParsedTextPlacementList& inTextPlacements, const double (&inScopeBox)[4]);
+
+    private:
+        bool shouldParseInternalTables;
 };

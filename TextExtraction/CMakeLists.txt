@@ -314,6 +314,11 @@ if(USE_BIDI)
 	# End ICU deps
 endif(USE_BIDI)
 
+
+if(SHOULD_PARSE_INTERNAL_TABLES)
+	add_compile_definitions(SHOULD_PARSE_INTERNAL_TABLES)
+endif(SHOULD_PARSE_INTERNAL_TABLES)
+
 target_link_libraries (TextExtraction PDFWriter)
 target_link_libraries (TextExtraction ${LIBAESGM_LDFLAGS})
 target_link_libraries (TextExtraction ${FREETYPE_LDFLAGS})

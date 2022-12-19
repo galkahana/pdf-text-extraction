@@ -12,7 +12,22 @@
 using namespace std;
 
 TableComposer::TableComposer() {
+/**
+ * defining SHOULD_PARSE_INTERNAL_TABLES as flag while retaining shouldParseInternalTables
+ * as boolean might not be the most efficient ways of implementing this, but it does allow me
+ * to compile the parsing part...which i couldn't if i ifdefed the whole recursion section at CreateTable.
+ * 
+ * so - compile flag determines this boolean consulted in code.
+ * 
+ * why not do it (which is the default)? cause CSV output cant really use it and that's the only current output. so we can save some time.
+ * why do it? cause it gives enough information to all defining split cells if outputting to some more sophisticated spreadsheet (like Excel, Google sheet, numbers)
+ */
 
+#ifdef SHOULD_PARSE_INTERNAL_TABLES
+    shouldParseInternalTables = true;
+#else // SHOULD_PARSE_INTERNAL_TABLES
+    shouldParseInternalTables = false;
+#endif
 }
         
 TableComposer::~TableComposer() {
@@ -255,7 +270,7 @@ bool AreLinesEqual(const ParsedLinePlacement& inA, const ParsedLinePlacement& in
 }
 
 
-Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4]) {
+Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], bool inShouldParseInternalTables) {
     Table result;
 
     ParsedLinePlacementVector sortedHoriztonalLines(inLines.horizontalLines.begin(), inLines.horizontalLines.end());
@@ -341,36 +356,38 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4]) {
         }
     }
 
-    // Compute internal tables for each row cell. internal tables represent split cells where there are any.
-    // I can consider making this more efficient by computing the internal lines earlier....
-    // This computation is not very efficient iterating all table lines for each cell...i guess it's not a big deal
-    // but there's room to improve here when i do want to
-    RowVector::iterator itRows = result.rows.begin();
-    for(; itRows != result.rows.end(); ++itRows) {
-        CellInRowVector::iterator itCells = itRows->cells.begin();
-        for(; itCells!=itRows->cells.end(); ++itCells) {
-            // compoute lines that are internal to this cell. this will include the cell lines themselves
-            double cellBox[4] = {
-                itCells->leftLine.globalPointOne[0] - itCells->leftLine.effectiveLineWidth[0]/2,
-                itRows->bottomLine.globalPointOne[1] - itRows->bottomLine.effectiveLineWidth[1]/2,
-                itCells->rightLine.globalPointOne[0] + itCells->rightLine.effectiveLineWidth[0]/2,
-                itRows->topLine.globalPointOne[1] + itRows->topLine.effectiveLineWidth[1]/2,
-            };
-            Lines linesInBox = ComputeCellInternalLines(sortedHoriztonalLines, sortedVerticalLines, cellBox);
-            if(linesInBox.horizontalLines.size() <= 2 && linesInBox.verticalLines.size() <= 2 ) {
-                // k no internal lines...just the 4 lines (or somehow...not even thems) of the cell
-                continue;
-            }
-
-            LinesList internalTablesLinesList = DetermineTablesLines(linesInBox, cellBox);
-            LinesList::iterator it = internalTablesLinesList.begin();
-            for(; it != internalTablesLinesList.end(); ++it) {
-                Result<Table> tableResult = CreateTable(*it, cellBox);
-                if(tableResult.IsOK() && AreLinesEqual(tableResult.GetValue().rows.front().topLine, itRows->topLine)) {
-                    // got internal table! if it is indeed an internal table it should have the cell lines as boundaries...so just check one
-                    itCells->internalTable = new Table(tableResult.GetValue());
+    if(inShouldParseInternalTables) {
+        // Compute internal tables for each row cell. internal tables represent split cells where there are any.
+        // I can consider making this more efficient by computing the internal lines earlier....
+        // This computation is not very efficient iterating all table lines for each cell...i guess it's not a big deal
+        // but there's room to improve here when i do want to
+        RowVector::iterator itRows = result.rows.begin();
+        for(; itRows != result.rows.end(); ++itRows) {
+            CellInRowVector::iterator itCells = itRows->cells.begin();
+            for(; itCells!=itRows->cells.end(); ++itCells) {
+                // compoute lines that are internal to this cell. this will include the cell lines themselves
+                double cellBox[4] = {
+                    itCells->leftLine.globalPointOne[0] - itCells->leftLine.effectiveLineWidth[0]/2,
+                    itRows->bottomLine.globalPointOne[1] - itRows->bottomLine.effectiveLineWidth[1]/2,
+                    itCells->rightLine.globalPointOne[0] + itCells->rightLine.effectiveLineWidth[0]/2,
+                    itRows->topLine.globalPointOne[1] + itRows->topLine.effectiveLineWidth[1]/2,
+                };
+                Lines linesInBox = ComputeCellInternalLines(sortedHoriztonalLines, sortedVerticalLines, cellBox);
+                if(linesInBox.horizontalLines.size() <= 2 && linesInBox.verticalLines.size() <= 2 ) {
+                    // k no internal lines...just the 4 lines (or somehow...not even thems) of the cell
+                    continue;
                 }
-            }            
+
+                LinesList internalTablesLinesList = DetermineTablesLines(linesInBox, cellBox);
+                LinesList::iterator it = internalTablesLinesList.begin();
+                for(; it != internalTablesLinesList.end(); ++it) {
+                    Result<Table> tableResult = CreateTable(*it, cellBox, inShouldParseInternalTables);
+                    if(tableResult.IsOK() && AreLinesEqual(tableResult.GetValue().rows.front().topLine, itRows->topLine)) {
+                        // got internal table! if it is indeed an internal table it should have the cell lines as boundaries...so just check one
+                        itCells->internalTable = new Table(tableResult.GetValue());
+                    }
+                }            
+            }
         }
     }
 
@@ -444,7 +461,7 @@ TableList TableComposer::ComposeTables(const Lines& inLines, const ParsedTextPla
     // from each group of lines create a table objects. the creation process determines rows, and in each rows - cells (which implictly defines columns)
     LinesList::iterator it = tablesLinesList.begin();
     for(; it != tablesLinesList.end(); ++it) {
-        Result<Table> tableResult = CreateTable(*it, inScopeBox);
+        Result<Table> tableResult = CreateTable(*it, inScopeBox, shouldParseInternalTables);
         if(tableResult.IsOK())
             tables.push_back(tableResult.GetValue());
     }

@@ -10,10 +10,6 @@
             "request": "launch",
             "program": "${command:cmake.launchTargetPath}",
             "args": [
-/*                "${workspaceFolder}/etc/KPiR_2021_08.pdf",
-                "-t",
-                "-o",
-                "${workspaceFolder}/etc/tables/table.csv"                */
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

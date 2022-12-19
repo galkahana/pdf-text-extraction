@@ -135,6 +135,8 @@ ICU Library installation process will try the following:
 2. Either on windows or other platform it will then try to find a pre-installed pacakge. For example, your Mac might already have it installed. you can help with a good ol' `brew install icu4c`.
 3. If didn't work, then it will try to download ICU67 from it's source, and compile it. on most envs it will use the ICU makefile config, and on windows it will use the msbuild (this attempts to follow the instructions from icu). i think mingw will not work here...but you can try...and you can tweak `./TextExtraction/CMakeLists.txt` to try and make it work. there are pointers there for info.
 
+# Internal table parsing
+When parsing for tables the final output is CSV. CSVs can't handle split cells (normally found in the header, there'd be a single cell spanning multiple cells and then internally there'd be a split providing the individual columns headers names) so it's not important to parse internal columns/rows of a cell. However for the sake of excercise, and if anyone wants to output this to Excel/Google Sheets/Numbers where split cells are a reality, I did program internal cell parsing for table structure which would provide the relevant info. It's off by default, and you can use the SHOULD_PARSE_INTERNAL_TABLES configuratin variable to turn it on. This would mean the `CellInRow` struct might have a non null internalTable, that is - when one such exists. when calling cmake for configuration, add `-DSHOULD_PARSE_INTERNAL_TABLES=1` to get the parsing going.
 
 # Using the code
 
