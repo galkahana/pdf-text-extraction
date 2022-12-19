@@ -188,7 +188,7 @@ Lines ComputeCellInternalLines(
         }
     }
 
-    for(int i=start; i<=inSortedHoriztonalLines.size(); ++i) {
+    for(int i=start; i<inSortedHoriztonalLines.size(); ++i) {
         const ParsedLinePlacement& theLine = inSortedHoriztonalLines[i];
 
         // horizontal line is too low...can stop now
@@ -222,7 +222,7 @@ Lines ComputeCellInternalLines(
         }
     }    
 
-    for(int i=start; i<=inSortedVerticalLines.size(); ++i) {
+    for(int i=start; i<inSortedVerticalLines.size(); ++i) {
         const ParsedLinePlacement& theLine = inSortedVerticalLines[i];
 
         // too much to the right, can stop now
