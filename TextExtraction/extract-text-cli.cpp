@@ -7,8 +7,11 @@
 #include "InputStringStream.h"
 #include "OutputStreamTraits.h"
 #include "IByteReaderWithPosition.h"
+#include "IByteWriterWithPosition.h"
 
 #include "TextExtraction.h"
+#include "TableExtraction.h"
+#include "./lib/text-composition/TextComposer.h"
 
 using namespace std;
 using namespace PDFHummus;
@@ -23,8 +26,9 @@ static void ShowUsage(const string& name)
 #if (SUPPORT_ICU_BIDI==1)
               << "\t-b, --bidi <RTL|LTR>\t\t\tuse bidi algo to convert visual to logical. provide default direction per document writing direction.\n"
 #endif
-              << "\t-p, --spacing <BOTH|HOR|VER|NONE>\tadd spaces between pieces of text considering their relative positions. default is BOTH.\n"
-              << "\t-o, --output /path/to/file\t\twrite result to output file\n"
+              << "\t-p, --spacing <BOTH|HOR|VER|NONE>\tadd spaces between pieces of text considering their relative positions. default is BOTH\n"
+              << "\t-t, --tables\t\t\t\textract tables instead of text. Each table is represented in CSV\n"
+              << "\t-o, --output /path/to/file\t\twrite result to output file (or files for tables export)\n"
               << "\t-q, --quiet\t\t\t\tquiet run. only shows errors and warnings\n"
               << "\t-h, --help\t\t\t\tShow this help message\n"
               << "\t-d, --debug /path/to/file\t\tcreate debug output file\n"
@@ -38,6 +42,10 @@ static const string SPACING_HOR = "HOR";
 static const string SPACING_VER = "VER";
 static const string SPACING_NONE = "NONE";
 
+static const string scCSVExtension = ".csv";
+static const string scDot = ".";
+
+static const Byte scUTF8Bom[3] = {0xEF,0xBB,0xBF};
 
 int main(int argc, char* argv[])
 {
@@ -51,11 +59,12 @@ int main(int argc, char* argv[])
     string debugPath = "";
     bool writeToOutputFile = false;
     string outputFilePath = "";
-    TextExtraction::ESpacing spacing = TextExtraction::eSpacingBoth;
+    TextComposer::ESpacing spacing = TextComposer::eSpacingBoth;
     long startPage = 0;
     long endPage = -1;
     bool quiet = false;
     long bidiFlag = -1;
+    bool extractTables = false;
 
     for (int i = 2; i < argc; ++i) {
         std::string arg = argv[i];
@@ -64,6 +73,8 @@ int main(int argc, char* argv[])
             return 0;
         } else if ((arg == "-q") || (arg == "--quiet")) {
             quiet = true;
+        } else if ((arg == "-t") || (arg == "--tables")) {
+            extractTables = true;
         } else if ((arg == "-s") || (arg == "--start")) {
             if (i + 1 < argc) {
                 startPage = Long(argv[++i]);
@@ -99,13 +110,13 @@ int main(int argc, char* argv[])
             if (i + 1 < argc) {
                 string argString = argv[++i];
                 if(argString == SPACING_BOTH)
-                    spacing = TextExtraction::eSpacingBoth;
+                    spacing = TextComposer::eSpacingBoth;
                 else if(argString == SPACING_HOR)
-                    spacing = TextExtraction::eSpacingHorizontal;
+                    spacing = TextComposer::eSpacingHorizontal;
                 else if(argString == SPACING_VER)
-                    spacing = TextExtraction::eSpacingVertical;
+                    spacing = TextComposer::eSpacingVertical;
                 else if(argString == SPACING_NONE)
-                    spacing = TextExtraction::eSpacingNone;
+                    spacing = TextComposer::eSpacingNone;
                 else {
                     std::cerr << "--spacing option requires one argument, which is the spaces addition policy. Use either BOTH, HOR (for horizontal only), VER (for vertical only) or NONE." << std::endl;
                     return 1;                 
@@ -138,42 +149,91 @@ int main(int argc, char* argv[])
         }
     }    
 
-    TextExtraction textExtraction;
     EStatusCode status;
     if(debugging) {
+        TextExtraction textExtraction;
         status = textExtraction.DecryptPDFForDebugging(filePath, debugPath);
     } else {
-        status = textExtraction.ExtractText(filePath, startPage, endPage);
+        if(extractTables) {
+            TableExtraction tableExtraction;
+            status = tableExtraction.ExtractTables(filePath, startPage, endPage);
 
-        if(status != eSuccess) {
-            cerr << "Error: " << textExtraction.LatestError.description.c_str() << endl;
-        }
-        TextExtractionWarningList::iterator it = textExtraction.LatestWarnings.begin();
-        for(; it != textExtraction.LatestWarnings.end(); ++it) {
-            cerr << "Warning: " << it->description.c_str() << endl;
-        }    
-
-        if(status == eSuccess) {
-
-            if(writeToOutputFile) {
-                OutputFile outputFile;
-                status = outputFile.OpenFile(outputFilePath);
-                if (status != eSuccess) {
-                    cerr << "Error: Cannot open target file path for writing in" << outputFilePath.c_str() << endl;
-                }
-                else {
-                    string result = textExtraction.GetResultsAsText(bidiFlag, spacing);
-                    InputStringStream textStream(result);		
-                    OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
-		            status = streamCopier.CopyToOutputStream(&textStream);
-                }
-
+            if(status != eSuccess) {
+                cerr << "Error: " << tableExtraction.LatestError.description.c_str() << endl;
             }
-            else if(!quiet) {
-                cout<<textExtraction.GetResultsAsText(bidiFlag, spacing).c_str();
+            ExtractionWarningList::iterator it = tableExtraction.LatestWarnings.begin();
+            for(; it != tableExtraction.LatestWarnings.end(); ++it) {
+                cerr << "Warning: " << it->description.c_str() << endl;
+            }    
+
+            if(status == eSuccess) {
+                if(writeToOutputFile) {
+                    size_t extensionPos = outputFilePath.find_last_of(scDot);
+                    string baseOutputFilePath = outputFilePath.substr(0, extensionPos);
+                    string filePath  = baseOutputFilePath;
+                    int ordinal = 0;
+                    
+                    // writing each table to a separate CSV
+                    TableListList::iterator itPages = tableExtraction.tablesForPages.begin();
+                    for(; itPages != tableExtraction.tablesForPages.end() && status == eSuccess; ++itPages) {
+                        TableList::iterator itTables = itPages->begin();
+                        for(; itTables != itPages->end() && status == eSuccess; ++itTables) {
+                            OutputFile outputFile;
+                            string fileFullPath = filePath + scCSVExtension;
+                            status = outputFile.OpenFile(fileFullPath);
+                            if (status != eSuccess) {
+                                cerr << "Error: Cannot open target file path for writing in" << fileFullPath.c_str() << endl;
+                            } else {
+                                outputFile.GetOutputStream()->Write(scUTF8Bom,3);
+                                string result = tableExtraction.GetTableAsCSVText(*itTables,bidiFlag, spacing);
+                                InputStringStream textStream(result);		
+                                OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
+                                status = streamCopier.CopyToOutputStream(&textStream);
+                                cerr << "Wrote table to " << fileFullPath.c_str() << endl;
+                            }
+                            ++ordinal;
+                            filePath = baseOutputFilePath + Int(ordinal).ToString();
+                        }
+                    }
+                } else if(!quiet) {
+                    cout<<tableExtraction.GetAllAsCSVText(bidiFlag, spacing).c_str();
+                }
+            }
+
+        } else {
+            TextExtraction textExtraction;
+            status = textExtraction.ExtractText(filePath, startPage, endPage);
+
+            if(status != eSuccess) {
+                cerr << "Error: " << textExtraction.LatestError.description.c_str() << endl;
+            }
+            ExtractionWarningList::iterator it = textExtraction.LatestWarnings.begin();
+            for(; it != textExtraction.LatestWarnings.end(); ++it) {
+                cerr << "Warning: " << it->description.c_str() << endl;
+            }    
+
+            if(status == eSuccess) {
+                if(writeToOutputFile) {
+                    OutputFile outputFile;
+                    status = outputFile.OpenFile(outputFilePath);
+                    if (status != eSuccess) {
+                        cerr << "Error: Cannot open target file path for writing in" << outputFilePath.c_str() << endl;
+                    }
+                    else {
+                        outputFile.GetOutputStream()->Write(scUTF8Bom,3);
+                        string result = textExtraction.GetResultsAsText(bidiFlag, spacing);
+                        InputStringStream textStream(result);
+                        OutputStreamTraits streamCopier((IByteWriter*)outputFile.GetOutputStream());
+                        status = streamCopier.CopyToOutputStream(&textStream);
+                    }
+                    cout <<"Wrote text to " << outputFilePath.c_str() << endl;
+
+                }
+                else if(!quiet) {
+                    cout<<textExtraction.GetResultsAsText(bidiFlag, spacing).c_str();
+                }
             }
         }
-
     }
 
 

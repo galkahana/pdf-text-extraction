@@ -9,12 +9,19 @@ Options:
         -s, --start <d>                         start text extraction from a page index. use negative numbers to subtract from pages count
         -e, --end <d>                           end text extraction upto page index. use negative numbers to subtract from pages count
         -b, --bidi <RTL|LTR>                    use bidi algo to convert visual to logical. provide default direction per document writing direction.
-        -p, --spacing <BOTH|HOR|VER|NONE>       add spaces between pieces of text considering their relative positions. default is BOTH.
-        -o, --output /path/to/file              write result to output file
+        -p, --spacing <BOTH|HOR|VER|NONE>       add spaces between pieces of text considering their relative positions. default is BOTH
+        -t, --tables				extract tables instead of text. Each table is represented in CSV
+        -o, --output /path/to/file              write result to output file (or files for tables export)
         -q, --quiet                             quiet run. only shows errors and warnings
         -h, --help                              Show this help message
         -d, --debug /path/to/file               create debug output file
 ```
+
+**New** it is now also possible to use this CLI to **extract tables**. This is still experimental due to how tables
+may be represented in many multiple ways, but with enough samples the code can be upgraded to be more able.
+When asking for table extraction only tables are output as CSV. std output will show CSV content of the PDF tables. When outputting
+to files each file will contain a single table. The output file name is the first table output file, where later tables file names will use
+the file name as base file name along with an ordinal (starting from 1).
 
 # First time around
 
@@ -128,17 +135,21 @@ ICU Library installation process will try the following:
 2. Either on windows or other platform it will then try to find a pre-installed pacakge. For example, your Mac might already have it installed. you can help with a good ol' `brew install icu4c`.
 3. If didn't work, then it will try to download ICU67 from it's source, and compile it. on most envs it will use the ICU makefile config, and on windows it will use the msbuild (this attempts to follow the instructions from icu). i think mingw will not work here...but you can try...and you can tweak `./TextExtraction/CMakeLists.txt` to try and make it work. there are pointers there for info.
 
+# Internal table parsing
+When parsing for tables the final output is CSV. CSVs can't handle split cells (normally found in the header, there'd be a single cell spanning multiple cells and then internally there'd be a split providing the individual columns headers names) so it's not important to parse internal columns/rows of a cell. However for the sake of excercise, and if anyone wants to output this to Excel/Google Sheets/Numbers where split cells are a reality, I did program internal cell parsing for table structure which would provide the relevant info. It's off by default, and you can use the SHOULD_PARSE_INTERNAL_TABLES configuratin variable to turn it on. This would mean the `CellInRow` struct might have a non null internalTable, that is - when one such exists. when calling cmake for configuration, add `-DSHOULD_PARSE_INTERNAL_TABLES=1` to get the parsing going.
 
 # Using the code
 
-If you want to use the text extraction capabilities in your own software, skip the `extract-text-cli.cpp` and using `TextExtraction` class directly. you provide it with a file path in `ExtractText()` and later can pick up the results in `GetResultsAsText()`. Modify it to your needs if you have other forms of desired output. The internal structure `textPlacementsForPages` allows you to be more flexible as to what you do with the text, and you can use `GetResultsAsText` as a reference implementation.
+If you want to use the text extraction capabilities in your own software, skip the `extract-text-cli.cpp` and using `TextExtraction` class directly. you provide it with a file path in `ExtractText()` and later can pick up the results in `GetResultsAsText()`. Modify it to your needs if you have other forms of desired output. The internal structure `textsForPages` allows you to be more flexible as to what you do with the text, and you can use `GetResultsAsText` as a reference implementation.
+
+As for tables extraction, the class `TableExtraction` might be of use. It's `ExtractTables()` method  gets the same paraps as the text extraction `ExtractText()` and the results will be placed in `tablesForPages` data structure. To get CSV output you can either use `GetAllAsCSVText` which returns a single string of all tables CSV representaitons concatenated...or a more useful `GetTableAsCSVText` which
+gets a single Table construct from `tablesForPages` and returns a CSV representation for it.
 
 You are also welcome to use the `PDFRecursiveInterpreter` directly for any content intrepretation needs you may have.
 
 License is Apache2, and provided [here](./LICENSE)
 
 # Features and implementation details
-This implementation is based on hummus PDF library. It implements a `PDFRecursiveInterpreter` which helps when looking to interpret PDF content streams. This has value in many possible implementations including content detection, content extraction, rendering etc. The interpreter is named recursive because it seemlessly interprets forms content used in the content stream, so you don't have to deal with it. It does allow you to cache your results and so avoid recursing into forms - when you wish to.
 
 This text extraction algorithm is based on a previous Javascript based implementation that was described here - https://pdfhummus.com/post/156548561656/extracting-text-from-pdf-files. Most limitations stated there are true to this implementation:
 
@@ -152,3 +163,21 @@ This implementation has a few enhancments on top of the original:
 - I put in some code to better treat inline images, and skip them, so as not to interfere with the general interpretation. This should take care of some missing texts i had back then.
 - bidi support included via ICU
 
+
+Tables parsing is based on the very few samples I tried, so it's probably quite limited at this point. The tables parsing reuses the text intepretation of the base text extraction algorithm as well as attempting to locate vertical and horizontal lines to determine tables based on them. Vertical and horizontal lines are then grouped to tables based on whether they have intersection relationships (direct or indirect by instersecting with lines that in turn intersect etc.) accounting for lines that only split cells and are not 100% column/row lines. It then attempts to determine rows and cells in those rows. Then based on the text placements locations it posits them in their right cells.
+
+# Solution Archiecture
+
+This implementation is based on hummus PDF library. Specifically it uses the parsing capabilities of hummus to interpret the pages content and understand things like lines and texts.
+
+Both `TextExtraction` and `TableExtraction` run through interpretation of pages content to extract relevant placeemnts - glyphs or glyphs and lines respectively. Then each one attempts to understand texts from glyphs and parsed font data. For tables lines are also inspected to determine horizontal and vertical lines that form tables.
+
+The `PDFRecursiveInterpreter` is used for the very basic interpretation of PDF content. it is named recursive becasue it recurses into forms placed in what page content is fed for interpreation. The interpreter launches an event to its handler every time it comes up with a content drawing operator. It provides to the handler both the operator and operand. `PDFRecursiveInterpreter` can  be used as is in many possible implementations involving PDF content interpreation, such as extracting content (text, images etc.) or even rendering.
+
+The operators and operands are fed to the `GraphicContentInterpreter`. This class understands specific operators and what they do. At this point it understands anything that has to do with paths and texts, to be able to support the relevant implementation for this code, but it can have more code added to it to understand much more...based on the desired implementation. In its form here it launches and event to its handler for every placed text elements and for every placed path.
+
+The `TextInterpreter` code is used to convert the text placements provided by the interpreter to actual text. The text placements only contain glyph information and local graphic state, and the `TextInterpreter` adds font data to determine texts from the glyphs and their position in the page. Upon completing translating a text placement it launches its own text complete event to provide its handler with the translated and posited text element (there's a certain nuance here with respect to PDF text elements and actual text placements...which will skip in this description). 
+
+The `TableComposer` code is used to build tables from collections of vertical and horizontal lines and text. Normally used at the page level it can figure out which lines map to which tables (in case there are multiple tables on the page) and which texts go into which cells. Its output is a list of tables each defining rows and cells and texts in those cells. There's quite a bit of heuristics in the whole table construction process...which is why it's a bit more at an experimental stage than the older text extraction part.
+
+For tables there's also `TableCSVExport` which exports a single `Table` object build by the `TableComposer` to a CSV string.

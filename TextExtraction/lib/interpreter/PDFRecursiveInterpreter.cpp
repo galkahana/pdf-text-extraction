@@ -201,7 +201,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
         if(anObject->GetType() == PDFObject::ePDFObjectSymbol) {
             PDFSymbol* anOperand = (PDFSymbol*)anObject;
             // Call handler for operation event
-            shouldContinue = inHandler->onOperation(anOperand->GetValue(), operandsStack, inContext);
+            shouldContinue = inHandler->OnOperation(anOperand->GetValue(), operandsStack, inContext);
             
             bool shouldRecurseIntoForm = false;
             bool shouldSkipInlineImage = false;
@@ -237,7 +237,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                 ObjectIDType formObjectID = !xobjectRef ? 0 : xobjectRef->mObjectID;
                 PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
                 if(!!formObject && IsForm(formObject.GetPtr())) {  
-                    bool shouldRecurse = inHandler->onXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);
+                    bool shouldRecurse = inHandler->OnXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);
                     if(shouldRecurse) {
                         PDFRecursiveInterpreter subordinateInterpreter;
                         shouldContinue = subordinateInterpreter.InterpretXObjectContents(
@@ -246,7 +246,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                             inHandler
                         );
                     }
-                    inHandler->onXObjectDoEnd(formName, formObjectID, formObject.GetPtr(), inParser);
+                    inHandler->OnXObjectDoEnd(formName, formObjectID, formObject.GetPtr(), inParser);
                 }
 
                 // restore stream position (hopefully this is enough to continue from where we were...)
@@ -254,7 +254,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
             } else if(shouldSkipInlineImage) {
                 SkipInlinImageTillEI(inObjectParser);
                 // for completion, have onOperation for EI
-                shouldContinue = inHandler->onOperation(scEI, PDFObjectVector(), inContext);
+                shouldContinue = inHandler->OnOperation(scEI, PDFObjectVector(), inContext);
             }
         }
         else {
@@ -281,7 +281,7 @@ bool PDFRecursiveInterpreter::InterpretPageContents(
         return true;
         
     InterpreterContext context(inParser, inPage);
-    inHandler->onResourcesRead(&context);
+    inHandler->OnResourcesRead(&context);
 
     if(contents->GetType() == PDFObject::ePDFObjectArray) {
         return InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStreams((PDFArray*)contents.GetPtr()),&context, inHandler);
@@ -300,7 +300,7 @@ bool PDFRecursiveInterpreter::InterpretXObjectContents(
     RefCountPtr<PDFDictionary> xobjectDict(inXObject->QueryStreamDictionary());
     
     InterpreterContext context(inParser, xobjectDict.GetPtr());
-    inHandler->onResourcesRead(&context);
+    inHandler->OnResourcesRead(&context);
 
     return InterpretContentStream(inParser, xobjectDict.GetPtr(), inParser->StartReadingObjectsFromStream(inXObject),&context, inHandler);
 }

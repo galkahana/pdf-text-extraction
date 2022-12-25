@@ -13,5 +13,5 @@ class IPDFInterpreterHandler
 public:
 
     // return boolean marks whether to continue or not (true or false)
-	virtual bool onOperation(const std::string& inOperation,  const PDFObjectVector& inOperands) = 0;
+	virtual bool OnOperation(const std::string& inOperation,  const PDFObjectVector& inOperands) = 0;
 };

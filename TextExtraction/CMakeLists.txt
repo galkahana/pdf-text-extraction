@@ -12,23 +12,49 @@ lib/font-translation/FontDecoder.h
 lib/font-translation/StandardFontsDimensions.cpp
 lib/font-translation/StandardFontsDimensions.h
 lib/font-translation/Translation.h
+lib/graphic-content-parsing/ContentGraphicState.h
+lib/graphic-content-parsing/GraphicContentInterpreter.cpp
+lib/graphic-content-parsing/GraphicContentInterpreter.h
+lib/graphic-content-parsing/IGraphicContentInterpreterHandler.h
+lib/graphic-content-parsing/Path.h
+lib/graphic-content-parsing/PathElement.h
+lib/graphic-content-parsing/Resources.h
+lib/graphic-content-parsing/TextElement.h
+lib/graphic-content-parsing/TextGraphicState.h
+lib/graphs/Graph.h
+lib/graphs/Queue.h
+lib/graphs/Result.h
 lib/interpreter/IPDFInterpreterHandler.h
 lib/interpreter/IPDFRecursiveInterpreterHandler.h
 lib/interpreter/PDFInterpreter.cpp
 lib/interpreter/PDFInterpreter.h
-lib/pdf-writer-enhancers/Bytes.cpp
-lib/pdf-writer-enhancers/Bytes.h
 lib/interpreter/PDFRecursiveInterpreter.cpp
 lib/interpreter/PDFRecursiveInterpreter.h
-lib/text-placements/TextPlacement.h
-lib/text-placements/TextPlacementsCollector.cpp
-lib/text-placements/TextPlacementsCollector.h
-lib/text-placements/TPCollectionState.cpp
-lib/text-placements/TPCollectionState.h
-lib/text-placements/Transformations.cpp
-lib/text-placements/Transformations.h
+lib/math/Transformations.cpp
+lib/math/Transformations.h
+lib/pdf-writer-enhancers/Bytes.cpp
+lib/pdf-writer-enhancers/Bytes.h
+lib/table-csv-export/TableCSVExport.cpp
+lib/table-csv-export/TableCSVExport.h
+lib/table-line-parsing/ITableLineInterpreterHandler.h
+lib/table-line-parsing/ParsedLinePlacement.h
+lib/table-line-parsing/TableLineInterpreter.cpp
+lib/table-line-parsing/TableLineInterpreter.h
+lib/table-composition/Lines.h
+lib/table-composition/Table.cpp
+lib/table-composition/Table.h
+lib/table-composition/TableComposer.cpp
+lib/table-composition/TableComposer.h
+lib/text-composition/TextComposer.cpp
+lib/text-composition/TextComposer.h
+lib/text-parsing/ITextInterpreterHandler.h
+lib/text-parsing/ParsedTextPlacement.h
+lib/text-parsing/TextInterpreter.cpp
+lib/text-parsing/TextInterpreter.h
 ErrorsAndWarnings.h
 extract-text-cli.cpp
+TableExtraction.cpp
+TableExtraction.h
 TextExtraction.cpp
 TextExtraction.h
 )
@@ -287,6 +313,11 @@ if(USE_BIDI)
 
 	# End ICU deps
 endif(USE_BIDI)
+
+
+if(SHOULD_PARSE_INTERNAL_TABLES)
+	add_compile_definitions(SHOULD_PARSE_INTERNAL_TABLES)
+endif(SHOULD_PARSE_INTERNAL_TABLES)
 
 target_link_libraries (TextExtraction PDFWriter)
 target_link_libraries (TextExtraction ${LIBAESGM_LDFLAGS})
