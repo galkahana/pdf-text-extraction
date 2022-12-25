@@ -19,6 +19,10 @@ set_property (TEST TextExtractionSimpleInputPrintsText PROPERTY PASS_REGULAR_EXP
 add_test(NAME TextExtractionCVInputPrintsText COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/GalKahanaCV2022.pdf)
 set_property (TEST TextExtractionCVInputPrintsText PROPERTY PASS_REGULAR_EXPRESSION "Curriculum Vitae")
 
+# simple table test
+add_test(NAME TextExtractionTableInputPrintsTableData COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table.pdf -t) 
+set_property (TEST TextExtractionTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\" Header 1 \",\" Header 2 \",\" Header 3 \"\r\n\" Data row 1 col 1 \",\" Data row 1 col 2 \",\" Data row 1 col 3 \"")
+
 # fuzz testing
 file(GLOB fuzztestfiles ${CMAKE_CURRENT_SOURCE_DIR}/Materials/FuzzTests/*)
 foreach (fuzztestfile ${fuzztestfiles})
