@@ -21,6 +21,7 @@ using namespace std;
 
 GraphicContentInterpreter::GraphicContentInterpreter(void) {
     handler = NULL;
+    isInTextElement = false;
 }
 
 GraphicContentInterpreter::~GraphicContentInterpreter(void) {
@@ -46,6 +47,7 @@ bool GraphicContentInterpreter::InterpretPageContents(
 
 void GraphicContentInterpreter::InitInterpretationState() {
     graphicStateStack.push_back(ContentGraphicState());
+    isInTextElement = false;
 }
 
 void GraphicContentInterpreter::ClearCurrentPath() {
