@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <vector>
 #include <math.h>
+#include <iterator>
 
 using namespace std;
 
