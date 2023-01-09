@@ -3,7 +3,7 @@
 #include "InputFile.h"
 #include "PDFParser.h"
 #include "PDFWriter.h"
-
+#include "PDFPageInput.h"
 
 #include "./lib/interpreter/PDFRecursiveInterpreter.h"
 #include "./lib/graphic-content-parsing/GraphicContentInterpreter.h"
@@ -19,8 +19,26 @@ TextExtraction::~TextExtraction() {
     textsForPages.clear();
 }
 
+bool DoBoxesIntersect(const double (&inBoxA)[4], const double (&inBoxB)[4]) {
+    if(inBoxA[0] > inBoxB[2])
+        return false;
+    
+    if(inBoxA[1] > inBoxB[3])
+        return false;
+
+    if(inBoxA[2] < inBoxB[0])
+        return false;
+
+    if(inBoxA[3] < inBoxB[1])
+        return false;
+
+    return true;
+}
+
 bool TextExtraction::OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) {
-    textsForPages.back().push_back(inParsedTextPlacement);
+    // filter out elements outside of the page box
+    if(DoBoxesIntersect(currentPageScopeBox, inParsedTextPlacement.globalBbox))
+        textsForPages.back().push_back(inParsedTextPlacement);
     return true;
 }
 
@@ -57,6 +75,14 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inSt
             status = eFailure;
             break;
         }
+
+        PDFPageInput pageInput(inParser,pageObject.GetPtr());
+        PDFRectangle mediaBox = pageInput.GetMediaBox();
+        currentPageScopeBox[0] = mediaBox.LowerLeftX;
+        currentPageScopeBox[1] = mediaBox.LowerLeftY;
+        currentPageScopeBox[2] = mediaBox.UpperRightX;
+        currentPageScopeBox[3] = mediaBox.UpperRightY;
+
         textsForPages.push_back(ParsedTextPlacementList());
         // the interpreter will trigger the textInterpreter which in turn will trigger this object to collect text elements
         interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), this);  

@@ -21,8 +21,9 @@
 using namespace std;
 using namespace PDFHummus;
 
-#define SPACE_CODE 32
-#define M_CODE 77
+#define SPACE_CODE 32UL
+#define M_CODE 77UL
+static const string scSpace = "space";
 
 static const Encoding scEncoding;
 static const StandardFontsDimensions scStandardFontsDimensions;
@@ -334,9 +335,35 @@ void FontDecoder::ParseFontData(PDFParser* inParser, PDFDictionary* inFont) {
     else {
         ParseCIDFontDimensions(inParser, inFont);
     }
-    double computedSpaceWidth = GetCodeWidth(SPACE_CODE);
+    
+    double computedSpaceWidth = GetCodeWidth(FindSpaceCharGlyphCode().GetValueOrDefault(SPACE_CODE));
     spaceWidth = (isMonospaced ? monospaceWidth : (computedSpaceWidth == 0 ?  GetCodeWidth(M_CODE) : computedSpaceWidth))/1000;
 }
+
+Result<unsigned long> FontDecoder::FindSpaceCharGlyphCode() {
+    // attempt to find space char within the codes
+    if(hasToUnicode) {
+        // search in unicode map
+        ULongToULongListMap::const_iterator itEntry = toUnicodeMap.begin();
+        for(; itEntry != toUnicodeMap.end(); ++itEntry) {
+            if(itEntry->second.size() == 1 && itEntry->second.front() == SPACE_CODE)
+                return Result<unsigned long>(itEntry->first);
+        }
+    }
+    else if(hasSimpleEncoding) {
+        ByteToStringMap::const_iterator itEntry = fromSimpleEncodingMap.begin();
+        for(; itEntry != fromSimpleEncodingMap.end(); ++itEntry) {
+            if(itEntry->second == scSpace)
+                return Result<unsigned long>((unsigned long)itEntry->first);
+        }
+
+    } else {
+        return Result<unsigned long>(SPACE_CODE);
+    }
+
+    return Result<unsigned long>();
+}
+
 
 string FontDecoder::ToUnicodeEncoding(const ByteList& inAsBytes) {
     ULongList buffer;
@@ -373,7 +400,7 @@ string FontDecoder::ToSimpleEncoding(const ByteList& inAsBytes) {
         if(entryIt != fromSimpleEncodingMap.end()) {
             StringToULongListMap::const_iterator aglIt = scEncoding.AdobeGlyphList.find(entryIt->second);
             if(aglIt != scEncoding.AdobeGlyphList.end()) {
-                const ULongList& mapping = scEncoding.AdobeGlyphList.find(entryIt->second)->second;
+                const ULongList& mapping = aglIt->second;
                 buffer.insert(buffer.end(), mapping.begin(), mapping.end());
             }
         }

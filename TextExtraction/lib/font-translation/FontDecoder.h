@@ -3,6 +3,7 @@
 #include "IOBasicTypes.h"
 #include "Translation.h"
 #include "../pdf-writer-enhancers/Bytes.h"
+#include "../graphs/Result.h"
 
 #include <string>
 #include <list>
@@ -65,6 +66,8 @@ private:
     std::string ToUnicodeEncoding(const ByteList& inAsBytes);
     std::string ToSimpleEncoding(const ByteList& inAsBytes);
     std::string ToDefaultEncoding(const ByteList& inAsBytes);
+
+    Result<unsigned long> FindSpaceCharGlyphCode();
 
 
 };
