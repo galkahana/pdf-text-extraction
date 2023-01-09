@@ -19,4 +19,7 @@ class TableLineInterpreter {
 
     private:
         ITableLineInterpreterHandler* handler;
+
+        bool OnStrokePathPainted(const PathElement& inPathElement);
+        bool OnFillPathPainted(const PathElement& inPathElement);
 };

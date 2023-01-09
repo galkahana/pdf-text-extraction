@@ -64,7 +64,7 @@ This will build the project inside the build folder. You will be able to look up
 If you want, you can use the "install" verb of cmake to install a built product. Use the prefix param to specify where you want the result to be installed to
 
 ```bash
-cmake --install ./build/TextExtraction --prefix ./etc/install
+cmake --install ./build/TextExtraction --prefix ./etc/install --config release
 ```
 
 This will install the TextExtraction executable in ./etc/install.

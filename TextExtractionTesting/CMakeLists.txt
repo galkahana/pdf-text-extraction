@@ -21,7 +21,11 @@ set_property (TEST TextExtractionCVInputPrintsText PROPERTY PASS_REGULAR_EXPRESS
 
 # simple (google doc) table test
 add_test(NAME TextExtractionTableInputPrintsTableData COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table.pdf -t) 
-set_property (TEST TextExtractionTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\" Header 1 \",\" Header 2 \",\" Header 3 \"[\r\n]*\" Data row 1 col 1 \",\" Data row 1 col 2 \",\" Data row 1 col 3 \"")
+set_property (TEST TextExtractionTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\" Header 1 \",\" Header 2 \",\" Header 3 \"[\r\n]+\" Data row 1 col 1 \",\" Data row 1 col 2 \",\" Data row 1 col 3 \"")
+
+# simple (ms word) table text 
+add_test(NAME TextExtractionWordTableInputPrintsTableData COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table_2.pdf -t) 
+set_property (TEST TextExtractionWordTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\"Head 1 \",\"Head 2 \",\"Head 3 \",\"Head 4 \",\"Head 5 \"[\r\n]+\"Row 1 Col 1 \",\"Row 1 Col 2 \",\"Row 1 Col 3 \",\"Row 1 Col 4 \",\"Row 1 Col 5 \"")
 
 # fuzz testing
 file(GLOB fuzztestfiles ${CMAKE_CURRENT_SOURCE_DIR}/Materials/FuzzTests/*)
@@ -36,5 +40,3 @@ set_property (TEST FuzzTest_radamsa-dummy-20507.pdf PROPERTY PASS_REGULAR_EXPRES
 set_property (TEST FuzzTest_radamsa-dummy-27773.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 set_property (TEST FuzzTest_radamsa-dummy-47574.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 
-# simple (ms word) table text 
-add_test(NAME TextExtractionWordTableInputPrintsTableData COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table_2.pdf) 
