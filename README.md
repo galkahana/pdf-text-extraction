@@ -85,7 +85,7 @@ This project uses ctest for running tests. ctest is part of cmake and should be 
 To run the project tests (after having created the project files in ./build) go:
 
 ```bash
-ctest --test-dir build -c release
+ctest --test-dir build -C release
 ```
 
 This should scan the folders for tests and run them.
