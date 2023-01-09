@@ -317,6 +317,7 @@ endif(USE_BIDI)
 
 if(SHOULD_PARSE_INTERNAL_TABLES)
 	add_compile_definitions(SHOULD_PARSE_INTERNAL_TABLES)
+	message (STATUS "enabling internal table parsing")
 endif(SHOULD_PARSE_INTERNAL_TABLES)
 
 target_link_libraries (TextExtraction PDFWriter)

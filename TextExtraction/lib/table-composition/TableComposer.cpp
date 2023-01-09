@@ -65,11 +65,20 @@ bool HorizontalIntersectsWithVertical(const ParsedLinePlacement& inHorizontalLin
 
 bool CompareHorizontalLines(const ParsedLinePlacement& a, const ParsedLinePlacement& b) {
     // sort top to bottom
+    if(a.globalPointOne[1] == b.globalPointOne[1])
+        // and then left to right
+        return a.globalPointOne[0] < b.globalPointOne[0];
+    
     return a.globalPointOne[1] > b.globalPointOne[1];
+
 }
 
 bool CompareVerticalLines(const ParsedLinePlacement& a, const ParsedLinePlacement& b) {
     // sort left to right
+    if(a.globalPointOne[0] == b.globalPointOne[0])
+        // and then top to bottom
+        return a.globalPointOne[1] > b.globalPointOne[1];
+    
     return a.globalPointOne[0] < b.globalPointOne[0];
 }
 
@@ -178,7 +187,7 @@ typedef vector<ParsedLinePlacement> ParsedLinePlacementVector;
 
 
 Lines ComputeCellInternalLines(
-    const ParsedLinePlacementVector& inSortedHoriztonalLines, 
+    const ParsedLinePlacementVector& insortedHorizontalLines, 
     const ParsedLinePlacementVector&  inSortedVerticalLines, 
     const double (&inCellBox)[4]
 ) { 
@@ -191,21 +200,21 @@ Lines ComputeCellInternalLines(
 
     // horizontal lines first
     int start = 0;
-    int end = inSortedHoriztonalLines.size();
+    int end = insortedHorizontalLines.size();
 
     // binary search the highest horizontal line that's lower than the box top
     while(end - start > 1) {
         int candidateIndex = start + floor((end - start)/2.0);
 
-        if(inSortedHoriztonalLines[candidateIndex].globalPointOne[1] - inSortedHoriztonalLines[candidateIndex].effectiveLineWidth[1]  > inCellBox[3] + INTERSECT_THRESHOLD) {
+        if(insortedHorizontalLines[candidateIndex].globalPointOne[1] - insortedHorizontalLines[candidateIndex].effectiveLineWidth[1]  > inCellBox[3] + INTERSECT_THRESHOLD) {
             start = candidateIndex + 1;
         } else {
             end = candidateIndex;
         }
     }
 
-    for(int i=start; i<inSortedHoriztonalLines.size(); ++i) {
-        const ParsedLinePlacement& theLine = inSortedHoriztonalLines[i];
+    for(int i=start; i<insortedHorizontalLines.size(); ++i) {
+        const ParsedLinePlacement& theLine = insortedHorizontalLines[i];
 
         // horizontal line is too low...can stop now
         if (theLine.globalPointOne[1] + theLine.effectiveLineWidth[1]  < inCellBox[1] - INTERSECT_THRESHOLD)
@@ -274,23 +283,88 @@ bool AreLinesEqual(const ParsedLinePlacement& inA, const ParsedLinePlacement& in
 Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], bool inShouldParseInternalTables) {
     Table result;
 
-    ParsedLinePlacementVector sortedHoriztonalLines(inLines.horizontalLines.begin(), inLines.horizontalLines.end());
-    sort(sortedHoriztonalLines.begin(), sortedHoriztonalLines.end(), CompareHorizontalLines);
+    ParsedLinePlacementVector sortedHorizontalLines(inLines.horizontalLines.begin(), inLines.horizontalLines.end());
+    sort(sortedHorizontalLines.begin(), sortedHorizontalLines.end(), CompareHorizontalLines);
+    for(size_t i=sortedHorizontalLines.size()-1;i>0;--i) {
+        // if y of later line + its width is higher than y of earlier line, check if their x's intersect. Then this pretty surely means that this is not actually
+        // a table line, but rather some overlay drawing. ignore the new line
+        if(
+            sortedHorizontalLines[i].globalPointOne[1] + sortedHorizontalLines[i].effectiveLineWidth[1] >= sortedHorizontalLines[i-1].globalPointOne[1] &&
+            sortedHorizontalLines[i-1].globalPointTwo[0] >= sortedHorizontalLines[i].globalPointOne[0] &&
+            sortedHorizontalLines[i].globalPointTwo[0] >= sortedHorizontalLines[i-1].globalPointOne[0]
+        ) {
+            sortedHorizontalLines.erase(sortedHorizontalLines.begin() + i);
+            continue;
+        }
+
+
+        if(
+            sortedHorizontalLines[i].globalPointOne[1] == sortedHorizontalLines[i-1].globalPointOne[1] && 
+            sortedHorizontalLines[i].effectiveLineWidth[0] == sortedHorizontalLines[i-1].effectiveLineWidth[0] &&
+            sortedHorizontalLines[i].effectiveLineWidth[1] == sortedHorizontalLines[i-1].effectiveLineWidth[1] &&
+            sortedHorizontalLines[i].globalPointOne[0] >= sortedHorizontalLines[i-1].globalPointOne[0] &&
+            sortedHorizontalLines[i].globalPointTwo[0] >= sortedHorizontalLines[i-1].globalPointTwo[0] &&
+            sortedHorizontalLines[i].globalPointTwo[0] + sortedHorizontalLines[i].effectiveLineWidth[0] >= sortedHorizontalLines[i-1].globalPointOne[0] - INTERSECT_THRESHOLD
+        ) {
+            // if y of both this and earlier line is the same and x's are close (less or equal to width diff) and line widths are the same then it's probably intended
+            // that those are 2 segments of the same line. merge them.
+            sortedHorizontalLines[i-1].globalPointTwo[0] = sortedHorizontalLines[i].globalPointTwo[0];
+            sortedHorizontalLines.erase(sortedHorizontalLines.begin() + i);
+            continue;
+        }          
+    }
     ParsedLinePlacementVector sortedVerticalLines(inLines.verticalLines.begin(), inLines.verticalLines.end());
     sort(sortedVerticalLines.begin(), sortedVerticalLines.end(), CompareVerticalLines);
+
+    for(size_t i=sortedVerticalLines.size()-1;i>0;--i) {
+        if(
+            sortedVerticalLines[i].globalPointOne[0] - sortedVerticalLines[i].effectiveLineWidth[0] <= sortedVerticalLines[i-1].globalPointOne[0] &&
+            sortedVerticalLines[i-1].globalPointOne[1] >= sortedVerticalLines[i].globalPointTwo[1] &&
+            sortedVerticalLines[i].globalPointOne[1] >= sortedVerticalLines[i-1].globalPointTwo[1]
+        ) {
+            // if x of later line - its width is leftier than x of earlier line, check if their y's intersect. Then this pretty surely means that this is not actually
+            // a table line, but rather some overlay drawing. ignore the new line
+            sortedVerticalLines.erase(sortedVerticalLines.begin() + i);
+            continue;
+        }
+
+        if(
+            sortedVerticalLines[i].globalPointOne[0] == sortedVerticalLines[i-1].globalPointOne[0] && 
+            sortedVerticalLines[i].effectiveLineWidth[0] == sortedVerticalLines[i-1].effectiveLineWidth[0] &&
+            sortedVerticalLines[i].effectiveLineWidth[1] == sortedVerticalLines[i-1].effectiveLineWidth[1] &&
+            sortedVerticalLines[i].globalPointOne[1] <= sortedVerticalLines[i-1].globalPointOne[1] &&
+            sortedVerticalLines[i].globalPointTwo[1] <= sortedVerticalLines[i-1].globalPointTwo[1] &&
+            sortedVerticalLines[i].globalPointOne[1] + sortedVerticalLines[i].effectiveLineWidth[1] >= sortedVerticalLines[i-1].globalPointTwo[1] - INTERSECT_THRESHOLD
+        ) {
+            // if x of both this and earlier line is the same and y's are close (less or equal to width diff) and line widths are the same then it's probably intended
+            // that those are 2 segments of the same line. merge them.
+            sortedVerticalLines[i-1].globalPointTwo[1] = sortedVerticalLines[i].globalPointTwo[1];
+            sortedVerticalLines.erase(sortedVerticalLines.begin() + i);
+            continue;
+        }
+    }
 
     ParsedLinePlacement leftVertical = sortedVerticalLines.front();
     ParsedLinePlacement rightVertical = sortedVerticalLines.back();
 
-    // Determine which horizontal lines are row lines. those are lines that stretch from left to right. we'll use pairs
-    // of them to form row objects
     ParsedLinePlacementVector rowLines;
-    ParsedLinePlacementVector::iterator it = sortedHoriztonalLines.begin();
-    for(; it != sortedHoriztonalLines.end(); ++it) {
-        if(HorizontalIntersectsWithVertical(*it, leftVertical, inScopeBox) && HorizontalIntersectsWithVertical(*it, rightVertical, inScopeBox)) {
-            rowLines.push_back(*it);
+    ParsedLinePlacementVector::iterator it = sortedHorizontalLines.begin();
+    for(; it != sortedHorizontalLines.end(); ++it) {
+        // Determine which horizontal lines are row lines. those are lines that stretch from left to right. we'll use pairs
+        // of them to form row objects
+
+        if(!HorizontalIntersectsWithVertical(*it, leftVertical, inScopeBox))
+            continue;
+
+        if(!HorizontalIntersectsWithVertical(*it, rightVertical, inScopeBox)) {
+            continue;
         }
+
+        rowLines.push_back(*it);
     }
+
+    if(rowLines.size() == 0)
+        return Result<Table>(); // no rows. ignore
 
     // Create row objects in the table based on the computed list. For each also compute its cells
     it = rowLines.begin();
@@ -299,14 +373,21 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], b
     for(;it != rowLines.end(); ++it) {
         CellInRowVector cells;
         
-        // compute Cells by filtering vertical lines that intersect with both top and bottom row lines
         ParsedLinePlacementVector::iterator itCols = sortedVerticalLines.begin();
         ParsedLinePlacementVector cellLines;
         for(; itCols != sortedVerticalLines.end(); ++itCols) {
-            if(HorizontalIntersectsWithVertical(currentTop, *itCols, inScopeBox) && HorizontalIntersectsWithVertical(*it, *itCols, inScopeBox)) {
-                cellLines.push_back(*itCols);
-            }
+            // compute Cells by filtering vertical lines that intersect with both top and bottom row lines
+            if(!HorizontalIntersectsWithVertical(currentTop, *itCols, inScopeBox))
+                continue;
+
+            if(!HorizontalIntersectsWithVertical(*it, *itCols, inScopeBox))
+                continue;
+
+            cellLines.push_back(*itCols);
         }
+
+        if(cellLines.size() == 0)
+            continue; // empty row with no cells. ignore
 
         ParsedLinePlacementVector::iterator itCell = cellLines.begin();
         ParsedLinePlacement currentLeft = *itCell;
@@ -335,7 +416,7 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], b
     }
 
     // Make sure we got a table here. It needs to have more than one row and one col...otherwise its not a table...it's a rectangle
-    if(result.rows.size() == 1 && result.rows.front().cells.size() == 1)
+    if(result.rows.size() == 0 || (result.rows.size() == 1 && result.rows.front().cells.size() == 1))
         return Result<Table>();
 
     // Compute col spans for each row cells based on the last line columns
@@ -373,11 +454,23 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], b
                     itCells->rightLine.globalPointOne[0] + itCells->rightLine.effectiveLineWidth[0]/2,
                     itRows->topLine.globalPointOne[1] + itRows->topLine.effectiveLineWidth[1]/2,
                 };
-                Lines linesInBox = ComputeCellInternalLines(sortedHoriztonalLines, sortedVerticalLines, cellBox);
+                Lines linesInBox = ComputeCellInternalLines(sortedHorizontalLines, sortedVerticalLines, cellBox);
+                
                 if(linesInBox.horizontalLines.size() <= 2 && linesInBox.verticalLines.size() <= 2 ) {
                     // k no internal lines...just the 4 lines (or somehow...not even thems) of the cell
                     continue;
                 }
+
+                if(cellBox[0] == inScopeBox[0] &&
+                    cellBox[1] == inScopeBox[1] &&
+                    cellBox[2] == inScopeBox[2] &&
+                    cellBox[3] == inScopeBox[3] &&
+                    linesInBox.horizontalLines.size() == sortedHorizontalLines.size() &&
+                    linesInBox.verticalLines.size() == sortedVerticalLines.size()) {
+                        // for whatever reason (should probably debug if reaching here) there seems to be 
+                        // a recursion here with the same entry conditions. don't.
+                        continue; 
+                    }
 
                 LinesList internalTablesLinesList = DetermineTablesLines(linesInBox, cellBox);
                 LinesList::iterator it = internalTablesLinesList.begin();

@@ -52,6 +52,7 @@ class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterprete
 
     private:
         TextInterpeter textInterpeter;
+        double currentPageScopeBox[4];
 
         PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage);
 };
