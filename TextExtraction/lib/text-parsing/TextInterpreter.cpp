@@ -121,7 +121,6 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
 
                 // prepare and report this text as text placement
                 double localBBox[4] = {minPlacement, descentPlacement, maxPlacement, ascentPlacement};
-                string text = result.asText.empty() ? scSpace : result.asText; // defaulting empty text as space (TO RECONSIDER)
                 double globalBBox[4];
                 double scaleMatrix[6];
                 double globalWidthVector[2];
@@ -138,7 +137,7 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
 
 
                 ParsedTextPlacement placement(
-                        text,
+                        result.asText,
                         matrixBuffer,
                         localBBox,
                         globalBBox,
