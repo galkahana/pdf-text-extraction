@@ -87,8 +87,7 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
         hasDefaultTm = true;
         double descentPlacement = (decoder->descent + item.textState.rise)*item.textState.fontSize/1000;
         double ascentPlacement = (decoder->ascent + item.textState.rise)*item.textState.fontSize/1000;
-        double spaceWidth = decoder->spaceWidth*item.textState.fontSize*item.textState.scale/100;
-
+        double spaceWidth = (decoder->spaceWidth*item.textState.fontSize + item.textState.charSpace + item.textState.wordSpace)*item.textState.scale/100; 
 
         PlacedTextCommandArgumentList::const_iterator argumentIt = item.text.begin();
         for(;argumentIt != item.text.end() && shouldContinue;++argumentIt) {
@@ -122,18 +121,19 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
                 // prepare and report this text as text placement
                 double localBBox[4] = {minPlacement, descentPlacement, maxPlacement, ascentPlacement};
                 double globalBBox[4];
-                double scaleMatrix[6];
                 double globalWidthVector[2];
                 double widthVector[2] = {spaceWidth,0};
+                double zeroVector[2] = {0,0};
+                double transformedWidthVector[2];
+                double transformedZeroVector[2];
                 
                 MultiplyMatrix(itemTextStateTm,item.graphicState.ctm, matrixBuffer);
                 TransformBox(localBBox, matrixBuffer, globalBBox);
 
-                CopyMatrix(item.graphicState.ctm, scaleMatrix);
-                scaleMatrix[4] = scaleMatrix[5] = 0;
-                TransformVector(widthVector, scaleMatrix, globalWidthVector);
-                globalWidthVector[0] = abs(globalWidthVector[0]);
-                globalWidthVector[1] = abs(globalWidthVector[1]);
+                TransformVector(widthVector, matrixBuffer, transformedWidthVector);
+                TransformVector(zeroVector, matrixBuffer, transformedZeroVector);
+                globalWidthVector[0] = abs(transformedWidthVector[0] - transformedZeroVector[0]);
+                globalWidthVector[1] = abs(transformedWidthVector[1] - transformedZeroVector[1]);
 
 
                 ParsedTextPlacement placement(
