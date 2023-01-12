@@ -7,6 +7,9 @@ using namespace std;
 
 // Threshould for rounding issues with transforming double numbers
 #define DOUBLE_EPSILON 0.005
+// Threshold for filtering non line rectangles, max width for what is considered a line and not a rectangle.
+// One inch would do
+#define MAX_LINE_WIDTH 72
 
 
 TableLineInterpreter::TableLineInterpreter(void) {
@@ -76,6 +79,9 @@ bool TableLineInterpreter::OnStrokePathPainted(const PathElement& inPathElement)
         TransformVector(widthVector, scaleMatrix, globalWidthVector);
         globalWidthVector[0] = abs(globalWidthVector[0]);
         globalWidthVector[1] = abs(globalWidthVector[1]);
+
+        if(globalWidthVector[0] > MAX_LINE_WIDTH || globalWidthVector[1] > MAX_LINE_WIDTH)
+            continue; // this is a rectangle, not a line
 
         if(IsEpsilonEqual(globalPointOne[0], globalPointTwo[0])) {
             // x is the same, so vertical line
@@ -213,6 +219,9 @@ bool TableLineInterpreter::OnFillPathPainted(const PathElement& inPathElement) {
         
         if(width < height) {
 
+            if(width > MAX_LINE_WIDTH)
+                continue; // this is a rectangle, not a line
+
             // width smaller than height, so we'll consider this a vertical line
             double x = (*lowerLeft)[0] + width/2;
 
@@ -229,6 +238,9 @@ bool TableLineInterpreter::OnFillPathPainted(const PathElement& inPathElement) {
 
             shouldContinue = handler->OnParsedVerticalLinePlacementComplete(linePlacement);
         } else {
+
+            if(height > MAX_LINE_WIDTH)
+                continue; // this is a rectangle, not a line
             
             // width is higher (or the same in which case we'll default to as if higher), so we'll consider this a horizontal line
             double y = (*lowerLeft)[1] + height/2;
