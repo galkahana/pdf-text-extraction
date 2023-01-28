@@ -95,13 +95,13 @@ This should scan the folders for tests and run them.
 
 If you are developing this project using vscode here's some suggestions to help you:  
 - install vscode C++ extensions:
-        - C/C++
-        - C/C++ Extension Pack
-        - C/C++ Themes
+    - C/C++
+    - C/C++ Extension Pack
+    - C/C++ Themes
 - install vscode cmake extensions:
-        - Cmake
-        - Cmake Tools
-        - CMake Test Explorder
+    - Cmake
+    - Cmake Tools
+    - CMake Test Explorder
 
 This should help you enable testing and debugging in vscode. Specifically you can debug the TextExtrction CLI with the `(lldb) launch` debug target, and the tests are debuggable as well.
 
