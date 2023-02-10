@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.10)
 enable_testing()
 
 # dummy target to make sure we got TextExtraction going
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} DEPENDS TextExtraction)
+#add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} DEPENDS TextExtraction)
 
 # empty test
 add_test(NAME TextExtractionNoInputPrintsUsage COMMAND TextExtraction)
