@@ -45,7 +45,7 @@ cd build
 cmake ..
 ```
 
-Note that at this point the process will look for PDFHummus package. If not found locally it will download it from its repo. So inernet connection is what you want there.
+Note that at this point the process will look for PDFHummus package. If not found locally it will download it from its [repo](https://github.com/galkahana/PDF-Writer). So internet connection is what you want there.
 
 ## Build and install
 
