@@ -61,25 +61,11 @@ FetchContent_Declare(
   PDFHummus
   GIT_REPOSITORY https://github.com/galkahana/PDF-Writer.git
   GIT_TAG        cmake_packaging
-  FIND_PACKAGE_ARGS NAMES PDFHummus
+  FIND_PACKAGE_ARGS
 )
 FetchContent_MakeAvailable(PDFHummus)
 
-
-target_link_libraries (TextExtraction PRIVATE PDFWriter)
-target_link_libraries (TextExtraction PRIVATE LibAesgm)
-target_link_libraries (TextExtraction PRIVATE FreeType)
-target_link_libraries (TextExtraction PRIVATE LibJpeg)
-target_link_libraries (TextExtraction PRIVATE Zlib)
-target_link_libraries (TextExtraction PRIVATE LibTiff)
-target_link_libraries (TextExtraction PRIVATE LibPng)
-include_directories (${PDFHummus_SOURCE_DIR}/PDFWriter)
-include_directories (${PDFHummus_SOURCE_DIR}/LibAesgm)
-include_directories (${PDFHummus_SOURCE_DIR}/FreeType/include)
-include_directories (${PDFHummus_SOURCE_DIR}/LibJpeg)
-include_directories (${PDFHummus_SOURCE_DIR}/ZLib)
-include_directories (${PDFHummus_SOURCE_DIR}/LibTiff)
-include_directories (${PDFHummus_SOURCE_DIR}/LibPng)
+target_link_libraries (TextExtraction PDFHummus::PDFWriter)
 
 if(USE_BIDI)
 	# Start ICU deps
