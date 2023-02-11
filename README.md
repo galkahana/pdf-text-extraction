@@ -45,9 +45,7 @@ cd build
 cmake ..
 ```
 
-I won't go on about cmake here, you can check out their website. going forward i'll stick to describing the minimal set of commands
-you can use for building and installing.
-
+Note that at this point the process will look for PDFHummus package. If not found locally it will download it from its repo. So inernet connection is what you want there.
 
 ## Build and install
 
@@ -64,7 +62,7 @@ This will build the project inside the build folder. You will be able to look up
 If you want, you can use the "install" verb of cmake to install a built product. Use the prefix param to specify where you want the result to be installed to
 
 ```bash
-cmake --install ./build/TextExtraction --prefix ./etc/install --config release
+cmake --install ./build/TextExtraction --prefix ./etc/install --config release --component executable
 ```
 
 This will install the TextExtraction executable in ./etc/install.
@@ -76,7 +74,7 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX="..\etc\install"
 cd ..
 
-cmake --build build/TextExtraction --config release --target install
+cmake --build build/TextExtraction --config release --target install 
 ```
 
 ## testing
