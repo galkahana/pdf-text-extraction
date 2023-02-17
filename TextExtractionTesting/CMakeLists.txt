@@ -21,7 +21,7 @@ set_property (TEST TextExtractionCVInputPrintsText PROPERTY PASS_REGULAR_EXPRESS
 
 # simple (google doc) table test
 add_test(NAME TextExtractionTableInputPrintsTableData COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table.pdf -t) 
-set_property (TEST TextExtractionTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\" Header 1 \",\" Header 2 \",\" Header 3 \"[\r\n]+\" Data row 1 col 1 \",\" Data row 1 col 2 \",\" Data row 1 col 3 \"")
+set_property (TEST TextExtractionTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\" Header 1 \",\" Header 2 \",\" Header 3 \"[\r\n]+\"[ \t]*D[ \t]*ata row 1 col 1 \",\"[ \t]*D[ \t]*ata row 1 col 2 \",\"[ \t]*D[ \t]*ata row 1 col 3 \"")
 
 # simple (ms word) table text 
 add_test(NAME TextExtractionWordTableInputPrintsTableData COMMAND TextExtraction ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table_2.pdf -t) 
