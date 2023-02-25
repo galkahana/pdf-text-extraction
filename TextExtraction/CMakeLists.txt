@@ -75,7 +75,7 @@ if(USE_BIDI)
 
 	# try winsdk native
 	# i wrote this totally bymyself thank you
-	if(WIN32)
+	if(WIN321)
 		include(CheckIncludeFile)
 		# Win 10 SDK as internal icu support. use it, if available. there are unfortunate variants
 		check_include_file(icucommon.h HAVE_ICUCOMMON)
@@ -96,7 +96,7 @@ if(USE_BIDI)
 				target_link_libraries(TextExtraction icu.lib)			
 			endif(HAVE_ICUCOMMON)
 		endif(HAVE_ICUCOMMON OR HAVE_ICU)
-	endif(WIN32)
+	endif()
 	# try to find a pre-installed package
 	# got help from https://github.com/korfuri/client_cpp/blob/master/prometheus/CMakeLists.txt
 	if(NOT SUPPORT_ICU_BIDI)
@@ -125,9 +125,9 @@ if(USE_BIDI)
 	if(NOT SUPPORT_ICU_BIDI)
 		include(ExternalProject)
 		set(ICU_EP_PREFIX ${PROJECT_BINARY_DIR}/libIcu)
-		set(ICU_DOWNLOAD_VERSION 67)
+		set(ICU_DOWNLOAD_VERSION 72)
 		set(ICU_DOWNLOAD_URL "https://github.com/unicode-org/icu/releases/download/release-${ICU_DOWNLOAD_VERSION}-1/icu4c-${ICU_DOWNLOAD_VERSION}_1-src.tgz")
-		set(ICU_DOWNLOAD_HASH "SHA256=94a80cd6f251a53bd2a997f6f1b5ac6653fe791dfab66e1eb0227740fb86d5dc")
+		set(ICU_DOWNLOAD_HASH "SHA256=a2d2d38217092a7ed56635e34467f92f976b370e20182ad325edea6681a71d68")
 
 		if(MSVC)
 			if(CMAKE_VS_PLATFORM_NAME STREQUAL "x64") 
