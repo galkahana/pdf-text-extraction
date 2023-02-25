@@ -75,7 +75,7 @@ if(USE_BIDI)
 
 	# try winsdk native
 	# i wrote this totally bymyself thank you
-	if(WIN321)
+	if(WIN32)
 		include(CheckIncludeFile)
 		# Win 10 SDK as internal icu support. use it, if available. there are unfortunate variants
 		check_include_file(icucommon.h HAVE_ICUCOMMON)
