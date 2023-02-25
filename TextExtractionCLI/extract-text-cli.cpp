@@ -11,7 +11,7 @@
 
 #include "TextExtraction.h"
 #include "TableExtraction.h"
-#include "./lib/text-composition/TextComposer.h"
+#include "lib/text-composition/TextComposer.h"
 
 using namespace std;
 using namespace PDFHummus;

@@ -89,6 +89,25 @@ ctest --test-dir build -C release
 This should scan the folders for tests and run them.
 
 
+## Project as cmake Package
+
+The cmake project defines TextExtraction as a Package. There are 2 targets to this package:
+
+- TextExtraction::TextExtraction
+- TextExtraction::TextExtractionCLI
+
+The `TextExtraction` is a lib that you can use in your own project to extract text. You can read [TextExtractionCLI\extract-text-cli.cpp](TextExtractionCLI\extract-text-cli.cpp) as a useful example on how to use the lib.
+The `TextExtractionCLI` is the CLI part, which you can use as target as well.
+
+In your project cmakefile you can import the project like a regular package:
+
+```cmake
+find_package (TextExtraction)
+
+target_link_libraries(MyTarget TextExtraction::TextExctraction)
+```
+
+
 ## VSCode usage
 
 If you are developing this project using vscode here's some suggestions to help you:  
