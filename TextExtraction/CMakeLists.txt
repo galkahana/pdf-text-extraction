@@ -63,18 +63,10 @@ add_library(TextExtraction::TextExtraction ALIAS TextExtraction)
 target_link_libraries (TextExtraction PDFHummus::PDFWriter)
 
 if(SHOULD_PARSE_INTERNAL_TABLES)
-  target_compile_definitions(TextExtraction PRIVATE SHOULD_PARSE_INTERNAL_TABLES)  
-	message (STATUS "enabling internal table parsing")
+    target_compile_definitions(TextExtraction PRIVATE SHOULD_PARSE_INTERNAL_TABLES)  
+    message (STATUS "enabling internal table parsing")
 endif(SHOULD_PARSE_INTERNAL_TABLES)
 
-target_include_directories(TextExtraction
-    INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-    $<INSTALL_INTERFACE:include/TextExtraction> 
-)  
-set_target_properties(TextExtraction PROPERTIES VERSION ${TextExtraction_LIB_VERSION} SOVERSION ${TextExtraction_SO_VERSION})
-
-#icu dependency
 if(USE_BIDI)
 	# Start ICU deps
 
@@ -94,13 +86,13 @@ if(USE_BIDI)
 		if(HAVE_ICUCOMMON OR HAVE_ICU)
 			set(SUPPORT_ICU_BIDI 1)
 			message("Found system ICU support on winsdk")
-            target_compile_definitions(TextExtraction PRIVATE SUPPORT_ICU_BIDI=1)
+            target_compile_definitions(TextExtraction PRIVATE SUPPORT_ICU_BIDI=1)  
 			# now for minor diffs in which file is included
 			if(HAVE_ICUCOMMON)
-                target_compile_definitions(TextExtraction PRIVATE INCLUDE_ICUCOMMON)
+                target_compile_definitions(TextExtraction PRIVATE INCLUDE_ICUCOMMON)  
 				target_link_libraries(TextExtraction icuuc.lib icuin.lib)
 			else(HAVE_ICUCOMMON) 
-                target_compile_definitions(TextExtraction PRIVATE NCLUDE_ICU)
+                target_compile_definitions(TextExtraction PRIVATE INCLUDE_ICU)  
 				target_link_libraries(TextExtraction icu.lib)			
 			endif(HAVE_ICUCOMMON)
 		endif(HAVE_ICUCOMMON OR HAVE_ICU)
@@ -108,25 +100,23 @@ if(USE_BIDI)
 	# try to find a pre-installed package
 	# got help from https://github.com/korfuri/client_cpp/blob/master/prometheus/CMakeLists.txt
 	if(NOT SUPPORT_ICU_BIDI)
-		FIND_PACKAGE(PkgConfig)
-		if(PKG_CONFIG_FOUND)
-			if (APPLE)
-			    # Find homebrew's libicu on Mac OS although it is hidden pretty well
-			    set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/local/opt/icu4c/lib/pkgconfig;/opt/homebrew/Cellar/icu4c")
-			endif()	
-			PKG_CHECK_MODULES(ICU icu-io icu-i18n icu-uc)
-			if(ICU_FOUND)
-				message("Found pre-installed icu package")
-				# some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
-                target_compile_definitions(TextExtraction PRIVATE U_SHOW_CPLUSPLUS_API=0)
-				# done tricky parts
-				target_include_directories(TextExtraction PRIVATE ${ICU_INCLUDE_DIRS})
-				target_link_libraries(TextExtraction ${ICU_LDFLAGS})
+        FIND_PACKAGE(PkgConfig)
+        if (APPLE)
+            # Find homebrew's libicu on Mac OS although it is hidden pretty well
+            set(ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/local/opt/icu4c/lib/pkgconfig;/opt/homebrew/opt/icu4c/lib/pkgconfig")
+        endif()	
+        PKG_CHECK_MODULES(ICU icu-io icu-i18n icu-uc)
+        if(ICU_FOUND)
+            message("Found pre-installed icu package")
+            # some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
+            target_compile_definitions(TextExtraction PRIVATE U_SHOW_CPLUSPLUS_API=0)  
+            # done tricky parts
+            target_include_directories(TextExtraction PRIVATE ${ICU_INCLUDE_DIRS})
+            target_link_libraries(TextExtraction ${ICU_LDFLAGS})
 
-				set(SUPPORT_ICU_BIDI 1)
-                target_compile_definitions(TextExtraction PRIVATE SUPPORT_ICU_BIDI=1 INCLUDE_UBIDI)
-			endif(ICU_FOUND)
-		endif(PKG_CONFIG_FOUND)
+            set(SUPPORT_ICU_BIDI 1)
+            target_compile_definitions(TextExtraction PRIVATE SUPPORT_ICU_BIDI=1 INCLUDE_UBIDI) 
+        endif(ICU_FOUND)
 	endif(NOT SUPPORT_ICU_BIDI)
 
 	# ok. still not found, let's download and build
@@ -174,7 +164,8 @@ if(USE_BIDI)
 							${ICU_DOWNLOAD_URL}
 						URL_HASH
 							${ICU_DOWNLOAD_HASH}
-						PATCH_COMMAND ""
+                        DOWNLOAD_EXTRACT_TIMESTAMP true
+                        PATCH_COMMAND ""
 						CONFIGURE_COMMAND ""
 						BUILD_IN_SOURCE 1
 						BUILD_COMMAND msbuild /p:Configuration=$<CONFIG> /p:Platform=${CMAKE_VS_PLATFORM_NAME} /p:SkipUWP=true <DOWNLOAD_DIR>/src/libIcu/source/allinone/allinone.sln ${ICU_TARGETS}
@@ -215,6 +206,7 @@ if(USE_BIDI)
 			add_dependencies(icudt libIcu)		
 
 			set(ICU_LIBRARIES icuuc icuin icudt)
+			set(ICU_DEPENDENCIES ${ICU_LIBRARIES})
 
 			# and make sure to have the dlls in target install
 			install(DIRECTORY ${ICU_BIN}/
@@ -238,7 +230,8 @@ if(USE_BIDI)
 					${ICU_DOWNLOAD_URL}
 				URL_HASH
 					${ICU_DOWNLOAD_HASH}					
-				PATCH_COMMAND ""
+                DOWNLOAD_EXTRACT_TIMESTAMP true
+                PATCH_COMMAND ""
 				CONFIGURE_COMMAND
 				${CMAKE_COMMAND} -E env
 					# Gal: i removed the following two from darwin, for some reason tests fail checking on them....
@@ -268,28 +261,44 @@ if(USE_BIDI)
 			${ICU_EP_LIBICUI18N})
 			add_dependencies(icui18n libIcu)
 
-			add_library(icuuc IMPORTED STATIC)
+			add_library(icuuc IMPORTED STATIC GLOBAL)
 			set_target_properties(icuuc PROPERTIES IMPORTED_LOCATION
 			${ICU_EP_LIBICUUC})
 			add_dependencies(icuuc libIcu)
 
-			set(ICU_LIBRARIES icui18n icuuc icudata)
+			set(ICU_LIBRARIES ${ICU_EP_LIBICUDATA} ${ICU_EP_LIBICUI18N} ${ICU_EP_LIBICUUC})
+			set(ICU_DEPENDENCIES icui18n icudata libIcu)
+
+			# install the files, so they'll be avialable for when someone else compiles against text extraciton lib
+			install(FILES ${ICU_LIBRARIES}
+				DESTINATION lib
+			)
 		endif(MSVC)
 
 
 		message("Will download and build icu")	
-        # some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
-        target_compile_definitions(TextExtraction PRIVATE U_SHOW_CPLUSPLUS_API=0)
-        # done tricky parts
-        target_include_directories(TextExtraction PRIVATE ${ICU_INCLUDE_DIRS})
+		# some flags to have icu behave with C++11 or none (im just here for the C bidi funcs man...)
+		target_compile_definitions(TextExtraction PRIVATE U_SHOW_CPLUSPLUS_API=0) 
+		# done tricky parts
+		target_include_directories(TextExtraction PRIVATE ${ICU_INCLUDE_DIRS})
 		target_link_libraries(TextExtraction ${ICU_LIBRARIES})
+		add_dependencies(TextExtraction ${ICU_DEPENDENCIES})
 
 		set(SUPPORT_ICU_BIDI 1)
-        target_compile_definitions(TextExtraction PRIVATE SUPPORT_ICU_BIDI=1 INCLUDE_UBIDI)
+		target_compile_definitions(TextExtraction PRIVATE SUPPORT_ICU_BIDI=1 INCLUDE_UBIDI) 
 	endif(NOT SUPPORT_ICU_BIDI)
 
 	# End ICU deps
 endif(USE_BIDI)
+
+
+target_include_directories(TextExtraction
+    INTERFACE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:include/TextExtraction> 
+)  
+set_target_properties(TextExtraction PROPERTIES VERSION ${TextExtraction_LIB_VERSION} SOVERSION ${TextExtraction_SO_VERSION})
+
 
 install(TARGETS TextExtraction
     EXPORT TextExtractionTargets
