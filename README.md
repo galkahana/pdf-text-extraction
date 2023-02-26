@@ -57,7 +57,9 @@ The following builds the project from its root folder:
 cmake --build build --config release
 ```
 
-This will build the project inside the build folder. You will be able to look up the result execultable per how you normally do when building with the relevant build environment. For example, for windows,  the TextExtraction/Release folder will have the result file.
+This will build the project inside the build folder. You will be able to look up the result execultable per how you normally do when building with the relevant build environment. For example, for windows,  the `TextExtractionCLI/Release` folder will have the result exectuable named `TextExtraction`.
+
+The project builds both the cli executable and a dependency lib. The lib can be used in another project for PDF text extraction, and [the CLI code](./TextExtractionCLI/extract-text-cli.cpp)  is a good example of how it can be used.
 
 If you want, you can use the "install" verb of cmake to install a built product. Use the prefix param to specify where you want the result to be installed to
 
@@ -65,13 +67,13 @@ If you want, you can use the "install" verb of cmake to install a built product.
 cmake --install ./build/TextExtraction --prefix ./etc/install --config release --component executable
 ```
 
-This will install the TextExtraction executable in ./etc/install.
+This will install the TextExtraction executable in ./etc/install. To install the CLI and other dependent libs drop the `--component executable` part.
 
 if you do not have `cmake --install` as option, you can use a regular build with install target instead, and specify the install target in configuration stage, like this:
 
 ```bash
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX="..\etc\install"
+cmake .. -DCMAKE_INSTALL_PREFIX="../etc/install"
 cd ..
 
 cmake --build build/TextExtraction --config release --target install 
@@ -96,7 +98,7 @@ The cmake project defines TextExtraction as a Package. There are 2 targets to th
 - TextExtraction::TextExtraction
 - TextExtraction::TextExtractionCLI
 
-The `TextExtraction` is a lib that you can use in your own project to extract text. You can read [TextExtractionCLI\extract-text-cli.cpp](TextExtractionCLI\extract-text-cli.cpp) as a useful example on how to use the lib.
+The `TextExtraction` is a lib that you can use in your own project to extract text. You can read [the CLI code](./TextExtractionCLI/extract-text-cli.cpp) as a useful example on how to use the lib.
 The `TextExtractionCLI` is the CLI part, which you can use as target as well.
 
 In your project cmakefile you can import the project like a regular package:
@@ -106,7 +108,6 @@ find_package (TextExtraction)
 
 target_link_libraries(MyTarget TextExtraction::TextExctraction)
 ```
-
 
 ## VSCode usage
 
@@ -150,7 +151,7 @@ the module code does not come with ICU library pre-bundled with the code, so it 
 ICU Library installation process will try the following:
 1. On windows specifically, it will try to use the existing Win10 SDK natively installed ICU library
 2. Either on windows or other platform it will then try to find a pre-installed pacakge. For example, your Mac might already have it installed. you can help with a good ol' `brew install icu4c`.
-3. If didn't work, then it will try to download ICU67 from it's source, and compile it. on most envs it will use the ICU makefile config, and on windows it will use the msbuild (this attempts to follow the instructions from icu). i think mingw will not work here...but you can try...and you can tweak `./TextExtraction/CMakeLists.txt` to try and make it work. there are pointers there for info.
+3. If didn't work, then it will try to download ICU72 from it's source, and compile it. on most envs it will use the ICU makefile config, and on windows it will use the msbuild (this attempts to follow the instructions from icu). i think mingw will not work here...but you can try...and you can tweak `./TextExtraction/CMakeLists.txt` to try and make it work. there are pointers there for info.
 
 # Internal table parsing
 When parsing for tables the final output is CSV. CSVs can't handle split cells (normally found in the header, there'd be a single cell spanning multiple cells and then internally there'd be a split providing the individual columns headers names) so it's not important to parse internal columns/rows of a cell. However for the sake of excercise, and if anyone wants to output this to Excel/Google Sheets/Numbers where split cells are a reality, I did program internal cell parsing for table structure which would provide the relevant info. It's off by default, and you can use the SHOULD_PARSE_INTERNAL_TABLES configuratin variable to turn it on. This would mean the `CellInRow` struct might have a non null internalTable, that is - when one such exists. when calling cmake for configuration, add `-DSHOULD_PARSE_INTERNAL_TABLES=1` to get the parsing going.
