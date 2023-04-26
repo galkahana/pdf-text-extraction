@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.15)
-project(TextExtraction VERSION 1.0)
+project(TextExtraction VERSION 1.1)
 
 # options
 option(USE_BIDI  "should support bi-directional text")
