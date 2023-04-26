@@ -136,12 +136,11 @@ EStatusCode TextExtraction::DecryptPDFForDebugging(
     const string& inTemplateFilePath,
     const string& inTargetOutputFilePath
 ) {
-    static LogConfiguration my_log_configuration(true, true, "./etc/PDFWriterLog.txt");
     return PDFWriter::RecryptPDF(  
 		inTemplateFilePath,
 		"",
 		inTargetOutputFilePath,
-		my_log_configuration,
+        LogConfiguration::DefaultLogConfiguration(),
 		PDFCreationSettings(false, true)
     );
 }
