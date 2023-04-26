@@ -77,3 +77,26 @@ void TransformBox(const double (&box)[4],const double (&mtx)[6], double (&boxRes
     double computedBox[4] = {minX, minY, maxX, maxY};
     CopyBox(computedBox, boxResult);
 }
+
+bool DoBoxesIntersect(const double (&inBoxA)[4], const double (&inBoxB)[4]) {
+    if(inBoxA[0] > inBoxB[2])
+        return false;
+    
+    if(inBoxA[1] > inBoxB[3])
+        return false;
+
+    if(inBoxA[2] < inBoxB[0])
+        return false;
+
+    if(inBoxA[3] < inBoxB[1])
+        return false;
+
+    return true;
+}
+
+bool isPointWithinBox(const double (&inPoint)[2], const double (&inBox)[4]) {
+    return inPoint[0] >= inBox[0] &&
+            inPoint[0] <= inBox[2] &&
+            inPoint[1] >= inBox[1] &&
+            inPoint[1] <= inBox[3];
+}
