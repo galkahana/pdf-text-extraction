@@ -2,6 +2,7 @@
 
 #include "../graphs/Graph.h"
 #include "../graphs/Result.h"
+#include "../math/Transformations.h"
 
 #include <set>
 #include <map>
@@ -38,13 +39,6 @@ TableComposer::~TableComposer() {
 
 #define INTERSECT_THRESHOLD 1
 
-bool isPointWithinBox(const double (&inPoint)[2], const double (&inBox)[4]) {
-    return inPoint[0] >= inBox[0] - INTERSECT_THRESHOLD &&
-            inPoint[0] <= inBox[2] + INTERSECT_THRESHOLD &&
-            inPoint[1] >= inBox[1] - INTERSECT_THRESHOLD &&
-            inPoint[1] <= inBox[3] + INTERSECT_THRESHOLD;
-}
-
 bool HorizontalIntersectsWithVertical(const ParsedLinePlacement& inHorizontalLine, const ParsedLinePlacement& inVerticalLine, const double (&inScopeBox)[4]) {
     // should be forming a cross. so horizontal lines X coordinates should be surrounding vertical line X coordinate,
     // and horizontal line Y coordinate should be surrounded by vertical line Y coordinates
@@ -61,6 +55,62 @@ bool HorizontalIntersectsWithVertical(const ParsedLinePlacement& inHorizontalLin
     double intersectionPoint[2] = {inVerticalLine.globalPointOne[0],inHorizontalLine.globalPointOne[1]};
 
     return isPointWithinBox(intersectionPoint, inScopeBox);
+}
+
+bool HorizontalIntersectsWithHorizontal(const ParsedLinePlacement& inHorizontalLine1, const ParsedLinePlacement& inHorizontalLine2, const double (&inScopeBox)[4]) {
+    // continuance or containment
+    bool doIntersect = inHorizontalLine1.globalPointOne[1] == inHorizontalLine2.globalPointOne[1] && 
+        (
+            (
+                inHorizontalLine1.globalPointOne[0] - INTERSECT_THRESHOLD <= inHorizontalLine2.globalPointOne[0] && 
+                inHorizontalLine1.globalPointTwo[0] + INTERSECT_THRESHOLD >= inHorizontalLine2.globalPointOne[0] 
+            )
+            ||
+            (
+                inHorizontalLine2.globalPointOne[0] - INTERSECT_THRESHOLD <= inHorizontalLine1.globalPointOne[0] && 
+                inHorizontalLine2.globalPointTwo[0] + INTERSECT_THRESHOLD >= inHorizontalLine1.globalPointOne[0]                 
+            )
+        );
+
+    if(!doIntersect)
+        return false;
+
+    double intresectionBox[4] = {
+        inHorizontalLine1.globalPointOne[0] > inHorizontalLine2.globalPointOne[0] ? inHorizontalLine1.globalPointOne[0] : inHorizontalLine2.globalPointOne[0],
+        inHorizontalLine1.globalPointOne[1],
+        inHorizontalLine1.globalPointTwo[0] < inHorizontalLine2.globalPointTwo[0] ? inHorizontalLine1.globalPointTwo[0] : inHorizontalLine2.globalPointTwo[0],
+        inHorizontalLine1.globalPointOne[1]
+    };
+
+    return DoBoxesIntersect(intresectionBox, inScopeBox);       
+}
+
+bool VerticalIntersectsWithVertical(const ParsedLinePlacement& inVerticalLine1, const ParsedLinePlacement& inVerticalLine2, const double (&inScopeBox)[4]) {
+    // continuance or containment
+    bool doIntersect = inVerticalLine1.globalPointOne[0] == inVerticalLine2.globalPointOne[0] && 
+        (
+            (
+                inVerticalLine1.globalPointOne[1] + INTERSECT_THRESHOLD >= inVerticalLine2.globalPointOne[1] && 
+                inVerticalLine1.globalPointTwo[1] - INTERSECT_THRESHOLD <= inVerticalLine2.globalPointOne[1] 
+            )
+            ||
+            (
+                inVerticalLine2.globalPointOne[1] + INTERSECT_THRESHOLD >= inVerticalLine1.globalPointOne[1] && 
+                inVerticalLine2.globalPointTwo[1] - INTERSECT_THRESHOLD <= inVerticalLine1.globalPointOne[1]                 
+            )
+        );
+
+    if(!doIntersect)
+        return false;
+
+    double intresectionBox[4] = {
+        inVerticalLine1.globalPointOne[0],
+        inVerticalLine1.globalPointTwo[0] > inVerticalLine2.globalPointTwo[0] ? inVerticalLine1.globalPointTwo[0] : inVerticalLine2.globalPointTwo[0],
+        inVerticalLine1.globalPointOne[0],
+        inVerticalLine1.globalPointOne[0] < inVerticalLine2.globalPointOne[0] ? inVerticalLine1.globalPointOne[0] : inVerticalLine2.globalPointOne[0],
+    };
+
+    return DoBoxesIntersect(intresectionBox, inScopeBox);  
 }
 
 bool CompareHorizontalLines(const ParsedLinePlacement& a, const ParsedLinePlacement& b) {
@@ -110,8 +160,8 @@ void CreateEdgesForLinesList(
     ParsedLinePlacementToParsedLinePlacementGraphNodeMap& refMap
 ) {
     
+    // check horizontal vs. vertical intersection
     ParsedLinePlacementList::const_iterator itHorizontal = inHorizontalList.begin();
-    
     for(; itHorizontal != inHorizontalList.end();++itHorizontal) {
         ParsedLinePlacementList::const_iterator itVertical = inVerticalList.begin();
         for(; itVertical != inVerticalList.end();++itVertical) {
@@ -124,6 +174,42 @@ void CreateEdgesForLinesList(
         }
     }
 
+    // check horizontal vs. horizontal intersection
+    ParsedLinePlacementList::const_iterator itHorizontal1 = inHorizontalList.begin();
+    for(; itHorizontal1 != inHorizontalList.end();++itHorizontal1) {
+        ParsedLinePlacementList::const_iterator itHorizontal2 = inHorizontalList.begin();
+        for(; itHorizontal2 != inHorizontalList.end();++itHorizontal2) {
+            if((&(*itHorizontal1)) == (&(*itHorizontal2)))
+                continue;
+
+            if(HorizontalIntersectsWithHorizontal(*itHorizontal1, *itHorizontal2, inScopeBox)) {
+                ParsedLinePlacementGraphNode* horNode1 = refMap[&(*itHorizontal1)];
+                ParsedLinePlacementGraphNode* horNode2 = refMap[&(*itHorizontal2)];
+
+                horNode1->neighbors.push_back(horNode2);
+                horNode2->neighbors.push_back(horNode1);
+            }
+        }
+    }    
+
+
+    // check vertical vs. vertical intersection
+    ParsedLinePlacementList::const_iterator itVertical1 = inVerticalList.begin();
+    for(; itVertical1 != inVerticalList.end();++itVertical1) {
+        ParsedLinePlacementList::const_iterator itVertical2 = inVerticalList.begin();
+        for(; itVertical2 != inVerticalList.end();++itVertical2) {
+            if((&(*itVertical1)) == (&(*itVertical2)))
+                continue;
+
+
+            if(VerticalIntersectsWithVertical(*itVertical1, *itVertical2, inScopeBox)) {
+                ParsedLinePlacementGraphNode* verNode1 = refMap[&(*itVertical1)];
+                ParsedLinePlacementGraphNode* verNode2 = refMap[&(*itVertical2)];
+                verNode1->neighbors.push_back(verNode2);
+                verNode2->neighbors.push_back(verNode1);
+            }
+        }
+    }
 }
 
 LinesList DetermineTablesLines(const Lines& inLines, const double (&inScopeBox)[4]) {
@@ -286,18 +372,6 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], b
     ParsedLinePlacementVector sortedHorizontalLines(inLines.horizontalLines.begin(), inLines.horizontalLines.end());
     sort(sortedHorizontalLines.begin(), sortedHorizontalLines.end(), CompareHorizontalLines);
     for(size_t i=sortedHorizontalLines.size()-1;i>0;--i) {
-        // if y of later line + its width is higher than y of earlier line, check if their x's intersect. Then this pretty surely means that this is not actually
-        // a table line, but rather some overlay drawing. ignore the new line
-        if(
-            sortedHorizontalLines[i].globalPointOne[1] + sortedHorizontalLines[i].effectiveLineWidth[1] >= sortedHorizontalLines[i-1].globalPointOne[1] &&
-            sortedHorizontalLines[i-1].globalPointTwo[0] >= sortedHorizontalLines[i].globalPointOne[0] &&
-            sortedHorizontalLines[i].globalPointTwo[0] >= sortedHorizontalLines[i-1].globalPointOne[0]
-        ) {
-            sortedHorizontalLines.erase(sortedHorizontalLines.begin() + i);
-            continue;
-        }
-
-
         if(
             sortedHorizontalLines[i].globalPointOne[1] == sortedHorizontalLines[i-1].globalPointOne[1] && 
             sortedHorizontalLines[i].effectiveLineWidth[0] == sortedHorizontalLines[i-1].effectiveLineWidth[0] &&
@@ -311,23 +385,23 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], b
             sortedHorizontalLines[i-1].globalPointTwo[0] = sortedHorizontalLines[i].globalPointTwo[0];
             sortedHorizontalLines.erase(sortedHorizontalLines.begin() + i);
             continue;
-        }          
+        }   
+
+        // if y of later line + its width is higher than y of earlier line, check if their x's intersect. Then this pretty surely means that this is not actually
+        // a table line, but rather some overlay drawing. ignore the new line
+        if(
+            sortedHorizontalLines[i].globalPointOne[1] + sortedHorizontalLines[i].effectiveLineWidth[1] >= sortedHorizontalLines[i-1].globalPointOne[1] &&
+            sortedHorizontalLines[i-1].globalPointTwo[0] >= sortedHorizontalLines[i].globalPointOne[0] &&
+            sortedHorizontalLines[i].globalPointTwo[0] >= sortedHorizontalLines[i-1].globalPointOne[0]
+        ) {
+            sortedHorizontalLines.erase(sortedHorizontalLines.begin() + i);
+            continue;
+        }
     }
     ParsedLinePlacementVector sortedVerticalLines(inLines.verticalLines.begin(), inLines.verticalLines.end());
     sort(sortedVerticalLines.begin(), sortedVerticalLines.end(), CompareVerticalLines);
 
     for(size_t i=sortedVerticalLines.size()-1;i>0;--i) {
-        if(
-            sortedVerticalLines[i].globalPointOne[0] - sortedVerticalLines[i].effectiveLineWidth[0] <= sortedVerticalLines[i-1].globalPointOne[0] &&
-            sortedVerticalLines[i-1].globalPointOne[1] >= sortedVerticalLines[i].globalPointTwo[1] &&
-            sortedVerticalLines[i].globalPointOne[1] >= sortedVerticalLines[i-1].globalPointTwo[1]
-        ) {
-            // if x of later line - its width is leftier than x of earlier line, check if their y's intersect. Then this pretty surely means that this is not actually
-            // a table line, but rather some overlay drawing. ignore the new line
-            sortedVerticalLines.erase(sortedVerticalLines.begin() + i);
-            continue;
-        }
-
         if(
             sortedVerticalLines[i].globalPointOne[0] == sortedVerticalLines[i-1].globalPointOne[0] && 
             sortedVerticalLines[i].effectiveLineWidth[0] == sortedVerticalLines[i-1].effectiveLineWidth[0] &&
@@ -339,6 +413,17 @@ Result<Table> CreateTable(const Lines& inLines, const double (&inScopeBox)[4], b
             // if x of both this and earlier line is the same and y's are close (less or equal to width diff) and line widths are the same then it's probably intended
             // that those are 2 segments of the same line. merge them.
             sortedVerticalLines[i-1].globalPointTwo[1] = sortedVerticalLines[i].globalPointTwo[1];
+            sortedVerticalLines.erase(sortedVerticalLines.begin() + i);
+            continue;
+        }
+
+        if(
+            sortedVerticalLines[i].globalPointOne[0] - sortedVerticalLines[i].effectiveLineWidth[0] <= sortedVerticalLines[i-1].globalPointOne[0] &&
+            sortedVerticalLines[i-1].globalPointOne[1] >= sortedVerticalLines[i].globalPointTwo[1] &&
+            sortedVerticalLines[i].globalPointOne[1] >= sortedVerticalLines[i-1].globalPointTwo[1]
+        ) {
+            // if x of later line - its width is leftier than x of earlier line, check if their y's intersect. Then this pretty surely means that this is not actually
+            // a table line, but rather some overlay drawing. ignore the new line
             sortedVerticalLines.erase(sortedVerticalLines.begin() + i);
             continue;
         }

@@ -7,6 +7,7 @@
 
 #include "./lib/interpreter/PDFRecursiveInterpreter.h"
 #include "./lib/graphic-content-parsing/GraphicContentInterpreter.h"
+#include "./lib/math/Transformations.h"
 
 using namespace std;
 using namespace PDFHummus;
@@ -17,22 +18,6 @@ TextExtraction::TextExtraction():textInterpeter(this) {
     
 TextExtraction::~TextExtraction() {
     textsForPages.clear();
-}
-
-bool DoBoxesIntersect(const double (&inBoxA)[4], const double (&inBoxB)[4]) {
-    if(inBoxA[0] > inBoxB[2])
-        return false;
-    
-    if(inBoxA[1] > inBoxB[3])
-        return false;
-
-    if(inBoxA[2] < inBoxB[0])
-        return false;
-
-    if(inBoxA[3] < inBoxB[1])
-        return false;
-
-    return true;
 }
 
 bool TextExtraction::OnParsedTextPlacementComplete(const ParsedTextPlacement& inParsedTextPlacement) {
@@ -151,11 +136,12 @@ EStatusCode TextExtraction::DecryptPDFForDebugging(
     const string& inTemplateFilePath,
     const string& inTargetOutputFilePath
 ) {
+    static LogConfiguration my_log_configuration(true, true, "./etc/PDFWriterLog.txt");
     return PDFWriter::RecryptPDF(  
 		inTemplateFilePath,
 		"",
 		inTargetOutputFilePath,
-		LogConfiguration::DefaultLogConfiguration(),
+		my_log_configuration,
 		PDFCreationSettings(false, true)
     );
 }
