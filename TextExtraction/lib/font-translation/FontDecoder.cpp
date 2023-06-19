@@ -162,6 +162,7 @@ void FontDecoder::SetupDifferencesEncodingMap(PDFParser* inParser, PDFDictionary
         const ByteToStringMap* standardMap = GetStandardEncodingMap(baseEncoding->GetValue());
         if(!!standardMap)
             fromSimpleEncodingMap = *standardMap;
+        initialized = true;
 
     }
 
