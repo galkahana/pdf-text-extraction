@@ -160,8 +160,10 @@ void FontDecoder::SetupDifferencesEncodingMap(PDFParser* inParser, PDFDictionary
     // determine base encoding. either found in font, or decide a good default
     if(!!baseEncoding) {
         const ByteToStringMap* standardMap = GetStandardEncodingMap(baseEncoding->GetValue());
-        if(!!standardMap)
+        if(!!standardMap) {
             fromSimpleEncodingMap = *standardMap;
+            initialized = true;
+        }
 
     }
 
