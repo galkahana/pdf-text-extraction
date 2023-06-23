@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.15)
-project(TextExtraction VERSION 1.1)
+project(TextExtraction VERSION 1.1.1)
 
 # options
 option(USE_BIDI  "should support bi-directional text")
@@ -11,7 +11,7 @@ include(FetchContent)
 FetchContent_Declare(
   PDFHummus
   GIT_REPOSITORY https://github.com/galkahana/PDF-Writer.git
-  GIT_TAG        v4.5.4
+  GIT_TAG        v4.5.7
   FIND_PACKAGE_ARGS
 )
 FetchContent_MakeAvailable(PDFHummus)
