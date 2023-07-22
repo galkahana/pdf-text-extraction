@@ -37,3 +37,5 @@ set_property (TEST FuzzTest_radamsa-dummy-20507.pdf PROPERTY PASS_REGULAR_EXPRES
 set_property (TEST FuzzTest_radamsa-dummy-27773.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 set_property (TEST FuzzTest_radamsa-dummy-47574.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 
+# crash
+add_test(NAME TextExtractionCrash_issue_19 COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/20-1199_l6gn.pdf -t) 

@@ -61,7 +61,7 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inSt
             break;
         }
 
-        PDFPageInput pageInput(inParser,pageObject.GetPtr());
+        PDFPageInput pageInput(inParser,pageObject);
         PDFRectangle mediaBox = pageInput.GetMediaBox();
         currentPageScopeBox[0] = mediaBox.LowerLeftX;
         currentPageScopeBox[1] = mediaBox.LowerLeftY;

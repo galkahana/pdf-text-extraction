@@ -64,10 +64,10 @@ The project builds both the cli executable and a dependency lib. The lib can be 
 If you want, you can use the "install" verb of cmake to install a built product. Use the prefix param to specify where you want the result to be installed to
 
 ```bash
-cmake --install ./build/TextExtraction --prefix ./etc/install --config release --component executable
+cmake --install ./build --prefix ./etc/install --config release  --component executables
 ```
 
-This will install the TextExtraction executable in ./etc/install. To install the CLI and other dependent libs drop the `--component executable` part.
+This will install the TextExtraction executable in ./etc/install. To install the CLI and other dependent libs drop the `--component executables` part.
 
 if you do not have `cmake --install` as option, you can use a regular build with install target instead, and specify the install target in configuration stage, like this:
 
@@ -76,7 +76,7 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX="../etc/install"
 cd ..
 
-cmake --build build/TextExtraction --config release --target install 
+cmake --build build/TextExtractionCLI --config release --target install 
 ```
 
 ## testing
