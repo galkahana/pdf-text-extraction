@@ -39,3 +39,7 @@ set_property (TEST FuzzTest_radamsa-dummy-47574.pdf PROPERTY PASS_REGULAR_EXPRES
 
 # crash
 add_test(NAME TextExtractionCrash_issue_19 COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/20-1199_l6gn.pdf -t) 
+
+# more fuzz test
+add_test (NAME FuzzTest_uaf1 COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/uaf1.pdf)
+set_property (TEST FuzzTest_uaf1 PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
