@@ -8,8 +8,8 @@ enum EResult {
 template<typename T>
 class Result {
     public:
-        Result(); // ok
-        Result(T inValue); // err
+        Result(); // err
+        Result(T inValue); // ok
 
         bool IsOK();
         bool IsErr();
