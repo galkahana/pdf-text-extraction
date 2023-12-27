@@ -10,8 +10,9 @@ option(SHOULD_PARSE_INTERNAL_TABLES  "should table parsing read internal tables"
 include(FetchContent)
 FetchContent_Declare(
   PDFHummus
-  GIT_REPOSITORY https://github.com/galkahana/PDF-Writer.git
-  GIT_TAG        v4.5.10
+  URL https://github.com/galkahana/PDF-Writer/archive/refs/tags/v4.6.2.tar.gz
+  URL_HASH SHA256=0a36815ccc9d207028567f90039785c824b211169ba5da68de84d0c15455ab62
+  DOWNLOAD_EXTRACT_TIMESTAMP FALSE
   FIND_PACKAGE_ARGS
 )
 FetchContent_MakeAvailable(PDFHummus)
@@ -19,8 +20,14 @@ FetchContent_MakeAvailable(PDFHummus)
 # local code
 ADD_SUBDIRECTORY(TextExtraction)
 ADD_SUBDIRECTORY(TextExtractionCLI)
-enable_testing()
-ADD_SUBDIRECTORY(TextExtractionTesting)
+
+if(PROJECT_IS_TOP_LEVEL AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/TextExtractionTesting)
+    # avoid installing the testing materials altogether when included in another project.
+    # it's annoying when in parent all, and more annoying to then get the tests added
+    # to the parent project ctest.
+    enable_testing()
+    ADD_SUBDIRECTORY(TextExtractionTesting)
+  endif()
 
 
 # cpack
