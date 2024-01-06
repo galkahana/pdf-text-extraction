@@ -12,6 +12,7 @@
 #include "IPDFRecursiveInterpreterHandler.h"
 
 #include <string>
+#include <algorithm>
 
 using namespace std;
 using namespace PDFHummus;
@@ -109,7 +110,7 @@ PDFObjectParser* InterpreterContext::GetObjectParser() {
 
 
 PDFRecursiveInterpreter::PDFRecursiveInterpreter(void) {
-
+    mNestingContext = NULL;
 }
 
 PDFRecursiveInterpreter::~PDFRecursiveInterpreter(void) {
@@ -235,6 +236,18 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                 LongFilePositionType currentPosition = inParser->GetParserStream()->GetCurrentPosition();
                 PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = inContext->FindResource(formName, "XObject");
                 ObjectIDType formObjectID = !xobjectRef ? 0 : xobjectRef->mObjectID;
+                if(!!mNestingContext) {
+                    ObjectIDTypeList::iterator itFindInStack = find(mNestingContext->nestedXObjects.begin(), mNestingContext->nestedXObjects.end(), formObjectID);
+                    if(itFindInStack != mNestingContext->nestedXObjects.end()) {
+                        // orcish mischief! looping. halt
+                        shouldContinue = false;
+                        break;
+                    }
+
+                    // add this form to the nesting stack
+                    mNestingContext->nestedXObjects.push_back(formObjectID);
+                }
+
                 PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
                 if(!!formObject && IsForm(formObject.GetPtr())) {  
                     bool shouldRecurse = inHandler->OnXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);
@@ -248,6 +261,11 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                     }
                     inHandler->OnXObjectDoEnd(formName, formObjectID, formObject.GetPtr(), inParser);
                 }
+                
+                if(!!mNestingContext) {
+                    mNestingContext->nestedXObjects.pop_back();
+                }
+
 
                 // restore stream position (hopefully this is enough to continue from where we were...)
                 inParser->GetParserStream()->SetPosition(currentPosition);
@@ -297,10 +315,45 @@ bool PDFRecursiveInterpreter::InterpretXObjectContents(
     PDFParser* inParser,
     PDFStreamInput* inXObject,
     IPDFRecursiveInterpreterHandler* inHandler) {
+    // root levels xobject content interpretation, context created here
+    PDFNestingContext rootNestingContext;
+
+    mNestingContext = &rootNestingContext;
+    bool result = InterpretXObjectContentsInternal(
+        inParser,
+        inXObject,
+        inHandler
+    );
+    mNestingContext = NULL;
+    return result;
+}
+
+bool PDFRecursiveInterpreter::InterpretXObjectContents(
+    PDFParser* inParser,
+    PDFStreamInput* inXObject,
+    IPDFRecursiveInterpreterHandler* inHandler,
+    PDFNestingContext* inNestingContext) {
+        
+    // lower levels xobject content interpretation, context coming from higher levels
+    mNestingContext = inNestingContext;
+    bool result = InterpretXObjectContentsInternal(
+        inParser,
+        inXObject,
+        inHandler
+    );
+    mNestingContext = NULL;
+    return result;
+}
+
+bool PDFRecursiveInterpreter::InterpretXObjectContentsInternal(
+    PDFParser* inParser,
+    PDFStreamInput* inXObject,
+    IPDFRecursiveInterpreterHandler* inHandler) {
     RefCountPtr<PDFDictionary> xobjectDict(inXObject->QueryStreamDictionary());
-    
+
     InterpreterContext context(inParser, xobjectDict.GetPtr());
     inHandler->OnResourcesRead(&context);
 
     return InterpretContentStream(inParser, xobjectDict.GetPtr(), inParser->StartReadingObjectsFromStream(inXObject),&context, inHandler);
 }
+

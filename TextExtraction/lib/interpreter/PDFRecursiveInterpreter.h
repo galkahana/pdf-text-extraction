@@ -1,5 +1,10 @@
 #pragma once
+#include <list>
+
+#include "IOBasicTypes.h"
 #include "IPDFRecursiveInterpreterHandler.h"
+
+typedef std::list<ObjectIDType> ObjectIDTypeList;
 
 class PDFParser;
 class PDFDictionary;
@@ -23,6 +28,25 @@ public:
         IPDFRecursiveInterpreterHandler* inHandler); 
 
 private:
+    struct PDFNestingContext {
+        ObjectIDTypeList nestedXObjects;
+    };
+
+    PDFNestingContext* mNestingContext;
+
+    // internal method used by higher level interpreters to call lower level xobject interpreters with nesting context
+    bool InterpretXObjectContents(
+        PDFParser* inParser,
+        PDFStreamInput* inXObject,
+        IPDFRecursiveInterpreterHandler* inHandler,
+        PDFNestingContext* inNestingContext);     
+
+    // internal method for intrepreting xobjects
+    bool InterpretXObjectContentsInternal(
+        PDFParser* inParser,
+        PDFStreamInput* inXObject,
+        IPDFRecursiveInterpreterHandler* inHandler);       
+
     bool InterpretContentStream(
         PDFParser* inParser,
         PDFDictionary* inContentParent,
