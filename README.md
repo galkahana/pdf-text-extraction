@@ -17,6 +17,8 @@ Options:
         -d, --debug /path/to/file               create debug output file
 ```
 
+**New with 1.1.5** - binaries are avaialable for download in the Releases section of the repo.
+
 **New** it is now also possible to use this CLI to **extract tables**. This is still experimental due to how tables
 may be represented in many multiple ways, but with enough samples the code can be upgraded to be more able.
 When asking for table extraction only tables are output as CSV. std output will show CSV content of the PDF tables. When outputting
