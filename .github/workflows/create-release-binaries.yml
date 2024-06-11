@@ -22,7 +22,7 @@ jobs:
               executable_path: /build/TextExtractionCLI
               executable_name: TextExtraction
               os_name: mac
-              extra_cmake_config_flags: -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64" # universal. arm and intel
+              extra_cmake_config_flags: -DCMAKE_OSX_ARCHITECTURES="x86_64;arm64" # universal. arm and intel
             - os: windows-latest
               executable_path: /build/TextExtractionCLI/Release
               executable_name: TextExtraction.exe
@@ -36,7 +36,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_BIDI=1  ${{ matrix.extra_cmake_config_flags}}
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}  ${{ matrix.extra_cmake_config_flags}}
     - name: Build with CMake
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
     - name: Create Archive
