@@ -79,7 +79,7 @@ EStatusCode TableExtraction::ExtractTablePlacements(PDFParser* inParser, long in
             break;
         }
 
-        PDFPageInput pageInput(inParser,pageObject.GetPtr());
+        PDFPageInput pageInput(inParser,pageObject);
 
         mediaBoxesForPages.push_back(pageInput.GetMediaBox());
         textsForPages.push_back(ParsedTextPlacementList());
