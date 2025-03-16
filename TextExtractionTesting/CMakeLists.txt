@@ -43,3 +43,7 @@ add_test(NAME TextExtractionCrash_issue_19 COMMAND TextExtractionCLI ${CMAKE_CUR
 # more fuzz test
 add_test (NAME FuzzTest_uaf1 COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/uaf1.pdf)
 set_property (TEST FuzzTest_uaf1 PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
+
+# scan with text overlay
+add_test(NAME TextExtractionImageWithOverlayPrintsText COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/ouk6210324m9i73.pdf)
+set_property (TEST TextExtractionImageWithOverlayPrintsText PROPERTY PASS_REGULAR_EXPRESSION "EDICT")
