@@ -47,13 +47,29 @@ static ULongList besToUnicodes(const ByteList& inBytes) {
         ByteList buffer;
         buffer.push_back(*it);
         ++it;
+        if(it == inBytes.end()) {
+            // error. should have at least another byte
+            break;
+        }
         buffer.push_back(*it);
         ++it;
         unsigned long newOne = beToNum(buffer);
-        if(0xD800 <= newOne && newOne <= 0xDBFF) {
+        if(0xD800 <= newOne && newOne <= 0xDBFF ) {
+            if(it == inBytes.end()) {
+                // error. should have at least another byte, attempting to return only the high surrogate.
+                // maybe the intent is trivially to return the high surrogate
+                unicodes.push_back(newOne);
+                break;
+            }
             buffer.clear();
             buffer.push_back(*it);
             ++it;
+            if(it == inBytes.end()) {
+                unicodes.push_back(newOne);
+                // error. should have at least another byte, attempting to return only the high surrogate
+                // maybe the intent is trivially to return the high surrogate
+                break;
+            }
             buffer.push_back(*it);
             ++it;
             // pfff. high surrogate. need to read another one

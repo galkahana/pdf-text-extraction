@@ -176,16 +176,16 @@ bool TextInterpeter::OnResourcesRead(const Resources& inResources, IInterpreterC
         if(it->second.fontRef.GetPtr()->GetType() == PDFObject::ePDFObjectDictionary) {
             RefCountPtr<PDFObject> fontDict = it->second.fontRef.GetPtr();
             // embedded, check cache first
-            PDFObjectToFontDecoderMap::iterator it = embeddedFontDecoders.find(fontDict);
-            if(it == embeddedFontDecoders.end()) {
+            PDFObjectToFontDecoderMap::const_iterator itFont = embeddedFontDecoders.find(fontDict);
+            if(itFont == embeddedFontDecoders.end()) {
                 // ok. there's none, use this chance to create a new one
                 embeddedFontDecoders.insert(PDFObjectToFontDecoderMap::value_type(fontDict, FontDecoder(inContext->GetParser(), (PDFDictionary*)fontDict.GetPtr())));
             }
         }
         else if(it->second.fontRef.GetPtr()->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
             ObjectIDType id = ((PDFIndirectObjectReference*)(it->second.fontRef.GetPtr()))->mObjectID;
-            ObjectIDTypeToFontDecoderMap::iterator it = refrencedFontDecoders.find(id);
-            if(it == refrencedFontDecoders.end()) {
+            ObjectIDTypeToFontDecoderMap::const_iterator itFont = refrencedFontDecoders.find(id);
+            if(itFont == refrencedFontDecoders.end()) {
                 PDFObjectCastPtr<PDFDictionary> fontDict = inContext->GetParser()->ParseNewObject(id);
                 if(!fontDict)
                     continue; // ignore
