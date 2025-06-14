@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.15)
-project(TextExtraction VERSION 1.1.7)
+project(TextExtraction VERSION 1.1.8)
 
 # options
 option(USE_BIDI  "should support bi-directional text")
@@ -10,8 +10,8 @@ option(SHOULD_PARSE_INTERNAL_TABLES  "should table parsing read internal tables"
 include(FetchContent)
 FetchContent_Declare(
   PDFHummus
-  URL https://github.com/galkahana/PDF-Writer/archive/refs/tags/v4.6.2.tar.gz
-  URL_HASH SHA256=0a36815ccc9d207028567f90039785c824b211169ba5da68de84d0c15455ab62
+  URL https://github.com/galkahana/PDF-Writer/archive/refs/tags/v4.7.0.tar.gz
+  URL_HASH SHA256=936c1ed887c5fd23da8cd9ff23c1bfa58545f60f66af8ff893024eda5dda1b98
   DOWNLOAD_EXTRACT_TIMESTAMP FALSE
   FIND_PACKAGE_ARGS
 )

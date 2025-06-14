@@ -17,6 +17,8 @@ Options:
         -d, --debug /path/to/file               create debug output file
 ```
 
+**New with 1.1.8** - pdf2.0 encryption supported. requries openssl.
+
 **New with 1.1.5** - binaries are avaialable for download in the Releases section of the repo.
 
 **New** it is now also possible to use this CLI to **extract tables**. This is still experimental due to how tables
