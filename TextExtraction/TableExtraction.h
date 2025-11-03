@@ -16,6 +16,7 @@
 #include "ErrorsAndWarnings.h"
 
 class PDFParser;
+class IByteReaderWithPosition;
 
 #include <sstream>
 #include <string>
@@ -33,6 +34,8 @@ class TableExtraction : public ITextInterpreterHandler, IGraphicContentInterpret
         virtual ~TableExtraction();
 
         PDFHummus::EStatusCode ExtractTables(const std::string& inFilePath, long inStartPage=0, long inEndPage=-1);
+        PDFHummus::EStatusCode ExtractTables(PDFParser* inParser, long inStartPage=0, long inEndPage=-1);
+        PDFHummus::EStatusCode ExtractTables(IByteReaderWithPosition* inStream, long inStartPage=0, long inEndPage=-1);
 
         ExtractionError LatestError;
         ExtractionWarningList LatestWarnings;  
@@ -65,5 +68,6 @@ class TableExtraction : public ITextInterpreterHandler, IGraphicContentInterpret
 
         PDFHummus::EStatusCode ExtractTablePlacements(PDFParser* inParser, long inStartPage, long inEndPage);
         void ComposeTables();
+        void ClearState();
         
 };

@@ -95,18 +95,21 @@ EStatusCode TableExtraction::ExtractTablePlacements(PDFParser* inParser, long in
 
 static const string scEmpty = "";
 
-EStatusCode TableExtraction::ExtractTables(const std::string& inFilePath, long inStartPage, long inEndPage) {
-    EStatusCode status = eSuccess;
-    InputFile sourceFile;
-
-    LatestWarnings.clear();
-    LatestError.code = eErrorNone;
-    LatestError.description = scEmpty;
-
+void TableExtraction::ClearState() {
     textsForPages.clear();
     tableLinesForPages.clear();
     tablesForPages.clear();
     mediaBoxesForPages.clear();
+    LatestWarnings.clear();
+    LatestError.code = eErrorNone;
+    LatestError.description = scEmpty;
+}
+
+EStatusCode TableExtraction::ExtractTables(const std::string& inFilePath, long inStartPage, long inEndPage) {
+    EStatusCode status = eSuccess;
+    InputFile sourceFile;
+
+    ClearState();
 
     do {
         status = sourceFile.OpenFile(inFilePath);
@@ -135,6 +138,43 @@ EStatusCode TableExtraction::ExtractTables(const std::string& inFilePath, long i
 
     return status;
 }
+
+PDFHummus::EStatusCode TableExtraction::ExtractTables(PDFParser* inParser, long inStartPage, long inEndPage) {
+    ClearState();
+
+    PDFHummus::EStatusCode status = ExtractTablePlacements(inParser, inStartPage, inEndPage);
+    if(status == eSuccess) {
+        ComposeTables();
+    }
+
+    return status;
+}
+
+PDFHummus::EStatusCode TableExtraction::ExtractTables(IByteReaderWithPosition* inStream, long inStartPage, long inEndPage)  {
+    EStatusCode status = eSuccess;
+
+    ClearState();
+
+    do {
+        PDFParser parser;
+        status = parser.StartPDFParsing(inStream);
+        if(status != eSuccess)
+        {
+            LatestError.code = eErrorInternalPDFWriter;
+            LatestError.description = string("Failed to parse file");
+            break;
+        }
+
+        status = ExtractTablePlacements(&parser, inStartPage, inEndPage);
+        if(status != eSuccess)
+            break;
+
+        ComposeTables();
+    } while(false);
+
+    return status;    
+}
+
 
 
 void TableExtraction::ComposeTables() {
