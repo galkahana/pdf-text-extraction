@@ -11,6 +11,7 @@
 #include "ErrorsAndWarnings.h"
 
 class PDFParser;
+class IByteReaderWithPosition;
 
 #include <sstream>
 #include <string>
@@ -27,6 +28,8 @@ class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterprete
         virtual ~TextExtraction();
 
         PDFHummus::EStatusCode ExtractText(const std::string& inFilePath, long inStartPage=0, long inEndPage=-1);
+        PDFHummus::EStatusCode ExtractText(PDFParser* inParser, long inStartPage=0, long inEndPage=-1);
+        PDFHummus::EStatusCode ExtractText(IByteReaderWithPosition* inStream, long inStartPage=0, long inEndPage=-1);
 
         ExtractionError LatestError;
         ExtractionWarningList LatestWarnings;  
@@ -55,4 +58,5 @@ class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterprete
         double currentPageScopeBox[4];
 
         PDFHummus::EStatusCode ExtractTextPlacements(PDFParser* inParser, long inStartPage, long inEndPage);
+        void ClearState();
 };

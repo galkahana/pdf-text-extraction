@@ -80,15 +80,18 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inSt
 
 static const string scEmpty = "";
 
+void TextExtraction::ClearState() {
+    textsForPages.clear();
+    LatestWarnings.clear();
+    LatestError.code = eErrorNone;
+    LatestError.description = scEmpty;
+}
+
 EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inStartPage, long inEndPage) {
     EStatusCode status = eSuccess;
     InputFile sourceFile;
 
-    LatestWarnings.clear();
-    LatestError.code = eErrorNone;
-    LatestError.description = scEmpty;
-
-    textsForPages.clear();
+    ClearState();
 
     do {
         status = sourceFile.OpenFile(inFilePath);
@@ -101,6 +104,37 @@ EStatusCode TextExtraction::ExtractText(const std::string& inFilePath, long inSt
 
         PDFParser parser;
         status = parser.StartPDFParsing(sourceFile.GetInputStream());
+        if(status != eSuccess)
+        {
+            LatestError.code = eErrorInternalPDFWriter;
+            LatestError.description = string("Failed to parse file");
+            break;
+        }
+
+        status = ExtractTextPlacements(&parser, inStartPage, inEndPage);
+        if(status != eSuccess)
+            break;
+
+    } while(false);
+
+    return status;
+}
+
+PDFHummus::EStatusCode TextExtraction::ExtractText(PDFParser* inParser, long inStartPage, long inEndPage) {
+    ClearState();
+
+    return ExtractTextPlacements(inParser, inStartPage, inEndPage);
+}
+
+PDFHummus::EStatusCode TextExtraction::ExtractText(IByteReaderWithPosition* inStream, long inStartPage, long inEndPage) {
+    EStatusCode status = eSuccess;
+    InputFile sourceFile;
+
+    ClearState();
+
+    do {
+        PDFParser parser;
+        status = parser.StartPDFParsing(inStream);
         if(status != eSuccess)
         {
             LatestError.code = eErrorInternalPDFWriter;
