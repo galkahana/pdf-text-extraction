@@ -92,1513 +92,5714 @@ static const unsigned long cp_3271[] = {0x05E8, 0x05B5};
 static const unsigned long cp_3470[] = {0x0651, 0x064B};
 static const unsigned long cp_3667[] = {0xFB7C, 0xFEE4};
 
+static const unsigned long cp_single_0[] = {0x0041};
+static const unsigned long cp_single_1[] = {0x00c6};
+static const unsigned long cp_single_2[] = {0x01fc};
+static const unsigned long cp_single_3[] = {0x01e2};
+static const unsigned long cp_single_4[] = {0xf7e6};
+static const unsigned long cp_single_5[] = {0x00c1};
+static const unsigned long cp_single_6[] = {0xf7e1};
+static const unsigned long cp_single_7[] = {0x0102};
+static const unsigned long cp_single_8[] = {0x1eae};
+static const unsigned long cp_single_9[] = {0x04d0};
+static const unsigned long cp_single_10[] = {0x1eb6};
+static const unsigned long cp_single_11[] = {0x1eb0};
+static const unsigned long cp_single_12[] = {0x1eb2};
+static const unsigned long cp_single_13[] = {0x1eb4};
+static const unsigned long cp_single_14[] = {0x01cd};
+static const unsigned long cp_single_15[] = {0x24b6};
+static const unsigned long cp_single_16[] = {0x00c2};
+static const unsigned long cp_single_17[] = {0x1ea4};
+static const unsigned long cp_single_18[] = {0x1eac};
+static const unsigned long cp_single_19[] = {0x1ea6};
+static const unsigned long cp_single_20[] = {0x1ea8};
+static const unsigned long cp_single_21[] = {0xf7e2};
+static const unsigned long cp_single_22[] = {0x1eaa};
+static const unsigned long cp_single_23[] = {0xf6c9};
+static const unsigned long cp_single_24[] = {0xf7b4};
+static const unsigned long cp_single_25[] = {0x0410};
+static const unsigned long cp_single_26[] = {0x0200};
+static const unsigned long cp_single_27[] = {0x00c4};
+static const unsigned long cp_single_28[] = {0x04d2};
+static const unsigned long cp_single_29[] = {0x01de};
+static const unsigned long cp_single_30[] = {0xf7e4};
+static const unsigned long cp_single_31[] = {0x1ea0};
+static const unsigned long cp_single_32[] = {0x01e0};
+static const unsigned long cp_single_33[] = {0x00c0};
+static const unsigned long cp_single_34[] = {0xf7e0};
+static const unsigned long cp_single_35[] = {0x1ea2};
+static const unsigned long cp_single_36[] = {0x04d4};
+static const unsigned long cp_single_37[] = {0x0202};
+static const unsigned long cp_single_38[] = {0x0391};
+static const unsigned long cp_single_39[] = {0x0386};
+static const unsigned long cp_single_40[] = {0x0100};
+static const unsigned long cp_single_41[] = {0xff21};
+static const unsigned long cp_single_42[] = {0x0104};
+static const unsigned long cp_single_43[] = {0x00c5};
+static const unsigned long cp_single_44[] = {0x01fa};
+static const unsigned long cp_single_45[] = {0x1e00};
+static const unsigned long cp_single_46[] = {0xf7e5};
+static const unsigned long cp_single_47[] = {0xf761};
+static const unsigned long cp_single_48[] = {0x00c3};
+static const unsigned long cp_single_49[] = {0xf7e3};
+static const unsigned long cp_single_50[] = {0x0531};
+static const unsigned long cp_single_51[] = {0x0042};
+static const unsigned long cp_single_52[] = {0x24b7};
+static const unsigned long cp_single_53[] = {0x1e02};
+static const unsigned long cp_single_54[] = {0x1e04};
+static const unsigned long cp_single_55[] = {0x0411};
+static const unsigned long cp_single_56[] = {0x0532};
+static const unsigned long cp_single_57[] = {0x0392};
+static const unsigned long cp_single_58[] = {0x0181};
+static const unsigned long cp_single_59[] = {0x1e06};
+static const unsigned long cp_single_60[] = {0xff22};
+static const unsigned long cp_single_61[] = {0xf6f4};
+static const unsigned long cp_single_62[] = {0xf762};
+static const unsigned long cp_single_63[] = {0x0182};
+static const unsigned long cp_single_64[] = {0x0043};
+static const unsigned long cp_single_65[] = {0x053e};
+static const unsigned long cp_single_66[] = {0x0106};
+static const unsigned long cp_single_67[] = {0xf6ca};
+static const unsigned long cp_single_68[] = {0xf6f5};
+static const unsigned long cp_single_69[] = {0x010c};
+static const unsigned long cp_single_70[] = {0x00c7};
+static const unsigned long cp_single_71[] = {0x1e08};
+static const unsigned long cp_single_72[] = {0xf7e7};
+static const unsigned long cp_single_73[] = {0x24b8};
+static const unsigned long cp_single_74[] = {0x0108};
+static const unsigned long cp_single_75[] = {0x010a};
+static const unsigned long cp_single_76[] = {0x010a};
+static const unsigned long cp_single_77[] = {0xf7b8};
+static const unsigned long cp_single_78[] = {0x0549};
+static const unsigned long cp_single_79[] = {0x04bc};
+static const unsigned long cp_single_80[] = {0x0427};
+static const unsigned long cp_single_81[] = {0x04be};
+static const unsigned long cp_single_82[] = {0x04b6};
+static const unsigned long cp_single_83[] = {0x04f4};
+static const unsigned long cp_single_84[] = {0x0543};
+static const unsigned long cp_single_85[] = {0x04cb};
+static const unsigned long cp_single_86[] = {0x04b8};
+static const unsigned long cp_single_87[] = {0x03a7};
+static const unsigned long cp_single_88[] = {0x0187};
+static const unsigned long cp_single_89[] = {0xf6f6};
+static const unsigned long cp_single_90[] = {0xff23};
+static const unsigned long cp_single_91[] = {0x0551};
+static const unsigned long cp_single_92[] = {0xf763};
+static const unsigned long cp_single_93[] = {0x0044};
+static const unsigned long cp_single_94[] = {0x01f1};
+static const unsigned long cp_single_95[] = {0x01c4};
+static const unsigned long cp_single_96[] = {0x0534};
+static const unsigned long cp_single_97[] = {0x0189};
+static const unsigned long cp_single_98[] = {0x010e};
+static const unsigned long cp_single_99[] = {0x1e10};
+static const unsigned long cp_single_100[] = {0x24b9};
+static const unsigned long cp_single_101[] = {0x1e12};
+static const unsigned long cp_single_102[] = {0x0110};
+static const unsigned long cp_single_103[] = {0x1e0a};
+static const unsigned long cp_single_104[] = {0x1e0c};
+static const unsigned long cp_single_105[] = {0x0414};
+static const unsigned long cp_single_106[] = {0x03ee};
+static const unsigned long cp_single_107[] = {0x2206};
+static const unsigned long cp_single_108[] = {0x0394};
+static const unsigned long cp_single_109[] = {0x018a};
+static const unsigned long cp_single_110[] = {0xf6cb};
+static const unsigned long cp_single_111[] = {0xf6cc};
+static const unsigned long cp_single_112[] = {0xf6cd};
+static const unsigned long cp_single_113[] = {0xf7a8};
+static const unsigned long cp_single_114[] = {0x03dc};
+static const unsigned long cp_single_115[] = {0x0402};
+static const unsigned long cp_single_116[] = {0x1e0e};
+static const unsigned long cp_single_117[] = {0xff24};
+static const unsigned long cp_single_118[] = {0xf6f7};
+static const unsigned long cp_single_119[] = {0x0110};
+static const unsigned long cp_single_120[] = {0xf764};
+static const unsigned long cp_single_121[] = {0x018b};
+static const unsigned long cp_single_122[] = {0x01f2};
+static const unsigned long cp_single_123[] = {0x01c5};
+static const unsigned long cp_single_124[] = {0x04e0};
+static const unsigned long cp_single_125[] = {0x0405};
+static const unsigned long cp_single_126[] = {0x040f};
+static const unsigned long cp_single_127[] = {0x0045};
+static const unsigned long cp_single_128[] = {0x00c9};
+static const unsigned long cp_single_129[] = {0xf7e9};
+static const unsigned long cp_single_130[] = {0x0114};
+static const unsigned long cp_single_131[] = {0x011a};
+static const unsigned long cp_single_132[] = {0x1e1c};
+static const unsigned long cp_single_133[] = {0x0535};
+static const unsigned long cp_single_134[] = {0x24ba};
+static const unsigned long cp_single_135[] = {0x00ca};
+static const unsigned long cp_single_136[] = {0x1ebe};
+static const unsigned long cp_single_137[] = {0x1e18};
+static const unsigned long cp_single_138[] = {0x1ec6};
+static const unsigned long cp_single_139[] = {0x1ec0};
+static const unsigned long cp_single_140[] = {0x1ec2};
+static const unsigned long cp_single_141[] = {0xf7ea};
+static const unsigned long cp_single_142[] = {0x1ec4};
+static const unsigned long cp_single_143[] = {0x0404};
+static const unsigned long cp_single_144[] = {0x0204};
+static const unsigned long cp_single_145[] = {0x00cb};
+static const unsigned long cp_single_146[] = {0xf7eb};
+static const unsigned long cp_single_147[] = {0x0116};
+static const unsigned long cp_single_148[] = {0x0116};
+static const unsigned long cp_single_149[] = {0x1eb8};
+static const unsigned long cp_single_150[] = {0x0424};
+static const unsigned long cp_single_151[] = {0x00c8};
+static const unsigned long cp_single_152[] = {0xf7e8};
+static const unsigned long cp_single_153[] = {0x0537};
+static const unsigned long cp_single_154[] = {0x1eba};
+static const unsigned long cp_single_155[] = {0x2167};
+static const unsigned long cp_single_156[] = {0x0206};
+static const unsigned long cp_single_157[] = {0x0464};
+static const unsigned long cp_single_158[] = {0x041b};
+static const unsigned long cp_single_159[] = {0x216a};
+static const unsigned long cp_single_160[] = {0x0112};
+static const unsigned long cp_single_161[] = {0x1e16};
+static const unsigned long cp_single_162[] = {0x1e14};
+static const unsigned long cp_single_163[] = {0x041c};
+static const unsigned long cp_single_164[] = {0xff25};
+static const unsigned long cp_single_165[] = {0x041d};
+static const unsigned long cp_single_166[] = {0x04a2};
+static const unsigned long cp_single_167[] = {0x014a};
+static const unsigned long cp_single_168[] = {0x04a4};
+static const unsigned long cp_single_169[] = {0x04c7};
+static const unsigned long cp_single_170[] = {0x0118};
+static const unsigned long cp_single_171[] = {0x0190};
+static const unsigned long cp_single_172[] = {0x0395};
+static const unsigned long cp_single_173[] = {0x0388};
+static const unsigned long cp_single_174[] = {0x0420};
+static const unsigned long cp_single_175[] = {0x018e};
+static const unsigned long cp_single_176[] = {0x042d};
+static const unsigned long cp_single_177[] = {0x0421};
+static const unsigned long cp_single_178[] = {0x04aa};
+static const unsigned long cp_single_179[] = {0x01a9};
+static const unsigned long cp_single_180[] = {0xf765};
+static const unsigned long cp_single_181[] = {0x0397};
+static const unsigned long cp_single_182[] = {0x0538};
+static const unsigned long cp_single_183[] = {0x0389};
+static const unsigned long cp_single_184[] = {0x00d0};
+static const unsigned long cp_single_185[] = {0xf7f0};
+static const unsigned long cp_single_186[] = {0x1ebc};
+static const unsigned long cp_single_187[] = {0x1e1a};
+static const unsigned long cp_single_188[] = {0x20ac};
+static const unsigned long cp_single_189[] = {0x01b7};
+static const unsigned long cp_single_190[] = {0x01ee};
+static const unsigned long cp_single_191[] = {0x01b8};
+static const unsigned long cp_single_192[] = {0x0046};
+static const unsigned long cp_single_193[] = {0x24bb};
+static const unsigned long cp_single_194[] = {0x1e1e};
+static const unsigned long cp_single_195[] = {0x0556};
+static const unsigned long cp_single_196[] = {0x03e4};
+static const unsigned long cp_single_197[] = {0x0191};
+static const unsigned long cp_single_198[] = {0x0472};
+static const unsigned long cp_single_199[] = {0x2164};
+static const unsigned long cp_single_200[] = {0xff26};
+static const unsigned long cp_single_201[] = {0x2163};
+static const unsigned long cp_single_202[] = {0xf766};
+static const unsigned long cp_single_203[] = {0x0047};
+static const unsigned long cp_single_204[] = {0x3387};
+static const unsigned long cp_single_205[] = {0x01f4};
+static const unsigned long cp_single_206[] = {0x0393};
+static const unsigned long cp_single_207[] = {0x0194};
+static const unsigned long cp_single_208[] = {0x03ea};
+static const unsigned long cp_single_209[] = {0x011e};
+static const unsigned long cp_single_210[] = {0x01e6};
+static const unsigned long cp_single_211[] = {0x0122};
+static const unsigned long cp_single_212[] = {0x24bc};
+static const unsigned long cp_single_213[] = {0x011c};
+static const unsigned long cp_single_214[] = {0x0122};
+static const unsigned long cp_single_215[] = {0x0120};
+static const unsigned long cp_single_216[] = {0x0120};
+static const unsigned long cp_single_217[] = {0x0413};
+static const unsigned long cp_single_218[] = {0x0542};
+static const unsigned long cp_single_219[] = {0x0494};
+static const unsigned long cp_single_220[] = {0x0492};
+static const unsigned long cp_single_221[] = {0x0490};
+static const unsigned long cp_single_222[] = {0x0193};
+static const unsigned long cp_single_223[] = {0x0533};
+static const unsigned long cp_single_224[] = {0x0403};
+static const unsigned long cp_single_225[] = {0x1e20};
+static const unsigned long cp_single_226[] = {0xff27};
+static const unsigned long cp_single_227[] = {0xf6ce};
+static const unsigned long cp_single_228[] = {0xf760};
+static const unsigned long cp_single_229[] = {0xf767};
+static const unsigned long cp_single_230[] = {0x029b};
+static const unsigned long cp_single_231[] = {0x01e4};
+static const unsigned long cp_single_232[] = {0x0048};
+static const unsigned long cp_single_233[] = {0x25cf};
+static const unsigned long cp_single_234[] = {0x25aa};
+static const unsigned long cp_single_235[] = {0x25ab};
+static const unsigned long cp_single_236[] = {0x25a1};
+static const unsigned long cp_single_237[] = {0x33cb};
+static const unsigned long cp_single_238[] = {0x04a8};
+static const unsigned long cp_single_239[] = {0x04b2};
+static const unsigned long cp_single_240[] = {0x042a};
+static const unsigned long cp_single_241[] = {0x0126};
+static const unsigned long cp_single_242[] = {0x1e2a};
+static const unsigned long cp_single_243[] = {0x1e28};
+static const unsigned long cp_single_244[] = {0x24bd};
+static const unsigned long cp_single_245[] = {0x0124};
+static const unsigned long cp_single_246[] = {0x1e26};
+static const unsigned long cp_single_247[] = {0x1e22};
+static const unsigned long cp_single_248[] = {0x1e24};
+static const unsigned long cp_single_249[] = {0xff28};
+static const unsigned long cp_single_250[] = {0x0540};
+static const unsigned long cp_single_251[] = {0x03e8};
+static const unsigned long cp_single_252[] = {0xf768};
+static const unsigned long cp_single_253[] = {0xf6cf};
+static const unsigned long cp_single_254[] = {0xf6f8};
+static const unsigned long cp_single_255[] = {0x3390};
+static const unsigned long cp_single_256[] = {0x0049};
+static const unsigned long cp_single_257[] = {0x042f};
+static const unsigned long cp_single_258[] = {0x0132};
+static const unsigned long cp_single_259[] = {0x042e};
+static const unsigned long cp_single_260[] = {0x00cd};
+static const unsigned long cp_single_261[] = {0xf7ed};
+static const unsigned long cp_single_262[] = {0x012c};
+static const unsigned long cp_single_263[] = {0x01cf};
+static const unsigned long cp_single_264[] = {0x24be};
+static const unsigned long cp_single_265[] = {0x00ce};
+static const unsigned long cp_single_266[] = {0xf7ee};
+static const unsigned long cp_single_267[] = {0x0406};
+static const unsigned long cp_single_268[] = {0x0208};
+static const unsigned long cp_single_269[] = {0x00cf};
+static const unsigned long cp_single_270[] = {0x1e2e};
+static const unsigned long cp_single_271[] = {0x04e4};
+static const unsigned long cp_single_272[] = {0xf7ef};
+static const unsigned long cp_single_273[] = {0x0130};
+static const unsigned long cp_single_274[] = {0x0130};
+static const unsigned long cp_single_275[] = {0x1eca};
+static const unsigned long cp_single_276[] = {0x04d6};
+static const unsigned long cp_single_277[] = {0x0415};
+static const unsigned long cp_single_278[] = {0x2111};
+static const unsigned long cp_single_279[] = {0x00cc};
+static const unsigned long cp_single_280[] = {0xf7ec};
+static const unsigned long cp_single_281[] = {0x1ec8};
+static const unsigned long cp_single_282[] = {0x0418};
+static const unsigned long cp_single_283[] = {0x020a};
+static const unsigned long cp_single_284[] = {0x0419};
+static const unsigned long cp_single_285[] = {0x012a};
+static const unsigned long cp_single_286[] = {0x04e2};
+static const unsigned long cp_single_287[] = {0xff29};
+static const unsigned long cp_single_288[] = {0x053b};
+static const unsigned long cp_single_289[] = {0x0401};
+static const unsigned long cp_single_290[] = {0x012e};
+static const unsigned long cp_single_291[] = {0x0399};
+static const unsigned long cp_single_292[] = {0x0196};
+static const unsigned long cp_single_293[] = {0x03aa};
+static const unsigned long cp_single_294[] = {0x038a};
+static const unsigned long cp_single_295[] = {0xf769};
+static const unsigned long cp_single_296[] = {0x0197};
+static const unsigned long cp_single_297[] = {0x0128};
+static const unsigned long cp_single_298[] = {0x1e2c};
+static const unsigned long cp_single_299[] = {0x0474};
+static const unsigned long cp_single_300[] = {0x0476};
+static const unsigned long cp_single_301[] = {0x004a};
+static const unsigned long cp_single_302[] = {0x0541};
+static const unsigned long cp_single_303[] = {0x24bf};
+static const unsigned long cp_single_304[] = {0x0134};
+static const unsigned long cp_single_305[] = {0x0408};
+static const unsigned long cp_single_306[] = {0x054b};
+static const unsigned long cp_single_307[] = {0xff2a};
+static const unsigned long cp_single_308[] = {0xf76a};
+static const unsigned long cp_single_309[] = {0x004b};
+static const unsigned long cp_single_310[] = {0x3385};
+static const unsigned long cp_single_311[] = {0x33cd};
+static const unsigned long cp_single_312[] = {0x04a0};
+static const unsigned long cp_single_313[] = {0x1e30};
+static const unsigned long cp_single_314[] = {0x041a};
+static const unsigned long cp_single_315[] = {0x049a};
+static const unsigned long cp_single_316[] = {0x04c3};
+static const unsigned long cp_single_317[] = {0x039a};
+static const unsigned long cp_single_318[] = {0x049e};
+static const unsigned long cp_single_319[] = {0x049c};
+static const unsigned long cp_single_320[] = {0x01e8};
+static const unsigned long cp_single_321[] = {0x0136};
+static const unsigned long cp_single_322[] = {0x24c0};
+static const unsigned long cp_single_323[] = {0x0136};
+static const unsigned long cp_single_324[] = {0x1e32};
+static const unsigned long cp_single_325[] = {0x0554};
+static const unsigned long cp_single_326[] = {0x053f};
+static const unsigned long cp_single_327[] = {0x0425};
+static const unsigned long cp_single_328[] = {0x03e6};
+static const unsigned long cp_single_329[] = {0x0198};
+static const unsigned long cp_single_330[] = {0x040c};
+static const unsigned long cp_single_331[] = {0x1e34};
+static const unsigned long cp_single_332[] = {0xff2b};
+static const unsigned long cp_single_333[] = {0x0480};
+static const unsigned long cp_single_334[] = {0x03de};
+static const unsigned long cp_single_335[] = {0x046e};
+static const unsigned long cp_single_336[] = {0xf76b};
+static const unsigned long cp_single_337[] = {0x004c};
+static const unsigned long cp_single_338[] = {0x01c7};
+static const unsigned long cp_single_339[] = {0xf6bf};
+static const unsigned long cp_single_340[] = {0x0139};
+static const unsigned long cp_single_341[] = {0x039b};
+static const unsigned long cp_single_342[] = {0x013d};
+static const unsigned long cp_single_343[] = {0x013b};
+static const unsigned long cp_single_344[] = {0x24c1};
+static const unsigned long cp_single_345[] = {0x1e3c};
+static const unsigned long cp_single_346[] = {0x013b};
+static const unsigned long cp_single_347[] = {0x013f};
+static const unsigned long cp_single_348[] = {0x013f};
+static const unsigned long cp_single_349[] = {0x1e36};
+static const unsigned long cp_single_350[] = {0x1e38};
+static const unsigned long cp_single_351[] = {0x053c};
+static const unsigned long cp_single_352[] = {0x01c8};
+static const unsigned long cp_single_353[] = {0x0409};
+static const unsigned long cp_single_354[] = {0x1e3a};
+static const unsigned long cp_single_355[] = {0xff2c};
+static const unsigned long cp_single_356[] = {0x0141};
+static const unsigned long cp_single_357[] = {0xf6f9};
+static const unsigned long cp_single_358[] = {0xf76c};
+static const unsigned long cp_single_359[] = {0x004d};
+static const unsigned long cp_single_360[] = {0x3386};
+static const unsigned long cp_single_361[] = {0xf6d0};
+static const unsigned long cp_single_362[] = {0xf7af};
+static const unsigned long cp_single_363[] = {0x1e3e};
+static const unsigned long cp_single_364[] = {0x24c2};
+static const unsigned long cp_single_365[] = {0x1e40};
+static const unsigned long cp_single_366[] = {0x1e42};
+static const unsigned long cp_single_367[] = {0x0544};
+static const unsigned long cp_single_368[] = {0xff2d};
+static const unsigned long cp_single_369[] = {0xf76d};
+static const unsigned long cp_single_370[] = {0x019c};
+static const unsigned long cp_single_371[] = {0x039c};
+static const unsigned long cp_single_372[] = {0x004e};
+static const unsigned long cp_single_373[] = {0x01ca};
+static const unsigned long cp_single_374[] = {0x0143};
+static const unsigned long cp_single_375[] = {0x0147};
+static const unsigned long cp_single_376[] = {0x0145};
+static const unsigned long cp_single_377[] = {0x24c3};
+static const unsigned long cp_single_378[] = {0x1e4a};
+static const unsigned long cp_single_379[] = {0x0145};
+static const unsigned long cp_single_380[] = {0x1e44};
+static const unsigned long cp_single_381[] = {0x1e46};
+static const unsigned long cp_single_382[] = {0x019d};
+static const unsigned long cp_single_383[] = {0x2168};
+static const unsigned long cp_single_384[] = {0x01cb};
+static const unsigned long cp_single_385[] = {0x040a};
+static const unsigned long cp_single_386[] = {0x1e48};
+static const unsigned long cp_single_387[] = {0xff2e};
+static const unsigned long cp_single_388[] = {0x0546};
+static const unsigned long cp_single_389[] = {0xf76e};
+static const unsigned long cp_single_390[] = {0x00d1};
+static const unsigned long cp_single_391[] = {0xf7f1};
+static const unsigned long cp_single_392[] = {0x039d};
+static const unsigned long cp_single_393[] = {0x004f};
+static const unsigned long cp_single_394[] = {0x0152};
+static const unsigned long cp_single_395[] = {0xf6fa};
+static const unsigned long cp_single_396[] = {0x00d3};
+static const unsigned long cp_single_397[] = {0xf7f3};
+static const unsigned long cp_single_398[] = {0x04e8};
+static const unsigned long cp_single_399[] = {0x04ea};
+static const unsigned long cp_single_400[] = {0x014e};
+static const unsigned long cp_single_401[] = {0x01d1};
+static const unsigned long cp_single_402[] = {0x019f};
+static const unsigned long cp_single_403[] = {0x24c4};
+static const unsigned long cp_single_404[] = {0x00d4};
+static const unsigned long cp_single_405[] = {0x1ed0};
+static const unsigned long cp_single_406[] = {0x1ed8};
+static const unsigned long cp_single_407[] = {0x1ed2};
+static const unsigned long cp_single_408[] = {0x1ed4};
+static const unsigned long cp_single_409[] = {0xf7f4};
+static const unsigned long cp_single_410[] = {0x1ed6};
+static const unsigned long cp_single_411[] = {0x041e};
+static const unsigned long cp_single_412[] = {0x0150};
+static const unsigned long cp_single_413[] = {0x020c};
+static const unsigned long cp_single_414[] = {0x00d6};
+static const unsigned long cp_single_415[] = {0x04e6};
+static const unsigned long cp_single_416[] = {0xf7f6};
+static const unsigned long cp_single_417[] = {0x1ecc};
+static const unsigned long cp_single_418[] = {0xf6fb};
+static const unsigned long cp_single_419[] = {0x00d2};
+static const unsigned long cp_single_420[] = {0xf7f2};
+static const unsigned long cp_single_421[] = {0x0555};
+static const unsigned long cp_single_422[] = {0x2126};
+static const unsigned long cp_single_423[] = {0x1ece};
+static const unsigned long cp_single_424[] = {0x01a0};
+static const unsigned long cp_single_425[] = {0x1eda};
+static const unsigned long cp_single_426[] = {0x1ee2};
+static const unsigned long cp_single_427[] = {0x1edc};
+static const unsigned long cp_single_428[] = {0x1ede};
+static const unsigned long cp_single_429[] = {0x1ee0};
+static const unsigned long cp_single_430[] = {0x0150};
+static const unsigned long cp_single_431[] = {0x01a2};
+static const unsigned long cp_single_432[] = {0x020e};
+static const unsigned long cp_single_433[] = {0x014c};
+static const unsigned long cp_single_434[] = {0x1e52};
+static const unsigned long cp_single_435[] = {0x1e50};
+static const unsigned long cp_single_436[] = {0x2126};
+static const unsigned long cp_single_437[] = {0x0460};
+static const unsigned long cp_single_438[] = {0x03a9};
+static const unsigned long cp_single_439[] = {0x047a};
+static const unsigned long cp_single_440[] = {0x047c};
+static const unsigned long cp_single_441[] = {0x038f};
+static const unsigned long cp_single_442[] = {0x039f};
+static const unsigned long cp_single_443[] = {0x038c};
+static const unsigned long cp_single_444[] = {0xff2f};
+static const unsigned long cp_single_445[] = {0x2160};
+static const unsigned long cp_single_446[] = {0x01ea};
+static const unsigned long cp_single_447[] = {0x01ec};
+static const unsigned long cp_single_448[] = {0x0186};
+static const unsigned long cp_single_449[] = {0x00d8};
+static const unsigned long cp_single_450[] = {0x01fe};
+static const unsigned long cp_single_451[] = {0xf7f8};
+static const unsigned long cp_single_452[] = {0xf76f};
+static const unsigned long cp_single_453[] = {0x01fe};
+static const unsigned long cp_single_454[] = {0x047e};
+static const unsigned long cp_single_455[] = {0x00d5};
+static const unsigned long cp_single_456[] = {0x1e4c};
+static const unsigned long cp_single_457[] = {0x1e4e};
+static const unsigned long cp_single_458[] = {0xf7f5};
+static const unsigned long cp_single_459[] = {0x0050};
+static const unsigned long cp_single_460[] = {0x1e54};
+static const unsigned long cp_single_461[] = {0x24c5};
+static const unsigned long cp_single_462[] = {0x1e56};
+static const unsigned long cp_single_463[] = {0x041f};
+static const unsigned long cp_single_464[] = {0x054a};
+static const unsigned long cp_single_465[] = {0x04a6};
+static const unsigned long cp_single_466[] = {0x03a6};
+static const unsigned long cp_single_467[] = {0x01a4};
+static const unsigned long cp_single_468[] = {0x03a0};
+static const unsigned long cp_single_469[] = {0x0553};
+static const unsigned long cp_single_470[] = {0xff30};
+static const unsigned long cp_single_471[] = {0x03a8};
+static const unsigned long cp_single_472[] = {0x0470};
+static const unsigned long cp_single_473[] = {0xf770};
+static const unsigned long cp_single_474[] = {0x0051};
+static const unsigned long cp_single_475[] = {0x24c6};
+static const unsigned long cp_single_476[] = {0xff31};
+static const unsigned long cp_single_477[] = {0xf771};
+static const unsigned long cp_single_478[] = {0x0052};
+static const unsigned long cp_single_479[] = {0x054c};
+static const unsigned long cp_single_480[] = {0x0154};
+static const unsigned long cp_single_481[] = {0x0158};
+static const unsigned long cp_single_482[] = {0x0156};
+static const unsigned long cp_single_483[] = {0x24c7};
+static const unsigned long cp_single_484[] = {0x0156};
+static const unsigned long cp_single_485[] = {0x0210};
+static const unsigned long cp_single_486[] = {0x1e58};
+static const unsigned long cp_single_487[] = {0x1e5a};
+static const unsigned long cp_single_488[] = {0x1e5c};
+static const unsigned long cp_single_489[] = {0x0550};
+static const unsigned long cp_single_490[] = {0x211c};
+static const unsigned long cp_single_491[] = {0x03a1};
+static const unsigned long cp_single_492[] = {0xf6fc};
+static const unsigned long cp_single_493[] = {0x0212};
+static const unsigned long cp_single_494[] = {0x1e5e};
+static const unsigned long cp_single_495[] = {0xff32};
+static const unsigned long cp_single_496[] = {0xf772};
+static const unsigned long cp_single_497[] = {0x0281};
+static const unsigned long cp_single_498[] = {0x02b6};
+static const unsigned long cp_single_499[] = {0x0053};
+static const unsigned long cp_single_500[] = {0x250c};
+static const unsigned long cp_single_501[] = {0x2514};
+static const unsigned long cp_single_502[] = {0x2510};
+static const unsigned long cp_single_503[] = {0x2518};
+static const unsigned long cp_single_504[] = {0x253c};
+static const unsigned long cp_single_505[] = {0x252c};
+static const unsigned long cp_single_506[] = {0x2534};
+static const unsigned long cp_single_507[] = {0x251c};
+static const unsigned long cp_single_508[] = {0x2524};
+static const unsigned long cp_single_509[] = {0x2500};
+static const unsigned long cp_single_510[] = {0x2502};
+static const unsigned long cp_single_511[] = {0x2561};
+static const unsigned long cp_single_512[] = {0x2562};
+static const unsigned long cp_single_513[] = {0x2556};
+static const unsigned long cp_single_514[] = {0x2555};
+static const unsigned long cp_single_515[] = {0x2563};
+static const unsigned long cp_single_516[] = {0x2551};
+static const unsigned long cp_single_517[] = {0x2557};
+static const unsigned long cp_single_518[] = {0x255d};
+static const unsigned long cp_single_519[] = {0x255c};
+static const unsigned long cp_single_520[] = {0x255b};
+static const unsigned long cp_single_521[] = {0x255e};
+static const unsigned long cp_single_522[] = {0x255f};
+static const unsigned long cp_single_523[] = {0x255a};
+static const unsigned long cp_single_524[] = {0x2554};
+static const unsigned long cp_single_525[] = {0x2569};
+static const unsigned long cp_single_526[] = {0x2566};
+static const unsigned long cp_single_527[] = {0x2560};
+static const unsigned long cp_single_528[] = {0x2550};
+static const unsigned long cp_single_529[] = {0x256c};
+static const unsigned long cp_single_530[] = {0x2567};
+static const unsigned long cp_single_531[] = {0x2568};
+static const unsigned long cp_single_532[] = {0x2564};
+static const unsigned long cp_single_533[] = {0x2565};
+static const unsigned long cp_single_534[] = {0x2559};
+static const unsigned long cp_single_535[] = {0x2558};
+static const unsigned long cp_single_536[] = {0x2552};
+static const unsigned long cp_single_537[] = {0x2553};
+static const unsigned long cp_single_538[] = {0x256b};
+static const unsigned long cp_single_539[] = {0x256a};
+static const unsigned long cp_single_540[] = {0x015a};
+static const unsigned long cp_single_541[] = {0x1e64};
+static const unsigned long cp_single_542[] = {0x03e0};
+static const unsigned long cp_single_543[] = {0x0160};
+static const unsigned long cp_single_544[] = {0x1e66};
+static const unsigned long cp_single_545[] = {0xf6fd};
+static const unsigned long cp_single_546[] = {0x015e};
+static const unsigned long cp_single_547[] = {0x018f};
+static const unsigned long cp_single_548[] = {0x04d8};
+static const unsigned long cp_single_549[] = {0x04da};
+static const unsigned long cp_single_550[] = {0x24c8};
+static const unsigned long cp_single_551[] = {0x015c};
+static const unsigned long cp_single_552[] = {0x0218};
+static const unsigned long cp_single_553[] = {0x1e60};
+static const unsigned long cp_single_554[] = {0x1e62};
+static const unsigned long cp_single_555[] = {0x1e68};
+static const unsigned long cp_single_556[] = {0x054d};
+static const unsigned long cp_single_557[] = {0x2166};
+static const unsigned long cp_single_558[] = {0x0547};
+static const unsigned long cp_single_559[] = {0x0428};
+static const unsigned long cp_single_560[] = {0x0429};
+static const unsigned long cp_single_561[] = {0x03e2};
+static const unsigned long cp_single_562[] = {0x04ba};
+static const unsigned long cp_single_563[] = {0x03ec};
+static const unsigned long cp_single_564[] = {0x03a3};
+static const unsigned long cp_single_565[] = {0x2165};
+static const unsigned long cp_single_566[] = {0xff33};
+static const unsigned long cp_single_567[] = {0x042c};
+static const unsigned long cp_single_568[] = {0xf773};
+static const unsigned long cp_single_569[] = {0x03da};
+static const unsigned long cp_single_570[] = {0x0054};
+static const unsigned long cp_single_571[] = {0x03a4};
+static const unsigned long cp_single_572[] = {0x0166};
+static const unsigned long cp_single_573[] = {0x0164};
+static const unsigned long cp_single_574[] = {0x0162};
+static const unsigned long cp_single_575[] = {0x24c9};
+static const unsigned long cp_single_576[] = {0x1e70};
+static const unsigned long cp_single_577[] = {0x0162};
+static const unsigned long cp_single_578[] = {0x1e6a};
+static const unsigned long cp_single_579[] = {0x1e6c};
+static const unsigned long cp_single_580[] = {0x0422};
+static const unsigned long cp_single_581[] = {0x04ac};
+static const unsigned long cp_single_582[] = {0x2169};
+static const unsigned long cp_single_583[] = {0x04b4};
+static const unsigned long cp_single_584[] = {0x0398};
+static const unsigned long cp_single_585[] = {0x01ac};
+static const unsigned long cp_single_586[] = {0x00de};
+static const unsigned long cp_single_587[] = {0xf7fe};
+static const unsigned long cp_single_588[] = {0x2162};
+static const unsigned long cp_single_589[] = {0xf6fe};
+static const unsigned long cp_single_590[] = {0x054f};
+static const unsigned long cp_single_591[] = {0x1e6e};
+static const unsigned long cp_single_592[] = {0xff34};
+static const unsigned long cp_single_593[] = {0x0539};
+static const unsigned long cp_single_594[] = {0x01bc};
+static const unsigned long cp_single_595[] = {0x0184};
+static const unsigned long cp_single_596[] = {0x01a7};
+static const unsigned long cp_single_597[] = {0x01ae};
+static const unsigned long cp_single_598[] = {0x0426};
+static const unsigned long cp_single_599[] = {0x040b};
+static const unsigned long cp_single_600[] = {0xf774};
+static const unsigned long cp_single_601[] = {0x216b};
+static const unsigned long cp_single_602[] = {0x2161};
+static const unsigned long cp_single_603[] = {0x0055};
+static const unsigned long cp_single_604[] = {0x00da};
+static const unsigned long cp_single_605[] = {0xf7fa};
+static const unsigned long cp_single_606[] = {0x016c};
+static const unsigned long cp_single_607[] = {0x01d3};
+static const unsigned long cp_single_608[] = {0x24ca};
+static const unsigned long cp_single_609[] = {0x00db};
+static const unsigned long cp_single_610[] = {0x1e76};
+static const unsigned long cp_single_611[] = {0xf7fb};
+static const unsigned long cp_single_612[] = {0x0423};
+static const unsigned long cp_single_613[] = {0x0170};
+static const unsigned long cp_single_614[] = {0x0214};
+static const unsigned long cp_single_615[] = {0x00dc};
+static const unsigned long cp_single_616[] = {0x01d7};
+static const unsigned long cp_single_617[] = {0x1e72};
+static const unsigned long cp_single_618[] = {0x01d9};
+static const unsigned long cp_single_619[] = {0x04f0};
+static const unsigned long cp_single_620[] = {0x01db};
+static const unsigned long cp_single_621[] = {0x01d5};
+static const unsigned long cp_single_622[] = {0xf7fc};
+static const unsigned long cp_single_623[] = {0x1ee4};
+static const unsigned long cp_single_624[] = {0x00d9};
+static const unsigned long cp_single_625[] = {0xf7f9};
+static const unsigned long cp_single_626[] = {0x1ee6};
+static const unsigned long cp_single_627[] = {0x01af};
+static const unsigned long cp_single_628[] = {0x1ee8};
+static const unsigned long cp_single_629[] = {0x1ef0};
+static const unsigned long cp_single_630[] = {0x1eea};
+static const unsigned long cp_single_631[] = {0x1eec};
+static const unsigned long cp_single_632[] = {0x1eee};
+static const unsigned long cp_single_633[] = {0x0170};
+static const unsigned long cp_single_634[] = {0x04f2};
+static const unsigned long cp_single_635[] = {0x0216};
+static const unsigned long cp_single_636[] = {0x0478};
+static const unsigned long cp_single_637[] = {0x016a};
+static const unsigned long cp_single_638[] = {0x04ee};
+static const unsigned long cp_single_639[] = {0x1e7a};
+static const unsigned long cp_single_640[] = {0xff35};
+static const unsigned long cp_single_641[] = {0x0172};
+static const unsigned long cp_single_642[] = {0x03a5};
+static const unsigned long cp_single_643[] = {0x03d2};
+static const unsigned long cp_single_644[] = {0x03d3};
+static const unsigned long cp_single_645[] = {0x01b1};
+static const unsigned long cp_single_646[] = {0x03ab};
+static const unsigned long cp_single_647[] = {0x03d4};
+static const unsigned long cp_single_648[] = {0x03d2};
+static const unsigned long cp_single_649[] = {0x038e};
+static const unsigned long cp_single_650[] = {0x016e};
+static const unsigned long cp_single_651[] = {0x040e};
+static const unsigned long cp_single_652[] = {0xf775};
+static const unsigned long cp_single_653[] = {0x04ae};
+static const unsigned long cp_single_654[] = {0x04b0};
+static const unsigned long cp_single_655[] = {0x0168};
+static const unsigned long cp_single_656[] = {0x1e78};
+static const unsigned long cp_single_657[] = {0x1e74};
+static const unsigned long cp_single_658[] = {0x0056};
+static const unsigned long cp_single_659[] = {0x24cb};
+static const unsigned long cp_single_660[] = {0x1e7e};
+static const unsigned long cp_single_661[] = {0x0412};
+static const unsigned long cp_single_662[] = {0x054e};
+static const unsigned long cp_single_663[] = {0x01b2};
+static const unsigned long cp_single_664[] = {0xff36};
+static const unsigned long cp_single_665[] = {0x0548};
+static const unsigned long cp_single_666[] = {0xf776};
+static const unsigned long cp_single_667[] = {0x1e7c};
+static const unsigned long cp_single_668[] = {0x0057};
+static const unsigned long cp_single_669[] = {0x1e82};
+static const unsigned long cp_single_670[] = {0x24cc};
+static const unsigned long cp_single_671[] = {0x0174};
+static const unsigned long cp_single_672[] = {0x1e84};
+static const unsigned long cp_single_673[] = {0x1e86};
+static const unsigned long cp_single_674[] = {0x1e88};
+static const unsigned long cp_single_675[] = {0x1e80};
+static const unsigned long cp_single_676[] = {0xff37};
+static const unsigned long cp_single_677[] = {0xf777};
+static const unsigned long cp_single_678[] = {0x0058};
+static const unsigned long cp_single_679[] = {0x24cd};
+static const unsigned long cp_single_680[] = {0x1e8c};
+static const unsigned long cp_single_681[] = {0x1e8a};
+static const unsigned long cp_single_682[] = {0x053d};
+static const unsigned long cp_single_683[] = {0x039e};
+static const unsigned long cp_single_684[] = {0xff38};
+static const unsigned long cp_single_685[] = {0xf778};
+static const unsigned long cp_single_686[] = {0x0059};
+static const unsigned long cp_single_687[] = {0x00dd};
+static const unsigned long cp_single_688[] = {0xf7fd};
+static const unsigned long cp_single_689[] = {0x0462};
+static const unsigned long cp_single_690[] = {0x24ce};
+static const unsigned long cp_single_691[] = {0x0176};
+static const unsigned long cp_single_692[] = {0x0178};
+static const unsigned long cp_single_693[] = {0xf7ff};
+static const unsigned long cp_single_694[] = {0x1e8e};
+static const unsigned long cp_single_695[] = {0x1ef4};
+static const unsigned long cp_single_696[] = {0x042b};
+static const unsigned long cp_single_697[] = {0x04f8};
+static const unsigned long cp_single_698[] = {0x1ef2};
+static const unsigned long cp_single_699[] = {0x01b3};
+static const unsigned long cp_single_700[] = {0x1ef6};
+static const unsigned long cp_single_701[] = {0x0545};
+static const unsigned long cp_single_702[] = {0x0407};
+static const unsigned long cp_single_703[] = {0x0552};
+static const unsigned long cp_single_704[] = {0xff39};
+static const unsigned long cp_single_705[] = {0xf779};
+static const unsigned long cp_single_706[] = {0x1ef8};
+static const unsigned long cp_single_707[] = {0x046a};
+static const unsigned long cp_single_708[] = {0x046c};
+static const unsigned long cp_single_709[] = {0x0466};
+static const unsigned long cp_single_710[] = {0x0468};
+static const unsigned long cp_single_711[] = {0x005a};
+static const unsigned long cp_single_712[] = {0x0536};
+static const unsigned long cp_single_713[] = {0x0179};
+static const unsigned long cp_single_714[] = {0x017d};
+static const unsigned long cp_single_715[] = {0xf6ff};
+static const unsigned long cp_single_716[] = {0x24cf};
+static const unsigned long cp_single_717[] = {0x1e90};
+static const unsigned long cp_single_718[] = {0x017b};
+static const unsigned long cp_single_719[] = {0x017b};
+static const unsigned long cp_single_720[] = {0x1e92};
+static const unsigned long cp_single_721[] = {0x0417};
+static const unsigned long cp_single_722[] = {0x0498};
+static const unsigned long cp_single_723[] = {0x04de};
+static const unsigned long cp_single_724[] = {0x0396};
+static const unsigned long cp_single_725[] = {0x053a};
+static const unsigned long cp_single_726[] = {0x04c1};
+static const unsigned long cp_single_727[] = {0x0416};
+static const unsigned long cp_single_728[] = {0x0496};
+static const unsigned long cp_single_729[] = {0x04dc};
+static const unsigned long cp_single_730[] = {0x1e94};
+static const unsigned long cp_single_731[] = {0xff3a};
+static const unsigned long cp_single_732[] = {0xf77a};
+static const unsigned long cp_single_733[] = {0x01b5};
+static const unsigned long cp_single_734[] = {0x0061};
+static const unsigned long cp_single_735[] = {0x0986};
+static const unsigned long cp_single_736[] = {0x00e1};
+static const unsigned long cp_single_737[] = {0x0906};
+static const unsigned long cp_single_738[] = {0x0a86};
+static const unsigned long cp_single_739[] = {0x0a06};
+static const unsigned long cp_single_740[] = {0x0a3e};
+static const unsigned long cp_single_741[] = {0x3303};
+static const unsigned long cp_single_742[] = {0x09be};
+static const unsigned long cp_single_743[] = {0x093e};
+static const unsigned long cp_single_744[] = {0x0abe};
+static const unsigned long cp_single_745[] = {0x055f};
+static const unsigned long cp_single_746[] = {0x0970};
+static const unsigned long cp_single_747[] = {0x0985};
+static const unsigned long cp_single_748[] = {0x311a};
+static const unsigned long cp_single_749[] = {0x0103};
+static const unsigned long cp_single_750[] = {0x1eaf};
+static const unsigned long cp_single_751[] = {0x04d1};
+static const unsigned long cp_single_752[] = {0x1eb7};
+static const unsigned long cp_single_753[] = {0x1eb1};
+static const unsigned long cp_single_754[] = {0x1eb3};
+static const unsigned long cp_single_755[] = {0x1eb5};
+static const unsigned long cp_single_756[] = {0x01ce};
+static const unsigned long cp_single_757[] = {0x24d0};
+static const unsigned long cp_single_758[] = {0x00e2};
+static const unsigned long cp_single_759[] = {0x1ea5};
+static const unsigned long cp_single_760[] = {0x1ead};
+static const unsigned long cp_single_761[] = {0x1ea7};
+static const unsigned long cp_single_762[] = {0x1ea9};
+static const unsigned long cp_single_763[] = {0x1eab};
+static const unsigned long cp_single_764[] = {0x00b4};
+static const unsigned long cp_single_765[] = {0x0317};
+static const unsigned long cp_single_766[] = {0x0301};
+static const unsigned long cp_single_767[] = {0x0301};
+static const unsigned long cp_single_768[] = {0x0954};
+static const unsigned long cp_single_769[] = {0x02cf};
+static const unsigned long cp_single_770[] = {0x0341};
+static const unsigned long cp_single_771[] = {0x0430};
+static const unsigned long cp_single_772[] = {0x0201};
+static const unsigned long cp_single_773[] = {0x0a71};
+static const unsigned long cp_single_774[] = {0x0905};
+static const unsigned long cp_single_775[] = {0x00e4};
+static const unsigned long cp_single_776[] = {0x04d3};
+static const unsigned long cp_single_777[] = {0x01df};
+static const unsigned long cp_single_778[] = {0x1ea1};
+static const unsigned long cp_single_779[] = {0x01e1};
+static const unsigned long cp_single_780[] = {0x00e6};
+static const unsigned long cp_single_781[] = {0x01fd};
+static const unsigned long cp_single_782[] = {0x3150};
+static const unsigned long cp_single_783[] = {0x01e3};
+static const unsigned long cp_single_784[] = {0x2015};
+static const unsigned long cp_single_785[] = {0x20a4};
+static const unsigned long cp_single_786[] = {0x0410};
+static const unsigned long cp_single_787[] = {0x0411};
+static const unsigned long cp_single_788[] = {0x0412};
+static const unsigned long cp_single_789[] = {0x0413};
+static const unsigned long cp_single_790[] = {0x0414};
+static const unsigned long cp_single_791[] = {0x0415};
+static const unsigned long cp_single_792[] = {0x0401};
+static const unsigned long cp_single_793[] = {0x0416};
+static const unsigned long cp_single_794[] = {0x0417};
+static const unsigned long cp_single_795[] = {0x0418};
+static const unsigned long cp_single_796[] = {0x0419};
+static const unsigned long cp_single_797[] = {0x041a};
+static const unsigned long cp_single_798[] = {0x041b};
+static const unsigned long cp_single_799[] = {0x041c};
+static const unsigned long cp_single_800[] = {0x041d};
+static const unsigned long cp_single_801[] = {0x041e};
+static const unsigned long cp_single_802[] = {0x041f};
+static const unsigned long cp_single_803[] = {0x0420};
+static const unsigned long cp_single_804[] = {0x0421};
+static const unsigned long cp_single_805[] = {0x0422};
+static const unsigned long cp_single_806[] = {0x0423};
+static const unsigned long cp_single_807[] = {0x0424};
+static const unsigned long cp_single_808[] = {0x0425};
+static const unsigned long cp_single_809[] = {0x0426};
+static const unsigned long cp_single_810[] = {0x0427};
+static const unsigned long cp_single_811[] = {0x0428};
+static const unsigned long cp_single_812[] = {0x0429};
+static const unsigned long cp_single_813[] = {0x042a};
+static const unsigned long cp_single_814[] = {0x042b};
+static const unsigned long cp_single_815[] = {0x042c};
+static const unsigned long cp_single_816[] = {0x042d};
+static const unsigned long cp_single_817[] = {0x042e};
+static const unsigned long cp_single_818[] = {0x042f};
+static const unsigned long cp_single_819[] = {0x0490};
+static const unsigned long cp_single_820[] = {0x0402};
+static const unsigned long cp_single_821[] = {0x0403};
+static const unsigned long cp_single_822[] = {0x0404};
+static const unsigned long cp_single_823[] = {0x0405};
+static const unsigned long cp_single_824[] = {0x0406};
+static const unsigned long cp_single_825[] = {0x0407};
+static const unsigned long cp_single_826[] = {0x0408};
+static const unsigned long cp_single_827[] = {0x0409};
+static const unsigned long cp_single_828[] = {0x040a};
+static const unsigned long cp_single_829[] = {0x040b};
+static const unsigned long cp_single_830[] = {0x040c};
+static const unsigned long cp_single_831[] = {0x040e};
+static const unsigned long cp_single_832[] = {0xf6c4};
+static const unsigned long cp_single_833[] = {0xf6c5};
+static const unsigned long cp_single_834[] = {0x0430};
+static const unsigned long cp_single_835[] = {0x0431};
+static const unsigned long cp_single_836[] = {0x0432};
+static const unsigned long cp_single_837[] = {0x0433};
+static const unsigned long cp_single_838[] = {0x0434};
+static const unsigned long cp_single_839[] = {0x0435};
+static const unsigned long cp_single_840[] = {0x0451};
+static const unsigned long cp_single_841[] = {0x0436};
+static const unsigned long cp_single_842[] = {0x0437};
+static const unsigned long cp_single_843[] = {0x0438};
+static const unsigned long cp_single_844[] = {0x0439};
+static const unsigned long cp_single_845[] = {0x043a};
+static const unsigned long cp_single_846[] = {0x043b};
+static const unsigned long cp_single_847[] = {0x043c};
+static const unsigned long cp_single_848[] = {0x043d};
+static const unsigned long cp_single_849[] = {0x043e};
+static const unsigned long cp_single_850[] = {0x043f};
+static const unsigned long cp_single_851[] = {0x0440};
+static const unsigned long cp_single_852[] = {0x0441};
+static const unsigned long cp_single_853[] = {0x0442};
+static const unsigned long cp_single_854[] = {0x0443};
+static const unsigned long cp_single_855[] = {0x0444};
+static const unsigned long cp_single_856[] = {0x0445};
+static const unsigned long cp_single_857[] = {0x0446};
+static const unsigned long cp_single_858[] = {0x0447};
+static const unsigned long cp_single_859[] = {0x0448};
+static const unsigned long cp_single_860[] = {0x0449};
+static const unsigned long cp_single_861[] = {0x044a};
+static const unsigned long cp_single_862[] = {0x044b};
+static const unsigned long cp_single_863[] = {0x044c};
+static const unsigned long cp_single_864[] = {0x044d};
+static const unsigned long cp_single_865[] = {0x044e};
+static const unsigned long cp_single_866[] = {0x044f};
+static const unsigned long cp_single_867[] = {0x0491};
+static const unsigned long cp_single_868[] = {0x0452};
+static const unsigned long cp_single_869[] = {0x0453};
+static const unsigned long cp_single_870[] = {0x0454};
+static const unsigned long cp_single_871[] = {0x0455};
+static const unsigned long cp_single_872[] = {0x0456};
+static const unsigned long cp_single_873[] = {0x0457};
+static const unsigned long cp_single_874[] = {0x0458};
+static const unsigned long cp_single_875[] = {0x0459};
+static const unsigned long cp_single_876[] = {0x045a};
+static const unsigned long cp_single_877[] = {0x045b};
+static const unsigned long cp_single_878[] = {0x045c};
+static const unsigned long cp_single_879[] = {0x045e};
+static const unsigned long cp_single_880[] = {0x040f};
+static const unsigned long cp_single_881[] = {0x0462};
+static const unsigned long cp_single_882[] = {0x0472};
+static const unsigned long cp_single_883[] = {0x0474};
+static const unsigned long cp_single_884[] = {0xf6c6};
+static const unsigned long cp_single_885[] = {0x045f};
+static const unsigned long cp_single_886[] = {0x0463};
+static const unsigned long cp_single_887[] = {0x0473};
+static const unsigned long cp_single_888[] = {0x0475};
+static const unsigned long cp_single_889[] = {0xf6c7};
+static const unsigned long cp_single_890[] = {0xf6c8};
+static const unsigned long cp_single_891[] = {0x04d9};
+static const unsigned long cp_single_892[] = {0x200e};
+static const unsigned long cp_single_893[] = {0x200f};
+static const unsigned long cp_single_894[] = {0x200d};
+static const unsigned long cp_single_895[] = {0x066a};
+static const unsigned long cp_single_896[] = {0x060c};
+static const unsigned long cp_single_897[] = {0x0660};
+static const unsigned long cp_single_898[] = {0x0661};
+static const unsigned long cp_single_899[] = {0x0662};
+static const unsigned long cp_single_900[] = {0x0663};
+static const unsigned long cp_single_901[] = {0x0664};
+static const unsigned long cp_single_902[] = {0x0665};
+static const unsigned long cp_single_903[] = {0x0666};
+static const unsigned long cp_single_904[] = {0x0667};
+static const unsigned long cp_single_905[] = {0x0668};
+static const unsigned long cp_single_906[] = {0x0669};
+static const unsigned long cp_single_907[] = {0x061b};
+static const unsigned long cp_single_908[] = {0x061f};
+static const unsigned long cp_single_909[] = {0x0621};
+static const unsigned long cp_single_910[] = {0x0622};
+static const unsigned long cp_single_911[] = {0x0623};
+static const unsigned long cp_single_912[] = {0x0624};
+static const unsigned long cp_single_913[] = {0x0625};
+static const unsigned long cp_single_914[] = {0x0626};
+static const unsigned long cp_single_915[] = {0x0627};
+static const unsigned long cp_single_916[] = {0x0628};
+static const unsigned long cp_single_917[] = {0x0629};
+static const unsigned long cp_single_918[] = {0x062a};
+static const unsigned long cp_single_919[] = {0x062b};
+static const unsigned long cp_single_920[] = {0x062c};
+static const unsigned long cp_single_921[] = {0x062d};
+static const unsigned long cp_single_922[] = {0x062e};
+static const unsigned long cp_single_923[] = {0x062f};
+static const unsigned long cp_single_924[] = {0x0630};
+static const unsigned long cp_single_925[] = {0x0631};
+static const unsigned long cp_single_926[] = {0x0632};
+static const unsigned long cp_single_927[] = {0x0633};
+static const unsigned long cp_single_928[] = {0x0634};
+static const unsigned long cp_single_929[] = {0x0635};
+static const unsigned long cp_single_930[] = {0x0636};
+static const unsigned long cp_single_931[] = {0x0637};
+static const unsigned long cp_single_932[] = {0x0638};
+static const unsigned long cp_single_933[] = {0x0639};
+static const unsigned long cp_single_934[] = {0x063a};
+static const unsigned long cp_single_935[] = {0x0640};
+static const unsigned long cp_single_936[] = {0x0641};
+static const unsigned long cp_single_937[] = {0x0642};
+static const unsigned long cp_single_938[] = {0x0643};
+static const unsigned long cp_single_939[] = {0x0644};
+static const unsigned long cp_single_940[] = {0x0645};
+static const unsigned long cp_single_941[] = {0x0646};
+static const unsigned long cp_single_942[] = {0x0648};
+static const unsigned long cp_single_943[] = {0x0649};
+static const unsigned long cp_single_944[] = {0x064a};
+static const unsigned long cp_single_945[] = {0x064b};
+static const unsigned long cp_single_946[] = {0x064c};
+static const unsigned long cp_single_947[] = {0x064d};
+static const unsigned long cp_single_948[] = {0x064e};
+static const unsigned long cp_single_949[] = {0x064f};
+static const unsigned long cp_single_950[] = {0x0650};
+static const unsigned long cp_single_951[] = {0x0651};
+static const unsigned long cp_single_952[] = {0x0652};
+static const unsigned long cp_single_953[] = {0x0647};
+static const unsigned long cp_single_954[] = {0x06a4};
+static const unsigned long cp_single_955[] = {0x067e};
+static const unsigned long cp_single_956[] = {0x0686};
+static const unsigned long cp_single_957[] = {0x0698};
+static const unsigned long cp_single_958[] = {0x06af};
+static const unsigned long cp_single_959[] = {0x0679};
+static const unsigned long cp_single_960[] = {0x0688};
+static const unsigned long cp_single_961[] = {0x0691};
+static const unsigned long cp_single_962[] = {0x06ba};
+static const unsigned long cp_single_963[] = {0x06d2};
+static const unsigned long cp_single_964[] = {0x06d5};
+static const unsigned long cp_single_965[] = {0x20aa};
+static const unsigned long cp_single_966[] = {0x05be};
+static const unsigned long cp_single_967[] = {0x05c3};
+static const unsigned long cp_single_968[] = {0x05d0};
+static const unsigned long cp_single_969[] = {0x05d1};
+static const unsigned long cp_single_970[] = {0x05d2};
+static const unsigned long cp_single_971[] = {0x05d3};
+static const unsigned long cp_single_972[] = {0x05d4};
+static const unsigned long cp_single_973[] = {0x05d5};
+static const unsigned long cp_single_974[] = {0x05d6};
+static const unsigned long cp_single_975[] = {0x05d7};
+static const unsigned long cp_single_976[] = {0x05d8};
+static const unsigned long cp_single_977[] = {0x05d9};
+static const unsigned long cp_single_978[] = {0x05da};
+static const unsigned long cp_single_979[] = {0x05db};
+static const unsigned long cp_single_980[] = {0x05dc};
+static const unsigned long cp_single_981[] = {0x05dd};
+static const unsigned long cp_single_982[] = {0x05de};
+static const unsigned long cp_single_983[] = {0x05df};
+static const unsigned long cp_single_984[] = {0x05e0};
+static const unsigned long cp_single_985[] = {0x05e1};
+static const unsigned long cp_single_986[] = {0x05e2};
+static const unsigned long cp_single_987[] = {0x05e3};
+static const unsigned long cp_single_988[] = {0x05e4};
+static const unsigned long cp_single_989[] = {0x05e5};
+static const unsigned long cp_single_990[] = {0x05e6};
+static const unsigned long cp_single_991[] = {0x05e7};
+static const unsigned long cp_single_992[] = {0x05e8};
+static const unsigned long cp_single_993[] = {0x05e9};
+static const unsigned long cp_single_994[] = {0x05ea};
+static const unsigned long cp_single_995[] = {0xfb2a};
+static const unsigned long cp_single_996[] = {0xfb2b};
+static const unsigned long cp_single_997[] = {0xfb4b};
+static const unsigned long cp_single_998[] = {0xfb1f};
+static const unsigned long cp_single_999[] = {0x05f0};
+static const unsigned long cp_single_1000[] = {0x05f1};
+static const unsigned long cp_single_1001[] = {0x05f2};
+static const unsigned long cp_single_1002[] = {0xfb35};
+static const unsigned long cp_single_1003[] = {0x05b4};
+static const unsigned long cp_single_1004[] = {0x05b5};
+static const unsigned long cp_single_1005[] = {0x05b6};
+static const unsigned long cp_single_1006[] = {0x05bb};
+static const unsigned long cp_single_1007[] = {0x05b8};
+static const unsigned long cp_single_1008[] = {0x05b7};
+static const unsigned long cp_single_1009[] = {0x05b0};
+static const unsigned long cp_single_1010[] = {0x05b2};
+static const unsigned long cp_single_1011[] = {0x05b1};
+static const unsigned long cp_single_1012[] = {0x05b3};
+static const unsigned long cp_single_1013[] = {0x05c2};
+static const unsigned long cp_single_1014[] = {0x05c1};
+static const unsigned long cp_single_1015[] = {0x05b9};
+static const unsigned long cp_single_1016[] = {0x05bc};
+static const unsigned long cp_single_1017[] = {0x05bd};
+static const unsigned long cp_single_1018[] = {0x05bf};
+static const unsigned long cp_single_1019[] = {0x05c0};
+static const unsigned long cp_single_1020[] = {0x02bc};
+static const unsigned long cp_single_1021[] = {0x2105};
+static const unsigned long cp_single_1022[] = {0x2113};
+static const unsigned long cp_single_1023[] = {0x2116};
+static const unsigned long cp_single_1024[] = {0x202c};
+static const unsigned long cp_single_1025[] = {0x202d};
+static const unsigned long cp_single_1026[] = {0x202e};
+static const unsigned long cp_single_1027[] = {0x200c};
+static const unsigned long cp_single_1028[] = {0x066d};
+static const unsigned long cp_single_1029[] = {0x02bd};
+static const unsigned long cp_single_1030[] = {0x00e0};
+static const unsigned long cp_single_1031[] = {0x0a85};
+static const unsigned long cp_single_1032[] = {0x0a05};
+static const unsigned long cp_single_1033[] = {0x3042};
+static const unsigned long cp_single_1034[] = {0x1ea3};
+static const unsigned long cp_single_1035[] = {0x0990};
+static const unsigned long cp_single_1036[] = {0x311e};
+static const unsigned long cp_single_1037[] = {0x0910};
+static const unsigned long cp_single_1038[] = {0x04d5};
+static const unsigned long cp_single_1039[] = {0x0a90};
+static const unsigned long cp_single_1040[] = {0x0a10};
+static const unsigned long cp_single_1041[] = {0x0a48};
+static const unsigned long cp_single_1042[] = {0x0639};
+static const unsigned long cp_single_1043[] = {0xfeca};
+static const unsigned long cp_single_1044[] = {0xfecb};
+static const unsigned long cp_single_1045[] = {0xfecc};
+static const unsigned long cp_single_1046[] = {0x0203};
+static const unsigned long cp_single_1047[] = {0x09c8};
+static const unsigned long cp_single_1048[] = {0x0948};
+static const unsigned long cp_single_1049[] = {0x0ac8};
+static const unsigned long cp_single_1050[] = {0x30a2};
+static const unsigned long cp_single_1051[] = {0xff71};
+static const unsigned long cp_single_1052[] = {0x314f};
+static const unsigned long cp_single_1053[] = {0x05d0};
+static const unsigned long cp_single_1054[] = {0x0627};
+static const unsigned long cp_single_1055[] = {0xfb30};
+static const unsigned long cp_single_1056[] = {0xfe8e};
+static const unsigned long cp_single_1057[] = {0x0623};
+static const unsigned long cp_single_1058[] = {0xfe84};
+static const unsigned long cp_single_1059[] = {0x0625};
+static const unsigned long cp_single_1060[] = {0xfe88};
+static const unsigned long cp_single_1061[] = {0x05d0};
+static const unsigned long cp_single_1062[] = {0xfb4f};
+static const unsigned long cp_single_1063[] = {0x0622};
+static const unsigned long cp_single_1064[] = {0xfe82};
+static const unsigned long cp_single_1065[] = {0x0649};
+static const unsigned long cp_single_1066[] = {0xfef0};
+static const unsigned long cp_single_1067[] = {0xfef3};
+static const unsigned long cp_single_1068[] = {0xfef4};
+static const unsigned long cp_single_1069[] = {0xfb2e};
+static const unsigned long cp_single_1070[] = {0xfb2f};
+static const unsigned long cp_single_1071[] = {0x2135};
+static const unsigned long cp_single_1072[] = {0x224c};
+static const unsigned long cp_single_1073[] = {0x03b1};
+static const unsigned long cp_single_1074[] = {0x03ac};
+static const unsigned long cp_single_1075[] = {0x0101};
+static const unsigned long cp_single_1076[] = {0xff41};
+static const unsigned long cp_single_1077[] = {0x0026};
+static const unsigned long cp_single_1078[] = {0xff06};
+static const unsigned long cp_single_1079[] = {0xf726};
+static const unsigned long cp_single_1080[] = {0x33c2};
+static const unsigned long cp_single_1081[] = {0x3122};
+static const unsigned long cp_single_1082[] = {0x3124};
+static const unsigned long cp_single_1083[] = {0x0e5a};
+static const unsigned long cp_single_1084[] = {0x2220};
+static const unsigned long cp_single_1085[] = {0x3008};
+static const unsigned long cp_single_1086[] = {0xfe3f};
+static const unsigned long cp_single_1087[] = {0x3009};
+static const unsigned long cp_single_1088[] = {0xfe40};
+static const unsigned long cp_single_1089[] = {0x2329};
+static const unsigned long cp_single_1090[] = {0x232a};
+static const unsigned long cp_single_1091[] = {0x212b};
+static const unsigned long cp_single_1092[] = {0x0387};
+static const unsigned long cp_single_1093[] = {0x0952};
+static const unsigned long cp_single_1094[] = {0x0982};
+static const unsigned long cp_single_1095[] = {0x0902};
+static const unsigned long cp_single_1096[] = {0x0a82};
+static const unsigned long cp_single_1097[] = {0x0105};
+static const unsigned long cp_single_1098[] = {0x3300};
+static const unsigned long cp_single_1099[] = {0x249c};
+static const unsigned long cp_single_1100[] = {0x055a};
+static const unsigned long cp_single_1101[] = {0x02bc};
+static const unsigned long cp_single_1102[] = {0xf8ff};
+static const unsigned long cp_single_1103[] = {0x2250};
+static const unsigned long cp_single_1104[] = {0x2248};
+static const unsigned long cp_single_1105[] = {0x2252};
+static const unsigned long cp_single_1106[] = {0x2245};
+static const unsigned long cp_single_1107[] = {0x318e};
+static const unsigned long cp_single_1108[] = {0x318d};
+static const unsigned long cp_single_1109[] = {0x2312};
+static const unsigned long cp_single_1110[] = {0x1e9a};
+static const unsigned long cp_single_1111[] = {0x00e5};
+static const unsigned long cp_single_1112[] = {0x01fb};
+static const unsigned long cp_single_1113[] = {0x1e01};
+static const unsigned long cp_single_1114[] = {0x2194};
+static const unsigned long cp_single_1115[] = {0x21e3};
+static const unsigned long cp_single_1116[] = {0x21e0};
+static const unsigned long cp_single_1117[] = {0x21e2};
+static const unsigned long cp_single_1118[] = {0x21e1};
+static const unsigned long cp_single_1119[] = {0x21d4};
+static const unsigned long cp_single_1120[] = {0x21d3};
+static const unsigned long cp_single_1121[] = {0x21d0};
+static const unsigned long cp_single_1122[] = {0x21d2};
+static const unsigned long cp_single_1123[] = {0x21d1};
+static const unsigned long cp_single_1124[] = {0x2193};
+static const unsigned long cp_single_1125[] = {0x2199};
+static const unsigned long cp_single_1126[] = {0x2198};
+static const unsigned long cp_single_1127[] = {0x21e9};
+static const unsigned long cp_single_1128[] = {0x02c5};
+static const unsigned long cp_single_1129[] = {0x02c2};
+static const unsigned long cp_single_1130[] = {0x02c3};
+static const unsigned long cp_single_1131[] = {0x02c4};
+static const unsigned long cp_single_1132[] = {0xf8e7};
+static const unsigned long cp_single_1133[] = {0x2190};
+static const unsigned long cp_single_1134[] = {0x21d0};
+static const unsigned long cp_single_1135[] = {0x21cd};
+static const unsigned long cp_single_1136[] = {0x21c6};
+static const unsigned long cp_single_1137[] = {0x21e6};
+static const unsigned long cp_single_1138[] = {0x2192};
+static const unsigned long cp_single_1139[] = {0x21cf};
+static const unsigned long cp_single_1140[] = {0x279e};
+static const unsigned long cp_single_1141[] = {0x21c4};
+static const unsigned long cp_single_1142[] = {0x21e8};
+static const unsigned long cp_single_1143[] = {0x21e4};
+static const unsigned long cp_single_1144[] = {0x21e5};
+static const unsigned long cp_single_1145[] = {0x2191};
+static const unsigned long cp_single_1146[] = {0x2195};
+static const unsigned long cp_single_1147[] = {0x21a8};
+static const unsigned long cp_single_1148[] = {0x21a8};
+static const unsigned long cp_single_1149[] = {0x2196};
+static const unsigned long cp_single_1150[] = {0x21c5};
+static const unsigned long cp_single_1151[] = {0x2197};
+static const unsigned long cp_single_1152[] = {0x21e7};
+static const unsigned long cp_single_1153[] = {0xf8e6};
+static const unsigned long cp_single_1154[] = {0x005e};
+static const unsigned long cp_single_1155[] = {0xff3e};
+static const unsigned long cp_single_1156[] = {0x007e};
+static const unsigned long cp_single_1157[] = {0xff5e};
+static const unsigned long cp_single_1158[] = {0x0251};
+static const unsigned long cp_single_1159[] = {0x0252};
+static const unsigned long cp_single_1160[] = {0x3041};
+static const unsigned long cp_single_1161[] = {0x30a1};
+static const unsigned long cp_single_1162[] = {0xff67};
+static const unsigned long cp_single_1163[] = {0x002a};
+static const unsigned long cp_single_1164[] = {0x066d};
+static const unsigned long cp_single_1165[] = {0x066d};
+static const unsigned long cp_single_1166[] = {0x2217};
+static const unsigned long cp_single_1167[] = {0xff0a};
+static const unsigned long cp_single_1168[] = {0xfe61};
+static const unsigned long cp_single_1169[] = {0x2042};
+static const unsigned long cp_single_1170[] = {0xf6e9};
+static const unsigned long cp_single_1171[] = {0x2243};
+static const unsigned long cp_single_1172[] = {0x0040};
+static const unsigned long cp_single_1173[] = {0x00e3};
+static const unsigned long cp_single_1174[] = {0xff20};
+static const unsigned long cp_single_1175[] = {0xfe6b};
+static const unsigned long cp_single_1176[] = {0x0250};
+static const unsigned long cp_single_1177[] = {0x0994};
+static const unsigned long cp_single_1178[] = {0x3120};
+static const unsigned long cp_single_1179[] = {0x0914};
+static const unsigned long cp_single_1180[] = {0x0a94};
+static const unsigned long cp_single_1181[] = {0x0a14};
+static const unsigned long cp_single_1182[] = {0x09d7};
+static const unsigned long cp_single_1183[] = {0x0a4c};
+static const unsigned long cp_single_1184[] = {0x09cc};
+static const unsigned long cp_single_1185[] = {0x094c};
+static const unsigned long cp_single_1186[] = {0x0acc};
+static const unsigned long cp_single_1187[] = {0x093d};
+static const unsigned long cp_single_1188[] = {0x0561};
+static const unsigned long cp_single_1189[] = {0x05e2};
+static const unsigned long cp_single_1190[] = {0xfb20};
+static const unsigned long cp_single_1191[] = {0x05e2};
+static const unsigned long cp_single_1192[] = {0x0062};
+static const unsigned long cp_single_1193[] = {0x09ac};
+static const unsigned long cp_single_1194[] = {0x005c};
+static const unsigned long cp_single_1195[] = {0xff3c};
+static const unsigned long cp_single_1196[] = {0x092c};
+static const unsigned long cp_single_1197[] = {0x0aac};
+static const unsigned long cp_single_1198[] = {0x0a2c};
+static const unsigned long cp_single_1199[] = {0x3070};
+static const unsigned long cp_single_1200[] = {0x0e3f};
+static const unsigned long cp_single_1201[] = {0x30d0};
+static const unsigned long cp_single_1202[] = {0x007c};
+static const unsigned long cp_single_1203[] = {0xff5c};
+static const unsigned long cp_single_1204[] = {0x3105};
+static const unsigned long cp_single_1205[] = {0x24d1};
+static const unsigned long cp_single_1206[] = {0x1e03};
+static const unsigned long cp_single_1207[] = {0x1e05};
+static const unsigned long cp_single_1208[] = {0x266c};
+static const unsigned long cp_single_1209[] = {0x2235};
+static const unsigned long cp_single_1210[] = {0x0431};
+static const unsigned long cp_single_1211[] = {0x0628};
+static const unsigned long cp_single_1212[] = {0xfe90};
+static const unsigned long cp_single_1213[] = {0xfe91};
+static const unsigned long cp_single_1214[] = {0x3079};
+static const unsigned long cp_single_1215[] = {0xfe92};
+static const unsigned long cp_single_1216[] = {0xfc9f};
+static const unsigned long cp_single_1217[] = {0xfc08};
+static const unsigned long cp_single_1218[] = {0xfc6d};
+static const unsigned long cp_single_1219[] = {0x30d9};
+static const unsigned long cp_single_1220[] = {0x0562};
+static const unsigned long cp_single_1221[] = {0x05d1};
+static const unsigned long cp_single_1222[] = {0x03b2};
+static const unsigned long cp_single_1223[] = {0x03d0};
+static const unsigned long cp_single_1224[] = {0xfb31};
+static const unsigned long cp_single_1225[] = {0xfb31};
+static const unsigned long cp_single_1226[] = {0x05d1};
+static const unsigned long cp_single_1227[] = {0xfb4c};
+static const unsigned long cp_single_1228[] = {0x09ad};
+static const unsigned long cp_single_1229[] = {0x092d};
+static const unsigned long cp_single_1230[] = {0x0aad};
+static const unsigned long cp_single_1231[] = {0x0a2d};
+static const unsigned long cp_single_1232[] = {0x0253};
+static const unsigned long cp_single_1233[] = {0x3073};
+static const unsigned long cp_single_1234[] = {0x30d3};
+static const unsigned long cp_single_1235[] = {0x0298};
+static const unsigned long cp_single_1236[] = {0x0a02};
+static const unsigned long cp_single_1237[] = {0x3331};
+static const unsigned long cp_single_1238[] = {0x25cf};
+static const unsigned long cp_single_1239[] = {0x25c6};
+static const unsigned long cp_single_1240[] = {0x25bc};
+static const unsigned long cp_single_1241[] = {0x25c4};
+static const unsigned long cp_single_1242[] = {0x25c0};
+static const unsigned long cp_single_1243[] = {0x3010};
+static const unsigned long cp_single_1244[] = {0xfe3b};
+static const unsigned long cp_single_1245[] = {0x3011};
+static const unsigned long cp_single_1246[] = {0xfe3c};
+static const unsigned long cp_single_1247[] = {0x25e3};
+static const unsigned long cp_single_1248[] = {0x25e2};
+static const unsigned long cp_single_1249[] = {0x25ac};
+static const unsigned long cp_single_1250[] = {0x25ba};
+static const unsigned long cp_single_1251[] = {0x25b6};
+static const unsigned long cp_single_1252[] = {0x25aa};
+static const unsigned long cp_single_1253[] = {0x263b};
+static const unsigned long cp_single_1254[] = {0x25a0};
+static const unsigned long cp_single_1255[] = {0x2605};
+static const unsigned long cp_single_1256[] = {0x25e4};
+static const unsigned long cp_single_1257[] = {0x25e5};
+static const unsigned long cp_single_1258[] = {0x25b4};
+static const unsigned long cp_single_1259[] = {0x25b2};
+static const unsigned long cp_single_1260[] = {0x2423};
+static const unsigned long cp_single_1261[] = {0x1e07};
+static const unsigned long cp_single_1262[] = {0x2588};
+static const unsigned long cp_single_1263[] = {0xff42};
+static const unsigned long cp_single_1264[] = {0x0e1a};
+static const unsigned long cp_single_1265[] = {0x307c};
+static const unsigned long cp_single_1266[] = {0x30dc};
+static const unsigned long cp_single_1267[] = {0x249d};
+static const unsigned long cp_single_1268[] = {0x33c3};
+static const unsigned long cp_single_1269[] = {0xf8f4};
+static const unsigned long cp_single_1270[] = {0x007b};
+static const unsigned long cp_single_1271[] = {0xf8f3};
+static const unsigned long cp_single_1272[] = {0xf8f2};
+static const unsigned long cp_single_1273[] = {0xff5b};
+static const unsigned long cp_single_1274[] = {0xfe5b};
+static const unsigned long cp_single_1275[] = {0xf8f1};
+static const unsigned long cp_single_1276[] = {0xfe37};
+static const unsigned long cp_single_1277[] = {0x007d};
+static const unsigned long cp_single_1278[] = {0xf8fe};
+static const unsigned long cp_single_1279[] = {0xf8fd};
+static const unsigned long cp_single_1280[] = {0xff5d};
+static const unsigned long cp_single_1281[] = {0xfe5c};
+static const unsigned long cp_single_1282[] = {0xf8fc};
+static const unsigned long cp_single_1283[] = {0xfe38};
+static const unsigned long cp_single_1284[] = {0x005b};
+static const unsigned long cp_single_1285[] = {0xf8f0};
+static const unsigned long cp_single_1286[] = {0xf8ef};
+static const unsigned long cp_single_1287[] = {0xff3b};
+static const unsigned long cp_single_1288[] = {0xf8ee};
+static const unsigned long cp_single_1289[] = {0x005d};
+static const unsigned long cp_single_1290[] = {0xf8fb};
+static const unsigned long cp_single_1291[] = {0xf8fa};
+static const unsigned long cp_single_1292[] = {0xff3d};
+static const unsigned long cp_single_1293[] = {0xf8f9};
+static const unsigned long cp_single_1294[] = {0x02d8};
+static const unsigned long cp_single_1295[] = {0x032e};
+static const unsigned long cp_single_1296[] = {0x0306};
+static const unsigned long cp_single_1297[] = {0x032f};
+static const unsigned long cp_single_1298[] = {0x0311};
+static const unsigned long cp_single_1299[] = {0x0361};
+static const unsigned long cp_single_1300[] = {0x032a};
+static const unsigned long cp_single_1301[] = {0x033a};
+static const unsigned long cp_single_1302[] = {0x00a6};
+static const unsigned long cp_single_1303[] = {0x0180};
+static const unsigned long cp_single_1304[] = {0xf6ea};
+static const unsigned long cp_single_1305[] = {0x0183};
+static const unsigned long cp_single_1306[] = {0x3076};
+static const unsigned long cp_single_1307[] = {0x30d6};
+static const unsigned long cp_single_1308[] = {0x2022};
+static const unsigned long cp_single_1309[] = {0x25d8};
+static const unsigned long cp_single_1310[] = {0x2219};
+static const unsigned long cp_single_1311[] = {0x25ce};
+static const unsigned long cp_single_1312[] = {0x0063};
+static const unsigned long cp_single_1313[] = {0x056e};
+static const unsigned long cp_single_1314[] = {0x099a};
+static const unsigned long cp_single_1315[] = {0x0107};
+static const unsigned long cp_single_1316[] = {0x091a};
+static const unsigned long cp_single_1317[] = {0x0a9a};
+static const unsigned long cp_single_1318[] = {0x0a1a};
+static const unsigned long cp_single_1319[] = {0x3388};
+static const unsigned long cp_single_1320[] = {0x0981};
+static const unsigned long cp_single_1321[] = {0x0310};
+static const unsigned long cp_single_1322[] = {0x0901};
+static const unsigned long cp_single_1323[] = {0x0a81};
+static const unsigned long cp_single_1324[] = {0x21ea};
+static const unsigned long cp_single_1325[] = {0x2105};
+static const unsigned long cp_single_1326[] = {0x02c7};
+static const unsigned long cp_single_1327[] = {0x032c};
+static const unsigned long cp_single_1328[] = {0x030c};
+static const unsigned long cp_single_1329[] = {0x21b5};
+static const unsigned long cp_single_1330[] = {0x3118};
+static const unsigned long cp_single_1331[] = {0x010d};
+static const unsigned long cp_single_1332[] = {0x00e7};
+static const unsigned long cp_single_1333[] = {0x1e09};
+static const unsigned long cp_single_1334[] = {0x24d2};
+static const unsigned long cp_single_1335[] = {0x0109};
+static const unsigned long cp_single_1336[] = {0x0255};
+static const unsigned long cp_single_1337[] = {0x010b};
+static const unsigned long cp_single_1338[] = {0x010b};
+static const unsigned long cp_single_1339[] = {0x33c5};
+static const unsigned long cp_single_1340[] = {0x00b8};
+static const unsigned long cp_single_1341[] = {0x0327};
+static const unsigned long cp_single_1342[] = {0x00a2};
+static const unsigned long cp_single_1343[] = {0x2103};
+static const unsigned long cp_single_1344[] = {0xf6df};
+static const unsigned long cp_single_1345[] = {0xffe0};
+static const unsigned long cp_single_1346[] = {0xf7a2};
+static const unsigned long cp_single_1347[] = {0xf6e0};
+static const unsigned long cp_single_1348[] = {0x0579};
+static const unsigned long cp_single_1349[] = {0x099b};
+static const unsigned long cp_single_1350[] = {0x091b};
+static const unsigned long cp_single_1351[] = {0x0a9b};
+static const unsigned long cp_single_1352[] = {0x0a1b};
+static const unsigned long cp_single_1353[] = {0x3114};
+static const unsigned long cp_single_1354[] = {0x04bd};
+static const unsigned long cp_single_1355[] = {0x2713};
+static const unsigned long cp_single_1356[] = {0x0447};
+static const unsigned long cp_single_1357[] = {0x04bf};
+static const unsigned long cp_single_1358[] = {0x04b7};
+static const unsigned long cp_single_1359[] = {0x04f5};
+static const unsigned long cp_single_1360[] = {0x0573};
+static const unsigned long cp_single_1361[] = {0x04cc};
+static const unsigned long cp_single_1362[] = {0x04b9};
+static const unsigned long cp_single_1363[] = {0x03c7};
+static const unsigned long cp_single_1364[] = {0x3277};
+static const unsigned long cp_single_1365[] = {0x3217};
+static const unsigned long cp_single_1366[] = {0x3269};
+static const unsigned long cp_single_1367[] = {0x314a};
+static const unsigned long cp_single_1368[] = {0x3209};
+static const unsigned long cp_single_1369[] = {0x0e0a};
+static const unsigned long cp_single_1370[] = {0x0e08};
+static const unsigned long cp_single_1371[] = {0x0e09};
+static const unsigned long cp_single_1372[] = {0x0e0c};
+static const unsigned long cp_single_1373[] = {0x0188};
+static const unsigned long cp_single_1374[] = {0x3276};
+static const unsigned long cp_single_1375[] = {0x3216};
+static const unsigned long cp_single_1376[] = {0x3268};
+static const unsigned long cp_single_1377[] = {0x3148};
+static const unsigned long cp_single_1378[] = {0x3208};
+static const unsigned long cp_single_1379[] = {0x321c};
+static const unsigned long cp_single_1380[] = {0x25cb};
+static const unsigned long cp_single_1381[] = {0x2297};
+static const unsigned long cp_single_1382[] = {0x2299};
+static const unsigned long cp_single_1383[] = {0x2295};
+static const unsigned long cp_single_1384[] = {0x3036};
+static const unsigned long cp_single_1385[] = {0x25d0};
+static const unsigned long cp_single_1386[] = {0x25d1};
+static const unsigned long cp_single_1387[] = {0x02c6};
+static const unsigned long cp_single_1388[] = {0x032d};
+static const unsigned long cp_single_1389[] = {0x0302};
+static const unsigned long cp_single_1390[] = {0x2327};
+static const unsigned long cp_single_1391[] = {0x01c2};
+static const unsigned long cp_single_1392[] = {0x01c0};
+static const unsigned long cp_single_1393[] = {0x01c1};
+static const unsigned long cp_single_1394[] = {0x01c3};
+static const unsigned long cp_single_1395[] = {0x2663};
+static const unsigned long cp_single_1396[] = {0x2663};
+static const unsigned long cp_single_1397[] = {0x2667};
+static const unsigned long cp_single_1398[] = {0x33a4};
+static const unsigned long cp_single_1399[] = {0xff43};
+static const unsigned long cp_single_1400[] = {0x33a0};
+static const unsigned long cp_single_1401[] = {0x0581};
+static const unsigned long cp_single_1402[] = {0x003a};
+static const unsigned long cp_single_1403[] = {0x20a1};
+static const unsigned long cp_single_1404[] = {0xff1a};
+static const unsigned long cp_single_1405[] = {0x20a1};
+static const unsigned long cp_single_1406[] = {0xfe55};
+static const unsigned long cp_single_1407[] = {0x02d1};
+static const unsigned long cp_single_1408[] = {0x02d0};
+static const unsigned long cp_single_1409[] = {0x002c};
+static const unsigned long cp_single_1410[] = {0x0313};
+static const unsigned long cp_single_1411[] = {0x0315};
+static const unsigned long cp_single_1412[] = {0xf6c3};
+static const unsigned long cp_single_1413[] = {0x060c};
+static const unsigned long cp_single_1414[] = {0x055d};
+static const unsigned long cp_single_1415[] = {0xf6e1};
+static const unsigned long cp_single_1416[] = {0xff0c};
+static const unsigned long cp_single_1417[] = {0x0314};
+static const unsigned long cp_single_1418[] = {0x02bd};
+static const unsigned long cp_single_1419[] = {0xfe50};
+static const unsigned long cp_single_1420[] = {0xf6e2};
+static const unsigned long cp_single_1421[] = {0x0312};
+static const unsigned long cp_single_1422[] = {0x02bb};
+static const unsigned long cp_single_1423[] = {0x263c};
+static const unsigned long cp_single_1424[] = {0x2245};
+static const unsigned long cp_single_1425[] = {0x222e};
+static const unsigned long cp_single_1426[] = {0x2303};
+static const unsigned long cp_single_1427[] = {0x0006};
+static const unsigned long cp_single_1428[] = {0x0007};
+static const unsigned long cp_single_1429[] = {0x0008};
+static const unsigned long cp_single_1430[] = {0x0018};
+static const unsigned long cp_single_1431[] = {0x000d};
+static const unsigned long cp_single_1432[] = {0x0011};
+static const unsigned long cp_single_1433[] = {0x0012};
+static const unsigned long cp_single_1434[] = {0x0013};
+static const unsigned long cp_single_1435[] = {0x0014};
+static const unsigned long cp_single_1436[] = {0x007f};
+static const unsigned long cp_single_1437[] = {0x0010};
+static const unsigned long cp_single_1438[] = {0x0019};
+static const unsigned long cp_single_1439[] = {0x0005};
+static const unsigned long cp_single_1440[] = {0x0004};
+static const unsigned long cp_single_1441[] = {0x001b};
+static const unsigned long cp_single_1442[] = {0x0017};
+static const unsigned long cp_single_1443[] = {0x0003};
+static const unsigned long cp_single_1444[] = {0x000c};
+static const unsigned long cp_single_1445[] = {0x001c};
+static const unsigned long cp_single_1446[] = {0x001d};
+static const unsigned long cp_single_1447[] = {0x0009};
+static const unsigned long cp_single_1448[] = {0x000a};
+static const unsigned long cp_single_1449[] = {0x0015};
+static const unsigned long cp_single_1450[] = {0x001e};
+static const unsigned long cp_single_1451[] = {0x000f};
+static const unsigned long cp_single_1452[] = {0x000e};
+static const unsigned long cp_single_1453[] = {0x0002};
+static const unsigned long cp_single_1454[] = {0x0001};
+static const unsigned long cp_single_1455[] = {0x001a};
+static const unsigned long cp_single_1456[] = {0x0016};
+static const unsigned long cp_single_1457[] = {0x001f};
+static const unsigned long cp_single_1458[] = {0x000b};
+static const unsigned long cp_single_1459[] = {0x00a9};
+static const unsigned long cp_single_1460[] = {0xf8e9};
+static const unsigned long cp_single_1461[] = {0xf6d9};
+static const unsigned long cp_single_1462[] = {0x300c};
+static const unsigned long cp_single_1463[] = {0xff62};
+static const unsigned long cp_single_1464[] = {0xfe41};
+static const unsigned long cp_single_1465[] = {0x300d};
+static const unsigned long cp_single_1466[] = {0xff63};
+static const unsigned long cp_single_1467[] = {0xfe42};
+static const unsigned long cp_single_1468[] = {0x337f};
+static const unsigned long cp_single_1469[] = {0x33c7};
+static const unsigned long cp_single_1470[] = {0x33c6};
+static const unsigned long cp_single_1471[] = {0x249e};
+static const unsigned long cp_single_1472[] = {0x20a2};
+static const unsigned long cp_single_1473[] = {0x0297};
+static const unsigned long cp_single_1474[] = {0x22cf};
+static const unsigned long cp_single_1475[] = {0x22ce};
+static const unsigned long cp_single_1476[] = {0x00a4};
+static const unsigned long cp_single_1477[] = {0xf6d1};
+static const unsigned long cp_single_1478[] = {0xf6d2};
+static const unsigned long cp_single_1479[] = {0xf6d4};
+static const unsigned long cp_single_1480[] = {0xf6d5};
+static const unsigned long cp_single_1481[] = {0x0064};
+static const unsigned long cp_single_1482[] = {0x0564};
+static const unsigned long cp_single_1483[] = {0x09a6};
+static const unsigned long cp_single_1484[] = {0x0636};
+static const unsigned long cp_single_1485[] = {0x0926};
+static const unsigned long cp_single_1486[] = {0xfebe};
+static const unsigned long cp_single_1487[] = {0xfebf};
+static const unsigned long cp_single_1488[] = {0xfec0};
+static const unsigned long cp_single_1489[] = {0x05bc};
+static const unsigned long cp_single_1490[] = {0x05bc};
+static const unsigned long cp_single_1491[] = {0x2020};
+static const unsigned long cp_single_1492[] = {0x2021};
+static const unsigned long cp_single_1493[] = {0x0aa6};
+static const unsigned long cp_single_1494[] = {0x0a26};
+static const unsigned long cp_single_1495[] = {0x3060};
+static const unsigned long cp_single_1496[] = {0x30c0};
+static const unsigned long cp_single_1497[] = {0x062f};
+static const unsigned long cp_single_1498[] = {0x05d3};
+static const unsigned long cp_single_1499[] = {0xfb33};
+static const unsigned long cp_single_1500[] = {0xfb33};
+static const unsigned long cp_single_1501[] = {0x05d3};
+static const unsigned long cp_single_1502[] = {0xfeaa};
+static const unsigned long cp_single_1503[] = {0x064f};
+static const unsigned long cp_single_1504[] = {0x064f};
+static const unsigned long cp_single_1505[] = {0x064c};
+static const unsigned long cp_single_1506[] = {0x064c};
+static const unsigned long cp_single_1507[] = {0x0964};
+static const unsigned long cp_single_1508[] = {0x05a7};
+static const unsigned long cp_single_1509[] = {0x05a7};
+static const unsigned long cp_single_1510[] = {0x0485};
+static const unsigned long cp_single_1511[] = {0xf6d3};
+static const unsigned long cp_single_1512[] = {0x300a};
+static const unsigned long cp_single_1513[] = {0xfe3d};
+static const unsigned long cp_single_1514[] = {0x300b};
+static const unsigned long cp_single_1515[] = {0xfe3e};
+static const unsigned long cp_single_1516[] = {0x032b};
+static const unsigned long cp_single_1517[] = {0x21d4};
+static const unsigned long cp_single_1518[] = {0x21d2};
+static const unsigned long cp_single_1519[] = {0x0965};
+static const unsigned long cp_single_1520[] = {0xf6d6};
+static const unsigned long cp_single_1521[] = {0x030f};
+static const unsigned long cp_single_1522[] = {0x222c};
+static const unsigned long cp_single_1523[] = {0x2017};
+static const unsigned long cp_single_1524[] = {0x0333};
+static const unsigned long cp_single_1525[] = {0x033f};
+static const unsigned long cp_single_1526[] = {0x02ba};
+static const unsigned long cp_single_1527[] = {0x2016};
+static const unsigned long cp_single_1528[] = {0x030e};
+static const unsigned long cp_single_1529[] = {0x3109};
+static const unsigned long cp_single_1530[] = {0x33c8};
+static const unsigned long cp_single_1531[] = {0x010f};
+static const unsigned long cp_single_1532[] = {0x1e11};
+static const unsigned long cp_single_1533[] = {0x24d3};
+static const unsigned long cp_single_1534[] = {0x1e13};
+static const unsigned long cp_single_1535[] = {0x0111};
+static const unsigned long cp_single_1536[] = {0x09a1};
+static const unsigned long cp_single_1537[] = {0x0921};
+static const unsigned long cp_single_1538[] = {0x0aa1};
+static const unsigned long cp_single_1539[] = {0x0a21};
+static const unsigned long cp_single_1540[] = {0x0688};
+static const unsigned long cp_single_1541[] = {0xfb89};
+static const unsigned long cp_single_1542[] = {0x095c};
+static const unsigned long cp_single_1543[] = {0x09a2};
+static const unsigned long cp_single_1544[] = {0x0922};
+static const unsigned long cp_single_1545[] = {0x0aa2};
+static const unsigned long cp_single_1546[] = {0x0a22};
+static const unsigned long cp_single_1547[] = {0x1e0b};
+static const unsigned long cp_single_1548[] = {0x1e0d};
+static const unsigned long cp_single_1549[] = {0x066b};
+static const unsigned long cp_single_1550[] = {0x066b};
+static const unsigned long cp_single_1551[] = {0x0434};
+static const unsigned long cp_single_1552[] = {0x00b0};
+static const unsigned long cp_single_1553[] = {0x05ad};
+static const unsigned long cp_single_1554[] = {0x3067};
+static const unsigned long cp_single_1555[] = {0x03ef};
+static const unsigned long cp_single_1556[] = {0x30c7};
+static const unsigned long cp_single_1557[] = {0x232b};
+static const unsigned long cp_single_1558[] = {0x2326};
+static const unsigned long cp_single_1559[] = {0x03b4};
+static const unsigned long cp_single_1560[] = {0x018d};
+static const unsigned long cp_single_1561[] = {0x09f8};
+static const unsigned long cp_single_1562[] = {0x02a4};
+static const unsigned long cp_single_1563[] = {0x09a7};
+static const unsigned long cp_single_1564[] = {0x0927};
+static const unsigned long cp_single_1565[] = {0x0aa7};
+static const unsigned long cp_single_1566[] = {0x0a27};
+static const unsigned long cp_single_1567[] = {0x0257};
+static const unsigned long cp_single_1568[] = {0x0385};
+static const unsigned long cp_single_1569[] = {0x0344};
+static const unsigned long cp_single_1570[] = {0x2666};
+static const unsigned long cp_single_1571[] = {0x2662};
+static const unsigned long cp_single_1572[] = {0x00a8};
+static const unsigned long cp_single_1573[] = {0xf6d7};
+static const unsigned long cp_single_1574[] = {0x0324};
+static const unsigned long cp_single_1575[] = {0x0308};
+static const unsigned long cp_single_1576[] = {0xf6d8};
+static const unsigned long cp_single_1577[] = {0x0385};
+static const unsigned long cp_single_1578[] = {0x3062};
+static const unsigned long cp_single_1579[] = {0x30c2};
+static const unsigned long cp_single_1580[] = {0x3003};
+static const unsigned long cp_single_1581[] = {0x00f7};
+static const unsigned long cp_single_1582[] = {0x2223};
+static const unsigned long cp_single_1583[] = {0x2215};
+static const unsigned long cp_single_1584[] = {0x0452};
+static const unsigned long cp_single_1585[] = {0x2593};
+static const unsigned long cp_single_1586[] = {0x1e0f};
+static const unsigned long cp_single_1587[] = {0x3397};
+static const unsigned long cp_single_1588[] = {0x0111};
+static const unsigned long cp_single_1589[] = {0xff44};
+static const unsigned long cp_single_1590[] = {0x2584};
+static const unsigned long cp_single_1591[] = {0x0e0e};
+static const unsigned long cp_single_1592[] = {0x0e14};
+static const unsigned long cp_single_1593[] = {0x3069};
+static const unsigned long cp_single_1594[] = {0x30c9};
+static const unsigned long cp_single_1595[] = {0x0024};
+static const unsigned long cp_single_1596[] = {0xf6e3};
+static const unsigned long cp_single_1597[] = {0xff04};
+static const unsigned long cp_single_1598[] = {0xf724};
+static const unsigned long cp_single_1599[] = {0xfe69};
+static const unsigned long cp_single_1600[] = {0xf6e4};
+static const unsigned long cp_single_1601[] = {0x20ab};
+static const unsigned long cp_single_1602[] = {0x3326};
+static const unsigned long cp_single_1603[] = {0x02d9};
+static const unsigned long cp_single_1604[] = {0x0307};
+static const unsigned long cp_single_1605[] = {0x0323};
+static const unsigned long cp_single_1606[] = {0x0323};
+static const unsigned long cp_single_1607[] = {0x30fb};
+static const unsigned long cp_single_1608[] = {0x0131};
+static const unsigned long cp_single_1609[] = {0xf6be};
+static const unsigned long cp_single_1610[] = {0x0284};
+static const unsigned long cp_single_1611[] = {0x22c5};
+static const unsigned long cp_single_1612[] = {0x25cc};
+static const unsigned long cp_single_1613[] = {0xfb1f};
+static const unsigned long cp_single_1614[] = {0xfb1f};
+static const unsigned long cp_single_1615[] = {0x031e};
+static const unsigned long cp_single_1616[] = {0x02d5};
+static const unsigned long cp_single_1617[] = {0x249f};
+static const unsigned long cp_single_1618[] = {0xf6eb};
+static const unsigned long cp_single_1619[] = {0x0256};
+static const unsigned long cp_single_1620[] = {0x018c};
+static const unsigned long cp_single_1621[] = {0x3065};
+static const unsigned long cp_single_1622[] = {0x30c5};
+static const unsigned long cp_single_1623[] = {0x01f3};
+static const unsigned long cp_single_1624[] = {0x02a3};
+static const unsigned long cp_single_1625[] = {0x01c6};
+static const unsigned long cp_single_1626[] = {0x02a5};
+static const unsigned long cp_single_1627[] = {0x04e1};
+static const unsigned long cp_single_1628[] = {0x0455};
+static const unsigned long cp_single_1629[] = {0x045f};
+static const unsigned long cp_single_1630[] = {0x0065};
+static const unsigned long cp_single_1631[] = {0x00e9};
+static const unsigned long cp_single_1632[] = {0x2641};
+static const unsigned long cp_single_1633[] = {0x098f};
+static const unsigned long cp_single_1634[] = {0x311c};
+static const unsigned long cp_single_1635[] = {0x0115};
+static const unsigned long cp_single_1636[] = {0x090d};
+static const unsigned long cp_single_1637[] = {0x0a8d};
+static const unsigned long cp_single_1638[] = {0x0945};
+static const unsigned long cp_single_1639[] = {0x0ac5};
+static const unsigned long cp_single_1640[] = {0x011b};
+static const unsigned long cp_single_1641[] = {0x1e1d};
+static const unsigned long cp_single_1642[] = {0x0565};
+static const unsigned long cp_single_1643[] = {0x0587};
+static const unsigned long cp_single_1644[] = {0x24d4};
+static const unsigned long cp_single_1645[] = {0x00ea};
+static const unsigned long cp_single_1646[] = {0x1ebf};
+static const unsigned long cp_single_1647[] = {0x1e19};
+static const unsigned long cp_single_1648[] = {0x1ec7};
+static const unsigned long cp_single_1649[] = {0x1ec1};
+static const unsigned long cp_single_1650[] = {0x1ec3};
+static const unsigned long cp_single_1651[] = {0x1ec5};
+static const unsigned long cp_single_1652[] = {0x0454};
+static const unsigned long cp_single_1653[] = {0x0205};
+static const unsigned long cp_single_1654[] = {0x090f};
+static const unsigned long cp_single_1655[] = {0x00eb};
+static const unsigned long cp_single_1656[] = {0x0117};
+static const unsigned long cp_single_1657[] = {0x0117};
+static const unsigned long cp_single_1658[] = {0x1eb9};
+static const unsigned long cp_single_1659[] = {0x0a0f};
+static const unsigned long cp_single_1660[] = {0x0a47};
+static const unsigned long cp_single_1661[] = {0x0444};
+static const unsigned long cp_single_1662[] = {0x00e8};
+static const unsigned long cp_single_1663[] = {0x0a8f};
+static const unsigned long cp_single_1664[] = {0x0567};
+static const unsigned long cp_single_1665[] = {0x311d};
+static const unsigned long cp_single_1666[] = {0x3048};
+static const unsigned long cp_single_1667[] = {0x1ebb};
+static const unsigned long cp_single_1668[] = {0x311f};
+static const unsigned long cp_single_1669[] = {0x0038};
+static const unsigned long cp_single_1670[] = {0x0668};
+static const unsigned long cp_single_1671[] = {0x09ee};
+static const unsigned long cp_single_1672[] = {0x2467};
+static const unsigned long cp_single_1673[] = {0x2791};
+static const unsigned long cp_single_1674[] = {0x096e};
+static const unsigned long cp_single_1675[] = {0x2471};
+static const unsigned long cp_single_1676[] = {0x2485};
+static const unsigned long cp_single_1677[] = {0x2499};
+static const unsigned long cp_single_1678[] = {0x0aee};
+static const unsigned long cp_single_1679[] = {0x0a6e};
+static const unsigned long cp_single_1680[] = {0x0668};
+static const unsigned long cp_single_1681[] = {0x3028};
+static const unsigned long cp_single_1682[] = {0x266b};
+static const unsigned long cp_single_1683[] = {0x3227};
+static const unsigned long cp_single_1684[] = {0x2088};
+static const unsigned long cp_single_1685[] = {0xff18};
+static const unsigned long cp_single_1686[] = {0xf738};
+static const unsigned long cp_single_1687[] = {0x247b};
+static const unsigned long cp_single_1688[] = {0x248f};
+static const unsigned long cp_single_1689[] = {0x06f8};
+static const unsigned long cp_single_1690[] = {0x2177};
+static const unsigned long cp_single_1691[] = {0x2078};
+static const unsigned long cp_single_1692[] = {0x0e58};
+static const unsigned long cp_single_1693[] = {0x0207};
+static const unsigned long cp_single_1694[] = {0x0465};
+static const unsigned long cp_single_1695[] = {0x30a8};
+static const unsigned long cp_single_1696[] = {0xff74};
+static const unsigned long cp_single_1697[] = {0x0a74};
+static const unsigned long cp_single_1698[] = {0x3154};
+static const unsigned long cp_single_1699[] = {0x043b};
+static const unsigned long cp_single_1700[] = {0x2208};
+static const unsigned long cp_single_1701[] = {0x246a};
+static const unsigned long cp_single_1702[] = {0x247e};
+static const unsigned long cp_single_1703[] = {0x2492};
+static const unsigned long cp_single_1704[] = {0x217a};
+static const unsigned long cp_single_1705[] = {0x2026};
+static const unsigned long cp_single_1706[] = {0x22ee};
+static const unsigned long cp_single_1707[] = {0x0113};
+static const unsigned long cp_single_1708[] = {0x1e17};
+static const unsigned long cp_single_1709[] = {0x1e15};
+static const unsigned long cp_single_1710[] = {0x043c};
+static const unsigned long cp_single_1711[] = {0x2014};
+static const unsigned long cp_single_1712[] = {0xfe31};
+static const unsigned long cp_single_1713[] = {0xff45};
+static const unsigned long cp_single_1714[] = {0x055b};
+static const unsigned long cp_single_1715[] = {0x2205};
+static const unsigned long cp_single_1716[] = {0x3123};
+static const unsigned long cp_single_1717[] = {0x043d};
+static const unsigned long cp_single_1718[] = {0x2013};
+static const unsigned long cp_single_1719[] = {0xfe32};
+static const unsigned long cp_single_1720[] = {0x04a3};
+static const unsigned long cp_single_1721[] = {0x014b};
+static const unsigned long cp_single_1722[] = {0x3125};
+static const unsigned long cp_single_1723[] = {0x04a5};
+static const unsigned long cp_single_1724[] = {0x04c8};
+static const unsigned long cp_single_1725[] = {0x2002};
+static const unsigned long cp_single_1726[] = {0x0119};
+static const unsigned long cp_single_1727[] = {0x3153};
+static const unsigned long cp_single_1728[] = {0x025b};
+static const unsigned long cp_single_1729[] = {0x029a};
+static const unsigned long cp_single_1730[] = {0x025c};
+static const unsigned long cp_single_1731[] = {0x025e};
+static const unsigned long cp_single_1732[] = {0x025d};
+static const unsigned long cp_single_1733[] = {0x24a0};
+static const unsigned long cp_single_1734[] = {0x03b5};
+static const unsigned long cp_single_1735[] = {0x03ad};
+static const unsigned long cp_single_1736[] = {0x003d};
+static const unsigned long cp_single_1737[] = {0xff1d};
+static const unsigned long cp_single_1738[] = {0xfe66};
+static const unsigned long cp_single_1739[] = {0x207c};
+static const unsigned long cp_single_1740[] = {0x2261};
+static const unsigned long cp_single_1741[] = {0x3126};
+static const unsigned long cp_single_1742[] = {0x0440};
+static const unsigned long cp_single_1743[] = {0x0258};
+static const unsigned long cp_single_1744[] = {0x044d};
+static const unsigned long cp_single_1745[] = {0x0441};
+static const unsigned long cp_single_1746[] = {0x04ab};
+static const unsigned long cp_single_1747[] = {0x0283};
+static const unsigned long cp_single_1748[] = {0x0286};
+static const unsigned long cp_single_1749[] = {0x090e};
+static const unsigned long cp_single_1750[] = {0x0946};
+static const unsigned long cp_single_1751[] = {0x01aa};
+static const unsigned long cp_single_1752[] = {0x0285};
+static const unsigned long cp_single_1753[] = {0x3047};
+static const unsigned long cp_single_1754[] = {0x30a7};
+static const unsigned long cp_single_1755[] = {0xff6a};
+static const unsigned long cp_single_1756[] = {0x212e};
+static const unsigned long cp_single_1757[] = {0xf6ec};
+static const unsigned long cp_single_1758[] = {0x03b7};
+static const unsigned long cp_single_1759[] = {0x0568};
+static const unsigned long cp_single_1760[] = {0x03ae};
+static const unsigned long cp_single_1761[] = {0x00f0};
+static const unsigned long cp_single_1762[] = {0x1ebd};
+static const unsigned long cp_single_1763[] = {0x1e1b};
+static const unsigned long cp_single_1764[] = {0x0591};
+static const unsigned long cp_single_1765[] = {0x0591};
+static const unsigned long cp_single_1766[] = {0x0591};
+static const unsigned long cp_single_1767[] = {0x0591};
+static const unsigned long cp_single_1768[] = {0x01dd};
+static const unsigned long cp_single_1769[] = {0x3161};
+static const unsigned long cp_single_1770[] = {0x20ac};
+static const unsigned long cp_single_1771[] = {0x09c7};
+static const unsigned long cp_single_1772[] = {0x0947};
+static const unsigned long cp_single_1773[] = {0x0ac7};
+static const unsigned long cp_single_1774[] = {0x0021};
+static const unsigned long cp_single_1775[] = {0x055c};
+static const unsigned long cp_single_1776[] = {0x203c};
+static const unsigned long cp_single_1777[] = {0x00a1};
+static const unsigned long cp_single_1778[] = {0xf7a1};
+static const unsigned long cp_single_1779[] = {0xff01};
+static const unsigned long cp_single_1780[] = {0xf721};
+static const unsigned long cp_single_1781[] = {0x2203};
+static const unsigned long cp_single_1782[] = {0x0292};
+static const unsigned long cp_single_1783[] = {0x01ef};
+static const unsigned long cp_single_1784[] = {0x0293};
+static const unsigned long cp_single_1785[] = {0x01b9};
+static const unsigned long cp_single_1786[] = {0x01ba};
+static const unsigned long cp_single_1787[] = {0x0066};
+static const unsigned long cp_single_1788[] = {0x095e};
+static const unsigned long cp_single_1789[] = {0x0a5e};
+static const unsigned long cp_single_1790[] = {0x2109};
+static const unsigned long cp_single_1791[] = {0x064e};
+static const unsigned long cp_single_1792[] = {0x064e};
+static const unsigned long cp_single_1793[] = {0x064b};
+static const unsigned long cp_single_1794[] = {0x3108};
+static const unsigned long cp_single_1795[] = {0x24d5};
+static const unsigned long cp_single_1796[] = {0x1e1f};
+static const unsigned long cp_single_1797[] = {0x0641};
+static const unsigned long cp_single_1798[] = {0x0586};
+static const unsigned long cp_single_1799[] = {0xfed2};
+static const unsigned long cp_single_1800[] = {0xfed3};
+static const unsigned long cp_single_1801[] = {0xfed4};
+static const unsigned long cp_single_1802[] = {0x03e5};
+static const unsigned long cp_single_1803[] = {0x2640};
+static const unsigned long cp_single_1804[] = {0xfb00};
+static const unsigned long cp_single_1805[] = {0xfb03};
+static const unsigned long cp_single_1806[] = {0xfb04};
+static const unsigned long cp_single_1807[] = {0xfb01};
+static const unsigned long cp_single_1808[] = {0x246e};
+static const unsigned long cp_single_1809[] = {0x2482};
+static const unsigned long cp_single_1810[] = {0x2496};
+static const unsigned long cp_single_1811[] = {0x2012};
+static const unsigned long cp_single_1812[] = {0x25a0};
+static const unsigned long cp_single_1813[] = {0x25ac};
+static const unsigned long cp_single_1814[] = {0x05da};
+static const unsigned long cp_single_1815[] = {0xfb3a};
+static const unsigned long cp_single_1816[] = {0xfb3a};
+static const unsigned long cp_single_1817[] = {0x05da};
+static const unsigned long cp_single_1818[] = {0x05dd};
+static const unsigned long cp_single_1819[] = {0x05dd};
+static const unsigned long cp_single_1820[] = {0x05df};
+static const unsigned long cp_single_1821[] = {0x05df};
+static const unsigned long cp_single_1822[] = {0x05e3};
+static const unsigned long cp_single_1823[] = {0x05e3};
+static const unsigned long cp_single_1824[] = {0x05e5};
+static const unsigned long cp_single_1825[] = {0x05e5};
+static const unsigned long cp_single_1826[] = {0x02c9};
+static const unsigned long cp_single_1827[] = {0x25c9};
+static const unsigned long cp_single_1828[] = {0x0473};
+static const unsigned long cp_single_1829[] = {0x0035};
+static const unsigned long cp_single_1830[] = {0x0665};
+static const unsigned long cp_single_1831[] = {0x09eb};
+static const unsigned long cp_single_1832[] = {0x2464};
+static const unsigned long cp_single_1833[] = {0x278e};
+static const unsigned long cp_single_1834[] = {0x096b};
+static const unsigned long cp_single_1835[] = {0x215d};
+static const unsigned long cp_single_1836[] = {0x0aeb};
+static const unsigned long cp_single_1837[] = {0x0a6b};
+static const unsigned long cp_single_1838[] = {0x0665};
+static const unsigned long cp_single_1839[] = {0x3025};
+static const unsigned long cp_single_1840[] = {0x3224};
+static const unsigned long cp_single_1841[] = {0x2085};
+static const unsigned long cp_single_1842[] = {0xff15};
+static const unsigned long cp_single_1843[] = {0xf735};
+static const unsigned long cp_single_1844[] = {0x2478};
+static const unsigned long cp_single_1845[] = {0x248c};
+static const unsigned long cp_single_1846[] = {0x06f5};
+static const unsigned long cp_single_1847[] = {0x2174};
+static const unsigned long cp_single_1848[] = {0x2075};
+static const unsigned long cp_single_1849[] = {0x0e55};
+static const unsigned long cp_single_1850[] = {0xfb02};
+static const unsigned long cp_single_1851[] = {0x0192};
+static const unsigned long cp_single_1852[] = {0xff46};
+static const unsigned long cp_single_1853[] = {0x3399};
+static const unsigned long cp_single_1854[] = {0x0e1f};
+static const unsigned long cp_single_1855[] = {0x0e1d};
+static const unsigned long cp_single_1856[] = {0x0e4f};
+static const unsigned long cp_single_1857[] = {0x2200};
+static const unsigned long cp_single_1858[] = {0x0034};
+static const unsigned long cp_single_1859[] = {0x0664};
+static const unsigned long cp_single_1860[] = {0x09ea};
+static const unsigned long cp_single_1861[] = {0x2463};
+static const unsigned long cp_single_1862[] = {0x278d};
+static const unsigned long cp_single_1863[] = {0x096a};
+static const unsigned long cp_single_1864[] = {0x0aea};
+static const unsigned long cp_single_1865[] = {0x0a6a};
+static const unsigned long cp_single_1866[] = {0x0664};
+static const unsigned long cp_single_1867[] = {0x3024};
+static const unsigned long cp_single_1868[] = {0x3223};
+static const unsigned long cp_single_1869[] = {0x2084};
+static const unsigned long cp_single_1870[] = {0xff14};
+static const unsigned long cp_single_1871[] = {0x09f7};
+static const unsigned long cp_single_1872[] = {0xf734};
+static const unsigned long cp_single_1873[] = {0x2477};
+static const unsigned long cp_single_1874[] = {0x248b};
+static const unsigned long cp_single_1875[] = {0x06f4};
+static const unsigned long cp_single_1876[] = {0x2173};
+static const unsigned long cp_single_1877[] = {0x2074};
+static const unsigned long cp_single_1878[] = {0x246d};
+static const unsigned long cp_single_1879[] = {0x2481};
+static const unsigned long cp_single_1880[] = {0x2495};
+static const unsigned long cp_single_1881[] = {0x0e54};
+static const unsigned long cp_single_1882[] = {0x02cb};
+static const unsigned long cp_single_1883[] = {0x24a1};
+static const unsigned long cp_single_1884[] = {0x2044};
+static const unsigned long cp_single_1885[] = {0x20a3};
+static const unsigned long cp_single_1886[] = {0x0067};
+static const unsigned long cp_single_1887[] = {0x0997};
+static const unsigned long cp_single_1888[] = {0x01f5};
+static const unsigned long cp_single_1889[] = {0x0917};
+static const unsigned long cp_single_1890[] = {0x06af};
+static const unsigned long cp_single_1891[] = {0xfb93};
+static const unsigned long cp_single_1892[] = {0xfb94};
+static const unsigned long cp_single_1893[] = {0xfb95};
+static const unsigned long cp_single_1894[] = {0x0a97};
+static const unsigned long cp_single_1895[] = {0x0a17};
+static const unsigned long cp_single_1896[] = {0x304c};
+static const unsigned long cp_single_1897[] = {0x30ac};
+static const unsigned long cp_single_1898[] = {0x03b3};
+static const unsigned long cp_single_1899[] = {0x0263};
+static const unsigned long cp_single_1900[] = {0x02e0};
+static const unsigned long cp_single_1901[] = {0x03eb};
+static const unsigned long cp_single_1902[] = {0x310d};
+static const unsigned long cp_single_1903[] = {0x011f};
+static const unsigned long cp_single_1904[] = {0x01e7};
+static const unsigned long cp_single_1905[] = {0x0123};
+static const unsigned long cp_single_1906[] = {0x24d6};
+static const unsigned long cp_single_1907[] = {0x011d};
+static const unsigned long cp_single_1908[] = {0x0123};
+static const unsigned long cp_single_1909[] = {0x0121};
+static const unsigned long cp_single_1910[] = {0x0121};
+static const unsigned long cp_single_1911[] = {0x0433};
+static const unsigned long cp_single_1912[] = {0x3052};
+static const unsigned long cp_single_1913[] = {0x30b2};
+static const unsigned long cp_single_1914[] = {0x2251};
+static const unsigned long cp_single_1915[] = {0x059c};
+static const unsigned long cp_single_1916[] = {0x05f3};
+static const unsigned long cp_single_1917[] = {0x059d};
+static const unsigned long cp_single_1918[] = {0x00df};
+static const unsigned long cp_single_1919[] = {0x059e};
+static const unsigned long cp_single_1920[] = {0x05f4};
+static const unsigned long cp_single_1921[] = {0x3013};
+static const unsigned long cp_single_1922[] = {0x0998};
+static const unsigned long cp_single_1923[] = {0x0572};
+static const unsigned long cp_single_1924[] = {0x0918};
+static const unsigned long cp_single_1925[] = {0x0a98};
+static const unsigned long cp_single_1926[] = {0x0a18};
+static const unsigned long cp_single_1927[] = {0x063a};
+static const unsigned long cp_single_1928[] = {0xfece};
+static const unsigned long cp_single_1929[] = {0xfecf};
+static const unsigned long cp_single_1930[] = {0xfed0};
+static const unsigned long cp_single_1931[] = {0x0495};
+static const unsigned long cp_single_1932[] = {0x0493};
+static const unsigned long cp_single_1933[] = {0x0491};
+static const unsigned long cp_single_1934[] = {0x095a};
+static const unsigned long cp_single_1935[] = {0x0a5a};
+static const unsigned long cp_single_1936[] = {0x0260};
+static const unsigned long cp_single_1937[] = {0x3393};
+static const unsigned long cp_single_1938[] = {0x304e};
+static const unsigned long cp_single_1939[] = {0x30ae};
+static const unsigned long cp_single_1940[] = {0x0563};
+static const unsigned long cp_single_1941[] = {0x05d2};
+static const unsigned long cp_single_1942[] = {0xfb32};
+static const unsigned long cp_single_1943[] = {0xfb32};
+static const unsigned long cp_single_1944[] = {0x05d2};
+static const unsigned long cp_single_1945[] = {0x0453};
+static const unsigned long cp_single_1946[] = {0x01be};
+static const unsigned long cp_single_1947[] = {0x0294};
+static const unsigned long cp_single_1948[] = {0x0296};
+static const unsigned long cp_single_1949[] = {0x02c0};
+static const unsigned long cp_single_1950[] = {0x0295};
+static const unsigned long cp_single_1951[] = {0x02c1};
+static const unsigned long cp_single_1952[] = {0x02e4};
+static const unsigned long cp_single_1953[] = {0x02a1};
+static const unsigned long cp_single_1954[] = {0x02a2};
+static const unsigned long cp_single_1955[] = {0x1e21};
+static const unsigned long cp_single_1956[] = {0xff47};
+static const unsigned long cp_single_1957[] = {0x3054};
+static const unsigned long cp_single_1958[] = {0x30b4};
+static const unsigned long cp_single_1959[] = {0x24a2};
+static const unsigned long cp_single_1960[] = {0x33ac};
+static const unsigned long cp_single_1961[] = {0x2207};
+static const unsigned long cp_single_1962[] = {0x0060};
+static const unsigned long cp_single_1963[] = {0x0316};
+static const unsigned long cp_single_1964[] = {0x0300};
+static const unsigned long cp_single_1965[] = {0x0300};
+static const unsigned long cp_single_1966[] = {0x0953};
+static const unsigned long cp_single_1967[] = {0x02ce};
+static const unsigned long cp_single_1968[] = {0xff40};
+static const unsigned long cp_single_1969[] = {0x0340};
+static const unsigned long cp_single_1970[] = {0x003e};
+static const unsigned long cp_single_1971[] = {0x2265};
+static const unsigned long cp_single_1972[] = {0x22db};
+static const unsigned long cp_single_1973[] = {0xff1e};
+static const unsigned long cp_single_1974[] = {0x2273};
+static const unsigned long cp_single_1975[] = {0x2277};
+static const unsigned long cp_single_1976[] = {0x2267};
+static const unsigned long cp_single_1977[] = {0xfe65};
+static const unsigned long cp_single_1978[] = {0x0261};
+static const unsigned long cp_single_1979[] = {0x01e5};
+static const unsigned long cp_single_1980[] = {0x3050};
+static const unsigned long cp_single_1981[] = {0x00ab};
+static const unsigned long cp_single_1982[] = {0x00bb};
+static const unsigned long cp_single_1983[] = {0x2039};
+static const unsigned long cp_single_1984[] = {0x203a};
+static const unsigned long cp_single_1985[] = {0x30b0};
+static const unsigned long cp_single_1986[] = {0x3318};
+static const unsigned long cp_single_1987[] = {0x33c9};
+static const unsigned long cp_single_1988[] = {0x0068};
+static const unsigned long cp_single_1989[] = {0x04a9};
+static const unsigned long cp_single_1990[] = {0x06c1};
+static const unsigned long cp_single_1991[] = {0x09b9};
+static const unsigned long cp_single_1992[] = {0x04b3};
+static const unsigned long cp_single_1993[] = {0x0939};
+static const unsigned long cp_single_1994[] = {0x0ab9};
+static const unsigned long cp_single_1995[] = {0x0a39};
+static const unsigned long cp_single_1996[] = {0x062d};
+static const unsigned long cp_single_1997[] = {0xfea2};
+static const unsigned long cp_single_1998[] = {0xfea3};
+static const unsigned long cp_single_1999[] = {0x306f};
+static const unsigned long cp_single_2000[] = {0xfea4};
+static const unsigned long cp_single_2001[] = {0x332a};
+static const unsigned long cp_single_2002[] = {0x30cf};
+static const unsigned long cp_single_2003[] = {0xff8a};
+static const unsigned long cp_single_2004[] = {0x0a4d};
+static const unsigned long cp_single_2005[] = {0x0621};
+static const unsigned long cp_single_2006[] = {0x0621};
+static const unsigned long cp_single_2007[] = {0x3164};
+static const unsigned long cp_single_2008[] = {0x044a};
+static const unsigned long cp_single_2009[] = {0x21bc};
+static const unsigned long cp_single_2010[] = {0x21c0};
+static const unsigned long cp_single_2011[] = {0x33ca};
+static const unsigned long cp_single_2012[] = {0x05b2};
+static const unsigned long cp_single_2013[] = {0x05b2};
+static const unsigned long cp_single_2014[] = {0x05b2};
+static const unsigned long cp_single_2015[] = {0x05b2};
+static const unsigned long cp_single_2016[] = {0x05b2};
+static const unsigned long cp_single_2017[] = {0x05b2};
+static const unsigned long cp_single_2018[] = {0x05b2};
+static const unsigned long cp_single_2019[] = {0x05b2};
+static const unsigned long cp_single_2020[] = {0x05b3};
+static const unsigned long cp_single_2021[] = {0x05b3};
+static const unsigned long cp_single_2022[] = {0x05b3};
+static const unsigned long cp_single_2023[] = {0x05b3};
+static const unsigned long cp_single_2024[] = {0x05b3};
+static const unsigned long cp_single_2025[] = {0x05b3};
+static const unsigned long cp_single_2026[] = {0x05b3};
+static const unsigned long cp_single_2027[] = {0x05b3};
+static const unsigned long cp_single_2028[] = {0x05b1};
+static const unsigned long cp_single_2029[] = {0x05b1};
+static const unsigned long cp_single_2030[] = {0x05b1};
+static const unsigned long cp_single_2031[] = {0x05b1};
+static const unsigned long cp_single_2032[] = {0x05b1};
+static const unsigned long cp_single_2033[] = {0x05b1};
+static const unsigned long cp_single_2034[] = {0x05b1};
+static const unsigned long cp_single_2035[] = {0x05b1};
+static const unsigned long cp_single_2036[] = {0x0127};
+static const unsigned long cp_single_2037[] = {0x310f};
+static const unsigned long cp_single_2038[] = {0x1e2b};
+static const unsigned long cp_single_2039[] = {0x1e29};
+static const unsigned long cp_single_2040[] = {0x24d7};
+static const unsigned long cp_single_2041[] = {0x0125};
+static const unsigned long cp_single_2042[] = {0x1e27};
+static const unsigned long cp_single_2043[] = {0x1e23};
+static const unsigned long cp_single_2044[] = {0x1e25};
+static const unsigned long cp_single_2045[] = {0x05d4};
+static const unsigned long cp_single_2046[] = {0x2665};
+static const unsigned long cp_single_2047[] = {0x2665};
+static const unsigned long cp_single_2048[] = {0x2661};
+static const unsigned long cp_single_2049[] = {0xfb34};
+static const unsigned long cp_single_2050[] = {0xfb34};
+static const unsigned long cp_single_2051[] = {0x06c1};
+static const unsigned long cp_single_2052[] = {0x0647};
+static const unsigned long cp_single_2053[] = {0x05d4};
+static const unsigned long cp_single_2054[] = {0xfba7};
+static const unsigned long cp_single_2055[] = {0xfeea};
+static const unsigned long cp_single_2056[] = {0xfeea};
+static const unsigned long cp_single_2057[] = {0xfba5};
+static const unsigned long cp_single_2058[] = {0xfba4};
+static const unsigned long cp_single_2059[] = {0xfba8};
+static const unsigned long cp_single_2060[] = {0xfeeb};
+static const unsigned long cp_single_2061[] = {0x3078};
+static const unsigned long cp_single_2062[] = {0xfba9};
+static const unsigned long cp_single_2063[] = {0xfeec};
+static const unsigned long cp_single_2064[] = {0x337b};
+static const unsigned long cp_single_2065[] = {0x30d8};
+static const unsigned long cp_single_2066[] = {0xff8d};
+static const unsigned long cp_single_2067[] = {0x3336};
+static const unsigned long cp_single_2068[] = {0x0267};
+static const unsigned long cp_single_2069[] = {0x3339};
+static const unsigned long cp_single_2070[] = {0x05d7};
+static const unsigned long cp_single_2071[] = {0x05d7};
+static const unsigned long cp_single_2072[] = {0x0266};
+static const unsigned long cp_single_2073[] = {0x02b1};
+static const unsigned long cp_single_2074[] = {0x327b};
+static const unsigned long cp_single_2075[] = {0x321b};
+static const unsigned long cp_single_2076[] = {0x326d};
+static const unsigned long cp_single_2077[] = {0x314e};
+static const unsigned long cp_single_2078[] = {0x320d};
+static const unsigned long cp_single_2079[] = {0x3072};
+static const unsigned long cp_single_2080[] = {0x30d2};
+static const unsigned long cp_single_2081[] = {0xff8b};
+static const unsigned long cp_single_2082[] = {0x05b4};
+static const unsigned long cp_single_2083[] = {0x05b4};
+static const unsigned long cp_single_2084[] = {0x05b4};
+static const unsigned long cp_single_2085[] = {0x05b4};
+static const unsigned long cp_single_2086[] = {0x05b4};
+static const unsigned long cp_single_2087[] = {0x05b4};
+static const unsigned long cp_single_2088[] = {0x05b4};
+static const unsigned long cp_single_2089[] = {0x05b4};
+static const unsigned long cp_single_2090[] = {0x1e96};
+static const unsigned long cp_single_2091[] = {0xff48};
+static const unsigned long cp_single_2092[] = {0x0570};
+static const unsigned long cp_single_2093[] = {0x0e2b};
+static const unsigned long cp_single_2094[] = {0x307b};
+static const unsigned long cp_single_2095[] = {0x30db};
+static const unsigned long cp_single_2096[] = {0xff8e};
+static const unsigned long cp_single_2097[] = {0x05b9};
+static const unsigned long cp_single_2098[] = {0x05b9};
+static const unsigned long cp_single_2099[] = {0x05b9};
+static const unsigned long cp_single_2100[] = {0x05b9};
+static const unsigned long cp_single_2101[] = {0x05b9};
+static const unsigned long cp_single_2102[] = {0x05b9};
+static const unsigned long cp_single_2103[] = {0x05b9};
+static const unsigned long cp_single_2104[] = {0x05b9};
+static const unsigned long cp_single_2105[] = {0x0e2e};
+static const unsigned long cp_single_2106[] = {0x0309};
+static const unsigned long cp_single_2107[] = {0x0309};
+static const unsigned long cp_single_2108[] = {0x0321};
+static const unsigned long cp_single_2109[] = {0x0322};
+static const unsigned long cp_single_2110[] = {0x3342};
+static const unsigned long cp_single_2111[] = {0x03e9};
+static const unsigned long cp_single_2112[] = {0x2015};
+static const unsigned long cp_single_2113[] = {0x031b};
+static const unsigned long cp_single_2114[] = {0x2668};
+static const unsigned long cp_single_2115[] = {0x2302};
+static const unsigned long cp_single_2116[] = {0x24a3};
+static const unsigned long cp_single_2117[] = {0x02b0};
+static const unsigned long cp_single_2118[] = {0x0265};
+static const unsigned long cp_single_2119[] = {0x3075};
+static const unsigned long cp_single_2120[] = {0x3333};
+static const unsigned long cp_single_2121[] = {0x30d5};
+static const unsigned long cp_single_2122[] = {0xff8c};
+static const unsigned long cp_single_2123[] = {0x02dd};
+static const unsigned long cp_single_2124[] = {0x030b};
+static const unsigned long cp_single_2125[] = {0x0195};
+static const unsigned long cp_single_2126[] = {0x002d};
+static const unsigned long cp_single_2127[] = {0xf6e5};
+static const unsigned long cp_single_2128[] = {0xff0d};
+static const unsigned long cp_single_2129[] = {0xfe63};
+static const unsigned long cp_single_2130[] = {0xf6e6};
+static const unsigned long cp_single_2131[] = {0x2010};
+static const unsigned long cp_single_2132[] = {0x0069};
+static const unsigned long cp_single_2133[] = {0x00ed};
+static const unsigned long cp_single_2134[] = {0x044f};
+static const unsigned long cp_single_2135[] = {0x0987};
+static const unsigned long cp_single_2136[] = {0x3127};
+static const unsigned long cp_single_2137[] = {0x012d};
+static const unsigned long cp_single_2138[] = {0x01d0};
+static const unsigned long cp_single_2139[] = {0x24d8};
+static const unsigned long cp_single_2140[] = {0x00ee};
+static const unsigned long cp_single_2141[] = {0x0456};
+static const unsigned long cp_single_2142[] = {0x0209};
+static const unsigned long cp_single_2143[] = {0x328f};
+static const unsigned long cp_single_2144[] = {0x328b};
+static const unsigned long cp_single_2145[] = {0x323f};
+static const unsigned long cp_single_2146[] = {0x323a};
+static const unsigned long cp_single_2147[] = {0x32a5};
+static const unsigned long cp_single_2148[] = {0x3006};
+static const unsigned long cp_single_2149[] = {0x3001};
+static const unsigned long cp_single_2150[] = {0xff64};
+static const unsigned long cp_single_2151[] = {0x3237};
+static const unsigned long cp_single_2152[] = {0x32a3};
+static const unsigned long cp_single_2153[] = {0x322f};
+static const unsigned long cp_single_2154[] = {0x323d};
+static const unsigned long cp_single_2155[] = {0x329d};
+static const unsigned long cp_single_2156[] = {0x3240};
+static const unsigned long cp_single_2157[] = {0x3296};
+static const unsigned long cp_single_2158[] = {0x3236};
+static const unsigned long cp_single_2159[] = {0x322b};
+static const unsigned long cp_single_2160[] = {0x3232};
+static const unsigned long cp_single_2161[] = {0x32a4};
+static const unsigned long cp_single_2162[] = {0x3005};
+static const unsigned long cp_single_2163[] = {0x3298};
+static const unsigned long cp_single_2164[] = {0x3238};
+static const unsigned long cp_single_2165[] = {0x32a7};
+static const unsigned long cp_single_2166[] = {0x32a6};
+static const unsigned long cp_single_2167[] = {0x32a9};
+static const unsigned long cp_single_2168[] = {0x322e};
+static const unsigned long cp_single_2169[] = {0x322a};
+static const unsigned long cp_single_2170[] = {0x3234};
+static const unsigned long cp_single_2171[] = {0x3002};
+static const unsigned long cp_single_2172[] = {0x329e};
+static const unsigned long cp_single_2173[] = {0x3243};
+static const unsigned long cp_single_2174[] = {0x3239};
+static const unsigned long cp_single_2175[] = {0x323e};
+static const unsigned long cp_single_2176[] = {0x32a8};
+static const unsigned long cp_single_2177[] = {0x3299};
+static const unsigned long cp_single_2178[] = {0x3242};
+static const unsigned long cp_single_2179[] = {0x3233};
+static const unsigned long cp_single_2180[] = {0x3000};
+static const unsigned long cp_single_2181[] = {0x3235};
+static const unsigned long cp_single_2182[] = {0x3231};
+static const unsigned long cp_single_2183[] = {0x323b};
+static const unsigned long cp_single_2184[] = {0x3230};
+static const unsigned long cp_single_2185[] = {0x323c};
+static const unsigned long cp_single_2186[] = {0x322c};
+static const unsigned long cp_single_2187[] = {0x322d};
+static const unsigned long cp_single_2188[] = {0x3007};
+static const unsigned long cp_single_2189[] = {0x328e};
+static const unsigned long cp_single_2190[] = {0x328a};
+static const unsigned long cp_single_2191[] = {0x3294};
+static const unsigned long cp_single_2192[] = {0x3290};
+static const unsigned long cp_single_2193[] = {0x328c};
+static const unsigned long cp_single_2194[] = {0x328d};
+static const unsigned long cp_single_2195[] = {0x0907};
+static const unsigned long cp_single_2196[] = {0x00ef};
+static const unsigned long cp_single_2197[] = {0x1e2f};
+static const unsigned long cp_single_2198[] = {0x04e5};
+static const unsigned long cp_single_2199[] = {0x1ecb};
+static const unsigned long cp_single_2200[] = {0x04d7};
+static const unsigned long cp_single_2201[] = {0x0435};
+static const unsigned long cp_single_2202[] = {0x3275};
+static const unsigned long cp_single_2203[] = {0x3215};
+static const unsigned long cp_single_2204[] = {0x3267};
+static const unsigned long cp_single_2205[] = {0x3147};
+static const unsigned long cp_single_2206[] = {0x3207};
+static const unsigned long cp_single_2207[] = {0x00ec};
+static const unsigned long cp_single_2208[] = {0x0a87};
+static const unsigned long cp_single_2209[] = {0x0a07};
+static const unsigned long cp_single_2210[] = {0x3044};
+static const unsigned long cp_single_2211[] = {0x1ec9};
+static const unsigned long cp_single_2212[] = {0x0988};
+static const unsigned long cp_single_2213[] = {0x0438};
+static const unsigned long cp_single_2214[] = {0x0908};
+static const unsigned long cp_single_2215[] = {0x0a88};
+static const unsigned long cp_single_2216[] = {0x0a08};
+static const unsigned long cp_single_2217[] = {0x0a40};
+static const unsigned long cp_single_2218[] = {0x020b};
+static const unsigned long cp_single_2219[] = {0x0439};
+static const unsigned long cp_single_2220[] = {0x09c0};
+static const unsigned long cp_single_2221[] = {0x0940};
+static const unsigned long cp_single_2222[] = {0x0ac0};
+static const unsigned long cp_single_2223[] = {0x0133};
+static const unsigned long cp_single_2224[] = {0x30a4};
+static const unsigned long cp_single_2225[] = {0xff72};
+static const unsigned long cp_single_2226[] = {0x3163};
+static const unsigned long cp_single_2227[] = {0x02dc};
+static const unsigned long cp_single_2228[] = {0x05ac};
+static const unsigned long cp_single_2229[] = {0x012b};
+static const unsigned long cp_single_2230[] = {0x04e3};
+static const unsigned long cp_single_2231[] = {0x2253};
+static const unsigned long cp_single_2232[] = {0x0a3f};
+static const unsigned long cp_single_2233[] = {0xff49};
+static const unsigned long cp_single_2234[] = {0x2206};
+static const unsigned long cp_single_2235[] = {0x221e};
+static const unsigned long cp_single_2236[] = {0x056b};
+static const unsigned long cp_single_2237[] = {0x222b};
+static const unsigned long cp_single_2238[] = {0x2321};
+static const unsigned long cp_single_2239[] = {0x2321};
+static const unsigned long cp_single_2240[] = {0xf8f5};
+static const unsigned long cp_single_2241[] = {0x2320};
+static const unsigned long cp_single_2242[] = {0x2320};
+static const unsigned long cp_single_2243[] = {0x2229};
+static const unsigned long cp_single_2244[] = {0x3305};
+static const unsigned long cp_single_2245[] = {0x25d8};
+static const unsigned long cp_single_2246[] = {0x25d9};
+static const unsigned long cp_single_2247[] = {0x263b};
+static const unsigned long cp_single_2248[] = {0x0451};
+static const unsigned long cp_single_2249[] = {0x012f};
+static const unsigned long cp_single_2250[] = {0x03b9};
+static const unsigned long cp_single_2251[] = {0x03ca};
+static const unsigned long cp_single_2252[] = {0x0390};
+static const unsigned long cp_single_2253[] = {0x0269};
+static const unsigned long cp_single_2254[] = {0x03af};
+static const unsigned long cp_single_2255[] = {0x24a4};
+static const unsigned long cp_single_2256[] = {0x0a72};
+static const unsigned long cp_single_2257[] = {0x3043};
+static const unsigned long cp_single_2258[] = {0x30a3};
+static const unsigned long cp_single_2259[] = {0xff68};
+static const unsigned long cp_single_2260[] = {0x09fa};
+static const unsigned long cp_single_2261[] = {0x0268};
+static const unsigned long cp_single_2262[] = {0xf6ed};
+static const unsigned long cp_single_2263[] = {0x309d};
+static const unsigned long cp_single_2264[] = {0x30fd};
+static const unsigned long cp_single_2265[] = {0x0129};
+static const unsigned long cp_single_2266[] = {0x1e2d};
+static const unsigned long cp_single_2267[] = {0x3129};
+static const unsigned long cp_single_2268[] = {0x044e};
+static const unsigned long cp_single_2269[] = {0x09bf};
+static const unsigned long cp_single_2270[] = {0x093f};
+static const unsigned long cp_single_2271[] = {0x0abf};
+static const unsigned long cp_single_2272[] = {0x0475};
+static const unsigned long cp_single_2273[] = {0x0477};
+static const unsigned long cp_single_2274[] = {0x006a};
+static const unsigned long cp_single_2275[] = {0x0571};
+static const unsigned long cp_single_2276[] = {0x099c};
+static const unsigned long cp_single_2277[] = {0x091c};
+static const unsigned long cp_single_2278[] = {0x0a9c};
+static const unsigned long cp_single_2279[] = {0x0a1c};
+static const unsigned long cp_single_2280[] = {0x3110};
+static const unsigned long cp_single_2281[] = {0x01f0};
+static const unsigned long cp_single_2282[] = {0x24d9};
+static const unsigned long cp_single_2283[] = {0x0135};
+static const unsigned long cp_single_2284[] = {0x029d};
+static const unsigned long cp_single_2285[] = {0x025f};
+static const unsigned long cp_single_2286[] = {0x0458};
+static const unsigned long cp_single_2287[] = {0x062c};
+static const unsigned long cp_single_2288[] = {0xfe9e};
+static const unsigned long cp_single_2289[] = {0xfe9f};
+static const unsigned long cp_single_2290[] = {0xfea0};
+static const unsigned long cp_single_2291[] = {0x0698};
+static const unsigned long cp_single_2292[] = {0xfb8b};
+static const unsigned long cp_single_2293[] = {0x099d};
+static const unsigned long cp_single_2294[] = {0x091d};
+static const unsigned long cp_single_2295[] = {0x0a9d};
+static const unsigned long cp_single_2296[] = {0x0a1d};
+static const unsigned long cp_single_2297[] = {0x057b};
+static const unsigned long cp_single_2298[] = {0x3004};
+static const unsigned long cp_single_2299[] = {0xff4a};
+static const unsigned long cp_single_2300[] = {0x24a5};
+static const unsigned long cp_single_2301[] = {0x02b2};
+static const unsigned long cp_single_2302[] = {0x006b};
+static const unsigned long cp_single_2303[] = {0x04a1};
+static const unsigned long cp_single_2304[] = {0x0995};
+static const unsigned long cp_single_2305[] = {0x1e31};
+static const unsigned long cp_single_2306[] = {0x043a};
+static const unsigned long cp_single_2307[] = {0x049b};
+static const unsigned long cp_single_2308[] = {0x0915};
+static const unsigned long cp_single_2309[] = {0x05db};
+static const unsigned long cp_single_2310[] = {0x0643};
+static const unsigned long cp_single_2311[] = {0xfb3b};
+static const unsigned long cp_single_2312[] = {0xfb3b};
+static const unsigned long cp_single_2313[] = {0xfeda};
+static const unsigned long cp_single_2314[] = {0x05db};
+static const unsigned long cp_single_2315[] = {0xfedb};
+static const unsigned long cp_single_2316[] = {0xfedc};
+static const unsigned long cp_single_2317[] = {0xfb4d};
+static const unsigned long cp_single_2318[] = {0x0a95};
+static const unsigned long cp_single_2319[] = {0x0a15};
+static const unsigned long cp_single_2320[] = {0x304b};
+static const unsigned long cp_single_2321[] = {0x04c4};
+static const unsigned long cp_single_2322[] = {0x30ab};
+static const unsigned long cp_single_2323[] = {0xff76};
+static const unsigned long cp_single_2324[] = {0x03ba};
+static const unsigned long cp_single_2325[] = {0x03f0};
+static const unsigned long cp_single_2326[] = {0x3171};
+static const unsigned long cp_single_2327[] = {0x3184};
+static const unsigned long cp_single_2328[] = {0x3178};
+static const unsigned long cp_single_2329[] = {0x3179};
+static const unsigned long cp_single_2330[] = {0x330d};
+static const unsigned long cp_single_2331[] = {0x0640};
+static const unsigned long cp_single_2332[] = {0x0640};
+static const unsigned long cp_single_2333[] = {0x30f5};
+static const unsigned long cp_single_2334[] = {0x3384};
+static const unsigned long cp_single_2335[] = {0x0650};
+static const unsigned long cp_single_2336[] = {0x064d};
+static const unsigned long cp_single_2337[] = {0x049f};
+static const unsigned long cp_single_2338[] = {0xff70};
+static const unsigned long cp_single_2339[] = {0x049d};
+static const unsigned long cp_single_2340[] = {0x310e};
+static const unsigned long cp_single_2341[] = {0x3389};
+static const unsigned long cp_single_2342[] = {0x01e9};
+static const unsigned long cp_single_2343[] = {0x0137};
+static const unsigned long cp_single_2344[] = {0x24da};
+static const unsigned long cp_single_2345[] = {0x0137};
+static const unsigned long cp_single_2346[] = {0x1e33};
+static const unsigned long cp_single_2347[] = {0x0584};
+static const unsigned long cp_single_2348[] = {0x3051};
+static const unsigned long cp_single_2349[] = {0x30b1};
+static const unsigned long cp_single_2350[] = {0xff79};
+static const unsigned long cp_single_2351[] = {0x056f};
+static const unsigned long cp_single_2352[] = {0x30f6};
+static const unsigned long cp_single_2353[] = {0x0138};
+static const unsigned long cp_single_2354[] = {0x0996};
+static const unsigned long cp_single_2355[] = {0x0445};
+static const unsigned long cp_single_2356[] = {0x0916};
+static const unsigned long cp_single_2357[] = {0x0a96};
+static const unsigned long cp_single_2358[] = {0x0a16};
+static const unsigned long cp_single_2359[] = {0x062e};
+static const unsigned long cp_single_2360[] = {0xfea6};
+static const unsigned long cp_single_2361[] = {0xfea7};
+static const unsigned long cp_single_2362[] = {0xfea8};
+static const unsigned long cp_single_2363[] = {0x03e7};
+static const unsigned long cp_single_2364[] = {0x0959};
+static const unsigned long cp_single_2365[] = {0x0a59};
+static const unsigned long cp_single_2366[] = {0x3278};
+static const unsigned long cp_single_2367[] = {0x3218};
+static const unsigned long cp_single_2368[] = {0x326a};
+static const unsigned long cp_single_2369[] = {0x314b};
+static const unsigned long cp_single_2370[] = {0x320a};
+static const unsigned long cp_single_2371[] = {0x0e02};
+static const unsigned long cp_single_2372[] = {0x0e05};
+static const unsigned long cp_single_2373[] = {0x0e03};
+static const unsigned long cp_single_2374[] = {0x0e04};
+static const unsigned long cp_single_2375[] = {0x0e5b};
+static const unsigned long cp_single_2376[] = {0x0199};
+static const unsigned long cp_single_2377[] = {0x0e06};
+static const unsigned long cp_single_2378[] = {0x3391};
+static const unsigned long cp_single_2379[] = {0x304d};
+static const unsigned long cp_single_2380[] = {0x30ad};
+static const unsigned long cp_single_2381[] = {0xff77};
+static const unsigned long cp_single_2382[] = {0x3315};
+static const unsigned long cp_single_2383[] = {0x3316};
+static const unsigned long cp_single_2384[] = {0x3314};
+static const unsigned long cp_single_2385[] = {0x326e};
+static const unsigned long cp_single_2386[] = {0x320e};
+static const unsigned long cp_single_2387[] = {0x3260};
+static const unsigned long cp_single_2388[] = {0x3131};
+static const unsigned long cp_single_2389[] = {0x3200};
+static const unsigned long cp_single_2390[] = {0x3133};
+static const unsigned long cp_single_2391[] = {0x045c};
+static const unsigned long cp_single_2392[] = {0x1e35};
+static const unsigned long cp_single_2393[] = {0x3398};
+static const unsigned long cp_single_2394[] = {0x33a6};
+static const unsigned long cp_single_2395[] = {0xff4b};
+static const unsigned long cp_single_2396[] = {0x33a2};
+static const unsigned long cp_single_2397[] = {0x3053};
+static const unsigned long cp_single_2398[] = {0x33c0};
+static const unsigned long cp_single_2399[] = {0x0e01};
+static const unsigned long cp_single_2400[] = {0x30b3};
+static const unsigned long cp_single_2401[] = {0xff7a};
+static const unsigned long cp_single_2402[] = {0x331e};
+static const unsigned long cp_single_2403[] = {0x0481};
+static const unsigned long cp_single_2404[] = {0x327f};
+static const unsigned long cp_single_2405[] = {0x0343};
+static const unsigned long cp_single_2406[] = {0x24a6};
+static const unsigned long cp_single_2407[] = {0x33aa};
+static const unsigned long cp_single_2408[] = {0x046f};
+static const unsigned long cp_single_2409[] = {0x33cf};
+static const unsigned long cp_single_2410[] = {0x029e};
+static const unsigned long cp_single_2411[] = {0x304f};
+static const unsigned long cp_single_2412[] = {0x30af};
+static const unsigned long cp_single_2413[] = {0xff78};
+static const unsigned long cp_single_2414[] = {0x33b8};
+static const unsigned long cp_single_2415[] = {0x33be};
+static const unsigned long cp_single_2416[] = {0x006c};
+static const unsigned long cp_single_2417[] = {0x09b2};
+static const unsigned long cp_single_2418[] = {0x013a};
+static const unsigned long cp_single_2419[] = {0x0932};
+static const unsigned long cp_single_2420[] = {0x0ab2};
+static const unsigned long cp_single_2421[] = {0x0a32};
+static const unsigned long cp_single_2422[] = {0x0e45};
+static const unsigned long cp_single_2423[] = {0xfefc};
+static const unsigned long cp_single_2424[] = {0xfef8};
+static const unsigned long cp_single_2425[] = {0xfef7};
+static const unsigned long cp_single_2426[] = {0xfefa};
+static const unsigned long cp_single_2427[] = {0xfef9};
+static const unsigned long cp_single_2428[] = {0xfefb};
+static const unsigned long cp_single_2429[] = {0xfef6};
+static const unsigned long cp_single_2430[] = {0xfef5};
+static const unsigned long cp_single_2431[] = {0x0644};
+static const unsigned long cp_single_2432[] = {0x03bb};
+static const unsigned long cp_single_2433[] = {0x019b};
+static const unsigned long cp_single_2434[] = {0x05dc};
+static const unsigned long cp_single_2435[] = {0xfb3c};
+static const unsigned long cp_single_2436[] = {0xfb3c};
+static const unsigned long cp_single_2437[] = {0x05dc};
+static const unsigned long cp_single_2438[] = {0xfede};
+static const unsigned long cp_single_2439[] = {0xfcca};
+static const unsigned long cp_single_2440[] = {0xfedf};
+static const unsigned long cp_single_2441[] = {0xfcc9};
+static const unsigned long cp_single_2442[] = {0xfccb};
+static const unsigned long cp_single_2443[] = {0xfdf2};
+static const unsigned long cp_single_2444[] = {0xfee0};
+static const unsigned long cp_single_2445[] = {0xfd88};
+static const unsigned long cp_single_2446[] = {0xfccc};
+static const unsigned long cp_single_2447[] = {0x25ef};
+static const unsigned long cp_single_2448[] = {0x019a};
+static const unsigned long cp_single_2449[] = {0x026c};
+static const unsigned long cp_single_2450[] = {0x310c};
+static const unsigned long cp_single_2451[] = {0x013e};
+static const unsigned long cp_single_2452[] = {0x013c};
+static const unsigned long cp_single_2453[] = {0x24db};
+static const unsigned long cp_single_2454[] = {0x1e3d};
+static const unsigned long cp_single_2455[] = {0x013c};
+static const unsigned long cp_single_2456[] = {0x0140};
+static const unsigned long cp_single_2457[] = {0x0140};
+static const unsigned long cp_single_2458[] = {0x1e37};
+static const unsigned long cp_single_2459[] = {0x1e39};
+static const unsigned long cp_single_2460[] = {0x031a};
+static const unsigned long cp_single_2461[] = {0x0318};
+static const unsigned long cp_single_2462[] = {0x003c};
+static const unsigned long cp_single_2463[] = {0x2264};
+static const unsigned long cp_single_2464[] = {0x22da};
+static const unsigned long cp_single_2465[] = {0xff1c};
+static const unsigned long cp_single_2466[] = {0x2272};
+static const unsigned long cp_single_2467[] = {0x2276};
+static const unsigned long cp_single_2468[] = {0x2266};
+static const unsigned long cp_single_2469[] = {0xfe64};
+static const unsigned long cp_single_2470[] = {0x026e};
+static const unsigned long cp_single_2471[] = {0x258c};
+static const unsigned long cp_single_2472[] = {0x026d};
+static const unsigned long cp_single_2473[] = {0x20a4};
+static const unsigned long cp_single_2474[] = {0x056c};
+static const unsigned long cp_single_2475[] = {0x01c9};
+static const unsigned long cp_single_2476[] = {0x0459};
+static const unsigned long cp_single_2477[] = {0xf6c0};
+static const unsigned long cp_single_2478[] = {0x0933};
+static const unsigned long cp_single_2479[] = {0x0ab3};
+static const unsigned long cp_single_2480[] = {0x1e3b};
+static const unsigned long cp_single_2481[] = {0x0934};
+static const unsigned long cp_single_2482[] = {0x09e1};
+static const unsigned long cp_single_2483[] = {0x0961};
+static const unsigned long cp_single_2484[] = {0x09e3};
+static const unsigned long cp_single_2485[] = {0x0963};
+static const unsigned long cp_single_2486[] = {0x026b};
+static const unsigned long cp_single_2487[] = {0xff4c};
+static const unsigned long cp_single_2488[] = {0x33d0};
+static const unsigned long cp_single_2489[] = {0x0e2c};
+static const unsigned long cp_single_2490[] = {0x2227};
+static const unsigned long cp_single_2491[] = {0x00ac};
+static const unsigned long cp_single_2492[] = {0x2310};
+static const unsigned long cp_single_2493[] = {0x2228};
+static const unsigned long cp_single_2494[] = {0x0e25};
+static const unsigned long cp_single_2495[] = {0x017f};
+static const unsigned long cp_single_2496[] = {0xfe4e};
+static const unsigned long cp_single_2497[] = {0x0332};
+static const unsigned long cp_single_2498[] = {0xfe4d};
+static const unsigned long cp_single_2499[] = {0x25ca};
+static const unsigned long cp_single_2500[] = {0x24a7};
+static const unsigned long cp_single_2501[] = {0x0142};
+static const unsigned long cp_single_2502[] = {0x2113};
+static const unsigned long cp_single_2503[] = {0xf6ee};
+static const unsigned long cp_single_2504[] = {0x2591};
+static const unsigned long cp_single_2505[] = {0x0e26};
+static const unsigned long cp_single_2506[] = {0x098c};
+static const unsigned long cp_single_2507[] = {0x090c};
+static const unsigned long cp_single_2508[] = {0x09e2};
+static const unsigned long cp_single_2509[] = {0x0962};
+static const unsigned long cp_single_2510[] = {0x33d3};
+static const unsigned long cp_single_2511[] = {0x006d};
+static const unsigned long cp_single_2512[] = {0x09ae};
+static const unsigned long cp_single_2513[] = {0x00af};
+static const unsigned long cp_single_2514[] = {0x0331};
+static const unsigned long cp_single_2515[] = {0x0304};
+static const unsigned long cp_single_2516[] = {0x02cd};
+static const unsigned long cp_single_2517[] = {0xffe3};
+static const unsigned long cp_single_2518[] = {0x1e3f};
+static const unsigned long cp_single_2519[] = {0x092e};
+static const unsigned long cp_single_2520[] = {0x0aae};
+static const unsigned long cp_single_2521[] = {0x0a2e};
+static const unsigned long cp_single_2522[] = {0x05a4};
+static const unsigned long cp_single_2523[] = {0x05a4};
+static const unsigned long cp_single_2524[] = {0x307e};
+static const unsigned long cp_single_2525[] = {0xf895};
+static const unsigned long cp_single_2526[] = {0xf894};
+static const unsigned long cp_single_2527[] = {0x0e4b};
+static const unsigned long cp_single_2528[] = {0xf893};
+static const unsigned long cp_single_2529[] = {0xf88c};
+static const unsigned long cp_single_2530[] = {0xf88b};
+static const unsigned long cp_single_2531[] = {0x0e48};
+static const unsigned long cp_single_2532[] = {0xf88a};
+static const unsigned long cp_single_2533[] = {0xf884};
+static const unsigned long cp_single_2534[] = {0x0e31};
+static const unsigned long cp_single_2535[] = {0xf889};
+static const unsigned long cp_single_2536[] = {0x0e47};
+static const unsigned long cp_single_2537[] = {0xf88f};
+static const unsigned long cp_single_2538[] = {0xf88e};
+static const unsigned long cp_single_2539[] = {0x0e49};
+static const unsigned long cp_single_2540[] = {0xf88d};
+static const unsigned long cp_single_2541[] = {0xf892};
+static const unsigned long cp_single_2542[] = {0xf891};
+static const unsigned long cp_single_2543[] = {0x0e4a};
+static const unsigned long cp_single_2544[] = {0xf890};
+static const unsigned long cp_single_2545[] = {0x0e46};
+static const unsigned long cp_single_2546[] = {0x30de};
+static const unsigned long cp_single_2547[] = {0xff8f};
+static const unsigned long cp_single_2548[] = {0x2642};
+static const unsigned long cp_single_2549[] = {0x3347};
+static const unsigned long cp_single_2550[] = {0x05be};
+static const unsigned long cp_single_2551[] = {0x2642};
+static const unsigned long cp_single_2552[] = {0x05af};
+static const unsigned long cp_single_2553[] = {0x3383};
+static const unsigned long cp_single_2554[] = {0x3107};
+static const unsigned long cp_single_2555[] = {0x33d4};
+static const unsigned long cp_single_2556[] = {0x24dc};
+static const unsigned long cp_single_2557[] = {0x33a5};
+static const unsigned long cp_single_2558[] = {0x1e41};
+static const unsigned long cp_single_2559[] = {0x1e43};
+static const unsigned long cp_single_2560[] = {0x0645};
+static const unsigned long cp_single_2561[] = {0xfee2};
+static const unsigned long cp_single_2562[] = {0xfee3};
+static const unsigned long cp_single_2563[] = {0xfee4};
+static const unsigned long cp_single_2564[] = {0xfcd1};
+static const unsigned long cp_single_2565[] = {0xfc48};
+static const unsigned long cp_single_2566[] = {0x334d};
+static const unsigned long cp_single_2567[] = {0x3081};
+static const unsigned long cp_single_2568[] = {0x337e};
+static const unsigned long cp_single_2569[] = {0x30e1};
+static const unsigned long cp_single_2570[] = {0xff92};
+static const unsigned long cp_single_2571[] = {0x05de};
+static const unsigned long cp_single_2572[] = {0xfb3e};
+static const unsigned long cp_single_2573[] = {0xfb3e};
+static const unsigned long cp_single_2574[] = {0x05de};
+static const unsigned long cp_single_2575[] = {0x0574};
+static const unsigned long cp_single_2576[] = {0x05a5};
+static const unsigned long cp_single_2577[] = {0x05a6};
+static const unsigned long cp_single_2578[] = {0x05a6};
+static const unsigned long cp_single_2579[] = {0x05a5};
+static const unsigned long cp_single_2580[] = {0x0271};
+static const unsigned long cp_single_2581[] = {0x3392};
+static const unsigned long cp_single_2582[] = {0xff65};
+static const unsigned long cp_single_2583[] = {0x00b7};
+static const unsigned long cp_single_2584[] = {0x3272};
+static const unsigned long cp_single_2585[] = {0x3212};
+static const unsigned long cp_single_2586[] = {0x3264};
+static const unsigned long cp_single_2587[] = {0x3141};
+static const unsigned long cp_single_2588[] = {0x3170};
+static const unsigned long cp_single_2589[] = {0x3204};
+static const unsigned long cp_single_2590[] = {0x316e};
+static const unsigned long cp_single_2591[] = {0x316f};
+static const unsigned long cp_single_2592[] = {0x307f};
+static const unsigned long cp_single_2593[] = {0x30df};
+static const unsigned long cp_single_2594[] = {0xff90};
+static const unsigned long cp_single_2595[] = {0x2212};
+static const unsigned long cp_single_2596[] = {0x0320};
+static const unsigned long cp_single_2597[] = {0x2296};
+static const unsigned long cp_single_2598[] = {0x02d7};
+static const unsigned long cp_single_2599[] = {0x2213};
+static const unsigned long cp_single_2600[] = {0x2032};
+static const unsigned long cp_single_2601[] = {0x334a};
+static const unsigned long cp_single_2602[] = {0x3349};
+static const unsigned long cp_single_2603[] = {0x0270};
+static const unsigned long cp_single_2604[] = {0x3396};
+static const unsigned long cp_single_2605[] = {0x33a3};
+static const unsigned long cp_single_2606[] = {0xff4d};
+static const unsigned long cp_single_2607[] = {0x339f};
+static const unsigned long cp_single_2608[] = {0x3082};
+static const unsigned long cp_single_2609[] = {0x33c1};
+static const unsigned long cp_single_2610[] = {0x30e2};
+static const unsigned long cp_single_2611[] = {0xff93};
+static const unsigned long cp_single_2612[] = {0x33d6};
+static const unsigned long cp_single_2613[] = {0x0e21};
+static const unsigned long cp_single_2614[] = {0x33a7};
+static const unsigned long cp_single_2615[] = {0x33a8};
+static const unsigned long cp_single_2616[] = {0x24a8};
+static const unsigned long cp_single_2617[] = {0x33ab};
+static const unsigned long cp_single_2618[] = {0x33b3};
+static const unsigned long cp_single_2619[] = {0xf6ef};
+static const unsigned long cp_single_2620[] = {0x026f};
+static const unsigned long cp_single_2621[] = {0x00b5};
+static const unsigned long cp_single_2622[] = {0x00b5};
+static const unsigned long cp_single_2623[] = {0x3382};
+static const unsigned long cp_single_2624[] = {0x226b};
+static const unsigned long cp_single_2625[] = {0x226a};
+static const unsigned long cp_single_2626[] = {0x338c};
+static const unsigned long cp_single_2627[] = {0x03bc};
+static const unsigned long cp_single_2628[] = {0x338d};
+static const unsigned long cp_single_2629[] = {0x3080};
+static const unsigned long cp_single_2630[] = {0x30e0};
+static const unsigned long cp_single_2631[] = {0xff91};
+static const unsigned long cp_single_2632[] = {0x3395};
+static const unsigned long cp_single_2633[] = {0x00d7};
+static const unsigned long cp_single_2634[] = {0x339b};
+static const unsigned long cp_single_2635[] = {0x05a3};
+static const unsigned long cp_single_2636[] = {0x05a3};
+static const unsigned long cp_single_2637[] = {0x266a};
+static const unsigned long cp_single_2638[] = {0x266b};
+static const unsigned long cp_single_2639[] = {0x266d};
+static const unsigned long cp_single_2640[] = {0x266f};
+static const unsigned long cp_single_2641[] = {0x33b2};
+static const unsigned long cp_single_2642[] = {0x33b6};
+static const unsigned long cp_single_2643[] = {0x33bc};
+static const unsigned long cp_single_2644[] = {0x33b9};
+static const unsigned long cp_single_2645[] = {0x33b7};
+static const unsigned long cp_single_2646[] = {0x33bf};
+static const unsigned long cp_single_2647[] = {0x33bd};
+static const unsigned long cp_single_2648[] = {0x006e};
+static const unsigned long cp_single_2649[] = {0x09a8};
+static const unsigned long cp_single_2650[] = {0x2207};
+static const unsigned long cp_single_2651[] = {0x0144};
+static const unsigned long cp_single_2652[] = {0x0928};
+static const unsigned long cp_single_2653[] = {0x0aa8};
+static const unsigned long cp_single_2654[] = {0x0a28};
+static const unsigned long cp_single_2655[] = {0x306a};
+static const unsigned long cp_single_2656[] = {0x30ca};
+static const unsigned long cp_single_2657[] = {0xff85};
+static const unsigned long cp_single_2658[] = {0x0149};
+static const unsigned long cp_single_2659[] = {0x3381};
+static const unsigned long cp_single_2660[] = {0x310b};
+static const unsigned long cp_single_2661[] = {0x00a0};
+static const unsigned long cp_single_2662[] = {0x0148};
+static const unsigned long cp_single_2663[] = {0x0146};
+static const unsigned long cp_single_2664[] = {0x24dd};
+static const unsigned long cp_single_2665[] = {0x1e4b};
+static const unsigned long cp_single_2666[] = {0x0146};
+static const unsigned long cp_single_2667[] = {0x1e45};
+static const unsigned long cp_single_2668[] = {0x1e47};
+static const unsigned long cp_single_2669[] = {0x306d};
+static const unsigned long cp_single_2670[] = {0x30cd};
+static const unsigned long cp_single_2671[] = {0xff88};
+static const unsigned long cp_single_2672[] = {0x20aa};
+static const unsigned long cp_single_2673[] = {0x338b};
+static const unsigned long cp_single_2674[] = {0x0999};
+static const unsigned long cp_single_2675[] = {0x0919};
+static const unsigned long cp_single_2676[] = {0x0a99};
+static const unsigned long cp_single_2677[] = {0x0a19};
+static const unsigned long cp_single_2678[] = {0x0e07};
+static const unsigned long cp_single_2679[] = {0x3093};
+static const unsigned long cp_single_2680[] = {0x0272};
+static const unsigned long cp_single_2681[] = {0x0273};
+static const unsigned long cp_single_2682[] = {0x326f};
+static const unsigned long cp_single_2683[] = {0x320f};
+static const unsigned long cp_single_2684[] = {0x3135};
+static const unsigned long cp_single_2685[] = {0x3261};
+static const unsigned long cp_single_2686[] = {0x3136};
+static const unsigned long cp_single_2687[] = {0x3134};
+static const unsigned long cp_single_2688[] = {0x3168};
+static const unsigned long cp_single_2689[] = {0x3201};
+static const unsigned long cp_single_2690[] = {0x3167};
+static const unsigned long cp_single_2691[] = {0x3166};
+static const unsigned long cp_single_2692[] = {0x306b};
+static const unsigned long cp_single_2693[] = {0x30cb};
+static const unsigned long cp_single_2694[] = {0xff86};
+static const unsigned long cp_single_2695[] = {0xf899};
+static const unsigned long cp_single_2696[] = {0x0e4d};
+static const unsigned long cp_single_2697[] = {0x0039};
+static const unsigned long cp_single_2698[] = {0x0669};
+static const unsigned long cp_single_2699[] = {0x09ef};
+static const unsigned long cp_single_2700[] = {0x2468};
+static const unsigned long cp_single_2701[] = {0x2792};
+static const unsigned long cp_single_2702[] = {0x096f};
+static const unsigned long cp_single_2703[] = {0x0aef};
+static const unsigned long cp_single_2704[] = {0x0a6f};
+static const unsigned long cp_single_2705[] = {0x0669};
+static const unsigned long cp_single_2706[] = {0x3029};
+static const unsigned long cp_single_2707[] = {0x3228};
+static const unsigned long cp_single_2708[] = {0x2089};
+static const unsigned long cp_single_2709[] = {0xff19};
+static const unsigned long cp_single_2710[] = {0xf739};
+static const unsigned long cp_single_2711[] = {0x247c};
+static const unsigned long cp_single_2712[] = {0x2490};
+static const unsigned long cp_single_2713[] = {0x06f9};
+static const unsigned long cp_single_2714[] = {0x2178};
+static const unsigned long cp_single_2715[] = {0x2079};
+static const unsigned long cp_single_2716[] = {0x2472};
+static const unsigned long cp_single_2717[] = {0x2486};
+static const unsigned long cp_single_2718[] = {0x249a};
+static const unsigned long cp_single_2719[] = {0x0e59};
+static const unsigned long cp_single_2720[] = {0x01cc};
+static const unsigned long cp_single_2721[] = {0x045a};
+static const unsigned long cp_single_2722[] = {0x30f3};
+static const unsigned long cp_single_2723[] = {0xff9d};
+static const unsigned long cp_single_2724[] = {0x019e};
+static const unsigned long cp_single_2725[] = {0x1e49};
+static const unsigned long cp_single_2726[] = {0xff4e};
+static const unsigned long cp_single_2727[] = {0x339a};
+static const unsigned long cp_single_2728[] = {0x09a3};
+static const unsigned long cp_single_2729[] = {0x0923};
+static const unsigned long cp_single_2730[] = {0x0aa3};
+static const unsigned long cp_single_2731[] = {0x0a23};
+static const unsigned long cp_single_2732[] = {0x0929};
+static const unsigned long cp_single_2733[] = {0x306e};
+static const unsigned long cp_single_2734[] = {0x30ce};
+static const unsigned long cp_single_2735[] = {0xff89};
+static const unsigned long cp_single_2736[] = {0x00a0};
+static const unsigned long cp_single_2737[] = {0x0e13};
+static const unsigned long cp_single_2738[] = {0x0e19};
+static const unsigned long cp_single_2739[] = {0x0646};
+static const unsigned long cp_single_2740[] = {0xfee6};
+static const unsigned long cp_single_2741[] = {0x06ba};
+static const unsigned long cp_single_2742[] = {0xfb9f};
+static const unsigned long cp_single_2743[] = {0xfee7};
+static const unsigned long cp_single_2744[] = {0xfcd2};
+static const unsigned long cp_single_2745[] = {0xfc4b};
+static const unsigned long cp_single_2746[] = {0xfee8};
+static const unsigned long cp_single_2747[] = {0xfcd5};
+static const unsigned long cp_single_2748[] = {0xfc4e};
+static const unsigned long cp_single_2749[] = {0xfc8d};
+static const unsigned long cp_single_2750[] = {0x220c};
+static const unsigned long cp_single_2751[] = {0x2209};
+static const unsigned long cp_single_2752[] = {0x2209};
+static const unsigned long cp_single_2753[] = {0x2260};
+static const unsigned long cp_single_2754[] = {0x226f};
+static const unsigned long cp_single_2755[] = {0x2271};
+static const unsigned long cp_single_2756[] = {0x2279};
+static const unsigned long cp_single_2757[] = {0x2262};
+static const unsigned long cp_single_2758[] = {0x226e};
+static const unsigned long cp_single_2759[] = {0x2270};
+static const unsigned long cp_single_2760[] = {0x2226};
+static const unsigned long cp_single_2761[] = {0x2280};
+static const unsigned long cp_single_2762[] = {0x2284};
+static const unsigned long cp_single_2763[] = {0x2281};
+static const unsigned long cp_single_2764[] = {0x2285};
+static const unsigned long cp_single_2765[] = {0x0576};
+static const unsigned long cp_single_2766[] = {0x24a9};
+static const unsigned long cp_single_2767[] = {0x33b1};
+static const unsigned long cp_single_2768[] = {0x207f};
+static const unsigned long cp_single_2769[] = {0x00f1};
+static const unsigned long cp_single_2770[] = {0x03bd};
+static const unsigned long cp_single_2771[] = {0x306c};
+static const unsigned long cp_single_2772[] = {0x30cc};
+static const unsigned long cp_single_2773[] = {0xff87};
+static const unsigned long cp_single_2774[] = {0x09bc};
+static const unsigned long cp_single_2775[] = {0x093c};
+static const unsigned long cp_single_2776[] = {0x0abc};
+static const unsigned long cp_single_2777[] = {0x0a3c};
+static const unsigned long cp_single_2778[] = {0x0023};
+static const unsigned long cp_single_2779[] = {0xff03};
+static const unsigned long cp_single_2780[] = {0xfe5f};
+static const unsigned long cp_single_2781[] = {0x0374};
+static const unsigned long cp_single_2782[] = {0x0375};
+static const unsigned long cp_single_2783[] = {0x2116};
+static const unsigned long cp_single_2784[] = {0x05e0};
+static const unsigned long cp_single_2785[] = {0xfb40};
+static const unsigned long cp_single_2786[] = {0xfb40};
+static const unsigned long cp_single_2787[] = {0x05e0};
+static const unsigned long cp_single_2788[] = {0x33b5};
+static const unsigned long cp_single_2789[] = {0x33bb};
+static const unsigned long cp_single_2790[] = {0x099e};
+static const unsigned long cp_single_2791[] = {0x091e};
+static const unsigned long cp_single_2792[] = {0x0a9e};
+static const unsigned long cp_single_2793[] = {0x0a1e};
+static const unsigned long cp_single_2794[] = {0x006f};
+static const unsigned long cp_single_2795[] = {0x00f3};
+static const unsigned long cp_single_2796[] = {0x0e2d};
+static const unsigned long cp_single_2797[] = {0x0275};
+static const unsigned long cp_single_2798[] = {0x04e9};
+static const unsigned long cp_single_2799[] = {0x04eb};
+static const unsigned long cp_single_2800[] = {0x0993};
+static const unsigned long cp_single_2801[] = {0x311b};
+static const unsigned long cp_single_2802[] = {0x014f};
+static const unsigned long cp_single_2803[] = {0x0911};
+static const unsigned long cp_single_2804[] = {0x0a91};
+static const unsigned long cp_single_2805[] = {0x0949};
+static const unsigned long cp_single_2806[] = {0x0ac9};
+static const unsigned long cp_single_2807[] = {0x01d2};
+static const unsigned long cp_single_2808[] = {0x24de};
+static const unsigned long cp_single_2809[] = {0x00f4};
+static const unsigned long cp_single_2810[] = {0x1ed1};
+static const unsigned long cp_single_2811[] = {0x1ed9};
+static const unsigned long cp_single_2812[] = {0x1ed3};
+static const unsigned long cp_single_2813[] = {0x1ed5};
+static const unsigned long cp_single_2814[] = {0x1ed7};
+static const unsigned long cp_single_2815[] = {0x043e};
+static const unsigned long cp_single_2816[] = {0x0151};
+static const unsigned long cp_single_2817[] = {0x020d};
+static const unsigned long cp_single_2818[] = {0x0913};
+static const unsigned long cp_single_2819[] = {0x00f6};
+static const unsigned long cp_single_2820[] = {0x04e7};
+static const unsigned long cp_single_2821[] = {0x1ecd};
+static const unsigned long cp_single_2822[] = {0x0153};
+static const unsigned long cp_single_2823[] = {0x315a};
+static const unsigned long cp_single_2824[] = {0x02db};
+static const unsigned long cp_single_2825[] = {0x0328};
+static const unsigned long cp_single_2826[] = {0x00f2};
+static const unsigned long cp_single_2827[] = {0x0a93};
+static const unsigned long cp_single_2828[] = {0x0585};
+static const unsigned long cp_single_2829[] = {0x304a};
+static const unsigned long cp_single_2830[] = {0x1ecf};
+static const unsigned long cp_single_2831[] = {0x01a1};
+static const unsigned long cp_single_2832[] = {0x1edb};
+static const unsigned long cp_single_2833[] = {0x1ee3};
+static const unsigned long cp_single_2834[] = {0x1edd};
+static const unsigned long cp_single_2835[] = {0x1edf};
+static const unsigned long cp_single_2836[] = {0x1ee1};
+static const unsigned long cp_single_2837[] = {0x0151};
+static const unsigned long cp_single_2838[] = {0x01a3};
+static const unsigned long cp_single_2839[] = {0x020f};
+static const unsigned long cp_single_2840[] = {0x30aa};
+static const unsigned long cp_single_2841[] = {0xff75};
+static const unsigned long cp_single_2842[] = {0x3157};
+static const unsigned long cp_single_2843[] = {0x05ab};
+static const unsigned long cp_single_2844[] = {0x014d};
+static const unsigned long cp_single_2845[] = {0x1e53};
+static const unsigned long cp_single_2846[] = {0x1e51};
+static const unsigned long cp_single_2847[] = {0x0950};
+static const unsigned long cp_single_2848[] = {0x03c9};
+static const unsigned long cp_single_2849[] = {0x03d6};
+static const unsigned long cp_single_2850[] = {0x0461};
+static const unsigned long cp_single_2851[] = {0x0277};
+static const unsigned long cp_single_2852[] = {0x047b};
+static const unsigned long cp_single_2853[] = {0x047d};
+static const unsigned long cp_single_2854[] = {0x03ce};
+static const unsigned long cp_single_2855[] = {0x0ad0};
+static const unsigned long cp_single_2856[] = {0x03bf};
+static const unsigned long cp_single_2857[] = {0x03cc};
+static const unsigned long cp_single_2858[] = {0xff4f};
+static const unsigned long cp_single_2859[] = {0x0031};
+static const unsigned long cp_single_2860[] = {0x0661};
+static const unsigned long cp_single_2861[] = {0x09e7};
+static const unsigned long cp_single_2862[] = {0x2460};
+static const unsigned long cp_single_2863[] = {0x278a};
+static const unsigned long cp_single_2864[] = {0x0967};
+static const unsigned long cp_single_2865[] = {0x2024};
+static const unsigned long cp_single_2866[] = {0x215b};
+static const unsigned long cp_single_2867[] = {0xf6dc};
+static const unsigned long cp_single_2868[] = {0x0ae7};
+static const unsigned long cp_single_2869[] = {0x0a67};
+static const unsigned long cp_single_2870[] = {0x0661};
+static const unsigned long cp_single_2871[] = {0x00bd};
+static const unsigned long cp_single_2872[] = {0x3021};
+static const unsigned long cp_single_2873[] = {0x3220};
+static const unsigned long cp_single_2874[] = {0x2081};
+static const unsigned long cp_single_2875[] = {0xff11};
+static const unsigned long cp_single_2876[] = {0x09f4};
+static const unsigned long cp_single_2877[] = {0xf731};
+static const unsigned long cp_single_2878[] = {0x2474};
+static const unsigned long cp_single_2879[] = {0x2488};
+static const unsigned long cp_single_2880[] = {0x06f1};
+static const unsigned long cp_single_2881[] = {0x00bc};
+static const unsigned long cp_single_2882[] = {0x2170};
+static const unsigned long cp_single_2883[] = {0x00b9};
+static const unsigned long cp_single_2884[] = {0x0e51};
+static const unsigned long cp_single_2885[] = {0x2153};
+static const unsigned long cp_single_2886[] = {0x01eb};
+static const unsigned long cp_single_2887[] = {0x01ed};
+static const unsigned long cp_single_2888[] = {0x0a13};
+static const unsigned long cp_single_2889[] = {0x0a4b};
+static const unsigned long cp_single_2890[] = {0x0254};
+static const unsigned long cp_single_2891[] = {0x24aa};
+static const unsigned long cp_single_2892[] = {0x25e6};
+static const unsigned long cp_single_2893[] = {0x2325};
+static const unsigned long cp_single_2894[] = {0x00aa};
+static const unsigned long cp_single_2895[] = {0x00ba};
+static const unsigned long cp_single_2896[] = {0x221f};
+static const unsigned long cp_single_2897[] = {0x0912};
+static const unsigned long cp_single_2898[] = {0x094a};
+static const unsigned long cp_single_2899[] = {0x00f8};
+static const unsigned long cp_single_2900[] = {0x01ff};
+static const unsigned long cp_single_2901[] = {0x3049};
+static const unsigned long cp_single_2902[] = {0x30a9};
+static const unsigned long cp_single_2903[] = {0xff6b};
+static const unsigned long cp_single_2904[] = {0x01ff};
+static const unsigned long cp_single_2905[] = {0xf6f0};
+static const unsigned long cp_single_2906[] = {0x047f};
+static const unsigned long cp_single_2907[] = {0x00f5};
+static const unsigned long cp_single_2908[] = {0x1e4d};
+static const unsigned long cp_single_2909[] = {0x1e4f};
+static const unsigned long cp_single_2910[] = {0x3121};
+static const unsigned long cp_single_2911[] = {0x203e};
+static const unsigned long cp_single_2912[] = {0xfe4a};
+static const unsigned long cp_single_2913[] = {0x0305};
+static const unsigned long cp_single_2914[] = {0xfe49};
+static const unsigned long cp_single_2915[] = {0xfe4c};
+static const unsigned long cp_single_2916[] = {0xfe4b};
+static const unsigned long cp_single_2917[] = {0x00af};
+static const unsigned long cp_single_2918[] = {0x09cb};
+static const unsigned long cp_single_2919[] = {0x094b};
+static const unsigned long cp_single_2920[] = {0x0acb};
+static const unsigned long cp_single_2921[] = {0x0070};
+static const unsigned long cp_single_2922[] = {0x3380};
+static const unsigned long cp_single_2923[] = {0x332b};
+static const unsigned long cp_single_2924[] = {0x09aa};
+static const unsigned long cp_single_2925[] = {0x1e55};
+static const unsigned long cp_single_2926[] = {0x092a};
+static const unsigned long cp_single_2927[] = {0x21df};
+static const unsigned long cp_single_2928[] = {0x21de};
+static const unsigned long cp_single_2929[] = {0x0aaa};
+static const unsigned long cp_single_2930[] = {0x0a2a};
+static const unsigned long cp_single_2931[] = {0x3071};
+static const unsigned long cp_single_2932[] = {0x0e2f};
+static const unsigned long cp_single_2933[] = {0x30d1};
+static const unsigned long cp_single_2934[] = {0x0484};
+static const unsigned long cp_single_2935[] = {0x04c0};
+static const unsigned long cp_single_2936[] = {0x317f};
+static const unsigned long cp_single_2937[] = {0x00b6};
+static const unsigned long cp_single_2938[] = {0x2225};
+static const unsigned long cp_single_2939[] = {0x0028};
+static const unsigned long cp_single_2940[] = {0xfd3e};
+static const unsigned long cp_single_2941[] = {0xf8ed};
+static const unsigned long cp_single_2942[] = {0xf8ec};
+static const unsigned long cp_single_2943[] = {0x208d};
+static const unsigned long cp_single_2944[] = {0xff08};
+static const unsigned long cp_single_2945[] = {0xfe59};
+static const unsigned long cp_single_2946[] = {0x207d};
+static const unsigned long cp_single_2947[] = {0xf8eb};
+static const unsigned long cp_single_2948[] = {0xfe35};
+static const unsigned long cp_single_2949[] = {0x0029};
+static const unsigned long cp_single_2950[] = {0xfd3f};
+static const unsigned long cp_single_2951[] = {0xf8f8};
+static const unsigned long cp_single_2952[] = {0xf8f7};
+static const unsigned long cp_single_2953[] = {0x208e};
+static const unsigned long cp_single_2954[] = {0xff09};
+static const unsigned long cp_single_2955[] = {0xfe5a};
+static const unsigned long cp_single_2956[] = {0x207e};
+static const unsigned long cp_single_2957[] = {0xf8f6};
+static const unsigned long cp_single_2958[] = {0xfe36};
+static const unsigned long cp_single_2959[] = {0x2202};
+static const unsigned long cp_single_2960[] = {0x05c0};
+static const unsigned long cp_single_2961[] = {0x0599};
+static const unsigned long cp_single_2962[] = {0x33a9};
+static const unsigned long cp_single_2963[] = {0x05b7};
+static const unsigned long cp_single_2964[] = {0x05b7};
+static const unsigned long cp_single_2965[] = {0x05b7};
+static const unsigned long cp_single_2966[] = {0x05b7};
+static const unsigned long cp_single_2967[] = {0x05b7};
+static const unsigned long cp_single_2968[] = {0x05b7};
+static const unsigned long cp_single_2969[] = {0x05b7};
+static const unsigned long cp_single_2970[] = {0x05b7};
+static const unsigned long cp_single_2971[] = {0x05a1};
+static const unsigned long cp_single_2972[] = {0x3106};
+static const unsigned long cp_single_2973[] = {0x24df};
+static const unsigned long cp_single_2974[] = {0x1e57};
+static const unsigned long cp_single_2975[] = {0x05e4};
+static const unsigned long cp_single_2976[] = {0x043f};
+static const unsigned long cp_single_2977[] = {0xfb44};
+static const unsigned long cp_single_2978[] = {0xfb44};
+static const unsigned long cp_single_2979[] = {0x333b};
+static const unsigned long cp_single_2980[] = {0xfb43};
+static const unsigned long cp_single_2981[] = {0x067e};
+static const unsigned long cp_single_2982[] = {0x057a};
+static const unsigned long cp_single_2983[] = {0x05e4};
+static const unsigned long cp_single_2984[] = {0xfb57};
+static const unsigned long cp_single_2985[] = {0xfb58};
+static const unsigned long cp_single_2986[] = {0x307a};
+static const unsigned long cp_single_2987[] = {0xfb59};
+static const unsigned long cp_single_2988[] = {0x30da};
+static const unsigned long cp_single_2989[] = {0x04a7};
+static const unsigned long cp_single_2990[] = {0xfb4e};
+static const unsigned long cp_single_2991[] = {0x0025};
+static const unsigned long cp_single_2992[] = {0x066a};
+static const unsigned long cp_single_2993[] = {0xff05};
+static const unsigned long cp_single_2994[] = {0xfe6a};
+static const unsigned long cp_single_2995[] = {0x002e};
+static const unsigned long cp_single_2996[] = {0x0589};
+static const unsigned long cp_single_2997[] = {0x00b7};
+static const unsigned long cp_single_2998[] = {0xff61};
+static const unsigned long cp_single_2999[] = {0xf6e7};
+static const unsigned long cp_single_3000[] = {0xff0e};
+static const unsigned long cp_single_3001[] = {0xfe52};
+static const unsigned long cp_single_3002[] = {0xf6e8};
+static const unsigned long cp_single_3003[] = {0x0342};
+static const unsigned long cp_single_3004[] = {0x22a5};
+static const unsigned long cp_single_3005[] = {0x2030};
+static const unsigned long cp_single_3006[] = {0x20a7};
+static const unsigned long cp_single_3007[] = {0x338a};
+static const unsigned long cp_single_3008[] = {0x09ab};
+static const unsigned long cp_single_3009[] = {0x092b};
+static const unsigned long cp_single_3010[] = {0x0aab};
+static const unsigned long cp_single_3011[] = {0x0a2b};
+static const unsigned long cp_single_3012[] = {0x03c6};
+static const unsigned long cp_single_3013[] = {0x03d5};
+static const unsigned long cp_single_3014[] = {0x327a};
+static const unsigned long cp_single_3015[] = {0x321a};
+static const unsigned long cp_single_3016[] = {0x326c};
+static const unsigned long cp_single_3017[] = {0x314d};
+static const unsigned long cp_single_3018[] = {0x320c};
+static const unsigned long cp_single_3019[] = {0x0278};
+static const unsigned long cp_single_3020[] = {0x0e3a};
+static const unsigned long cp_single_3021[] = {0x03d5};
+static const unsigned long cp_single_3022[] = {0x01a5};
+static const unsigned long cp_single_3023[] = {0x0e1e};
+static const unsigned long cp_single_3024[] = {0x0e1c};
+static const unsigned long cp_single_3025[] = {0x0e20};
+static const unsigned long cp_single_3026[] = {0x03c0};
+static const unsigned long cp_single_3027[] = {0x3273};
+static const unsigned long cp_single_3028[] = {0x3213};
+static const unsigned long cp_single_3029[] = {0x3176};
+static const unsigned long cp_single_3030[] = {0x3265};
+static const unsigned long cp_single_3031[] = {0x3172};
+static const unsigned long cp_single_3032[] = {0x3142};
+static const unsigned long cp_single_3033[] = {0x3205};
+static const unsigned long cp_single_3034[] = {0x3174};
+static const unsigned long cp_single_3035[] = {0x3144};
+static const unsigned long cp_single_3036[] = {0x3175};
+static const unsigned long cp_single_3037[] = {0x3177};
+static const unsigned long cp_single_3038[] = {0x3173};
+static const unsigned long cp_single_3039[] = {0x3074};
+static const unsigned long cp_single_3040[] = {0x30d4};
+static const unsigned long cp_single_3041[] = {0x03d6};
+static const unsigned long cp_single_3042[] = {0x0583};
+static const unsigned long cp_single_3043[] = {0x002b};
+static const unsigned long cp_single_3044[] = {0x031f};
+static const unsigned long cp_single_3045[] = {0x2295};
+static const unsigned long cp_single_3046[] = {0x00b1};
+static const unsigned long cp_single_3047[] = {0x02d6};
+static const unsigned long cp_single_3048[] = {0xff0b};
+static const unsigned long cp_single_3049[] = {0xfe62};
+static const unsigned long cp_single_3050[] = {0x207a};
+static const unsigned long cp_single_3051[] = {0xff50};
+static const unsigned long cp_single_3052[] = {0x33d8};
+static const unsigned long cp_single_3053[] = {0x307d};
+static const unsigned long cp_single_3054[] = {0x261f};
+static const unsigned long cp_single_3055[] = {0x261c};
+static const unsigned long cp_single_3056[] = {0x261e};
+static const unsigned long cp_single_3057[] = {0x261d};
+static const unsigned long cp_single_3058[] = {0x30dd};
+static const unsigned long cp_single_3059[] = {0x0e1b};
+static const unsigned long cp_single_3060[] = {0x3012};
+static const unsigned long cp_single_3061[] = {0x3020};
+static const unsigned long cp_single_3062[] = {0x24ab};
+static const unsigned long cp_single_3063[] = {0x227a};
+static const unsigned long cp_single_3064[] = {0x211e};
+static const unsigned long cp_single_3065[] = {0x02b9};
+static const unsigned long cp_single_3066[] = {0x2035};
+static const unsigned long cp_single_3067[] = {0x220f};
+static const unsigned long cp_single_3068[] = {0x2305};
+static const unsigned long cp_single_3069[] = {0x30fc};
+static const unsigned long cp_single_3070[] = {0x2318};
+static const unsigned long cp_single_3071[] = {0x2282};
+static const unsigned long cp_single_3072[] = {0x2283};
+static const unsigned long cp_single_3073[] = {0x2237};
+static const unsigned long cp_single_3074[] = {0x221d};
+static const unsigned long cp_single_3075[] = {0x03c8};
+static const unsigned long cp_single_3076[] = {0x0471};
+static const unsigned long cp_single_3077[] = {0x0486};
+static const unsigned long cp_single_3078[] = {0x33b0};
+static const unsigned long cp_single_3079[] = {0x3077};
+static const unsigned long cp_single_3080[] = {0x30d7};
+static const unsigned long cp_single_3081[] = {0x33b4};
+static const unsigned long cp_single_3082[] = {0x33ba};
+static const unsigned long cp_single_3083[] = {0x0071};
+static const unsigned long cp_single_3084[] = {0x0958};
+static const unsigned long cp_single_3085[] = {0x05a8};
+static const unsigned long cp_single_3086[] = {0x0642};
+static const unsigned long cp_single_3087[] = {0xfed6};
+static const unsigned long cp_single_3088[] = {0xfed7};
+static const unsigned long cp_single_3089[] = {0xfed8};
+static const unsigned long cp_single_3090[] = {0x05b8};
+static const unsigned long cp_single_3091[] = {0x05b8};
+static const unsigned long cp_single_3092[] = {0x05b8};
+static const unsigned long cp_single_3093[] = {0x05b8};
+static const unsigned long cp_single_3094[] = {0x05b8};
+static const unsigned long cp_single_3095[] = {0x05b8};
+static const unsigned long cp_single_3096[] = {0x05b8};
+static const unsigned long cp_single_3097[] = {0x05b8};
+static const unsigned long cp_single_3098[] = {0x05b8};
+static const unsigned long cp_single_3099[] = {0x05b8};
+static const unsigned long cp_single_3100[] = {0x05b8};
+static const unsigned long cp_single_3101[] = {0x05b8};
+static const unsigned long cp_single_3102[] = {0x05b8};
+static const unsigned long cp_single_3103[] = {0x05b8};
+static const unsigned long cp_single_3104[] = {0x05b8};
+static const unsigned long cp_single_3105[] = {0x05b8};
+static const unsigned long cp_single_3106[] = {0x059f};
+static const unsigned long cp_single_3107[] = {0x3111};
+static const unsigned long cp_single_3108[] = {0x24e0};
+static const unsigned long cp_single_3109[] = {0x02a0};
+static const unsigned long cp_single_3110[] = {0xff51};
+static const unsigned long cp_single_3111[] = {0x05e7};
+static const unsigned long cp_single_3112[] = {0xfb47};
+static const unsigned long cp_single_3113[] = {0xfb47};
+static const unsigned long cp_single_3114[] = {0x05e7};
+static const unsigned long cp_single_3115[] = {0x24ac};
+static const unsigned long cp_single_3116[] = {0x2669};
+static const unsigned long cp_single_3117[] = {0x05bb};
+static const unsigned long cp_single_3118[] = {0x05bb};
+static const unsigned long cp_single_3119[] = {0x05bb};
+static const unsigned long cp_single_3120[] = {0x05bb};
+static const unsigned long cp_single_3121[] = {0x05bb};
+static const unsigned long cp_single_3122[] = {0x05bb};
+static const unsigned long cp_single_3123[] = {0x05bb};
+static const unsigned long cp_single_3124[] = {0x05bb};
+static const unsigned long cp_single_3125[] = {0x003f};
+static const unsigned long cp_single_3126[] = {0x061f};
+static const unsigned long cp_single_3127[] = {0x055e};
+static const unsigned long cp_single_3128[] = {0x00bf};
+static const unsigned long cp_single_3129[] = {0xf7bf};
+static const unsigned long cp_single_3130[] = {0x037e};
+static const unsigned long cp_single_3131[] = {0xff1f};
+static const unsigned long cp_single_3132[] = {0xf73f};
+static const unsigned long cp_single_3133[] = {0x0022};
+static const unsigned long cp_single_3134[] = {0x201e};
+static const unsigned long cp_single_3135[] = {0x201c};
+static const unsigned long cp_single_3136[] = {0xff02};
+static const unsigned long cp_single_3137[] = {0x301e};
+static const unsigned long cp_single_3138[] = {0x301d};
+static const unsigned long cp_single_3139[] = {0x201d};
+static const unsigned long cp_single_3140[] = {0x2018};
+static const unsigned long cp_single_3141[] = {0x201b};
+static const unsigned long cp_single_3142[] = {0x201b};
+static const unsigned long cp_single_3143[] = {0x2019};
+static const unsigned long cp_single_3144[] = {0x0149};
+static const unsigned long cp_single_3145[] = {0x201a};
+static const unsigned long cp_single_3146[] = {0x0027};
+static const unsigned long cp_single_3147[] = {0xff07};
+static const unsigned long cp_single_3148[] = {0x0072};
+static const unsigned long cp_single_3149[] = {0x057c};
+static const unsigned long cp_single_3150[] = {0x09b0};
+static const unsigned long cp_single_3151[] = {0x0155};
+static const unsigned long cp_single_3152[] = {0x0930};
+static const unsigned long cp_single_3153[] = {0x221a};
+static const unsigned long cp_single_3154[] = {0xf8e5};
+static const unsigned long cp_single_3155[] = {0x33ae};
+static const unsigned long cp_single_3156[] = {0x33af};
+static const unsigned long cp_single_3157[] = {0x33ad};
+static const unsigned long cp_single_3158[] = {0x05bf};
+static const unsigned long cp_single_3159[] = {0x05bf};
+static const unsigned long cp_single_3160[] = {0x0ab0};
+static const unsigned long cp_single_3161[] = {0x0a30};
+static const unsigned long cp_single_3162[] = {0x3089};
+static const unsigned long cp_single_3163[] = {0x30e9};
+static const unsigned long cp_single_3164[] = {0xff97};
+static const unsigned long cp_single_3165[] = {0x09f1};
+static const unsigned long cp_single_3166[] = {0x09f0};
+static const unsigned long cp_single_3167[] = {0x0264};
+static const unsigned long cp_single_3168[] = {0x2236};
+static const unsigned long cp_single_3169[] = {0x3116};
+static const unsigned long cp_single_3170[] = {0x0159};
+static const unsigned long cp_single_3171[] = {0x0157};
+static const unsigned long cp_single_3172[] = {0x24e1};
+static const unsigned long cp_single_3173[] = {0x0157};
+static const unsigned long cp_single_3174[] = {0x0211};
+static const unsigned long cp_single_3175[] = {0x1e59};
+static const unsigned long cp_single_3176[] = {0x1e5b};
+static const unsigned long cp_single_3177[] = {0x1e5d};
+static const unsigned long cp_single_3178[] = {0x203b};
+static const unsigned long cp_single_3179[] = {0x2286};
+static const unsigned long cp_single_3180[] = {0x2287};
+static const unsigned long cp_single_3181[] = {0x00ae};
+static const unsigned long cp_single_3182[] = {0xf8e8};
+static const unsigned long cp_single_3183[] = {0xf6da};
+static const unsigned long cp_single_3184[] = {0x0631};
+static const unsigned long cp_single_3185[] = {0x0580};
+static const unsigned long cp_single_3186[] = {0xfeae};
+static const unsigned long cp_single_3187[] = {0x308c};
+static const unsigned long cp_single_3188[] = {0x30ec};
+static const unsigned long cp_single_3189[] = {0xff9a};
+static const unsigned long cp_single_3190[] = {0x05e8};
+static const unsigned long cp_single_3191[] = {0xfb48};
+static const unsigned long cp_single_3192[] = {0x05e8};
+static const unsigned long cp_single_3193[] = {0x223d};
+static const unsigned long cp_single_3194[] = {0x0597};
+static const unsigned long cp_single_3195[] = {0x0597};
+static const unsigned long cp_single_3196[] = {0x2310};
+static const unsigned long cp_single_3197[] = {0x027e};
+static const unsigned long cp_single_3198[] = {0x027f};
+static const unsigned long cp_single_3199[] = {0x09dd};
+static const unsigned long cp_single_3200[] = {0x095d};
+static const unsigned long cp_single_3201[] = {0x03c1};
+static const unsigned long cp_single_3202[] = {0x027d};
+static const unsigned long cp_single_3203[] = {0x027b};
+static const unsigned long cp_single_3204[] = {0x02b5};
+static const unsigned long cp_single_3205[] = {0x03f1};
+static const unsigned long cp_single_3206[] = {0x02de};
+static const unsigned long cp_single_3207[] = {0x3271};
+static const unsigned long cp_single_3208[] = {0x3211};
+static const unsigned long cp_single_3209[] = {0x3263};
+static const unsigned long cp_single_3210[] = {0x3140};
+static const unsigned long cp_single_3211[] = {0x313a};
+static const unsigned long cp_single_3212[] = {0x3169};
+static const unsigned long cp_single_3213[] = {0x3139};
+static const unsigned long cp_single_3214[] = {0x313b};
+static const unsigned long cp_single_3215[] = {0x316c};
+static const unsigned long cp_single_3216[] = {0x3203};
+static const unsigned long cp_single_3217[] = {0x313f};
+static const unsigned long cp_single_3218[] = {0x313c};
+static const unsigned long cp_single_3219[] = {0x316b};
+static const unsigned long cp_single_3220[] = {0x313d};
+static const unsigned long cp_single_3221[] = {0x313e};
+static const unsigned long cp_single_3222[] = {0x316a};
+static const unsigned long cp_single_3223[] = {0x316d};
+static const unsigned long cp_single_3224[] = {0x221f};
+static const unsigned long cp_single_3225[] = {0x0319};
+static const unsigned long cp_single_3226[] = {0x22bf};
+static const unsigned long cp_single_3227[] = {0x308a};
+static const unsigned long cp_single_3228[] = {0x30ea};
+static const unsigned long cp_single_3229[] = {0xff98};
+static const unsigned long cp_single_3230[] = {0x02da};
+static const unsigned long cp_single_3231[] = {0x0325};
+static const unsigned long cp_single_3232[] = {0x030a};
+static const unsigned long cp_single_3233[] = {0x02bf};
+static const unsigned long cp_single_3234[] = {0x0559};
+static const unsigned long cp_single_3235[] = {0x031c};
+static const unsigned long cp_single_3236[] = {0x02d3};
+static const unsigned long cp_single_3237[] = {0x02be};
+static const unsigned long cp_single_3238[] = {0x0339};
+static const unsigned long cp_single_3239[] = {0x02d2};
+static const unsigned long cp_single_3240[] = {0x0213};
+static const unsigned long cp_single_3241[] = {0x3351};
+static const unsigned long cp_single_3242[] = {0x1e5f};
+static const unsigned long cp_single_3243[] = {0x027c};
+static const unsigned long cp_single_3244[] = {0x027a};
+static const unsigned long cp_single_3245[] = {0xff52};
+static const unsigned long cp_single_3246[] = {0x308d};
+static const unsigned long cp_single_3247[] = {0x30ed};
+static const unsigned long cp_single_3248[] = {0xff9b};
+static const unsigned long cp_single_3249[] = {0x0e23};
+static const unsigned long cp_single_3250[] = {0x24ad};
+static const unsigned long cp_single_3251[] = {0x09dc};
+static const unsigned long cp_single_3252[] = {0x0931};
+static const unsigned long cp_single_3253[] = {0x0a5c};
+static const unsigned long cp_single_3254[] = {0x0691};
+static const unsigned long cp_single_3255[] = {0xfb8d};
+static const unsigned long cp_single_3256[] = {0x09e0};
+static const unsigned long cp_single_3257[] = {0x0960};
+static const unsigned long cp_single_3258[] = {0x0ae0};
+static const unsigned long cp_single_3259[] = {0x09c4};
+static const unsigned long cp_single_3260[] = {0x0944};
+static const unsigned long cp_single_3261[] = {0x0ac4};
+static const unsigned long cp_single_3262[] = {0xf6f1};
+static const unsigned long cp_single_3263[] = {0x2590};
+static const unsigned long cp_single_3264[] = {0x0279};
+static const unsigned long cp_single_3265[] = {0x02b4};
+static const unsigned long cp_single_3266[] = {0x308b};
+static const unsigned long cp_single_3267[] = {0x30eb};
+static const unsigned long cp_single_3268[] = {0xff99};
+static const unsigned long cp_single_3269[] = {0x09f2};
+static const unsigned long cp_single_3270[] = {0x09f3};
+static const unsigned long cp_single_3271[] = {0xf6dd};
+static const unsigned long cp_single_3272[] = {0x0e24};
+static const unsigned long cp_single_3273[] = {0x098b};
+static const unsigned long cp_single_3274[] = {0x090b};
+static const unsigned long cp_single_3275[] = {0x0a8b};
+static const unsigned long cp_single_3276[] = {0x09c3};
+static const unsigned long cp_single_3277[] = {0x0943};
+static const unsigned long cp_single_3278[] = {0x0ac3};
+static const unsigned long cp_single_3279[] = {0x0073};
+static const unsigned long cp_single_3280[] = {0x09b8};
+static const unsigned long cp_single_3281[] = {0x015b};
+static const unsigned long cp_single_3282[] = {0x1e65};
+static const unsigned long cp_single_3283[] = {0x0635};
+static const unsigned long cp_single_3284[] = {0x0938};
+static const unsigned long cp_single_3285[] = {0xfeba};
+static const unsigned long cp_single_3286[] = {0xfebb};
+static const unsigned long cp_single_3287[] = {0xfebc};
+static const unsigned long cp_single_3288[] = {0x0ab8};
+static const unsigned long cp_single_3289[] = {0x0a38};
+static const unsigned long cp_single_3290[] = {0x3055};
+static const unsigned long cp_single_3291[] = {0x30b5};
+static const unsigned long cp_single_3292[] = {0xff7b};
+static const unsigned long cp_single_3293[] = {0xfdfa};
+static const unsigned long cp_single_3294[] = {0x05e1};
+static const unsigned long cp_single_3295[] = {0xfb41};
+static const unsigned long cp_single_3296[] = {0xfb41};
+static const unsigned long cp_single_3297[] = {0x05e1};
+static const unsigned long cp_single_3298[] = {0x0e32};
+static const unsigned long cp_single_3299[] = {0x0e41};
+static const unsigned long cp_single_3300[] = {0x0e44};
+static const unsigned long cp_single_3301[] = {0x0e43};
+static const unsigned long cp_single_3302[] = {0x0e33};
+static const unsigned long cp_single_3303[] = {0x0e30};
+static const unsigned long cp_single_3304[] = {0x0e40};
+static const unsigned long cp_single_3305[] = {0xf886};
+static const unsigned long cp_single_3306[] = {0x0e35};
+static const unsigned long cp_single_3307[] = {0xf885};
+static const unsigned long cp_single_3308[] = {0x0e34};
+static const unsigned long cp_single_3309[] = {0x0e42};
+static const unsigned long cp_single_3310[] = {0xf888};
+static const unsigned long cp_single_3311[] = {0x0e37};
+static const unsigned long cp_single_3312[] = {0xf887};
+static const unsigned long cp_single_3313[] = {0x0e36};
+static const unsigned long cp_single_3314[] = {0x0e38};
+static const unsigned long cp_single_3315[] = {0x0e39};
+static const unsigned long cp_single_3316[] = {0x3119};
+static const unsigned long cp_single_3317[] = {0x0161};
+static const unsigned long cp_single_3318[] = {0x1e67};
+static const unsigned long cp_single_3319[] = {0x015f};
+static const unsigned long cp_single_3320[] = {0x0259};
+static const unsigned long cp_single_3321[] = {0x04d9};
+static const unsigned long cp_single_3322[] = {0x04db};
+static const unsigned long cp_single_3323[] = {0x025a};
+static const unsigned long cp_single_3324[] = {0x24e2};
+static const unsigned long cp_single_3325[] = {0x015d};
+static const unsigned long cp_single_3326[] = {0x0219};
+static const unsigned long cp_single_3327[] = {0x1e61};
+static const unsigned long cp_single_3328[] = {0x1e63};
+static const unsigned long cp_single_3329[] = {0x1e69};
+static const unsigned long cp_single_3330[] = {0x033c};
+static const unsigned long cp_single_3331[] = {0x2033};
+static const unsigned long cp_single_3332[] = {0x02ca};
+static const unsigned long cp_single_3333[] = {0x00a7};
+static const unsigned long cp_single_3334[] = {0x0633};
+static const unsigned long cp_single_3335[] = {0xfeb2};
+static const unsigned long cp_single_3336[] = {0xfeb3};
+static const unsigned long cp_single_3337[] = {0xfeb4};
+static const unsigned long cp_single_3338[] = {0x05b6};
+static const unsigned long cp_single_3339[] = {0x05b6};
+static const unsigned long cp_single_3340[] = {0x05b6};
+static const unsigned long cp_single_3341[] = {0x05b6};
+static const unsigned long cp_single_3342[] = {0x05b6};
+static const unsigned long cp_single_3343[] = {0x05b6};
+static const unsigned long cp_single_3344[] = {0x05b6};
+static const unsigned long cp_single_3345[] = {0x0592};
+static const unsigned long cp_single_3346[] = {0x05b6};
+static const unsigned long cp_single_3347[] = {0x057d};
+static const unsigned long cp_single_3348[] = {0x305b};
+static const unsigned long cp_single_3349[] = {0x30bb};
+static const unsigned long cp_single_3350[] = {0xff7e};
+static const unsigned long cp_single_3351[] = {0x003b};
+static const unsigned long cp_single_3352[] = {0x061b};
+static const unsigned long cp_single_3353[] = {0xff1b};
+static const unsigned long cp_single_3354[] = {0xfe54};
+static const unsigned long cp_single_3355[] = {0x309c};
+static const unsigned long cp_single_3356[] = {0xff9f};
+static const unsigned long cp_single_3357[] = {0x3322};
+static const unsigned long cp_single_3358[] = {0x3323};
+static const unsigned long cp_single_3359[] = {0x0037};
+static const unsigned long cp_single_3360[] = {0x0667};
+static const unsigned long cp_single_3361[] = {0x09ed};
+static const unsigned long cp_single_3362[] = {0x2466};
+static const unsigned long cp_single_3363[] = {0x2790};
+static const unsigned long cp_single_3364[] = {0x096d};
+static const unsigned long cp_single_3365[] = {0x215e};
+static const unsigned long cp_single_3366[] = {0x0aed};
+static const unsigned long cp_single_3367[] = {0x0a6d};
+static const unsigned long cp_single_3368[] = {0x0667};
+static const unsigned long cp_single_3369[] = {0x3027};
+static const unsigned long cp_single_3370[] = {0x3226};
+static const unsigned long cp_single_3371[] = {0x2087};
+static const unsigned long cp_single_3372[] = {0xff17};
+static const unsigned long cp_single_3373[] = {0xf737};
+static const unsigned long cp_single_3374[] = {0x247a};
+static const unsigned long cp_single_3375[] = {0x248e};
+static const unsigned long cp_single_3376[] = {0x06f7};
+static const unsigned long cp_single_3377[] = {0x2176};
+static const unsigned long cp_single_3378[] = {0x2077};
+static const unsigned long cp_single_3379[] = {0x2470};
+static const unsigned long cp_single_3380[] = {0x2484};
+static const unsigned long cp_single_3381[] = {0x2498};
+static const unsigned long cp_single_3382[] = {0x0e57};
+static const unsigned long cp_single_3383[] = {0x00ad};
+static const unsigned long cp_single_3384[] = {0x0577};
+static const unsigned long cp_single_3385[] = {0x09b6};
+static const unsigned long cp_single_3386[] = {0x0448};
+static const unsigned long cp_single_3387[] = {0x0651};
+static const unsigned long cp_single_3388[] = {0xfc61};
+static const unsigned long cp_single_3389[] = {0xfc5e};
+static const unsigned long cp_single_3390[] = {0xfc60};
+static const unsigned long cp_single_3391[] = {0xfc62};
+static const unsigned long cp_single_3392[] = {0xfc5f};
+static const unsigned long cp_single_3393[] = {0x2592};
+static const unsigned long cp_single_3394[] = {0x2593};
+static const unsigned long cp_single_3395[] = {0x2591};
+static const unsigned long cp_single_3396[] = {0x2592};
+static const unsigned long cp_single_3397[] = {0x0936};
+static const unsigned long cp_single_3398[] = {0x0ab6};
+static const unsigned long cp_single_3399[] = {0x0a36};
+static const unsigned long cp_single_3400[] = {0x0593};
+static const unsigned long cp_single_3401[] = {0x3115};
+static const unsigned long cp_single_3402[] = {0x0449};
+static const unsigned long cp_single_3403[] = {0x0634};
+static const unsigned long cp_single_3404[] = {0xfeb6};
+static const unsigned long cp_single_3405[] = {0xfeb7};
+static const unsigned long cp_single_3406[] = {0xfeb8};
+static const unsigned long cp_single_3407[] = {0x03e3};
+static const unsigned long cp_single_3408[] = {0x20aa};
+static const unsigned long cp_single_3409[] = {0x20aa};
+static const unsigned long cp_single_3410[] = {0x05b0};
+static const unsigned long cp_single_3411[] = {0x05b0};
+static const unsigned long cp_single_3412[] = {0x05b0};
+static const unsigned long cp_single_3413[] = {0x05b0};
+static const unsigned long cp_single_3414[] = {0x05b0};
+static const unsigned long cp_single_3415[] = {0x05b0};
+static const unsigned long cp_single_3416[] = {0x05b0};
+static const unsigned long cp_single_3417[] = {0x05b0};
+static const unsigned long cp_single_3418[] = {0x05b0};
+static const unsigned long cp_single_3419[] = {0x04bb};
+static const unsigned long cp_single_3420[] = {0x03ed};
+static const unsigned long cp_single_3421[] = {0x05e9};
+static const unsigned long cp_single_3422[] = {0xfb49};
+static const unsigned long cp_single_3423[] = {0xfb49};
+static const unsigned long cp_single_3424[] = {0xfb2c};
+static const unsigned long cp_single_3425[] = {0xfb2c};
+static const unsigned long cp_single_3426[] = {0xfb2d};
+static const unsigned long cp_single_3427[] = {0xfb2d};
+static const unsigned long cp_single_3428[] = {0x05c1};
+static const unsigned long cp_single_3429[] = {0x05e9};
+static const unsigned long cp_single_3430[] = {0xfb2a};
+static const unsigned long cp_single_3431[] = {0xfb2a};
+static const unsigned long cp_single_3432[] = {0xfb2b};
+static const unsigned long cp_single_3433[] = {0xfb2b};
+static const unsigned long cp_single_3434[] = {0x0282};
+static const unsigned long cp_single_3435[] = {0x03c3};
+static const unsigned long cp_single_3436[] = {0x03c2};
+static const unsigned long cp_single_3437[] = {0x03c2};
+static const unsigned long cp_single_3438[] = {0x03f2};
+static const unsigned long cp_single_3439[] = {0x3057};
+static const unsigned long cp_single_3440[] = {0x30b7};
+static const unsigned long cp_single_3441[] = {0xff7c};
+static const unsigned long cp_single_3442[] = {0x05bd};
+static const unsigned long cp_single_3443[] = {0x05bd};
+static const unsigned long cp_single_3444[] = {0x223c};
+static const unsigned long cp_single_3445[] = {0x05c2};
+static const unsigned long cp_single_3446[] = {0x3274};
+static const unsigned long cp_single_3447[] = {0x3214};
+static const unsigned long cp_single_3448[] = {0x317e};
+static const unsigned long cp_single_3449[] = {0x3266};
+static const unsigned long cp_single_3450[] = {0x317a};
+static const unsigned long cp_single_3451[] = {0x3145};
+static const unsigned long cp_single_3452[] = {0x317b};
+static const unsigned long cp_single_3453[] = {0x3206};
+static const unsigned long cp_single_3454[] = {0x317d};
+static const unsigned long cp_single_3455[] = {0x317c};
+static const unsigned long cp_single_3456[] = {0x0036};
+static const unsigned long cp_single_3457[] = {0x0666};
+static const unsigned long cp_single_3458[] = {0x09ec};
+static const unsigned long cp_single_3459[] = {0x2465};
+static const unsigned long cp_single_3460[] = {0x278f};
+static const unsigned long cp_single_3461[] = {0x096c};
+static const unsigned long cp_single_3462[] = {0x0aec};
+static const unsigned long cp_single_3463[] = {0x0a6c};
+static const unsigned long cp_single_3464[] = {0x0666};
+static const unsigned long cp_single_3465[] = {0x3026};
+static const unsigned long cp_single_3466[] = {0x3225};
+static const unsigned long cp_single_3467[] = {0x2086};
+static const unsigned long cp_single_3468[] = {0xff16};
+static const unsigned long cp_single_3469[] = {0xf736};
+static const unsigned long cp_single_3470[] = {0x2479};
+static const unsigned long cp_single_3471[] = {0x248d};
+static const unsigned long cp_single_3472[] = {0x06f6};
+static const unsigned long cp_single_3473[] = {0x2175};
+static const unsigned long cp_single_3474[] = {0x2076};
+static const unsigned long cp_single_3475[] = {0x246f};
+static const unsigned long cp_single_3476[] = {0x09f9};
+static const unsigned long cp_single_3477[] = {0x2483};
+static const unsigned long cp_single_3478[] = {0x2497};
+static const unsigned long cp_single_3479[] = {0x0e56};
+static const unsigned long cp_single_3480[] = {0x002f};
+static const unsigned long cp_single_3481[] = {0xff0f};
+static const unsigned long cp_single_3482[] = {0x017f};
+static const unsigned long cp_single_3483[] = {0x1e9b};
+static const unsigned long cp_single_3484[] = {0x263a};
+static const unsigned long cp_single_3485[] = {0xff53};
+static const unsigned long cp_single_3486[] = {0x05c3};
+static const unsigned long cp_single_3487[] = {0x00ad};
+static const unsigned long cp_single_3488[] = {0x044c};
+static const unsigned long cp_single_3489[] = {0x305d};
+static const unsigned long cp_single_3490[] = {0x30bd};
+static const unsigned long cp_single_3491[] = {0xff7f};
+static const unsigned long cp_single_3492[] = {0x0338};
+static const unsigned long cp_single_3493[] = {0x0337};
+static const unsigned long cp_single_3494[] = {0x0e29};
+static const unsigned long cp_single_3495[] = {0x0e28};
+static const unsigned long cp_single_3496[] = {0x0e0b};
+static const unsigned long cp_single_3497[] = {0x0e2a};
+static const unsigned long cp_single_3498[] = {0x0020};
+static const unsigned long cp_single_3499[] = {0x0020};
+static const unsigned long cp_single_3500[] = {0x2660};
+static const unsigned long cp_single_3501[] = {0x2660};
+static const unsigned long cp_single_3502[] = {0x2664};
+static const unsigned long cp_single_3503[] = {0x24ae};
+static const unsigned long cp_single_3504[] = {0x033b};
+static const unsigned long cp_single_3505[] = {0x33c4};
+static const unsigned long cp_single_3506[] = {0x339d};
+static const unsigned long cp_single_3507[] = {0x25a9};
+static const unsigned long cp_single_3508[] = {0x25a4};
+static const unsigned long cp_single_3509[] = {0x338f};
+static const unsigned long cp_single_3510[] = {0x339e};
+static const unsigned long cp_single_3511[] = {0x33ce};
+static const unsigned long cp_single_3512[] = {0x33d1};
+static const unsigned long cp_single_3513[] = {0x33d2};
+static const unsigned long cp_single_3514[] = {0x338e};
+static const unsigned long cp_single_3515[] = {0x33d5};
+static const unsigned long cp_single_3516[] = {0x339c};
+static const unsigned long cp_single_3517[] = {0x33a1};
+static const unsigned long cp_single_3518[] = {0x25a6};
+static const unsigned long cp_single_3519[] = {0x25a7};
+static const unsigned long cp_single_3520[] = {0x25a8};
+static const unsigned long cp_single_3521[] = {0x25a5};
+static const unsigned long cp_single_3522[] = {0x25a3};
+static const unsigned long cp_single_3523[] = {0x33db};
+static const unsigned long cp_single_3524[] = {0x09b7};
+static const unsigned long cp_single_3525[] = {0x0937};
+static const unsigned long cp_single_3526[] = {0x0ab7};
+static const unsigned long cp_single_3527[] = {0x3149};
+static const unsigned long cp_single_3528[] = {0x3185};
+static const unsigned long cp_single_3529[] = {0x3180};
+static const unsigned long cp_single_3530[] = {0x3132};
+static const unsigned long cp_single_3531[] = {0x3165};
+static const unsigned long cp_single_3532[] = {0x3143};
+static const unsigned long cp_single_3533[] = {0x3146};
+static const unsigned long cp_single_3534[] = {0x3138};
+static const unsigned long cp_single_3535[] = {0xf6f2};
+static const unsigned long cp_single_3536[] = {0x00a3};
+static const unsigned long cp_single_3537[] = {0xffe1};
+static const unsigned long cp_single_3538[] = {0x0336};
+static const unsigned long cp_single_3539[] = {0x0335};
+static const unsigned long cp_single_3540[] = {0x2282};
+static const unsigned long cp_single_3541[] = {0x228a};
+static const unsigned long cp_single_3542[] = {0x2286};
+static const unsigned long cp_single_3543[] = {0x227b};
+static const unsigned long cp_single_3544[] = {0x220b};
+static const unsigned long cp_single_3545[] = {0x3059};
+static const unsigned long cp_single_3546[] = {0x30b9};
+static const unsigned long cp_single_3547[] = {0xff7d};
+static const unsigned long cp_single_3548[] = {0x0652};
+static const unsigned long cp_single_3549[] = {0x2211};
+static const unsigned long cp_single_3550[] = {0x263c};
+static const unsigned long cp_single_3551[] = {0x2283};
+static const unsigned long cp_single_3552[] = {0x228b};
+static const unsigned long cp_single_3553[] = {0x2287};
+static const unsigned long cp_single_3554[] = {0x33dc};
+static const unsigned long cp_single_3555[] = {0x337c};
+static const unsigned long cp_single_3556[] = {0x0074};
+static const unsigned long cp_single_3557[] = {0x09a4};
+static const unsigned long cp_single_3558[] = {0x22a4};
+static const unsigned long cp_single_3559[] = {0x22a3};
+static const unsigned long cp_single_3560[] = {0x0924};
+static const unsigned long cp_single_3561[] = {0x0aa4};
+static const unsigned long cp_single_3562[] = {0x0a24};
+static const unsigned long cp_single_3563[] = {0x0637};
+static const unsigned long cp_single_3564[] = {0xfec2};
+static const unsigned long cp_single_3565[] = {0xfec3};
+static const unsigned long cp_single_3566[] = {0x305f};
+static const unsigned long cp_single_3567[] = {0xfec4};
+static const unsigned long cp_single_3568[] = {0x337d};
+static const unsigned long cp_single_3569[] = {0x30bf};
+static const unsigned long cp_single_3570[] = {0xff80};
+static const unsigned long cp_single_3571[] = {0x0640};
+static const unsigned long cp_single_3572[] = {0x03c4};
+static const unsigned long cp_single_3573[] = {0x05ea};
+static const unsigned long cp_single_3574[] = {0xfb4a};
+static const unsigned long cp_single_3575[] = {0xfb4a};
+static const unsigned long cp_single_3576[] = {0xfb4a};
+static const unsigned long cp_single_3577[] = {0x05ea};
+static const unsigned long cp_single_3578[] = {0x0167};
+static const unsigned long cp_single_3579[] = {0x310a};
+static const unsigned long cp_single_3580[] = {0x0165};
+static const unsigned long cp_single_3581[] = {0x02a8};
+static const unsigned long cp_single_3582[] = {0x0163};
+static const unsigned long cp_single_3583[] = {0x0686};
+static const unsigned long cp_single_3584[] = {0xfb7b};
+static const unsigned long cp_single_3585[] = {0xfb7c};
+static const unsigned long cp_single_3586[] = {0xfb7d};
+static const unsigned long cp_single_3587[] = {0x24e3};
+static const unsigned long cp_single_3588[] = {0x1e71};
+static const unsigned long cp_single_3589[] = {0x0163};
+static const unsigned long cp_single_3590[] = {0x1e97};
+static const unsigned long cp_single_3591[] = {0x1e6b};
+static const unsigned long cp_single_3592[] = {0x1e6d};
+static const unsigned long cp_single_3593[] = {0x0442};
+static const unsigned long cp_single_3594[] = {0x04ad};
+static const unsigned long cp_single_3595[] = {0x062a};
+static const unsigned long cp_single_3596[] = {0xfe96};
+static const unsigned long cp_single_3597[] = {0xfca2};
+static const unsigned long cp_single_3598[] = {0xfc0c};
+static const unsigned long cp_single_3599[] = {0xfe97};
+static const unsigned long cp_single_3600[] = {0x3066};
+static const unsigned long cp_single_3601[] = {0xfca1};
+static const unsigned long cp_single_3602[] = {0xfc0b};
+static const unsigned long cp_single_3603[] = {0x0629};
+static const unsigned long cp_single_3604[] = {0xfe94};
+static const unsigned long cp_single_3605[] = {0xfe98};
+static const unsigned long cp_single_3606[] = {0xfca4};
+static const unsigned long cp_single_3607[] = {0xfc0e};
+static const unsigned long cp_single_3608[] = {0xfc73};
+static const unsigned long cp_single_3609[] = {0x30c6};
+static const unsigned long cp_single_3610[] = {0xff83};
+static const unsigned long cp_single_3611[] = {0x2121};
+static const unsigned long cp_single_3612[] = {0x260e};
+static const unsigned long cp_single_3613[] = {0x05a0};
+static const unsigned long cp_single_3614[] = {0x05a9};
+static const unsigned long cp_single_3615[] = {0x2469};
+static const unsigned long cp_single_3616[] = {0x3229};
+static const unsigned long cp_single_3617[] = {0x247d};
+static const unsigned long cp_single_3618[] = {0x2491};
+static const unsigned long cp_single_3619[] = {0x2179};
+static const unsigned long cp_single_3620[] = {0x02a7};
+static const unsigned long cp_single_3621[] = {0x05d8};
+static const unsigned long cp_single_3622[] = {0xfb38};
+static const unsigned long cp_single_3623[] = {0xfb38};
+static const unsigned long cp_single_3624[] = {0x05d8};
+static const unsigned long cp_single_3625[] = {0x04b5};
+static const unsigned long cp_single_3626[] = {0x059b};
+static const unsigned long cp_single_3627[] = {0x059b};
+static const unsigned long cp_single_3628[] = {0x09a5};
+static const unsigned long cp_single_3629[] = {0x0925};
+static const unsigned long cp_single_3630[] = {0x0aa5};
+static const unsigned long cp_single_3631[] = {0x0a25};
+static const unsigned long cp_single_3632[] = {0x0630};
+static const unsigned long cp_single_3633[] = {0xfeac};
+static const unsigned long cp_single_3634[] = {0xf898};
+static const unsigned long cp_single_3635[] = {0xf897};
+static const unsigned long cp_single_3636[] = {0x0e4c};
+static const unsigned long cp_single_3637[] = {0xf896};
+static const unsigned long cp_single_3638[] = {0x062b};
+static const unsigned long cp_single_3639[] = {0xfe9a};
+static const unsigned long cp_single_3640[] = {0xfe9b};
+static const unsigned long cp_single_3641[] = {0xfe9c};
+static const unsigned long cp_single_3642[] = {0x2203};
+static const unsigned long cp_single_3643[] = {0x2234};
+static const unsigned long cp_single_3644[] = {0x03b8};
+static const unsigned long cp_single_3645[] = {0x03d1};
+static const unsigned long cp_single_3646[] = {0x03d1};
+static const unsigned long cp_single_3647[] = {0x3279};
+static const unsigned long cp_single_3648[] = {0x3219};
+static const unsigned long cp_single_3649[] = {0x326b};
+static const unsigned long cp_single_3650[] = {0x314c};
+static const unsigned long cp_single_3651[] = {0x320b};
+static const unsigned long cp_single_3652[] = {0x246c};
+static const unsigned long cp_single_3653[] = {0x2480};
+static const unsigned long cp_single_3654[] = {0x2494};
+static const unsigned long cp_single_3655[] = {0x0e11};
+static const unsigned long cp_single_3656[] = {0x01ad};
+static const unsigned long cp_single_3657[] = {0x0e12};
+static const unsigned long cp_single_3658[] = {0x00fe};
+static const unsigned long cp_single_3659[] = {0x0e17};
+static const unsigned long cp_single_3660[] = {0x0e10};
+static const unsigned long cp_single_3661[] = {0x0e18};
+static const unsigned long cp_single_3662[] = {0x0e16};
+static const unsigned long cp_single_3663[] = {0x0482};
+static const unsigned long cp_single_3664[] = {0x066c};
+static const unsigned long cp_single_3665[] = {0x066c};
+static const unsigned long cp_single_3666[] = {0x0033};
+static const unsigned long cp_single_3667[] = {0x0663};
+static const unsigned long cp_single_3668[] = {0x09e9};
+static const unsigned long cp_single_3669[] = {0x2462};
+static const unsigned long cp_single_3670[] = {0x278c};
+static const unsigned long cp_single_3671[] = {0x0969};
+static const unsigned long cp_single_3672[] = {0x215c};
+static const unsigned long cp_single_3673[] = {0x0ae9};
+static const unsigned long cp_single_3674[] = {0x0a69};
+static const unsigned long cp_single_3675[] = {0x0663};
+static const unsigned long cp_single_3676[] = {0x3023};
+static const unsigned long cp_single_3677[] = {0x3222};
+static const unsigned long cp_single_3678[] = {0x2083};
+static const unsigned long cp_single_3679[] = {0xff13};
+static const unsigned long cp_single_3680[] = {0x09f6};
+static const unsigned long cp_single_3681[] = {0xf733};
+static const unsigned long cp_single_3682[] = {0x2476};
+static const unsigned long cp_single_3683[] = {0x248a};
+static const unsigned long cp_single_3684[] = {0x06f3};
+static const unsigned long cp_single_3685[] = {0x00be};
+static const unsigned long cp_single_3686[] = {0xf6de};
+static const unsigned long cp_single_3687[] = {0x2172};
+static const unsigned long cp_single_3688[] = {0x00b3};
+static const unsigned long cp_single_3689[] = {0x0e53};
+static const unsigned long cp_single_3690[] = {0x3394};
+static const unsigned long cp_single_3691[] = {0x3061};
+static const unsigned long cp_single_3692[] = {0x30c1};
+static const unsigned long cp_single_3693[] = {0xff81};
+static const unsigned long cp_single_3694[] = {0x3270};
+static const unsigned long cp_single_3695[] = {0x3210};
+static const unsigned long cp_single_3696[] = {0x3262};
+static const unsigned long cp_single_3697[] = {0x3137};
+static const unsigned long cp_single_3698[] = {0x3202};
+static const unsigned long cp_single_3699[] = {0x02dc};
+static const unsigned long cp_single_3700[] = {0x0330};
+static const unsigned long cp_single_3701[] = {0x0303};
+static const unsigned long cp_single_3702[] = {0x0303};
+static const unsigned long cp_single_3703[] = {0x0360};
+static const unsigned long cp_single_3704[] = {0x223c};
+static const unsigned long cp_single_3705[] = {0x0334};
+static const unsigned long cp_single_3706[] = {0x033e};
+static const unsigned long cp_single_3707[] = {0x2297};
+static const unsigned long cp_single_3708[] = {0x0596};
+static const unsigned long cp_single_3709[] = {0x0596};
+static const unsigned long cp_single_3710[] = {0x0a70};
+static const unsigned long cp_single_3711[] = {0x0483};
+static const unsigned long cp_single_3712[] = {0x057f};
+static const unsigned long cp_single_3713[] = {0x1e6f};
+static const unsigned long cp_single_3714[] = {0xff54};
+static const unsigned long cp_single_3715[] = {0x0569};
+static const unsigned long cp_single_3716[] = {0x3068};
+static const unsigned long cp_single_3717[] = {0x30c8};
+static const unsigned long cp_single_3718[] = {0xff84};
+static const unsigned long cp_single_3719[] = {0x02e5};
+static const unsigned long cp_single_3720[] = {0x02e9};
+static const unsigned long cp_single_3721[] = {0x02e6};
+static const unsigned long cp_single_3722[] = {0x02e8};
+static const unsigned long cp_single_3723[] = {0x02e7};
+static const unsigned long cp_single_3724[] = {0x01bd};
+static const unsigned long cp_single_3725[] = {0x0185};
+static const unsigned long cp_single_3726[] = {0x01a8};
+static const unsigned long cp_single_3727[] = {0x0384};
+static const unsigned long cp_single_3728[] = {0x3327};
+static const unsigned long cp_single_3729[] = {0x0e0f};
+static const unsigned long cp_single_3730[] = {0x3014};
+static const unsigned long cp_single_3731[] = {0xfe5d};
+static const unsigned long cp_single_3732[] = {0xfe39};
+static const unsigned long cp_single_3733[] = {0x3015};
+static const unsigned long cp_single_3734[] = {0xfe5e};
+static const unsigned long cp_single_3735[] = {0xfe3a};
+static const unsigned long cp_single_3736[] = {0x0e15};
+static const unsigned long cp_single_3737[] = {0x01ab};
+static const unsigned long cp_single_3738[] = {0x24af};
+static const unsigned long cp_single_3739[] = {0x2122};
+static const unsigned long cp_single_3740[] = {0xf8ea};
+static const unsigned long cp_single_3741[] = {0xf6db};
+static const unsigned long cp_single_3742[] = {0x0288};
+static const unsigned long cp_single_3743[] = {0x25bc};
+static const unsigned long cp_single_3744[] = {0x25c4};
+static const unsigned long cp_single_3745[] = {0x25ba};
+static const unsigned long cp_single_3746[] = {0x25b2};
+static const unsigned long cp_single_3747[] = {0x02a6};
+static const unsigned long cp_single_3748[] = {0x05e6};
+static const unsigned long cp_single_3749[] = {0xfb46};
+static const unsigned long cp_single_3750[] = {0xfb46};
+static const unsigned long cp_single_3751[] = {0x05e6};
+static const unsigned long cp_single_3752[] = {0x0446};
+static const unsigned long cp_single_3753[] = {0x05b5};
+static const unsigned long cp_single_3754[] = {0x05b5};
+static const unsigned long cp_single_3755[] = {0x05b5};
+static const unsigned long cp_single_3756[] = {0x05b5};
+static const unsigned long cp_single_3757[] = {0x05b5};
+static const unsigned long cp_single_3758[] = {0x05b5};
+static const unsigned long cp_single_3759[] = {0x05b5};
+static const unsigned long cp_single_3760[] = {0x05b5};
+static const unsigned long cp_single_3761[] = {0x045b};
+static const unsigned long cp_single_3762[] = {0xf6f3};
+static const unsigned long cp_single_3763[] = {0x099f};
+static const unsigned long cp_single_3764[] = {0x091f};
+static const unsigned long cp_single_3765[] = {0x0a9f};
+static const unsigned long cp_single_3766[] = {0x0a1f};
+static const unsigned long cp_single_3767[] = {0x0679};
+static const unsigned long cp_single_3768[] = {0xfb67};
+static const unsigned long cp_single_3769[] = {0xfb68};
+static const unsigned long cp_single_3770[] = {0xfb69};
+static const unsigned long cp_single_3771[] = {0x09a0};
+static const unsigned long cp_single_3772[] = {0x0920};
+static const unsigned long cp_single_3773[] = {0x0aa0};
+static const unsigned long cp_single_3774[] = {0x0a20};
+static const unsigned long cp_single_3775[] = {0x0287};
+static const unsigned long cp_single_3776[] = {0x3064};
+static const unsigned long cp_single_3777[] = {0x30c4};
+static const unsigned long cp_single_3778[] = {0xff82};
+static const unsigned long cp_single_3779[] = {0x3063};
+static const unsigned long cp_single_3780[] = {0x30c3};
+static const unsigned long cp_single_3781[] = {0xff6f};
+static const unsigned long cp_single_3782[] = {0x246b};
+static const unsigned long cp_single_3783[] = {0x247f};
+static const unsigned long cp_single_3784[] = {0x2493};
+static const unsigned long cp_single_3785[] = {0x217b};
+static const unsigned long cp_single_3786[] = {0x2473};
+static const unsigned long cp_single_3787[] = {0x5344};
+static const unsigned long cp_single_3788[] = {0x2487};
+static const unsigned long cp_single_3789[] = {0x249b};
+static const unsigned long cp_single_3790[] = {0x0032};
+static const unsigned long cp_single_3791[] = {0x0662};
+static const unsigned long cp_single_3792[] = {0x09e8};
+static const unsigned long cp_single_3793[] = {0x2461};
+static const unsigned long cp_single_3794[] = {0x278b};
+static const unsigned long cp_single_3795[] = {0x0968};
+static const unsigned long cp_single_3796[] = {0x2025};
+static const unsigned long cp_single_3797[] = {0x2025};
+static const unsigned long cp_single_3798[] = {0xfe30};
+static const unsigned long cp_single_3799[] = {0x0ae8};
+static const unsigned long cp_single_3800[] = {0x0a68};
+static const unsigned long cp_single_3801[] = {0x0662};
+static const unsigned long cp_single_3802[] = {0x3022};
+static const unsigned long cp_single_3803[] = {0x3221};
+static const unsigned long cp_single_3804[] = {0x2082};
+static const unsigned long cp_single_3805[] = {0xff12};
+static const unsigned long cp_single_3806[] = {0x09f5};
+static const unsigned long cp_single_3807[] = {0xf732};
+static const unsigned long cp_single_3808[] = {0x2475};
+static const unsigned long cp_single_3809[] = {0x2489};
+static const unsigned long cp_single_3810[] = {0x06f2};
+static const unsigned long cp_single_3811[] = {0x2171};
+static const unsigned long cp_single_3812[] = {0x01bb};
+static const unsigned long cp_single_3813[] = {0x00b2};
+static const unsigned long cp_single_3814[] = {0x0e52};
+static const unsigned long cp_single_3815[] = {0x2154};
+static const unsigned long cp_single_3816[] = {0x0075};
+static const unsigned long cp_single_3817[] = {0x00fa};
+static const unsigned long cp_single_3818[] = {0x0289};
+static const unsigned long cp_single_3819[] = {0x0989};
+static const unsigned long cp_single_3820[] = {0x3128};
+static const unsigned long cp_single_3821[] = {0x016d};
+static const unsigned long cp_single_3822[] = {0x01d4};
+static const unsigned long cp_single_3823[] = {0x24e4};
+static const unsigned long cp_single_3824[] = {0x00fb};
+static const unsigned long cp_single_3825[] = {0x1e77};
+static const unsigned long cp_single_3826[] = {0x0443};
+static const unsigned long cp_single_3827[] = {0x0951};
+static const unsigned long cp_single_3828[] = {0x0171};
+static const unsigned long cp_single_3829[] = {0x0215};
+static const unsigned long cp_single_3830[] = {0x0909};
+static const unsigned long cp_single_3831[] = {0x00fc};
+static const unsigned long cp_single_3832[] = {0x01d8};
+static const unsigned long cp_single_3833[] = {0x1e73};
+static const unsigned long cp_single_3834[] = {0x01da};
+static const unsigned long cp_single_3835[] = {0x04f1};
+static const unsigned long cp_single_3836[] = {0x01dc};
+static const unsigned long cp_single_3837[] = {0x01d6};
+static const unsigned long cp_single_3838[] = {0x1ee5};
+static const unsigned long cp_single_3839[] = {0x00f9};
+static const unsigned long cp_single_3840[] = {0x0a89};
+static const unsigned long cp_single_3841[] = {0x0a09};
+static const unsigned long cp_single_3842[] = {0x3046};
+static const unsigned long cp_single_3843[] = {0x1ee7};
+static const unsigned long cp_single_3844[] = {0x01b0};
+static const unsigned long cp_single_3845[] = {0x1ee9};
+static const unsigned long cp_single_3846[] = {0x1ef1};
+static const unsigned long cp_single_3847[] = {0x1eeb};
+static const unsigned long cp_single_3848[] = {0x1eed};
+static const unsigned long cp_single_3849[] = {0x1eef};
+static const unsigned long cp_single_3850[] = {0x0171};
+static const unsigned long cp_single_3851[] = {0x04f3};
+static const unsigned long cp_single_3852[] = {0x0217};
+static const unsigned long cp_single_3853[] = {0x30a6};
+static const unsigned long cp_single_3854[] = {0xff73};
+static const unsigned long cp_single_3855[] = {0x0479};
+static const unsigned long cp_single_3856[] = {0x315c};
+static const unsigned long cp_single_3857[] = {0x016b};
+static const unsigned long cp_single_3858[] = {0x04ef};
+static const unsigned long cp_single_3859[] = {0x1e7b};
+static const unsigned long cp_single_3860[] = {0x0a41};
+static const unsigned long cp_single_3861[] = {0xff55};
+static const unsigned long cp_single_3862[] = {0x005f};
+static const unsigned long cp_single_3863[] = {0x2017};
+static const unsigned long cp_single_3864[] = {0xff3f};
+static const unsigned long cp_single_3865[] = {0xfe33};
+static const unsigned long cp_single_3866[] = {0xfe4f};
+static const unsigned long cp_single_3867[] = {0x222a};
+static const unsigned long cp_single_3868[] = {0x2200};
+static const unsigned long cp_single_3869[] = {0x0173};
+static const unsigned long cp_single_3870[] = {0x24b0};
+static const unsigned long cp_single_3871[] = {0x2580};
+static const unsigned long cp_single_3872[] = {0x05c4};
+static const unsigned long cp_single_3873[] = {0x03c5};
+static const unsigned long cp_single_3874[] = {0x03cb};
+static const unsigned long cp_single_3875[] = {0x03b0};
+static const unsigned long cp_single_3876[] = {0x028a};
+static const unsigned long cp_single_3877[] = {0x03cd};
+static const unsigned long cp_single_3878[] = {0x031d};
+static const unsigned long cp_single_3879[] = {0x02d4};
+static const unsigned long cp_single_3880[] = {0x0a73};
+static const unsigned long cp_single_3881[] = {0x016f};
+static const unsigned long cp_single_3882[] = {0x045e};
+static const unsigned long cp_single_3883[] = {0x3045};
+static const unsigned long cp_single_3884[] = {0x30a5};
+static const unsigned long cp_single_3885[] = {0xff69};
+static const unsigned long cp_single_3886[] = {0x04af};
+static const unsigned long cp_single_3887[] = {0x04b1};
+static const unsigned long cp_single_3888[] = {0x0169};
+static const unsigned long cp_single_3889[] = {0x1e79};
+static const unsigned long cp_single_3890[] = {0x1e75};
+static const unsigned long cp_single_3891[] = {0x098a};
+static const unsigned long cp_single_3892[] = {0x090a};
+static const unsigned long cp_single_3893[] = {0x0a8a};
+static const unsigned long cp_single_3894[] = {0x0a0a};
+static const unsigned long cp_single_3895[] = {0x0a42};
+static const unsigned long cp_single_3896[] = {0x09c2};
+static const unsigned long cp_single_3897[] = {0x0942};
+static const unsigned long cp_single_3898[] = {0x0ac2};
+static const unsigned long cp_single_3899[] = {0x09c1};
+static const unsigned long cp_single_3900[] = {0x0941};
+static const unsigned long cp_single_3901[] = {0x0ac1};
+static const unsigned long cp_single_3902[] = {0x0076};
+static const unsigned long cp_single_3903[] = {0x0935};
+static const unsigned long cp_single_3904[] = {0x0ab5};
+static const unsigned long cp_single_3905[] = {0x0a35};
+static const unsigned long cp_single_3906[] = {0x30f7};
+static const unsigned long cp_single_3907[] = {0x05d5};
+static const unsigned long cp_single_3908[] = {0xfb35};
+static const unsigned long cp_single_3909[] = {0xfb35};
+static const unsigned long cp_single_3910[] = {0xfb35};
+static const unsigned long cp_single_3911[] = {0x05d5};
+static const unsigned long cp_single_3912[] = {0xfb4b};
+static const unsigned long cp_single_3913[] = {0xfb4b};
+static const unsigned long cp_single_3914[] = {0x05f0};
+static const unsigned long cp_single_3915[] = {0x05f1};
+static const unsigned long cp_single_3916[] = {0x24e5};
+static const unsigned long cp_single_3917[] = {0x1e7f};
+static const unsigned long cp_single_3918[] = {0x0432};
+static const unsigned long cp_single_3919[] = {0x06a4};
+static const unsigned long cp_single_3920[] = {0xfb6b};
+static const unsigned long cp_single_3921[] = {0xfb6c};
+static const unsigned long cp_single_3922[] = {0xfb6d};
+static const unsigned long cp_single_3923[] = {0x30f9};
+static const unsigned long cp_single_3924[] = {0x2640};
+static const unsigned long cp_single_3925[] = {0x007c};
+static const unsigned long cp_single_3926[] = {0x030d};
+static const unsigned long cp_single_3927[] = {0x0329};
+static const unsigned long cp_single_3928[] = {0x02cc};
+static const unsigned long cp_single_3929[] = {0x02c8};
+static const unsigned long cp_single_3930[] = {0x057e};
+static const unsigned long cp_single_3931[] = {0x028b};
+static const unsigned long cp_single_3932[] = {0x30f8};
+static const unsigned long cp_single_3933[] = {0x09cd};
+static const unsigned long cp_single_3934[] = {0x094d};
+static const unsigned long cp_single_3935[] = {0x0acd};
+static const unsigned long cp_single_3936[] = {0x0983};
+static const unsigned long cp_single_3937[] = {0x0903};
+static const unsigned long cp_single_3938[] = {0x0a83};
+static const unsigned long cp_single_3939[] = {0xff56};
+static const unsigned long cp_single_3940[] = {0x0578};
+static const unsigned long cp_single_3941[] = {0x309e};
+static const unsigned long cp_single_3942[] = {0x30fe};
+static const unsigned long cp_single_3943[] = {0x309b};
+static const unsigned long cp_single_3944[] = {0xff9e};
+static const unsigned long cp_single_3945[] = {0x30fa};
+static const unsigned long cp_single_3946[] = {0x24b1};
+static const unsigned long cp_single_3947[] = {0x1e7d};
+static const unsigned long cp_single_3948[] = {0x028c};
+static const unsigned long cp_single_3949[] = {0x3094};
+static const unsigned long cp_single_3950[] = {0x30f4};
+static const unsigned long cp_single_3951[] = {0x0077};
+static const unsigned long cp_single_3952[] = {0x1e83};
+static const unsigned long cp_single_3953[] = {0x3159};
+static const unsigned long cp_single_3954[] = {0x308f};
+static const unsigned long cp_single_3955[] = {0x30ef};
+static const unsigned long cp_single_3956[] = {0xff9c};
+static const unsigned long cp_single_3957[] = {0x3158};
+static const unsigned long cp_single_3958[] = {0x308e};
+static const unsigned long cp_single_3959[] = {0x30ee};
+static const unsigned long cp_single_3960[] = {0x3357};
+static const unsigned long cp_single_3961[] = {0x301c};
+static const unsigned long cp_single_3962[] = {0xfe34};
+static const unsigned long cp_single_3963[] = {0x0648};
+static const unsigned long cp_single_3964[] = {0xfeee};
+static const unsigned long cp_single_3965[] = {0x0624};
+static const unsigned long cp_single_3966[] = {0xfe86};
+static const unsigned long cp_single_3967[] = {0x33dd};
+static const unsigned long cp_single_3968[] = {0x24e6};
+static const unsigned long cp_single_3969[] = {0x0175};
+static const unsigned long cp_single_3970[] = {0x1e85};
+static const unsigned long cp_single_3971[] = {0x1e87};
+static const unsigned long cp_single_3972[] = {0x1e89};
+static const unsigned long cp_single_3973[] = {0x3091};
+static const unsigned long cp_single_3974[] = {0x2118};
+static const unsigned long cp_single_3975[] = {0x30f1};
+static const unsigned long cp_single_3976[] = {0x315e};
+static const unsigned long cp_single_3977[] = {0x315d};
+static const unsigned long cp_single_3978[] = {0x1e81};
+static const unsigned long cp_single_3979[] = {0x25e6};
+static const unsigned long cp_single_3980[] = {0x25cb};
+static const unsigned long cp_single_3981[] = {0x25d9};
+static const unsigned long cp_single_3982[] = {0x300e};
+static const unsigned long cp_single_3983[] = {0xfe43};
+static const unsigned long cp_single_3984[] = {0x300f};
+static const unsigned long cp_single_3985[] = {0xfe44};
+static const unsigned long cp_single_3986[] = {0x25c7};
+static const unsigned long cp_single_3987[] = {0x25c8};
+static const unsigned long cp_single_3988[] = {0x25bf};
+static const unsigned long cp_single_3989[] = {0x25bd};
+static const unsigned long cp_single_3990[] = {0x25c3};
+static const unsigned long cp_single_3991[] = {0x25c1};
+static const unsigned long cp_single_3992[] = {0x3016};
+static const unsigned long cp_single_3993[] = {0x3017};
+static const unsigned long cp_single_3994[] = {0x25b9};
+static const unsigned long cp_single_3995[] = {0x25b7};
+static const unsigned long cp_single_3996[] = {0x25ab};
+static const unsigned long cp_single_3997[] = {0x263a};
+static const unsigned long cp_single_3998[] = {0x25a1};
+static const unsigned long cp_single_3999[] = {0x2606};
+static const unsigned long cp_single_4000[] = {0x260f};
+static const unsigned long cp_single_4001[] = {0x3018};
+static const unsigned long cp_single_4002[] = {0x3019};
+static const unsigned long cp_single_4003[] = {0x25b5};
+static const unsigned long cp_single_4004[] = {0x25b3};
+static const unsigned long cp_single_4005[] = {0x3090};
+static const unsigned long cp_single_4006[] = {0x30f0};
+static const unsigned long cp_single_4007[] = {0x315f};
+static const unsigned long cp_single_4008[] = {0xff57};
+static const unsigned long cp_single_4009[] = {0x3092};
+static const unsigned long cp_single_4010[] = {0x30f2};
+static const unsigned long cp_single_4011[] = {0xff66};
+static const unsigned long cp_single_4012[] = {0x20a9};
+static const unsigned long cp_single_4013[] = {0xffe6};
+static const unsigned long cp_single_4014[] = {0x0e27};
+static const unsigned long cp_single_4015[] = {0x24b2};
+static const unsigned long cp_single_4016[] = {0x1e98};
+static const unsigned long cp_single_4017[] = {0x02b7};
+static const unsigned long cp_single_4018[] = {0x028d};
+static const unsigned long cp_single_4019[] = {0x01bf};
+static const unsigned long cp_single_4020[] = {0x0078};
+static const unsigned long cp_single_4021[] = {0x033d};
+static const unsigned long cp_single_4022[] = {0x3112};
+static const unsigned long cp_single_4023[] = {0x24e7};
+static const unsigned long cp_single_4024[] = {0x1e8d};
+static const unsigned long cp_single_4025[] = {0x1e8b};
+static const unsigned long cp_single_4026[] = {0x056d};
+static const unsigned long cp_single_4027[] = {0x03be};
+static const unsigned long cp_single_4028[] = {0xff58};
+static const unsigned long cp_single_4029[] = {0x24b3};
+static const unsigned long cp_single_4030[] = {0x02e3};
+static const unsigned long cp_single_4031[] = {0x0079};
+static const unsigned long cp_single_4032[] = {0x334e};
+static const unsigned long cp_single_4033[] = {0x09af};
+static const unsigned long cp_single_4034[] = {0x00fd};
+static const unsigned long cp_single_4035[] = {0x092f};
+static const unsigned long cp_single_4036[] = {0x3152};
+static const unsigned long cp_single_4037[] = {0x0aaf};
+static const unsigned long cp_single_4038[] = {0x0a2f};
+static const unsigned long cp_single_4039[] = {0x3084};
+static const unsigned long cp_single_4040[] = {0x30e4};
+static const unsigned long cp_single_4041[] = {0xff94};
+static const unsigned long cp_single_4042[] = {0x3151};
+static const unsigned long cp_single_4043[] = {0x0e4e};
+static const unsigned long cp_single_4044[] = {0x3083};
+static const unsigned long cp_single_4045[] = {0x30e3};
+static const unsigned long cp_single_4046[] = {0xff6c};
+static const unsigned long cp_single_4047[] = {0x0463};
+static const unsigned long cp_single_4048[] = {0x24e8};
+static const unsigned long cp_single_4049[] = {0x0177};
+static const unsigned long cp_single_4050[] = {0x00ff};
+static const unsigned long cp_single_4051[] = {0x1e8f};
+static const unsigned long cp_single_4052[] = {0x1ef5};
+static const unsigned long cp_single_4053[] = {0x064a};
+static const unsigned long cp_single_4054[] = {0x06d2};
+static const unsigned long cp_single_4055[] = {0xfbaf};
+static const unsigned long cp_single_4056[] = {0xfef2};
+static const unsigned long cp_single_4057[] = {0x0626};
+static const unsigned long cp_single_4058[] = {0xfe8a};
+static const unsigned long cp_single_4059[] = {0xfe8b};
+static const unsigned long cp_single_4060[] = {0xfe8c};
+static const unsigned long cp_single_4061[] = {0xfef3};
+static const unsigned long cp_single_4062[] = {0xfef4};
+static const unsigned long cp_single_4063[] = {0xfcdd};
+static const unsigned long cp_single_4064[] = {0xfc58};
+static const unsigned long cp_single_4065[] = {0xfc94};
+static const unsigned long cp_single_4066[] = {0x06d1};
+static const unsigned long cp_single_4067[] = {0x3156};
+static const unsigned long cp_single_4068[] = {0x00a5};
+static const unsigned long cp_single_4069[] = {0xffe5};
+static const unsigned long cp_single_4070[] = {0x3155};
+static const unsigned long cp_single_4071[] = {0x3186};
+static const unsigned long cp_single_4072[] = {0x05aa};
+static const unsigned long cp_single_4073[] = {0x05aa};
+static const unsigned long cp_single_4074[] = {0x044b};
+static const unsigned long cp_single_4075[] = {0x04f9};
+static const unsigned long cp_single_4076[] = {0x3181};
+static const unsigned long cp_single_4077[] = {0x3183};
+static const unsigned long cp_single_4078[] = {0x3182};
+static const unsigned long cp_single_4079[] = {0x059a};
+static const unsigned long cp_single_4080[] = {0x1ef3};
+static const unsigned long cp_single_4081[] = {0x01b4};
+static const unsigned long cp_single_4082[] = {0x1ef7};
+static const unsigned long cp_single_4083[] = {0x0575};
+static const unsigned long cp_single_4084[] = {0x0457};
+static const unsigned long cp_single_4085[] = {0x3162};
+static const unsigned long cp_single_4086[] = {0x262f};
+static const unsigned long cp_single_4087[] = {0x0582};
+static const unsigned long cp_single_4088[] = {0xff59};
+static const unsigned long cp_single_4089[] = {0x05d9};
+static const unsigned long cp_single_4090[] = {0xfb39};
+static const unsigned long cp_single_4091[] = {0xfb39};
+static const unsigned long cp_single_4092[] = {0x05d9};
+static const unsigned long cp_single_4093[] = {0x05f2};
+static const unsigned long cp_single_4094[] = {0xfb1f};
+static const unsigned long cp_single_4095[] = {0x3088};
+static const unsigned long cp_single_4096[] = {0x3189};
+static const unsigned long cp_single_4097[] = {0x30e8};
+static const unsigned long cp_single_4098[] = {0xff96};
+static const unsigned long cp_single_4099[] = {0x315b};
+static const unsigned long cp_single_4100[] = {0x3087};
+static const unsigned long cp_single_4101[] = {0x30e7};
+static const unsigned long cp_single_4102[] = {0xff6e};
+static const unsigned long cp_single_4103[] = {0x03f3};
+static const unsigned long cp_single_4104[] = {0x3188};
+static const unsigned long cp_single_4105[] = {0x3187};
+static const unsigned long cp_single_4106[] = {0x0e22};
+static const unsigned long cp_single_4107[] = {0x0e0d};
+static const unsigned long cp_single_4108[] = {0x24b4};
+static const unsigned long cp_single_4109[] = {0x037a};
+static const unsigned long cp_single_4110[] = {0x0345};
+static const unsigned long cp_single_4111[] = {0x01a6};
+static const unsigned long cp_single_4112[] = {0x1e99};
+static const unsigned long cp_single_4113[] = {0x02b8};
+static const unsigned long cp_single_4114[] = {0x1ef9};
+static const unsigned long cp_single_4115[] = {0x028e};
+static const unsigned long cp_single_4116[] = {0x3086};
+static const unsigned long cp_single_4117[] = {0x318c};
+static const unsigned long cp_single_4118[] = {0x30e6};
+static const unsigned long cp_single_4119[] = {0xff95};
+static const unsigned long cp_single_4120[] = {0x3160};
+static const unsigned long cp_single_4121[] = {0x046b};
+static const unsigned long cp_single_4122[] = {0x046d};
+static const unsigned long cp_single_4123[] = {0x0467};
+static const unsigned long cp_single_4124[] = {0x0469};
+static const unsigned long cp_single_4125[] = {0x3085};
+static const unsigned long cp_single_4126[] = {0x30e5};
+static const unsigned long cp_single_4127[] = {0xff6d};
+static const unsigned long cp_single_4128[] = {0x318b};
+static const unsigned long cp_single_4129[] = {0x318a};
+static const unsigned long cp_single_4130[] = {0x09df};
+static const unsigned long cp_single_4131[] = {0x095f};
+static const unsigned long cp_single_4132[] = {0x007a};
+static const unsigned long cp_single_4133[] = {0x0566};
+static const unsigned long cp_single_4134[] = {0x017a};
+static const unsigned long cp_single_4135[] = {0x095b};
+static const unsigned long cp_single_4136[] = {0x0a5b};
+static const unsigned long cp_single_4137[] = {0x0638};
+static const unsigned long cp_single_4138[] = {0xfec6};
+static const unsigned long cp_single_4139[] = {0xfec7};
+static const unsigned long cp_single_4140[] = {0x3056};
+static const unsigned long cp_single_4141[] = {0xfec8};
+static const unsigned long cp_single_4142[] = {0x0632};
+static const unsigned long cp_single_4143[] = {0xfeb0};
+static const unsigned long cp_single_4144[] = {0x30b6};
+static const unsigned long cp_single_4145[] = {0x0595};
+static const unsigned long cp_single_4146[] = {0x0594};
+static const unsigned long cp_single_4147[] = {0x0598};
+static const unsigned long cp_single_4148[] = {0x05d6};
+static const unsigned long cp_single_4149[] = {0xfb36};
+static const unsigned long cp_single_4150[] = {0xfb36};
+static const unsigned long cp_single_4151[] = {0x05d6};
+static const unsigned long cp_single_4152[] = {0x3117};
+static const unsigned long cp_single_4153[] = {0x017e};
+static const unsigned long cp_single_4154[] = {0x24e9};
+static const unsigned long cp_single_4155[] = {0x1e91};
+static const unsigned long cp_single_4156[] = {0x0291};
+static const unsigned long cp_single_4157[] = {0x017c};
+static const unsigned long cp_single_4158[] = {0x017c};
+static const unsigned long cp_single_4159[] = {0x1e93};
+static const unsigned long cp_single_4160[] = {0x0437};
+static const unsigned long cp_single_4161[] = {0x0499};
+static const unsigned long cp_single_4162[] = {0x04df};
+static const unsigned long cp_single_4163[] = {0x305c};
+static const unsigned long cp_single_4164[] = {0x30bc};
+static const unsigned long cp_single_4165[] = {0x0030};
+static const unsigned long cp_single_4166[] = {0x0660};
+static const unsigned long cp_single_4167[] = {0x09e6};
+static const unsigned long cp_single_4168[] = {0x0966};
+static const unsigned long cp_single_4169[] = {0x0ae6};
+static const unsigned long cp_single_4170[] = {0x0a66};
+static const unsigned long cp_single_4171[] = {0x0660};
+static const unsigned long cp_single_4172[] = {0x2080};
+static const unsigned long cp_single_4173[] = {0xff10};
+static const unsigned long cp_single_4174[] = {0xf730};
+static const unsigned long cp_single_4175[] = {0x06f0};
+static const unsigned long cp_single_4176[] = {0x2070};
+static const unsigned long cp_single_4177[] = {0x0e50};
+static const unsigned long cp_single_4178[] = {0xfeff};
+static const unsigned long cp_single_4179[] = {0x200c};
+static const unsigned long cp_single_4180[] = {0x200b};
+static const unsigned long cp_single_4181[] = {0x03b6};
+static const unsigned long cp_single_4182[] = {0x3113};
+static const unsigned long cp_single_4183[] = {0x056a};
+static const unsigned long cp_single_4184[] = {0x04c2};
+static const unsigned long cp_single_4185[] = {0x0436};
+static const unsigned long cp_single_4186[] = {0x0497};
+static const unsigned long cp_single_4187[] = {0x04dd};
+static const unsigned long cp_single_4188[] = {0x3058};
+static const unsigned long cp_single_4189[] = {0x30b8};
+static const unsigned long cp_single_4190[] = {0x05ae};
+static const unsigned long cp_single_4191[] = {0x1e95};
+static const unsigned long cp_single_4192[] = {0xff5a};
+static const unsigned long cp_single_4193[] = {0x305e};
+static const unsigned long cp_single_4194[] = {0x30be};
+static const unsigned long cp_single_4195[] = {0x24b5};
+static const unsigned long cp_single_4196[] = {0x0290};
+static const unsigned long cp_single_4197[] = {0x01b6};
+static const unsigned long cp_single_4198[] = {0x305a};
+static const unsigned long cp_single_4199[] = {0x30ba};
+
 const GlyphListEntry AdobeGlyphListData[] = {
-    {"A", (const unsigned long[]){0x0041}, 1},
-    {"AE", (const unsigned long[]){0x00c6}, 1},
-    {"AEacute", (const unsigned long[]){0x01fc}, 1},
-    {"AEmacron", (const unsigned long[]){0x01e2}, 1},
-    {"AEsmall", (const unsigned long[]){0xf7e6}, 1},
-    {"Aacute", (const unsigned long[]){0x00c1}, 1},
-    {"Aacutesmall", (const unsigned long[]){0xf7e1}, 1},
-    {"Abreve", (const unsigned long[]){0x0102}, 1},
-    {"Abreveacute", (const unsigned long[]){0x1eae}, 1},
-    {"Abrevecyrillic", (const unsigned long[]){0x04d0}, 1},
-    {"Abrevedotbelow", (const unsigned long[]){0x1eb6}, 1},
-    {"Abrevegrave", (const unsigned long[]){0x1eb0}, 1},
-    {"Abrevehookabove", (const unsigned long[]){0x1eb2}, 1},
-    {"Abrevetilde", (const unsigned long[]){0x1eb4}, 1},
-    {"Acaron", (const unsigned long[]){0x01cd}, 1},
-    {"Acircle", (const unsigned long[]){0x24b6}, 1},
-    {"Acircumflex", (const unsigned long[]){0x00c2}, 1},
-    {"Acircumflexacute", (const unsigned long[]){0x1ea4}, 1},
-    {"Acircumflexdotbelow", (const unsigned long[]){0x1eac}, 1},
-    {"Acircumflexgrave", (const unsigned long[]){0x1ea6}, 1},
-    {"Acircumflexhookabove", (const unsigned long[]){0x1ea8}, 1},
-    {"Acircumflexsmall", (const unsigned long[]){0xf7e2}, 1},
-    {"Acircumflextilde", (const unsigned long[]){0x1eaa}, 1},
-    {"Acute", (const unsigned long[]){0xf6c9}, 1},
-    {"Acutesmall", (const unsigned long[]){0xf7b4}, 1},
-    {"Acyrillic", (const unsigned long[]){0x0410}, 1},
-    {"Adblgrave", (const unsigned long[]){0x0200}, 1},
-    {"Adieresis", (const unsigned long[]){0x00c4}, 1},
-    {"Adieresiscyrillic", (const unsigned long[]){0x04d2}, 1},
-    {"Adieresismacron", (const unsigned long[]){0x01de}, 1},
-    {"Adieresissmall", (const unsigned long[]){0xf7e4}, 1},
-    {"Adotbelow", (const unsigned long[]){0x1ea0}, 1},
-    {"Adotmacron", (const unsigned long[]){0x01e0}, 1},
-    {"Agrave", (const unsigned long[]){0x00c0}, 1},
-    {"Agravesmall", (const unsigned long[]){0xf7e0}, 1},
-    {"Ahookabove", (const unsigned long[]){0x1ea2}, 1},
-    {"Aiecyrillic", (const unsigned long[]){0x04d4}, 1},
-    {"Ainvertedbreve", (const unsigned long[]){0x0202}, 1},
-    {"Alpha", (const unsigned long[]){0x0391}, 1},
-    {"Alphatonos", (const unsigned long[]){0x0386}, 1},
-    {"Amacron", (const unsigned long[]){0x0100}, 1},
-    {"Amonospace", (const unsigned long[]){0xff21}, 1},
-    {"Aogonek", (const unsigned long[]){0x0104}, 1},
-    {"Aring", (const unsigned long[]){0x00c5}, 1},
-    {"Aringacute", (const unsigned long[]){0x01fa}, 1},
-    {"Aringbelow", (const unsigned long[]){0x1e00}, 1},
-    {"Aringsmall", (const unsigned long[]){0xf7e5}, 1},
-    {"Asmall", (const unsigned long[]){0xf761}, 1},
-    {"Atilde", (const unsigned long[]){0x00c3}, 1},
-    {"Atildesmall", (const unsigned long[]){0xf7e3}, 1},
-    {"Aybarmenian", (const unsigned long[]){0x0531}, 1},
-    {"B", (const unsigned long[]){0x0042}, 1},
-    {"Bcircle", (const unsigned long[]){0x24b7}, 1},
-    {"Bdotaccent", (const unsigned long[]){0x1e02}, 1},
-    {"Bdotbelow", (const unsigned long[]){0x1e04}, 1},
-    {"Becyrillic", (const unsigned long[]){0x0411}, 1},
-    {"Benarmenian", (const unsigned long[]){0x0532}, 1},
-    {"Beta", (const unsigned long[]){0x0392}, 1},
-    {"Bhook", (const unsigned long[]){0x0181}, 1},
-    {"Blinebelow", (const unsigned long[]){0x1e06}, 1},
-    {"Bmonospace", (const unsigned long[]){0xff22}, 1},
-    {"Brevesmall", (const unsigned long[]){0xf6f4}, 1},
-    {"Bsmall", (const unsigned long[]){0xf762}, 1},
-    {"Btopbar", (const unsigned long[]){0x0182}, 1},
-    {"C", (const unsigned long[]){0x0043}, 1},
-    {"Caarmenian", (const unsigned long[]){0x053e}, 1},
-    {"Cacute", (const unsigned long[]){0x0106}, 1},
-    {"Caron", (const unsigned long[]){0xf6ca}, 1},
-    {"Caronsmall", (const unsigned long[]){0xf6f5}, 1},
-    {"Ccaron", (const unsigned long[]){0x010c}, 1},
-    {"Ccedilla", (const unsigned long[]){0x00c7}, 1},
-    {"Ccedillaacute", (const unsigned long[]){0x1e08}, 1},
-    {"Ccedillasmall", (const unsigned long[]){0xf7e7}, 1},
-    {"Ccircle", (const unsigned long[]){0x24b8}, 1},
-    {"Ccircumflex", (const unsigned long[]){0x0108}, 1},
-    {"Cdot", (const unsigned long[]){0x010a}, 1},
-    {"Cdotaccent", (const unsigned long[]){0x010a}, 1},
-    {"Cedillasmall", (const unsigned long[]){0xf7b8}, 1},
-    {"Chaarmenian", (const unsigned long[]){0x0549}, 1},
-    {"Cheabkhasiancyrillic", (const unsigned long[]){0x04bc}, 1},
-    {"Checyrillic", (const unsigned long[]){0x0427}, 1},
-    {"Chedescenderabkhasiancyrillic", (const unsigned long[]){0x04be}, 1},
-    {"Chedescendercyrillic", (const unsigned long[]){0x04b6}, 1},
-    {"Chedieresiscyrillic", (const unsigned long[]){0x04f4}, 1},
-    {"Cheharmenian", (const unsigned long[]){0x0543}, 1},
-    {"Chekhakassiancyrillic", (const unsigned long[]){0x04cb}, 1},
-    {"Cheverticalstrokecyrillic", (const unsigned long[]){0x04b8}, 1},
-    {"Chi", (const unsigned long[]){0x03a7}, 1},
-    {"Chook", (const unsigned long[]){0x0187}, 1},
-    {"Circumflexsmall", (const unsigned long[]){0xf6f6}, 1},
-    {"Cmonospace", (const unsigned long[]){0xff23}, 1},
-    {"Coarmenian", (const unsigned long[]){0x0551}, 1},
-    {"Csmall", (const unsigned long[]){0xf763}, 1},
-    {"D", (const unsigned long[]){0x0044}, 1},
-    {"DZ", (const unsigned long[]){0x01f1}, 1},
-    {"DZcaron", (const unsigned long[]){0x01c4}, 1},
-    {"Daarmenian", (const unsigned long[]){0x0534}, 1},
-    {"Dafrican", (const unsigned long[]){0x0189}, 1},
-    {"Dcaron", (const unsigned long[]){0x010e}, 1},
-    {"Dcedilla", (const unsigned long[]){0x1e10}, 1},
-    {"Dcircle", (const unsigned long[]){0x24b9}, 1},
-    {"Dcircumflexbelow", (const unsigned long[]){0x1e12}, 1},
-    {"Dcroat", (const unsigned long[]){0x0110}, 1},
-    {"Ddotaccent", (const unsigned long[]){0x1e0a}, 1},
-    {"Ddotbelow", (const unsigned long[]){0x1e0c}, 1},
-    {"Decyrillic", (const unsigned long[]){0x0414}, 1},
-    {"Deicoptic", (const unsigned long[]){0x03ee}, 1},
-    {"Delta", (const unsigned long[]){0x2206}, 1},
-    {"Deltagreek", (const unsigned long[]){0x0394}, 1},
-    {"Dhook", (const unsigned long[]){0x018a}, 1},
-    {"Dieresis", (const unsigned long[]){0xf6cb}, 1},
-    {"DieresisAcute", (const unsigned long[]){0xf6cc}, 1},
-    {"DieresisGrave", (const unsigned long[]){0xf6cd}, 1},
-    {"Dieresissmall", (const unsigned long[]){0xf7a8}, 1},
-    {"Digammagreek", (const unsigned long[]){0x03dc}, 1},
-    {"Djecyrillic", (const unsigned long[]){0x0402}, 1},
-    {"Dlinebelow", (const unsigned long[]){0x1e0e}, 1},
-    {"Dmonospace", (const unsigned long[]){0xff24}, 1},
-    {"Dotaccentsmall", (const unsigned long[]){0xf6f7}, 1},
-    {"Dslash", (const unsigned long[]){0x0110}, 1},
-    {"Dsmall", (const unsigned long[]){0xf764}, 1},
-    {"Dtopbar", (const unsigned long[]){0x018b}, 1},
-    {"Dz", (const unsigned long[]){0x01f2}, 1},
-    {"Dzcaron", (const unsigned long[]){0x01c5}, 1},
-    {"Dzeabkhasiancyrillic", (const unsigned long[]){0x04e0}, 1},
-    {"Dzecyrillic", (const unsigned long[]){0x0405}, 1},
-    {"Dzhecyrillic", (const unsigned long[]){0x040f}, 1},
-    {"E", (const unsigned long[]){0x0045}, 1},
-    {"Eacute", (const unsigned long[]){0x00c9}, 1},
-    {"Eacutesmall", (const unsigned long[]){0xf7e9}, 1},
-    {"Ebreve", (const unsigned long[]){0x0114}, 1},
-    {"Ecaron", (const unsigned long[]){0x011a}, 1},
-    {"Ecedillabreve", (const unsigned long[]){0x1e1c}, 1},
-    {"Echarmenian", (const unsigned long[]){0x0535}, 1},
-    {"Ecircle", (const unsigned long[]){0x24ba}, 1},
-    {"Ecircumflex", (const unsigned long[]){0x00ca}, 1},
-    {"Ecircumflexacute", (const unsigned long[]){0x1ebe}, 1},
-    {"Ecircumflexbelow", (const unsigned long[]){0x1e18}, 1},
-    {"Ecircumflexdotbelow", (const unsigned long[]){0x1ec6}, 1},
-    {"Ecircumflexgrave", (const unsigned long[]){0x1ec0}, 1},
-    {"Ecircumflexhookabove", (const unsigned long[]){0x1ec2}, 1},
-    {"Ecircumflexsmall", (const unsigned long[]){0xf7ea}, 1},
-    {"Ecircumflextilde", (const unsigned long[]){0x1ec4}, 1},
-    {"Ecyrillic", (const unsigned long[]){0x0404}, 1},
-    {"Edblgrave", (const unsigned long[]){0x0204}, 1},
-    {"Edieresis", (const unsigned long[]){0x00cb}, 1},
-    {"Edieresissmall", (const unsigned long[]){0xf7eb}, 1},
-    {"Edot", (const unsigned long[]){0x0116}, 1},
-    {"Edotaccent", (const unsigned long[]){0x0116}, 1},
-    {"Edotbelow", (const unsigned long[]){0x1eb8}, 1},
-    {"Efcyrillic", (const unsigned long[]){0x0424}, 1},
-    {"Egrave", (const unsigned long[]){0x00c8}, 1},
-    {"Egravesmall", (const unsigned long[]){0xf7e8}, 1},
-    {"Eharmenian", (const unsigned long[]){0x0537}, 1},
-    {"Ehookabove", (const unsigned long[]){0x1eba}, 1},
-    {"Eightroman", (const unsigned long[]){0x2167}, 1},
-    {"Einvertedbreve", (const unsigned long[]){0x0206}, 1},
-    {"Eiotifiedcyrillic", (const unsigned long[]){0x0464}, 1},
-    {"Elcyrillic", (const unsigned long[]){0x041b}, 1},
-    {"Elevenroman", (const unsigned long[]){0x216a}, 1},
-    {"Emacron", (const unsigned long[]){0x0112}, 1},
-    {"Emacronacute", (const unsigned long[]){0x1e16}, 1},
-    {"Emacrongrave", (const unsigned long[]){0x1e14}, 1},
-    {"Emcyrillic", (const unsigned long[]){0x041c}, 1},
-    {"Emonospace", (const unsigned long[]){0xff25}, 1},
-    {"Encyrillic", (const unsigned long[]){0x041d}, 1},
-    {"Endescendercyrillic", (const unsigned long[]){0x04a2}, 1},
-    {"Eng", (const unsigned long[]){0x014a}, 1},
-    {"Enghecyrillic", (const unsigned long[]){0x04a4}, 1},
-    {"Enhookcyrillic", (const unsigned long[]){0x04c7}, 1},
-    {"Eogonek", (const unsigned long[]){0x0118}, 1},
-    {"Eopen", (const unsigned long[]){0x0190}, 1},
-    {"Epsilon", (const unsigned long[]){0x0395}, 1},
-    {"Epsilontonos", (const unsigned long[]){0x0388}, 1},
-    {"Ercyrillic", (const unsigned long[]){0x0420}, 1},
-    {"Ereversed", (const unsigned long[]){0x018e}, 1},
-    {"Ereversedcyrillic", (const unsigned long[]){0x042d}, 1},
-    {"Escyrillic", (const unsigned long[]){0x0421}, 1},
-    {"Esdescendercyrillic", (const unsigned long[]){0x04aa}, 1},
-    {"Esh", (const unsigned long[]){0x01a9}, 1},
-    {"Esmall", (const unsigned long[]){0xf765}, 1},
-    {"Eta", (const unsigned long[]){0x0397}, 1},
-    {"Etarmenian", (const unsigned long[]){0x0538}, 1},
-    {"Etatonos", (const unsigned long[]){0x0389}, 1},
-    {"Eth", (const unsigned long[]){0x00d0}, 1},
-    {"Ethsmall", (const unsigned long[]){0xf7f0}, 1},
-    {"Etilde", (const unsigned long[]){0x1ebc}, 1},
-    {"Etildebelow", (const unsigned long[]){0x1e1a}, 1},
-    {"Euro", (const unsigned long[]){0x20ac}, 1},
-    {"Ezh", (const unsigned long[]){0x01b7}, 1},
-    {"Ezhcaron", (const unsigned long[]){0x01ee}, 1},
-    {"Ezhreversed", (const unsigned long[]){0x01b8}, 1},
-    {"F", (const unsigned long[]){0x0046}, 1},
-    {"Fcircle", (const unsigned long[]){0x24bb}, 1},
-    {"Fdotaccent", (const unsigned long[]){0x1e1e}, 1},
-    {"Feharmenian", (const unsigned long[]){0x0556}, 1},
-    {"Feicoptic", (const unsigned long[]){0x03e4}, 1},
-    {"Fhook", (const unsigned long[]){0x0191}, 1},
-    {"Fitacyrillic", (const unsigned long[]){0x0472}, 1},
-    {"Fiveroman", (const unsigned long[]){0x2164}, 1},
-    {"Fmonospace", (const unsigned long[]){0xff26}, 1},
-    {"Fourroman", (const unsigned long[]){0x2163}, 1},
-    {"Fsmall", (const unsigned long[]){0xf766}, 1},
-    {"G", (const unsigned long[]){0x0047}, 1},
-    {"GBsquare", (const unsigned long[]){0x3387}, 1},
-    {"Gacute", (const unsigned long[]){0x01f4}, 1},
-    {"Gamma", (const unsigned long[]){0x0393}, 1},
-    {"Gammaafrican", (const unsigned long[]){0x0194}, 1},
-    {"Gangiacoptic", (const unsigned long[]){0x03ea}, 1},
-    {"Gbreve", (const unsigned long[]){0x011e}, 1},
-    {"Gcaron", (const unsigned long[]){0x01e6}, 1},
-    {"Gcedilla", (const unsigned long[]){0x0122}, 1},
-    {"Gcircle", (const unsigned long[]){0x24bc}, 1},
-    {"Gcircumflex", (const unsigned long[]){0x011c}, 1},
-    {"Gcommaaccent", (const unsigned long[]){0x0122}, 1},
-    {"Gdot", (const unsigned long[]){0x0120}, 1},
-    {"Gdotaccent", (const unsigned long[]){0x0120}, 1},
-    {"Gecyrillic", (const unsigned long[]){0x0413}, 1},
-    {"Ghadarmenian", (const unsigned long[]){0x0542}, 1},
-    {"Ghemiddlehookcyrillic", (const unsigned long[]){0x0494}, 1},
-    {"Ghestrokecyrillic", (const unsigned long[]){0x0492}, 1},
-    {"Gheupturncyrillic", (const unsigned long[]){0x0490}, 1},
-    {"Ghook", (const unsigned long[]){0x0193}, 1},
-    {"Gimarmenian", (const unsigned long[]){0x0533}, 1},
-    {"Gjecyrillic", (const unsigned long[]){0x0403}, 1},
-    {"Gmacron", (const unsigned long[]){0x1e20}, 1},
-    {"Gmonospace", (const unsigned long[]){0xff27}, 1},
-    {"Grave", (const unsigned long[]){0xf6ce}, 1},
-    {"Gravesmall", (const unsigned long[]){0xf760}, 1},
-    {"Gsmall", (const unsigned long[]){0xf767}, 1},
-    {"Gsmallhook", (const unsigned long[]){0x029b}, 1},
-    {"Gstroke", (const unsigned long[]){0x01e4}, 1},
-    {"H", (const unsigned long[]){0x0048}, 1},
-    {"H18533", (const unsigned long[]){0x25cf}, 1},
-    {"H18543", (const unsigned long[]){0x25aa}, 1},
-    {"H18551", (const unsigned long[]){0x25ab}, 1},
-    {"H22073", (const unsigned long[]){0x25a1}, 1},
-    {"HPsquare", (const unsigned long[]){0x33cb}, 1},
-    {"Haabkhasiancyrillic", (const unsigned long[]){0x04a8}, 1},
-    {"Hadescendercyrillic", (const unsigned long[]){0x04b2}, 1},
-    {"Hardsigncyrillic", (const unsigned long[]){0x042a}, 1},
-    {"Hbar", (const unsigned long[]){0x0126}, 1},
-    {"Hbrevebelow", (const unsigned long[]){0x1e2a}, 1},
-    {"Hcedilla", (const unsigned long[]){0x1e28}, 1},
-    {"Hcircle", (const unsigned long[]){0x24bd}, 1},
-    {"Hcircumflex", (const unsigned long[]){0x0124}, 1},
-    {"Hdieresis", (const unsigned long[]){0x1e26}, 1},
-    {"Hdotaccent", (const unsigned long[]){0x1e22}, 1},
-    {"Hdotbelow", (const unsigned long[]){0x1e24}, 1},
-    {"Hmonospace", (const unsigned long[]){0xff28}, 1},
-    {"Hoarmenian", (const unsigned long[]){0x0540}, 1},
-    {"Horicoptic", (const unsigned long[]){0x03e8}, 1},
-    {"Hsmall", (const unsigned long[]){0xf768}, 1},
-    {"Hungarumlaut", (const unsigned long[]){0xf6cf}, 1},
-    {"Hungarumlautsmall", (const unsigned long[]){0xf6f8}, 1},
-    {"Hzsquare", (const unsigned long[]){0x3390}, 1},
-    {"I", (const unsigned long[]){0x0049}, 1},
-    {"IAcyrillic", (const unsigned long[]){0x042f}, 1},
-    {"IJ", (const unsigned long[]){0x0132}, 1},
-    {"IUcyrillic", (const unsigned long[]){0x042e}, 1},
-    {"Iacute", (const unsigned long[]){0x00cd}, 1},
-    {"Iacutesmall", (const unsigned long[]){0xf7ed}, 1},
-    {"Ibreve", (const unsigned long[]){0x012c}, 1},
-    {"Icaron", (const unsigned long[]){0x01cf}, 1},
-    {"Icircle", (const unsigned long[]){0x24be}, 1},
-    {"Icircumflex", (const unsigned long[]){0x00ce}, 1},
-    {"Icircumflexsmall", (const unsigned long[]){0xf7ee}, 1},
-    {"Icyrillic", (const unsigned long[]){0x0406}, 1},
-    {"Idblgrave", (const unsigned long[]){0x0208}, 1},
-    {"Idieresis", (const unsigned long[]){0x00cf}, 1},
-    {"Idieresisacute", (const unsigned long[]){0x1e2e}, 1},
-    {"Idieresiscyrillic", (const unsigned long[]){0x04e4}, 1},
-    {"Idieresissmall", (const unsigned long[]){0xf7ef}, 1},
-    {"Idot", (const unsigned long[]){0x0130}, 1},
-    {"Idotaccent", (const unsigned long[]){0x0130}, 1},
-    {"Idotbelow", (const unsigned long[]){0x1eca}, 1},
-    {"Iebrevecyrillic", (const unsigned long[]){0x04d6}, 1},
-    {"Iecyrillic", (const unsigned long[]){0x0415}, 1},
-    {"Ifraktur", (const unsigned long[]){0x2111}, 1},
-    {"Igrave", (const unsigned long[]){0x00cc}, 1},
-    {"Igravesmall", (const unsigned long[]){0xf7ec}, 1},
-    {"Ihookabove", (const unsigned long[]){0x1ec8}, 1},
-    {"Iicyrillic", (const unsigned long[]){0x0418}, 1},
-    {"Iinvertedbreve", (const unsigned long[]){0x020a}, 1},
-    {"Iishortcyrillic", (const unsigned long[]){0x0419}, 1},
-    {"Imacron", (const unsigned long[]){0x012a}, 1},
-    {"Imacroncyrillic", (const unsigned long[]){0x04e2}, 1},
-    {"Imonospace", (const unsigned long[]){0xff29}, 1},
-    {"Iniarmenian", (const unsigned long[]){0x053b}, 1},
-    {"Iocyrillic", (const unsigned long[]){0x0401}, 1},
-    {"Iogonek", (const unsigned long[]){0x012e}, 1},
-    {"Iota", (const unsigned long[]){0x0399}, 1},
-    {"Iotaafrican", (const unsigned long[]){0x0196}, 1},
-    {"Iotadieresis", (const unsigned long[]){0x03aa}, 1},
-    {"Iotatonos", (const unsigned long[]){0x038a}, 1},
-    {"Ismall", (const unsigned long[]){0xf769}, 1},
-    {"Istroke", (const unsigned long[]){0x0197}, 1},
-    {"Itilde", (const unsigned long[]){0x0128}, 1},
-    {"Itildebelow", (const unsigned long[]){0x1e2c}, 1},
-    {"Izhitsacyrillic", (const unsigned long[]){0x0474}, 1},
-    {"Izhitsadblgravecyrillic", (const unsigned long[]){0x0476}, 1},
-    {"J", (const unsigned long[]){0x004a}, 1},
-    {"Jaarmenian", (const unsigned long[]){0x0541}, 1},
-    {"Jcircle", (const unsigned long[]){0x24bf}, 1},
-    {"Jcircumflex", (const unsigned long[]){0x0134}, 1},
-    {"Jecyrillic", (const unsigned long[]){0x0408}, 1},
-    {"Jheharmenian", (const unsigned long[]){0x054b}, 1},
-    {"Jmonospace", (const unsigned long[]){0xff2a}, 1},
-    {"Jsmall", (const unsigned long[]){0xf76a}, 1},
-    {"K", (const unsigned long[]){0x004b}, 1},
-    {"KBsquare", (const unsigned long[]){0x3385}, 1},
-    {"KKsquare", (const unsigned long[]){0x33cd}, 1},
-    {"Kabashkircyrillic", (const unsigned long[]){0x04a0}, 1},
-    {"Kacute", (const unsigned long[]){0x1e30}, 1},
-    {"Kacyrillic", (const unsigned long[]){0x041a}, 1},
-    {"Kadescendercyrillic", (const unsigned long[]){0x049a}, 1},
-    {"Kahookcyrillic", (const unsigned long[]){0x04c3}, 1},
-    {"Kappa", (const unsigned long[]){0x039a}, 1},
-    {"Kastrokecyrillic", (const unsigned long[]){0x049e}, 1},
-    {"Kaverticalstrokecyrillic", (const unsigned long[]){0x049c}, 1},
-    {"Kcaron", (const unsigned long[]){0x01e8}, 1},
-    {"Kcedilla", (const unsigned long[]){0x0136}, 1},
-    {"Kcircle", (const unsigned long[]){0x24c0}, 1},
-    {"Kcommaaccent", (const unsigned long[]){0x0136}, 1},
-    {"Kdotbelow", (const unsigned long[]){0x1e32}, 1},
-    {"Keharmenian", (const unsigned long[]){0x0554}, 1},
-    {"Kenarmenian", (const unsigned long[]){0x053f}, 1},
-    {"Khacyrillic", (const unsigned long[]){0x0425}, 1},
-    {"Kheicoptic", (const unsigned long[]){0x03e6}, 1},
-    {"Khook", (const unsigned long[]){0x0198}, 1},
-    {"Kjecyrillic", (const unsigned long[]){0x040c}, 1},
-    {"Klinebelow", (const unsigned long[]){0x1e34}, 1},
-    {"Kmonospace", (const unsigned long[]){0xff2b}, 1},
-    {"Koppacyrillic", (const unsigned long[]){0x0480}, 1},
-    {"Koppagreek", (const unsigned long[]){0x03de}, 1},
-    {"Ksicyrillic", (const unsigned long[]){0x046e}, 1},
-    {"Ksmall", (const unsigned long[]){0xf76b}, 1},
-    {"L", (const unsigned long[]){0x004c}, 1},
-    {"LJ", (const unsigned long[]){0x01c7}, 1},
-    {"LL", (const unsigned long[]){0xf6bf}, 1},
-    {"Lacute", (const unsigned long[]){0x0139}, 1},
-    {"Lambda", (const unsigned long[]){0x039b}, 1},
-    {"Lcaron", (const unsigned long[]){0x013d}, 1},
-    {"Lcedilla", (const unsigned long[]){0x013b}, 1},
-    {"Lcircle", (const unsigned long[]){0x24c1}, 1},
-    {"Lcircumflexbelow", (const unsigned long[]){0x1e3c}, 1},
-    {"Lcommaaccent", (const unsigned long[]){0x013b}, 1},
-    {"Ldot", (const unsigned long[]){0x013f}, 1},
-    {"Ldotaccent", (const unsigned long[]){0x013f}, 1},
-    {"Ldotbelow", (const unsigned long[]){0x1e36}, 1},
-    {"Ldotbelowmacron", (const unsigned long[]){0x1e38}, 1},
-    {"Liwnarmenian", (const unsigned long[]){0x053c}, 1},
-    {"Lj", (const unsigned long[]){0x01c8}, 1},
-    {"Ljecyrillic", (const unsigned long[]){0x0409}, 1},
-    {"Llinebelow", (const unsigned long[]){0x1e3a}, 1},
-    {"Lmonospace", (const unsigned long[]){0xff2c}, 1},
-    {"Lslash", (const unsigned long[]){0x0141}, 1},
-    {"Lslashsmall", (const unsigned long[]){0xf6f9}, 1},
-    {"Lsmall", (const unsigned long[]){0xf76c}, 1},
-    {"M", (const unsigned long[]){0x004d}, 1},
-    {"MBsquare", (const unsigned long[]){0x3386}, 1},
-    {"Macron", (const unsigned long[]){0xf6d0}, 1},
-    {"Macronsmall", (const unsigned long[]){0xf7af}, 1},
-    {"Macute", (const unsigned long[]){0x1e3e}, 1},
-    {"Mcircle", (const unsigned long[]){0x24c2}, 1},
-    {"Mdotaccent", (const unsigned long[]){0x1e40}, 1},
-    {"Mdotbelow", (const unsigned long[]){0x1e42}, 1},
-    {"Menarmenian", (const unsigned long[]){0x0544}, 1},
-    {"Mmonospace", (const unsigned long[]){0xff2d}, 1},
-    {"Msmall", (const unsigned long[]){0xf76d}, 1},
-    {"Mturned", (const unsigned long[]){0x019c}, 1},
-    {"Mu", (const unsigned long[]){0x039c}, 1},
-    {"N", (const unsigned long[]){0x004e}, 1},
-    {"NJ", (const unsigned long[]){0x01ca}, 1},
-    {"Nacute", (const unsigned long[]){0x0143}, 1},
-    {"Ncaron", (const unsigned long[]){0x0147}, 1},
-    {"Ncedilla", (const unsigned long[]){0x0145}, 1},
-    {"Ncircle", (const unsigned long[]){0x24c3}, 1},
-    {"Ncircumflexbelow", (const unsigned long[]){0x1e4a}, 1},
-    {"Ncommaaccent", (const unsigned long[]){0x0145}, 1},
-    {"Ndotaccent", (const unsigned long[]){0x1e44}, 1},
-    {"Ndotbelow", (const unsigned long[]){0x1e46}, 1},
-    {"Nhookleft", (const unsigned long[]){0x019d}, 1},
-    {"Nineroman", (const unsigned long[]){0x2168}, 1},
-    {"Nj", (const unsigned long[]){0x01cb}, 1},
-    {"Njecyrillic", (const unsigned long[]){0x040a}, 1},
-    {"Nlinebelow", (const unsigned long[]){0x1e48}, 1},
-    {"Nmonospace", (const unsigned long[]){0xff2e}, 1},
-    {"Nowarmenian", (const unsigned long[]){0x0546}, 1},
-    {"Nsmall", (const unsigned long[]){0xf76e}, 1},
-    {"Ntilde", (const unsigned long[]){0x00d1}, 1},
-    {"Ntildesmall", (const unsigned long[]){0xf7f1}, 1},
-    {"Nu", (const unsigned long[]){0x039d}, 1},
-    {"O", (const unsigned long[]){0x004f}, 1},
-    {"OE", (const unsigned long[]){0x0152}, 1},
-    {"OEsmall", (const unsigned long[]){0xf6fa}, 1},
-    {"Oacute", (const unsigned long[]){0x00d3}, 1},
-    {"Oacutesmall", (const unsigned long[]){0xf7f3}, 1},
-    {"Obarredcyrillic", (const unsigned long[]){0x04e8}, 1},
-    {"Obarreddieresiscyrillic", (const unsigned long[]){0x04ea}, 1},
-    {"Obreve", (const unsigned long[]){0x014e}, 1},
-    {"Ocaron", (const unsigned long[]){0x01d1}, 1},
-    {"Ocenteredtilde", (const unsigned long[]){0x019f}, 1},
-    {"Ocircle", (const unsigned long[]){0x24c4}, 1},
-    {"Ocircumflex", (const unsigned long[]){0x00d4}, 1},
-    {"Ocircumflexacute", (const unsigned long[]){0x1ed0}, 1},
-    {"Ocircumflexdotbelow", (const unsigned long[]){0x1ed8}, 1},
-    {"Ocircumflexgrave", (const unsigned long[]){0x1ed2}, 1},
-    {"Ocircumflexhookabove", (const unsigned long[]){0x1ed4}, 1},
-    {"Ocircumflexsmall", (const unsigned long[]){0xf7f4}, 1},
-    {"Ocircumflextilde", (const unsigned long[]){0x1ed6}, 1},
-    {"Ocyrillic", (const unsigned long[]){0x041e}, 1},
-    {"Odblacute", (const unsigned long[]){0x0150}, 1},
-    {"Odblgrave", (const unsigned long[]){0x020c}, 1},
-    {"Odieresis", (const unsigned long[]){0x00d6}, 1},
-    {"Odieresiscyrillic", (const unsigned long[]){0x04e6}, 1},
-    {"Odieresissmall", (const unsigned long[]){0xf7f6}, 1},
-    {"Odotbelow", (const unsigned long[]){0x1ecc}, 1},
-    {"Ogoneksmall", (const unsigned long[]){0xf6fb}, 1},
-    {"Ograve", (const unsigned long[]){0x00d2}, 1},
-    {"Ogravesmall", (const unsigned long[]){0xf7f2}, 1},
-    {"Oharmenian", (const unsigned long[]){0x0555}, 1},
-    {"Ohm", (const unsigned long[]){0x2126}, 1},
-    {"Ohookabove", (const unsigned long[]){0x1ece}, 1},
-    {"Ohorn", (const unsigned long[]){0x01a0}, 1},
-    {"Ohornacute", (const unsigned long[]){0x1eda}, 1},
-    {"Ohorndotbelow", (const unsigned long[]){0x1ee2}, 1},
-    {"Ohorngrave", (const unsigned long[]){0x1edc}, 1},
-    {"Ohornhookabove", (const unsigned long[]){0x1ede}, 1},
-    {"Ohorntilde", (const unsigned long[]){0x1ee0}, 1},
-    {"Ohungarumlaut", (const unsigned long[]){0x0150}, 1},
-    {"Oi", (const unsigned long[]){0x01a2}, 1},
-    {"Oinvertedbreve", (const unsigned long[]){0x020e}, 1},
-    {"Omacron", (const unsigned long[]){0x014c}, 1},
-    {"Omacronacute", (const unsigned long[]){0x1e52}, 1},
-    {"Omacrongrave", (const unsigned long[]){0x1e50}, 1},
-    {"Omega", (const unsigned long[]){0x2126}, 1},
-    {"Omegacyrillic", (const unsigned long[]){0x0460}, 1},
-    {"Omegagreek", (const unsigned long[]){0x03a9}, 1},
-    {"Omegaroundcyrillic", (const unsigned long[]){0x047a}, 1},
-    {"Omegatitlocyrillic", (const unsigned long[]){0x047c}, 1},
-    {"Omegatonos", (const unsigned long[]){0x038f}, 1},
-    {"Omicron", (const unsigned long[]){0x039f}, 1},
-    {"Omicrontonos", (const unsigned long[]){0x038c}, 1},
-    {"Omonospace", (const unsigned long[]){0xff2f}, 1},
-    {"Oneroman", (const unsigned long[]){0x2160}, 1},
-    {"Oogonek", (const unsigned long[]){0x01ea}, 1},
-    {"Oogonekmacron", (const unsigned long[]){0x01ec}, 1},
-    {"Oopen", (const unsigned long[]){0x0186}, 1},
-    {"Oslash", (const unsigned long[]){0x00d8}, 1},
-    {"Oslashacute", (const unsigned long[]){0x01fe}, 1},
-    {"Oslashsmall", (const unsigned long[]){0xf7f8}, 1},
-    {"Osmall", (const unsigned long[]){0xf76f}, 1},
-    {"Ostrokeacute", (const unsigned long[]){0x01fe}, 1},
-    {"Otcyrillic", (const unsigned long[]){0x047e}, 1},
-    {"Otilde", (const unsigned long[]){0x00d5}, 1},
-    {"Otildeacute", (const unsigned long[]){0x1e4c}, 1},
-    {"Otildedieresis", (const unsigned long[]){0x1e4e}, 1},
-    {"Otildesmall", (const unsigned long[]){0xf7f5}, 1},
-    {"P", (const unsigned long[]){0x0050}, 1},
-    {"Pacute", (const unsigned long[]){0x1e54}, 1},
-    {"Pcircle", (const unsigned long[]){0x24c5}, 1},
-    {"Pdotaccent", (const unsigned long[]){0x1e56}, 1},
-    {"Pecyrillic", (const unsigned long[]){0x041f}, 1},
-    {"Peharmenian", (const unsigned long[]){0x054a}, 1},
-    {"Pemiddlehookcyrillic", (const unsigned long[]){0x04a6}, 1},
-    {"Phi", (const unsigned long[]){0x03a6}, 1},
-    {"Phook", (const unsigned long[]){0x01a4}, 1},
-    {"Pi", (const unsigned long[]){0x03a0}, 1},
-    {"Piwrarmenian", (const unsigned long[]){0x0553}, 1},
-    {"Pmonospace", (const unsigned long[]){0xff30}, 1},
-    {"Psi", (const unsigned long[]){0x03a8}, 1},
-    {"Psicyrillic", (const unsigned long[]){0x0470}, 1},
-    {"Psmall", (const unsigned long[]){0xf770}, 1},
-    {"Q", (const unsigned long[]){0x0051}, 1},
-    {"Qcircle", (const unsigned long[]){0x24c6}, 1},
-    {"Qmonospace", (const unsigned long[]){0xff31}, 1},
-    {"Qsmall", (const unsigned long[]){0xf771}, 1},
-    {"R", (const unsigned long[]){0x0052}, 1},
-    {"Raarmenian", (const unsigned long[]){0x054c}, 1},
-    {"Racute", (const unsigned long[]){0x0154}, 1},
-    {"Rcaron", (const unsigned long[]){0x0158}, 1},
-    {"Rcedilla", (const unsigned long[]){0x0156}, 1},
-    {"Rcircle", (const unsigned long[]){0x24c7}, 1},
-    {"Rcommaaccent", (const unsigned long[]){0x0156}, 1},
-    {"Rdblgrave", (const unsigned long[]){0x0210}, 1},
-    {"Rdotaccent", (const unsigned long[]){0x1e58}, 1},
-    {"Rdotbelow", (const unsigned long[]){0x1e5a}, 1},
-    {"Rdotbelowmacron", (const unsigned long[]){0x1e5c}, 1},
-    {"Reharmenian", (const unsigned long[]){0x0550}, 1},
-    {"Rfraktur", (const unsigned long[]){0x211c}, 1},
-    {"Rho", (const unsigned long[]){0x03a1}, 1},
-    {"Ringsmall", (const unsigned long[]){0xf6fc}, 1},
-    {"Rinvertedbreve", (const unsigned long[]){0x0212}, 1},
-    {"Rlinebelow", (const unsigned long[]){0x1e5e}, 1},
-    {"Rmonospace", (const unsigned long[]){0xff32}, 1},
-    {"Rsmall", (const unsigned long[]){0xf772}, 1},
-    {"Rsmallinverted", (const unsigned long[]){0x0281}, 1},
-    {"Rsmallinvertedsuperior", (const unsigned long[]){0x02b6}, 1},
-    {"S", (const unsigned long[]){0x0053}, 1},
-    {"SF010000", (const unsigned long[]){0x250c}, 1},
-    {"SF020000", (const unsigned long[]){0x2514}, 1},
-    {"SF030000", (const unsigned long[]){0x2510}, 1},
-    {"SF040000", (const unsigned long[]){0x2518}, 1},
-    {"SF050000", (const unsigned long[]){0x253c}, 1},
-    {"SF060000", (const unsigned long[]){0x252c}, 1},
-    {"SF070000", (const unsigned long[]){0x2534}, 1},
-    {"SF080000", (const unsigned long[]){0x251c}, 1},
-    {"SF090000", (const unsigned long[]){0x2524}, 1},
-    {"SF100000", (const unsigned long[]){0x2500}, 1},
-    {"SF110000", (const unsigned long[]){0x2502}, 1},
-    {"SF190000", (const unsigned long[]){0x2561}, 1},
-    {"SF200000", (const unsigned long[]){0x2562}, 1},
-    {"SF210000", (const unsigned long[]){0x2556}, 1},
-    {"SF220000", (const unsigned long[]){0x2555}, 1},
-    {"SF230000", (const unsigned long[]){0x2563}, 1},
-    {"SF240000", (const unsigned long[]){0x2551}, 1},
-    {"SF250000", (const unsigned long[]){0x2557}, 1},
-    {"SF260000", (const unsigned long[]){0x255d}, 1},
-    {"SF270000", (const unsigned long[]){0x255c}, 1},
-    {"SF280000", (const unsigned long[]){0x255b}, 1},
-    {"SF360000", (const unsigned long[]){0x255e}, 1},
-    {"SF370000", (const unsigned long[]){0x255f}, 1},
-    {"SF380000", (const unsigned long[]){0x255a}, 1},
-    {"SF390000", (const unsigned long[]){0x2554}, 1},
-    {"SF400000", (const unsigned long[]){0x2569}, 1},
-    {"SF410000", (const unsigned long[]){0x2566}, 1},
-    {"SF420000", (const unsigned long[]){0x2560}, 1},
-    {"SF430000", (const unsigned long[]){0x2550}, 1},
-    {"SF440000", (const unsigned long[]){0x256c}, 1},
-    {"SF450000", (const unsigned long[]){0x2567}, 1},
-    {"SF460000", (const unsigned long[]){0x2568}, 1},
-    {"SF470000", (const unsigned long[]){0x2564}, 1},
-    {"SF480000", (const unsigned long[]){0x2565}, 1},
-    {"SF490000", (const unsigned long[]){0x2559}, 1},
-    {"SF500000", (const unsigned long[]){0x2558}, 1},
-    {"SF510000", (const unsigned long[]){0x2552}, 1},
-    {"SF520000", (const unsigned long[]){0x2553}, 1},
-    {"SF530000", (const unsigned long[]){0x256b}, 1},
-    {"SF540000", (const unsigned long[]){0x256a}, 1},
-    {"Sacute", (const unsigned long[]){0x015a}, 1},
-    {"Sacutedotaccent", (const unsigned long[]){0x1e64}, 1},
-    {"Sampigreek", (const unsigned long[]){0x03e0}, 1},
-    {"Scaron", (const unsigned long[]){0x0160}, 1},
-    {"Scarondotaccent", (const unsigned long[]){0x1e66}, 1},
-    {"Scaronsmall", (const unsigned long[]){0xf6fd}, 1},
-    {"Scedilla", (const unsigned long[]){0x015e}, 1},
-    {"Schwa", (const unsigned long[]){0x018f}, 1},
-    {"Schwacyrillic", (const unsigned long[]){0x04d8}, 1},
-    {"Schwadieresiscyrillic", (const unsigned long[]){0x04da}, 1},
-    {"Scircle", (const unsigned long[]){0x24c8}, 1},
-    {"Scircumflex", (const unsigned long[]){0x015c}, 1},
-    {"Scommaaccent", (const unsigned long[]){0x0218}, 1},
-    {"Sdotaccent", (const unsigned long[]){0x1e60}, 1},
-    {"Sdotbelow", (const unsigned long[]){0x1e62}, 1},
-    {"Sdotbelowdotaccent", (const unsigned long[]){0x1e68}, 1},
-    {"Seharmenian", (const unsigned long[]){0x054d}, 1},
-    {"Sevenroman", (const unsigned long[]){0x2166}, 1},
-    {"Shaarmenian", (const unsigned long[]){0x0547}, 1},
-    {"Shacyrillic", (const unsigned long[]){0x0428}, 1},
-    {"Shchacyrillic", (const unsigned long[]){0x0429}, 1},
-    {"Sheicoptic", (const unsigned long[]){0x03e2}, 1},
-    {"Shhacyrillic", (const unsigned long[]){0x04ba}, 1},
-    {"Shimacoptic", (const unsigned long[]){0x03ec}, 1},
-    {"Sigma", (const unsigned long[]){0x03a3}, 1},
-    {"Sixroman", (const unsigned long[]){0x2165}, 1},
-    {"Smonospace", (const unsigned long[]){0xff33}, 1},
-    {"Softsigncyrillic", (const unsigned long[]){0x042c}, 1},
-    {"Ssmall", (const unsigned long[]){0xf773}, 1},
-    {"Stigmagreek", (const unsigned long[]){0x03da}, 1},
-    {"T", (const unsigned long[]){0x0054}, 1},
-    {"Tau", (const unsigned long[]){0x03a4}, 1},
-    {"Tbar", (const unsigned long[]){0x0166}, 1},
-    {"Tcaron", (const unsigned long[]){0x0164}, 1},
-    {"Tcedilla", (const unsigned long[]){0x0162}, 1},
-    {"Tcircle", (const unsigned long[]){0x24c9}, 1},
-    {"Tcircumflexbelow", (const unsigned long[]){0x1e70}, 1},
-    {"Tcommaaccent", (const unsigned long[]){0x0162}, 1},
-    {"Tdotaccent", (const unsigned long[]){0x1e6a}, 1},
-    {"Tdotbelow", (const unsigned long[]){0x1e6c}, 1},
-    {"Tecyrillic", (const unsigned long[]){0x0422}, 1},
-    {"Tedescendercyrillic", (const unsigned long[]){0x04ac}, 1},
-    {"Tenroman", (const unsigned long[]){0x2169}, 1},
-    {"Tetsecyrillic", (const unsigned long[]){0x04b4}, 1},
-    {"Theta", (const unsigned long[]){0x0398}, 1},
-    {"Thook", (const unsigned long[]){0x01ac}, 1},
-    {"Thorn", (const unsigned long[]){0x00de}, 1},
-    {"Thornsmall", (const unsigned long[]){0xf7fe}, 1},
-    {"Threeroman", (const unsigned long[]){0x2162}, 1},
-    {"Tildesmall", (const unsigned long[]){0xf6fe}, 1},
-    {"Tiwnarmenian", (const unsigned long[]){0x054f}, 1},
-    {"Tlinebelow", (const unsigned long[]){0x1e6e}, 1},
-    {"Tmonospace", (const unsigned long[]){0xff34}, 1},
-    {"Toarmenian", (const unsigned long[]){0x0539}, 1},
-    {"Tonefive", (const unsigned long[]){0x01bc}, 1},
-    {"Tonesix", (const unsigned long[]){0x0184}, 1},
-    {"Tonetwo", (const unsigned long[]){0x01a7}, 1},
-    {"Tretroflexhook", (const unsigned long[]){0x01ae}, 1},
-    {"Tsecyrillic", (const unsigned long[]){0x0426}, 1},
-    {"Tshecyrillic", (const unsigned long[]){0x040b}, 1},
-    {"Tsmall", (const unsigned long[]){0xf774}, 1},
-    {"Twelveroman", (const unsigned long[]){0x216b}, 1},
-    {"Tworoman", (const unsigned long[]){0x2161}, 1},
-    {"U", (const unsigned long[]){0x0055}, 1},
-    {"Uacute", (const unsigned long[]){0x00da}, 1},
-    {"Uacutesmall", (const unsigned long[]){0xf7fa}, 1},
-    {"Ubreve", (const unsigned long[]){0x016c}, 1},
-    {"Ucaron", (const unsigned long[]){0x01d3}, 1},
-    {"Ucircle", (const unsigned long[]){0x24ca}, 1},
-    {"Ucircumflex", (const unsigned long[]){0x00db}, 1},
-    {"Ucircumflexbelow", (const unsigned long[]){0x1e76}, 1},
-    {"Ucircumflexsmall", (const unsigned long[]){0xf7fb}, 1},
-    {"Ucyrillic", (const unsigned long[]){0x0423}, 1},
-    {"Udblacute", (const unsigned long[]){0x0170}, 1},
-    {"Udblgrave", (const unsigned long[]){0x0214}, 1},
-    {"Udieresis", (const unsigned long[]){0x00dc}, 1},
-    {"Udieresisacute", (const unsigned long[]){0x01d7}, 1},
-    {"Udieresisbelow", (const unsigned long[]){0x1e72}, 1},
-    {"Udieresiscaron", (const unsigned long[]){0x01d9}, 1},
-    {"Udieresiscyrillic", (const unsigned long[]){0x04f0}, 1},
-    {"Udieresisgrave", (const unsigned long[]){0x01db}, 1},
-    {"Udieresismacron", (const unsigned long[]){0x01d5}, 1},
-    {"Udieresissmall", (const unsigned long[]){0xf7fc}, 1},
-    {"Udotbelow", (const unsigned long[]){0x1ee4}, 1},
-    {"Ugrave", (const unsigned long[]){0x00d9}, 1},
-    {"Ugravesmall", (const unsigned long[]){0xf7f9}, 1},
-    {"Uhookabove", (const unsigned long[]){0x1ee6}, 1},
-    {"Uhorn", (const unsigned long[]){0x01af}, 1},
-    {"Uhornacute", (const unsigned long[]){0x1ee8}, 1},
-    {"Uhorndotbelow", (const unsigned long[]){0x1ef0}, 1},
-    {"Uhorngrave", (const unsigned long[]){0x1eea}, 1},
-    {"Uhornhookabove", (const unsigned long[]){0x1eec}, 1},
-    {"Uhorntilde", (const unsigned long[]){0x1eee}, 1},
-    {"Uhungarumlaut", (const unsigned long[]){0x0170}, 1},
-    {"Uhungarumlautcyrillic", (const unsigned long[]){0x04f2}, 1},
-    {"Uinvertedbreve", (const unsigned long[]){0x0216}, 1},
-    {"Ukcyrillic", (const unsigned long[]){0x0478}, 1},
-    {"Umacron", (const unsigned long[]){0x016a}, 1},
-    {"Umacroncyrillic", (const unsigned long[]){0x04ee}, 1},
-    {"Umacrondieresis", (const unsigned long[]){0x1e7a}, 1},
-    {"Umonospace", (const unsigned long[]){0xff35}, 1},
-    {"Uogonek", (const unsigned long[]){0x0172}, 1},
-    {"Upsilon", (const unsigned long[]){0x03a5}, 1},
-    {"Upsilon1", (const unsigned long[]){0x03d2}, 1},
-    {"Upsilonacutehooksymbolgreek", (const unsigned long[]){0x03d3}, 1},
-    {"Upsilonafrican", (const unsigned long[]){0x01b1}, 1},
-    {"Upsilondieresis", (const unsigned long[]){0x03ab}, 1},
-    {"Upsilondieresishooksymbolgreek", (const unsigned long[]){0x03d4}, 1},
-    {"Upsilonhooksymbol", (const unsigned long[]){0x03d2}, 1},
-    {"Upsilontonos", (const unsigned long[]){0x038e}, 1},
-    {"Uring", (const unsigned long[]){0x016e}, 1},
-    {"Ushortcyrillic", (const unsigned long[]){0x040e}, 1},
-    {"Usmall", (const unsigned long[]){0xf775}, 1},
-    {"Ustraightcyrillic", (const unsigned long[]){0x04ae}, 1},
-    {"Ustraightstrokecyrillic", (const unsigned long[]){0x04b0}, 1},
-    {"Utilde", (const unsigned long[]){0x0168}, 1},
-    {"Utildeacute", (const unsigned long[]){0x1e78}, 1},
-    {"Utildebelow", (const unsigned long[]){0x1e74}, 1},
-    {"V", (const unsigned long[]){0x0056}, 1},
-    {"Vcircle", (const unsigned long[]){0x24cb}, 1},
-    {"Vdotbelow", (const unsigned long[]){0x1e7e}, 1},
-    {"Vecyrillic", (const unsigned long[]){0x0412}, 1},
-    {"Vewarmenian", (const unsigned long[]){0x054e}, 1},
-    {"Vhook", (const unsigned long[]){0x01b2}, 1},
-    {"Vmonospace", (const unsigned long[]){0xff36}, 1},
-    {"Voarmenian", (const unsigned long[]){0x0548}, 1},
-    {"Vsmall", (const unsigned long[]){0xf776}, 1},
-    {"Vtilde", (const unsigned long[]){0x1e7c}, 1},
-    {"W", (const unsigned long[]){0x0057}, 1},
-    {"Wacute", (const unsigned long[]){0x1e82}, 1},
-    {"Wcircle", (const unsigned long[]){0x24cc}, 1},
-    {"Wcircumflex", (const unsigned long[]){0x0174}, 1},
-    {"Wdieresis", (const unsigned long[]){0x1e84}, 1},
-    {"Wdotaccent", (const unsigned long[]){0x1e86}, 1},
-    {"Wdotbelow", (const unsigned long[]){0x1e88}, 1},
-    {"Wgrave", (const unsigned long[]){0x1e80}, 1},
-    {"Wmonospace", (const unsigned long[]){0xff37}, 1},
-    {"Wsmall", (const unsigned long[]){0xf777}, 1},
-    {"X", (const unsigned long[]){0x0058}, 1},
-    {"Xcircle", (const unsigned long[]){0x24cd}, 1},
-    {"Xdieresis", (const unsigned long[]){0x1e8c}, 1},
-    {"Xdotaccent", (const unsigned long[]){0x1e8a}, 1},
-    {"Xeharmenian", (const unsigned long[]){0x053d}, 1},
-    {"Xi", (const unsigned long[]){0x039e}, 1},
-    {"Xmonospace", (const unsigned long[]){0xff38}, 1},
-    {"Xsmall", (const unsigned long[]){0xf778}, 1},
-    {"Y", (const unsigned long[]){0x0059}, 1},
-    {"Yacute", (const unsigned long[]){0x00dd}, 1},
-    {"Yacutesmall", (const unsigned long[]){0xf7fd}, 1},
-    {"Yatcyrillic", (const unsigned long[]){0x0462}, 1},
-    {"Ycircle", (const unsigned long[]){0x24ce}, 1},
-    {"Ycircumflex", (const unsigned long[]){0x0176}, 1},
-    {"Ydieresis", (const unsigned long[]){0x0178}, 1},
-    {"Ydieresissmall", (const unsigned long[]){0xf7ff}, 1},
-    {"Ydotaccent", (const unsigned long[]){0x1e8e}, 1},
-    {"Ydotbelow", (const unsigned long[]){0x1ef4}, 1},
-    {"Yericyrillic", (const unsigned long[]){0x042b}, 1},
-    {"Yerudieresiscyrillic", (const unsigned long[]){0x04f8}, 1},
-    {"Ygrave", (const unsigned long[]){0x1ef2}, 1},
-    {"Yhook", (const unsigned long[]){0x01b3}, 1},
-    {"Yhookabove", (const unsigned long[]){0x1ef6}, 1},
-    {"Yiarmenian", (const unsigned long[]){0x0545}, 1},
-    {"Yicyrillic", (const unsigned long[]){0x0407}, 1},
-    {"Yiwnarmenian", (const unsigned long[]){0x0552}, 1},
-    {"Ymonospace", (const unsigned long[]){0xff39}, 1},
-    {"Ysmall", (const unsigned long[]){0xf779}, 1},
-    {"Ytilde", (const unsigned long[]){0x1ef8}, 1},
-    {"Yusbigcyrillic", (const unsigned long[]){0x046a}, 1},
-    {"Yusbigiotifiedcyrillic", (const unsigned long[]){0x046c}, 1},
-    {"Yuslittlecyrillic", (const unsigned long[]){0x0466}, 1},
-    {"Yuslittleiotifiedcyrillic", (const unsigned long[]){0x0468}, 1},
-    {"Z", (const unsigned long[]){0x005a}, 1},
-    {"Zaarmenian", (const unsigned long[]){0x0536}, 1},
-    {"Zacute", (const unsigned long[]){0x0179}, 1},
-    {"Zcaron", (const unsigned long[]){0x017d}, 1},
-    {"Zcaronsmall", (const unsigned long[]){0xf6ff}, 1},
-    {"Zcircle", (const unsigned long[]){0x24cf}, 1},
-    {"Zcircumflex", (const unsigned long[]){0x1e90}, 1},
-    {"Zdot", (const unsigned long[]){0x017b}, 1},
-    {"Zdotaccent", (const unsigned long[]){0x017b}, 1},
-    {"Zdotbelow", (const unsigned long[]){0x1e92}, 1},
-    {"Zecyrillic", (const unsigned long[]){0x0417}, 1},
-    {"Zedescendercyrillic", (const unsigned long[]){0x0498}, 1},
-    {"Zedieresiscyrillic", (const unsigned long[]){0x04de}, 1},
-    {"Zeta", (const unsigned long[]){0x0396}, 1},
-    {"Zhearmenian", (const unsigned long[]){0x053a}, 1},
-    {"Zhebrevecyrillic", (const unsigned long[]){0x04c1}, 1},
-    {"Zhecyrillic", (const unsigned long[]){0x0416}, 1},
-    {"Zhedescendercyrillic", (const unsigned long[]){0x0496}, 1},
-    {"Zhedieresiscyrillic", (const unsigned long[]){0x04dc}, 1},
-    {"Zlinebelow", (const unsigned long[]){0x1e94}, 1},
-    {"Zmonospace", (const unsigned long[]){0xff3a}, 1},
-    {"Zsmall", (const unsigned long[]){0xf77a}, 1},
-    {"Zstroke", (const unsigned long[]){0x01b5}, 1},
-    {"a", (const unsigned long[]){0x0061}, 1},
-    {"aabengali", (const unsigned long[]){0x0986}, 1},
-    {"aacute", (const unsigned long[]){0x00e1}, 1},
-    {"aadeva", (const unsigned long[]){0x0906}, 1},
-    {"aagujarati", (const unsigned long[]){0x0a86}, 1},
-    {"aagurmukhi", (const unsigned long[]){0x0a06}, 1},
-    {"aamatragurmukhi", (const unsigned long[]){0x0a3e}, 1},
-    {"aarusquare", (const unsigned long[]){0x3303}, 1},
-    {"aavowelsignbengali", (const unsigned long[]){0x09be}, 1},
-    {"aavowelsigndeva", (const unsigned long[]){0x093e}, 1},
-    {"aavowelsigngujarati", (const unsigned long[]){0x0abe}, 1},
-    {"abbreviationmarkarmenian", (const unsigned long[]){0x055f}, 1},
-    {"abbreviationsigndeva", (const unsigned long[]){0x0970}, 1},
-    {"abengali", (const unsigned long[]){0x0985}, 1},
-    {"abopomofo", (const unsigned long[]){0x311a}, 1},
-    {"abreve", (const unsigned long[]){0x0103}, 1},
-    {"abreveacute", (const unsigned long[]){0x1eaf}, 1},
-    {"abrevecyrillic", (const unsigned long[]){0x04d1}, 1},
-    {"abrevedotbelow", (const unsigned long[]){0x1eb7}, 1},
-    {"abrevegrave", (const unsigned long[]){0x1eb1}, 1},
-    {"abrevehookabove", (const unsigned long[]){0x1eb3}, 1},
-    {"abrevetilde", (const unsigned long[]){0x1eb5}, 1},
-    {"acaron", (const unsigned long[]){0x01ce}, 1},
-    {"acircle", (const unsigned long[]){0x24d0}, 1},
-    {"acircumflex", (const unsigned long[]){0x00e2}, 1},
-    {"acircumflexacute", (const unsigned long[]){0x1ea5}, 1},
-    {"acircumflexdotbelow", (const unsigned long[]){0x1ead}, 1},
-    {"acircumflexgrave", (const unsigned long[]){0x1ea7}, 1},
-    {"acircumflexhookabove", (const unsigned long[]){0x1ea9}, 1},
-    {"acircumflextilde", (const unsigned long[]){0x1eab}, 1},
-    {"acute", (const unsigned long[]){0x00b4}, 1},
-    {"acutebelowcmb", (const unsigned long[]){0x0317}, 1},
-    {"acutecmb", (const unsigned long[]){0x0301}, 1},
-    {"acutecomb", (const unsigned long[]){0x0301}, 1},
-    {"acutedeva", (const unsigned long[]){0x0954}, 1},
-    {"acutelowmod", (const unsigned long[]){0x02cf}, 1},
-    {"acutetonecmb", (const unsigned long[]){0x0341}, 1},
-    {"acyrillic", (const unsigned long[]){0x0430}, 1},
-    {"adblgrave", (const unsigned long[]){0x0201}, 1},
-    {"addakgurmukhi", (const unsigned long[]){0x0a71}, 1},
-    {"adeva", (const unsigned long[]){0x0905}, 1},
-    {"adieresis", (const unsigned long[]){0x00e4}, 1},
-    {"adieresiscyrillic", (const unsigned long[]){0x04d3}, 1},
-    {"adieresismacron", (const unsigned long[]){0x01df}, 1},
-    {"adotbelow", (const unsigned long[]){0x1ea1}, 1},
-    {"adotmacron", (const unsigned long[]){0x01e1}, 1},
-    {"ae", (const unsigned long[]){0x00e6}, 1},
-    {"aeacute", (const unsigned long[]){0x01fd}, 1},
-    {"aekorean", (const unsigned long[]){0x3150}, 1},
-    {"aemacron", (const unsigned long[]){0x01e3}, 1},
-    {"afii00208", (const unsigned long[]){0x2015}, 1},
-    {"afii08941", (const unsigned long[]){0x20a4}, 1},
-    {"afii10017", (const unsigned long[]){0x0410}, 1},
-    {"afii10018", (const unsigned long[]){0x0411}, 1},
-    {"afii10019", (const unsigned long[]){0x0412}, 1},
-    {"afii10020", (const unsigned long[]){0x0413}, 1},
-    {"afii10021", (const unsigned long[]){0x0414}, 1},
-    {"afii10022", (const unsigned long[]){0x0415}, 1},
-    {"afii10023", (const unsigned long[]){0x0401}, 1},
-    {"afii10024", (const unsigned long[]){0x0416}, 1},
-    {"afii10025", (const unsigned long[]){0x0417}, 1},
-    {"afii10026", (const unsigned long[]){0x0418}, 1},
-    {"afii10027", (const unsigned long[]){0x0419}, 1},
-    {"afii10028", (const unsigned long[]){0x041a}, 1},
-    {"afii10029", (const unsigned long[]){0x041b}, 1},
-    {"afii10030", (const unsigned long[]){0x041c}, 1},
-    {"afii10031", (const unsigned long[]){0x041d}, 1},
-    {"afii10032", (const unsigned long[]){0x041e}, 1},
-    {"afii10033", (const unsigned long[]){0x041f}, 1},
-    {"afii10034", (const unsigned long[]){0x0420}, 1},
-    {"afii10035", (const unsigned long[]){0x0421}, 1},
-    {"afii10036", (const unsigned long[]){0x0422}, 1},
-    {"afii10037", (const unsigned long[]){0x0423}, 1},
-    {"afii10038", (const unsigned long[]){0x0424}, 1},
-    {"afii10039", (const unsigned long[]){0x0425}, 1},
-    {"afii10040", (const unsigned long[]){0x0426}, 1},
-    {"afii10041", (const unsigned long[]){0x0427}, 1},
-    {"afii10042", (const unsigned long[]){0x0428}, 1},
-    {"afii10043", (const unsigned long[]){0x0429}, 1},
-    {"afii10044", (const unsigned long[]){0x042a}, 1},
-    {"afii10045", (const unsigned long[]){0x042b}, 1},
-    {"afii10046", (const unsigned long[]){0x042c}, 1},
-    {"afii10047", (const unsigned long[]){0x042d}, 1},
-    {"afii10048", (const unsigned long[]){0x042e}, 1},
-    {"afii10049", (const unsigned long[]){0x042f}, 1},
-    {"afii10050", (const unsigned long[]){0x0490}, 1},
-    {"afii10051", (const unsigned long[]){0x0402}, 1},
-    {"afii10052", (const unsigned long[]){0x0403}, 1},
-    {"afii10053", (const unsigned long[]){0x0404}, 1},
-    {"afii10054", (const unsigned long[]){0x0405}, 1},
-    {"afii10055", (const unsigned long[]){0x0406}, 1},
-    {"afii10056", (const unsigned long[]){0x0407}, 1},
-    {"afii10057", (const unsigned long[]){0x0408}, 1},
-    {"afii10058", (const unsigned long[]){0x0409}, 1},
-    {"afii10059", (const unsigned long[]){0x040a}, 1},
-    {"afii10060", (const unsigned long[]){0x040b}, 1},
-    {"afii10061", (const unsigned long[]){0x040c}, 1},
-    {"afii10062", (const unsigned long[]){0x040e}, 1},
-    {"afii10063", (const unsigned long[]){0xf6c4}, 1},
-    {"afii10064", (const unsigned long[]){0xf6c5}, 1},
-    {"afii10065", (const unsigned long[]){0x0430}, 1},
-    {"afii10066", (const unsigned long[]){0x0431}, 1},
-    {"afii10067", (const unsigned long[]){0x0432}, 1},
-    {"afii10068", (const unsigned long[]){0x0433}, 1},
-    {"afii10069", (const unsigned long[]){0x0434}, 1},
-    {"afii10070", (const unsigned long[]){0x0435}, 1},
-    {"afii10071", (const unsigned long[]){0x0451}, 1},
-    {"afii10072", (const unsigned long[]){0x0436}, 1},
-    {"afii10073", (const unsigned long[]){0x0437}, 1},
-    {"afii10074", (const unsigned long[]){0x0438}, 1},
-    {"afii10075", (const unsigned long[]){0x0439}, 1},
-    {"afii10076", (const unsigned long[]){0x043a}, 1},
-    {"afii10077", (const unsigned long[]){0x043b}, 1},
-    {"afii10078", (const unsigned long[]){0x043c}, 1},
-    {"afii10079", (const unsigned long[]){0x043d}, 1},
-    {"afii10080", (const unsigned long[]){0x043e}, 1},
-    {"afii10081", (const unsigned long[]){0x043f}, 1},
-    {"afii10082", (const unsigned long[]){0x0440}, 1},
-    {"afii10083", (const unsigned long[]){0x0441}, 1},
-    {"afii10084", (const unsigned long[]){0x0442}, 1},
-    {"afii10085", (const unsigned long[]){0x0443}, 1},
-    {"afii10086", (const unsigned long[]){0x0444}, 1},
-    {"afii10087", (const unsigned long[]){0x0445}, 1},
-    {"afii10088", (const unsigned long[]){0x0446}, 1},
-    {"afii10089", (const unsigned long[]){0x0447}, 1},
-    {"afii10090", (const unsigned long[]){0x0448}, 1},
-    {"afii10091", (const unsigned long[]){0x0449}, 1},
-    {"afii10092", (const unsigned long[]){0x044a}, 1},
-    {"afii10093", (const unsigned long[]){0x044b}, 1},
-    {"afii10094", (const unsigned long[]){0x044c}, 1},
-    {"afii10095", (const unsigned long[]){0x044d}, 1},
-    {"afii10096", (const unsigned long[]){0x044e}, 1},
-    {"afii10097", (const unsigned long[]){0x044f}, 1},
-    {"afii10098", (const unsigned long[]){0x0491}, 1},
-    {"afii10099", (const unsigned long[]){0x0452}, 1},
-    {"afii10100", (const unsigned long[]){0x0453}, 1},
-    {"afii10101", (const unsigned long[]){0x0454}, 1},
-    {"afii10102", (const unsigned long[]){0x0455}, 1},
-    {"afii10103", (const unsigned long[]){0x0456}, 1},
-    {"afii10104", (const unsigned long[]){0x0457}, 1},
-    {"afii10105", (const unsigned long[]){0x0458}, 1},
-    {"afii10106", (const unsigned long[]){0x0459}, 1},
-    {"afii10107", (const unsigned long[]){0x045a}, 1},
-    {"afii10108", (const unsigned long[]){0x045b}, 1},
-    {"afii10109", (const unsigned long[]){0x045c}, 1},
-    {"afii10110", (const unsigned long[]){0x045e}, 1},
-    {"afii10145", (const unsigned long[]){0x040f}, 1},
-    {"afii10146", (const unsigned long[]){0x0462}, 1},
-    {"afii10147", (const unsigned long[]){0x0472}, 1},
-    {"afii10148", (const unsigned long[]){0x0474}, 1},
-    {"afii10192", (const unsigned long[]){0xf6c6}, 1},
-    {"afii10193", (const unsigned long[]){0x045f}, 1},
-    {"afii10194", (const unsigned long[]){0x0463}, 1},
-    {"afii10195", (const unsigned long[]){0x0473}, 1},
-    {"afii10196", (const unsigned long[]){0x0475}, 1},
-    {"afii10831", (const unsigned long[]){0xf6c7}, 1},
-    {"afii10832", (const unsigned long[]){0xf6c8}, 1},
-    {"afii10846", (const unsigned long[]){0x04d9}, 1},
-    {"afii299", (const unsigned long[]){0x200e}, 1},
-    {"afii300", (const unsigned long[]){0x200f}, 1},
-    {"afii301", (const unsigned long[]){0x200d}, 1},
-    {"afii57381", (const unsigned long[]){0x066a}, 1},
-    {"afii57388", (const unsigned long[]){0x060c}, 1},
-    {"afii57392", (const unsigned long[]){0x0660}, 1},
-    {"afii57393", (const unsigned long[]){0x0661}, 1},
-    {"afii57394", (const unsigned long[]){0x0662}, 1},
-    {"afii57395", (const unsigned long[]){0x0663}, 1},
-    {"afii57396", (const unsigned long[]){0x0664}, 1},
-    {"afii57397", (const unsigned long[]){0x0665}, 1},
-    {"afii57398", (const unsigned long[]){0x0666}, 1},
-    {"afii57399", (const unsigned long[]){0x0667}, 1},
-    {"afii57400", (const unsigned long[]){0x0668}, 1},
-    {"afii57401", (const unsigned long[]){0x0669}, 1},
-    {"afii57403", (const unsigned long[]){0x061b}, 1},
-    {"afii57407", (const unsigned long[]){0x061f}, 1},
-    {"afii57409", (const unsigned long[]){0x0621}, 1},
-    {"afii57410", (const unsigned long[]){0x0622}, 1},
-    {"afii57411", (const unsigned long[]){0x0623}, 1},
-    {"afii57412", (const unsigned long[]){0x0624}, 1},
-    {"afii57413", (const unsigned long[]){0x0625}, 1},
-    {"afii57414", (const unsigned long[]){0x0626}, 1},
-    {"afii57415", (const unsigned long[]){0x0627}, 1},
-    {"afii57416", (const unsigned long[]){0x0628}, 1},
-    {"afii57417", (const unsigned long[]){0x0629}, 1},
-    {"afii57418", (const unsigned long[]){0x062a}, 1},
-    {"afii57419", (const unsigned long[]){0x062b}, 1},
-    {"afii57420", (const unsigned long[]){0x062c}, 1},
-    {"afii57421", (const unsigned long[]){0x062d}, 1},
-    {"afii57422", (const unsigned long[]){0x062e}, 1},
-    {"afii57423", (const unsigned long[]){0x062f}, 1},
-    {"afii57424", (const unsigned long[]){0x0630}, 1},
-    {"afii57425", (const unsigned long[]){0x0631}, 1},
-    {"afii57426", (const unsigned long[]){0x0632}, 1},
-    {"afii57427", (const unsigned long[]){0x0633}, 1},
-    {"afii57428", (const unsigned long[]){0x0634}, 1},
-    {"afii57429", (const unsigned long[]){0x0635}, 1},
-    {"afii57430", (const unsigned long[]){0x0636}, 1},
-    {"afii57431", (const unsigned long[]){0x0637}, 1},
-    {"afii57432", (const unsigned long[]){0x0638}, 1},
-    {"afii57433", (const unsigned long[]){0x0639}, 1},
-    {"afii57434", (const unsigned long[]){0x063a}, 1},
-    {"afii57440", (const unsigned long[]){0x0640}, 1},
-    {"afii57441", (const unsigned long[]){0x0641}, 1},
-    {"afii57442", (const unsigned long[]){0x0642}, 1},
-    {"afii57443", (const unsigned long[]){0x0643}, 1},
-    {"afii57444", (const unsigned long[]){0x0644}, 1},
-    {"afii57445", (const unsigned long[]){0x0645}, 1},
-    {"afii57446", (const unsigned long[]){0x0646}, 1},
-    {"afii57448", (const unsigned long[]){0x0648}, 1},
-    {"afii57449", (const unsigned long[]){0x0649}, 1},
-    {"afii57450", (const unsigned long[]){0x064a}, 1},
-    {"afii57451", (const unsigned long[]){0x064b}, 1},
-    {"afii57452", (const unsigned long[]){0x064c}, 1},
-    {"afii57453", (const unsigned long[]){0x064d}, 1},
-    {"afii57454", (const unsigned long[]){0x064e}, 1},
-    {"afii57455", (const unsigned long[]){0x064f}, 1},
-    {"afii57456", (const unsigned long[]){0x0650}, 1},
-    {"afii57457", (const unsigned long[]){0x0651}, 1},
-    {"afii57458", (const unsigned long[]){0x0652}, 1},
-    {"afii57470", (const unsigned long[]){0x0647}, 1},
-    {"afii57505", (const unsigned long[]){0x06a4}, 1},
-    {"afii57506", (const unsigned long[]){0x067e}, 1},
-    {"afii57507", (const unsigned long[]){0x0686}, 1},
-    {"afii57508", (const unsigned long[]){0x0698}, 1},
-    {"afii57509", (const unsigned long[]){0x06af}, 1},
-    {"afii57511", (const unsigned long[]){0x0679}, 1},
-    {"afii57512", (const unsigned long[]){0x0688}, 1},
-    {"afii57513", (const unsigned long[]){0x0691}, 1},
-    {"afii57514", (const unsigned long[]){0x06ba}, 1},
-    {"afii57519", (const unsigned long[]){0x06d2}, 1},
-    {"afii57534", (const unsigned long[]){0x06d5}, 1},
-    {"afii57636", (const unsigned long[]){0x20aa}, 1},
-    {"afii57645", (const unsigned long[]){0x05be}, 1},
-    {"afii57658", (const unsigned long[]){0x05c3}, 1},
-    {"afii57664", (const unsigned long[]){0x05d0}, 1},
-    {"afii57665", (const unsigned long[]){0x05d1}, 1},
-    {"afii57666", (const unsigned long[]){0x05d2}, 1},
-    {"afii57667", (const unsigned long[]){0x05d3}, 1},
-    {"afii57668", (const unsigned long[]){0x05d4}, 1},
-    {"afii57669", (const unsigned long[]){0x05d5}, 1},
-    {"afii57670", (const unsigned long[]){0x05d6}, 1},
-    {"afii57671", (const unsigned long[]){0x05d7}, 1},
-    {"afii57672", (const unsigned long[]){0x05d8}, 1},
-    {"afii57673", (const unsigned long[]){0x05d9}, 1},
-    {"afii57674", (const unsigned long[]){0x05da}, 1},
-    {"afii57675", (const unsigned long[]){0x05db}, 1},
-    {"afii57676", (const unsigned long[]){0x05dc}, 1},
-    {"afii57677", (const unsigned long[]){0x05dd}, 1},
-    {"afii57678", (const unsigned long[]){0x05de}, 1},
-    {"afii57679", (const unsigned long[]){0x05df}, 1},
-    {"afii57680", (const unsigned long[]){0x05e0}, 1},
-    {"afii57681", (const unsigned long[]){0x05e1}, 1},
-    {"afii57682", (const unsigned long[]){0x05e2}, 1},
-    {"afii57683", (const unsigned long[]){0x05e3}, 1},
-    {"afii57684", (const unsigned long[]){0x05e4}, 1},
-    {"afii57685", (const unsigned long[]){0x05e5}, 1},
-    {"afii57686", (const unsigned long[]){0x05e6}, 1},
-    {"afii57687", (const unsigned long[]){0x05e7}, 1},
-    {"afii57688", (const unsigned long[]){0x05e8}, 1},
-    {"afii57689", (const unsigned long[]){0x05e9}, 1},
-    {"afii57690", (const unsigned long[]){0x05ea}, 1},
-    {"afii57694", (const unsigned long[]){0xfb2a}, 1},
-    {"afii57695", (const unsigned long[]){0xfb2b}, 1},
-    {"afii57700", (const unsigned long[]){0xfb4b}, 1},
-    {"afii57705", (const unsigned long[]){0xfb1f}, 1},
-    {"afii57716", (const unsigned long[]){0x05f0}, 1},
-    {"afii57717", (const unsigned long[]){0x05f1}, 1},
-    {"afii57718", (const unsigned long[]){0x05f2}, 1},
-    {"afii57723", (const unsigned long[]){0xfb35}, 1},
-    {"afii57793", (const unsigned long[]){0x05b4}, 1},
-    {"afii57794", (const unsigned long[]){0x05b5}, 1},
-    {"afii57795", (const unsigned long[]){0x05b6}, 1},
-    {"afii57796", (const unsigned long[]){0x05bb}, 1},
-    {"afii57797", (const unsigned long[]){0x05b8}, 1},
-    {"afii57798", (const unsigned long[]){0x05b7}, 1},
-    {"afii57799", (const unsigned long[]){0x05b0}, 1},
-    {"afii57800", (const unsigned long[]){0x05b2}, 1},
-    {"afii57801", (const unsigned long[]){0x05b1}, 1},
-    {"afii57802", (const unsigned long[]){0x05b3}, 1},
-    {"afii57803", (const unsigned long[]){0x05c2}, 1},
-    {"afii57804", (const unsigned long[]){0x05c1}, 1},
-    {"afii57806", (const unsigned long[]){0x05b9}, 1},
-    {"afii57807", (const unsigned long[]){0x05bc}, 1},
-    {"afii57839", (const unsigned long[]){0x05bd}, 1},
-    {"afii57841", (const unsigned long[]){0x05bf}, 1},
-    {"afii57842", (const unsigned long[]){0x05c0}, 1},
-    {"afii57929", (const unsigned long[]){0x02bc}, 1},
-    {"afii61248", (const unsigned long[]){0x2105}, 1},
-    {"afii61289", (const unsigned long[]){0x2113}, 1},
-    {"afii61352", (const unsigned long[]){0x2116}, 1},
-    {"afii61573", (const unsigned long[]){0x202c}, 1},
-    {"afii61574", (const unsigned long[]){0x202d}, 1},
-    {"afii61575", (const unsigned long[]){0x202e}, 1},
-    {"afii61664", (const unsigned long[]){0x200c}, 1},
-    {"afii63167", (const unsigned long[]){0x066d}, 1},
-    {"afii64937", (const unsigned long[]){0x02bd}, 1},
-    {"agrave", (const unsigned long[]){0x00e0}, 1},
-    {"agujarati", (const unsigned long[]){0x0a85}, 1},
-    {"agurmukhi", (const unsigned long[]){0x0a05}, 1},
-    {"ahiragana", (const unsigned long[]){0x3042}, 1},
-    {"ahookabove", (const unsigned long[]){0x1ea3}, 1},
-    {"aibengali", (const unsigned long[]){0x0990}, 1},
-    {"aibopomofo", (const unsigned long[]){0x311e}, 1},
-    {"aideva", (const unsigned long[]){0x0910}, 1},
-    {"aiecyrillic", (const unsigned long[]){0x04d5}, 1},
-    {"aigujarati", (const unsigned long[]){0x0a90}, 1},
-    {"aigurmukhi", (const unsigned long[]){0x0a10}, 1},
-    {"aimatragurmukhi", (const unsigned long[]){0x0a48}, 1},
-    {"ainarabic", (const unsigned long[]){0x0639}, 1},
-    {"ainfinalarabic", (const unsigned long[]){0xfeca}, 1},
-    {"aininitialarabic", (const unsigned long[]){0xfecb}, 1},
-    {"ainmedialarabic", (const unsigned long[]){0xfecc}, 1},
-    {"ainvertedbreve", (const unsigned long[]){0x0203}, 1},
-    {"aivowelsignbengali", (const unsigned long[]){0x09c8}, 1},
-    {"aivowelsigndeva", (const unsigned long[]){0x0948}, 1},
-    {"aivowelsigngujarati", (const unsigned long[]){0x0ac8}, 1},
-    {"akatakana", (const unsigned long[]){0x30a2}, 1},
-    {"akatakanahalfwidth", (const unsigned long[]){0xff71}, 1},
-    {"akorean", (const unsigned long[]){0x314f}, 1},
-    {"alef", (const unsigned long[]){0x05d0}, 1},
-    {"alefarabic", (const unsigned long[]){0x0627}, 1},
-    {"alefdageshhebrew", (const unsigned long[]){0xfb30}, 1},
-    {"aleffinalarabic", (const unsigned long[]){0xfe8e}, 1},
-    {"alefhamzaabovearabic", (const unsigned long[]){0x0623}, 1},
-    {"alefhamzaabovefinalarabic", (const unsigned long[]){0xfe84}, 1},
-    {"alefhamzabelowarabic", (const unsigned long[]){0x0625}, 1},
-    {"alefhamzabelowfinalarabic", (const unsigned long[]){0xfe88}, 1},
-    {"alefhebrew", (const unsigned long[]){0x05d0}, 1},
-    {"aleflamedhebrew", (const unsigned long[]){0xfb4f}, 1},
-    {"alefmaddaabovearabic", (const unsigned long[]){0x0622}, 1},
-    {"alefmaddaabovefinalarabic", (const unsigned long[]){0xfe82}, 1},
-    {"alefmaksuraarabic", (const unsigned long[]){0x0649}, 1},
-    {"alefmaksurafinalarabic", (const unsigned long[]){0xfef0}, 1},
-    {"alefmaksurainitialarabic", (const unsigned long[]){0xfef3}, 1},
-    {"alefmaksuramedialarabic", (const unsigned long[]){0xfef4}, 1},
-    {"alefpatahhebrew", (const unsigned long[]){0xfb2e}, 1},
-    {"alefqamatshebrew", (const unsigned long[]){0xfb2f}, 1},
-    {"aleph", (const unsigned long[]){0x2135}, 1},
-    {"allequal", (const unsigned long[]){0x224c}, 1},
-    {"alpha", (const unsigned long[]){0x03b1}, 1},
-    {"alphatonos", (const unsigned long[]){0x03ac}, 1},
-    {"amacron", (const unsigned long[]){0x0101}, 1},
-    {"amonospace", (const unsigned long[]){0xff41}, 1},
-    {"ampersand", (const unsigned long[]){0x0026}, 1},
-    {"ampersandmonospace", (const unsigned long[]){0xff06}, 1},
-    {"ampersandsmall", (const unsigned long[]){0xf726}, 1},
-    {"amsquare", (const unsigned long[]){0x33c2}, 1},
-    {"anbopomofo", (const unsigned long[]){0x3122}, 1},
-    {"angbopomofo", (const unsigned long[]){0x3124}, 1},
-    {"angkhankhuthai", (const unsigned long[]){0x0e5a}, 1},
-    {"angle", (const unsigned long[]){0x2220}, 1},
-    {"anglebracketleft", (const unsigned long[]){0x3008}, 1},
-    {"anglebracketleftvertical", (const unsigned long[]){0xfe3f}, 1},
-    {"anglebracketright", (const unsigned long[]){0x3009}, 1},
-    {"anglebracketrightvertical", (const unsigned long[]){0xfe40}, 1},
-    {"angleleft", (const unsigned long[]){0x2329}, 1},
-    {"angleright", (const unsigned long[]){0x232a}, 1},
-    {"angstrom", (const unsigned long[]){0x212b}, 1},
-    {"anoteleia", (const unsigned long[]){0x0387}, 1},
-    {"anudattadeva", (const unsigned long[]){0x0952}, 1},
-    {"anusvarabengali", (const unsigned long[]){0x0982}, 1},
-    {"anusvaradeva", (const unsigned long[]){0x0902}, 1},
-    {"anusvaragujarati", (const unsigned long[]){0x0a82}, 1},
-    {"aogonek", (const unsigned long[]){0x0105}, 1},
-    {"apaatosquare", (const unsigned long[]){0x3300}, 1},
-    {"aparen", (const unsigned long[]){0x249c}, 1},
-    {"apostrophearmenian", (const unsigned long[]){0x055a}, 1},
-    {"apostrophemod", (const unsigned long[]){0x02bc}, 1},
-    {"apple", (const unsigned long[]){0xf8ff}, 1},
-    {"approaches", (const unsigned long[]){0x2250}, 1},
-    {"approxequal", (const unsigned long[]){0x2248}, 1},
-    {"approxequalorimage", (const unsigned long[]){0x2252}, 1},
-    {"approximatelyequal", (const unsigned long[]){0x2245}, 1},
-    {"araeaekorean", (const unsigned long[]){0x318e}, 1},
-    {"araeakorean", (const unsigned long[]){0x318d}, 1},
-    {"arc", (const unsigned long[]){0x2312}, 1},
-    {"arighthalfring", (const unsigned long[]){0x1e9a}, 1},
-    {"aring", (const unsigned long[]){0x00e5}, 1},
-    {"aringacute", (const unsigned long[]){0x01fb}, 1},
-    {"aringbelow", (const unsigned long[]){0x1e01}, 1},
-    {"arrowboth", (const unsigned long[]){0x2194}, 1},
-    {"arrowdashdown", (const unsigned long[]){0x21e3}, 1},
-    {"arrowdashleft", (const unsigned long[]){0x21e0}, 1},
-    {"arrowdashright", (const unsigned long[]){0x21e2}, 1},
-    {"arrowdashup", (const unsigned long[]){0x21e1}, 1},
-    {"arrowdblboth", (const unsigned long[]){0x21d4}, 1},
-    {"arrowdbldown", (const unsigned long[]){0x21d3}, 1},
-    {"arrowdblleft", (const unsigned long[]){0x21d0}, 1},
-    {"arrowdblright", (const unsigned long[]){0x21d2}, 1},
-    {"arrowdblup", (const unsigned long[]){0x21d1}, 1},
-    {"arrowdown", (const unsigned long[]){0x2193}, 1},
-    {"arrowdownleft", (const unsigned long[]){0x2199}, 1},
-    {"arrowdownright", (const unsigned long[]){0x2198}, 1},
-    {"arrowdownwhite", (const unsigned long[]){0x21e9}, 1},
-    {"arrowheaddownmod", (const unsigned long[]){0x02c5}, 1},
-    {"arrowheadleftmod", (const unsigned long[]){0x02c2}, 1},
-    {"arrowheadrightmod", (const unsigned long[]){0x02c3}, 1},
-    {"arrowheadupmod", (const unsigned long[]){0x02c4}, 1},
-    {"arrowhorizex", (const unsigned long[]){0xf8e7}, 1},
-    {"arrowleft", (const unsigned long[]){0x2190}, 1},
-    {"arrowleftdbl", (const unsigned long[]){0x21d0}, 1},
-    {"arrowleftdblstroke", (const unsigned long[]){0x21cd}, 1},
-    {"arrowleftoverright", (const unsigned long[]){0x21c6}, 1},
-    {"arrowleftwhite", (const unsigned long[]){0x21e6}, 1},
-    {"arrowright", (const unsigned long[]){0x2192}, 1},
-    {"arrowrightdblstroke", (const unsigned long[]){0x21cf}, 1},
-    {"arrowrightheavy", (const unsigned long[]){0x279e}, 1},
-    {"arrowrightoverleft", (const unsigned long[]){0x21c4}, 1},
-    {"arrowrightwhite", (const unsigned long[]){0x21e8}, 1},
-    {"arrowtableft", (const unsigned long[]){0x21e4}, 1},
-    {"arrowtabright", (const unsigned long[]){0x21e5}, 1},
-    {"arrowup", (const unsigned long[]){0x2191}, 1},
-    {"arrowupdn", (const unsigned long[]){0x2195}, 1},
-    {"arrowupdnbse", (const unsigned long[]){0x21a8}, 1},
-    {"arrowupdownbase", (const unsigned long[]){0x21a8}, 1},
-    {"arrowupleft", (const unsigned long[]){0x2196}, 1},
-    {"arrowupleftofdown", (const unsigned long[]){0x21c5}, 1},
-    {"arrowupright", (const unsigned long[]){0x2197}, 1},
-    {"arrowupwhite", (const unsigned long[]){0x21e7}, 1},
-    {"arrowvertex", (const unsigned long[]){0xf8e6}, 1},
-    {"asciicircum", (const unsigned long[]){0x005e}, 1},
-    {"asciicircummonospace", (const unsigned long[]){0xff3e}, 1},
-    {"asciitilde", (const unsigned long[]){0x007e}, 1},
-    {"asciitildemonospace", (const unsigned long[]){0xff5e}, 1},
-    {"ascript", (const unsigned long[]){0x0251}, 1},
-    {"ascriptturned", (const unsigned long[]){0x0252}, 1},
-    {"asmallhiragana", (const unsigned long[]){0x3041}, 1},
-    {"asmallkatakana", (const unsigned long[]){0x30a1}, 1},
-    {"asmallkatakanahalfwidth", (const unsigned long[]){0xff67}, 1},
-    {"asterisk", (const unsigned long[]){0x002a}, 1},
-    {"asteriskaltonearabic", (const unsigned long[]){0x066d}, 1},
-    {"asteriskarabic", (const unsigned long[]){0x066d}, 1},
-    {"asteriskmath", (const unsigned long[]){0x2217}, 1},
-    {"asteriskmonospace", (const unsigned long[]){0xff0a}, 1},
-    {"asterisksmall", (const unsigned long[]){0xfe61}, 1},
-    {"asterism", (const unsigned long[]){0x2042}, 1},
-    {"asuperior", (const unsigned long[]){0xf6e9}, 1},
-    {"asymptoticallyequal", (const unsigned long[]){0x2243}, 1},
-    {"at", (const unsigned long[]){0x0040}, 1},
-    {"atilde", (const unsigned long[]){0x00e3}, 1},
-    {"atmonospace", (const unsigned long[]){0xff20}, 1},
-    {"atsmall", (const unsigned long[]){0xfe6b}, 1},
-    {"aturned", (const unsigned long[]){0x0250}, 1},
-    {"aubengali", (const unsigned long[]){0x0994}, 1},
-    {"aubopomofo", (const unsigned long[]){0x3120}, 1},
-    {"audeva", (const unsigned long[]){0x0914}, 1},
-    {"augujarati", (const unsigned long[]){0x0a94}, 1},
-    {"augurmukhi", (const unsigned long[]){0x0a14}, 1},
-    {"aulengthmarkbengali", (const unsigned long[]){0x09d7}, 1},
-    {"aumatragurmukhi", (const unsigned long[]){0x0a4c}, 1},
-    {"auvowelsignbengali", (const unsigned long[]){0x09cc}, 1},
-    {"auvowelsigndeva", (const unsigned long[]){0x094c}, 1},
-    {"auvowelsigngujarati", (const unsigned long[]){0x0acc}, 1},
-    {"avagrahadeva", (const unsigned long[]){0x093d}, 1},
-    {"aybarmenian", (const unsigned long[]){0x0561}, 1},
-    {"ayin", (const unsigned long[]){0x05e2}, 1},
-    {"ayinaltonehebrew", (const unsigned long[]){0xfb20}, 1},
-    {"ayinhebrew", (const unsigned long[]){0x05e2}, 1},
-    {"b", (const unsigned long[]){0x0062}, 1},
-    {"babengali", (const unsigned long[]){0x09ac}, 1},
-    {"backslash", (const unsigned long[]){0x005c}, 1},
-    {"backslashmonospace", (const unsigned long[]){0xff3c}, 1},
-    {"badeva", (const unsigned long[]){0x092c}, 1},
-    {"bagujarati", (const unsigned long[]){0x0aac}, 1},
-    {"bagurmukhi", (const unsigned long[]){0x0a2c}, 1},
-    {"bahiragana", (const unsigned long[]){0x3070}, 1},
-    {"bahtthai", (const unsigned long[]){0x0e3f}, 1},
-    {"bakatakana", (const unsigned long[]){0x30d0}, 1},
-    {"bar", (const unsigned long[]){0x007c}, 1},
-    {"barmonospace", (const unsigned long[]){0xff5c}, 1},
-    {"bbopomofo", (const unsigned long[]){0x3105}, 1},
-    {"bcircle", (const unsigned long[]){0x24d1}, 1},
-    {"bdotaccent", (const unsigned long[]){0x1e03}, 1},
-    {"bdotbelow", (const unsigned long[]){0x1e05}, 1},
-    {"beamedsixteenthnotes", (const unsigned long[]){0x266c}, 1},
-    {"because", (const unsigned long[]){0x2235}, 1},
-    {"becyrillic", (const unsigned long[]){0x0431}, 1},
-    {"beharabic", (const unsigned long[]){0x0628}, 1},
-    {"behfinalarabic", (const unsigned long[]){0xfe90}, 1},
-    {"behinitialarabic", (const unsigned long[]){0xfe91}, 1},
-    {"behiragana", (const unsigned long[]){0x3079}, 1},
-    {"behmedialarabic", (const unsigned long[]){0xfe92}, 1},
-    {"behmeeminitialarabic", (const unsigned long[]){0xfc9f}, 1},
-    {"behmeemisolatedarabic", (const unsigned long[]){0xfc08}, 1},
-    {"behnoonfinalarabic", (const unsigned long[]){0xfc6d}, 1},
-    {"bekatakana", (const unsigned long[]){0x30d9}, 1},
-    {"benarmenian", (const unsigned long[]){0x0562}, 1},
-    {"bet", (const unsigned long[]){0x05d1}, 1},
-    {"beta", (const unsigned long[]){0x03b2}, 1},
-    {"betasymbolgreek", (const unsigned long[]){0x03d0}, 1},
-    {"betdagesh", (const unsigned long[]){0xfb31}, 1},
-    {"betdageshhebrew", (const unsigned long[]){0xfb31}, 1},
-    {"bethebrew", (const unsigned long[]){0x05d1}, 1},
-    {"betrafehebrew", (const unsigned long[]){0xfb4c}, 1},
-    {"bhabengali", (const unsigned long[]){0x09ad}, 1},
-    {"bhadeva", (const unsigned long[]){0x092d}, 1},
-    {"bhagujarati", (const unsigned long[]){0x0aad}, 1},
-    {"bhagurmukhi", (const unsigned long[]){0x0a2d}, 1},
-    {"bhook", (const unsigned long[]){0x0253}, 1},
-    {"bihiragana", (const unsigned long[]){0x3073}, 1},
-    {"bikatakana", (const unsigned long[]){0x30d3}, 1},
-    {"bilabialclick", (const unsigned long[]){0x0298}, 1},
-    {"bindigurmukhi", (const unsigned long[]){0x0a02}, 1},
-    {"birusquare", (const unsigned long[]){0x3331}, 1},
-    {"blackcircle", (const unsigned long[]){0x25cf}, 1},
-    {"blackdiamond", (const unsigned long[]){0x25c6}, 1},
-    {"blackdownpointingtriangle", (const unsigned long[]){0x25bc}, 1},
-    {"blackleftpointingpointer", (const unsigned long[]){0x25c4}, 1},
-    {"blackleftpointingtriangle", (const unsigned long[]){0x25c0}, 1},
-    {"blacklenticularbracketleft", (const unsigned long[]){0x3010}, 1},
-    {"blacklenticularbracketleftvertical", (const unsigned long[]){0xfe3b}, 1},
-    {"blacklenticularbracketright", (const unsigned long[]){0x3011}, 1},
-    {"blacklenticularbracketrightvertical", (const unsigned long[]){0xfe3c}, 1},
-    {"blacklowerlefttriangle", (const unsigned long[]){0x25e3}, 1},
-    {"blacklowerrighttriangle", (const unsigned long[]){0x25e2}, 1},
-    {"blackrectangle", (const unsigned long[]){0x25ac}, 1},
-    {"blackrightpointingpointer", (const unsigned long[]){0x25ba}, 1},
-    {"blackrightpointingtriangle", (const unsigned long[]){0x25b6}, 1},
-    {"blacksmallsquare", (const unsigned long[]){0x25aa}, 1},
-    {"blacksmilingface", (const unsigned long[]){0x263b}, 1},
-    {"blacksquare", (const unsigned long[]){0x25a0}, 1},
-    {"blackstar", (const unsigned long[]){0x2605}, 1},
-    {"blackupperlefttriangle", (const unsigned long[]){0x25e4}, 1},
-    {"blackupperrighttriangle", (const unsigned long[]){0x25e5}, 1},
-    {"blackuppointingsmalltriangle", (const unsigned long[]){0x25b4}, 1},
-    {"blackuppointingtriangle", (const unsigned long[]){0x25b2}, 1},
-    {"blank", (const unsigned long[]){0x2423}, 1},
-    {"blinebelow", (const unsigned long[]){0x1e07}, 1},
-    {"block", (const unsigned long[]){0x2588}, 1},
-    {"bmonospace", (const unsigned long[]){0xff42}, 1},
-    {"bobaimaithai", (const unsigned long[]){0x0e1a}, 1},
-    {"bohiragana", (const unsigned long[]){0x307c}, 1},
-    {"bokatakana", (const unsigned long[]){0x30dc}, 1},
-    {"bparen", (const unsigned long[]){0x249d}, 1},
-    {"bqsquare", (const unsigned long[]){0x33c3}, 1},
-    {"braceex", (const unsigned long[]){0xf8f4}, 1},
-    {"braceleft", (const unsigned long[]){0x007b}, 1},
-    {"braceleftbt", (const unsigned long[]){0xf8f3}, 1},
-    {"braceleftmid", (const unsigned long[]){0xf8f2}, 1},
-    {"braceleftmonospace", (const unsigned long[]){0xff5b}, 1},
-    {"braceleftsmall", (const unsigned long[]){0xfe5b}, 1},
-    {"bracelefttp", (const unsigned long[]){0xf8f1}, 1},
-    {"braceleftvertical", (const unsigned long[]){0xfe37}, 1},
-    {"braceright", (const unsigned long[]){0x007d}, 1},
-    {"bracerightbt", (const unsigned long[]){0xf8fe}, 1},
-    {"bracerightmid", (const unsigned long[]){0xf8fd}, 1},
-    {"bracerightmonospace", (const unsigned long[]){0xff5d}, 1},
-    {"bracerightsmall", (const unsigned long[]){0xfe5c}, 1},
-    {"bracerighttp", (const unsigned long[]){0xf8fc}, 1},
-    {"bracerightvertical", (const unsigned long[]){0xfe38}, 1},
-    {"bracketleft", (const unsigned long[]){0x005b}, 1},
-    {"bracketleftbt", (const unsigned long[]){0xf8f0}, 1},
-    {"bracketleftex", (const unsigned long[]){0xf8ef}, 1},
-    {"bracketleftmonospace", (const unsigned long[]){0xff3b}, 1},
-    {"bracketlefttp", (const unsigned long[]){0xf8ee}, 1},
-    {"bracketright", (const unsigned long[]){0x005d}, 1},
-    {"bracketrightbt", (const unsigned long[]){0xf8fb}, 1},
-    {"bracketrightex", (const unsigned long[]){0xf8fa}, 1},
-    {"bracketrightmonospace", (const unsigned long[]){0xff3d}, 1},
-    {"bracketrighttp", (const unsigned long[]){0xf8f9}, 1},
-    {"breve", (const unsigned long[]){0x02d8}, 1},
-    {"brevebelowcmb", (const unsigned long[]){0x032e}, 1},
-    {"brevecmb", (const unsigned long[]){0x0306}, 1},
-    {"breveinvertedbelowcmb", (const unsigned long[]){0x032f}, 1},
-    {"breveinvertedcmb", (const unsigned long[]){0x0311}, 1},
-    {"breveinverteddoublecmb", (const unsigned long[]){0x0361}, 1},
-    {"bridgebelowcmb", (const unsigned long[]){0x032a}, 1},
-    {"bridgeinvertedbelowcmb", (const unsigned long[]){0x033a}, 1},
-    {"brokenbar", (const unsigned long[]){0x00a6}, 1},
-    {"bstroke", (const unsigned long[]){0x0180}, 1},
-    {"bsuperior", (const unsigned long[]){0xf6ea}, 1},
-    {"btopbar", (const unsigned long[]){0x0183}, 1},
-    {"buhiragana", (const unsigned long[]){0x3076}, 1},
-    {"bukatakana", (const unsigned long[]){0x30d6}, 1},
-    {"bullet", (const unsigned long[]){0x2022}, 1},
-    {"bulletinverse", (const unsigned long[]){0x25d8}, 1},
-    {"bulletoperator", (const unsigned long[]){0x2219}, 1},
-    {"bullseye", (const unsigned long[]){0x25ce}, 1},
-    {"c", (const unsigned long[]){0x0063}, 1},
-    {"caarmenian", (const unsigned long[]){0x056e}, 1},
-    {"cabengali", (const unsigned long[]){0x099a}, 1},
-    {"cacute", (const unsigned long[]){0x0107}, 1},
-    {"cadeva", (const unsigned long[]){0x091a}, 1},
-    {"cagujarati", (const unsigned long[]){0x0a9a}, 1},
-    {"cagurmukhi", (const unsigned long[]){0x0a1a}, 1},
-    {"calsquare", (const unsigned long[]){0x3388}, 1},
-    {"candrabindubengali", (const unsigned long[]){0x0981}, 1},
-    {"candrabinducmb", (const unsigned long[]){0x0310}, 1},
-    {"candrabindudeva", (const unsigned long[]){0x0901}, 1},
-    {"candrabindugujarati", (const unsigned long[]){0x0a81}, 1},
-    {"capslock", (const unsigned long[]){0x21ea}, 1},
-    {"careof", (const unsigned long[]){0x2105}, 1},
-    {"caron", (const unsigned long[]){0x02c7}, 1},
-    {"caronbelowcmb", (const unsigned long[]){0x032c}, 1},
-    {"caroncmb", (const unsigned long[]){0x030c}, 1},
-    {"carriagereturn", (const unsigned long[]){0x21b5}, 1},
-    {"cbopomofo", (const unsigned long[]){0x3118}, 1},
-    {"ccaron", (const unsigned long[]){0x010d}, 1},
-    {"ccedilla", (const unsigned long[]){0x00e7}, 1},
-    {"ccedillaacute", (const unsigned long[]){0x1e09}, 1},
-    {"ccircle", (const unsigned long[]){0x24d2}, 1},
-    {"ccircumflex", (const unsigned long[]){0x0109}, 1},
-    {"ccurl", (const unsigned long[]){0x0255}, 1},
-    {"cdot", (const unsigned long[]){0x010b}, 1},
-    {"cdotaccent", (const unsigned long[]){0x010b}, 1},
-    {"cdsquare", (const unsigned long[]){0x33c5}, 1},
-    {"cedilla", (const unsigned long[]){0x00b8}, 1},
-    {"cedillacmb", (const unsigned long[]){0x0327}, 1},
-    {"cent", (const unsigned long[]){0x00a2}, 1},
-    {"centigrade", (const unsigned long[]){0x2103}, 1},
-    {"centinferior", (const unsigned long[]){0xf6df}, 1},
-    {"centmonospace", (const unsigned long[]){0xffe0}, 1},
-    {"centoldstyle", (const unsigned long[]){0xf7a2}, 1},
-    {"centsuperior", (const unsigned long[]){0xf6e0}, 1},
-    {"chaarmenian", (const unsigned long[]){0x0579}, 1},
-    {"chabengali", (const unsigned long[]){0x099b}, 1},
-    {"chadeva", (const unsigned long[]){0x091b}, 1},
-    {"chagujarati", (const unsigned long[]){0x0a9b}, 1},
-    {"chagurmukhi", (const unsigned long[]){0x0a1b}, 1},
-    {"chbopomofo", (const unsigned long[]){0x3114}, 1},
-    {"cheabkhasiancyrillic", (const unsigned long[]){0x04bd}, 1},
-    {"checkmark", (const unsigned long[]){0x2713}, 1},
-    {"checyrillic", (const unsigned long[]){0x0447}, 1},
-    {"chedescenderabkhasiancyrillic", (const unsigned long[]){0x04bf}, 1},
-    {"chedescendercyrillic", (const unsigned long[]){0x04b7}, 1},
-    {"chedieresiscyrillic", (const unsigned long[]){0x04f5}, 1},
-    {"cheharmenian", (const unsigned long[]){0x0573}, 1},
-    {"chekhakassiancyrillic", (const unsigned long[]){0x04cc}, 1},
-    {"cheverticalstrokecyrillic", (const unsigned long[]){0x04b9}, 1},
-    {"chi", (const unsigned long[]){0x03c7}, 1},
-    {"chieuchacirclekorean", (const unsigned long[]){0x3277}, 1},
-    {"chieuchaparenkorean", (const unsigned long[]){0x3217}, 1},
-    {"chieuchcirclekorean", (const unsigned long[]){0x3269}, 1},
-    {"chieuchkorean", (const unsigned long[]){0x314a}, 1},
-    {"chieuchparenkorean", (const unsigned long[]){0x3209}, 1},
-    {"chochangthai", (const unsigned long[]){0x0e0a}, 1},
-    {"chochanthai", (const unsigned long[]){0x0e08}, 1},
-    {"chochingthai", (const unsigned long[]){0x0e09}, 1},
-    {"chochoethai", (const unsigned long[]){0x0e0c}, 1},
-    {"chook", (const unsigned long[]){0x0188}, 1},
-    {"cieucacirclekorean", (const unsigned long[]){0x3276}, 1},
-    {"cieucaparenkorean", (const unsigned long[]){0x3216}, 1},
-    {"cieuccirclekorean", (const unsigned long[]){0x3268}, 1},
-    {"cieuckorean", (const unsigned long[]){0x3148}, 1},
-    {"cieucparenkorean", (const unsigned long[]){0x3208}, 1},
-    {"cieucuparenkorean", (const unsigned long[]){0x321c}, 1},
-    {"circle", (const unsigned long[]){0x25cb}, 1},
-    {"circlemultiply", (const unsigned long[]){0x2297}, 1},
-    {"circleot", (const unsigned long[]){0x2299}, 1},
-    {"circleplus", (const unsigned long[]){0x2295}, 1},
-    {"circlepostalmark", (const unsigned long[]){0x3036}, 1},
-    {"circlewithlefthalfblack", (const unsigned long[]){0x25d0}, 1},
-    {"circlewithrighthalfblack", (const unsigned long[]){0x25d1}, 1},
-    {"circumflex", (const unsigned long[]){0x02c6}, 1},
-    {"circumflexbelowcmb", (const unsigned long[]){0x032d}, 1},
-    {"circumflexcmb", (const unsigned long[]){0x0302}, 1},
-    {"clear", (const unsigned long[]){0x2327}, 1},
-    {"clickalveolar", (const unsigned long[]){0x01c2}, 1},
-    {"clickdental", (const unsigned long[]){0x01c0}, 1},
-    {"clicklateral", (const unsigned long[]){0x01c1}, 1},
-    {"clickretroflex", (const unsigned long[]){0x01c3}, 1},
-    {"club", (const unsigned long[]){0x2663}, 1},
-    {"clubsuitblack", (const unsigned long[]){0x2663}, 1},
-    {"clubsuitwhite", (const unsigned long[]){0x2667}, 1},
-    {"cmcubedsquare", (const unsigned long[]){0x33a4}, 1},
-    {"cmonospace", (const unsigned long[]){0xff43}, 1},
-    {"cmsquaredsquare", (const unsigned long[]){0x33a0}, 1},
-    {"coarmenian", (const unsigned long[]){0x0581}, 1},
-    {"colon", (const unsigned long[]){0x003a}, 1},
-    {"colonmonetary", (const unsigned long[]){0x20a1}, 1},
-    {"colonmonospace", (const unsigned long[]){0xff1a}, 1},
-    {"colonsign", (const unsigned long[]){0x20a1}, 1},
-    {"colonsmall", (const unsigned long[]){0xfe55}, 1},
-    {"colontriangularhalfmod", (const unsigned long[]){0x02d1}, 1},
-    {"colontriangularmod", (const unsigned long[]){0x02d0}, 1},
-    {"comma", (const unsigned long[]){0x002c}, 1},
-    {"commaabovecmb", (const unsigned long[]){0x0313}, 1},
-    {"commaaboverightcmb", (const unsigned long[]){0x0315}, 1},
-    {"commaaccent", (const unsigned long[]){0xf6c3}, 1},
-    {"commaarabic", (const unsigned long[]){0x060c}, 1},
-    {"commaarmenian", (const unsigned long[]){0x055d}, 1},
-    {"commainferior", (const unsigned long[]){0xf6e1}, 1},
-    {"commamonospace", (const unsigned long[]){0xff0c}, 1},
-    {"commareversedabovecmb", (const unsigned long[]){0x0314}, 1},
-    {"commareversedmod", (const unsigned long[]){0x02bd}, 1},
-    {"commasmall", (const unsigned long[]){0xfe50}, 1},
-    {"commasuperior", (const unsigned long[]){0xf6e2}, 1},
-    {"commaturnedabovecmb", (const unsigned long[]){0x0312}, 1},
-    {"commaturnedmod", (const unsigned long[]){0x02bb}, 1},
-    {"compass", (const unsigned long[]){0x263c}, 1},
-    {"congruent", (const unsigned long[]){0x2245}, 1},
-    {"contourintegral", (const unsigned long[]){0x222e}, 1},
-    {"control", (const unsigned long[]){0x2303}, 1},
-    {"controlACK", (const unsigned long[]){0x0006}, 1},
-    {"controlBEL", (const unsigned long[]){0x0007}, 1},
-    {"controlBS", (const unsigned long[]){0x0008}, 1},
-    {"controlCAN", (const unsigned long[]){0x0018}, 1},
-    {"controlCR", (const unsigned long[]){0x000d}, 1},
-    {"controlDC1", (const unsigned long[]){0x0011}, 1},
-    {"controlDC2", (const unsigned long[]){0x0012}, 1},
-    {"controlDC3", (const unsigned long[]){0x0013}, 1},
-    {"controlDC4", (const unsigned long[]){0x0014}, 1},
-    {"controlDEL", (const unsigned long[]){0x007f}, 1},
-    {"controlDLE", (const unsigned long[]){0x0010}, 1},
-    {"controlEM", (const unsigned long[]){0x0019}, 1},
-    {"controlENQ", (const unsigned long[]){0x0005}, 1},
-    {"controlEOT", (const unsigned long[]){0x0004}, 1},
-    {"controlESC", (const unsigned long[]){0x001b}, 1},
-    {"controlETB", (const unsigned long[]){0x0017}, 1},
-    {"controlETX", (const unsigned long[]){0x0003}, 1},
-    {"controlFF", (const unsigned long[]){0x000c}, 1},
-    {"controlFS", (const unsigned long[]){0x001c}, 1},
-    {"controlGS", (const unsigned long[]){0x001d}, 1},
-    {"controlHT", (const unsigned long[]){0x0009}, 1},
-    {"controlLF", (const unsigned long[]){0x000a}, 1},
-    {"controlNAK", (const unsigned long[]){0x0015}, 1},
-    {"controlRS", (const unsigned long[]){0x001e}, 1},
-    {"controlSI", (const unsigned long[]){0x000f}, 1},
-    {"controlSO", (const unsigned long[]){0x000e}, 1},
-    {"controlSOT", (const unsigned long[]){0x0002}, 1},
-    {"controlSTX", (const unsigned long[]){0x0001}, 1},
-    {"controlSUB", (const unsigned long[]){0x001a}, 1},
-    {"controlSYN", (const unsigned long[]){0x0016}, 1},
-    {"controlUS", (const unsigned long[]){0x001f}, 1},
-    {"controlVT", (const unsigned long[]){0x000b}, 1},
-    {"copyright", (const unsigned long[]){0x00a9}, 1},
-    {"copyrightsans", (const unsigned long[]){0xf8e9}, 1},
-    {"copyrightserif", (const unsigned long[]){0xf6d9}, 1},
-    {"cornerbracketleft", (const unsigned long[]){0x300c}, 1},
-    {"cornerbracketlefthalfwidth", (const unsigned long[]){0xff62}, 1},
-    {"cornerbracketleftvertical", (const unsigned long[]){0xfe41}, 1},
-    {"cornerbracketright", (const unsigned long[]){0x300d}, 1},
-    {"cornerbracketrighthalfwidth", (const unsigned long[]){0xff63}, 1},
-    {"cornerbracketrightvertical", (const unsigned long[]){0xfe42}, 1},
-    {"corporationsquare", (const unsigned long[]){0x337f}, 1},
-    {"cosquare", (const unsigned long[]){0x33c7}, 1},
-    {"coverkgsquare", (const unsigned long[]){0x33c6}, 1},
-    {"cparen", (const unsigned long[]){0x249e}, 1},
-    {"cruzeiro", (const unsigned long[]){0x20a2}, 1},
-    {"cstretched", (const unsigned long[]){0x0297}, 1},
-    {"curlyand", (const unsigned long[]){0x22cf}, 1},
-    {"curlyor", (const unsigned long[]){0x22ce}, 1},
-    {"currency", (const unsigned long[]){0x00a4}, 1},
-    {"cyrBreve", (const unsigned long[]){0xf6d1}, 1},
-    {"cyrFlex", (const unsigned long[]){0xf6d2}, 1},
-    {"cyrbreve", (const unsigned long[]){0xf6d4}, 1},
-    {"cyrflex", (const unsigned long[]){0xf6d5}, 1},
-    {"d", (const unsigned long[]){0x0064}, 1},
-    {"daarmenian", (const unsigned long[]){0x0564}, 1},
-    {"dabengali", (const unsigned long[]){0x09a6}, 1},
-    {"dadarabic", (const unsigned long[]){0x0636}, 1},
-    {"dadeva", (const unsigned long[]){0x0926}, 1},
-    {"dadfinalarabic", (const unsigned long[]){0xfebe}, 1},
-    {"dadinitialarabic", (const unsigned long[]){0xfebf}, 1},
-    {"dadmedialarabic", (const unsigned long[]){0xfec0}, 1},
-    {"dagesh", (const unsigned long[]){0x05bc}, 1},
-    {"dageshhebrew", (const unsigned long[]){0x05bc}, 1},
-    {"dagger", (const unsigned long[]){0x2020}, 1},
-    {"daggerdbl", (const unsigned long[]){0x2021}, 1},
-    {"dagujarati", (const unsigned long[]){0x0aa6}, 1},
-    {"dagurmukhi", (const unsigned long[]){0x0a26}, 1},
-    {"dahiragana", (const unsigned long[]){0x3060}, 1},
-    {"dakatakana", (const unsigned long[]){0x30c0}, 1},
-    {"dalarabic", (const unsigned long[]){0x062f}, 1},
-    {"dalet", (const unsigned long[]){0x05d3}, 1},
-    {"daletdagesh", (const unsigned long[]){0xfb33}, 1},
-    {"daletdageshhebrew", (const unsigned long[]){0xfb33}, 1},
+    {"A", cp_single_0, 1},
+    {"AE", cp_single_1, 1},
+    {"AEacute", cp_single_2, 1},
+    {"AEmacron", cp_single_3, 1},
+    {"AEsmall", cp_single_4, 1},
+    {"Aacute", cp_single_5, 1},
+    {"Aacutesmall", cp_single_6, 1},
+    {"Abreve", cp_single_7, 1},
+    {"Abreveacute", cp_single_8, 1},
+    {"Abrevecyrillic", cp_single_9, 1},
+    {"Abrevedotbelow", cp_single_10, 1},
+    {"Abrevegrave", cp_single_11, 1},
+    {"Abrevehookabove", cp_single_12, 1},
+    {"Abrevetilde", cp_single_13, 1},
+    {"Acaron", cp_single_14, 1},
+    {"Acircle", cp_single_15, 1},
+    {"Acircumflex", cp_single_16, 1},
+    {"Acircumflexacute", cp_single_17, 1},
+    {"Acircumflexdotbelow", cp_single_18, 1},
+    {"Acircumflexgrave", cp_single_19, 1},
+    {"Acircumflexhookabove", cp_single_20, 1},
+    {"Acircumflexsmall", cp_single_21, 1},
+    {"Acircumflextilde", cp_single_22, 1},
+    {"Acute", cp_single_23, 1},
+    {"Acutesmall", cp_single_24, 1},
+    {"Acyrillic", cp_single_25, 1},
+    {"Adblgrave", cp_single_26, 1},
+    {"Adieresis", cp_single_27, 1},
+    {"Adieresiscyrillic", cp_single_28, 1},
+    {"Adieresismacron", cp_single_29, 1},
+    {"Adieresissmall", cp_single_30, 1},
+    {"Adotbelow", cp_single_31, 1},
+    {"Adotmacron", cp_single_32, 1},
+    {"Agrave", cp_single_33, 1},
+    {"Agravesmall", cp_single_34, 1},
+    {"Ahookabove", cp_single_35, 1},
+    {"Aiecyrillic", cp_single_36, 1},
+    {"Ainvertedbreve", cp_single_37, 1},
+    {"Alpha", cp_single_38, 1},
+    {"Alphatonos", cp_single_39, 1},
+    {"Amacron", cp_single_40, 1},
+    {"Amonospace", cp_single_41, 1},
+    {"Aogonek", cp_single_42, 1},
+    {"Aring", cp_single_43, 1},
+    {"Aringacute", cp_single_44, 1},
+    {"Aringbelow", cp_single_45, 1},
+    {"Aringsmall", cp_single_46, 1},
+    {"Asmall", cp_single_47, 1},
+    {"Atilde", cp_single_48, 1},
+    {"Atildesmall", cp_single_49, 1},
+    {"Aybarmenian", cp_single_50, 1},
+    {"B", cp_single_51, 1},
+    {"Bcircle", cp_single_52, 1},
+    {"Bdotaccent", cp_single_53, 1},
+    {"Bdotbelow", cp_single_54, 1},
+    {"Becyrillic", cp_single_55, 1},
+    {"Benarmenian", cp_single_56, 1},
+    {"Beta", cp_single_57, 1},
+    {"Bhook", cp_single_58, 1},
+    {"Blinebelow", cp_single_59, 1},
+    {"Bmonospace", cp_single_60, 1},
+    {"Brevesmall", cp_single_61, 1},
+    {"Bsmall", cp_single_62, 1},
+    {"Btopbar", cp_single_63, 1},
+    {"C", cp_single_64, 1},
+    {"Caarmenian", cp_single_65, 1},
+    {"Cacute", cp_single_66, 1},
+    {"Caron", cp_single_67, 1},
+    {"Caronsmall", cp_single_68, 1},
+    {"Ccaron", cp_single_69, 1},
+    {"Ccedilla", cp_single_70, 1},
+    {"Ccedillaacute", cp_single_71, 1},
+    {"Ccedillasmall", cp_single_72, 1},
+    {"Ccircle", cp_single_73, 1},
+    {"Ccircumflex", cp_single_74, 1},
+    {"Cdot", cp_single_75, 1},
+    {"Cdotaccent", cp_single_76, 1},
+    {"Cedillasmall", cp_single_77, 1},
+    {"Chaarmenian", cp_single_78, 1},
+    {"Cheabkhasiancyrillic", cp_single_79, 1},
+    {"Checyrillic", cp_single_80, 1},
+    {"Chedescenderabkhasiancyrillic", cp_single_81, 1},
+    {"Chedescendercyrillic", cp_single_82, 1},
+    {"Chedieresiscyrillic", cp_single_83, 1},
+    {"Cheharmenian", cp_single_84, 1},
+    {"Chekhakassiancyrillic", cp_single_85, 1},
+    {"Cheverticalstrokecyrillic", cp_single_86, 1},
+    {"Chi", cp_single_87, 1},
+    {"Chook", cp_single_88, 1},
+    {"Circumflexsmall", cp_single_89, 1},
+    {"Cmonospace", cp_single_90, 1},
+    {"Coarmenian", cp_single_91, 1},
+    {"Csmall", cp_single_92, 1},
+    {"D", cp_single_93, 1},
+    {"DZ", cp_single_94, 1},
+    {"DZcaron", cp_single_95, 1},
+    {"Daarmenian", cp_single_96, 1},
+    {"Dafrican", cp_single_97, 1},
+    {"Dcaron", cp_single_98, 1},
+    {"Dcedilla", cp_single_99, 1},
+    {"Dcircle", cp_single_100, 1},
+    {"Dcircumflexbelow", cp_single_101, 1},
+    {"Dcroat", cp_single_102, 1},
+    {"Ddotaccent", cp_single_103, 1},
+    {"Ddotbelow", cp_single_104, 1},
+    {"Decyrillic", cp_single_105, 1},
+    {"Deicoptic", cp_single_106, 1},
+    {"Delta", cp_single_107, 1},
+    {"Deltagreek", cp_single_108, 1},
+    {"Dhook", cp_single_109, 1},
+    {"Dieresis", cp_single_110, 1},
+    {"DieresisAcute", cp_single_111, 1},
+    {"DieresisGrave", cp_single_112, 1},
+    {"Dieresissmall", cp_single_113, 1},
+    {"Digammagreek", cp_single_114, 1},
+    {"Djecyrillic", cp_single_115, 1},
+    {"Dlinebelow", cp_single_116, 1},
+    {"Dmonospace", cp_single_117, 1},
+    {"Dotaccentsmall", cp_single_118, 1},
+    {"Dslash", cp_single_119, 1},
+    {"Dsmall", cp_single_120, 1},
+    {"Dtopbar", cp_single_121, 1},
+    {"Dz", cp_single_122, 1},
+    {"Dzcaron", cp_single_123, 1},
+    {"Dzeabkhasiancyrillic", cp_single_124, 1},
+    {"Dzecyrillic", cp_single_125, 1},
+    {"Dzhecyrillic", cp_single_126, 1},
+    {"E", cp_single_127, 1},
+    {"Eacute", cp_single_128, 1},
+    {"Eacutesmall", cp_single_129, 1},
+    {"Ebreve", cp_single_130, 1},
+    {"Ecaron", cp_single_131, 1},
+    {"Ecedillabreve", cp_single_132, 1},
+    {"Echarmenian", cp_single_133, 1},
+    {"Ecircle", cp_single_134, 1},
+    {"Ecircumflex", cp_single_135, 1},
+    {"Ecircumflexacute", cp_single_136, 1},
+    {"Ecircumflexbelow", cp_single_137, 1},
+    {"Ecircumflexdotbelow", cp_single_138, 1},
+    {"Ecircumflexgrave", cp_single_139, 1},
+    {"Ecircumflexhookabove", cp_single_140, 1},
+    {"Ecircumflexsmall", cp_single_141, 1},
+    {"Ecircumflextilde", cp_single_142, 1},
+    {"Ecyrillic", cp_single_143, 1},
+    {"Edblgrave", cp_single_144, 1},
+    {"Edieresis", cp_single_145, 1},
+    {"Edieresissmall", cp_single_146, 1},
+    {"Edot", cp_single_147, 1},
+    {"Edotaccent", cp_single_148, 1},
+    {"Edotbelow", cp_single_149, 1},
+    {"Efcyrillic", cp_single_150, 1},
+    {"Egrave", cp_single_151, 1},
+    {"Egravesmall", cp_single_152, 1},
+    {"Eharmenian", cp_single_153, 1},
+    {"Ehookabove", cp_single_154, 1},
+    {"Eightroman", cp_single_155, 1},
+    {"Einvertedbreve", cp_single_156, 1},
+    {"Eiotifiedcyrillic", cp_single_157, 1},
+    {"Elcyrillic", cp_single_158, 1},
+    {"Elevenroman", cp_single_159, 1},
+    {"Emacron", cp_single_160, 1},
+    {"Emacronacute", cp_single_161, 1},
+    {"Emacrongrave", cp_single_162, 1},
+    {"Emcyrillic", cp_single_163, 1},
+    {"Emonospace", cp_single_164, 1},
+    {"Encyrillic", cp_single_165, 1},
+    {"Endescendercyrillic", cp_single_166, 1},
+    {"Eng", cp_single_167, 1},
+    {"Enghecyrillic", cp_single_168, 1},
+    {"Enhookcyrillic", cp_single_169, 1},
+    {"Eogonek", cp_single_170, 1},
+    {"Eopen", cp_single_171, 1},
+    {"Epsilon", cp_single_172, 1},
+    {"Epsilontonos", cp_single_173, 1},
+    {"Ercyrillic", cp_single_174, 1},
+    {"Ereversed", cp_single_175, 1},
+    {"Ereversedcyrillic", cp_single_176, 1},
+    {"Escyrillic", cp_single_177, 1},
+    {"Esdescendercyrillic", cp_single_178, 1},
+    {"Esh", cp_single_179, 1},
+    {"Esmall", cp_single_180, 1},
+    {"Eta", cp_single_181, 1},
+    {"Etarmenian", cp_single_182, 1},
+    {"Etatonos", cp_single_183, 1},
+    {"Eth", cp_single_184, 1},
+    {"Ethsmall", cp_single_185, 1},
+    {"Etilde", cp_single_186, 1},
+    {"Etildebelow", cp_single_187, 1},
+    {"Euro", cp_single_188, 1},
+    {"Ezh", cp_single_189, 1},
+    {"Ezhcaron", cp_single_190, 1},
+    {"Ezhreversed", cp_single_191, 1},
+    {"F", cp_single_192, 1},
+    {"Fcircle", cp_single_193, 1},
+    {"Fdotaccent", cp_single_194, 1},
+    {"Feharmenian", cp_single_195, 1},
+    {"Feicoptic", cp_single_196, 1},
+    {"Fhook", cp_single_197, 1},
+    {"Fitacyrillic", cp_single_198, 1},
+    {"Fiveroman", cp_single_199, 1},
+    {"Fmonospace", cp_single_200, 1},
+    {"Fourroman", cp_single_201, 1},
+    {"Fsmall", cp_single_202, 1},
+    {"G", cp_single_203, 1},
+    {"GBsquare", cp_single_204, 1},
+    {"Gacute", cp_single_205, 1},
+    {"Gamma", cp_single_206, 1},
+    {"Gammaafrican", cp_single_207, 1},
+    {"Gangiacoptic", cp_single_208, 1},
+    {"Gbreve", cp_single_209, 1},
+    {"Gcaron", cp_single_210, 1},
+    {"Gcedilla", cp_single_211, 1},
+    {"Gcircle", cp_single_212, 1},
+    {"Gcircumflex", cp_single_213, 1},
+    {"Gcommaaccent", cp_single_214, 1},
+    {"Gdot", cp_single_215, 1},
+    {"Gdotaccent", cp_single_216, 1},
+    {"Gecyrillic", cp_single_217, 1},
+    {"Ghadarmenian", cp_single_218, 1},
+    {"Ghemiddlehookcyrillic", cp_single_219, 1},
+    {"Ghestrokecyrillic", cp_single_220, 1},
+    {"Gheupturncyrillic", cp_single_221, 1},
+    {"Ghook", cp_single_222, 1},
+    {"Gimarmenian", cp_single_223, 1},
+    {"Gjecyrillic", cp_single_224, 1},
+    {"Gmacron", cp_single_225, 1},
+    {"Gmonospace", cp_single_226, 1},
+    {"Grave", cp_single_227, 1},
+    {"Gravesmall", cp_single_228, 1},
+    {"Gsmall", cp_single_229, 1},
+    {"Gsmallhook", cp_single_230, 1},
+    {"Gstroke", cp_single_231, 1},
+    {"H", cp_single_232, 1},
+    {"H18533", cp_single_233, 1},
+    {"H18543", cp_single_234, 1},
+    {"H18551", cp_single_235, 1},
+    {"H22073", cp_single_236, 1},
+    {"HPsquare", cp_single_237, 1},
+    {"Haabkhasiancyrillic", cp_single_238, 1},
+    {"Hadescendercyrillic", cp_single_239, 1},
+    {"Hardsigncyrillic", cp_single_240, 1},
+    {"Hbar", cp_single_241, 1},
+    {"Hbrevebelow", cp_single_242, 1},
+    {"Hcedilla", cp_single_243, 1},
+    {"Hcircle", cp_single_244, 1},
+    {"Hcircumflex", cp_single_245, 1},
+    {"Hdieresis", cp_single_246, 1},
+    {"Hdotaccent", cp_single_247, 1},
+    {"Hdotbelow", cp_single_248, 1},
+    {"Hmonospace", cp_single_249, 1},
+    {"Hoarmenian", cp_single_250, 1},
+    {"Horicoptic", cp_single_251, 1},
+    {"Hsmall", cp_single_252, 1},
+    {"Hungarumlaut", cp_single_253, 1},
+    {"Hungarumlautsmall", cp_single_254, 1},
+    {"Hzsquare", cp_single_255, 1},
+    {"I", cp_single_256, 1},
+    {"IAcyrillic", cp_single_257, 1},
+    {"IJ", cp_single_258, 1},
+    {"IUcyrillic", cp_single_259, 1},
+    {"Iacute", cp_single_260, 1},
+    {"Iacutesmall", cp_single_261, 1},
+    {"Ibreve", cp_single_262, 1},
+    {"Icaron", cp_single_263, 1},
+    {"Icircle", cp_single_264, 1},
+    {"Icircumflex", cp_single_265, 1},
+    {"Icircumflexsmall", cp_single_266, 1},
+    {"Icyrillic", cp_single_267, 1},
+    {"Idblgrave", cp_single_268, 1},
+    {"Idieresis", cp_single_269, 1},
+    {"Idieresisacute", cp_single_270, 1},
+    {"Idieresiscyrillic", cp_single_271, 1},
+    {"Idieresissmall", cp_single_272, 1},
+    {"Idot", cp_single_273, 1},
+    {"Idotaccent", cp_single_274, 1},
+    {"Idotbelow", cp_single_275, 1},
+    {"Iebrevecyrillic", cp_single_276, 1},
+    {"Iecyrillic", cp_single_277, 1},
+    {"Ifraktur", cp_single_278, 1},
+    {"Igrave", cp_single_279, 1},
+    {"Igravesmall", cp_single_280, 1},
+    {"Ihookabove", cp_single_281, 1},
+    {"Iicyrillic", cp_single_282, 1},
+    {"Iinvertedbreve", cp_single_283, 1},
+    {"Iishortcyrillic", cp_single_284, 1},
+    {"Imacron", cp_single_285, 1},
+    {"Imacroncyrillic", cp_single_286, 1},
+    {"Imonospace", cp_single_287, 1},
+    {"Iniarmenian", cp_single_288, 1},
+    {"Iocyrillic", cp_single_289, 1},
+    {"Iogonek", cp_single_290, 1},
+    {"Iota", cp_single_291, 1},
+    {"Iotaafrican", cp_single_292, 1},
+    {"Iotadieresis", cp_single_293, 1},
+    {"Iotatonos", cp_single_294, 1},
+    {"Ismall", cp_single_295, 1},
+    {"Istroke", cp_single_296, 1},
+    {"Itilde", cp_single_297, 1},
+    {"Itildebelow", cp_single_298, 1},
+    {"Izhitsacyrillic", cp_single_299, 1},
+    {"Izhitsadblgravecyrillic", cp_single_300, 1},
+    {"J", cp_single_301, 1},
+    {"Jaarmenian", cp_single_302, 1},
+    {"Jcircle", cp_single_303, 1},
+    {"Jcircumflex", cp_single_304, 1},
+    {"Jecyrillic", cp_single_305, 1},
+    {"Jheharmenian", cp_single_306, 1},
+    {"Jmonospace", cp_single_307, 1},
+    {"Jsmall", cp_single_308, 1},
+    {"K", cp_single_309, 1},
+    {"KBsquare", cp_single_310, 1},
+    {"KKsquare", cp_single_311, 1},
+    {"Kabashkircyrillic", cp_single_312, 1},
+    {"Kacute", cp_single_313, 1},
+    {"Kacyrillic", cp_single_314, 1},
+    {"Kadescendercyrillic", cp_single_315, 1},
+    {"Kahookcyrillic", cp_single_316, 1},
+    {"Kappa", cp_single_317, 1},
+    {"Kastrokecyrillic", cp_single_318, 1},
+    {"Kaverticalstrokecyrillic", cp_single_319, 1},
+    {"Kcaron", cp_single_320, 1},
+    {"Kcedilla", cp_single_321, 1},
+    {"Kcircle", cp_single_322, 1},
+    {"Kcommaaccent", cp_single_323, 1},
+    {"Kdotbelow", cp_single_324, 1},
+    {"Keharmenian", cp_single_325, 1},
+    {"Kenarmenian", cp_single_326, 1},
+    {"Khacyrillic", cp_single_327, 1},
+    {"Kheicoptic", cp_single_328, 1},
+    {"Khook", cp_single_329, 1},
+    {"Kjecyrillic", cp_single_330, 1},
+    {"Klinebelow", cp_single_331, 1},
+    {"Kmonospace", cp_single_332, 1},
+    {"Koppacyrillic", cp_single_333, 1},
+    {"Koppagreek", cp_single_334, 1},
+    {"Ksicyrillic", cp_single_335, 1},
+    {"Ksmall", cp_single_336, 1},
+    {"L", cp_single_337, 1},
+    {"LJ", cp_single_338, 1},
+    {"LL", cp_single_339, 1},
+    {"Lacute", cp_single_340, 1},
+    {"Lambda", cp_single_341, 1},
+    {"Lcaron", cp_single_342, 1},
+    {"Lcedilla", cp_single_343, 1},
+    {"Lcircle", cp_single_344, 1},
+    {"Lcircumflexbelow", cp_single_345, 1},
+    {"Lcommaaccent", cp_single_346, 1},
+    {"Ldot", cp_single_347, 1},
+    {"Ldotaccent", cp_single_348, 1},
+    {"Ldotbelow", cp_single_349, 1},
+    {"Ldotbelowmacron", cp_single_350, 1},
+    {"Liwnarmenian", cp_single_351, 1},
+    {"Lj", cp_single_352, 1},
+    {"Ljecyrillic", cp_single_353, 1},
+    {"Llinebelow", cp_single_354, 1},
+    {"Lmonospace", cp_single_355, 1},
+    {"Lslash", cp_single_356, 1},
+    {"Lslashsmall", cp_single_357, 1},
+    {"Lsmall", cp_single_358, 1},
+    {"M", cp_single_359, 1},
+    {"MBsquare", cp_single_360, 1},
+    {"Macron", cp_single_361, 1},
+    {"Macronsmall", cp_single_362, 1},
+    {"Macute", cp_single_363, 1},
+    {"Mcircle", cp_single_364, 1},
+    {"Mdotaccent", cp_single_365, 1},
+    {"Mdotbelow", cp_single_366, 1},
+    {"Menarmenian", cp_single_367, 1},
+    {"Mmonospace", cp_single_368, 1},
+    {"Msmall", cp_single_369, 1},
+    {"Mturned", cp_single_370, 1},
+    {"Mu", cp_single_371, 1},
+    {"N", cp_single_372, 1},
+    {"NJ", cp_single_373, 1},
+    {"Nacute", cp_single_374, 1},
+    {"Ncaron", cp_single_375, 1},
+    {"Ncedilla", cp_single_376, 1},
+    {"Ncircle", cp_single_377, 1},
+    {"Ncircumflexbelow", cp_single_378, 1},
+    {"Ncommaaccent", cp_single_379, 1},
+    {"Ndotaccent", cp_single_380, 1},
+    {"Ndotbelow", cp_single_381, 1},
+    {"Nhookleft", cp_single_382, 1},
+    {"Nineroman", cp_single_383, 1},
+    {"Nj", cp_single_384, 1},
+    {"Njecyrillic", cp_single_385, 1},
+    {"Nlinebelow", cp_single_386, 1},
+    {"Nmonospace", cp_single_387, 1},
+    {"Nowarmenian", cp_single_388, 1},
+    {"Nsmall", cp_single_389, 1},
+    {"Ntilde", cp_single_390, 1},
+    {"Ntildesmall", cp_single_391, 1},
+    {"Nu", cp_single_392, 1},
+    {"O", cp_single_393, 1},
+    {"OE", cp_single_394, 1},
+    {"OEsmall", cp_single_395, 1},
+    {"Oacute", cp_single_396, 1},
+    {"Oacutesmall", cp_single_397, 1},
+    {"Obarredcyrillic", cp_single_398, 1},
+    {"Obarreddieresiscyrillic", cp_single_399, 1},
+    {"Obreve", cp_single_400, 1},
+    {"Ocaron", cp_single_401, 1},
+    {"Ocenteredtilde", cp_single_402, 1},
+    {"Ocircle", cp_single_403, 1},
+    {"Ocircumflex", cp_single_404, 1},
+    {"Ocircumflexacute", cp_single_405, 1},
+    {"Ocircumflexdotbelow", cp_single_406, 1},
+    {"Ocircumflexgrave", cp_single_407, 1},
+    {"Ocircumflexhookabove", cp_single_408, 1},
+    {"Ocircumflexsmall", cp_single_409, 1},
+    {"Ocircumflextilde", cp_single_410, 1},
+    {"Ocyrillic", cp_single_411, 1},
+    {"Odblacute", cp_single_412, 1},
+    {"Odblgrave", cp_single_413, 1},
+    {"Odieresis", cp_single_414, 1},
+    {"Odieresiscyrillic", cp_single_415, 1},
+    {"Odieresissmall", cp_single_416, 1},
+    {"Odotbelow", cp_single_417, 1},
+    {"Ogoneksmall", cp_single_418, 1},
+    {"Ograve", cp_single_419, 1},
+    {"Ogravesmall", cp_single_420, 1},
+    {"Oharmenian", cp_single_421, 1},
+    {"Ohm", cp_single_422, 1},
+    {"Ohookabove", cp_single_423, 1},
+    {"Ohorn", cp_single_424, 1},
+    {"Ohornacute", cp_single_425, 1},
+    {"Ohorndotbelow", cp_single_426, 1},
+    {"Ohorngrave", cp_single_427, 1},
+    {"Ohornhookabove", cp_single_428, 1},
+    {"Ohorntilde", cp_single_429, 1},
+    {"Ohungarumlaut", cp_single_430, 1},
+    {"Oi", cp_single_431, 1},
+    {"Oinvertedbreve", cp_single_432, 1},
+    {"Omacron", cp_single_433, 1},
+    {"Omacronacute", cp_single_434, 1},
+    {"Omacrongrave", cp_single_435, 1},
+    {"Omega", cp_single_436, 1},
+    {"Omegacyrillic", cp_single_437, 1},
+    {"Omegagreek", cp_single_438, 1},
+    {"Omegaroundcyrillic", cp_single_439, 1},
+    {"Omegatitlocyrillic", cp_single_440, 1},
+    {"Omegatonos", cp_single_441, 1},
+    {"Omicron", cp_single_442, 1},
+    {"Omicrontonos", cp_single_443, 1},
+    {"Omonospace", cp_single_444, 1},
+    {"Oneroman", cp_single_445, 1},
+    {"Oogonek", cp_single_446, 1},
+    {"Oogonekmacron", cp_single_447, 1},
+    {"Oopen", cp_single_448, 1},
+    {"Oslash", cp_single_449, 1},
+    {"Oslashacute", cp_single_450, 1},
+    {"Oslashsmall", cp_single_451, 1},
+    {"Osmall", cp_single_452, 1},
+    {"Ostrokeacute", cp_single_453, 1},
+    {"Otcyrillic", cp_single_454, 1},
+    {"Otilde", cp_single_455, 1},
+    {"Otildeacute", cp_single_456, 1},
+    {"Otildedieresis", cp_single_457, 1},
+    {"Otildesmall", cp_single_458, 1},
+    {"P", cp_single_459, 1},
+    {"Pacute", cp_single_460, 1},
+    {"Pcircle", cp_single_461, 1},
+    {"Pdotaccent", cp_single_462, 1},
+    {"Pecyrillic", cp_single_463, 1},
+    {"Peharmenian", cp_single_464, 1},
+    {"Pemiddlehookcyrillic", cp_single_465, 1},
+    {"Phi", cp_single_466, 1},
+    {"Phook", cp_single_467, 1},
+    {"Pi", cp_single_468, 1},
+    {"Piwrarmenian", cp_single_469, 1},
+    {"Pmonospace", cp_single_470, 1},
+    {"Psi", cp_single_471, 1},
+    {"Psicyrillic", cp_single_472, 1},
+    {"Psmall", cp_single_473, 1},
+    {"Q", cp_single_474, 1},
+    {"Qcircle", cp_single_475, 1},
+    {"Qmonospace", cp_single_476, 1},
+    {"Qsmall", cp_single_477, 1},
+    {"R", cp_single_478, 1},
+    {"Raarmenian", cp_single_479, 1},
+    {"Racute", cp_single_480, 1},
+    {"Rcaron", cp_single_481, 1},
+    {"Rcedilla", cp_single_482, 1},
+    {"Rcircle", cp_single_483, 1},
+    {"Rcommaaccent", cp_single_484, 1},
+    {"Rdblgrave", cp_single_485, 1},
+    {"Rdotaccent", cp_single_486, 1},
+    {"Rdotbelow", cp_single_487, 1},
+    {"Rdotbelowmacron", cp_single_488, 1},
+    {"Reharmenian", cp_single_489, 1},
+    {"Rfraktur", cp_single_490, 1},
+    {"Rho", cp_single_491, 1},
+    {"Ringsmall", cp_single_492, 1},
+    {"Rinvertedbreve", cp_single_493, 1},
+    {"Rlinebelow", cp_single_494, 1},
+    {"Rmonospace", cp_single_495, 1},
+    {"Rsmall", cp_single_496, 1},
+    {"Rsmallinverted", cp_single_497, 1},
+    {"Rsmallinvertedsuperior", cp_single_498, 1},
+    {"S", cp_single_499, 1},
+    {"SF010000", cp_single_500, 1},
+    {"SF020000", cp_single_501, 1},
+    {"SF030000", cp_single_502, 1},
+    {"SF040000", cp_single_503, 1},
+    {"SF050000", cp_single_504, 1},
+    {"SF060000", cp_single_505, 1},
+    {"SF070000", cp_single_506, 1},
+    {"SF080000", cp_single_507, 1},
+    {"SF090000", cp_single_508, 1},
+    {"SF100000", cp_single_509, 1},
+    {"SF110000", cp_single_510, 1},
+    {"SF190000", cp_single_511, 1},
+    {"SF200000", cp_single_512, 1},
+    {"SF210000", cp_single_513, 1},
+    {"SF220000", cp_single_514, 1},
+    {"SF230000", cp_single_515, 1},
+    {"SF240000", cp_single_516, 1},
+    {"SF250000", cp_single_517, 1},
+    {"SF260000", cp_single_518, 1},
+    {"SF270000", cp_single_519, 1},
+    {"SF280000", cp_single_520, 1},
+    {"SF360000", cp_single_521, 1},
+    {"SF370000", cp_single_522, 1},
+    {"SF380000", cp_single_523, 1},
+    {"SF390000", cp_single_524, 1},
+    {"SF400000", cp_single_525, 1},
+    {"SF410000", cp_single_526, 1},
+    {"SF420000", cp_single_527, 1},
+    {"SF430000", cp_single_528, 1},
+    {"SF440000", cp_single_529, 1},
+    {"SF450000", cp_single_530, 1},
+    {"SF460000", cp_single_531, 1},
+    {"SF470000", cp_single_532, 1},
+    {"SF480000", cp_single_533, 1},
+    {"SF490000", cp_single_534, 1},
+    {"SF500000", cp_single_535, 1},
+    {"SF510000", cp_single_536, 1},
+    {"SF520000", cp_single_537, 1},
+    {"SF530000", cp_single_538, 1},
+    {"SF540000", cp_single_539, 1},
+    {"Sacute", cp_single_540, 1},
+    {"Sacutedotaccent", cp_single_541, 1},
+    {"Sampigreek", cp_single_542, 1},
+    {"Scaron", cp_single_543, 1},
+    {"Scarondotaccent", cp_single_544, 1},
+    {"Scaronsmall", cp_single_545, 1},
+    {"Scedilla", cp_single_546, 1},
+    {"Schwa", cp_single_547, 1},
+    {"Schwacyrillic", cp_single_548, 1},
+    {"Schwadieresiscyrillic", cp_single_549, 1},
+    {"Scircle", cp_single_550, 1},
+    {"Scircumflex", cp_single_551, 1},
+    {"Scommaaccent", cp_single_552, 1},
+    {"Sdotaccent", cp_single_553, 1},
+    {"Sdotbelow", cp_single_554, 1},
+    {"Sdotbelowdotaccent", cp_single_555, 1},
+    {"Seharmenian", cp_single_556, 1},
+    {"Sevenroman", cp_single_557, 1},
+    {"Shaarmenian", cp_single_558, 1},
+    {"Shacyrillic", cp_single_559, 1},
+    {"Shchacyrillic", cp_single_560, 1},
+    {"Sheicoptic", cp_single_561, 1},
+    {"Shhacyrillic", cp_single_562, 1},
+    {"Shimacoptic", cp_single_563, 1},
+    {"Sigma", cp_single_564, 1},
+    {"Sixroman", cp_single_565, 1},
+    {"Smonospace", cp_single_566, 1},
+    {"Softsigncyrillic", cp_single_567, 1},
+    {"Ssmall", cp_single_568, 1},
+    {"Stigmagreek", cp_single_569, 1},
+    {"T", cp_single_570, 1},
+    {"Tau", cp_single_571, 1},
+    {"Tbar", cp_single_572, 1},
+    {"Tcaron", cp_single_573, 1},
+    {"Tcedilla", cp_single_574, 1},
+    {"Tcircle", cp_single_575, 1},
+    {"Tcircumflexbelow", cp_single_576, 1},
+    {"Tcommaaccent", cp_single_577, 1},
+    {"Tdotaccent", cp_single_578, 1},
+    {"Tdotbelow", cp_single_579, 1},
+    {"Tecyrillic", cp_single_580, 1},
+    {"Tedescendercyrillic", cp_single_581, 1},
+    {"Tenroman", cp_single_582, 1},
+    {"Tetsecyrillic", cp_single_583, 1},
+    {"Theta", cp_single_584, 1},
+    {"Thook", cp_single_585, 1},
+    {"Thorn", cp_single_586, 1},
+    {"Thornsmall", cp_single_587, 1},
+    {"Threeroman", cp_single_588, 1},
+    {"Tildesmall", cp_single_589, 1},
+    {"Tiwnarmenian", cp_single_590, 1},
+    {"Tlinebelow", cp_single_591, 1},
+    {"Tmonospace", cp_single_592, 1},
+    {"Toarmenian", cp_single_593, 1},
+    {"Tonefive", cp_single_594, 1},
+    {"Tonesix", cp_single_595, 1},
+    {"Tonetwo", cp_single_596, 1},
+    {"Tretroflexhook", cp_single_597, 1},
+    {"Tsecyrillic", cp_single_598, 1},
+    {"Tshecyrillic", cp_single_599, 1},
+    {"Tsmall", cp_single_600, 1},
+    {"Twelveroman", cp_single_601, 1},
+    {"Tworoman", cp_single_602, 1},
+    {"U", cp_single_603, 1},
+    {"Uacute", cp_single_604, 1},
+    {"Uacutesmall", cp_single_605, 1},
+    {"Ubreve", cp_single_606, 1},
+    {"Ucaron", cp_single_607, 1},
+    {"Ucircle", cp_single_608, 1},
+    {"Ucircumflex", cp_single_609, 1},
+    {"Ucircumflexbelow", cp_single_610, 1},
+    {"Ucircumflexsmall", cp_single_611, 1},
+    {"Ucyrillic", cp_single_612, 1},
+    {"Udblacute", cp_single_613, 1},
+    {"Udblgrave", cp_single_614, 1},
+    {"Udieresis", cp_single_615, 1},
+    {"Udieresisacute", cp_single_616, 1},
+    {"Udieresisbelow", cp_single_617, 1},
+    {"Udieresiscaron", cp_single_618, 1},
+    {"Udieresiscyrillic", cp_single_619, 1},
+    {"Udieresisgrave", cp_single_620, 1},
+    {"Udieresismacron", cp_single_621, 1},
+    {"Udieresissmall", cp_single_622, 1},
+    {"Udotbelow", cp_single_623, 1},
+    {"Ugrave", cp_single_624, 1},
+    {"Ugravesmall", cp_single_625, 1},
+    {"Uhookabove", cp_single_626, 1},
+    {"Uhorn", cp_single_627, 1},
+    {"Uhornacute", cp_single_628, 1},
+    {"Uhorndotbelow", cp_single_629, 1},
+    {"Uhorngrave", cp_single_630, 1},
+    {"Uhornhookabove", cp_single_631, 1},
+    {"Uhorntilde", cp_single_632, 1},
+    {"Uhungarumlaut", cp_single_633, 1},
+    {"Uhungarumlautcyrillic", cp_single_634, 1},
+    {"Uinvertedbreve", cp_single_635, 1},
+    {"Ukcyrillic", cp_single_636, 1},
+    {"Umacron", cp_single_637, 1},
+    {"Umacroncyrillic", cp_single_638, 1},
+    {"Umacrondieresis", cp_single_639, 1},
+    {"Umonospace", cp_single_640, 1},
+    {"Uogonek", cp_single_641, 1},
+    {"Upsilon", cp_single_642, 1},
+    {"Upsilon1", cp_single_643, 1},
+    {"Upsilonacutehooksymbolgreek", cp_single_644, 1},
+    {"Upsilonafrican", cp_single_645, 1},
+    {"Upsilondieresis", cp_single_646, 1},
+    {"Upsilondieresishooksymbolgreek", cp_single_647, 1},
+    {"Upsilonhooksymbol", cp_single_648, 1},
+    {"Upsilontonos", cp_single_649, 1},
+    {"Uring", cp_single_650, 1},
+    {"Ushortcyrillic", cp_single_651, 1},
+    {"Usmall", cp_single_652, 1},
+    {"Ustraightcyrillic", cp_single_653, 1},
+    {"Ustraightstrokecyrillic", cp_single_654, 1},
+    {"Utilde", cp_single_655, 1},
+    {"Utildeacute", cp_single_656, 1},
+    {"Utildebelow", cp_single_657, 1},
+    {"V", cp_single_658, 1},
+    {"Vcircle", cp_single_659, 1},
+    {"Vdotbelow", cp_single_660, 1},
+    {"Vecyrillic", cp_single_661, 1},
+    {"Vewarmenian", cp_single_662, 1},
+    {"Vhook", cp_single_663, 1},
+    {"Vmonospace", cp_single_664, 1},
+    {"Voarmenian", cp_single_665, 1},
+    {"Vsmall", cp_single_666, 1},
+    {"Vtilde", cp_single_667, 1},
+    {"W", cp_single_668, 1},
+    {"Wacute", cp_single_669, 1},
+    {"Wcircle", cp_single_670, 1},
+    {"Wcircumflex", cp_single_671, 1},
+    {"Wdieresis", cp_single_672, 1},
+    {"Wdotaccent", cp_single_673, 1},
+    {"Wdotbelow", cp_single_674, 1},
+    {"Wgrave", cp_single_675, 1},
+    {"Wmonospace", cp_single_676, 1},
+    {"Wsmall", cp_single_677, 1},
+    {"X", cp_single_678, 1},
+    {"Xcircle", cp_single_679, 1},
+    {"Xdieresis", cp_single_680, 1},
+    {"Xdotaccent", cp_single_681, 1},
+    {"Xeharmenian", cp_single_682, 1},
+    {"Xi", cp_single_683, 1},
+    {"Xmonospace", cp_single_684, 1},
+    {"Xsmall", cp_single_685, 1},
+    {"Y", cp_single_686, 1},
+    {"Yacute", cp_single_687, 1},
+    {"Yacutesmall", cp_single_688, 1},
+    {"Yatcyrillic", cp_single_689, 1},
+    {"Ycircle", cp_single_690, 1},
+    {"Ycircumflex", cp_single_691, 1},
+    {"Ydieresis", cp_single_692, 1},
+    {"Ydieresissmall", cp_single_693, 1},
+    {"Ydotaccent", cp_single_694, 1},
+    {"Ydotbelow", cp_single_695, 1},
+    {"Yericyrillic", cp_single_696, 1},
+    {"Yerudieresiscyrillic", cp_single_697, 1},
+    {"Ygrave", cp_single_698, 1},
+    {"Yhook", cp_single_699, 1},
+    {"Yhookabove", cp_single_700, 1},
+    {"Yiarmenian", cp_single_701, 1},
+    {"Yicyrillic", cp_single_702, 1},
+    {"Yiwnarmenian", cp_single_703, 1},
+    {"Ymonospace", cp_single_704, 1},
+    {"Ysmall", cp_single_705, 1},
+    {"Ytilde", cp_single_706, 1},
+    {"Yusbigcyrillic", cp_single_707, 1},
+    {"Yusbigiotifiedcyrillic", cp_single_708, 1},
+    {"Yuslittlecyrillic", cp_single_709, 1},
+    {"Yuslittleiotifiedcyrillic", cp_single_710, 1},
+    {"Z", cp_single_711, 1},
+    {"Zaarmenian", cp_single_712, 1},
+    {"Zacute", cp_single_713, 1},
+    {"Zcaron", cp_single_714, 1},
+    {"Zcaronsmall", cp_single_715, 1},
+    {"Zcircle", cp_single_716, 1},
+    {"Zcircumflex", cp_single_717, 1},
+    {"Zdot", cp_single_718, 1},
+    {"Zdotaccent", cp_single_719, 1},
+    {"Zdotbelow", cp_single_720, 1},
+    {"Zecyrillic", cp_single_721, 1},
+    {"Zedescendercyrillic", cp_single_722, 1},
+    {"Zedieresiscyrillic", cp_single_723, 1},
+    {"Zeta", cp_single_724, 1},
+    {"Zhearmenian", cp_single_725, 1},
+    {"Zhebrevecyrillic", cp_single_726, 1},
+    {"Zhecyrillic", cp_single_727, 1},
+    {"Zhedescendercyrillic", cp_single_728, 1},
+    {"Zhedieresiscyrillic", cp_single_729, 1},
+    {"Zlinebelow", cp_single_730, 1},
+    {"Zmonospace", cp_single_731, 1},
+    {"Zsmall", cp_single_732, 1},
+    {"Zstroke", cp_single_733, 1},
+    {"a", cp_single_734, 1},
+    {"aabengali", cp_single_735, 1},
+    {"aacute", cp_single_736, 1},
+    {"aadeva", cp_single_737, 1},
+    {"aagujarati", cp_single_738, 1},
+    {"aagurmukhi", cp_single_739, 1},
+    {"aamatragurmukhi", cp_single_740, 1},
+    {"aarusquare", cp_single_741, 1},
+    {"aavowelsignbengali", cp_single_742, 1},
+    {"aavowelsigndeva", cp_single_743, 1},
+    {"aavowelsigngujarati", cp_single_744, 1},
+    {"abbreviationmarkarmenian", cp_single_745, 1},
+    {"abbreviationsigndeva", cp_single_746, 1},
+    {"abengali", cp_single_747, 1},
+    {"abopomofo", cp_single_748, 1},
+    {"abreve", cp_single_749, 1},
+    {"abreveacute", cp_single_750, 1},
+    {"abrevecyrillic", cp_single_751, 1},
+    {"abrevedotbelow", cp_single_752, 1},
+    {"abrevegrave", cp_single_753, 1},
+    {"abrevehookabove", cp_single_754, 1},
+    {"abrevetilde", cp_single_755, 1},
+    {"acaron", cp_single_756, 1},
+    {"acircle", cp_single_757, 1},
+    {"acircumflex", cp_single_758, 1},
+    {"acircumflexacute", cp_single_759, 1},
+    {"acircumflexdotbelow", cp_single_760, 1},
+    {"acircumflexgrave", cp_single_761, 1},
+    {"acircumflexhookabove", cp_single_762, 1},
+    {"acircumflextilde", cp_single_763, 1},
+    {"acute", cp_single_764, 1},
+    {"acutebelowcmb", cp_single_765, 1},
+    {"acutecmb", cp_single_766, 1},
+    {"acutecomb", cp_single_767, 1},
+    {"acutedeva", cp_single_768, 1},
+    {"acutelowmod", cp_single_769, 1},
+    {"acutetonecmb", cp_single_770, 1},
+    {"acyrillic", cp_single_771, 1},
+    {"adblgrave", cp_single_772, 1},
+    {"addakgurmukhi", cp_single_773, 1},
+    {"adeva", cp_single_774, 1},
+    {"adieresis", cp_single_775, 1},
+    {"adieresiscyrillic", cp_single_776, 1},
+    {"adieresismacron", cp_single_777, 1},
+    {"adotbelow", cp_single_778, 1},
+    {"adotmacron", cp_single_779, 1},
+    {"ae", cp_single_780, 1},
+    {"aeacute", cp_single_781, 1},
+    {"aekorean", cp_single_782, 1},
+    {"aemacron", cp_single_783, 1},
+    {"afii00208", cp_single_784, 1},
+    {"afii08941", cp_single_785, 1},
+    {"afii10017", cp_single_786, 1},
+    {"afii10018", cp_single_787, 1},
+    {"afii10019", cp_single_788, 1},
+    {"afii10020", cp_single_789, 1},
+    {"afii10021", cp_single_790, 1},
+    {"afii10022", cp_single_791, 1},
+    {"afii10023", cp_single_792, 1},
+    {"afii10024", cp_single_793, 1},
+    {"afii10025", cp_single_794, 1},
+    {"afii10026", cp_single_795, 1},
+    {"afii10027", cp_single_796, 1},
+    {"afii10028", cp_single_797, 1},
+    {"afii10029", cp_single_798, 1},
+    {"afii10030", cp_single_799, 1},
+    {"afii10031", cp_single_800, 1},
+    {"afii10032", cp_single_801, 1},
+    {"afii10033", cp_single_802, 1},
+    {"afii10034", cp_single_803, 1},
+    {"afii10035", cp_single_804, 1},
+    {"afii10036", cp_single_805, 1},
+    {"afii10037", cp_single_806, 1},
+    {"afii10038", cp_single_807, 1},
+    {"afii10039", cp_single_808, 1},
+    {"afii10040", cp_single_809, 1},
+    {"afii10041", cp_single_810, 1},
+    {"afii10042", cp_single_811, 1},
+    {"afii10043", cp_single_812, 1},
+    {"afii10044", cp_single_813, 1},
+    {"afii10045", cp_single_814, 1},
+    {"afii10046", cp_single_815, 1},
+    {"afii10047", cp_single_816, 1},
+    {"afii10048", cp_single_817, 1},
+    {"afii10049", cp_single_818, 1},
+    {"afii10050", cp_single_819, 1},
+    {"afii10051", cp_single_820, 1},
+    {"afii10052", cp_single_821, 1},
+    {"afii10053", cp_single_822, 1},
+    {"afii10054", cp_single_823, 1},
+    {"afii10055", cp_single_824, 1},
+    {"afii10056", cp_single_825, 1},
+    {"afii10057", cp_single_826, 1},
+    {"afii10058", cp_single_827, 1},
+    {"afii10059", cp_single_828, 1},
+    {"afii10060", cp_single_829, 1},
+    {"afii10061", cp_single_830, 1},
+    {"afii10062", cp_single_831, 1},
+    {"afii10063", cp_single_832, 1},
+    {"afii10064", cp_single_833, 1},
+    {"afii10065", cp_single_834, 1},
+    {"afii10066", cp_single_835, 1},
+    {"afii10067", cp_single_836, 1},
+    {"afii10068", cp_single_837, 1},
+    {"afii10069", cp_single_838, 1},
+    {"afii10070", cp_single_839, 1},
+    {"afii10071", cp_single_840, 1},
+    {"afii10072", cp_single_841, 1},
+    {"afii10073", cp_single_842, 1},
+    {"afii10074", cp_single_843, 1},
+    {"afii10075", cp_single_844, 1},
+    {"afii10076", cp_single_845, 1},
+    {"afii10077", cp_single_846, 1},
+    {"afii10078", cp_single_847, 1},
+    {"afii10079", cp_single_848, 1},
+    {"afii10080", cp_single_849, 1},
+    {"afii10081", cp_single_850, 1},
+    {"afii10082", cp_single_851, 1},
+    {"afii10083", cp_single_852, 1},
+    {"afii10084", cp_single_853, 1},
+    {"afii10085", cp_single_854, 1},
+    {"afii10086", cp_single_855, 1},
+    {"afii10087", cp_single_856, 1},
+    {"afii10088", cp_single_857, 1},
+    {"afii10089", cp_single_858, 1},
+    {"afii10090", cp_single_859, 1},
+    {"afii10091", cp_single_860, 1},
+    {"afii10092", cp_single_861, 1},
+    {"afii10093", cp_single_862, 1},
+    {"afii10094", cp_single_863, 1},
+    {"afii10095", cp_single_864, 1},
+    {"afii10096", cp_single_865, 1},
+    {"afii10097", cp_single_866, 1},
+    {"afii10098", cp_single_867, 1},
+    {"afii10099", cp_single_868, 1},
+    {"afii10100", cp_single_869, 1},
+    {"afii10101", cp_single_870, 1},
+    {"afii10102", cp_single_871, 1},
+    {"afii10103", cp_single_872, 1},
+    {"afii10104", cp_single_873, 1},
+    {"afii10105", cp_single_874, 1},
+    {"afii10106", cp_single_875, 1},
+    {"afii10107", cp_single_876, 1},
+    {"afii10108", cp_single_877, 1},
+    {"afii10109", cp_single_878, 1},
+    {"afii10110", cp_single_879, 1},
+    {"afii10145", cp_single_880, 1},
+    {"afii10146", cp_single_881, 1},
+    {"afii10147", cp_single_882, 1},
+    {"afii10148", cp_single_883, 1},
+    {"afii10192", cp_single_884, 1},
+    {"afii10193", cp_single_885, 1},
+    {"afii10194", cp_single_886, 1},
+    {"afii10195", cp_single_887, 1},
+    {"afii10196", cp_single_888, 1},
+    {"afii10831", cp_single_889, 1},
+    {"afii10832", cp_single_890, 1},
+    {"afii10846", cp_single_891, 1},
+    {"afii299", cp_single_892, 1},
+    {"afii300", cp_single_893, 1},
+    {"afii301", cp_single_894, 1},
+    {"afii57381", cp_single_895, 1},
+    {"afii57388", cp_single_896, 1},
+    {"afii57392", cp_single_897, 1},
+    {"afii57393", cp_single_898, 1},
+    {"afii57394", cp_single_899, 1},
+    {"afii57395", cp_single_900, 1},
+    {"afii57396", cp_single_901, 1},
+    {"afii57397", cp_single_902, 1},
+    {"afii57398", cp_single_903, 1},
+    {"afii57399", cp_single_904, 1},
+    {"afii57400", cp_single_905, 1},
+    {"afii57401", cp_single_906, 1},
+    {"afii57403", cp_single_907, 1},
+    {"afii57407", cp_single_908, 1},
+    {"afii57409", cp_single_909, 1},
+    {"afii57410", cp_single_910, 1},
+    {"afii57411", cp_single_911, 1},
+    {"afii57412", cp_single_912, 1},
+    {"afii57413", cp_single_913, 1},
+    {"afii57414", cp_single_914, 1},
+    {"afii57415", cp_single_915, 1},
+    {"afii57416", cp_single_916, 1},
+    {"afii57417", cp_single_917, 1},
+    {"afii57418", cp_single_918, 1},
+    {"afii57419", cp_single_919, 1},
+    {"afii57420", cp_single_920, 1},
+    {"afii57421", cp_single_921, 1},
+    {"afii57422", cp_single_922, 1},
+    {"afii57423", cp_single_923, 1},
+    {"afii57424", cp_single_924, 1},
+    {"afii57425", cp_single_925, 1},
+    {"afii57426", cp_single_926, 1},
+    {"afii57427", cp_single_927, 1},
+    {"afii57428", cp_single_928, 1},
+    {"afii57429", cp_single_929, 1},
+    {"afii57430", cp_single_930, 1},
+    {"afii57431", cp_single_931, 1},
+    {"afii57432", cp_single_932, 1},
+    {"afii57433", cp_single_933, 1},
+    {"afii57434", cp_single_934, 1},
+    {"afii57440", cp_single_935, 1},
+    {"afii57441", cp_single_936, 1},
+    {"afii57442", cp_single_937, 1},
+    {"afii57443", cp_single_938, 1},
+    {"afii57444", cp_single_939, 1},
+    {"afii57445", cp_single_940, 1},
+    {"afii57446", cp_single_941, 1},
+    {"afii57448", cp_single_942, 1},
+    {"afii57449", cp_single_943, 1},
+    {"afii57450", cp_single_944, 1},
+    {"afii57451", cp_single_945, 1},
+    {"afii57452", cp_single_946, 1},
+    {"afii57453", cp_single_947, 1},
+    {"afii57454", cp_single_948, 1},
+    {"afii57455", cp_single_949, 1},
+    {"afii57456", cp_single_950, 1},
+    {"afii57457", cp_single_951, 1},
+    {"afii57458", cp_single_952, 1},
+    {"afii57470", cp_single_953, 1},
+    {"afii57505", cp_single_954, 1},
+    {"afii57506", cp_single_955, 1},
+    {"afii57507", cp_single_956, 1},
+    {"afii57508", cp_single_957, 1},
+    {"afii57509", cp_single_958, 1},
+    {"afii57511", cp_single_959, 1},
+    {"afii57512", cp_single_960, 1},
+    {"afii57513", cp_single_961, 1},
+    {"afii57514", cp_single_962, 1},
+    {"afii57519", cp_single_963, 1},
+    {"afii57534", cp_single_964, 1},
+    {"afii57636", cp_single_965, 1},
+    {"afii57645", cp_single_966, 1},
+    {"afii57658", cp_single_967, 1},
+    {"afii57664", cp_single_968, 1},
+    {"afii57665", cp_single_969, 1},
+    {"afii57666", cp_single_970, 1},
+    {"afii57667", cp_single_971, 1},
+    {"afii57668", cp_single_972, 1},
+    {"afii57669", cp_single_973, 1},
+    {"afii57670", cp_single_974, 1},
+    {"afii57671", cp_single_975, 1},
+    {"afii57672", cp_single_976, 1},
+    {"afii57673", cp_single_977, 1},
+    {"afii57674", cp_single_978, 1},
+    {"afii57675", cp_single_979, 1},
+    {"afii57676", cp_single_980, 1},
+    {"afii57677", cp_single_981, 1},
+    {"afii57678", cp_single_982, 1},
+    {"afii57679", cp_single_983, 1},
+    {"afii57680", cp_single_984, 1},
+    {"afii57681", cp_single_985, 1},
+    {"afii57682", cp_single_986, 1},
+    {"afii57683", cp_single_987, 1},
+    {"afii57684", cp_single_988, 1},
+    {"afii57685", cp_single_989, 1},
+    {"afii57686", cp_single_990, 1},
+    {"afii57687", cp_single_991, 1},
+    {"afii57688", cp_single_992, 1},
+    {"afii57689", cp_single_993, 1},
+    {"afii57690", cp_single_994, 1},
+    {"afii57694", cp_single_995, 1},
+    {"afii57695", cp_single_996, 1},
+    {"afii57700", cp_single_997, 1},
+    {"afii57705", cp_single_998, 1},
+    {"afii57716", cp_single_999, 1},
+    {"afii57717", cp_single_1000, 1},
+    {"afii57718", cp_single_1001, 1},
+    {"afii57723", cp_single_1002, 1},
+    {"afii57793", cp_single_1003, 1},
+    {"afii57794", cp_single_1004, 1},
+    {"afii57795", cp_single_1005, 1},
+    {"afii57796", cp_single_1006, 1},
+    {"afii57797", cp_single_1007, 1},
+    {"afii57798", cp_single_1008, 1},
+    {"afii57799", cp_single_1009, 1},
+    {"afii57800", cp_single_1010, 1},
+    {"afii57801", cp_single_1011, 1},
+    {"afii57802", cp_single_1012, 1},
+    {"afii57803", cp_single_1013, 1},
+    {"afii57804", cp_single_1014, 1},
+    {"afii57806", cp_single_1015, 1},
+    {"afii57807", cp_single_1016, 1},
+    {"afii57839", cp_single_1017, 1},
+    {"afii57841", cp_single_1018, 1},
+    {"afii57842", cp_single_1019, 1},
+    {"afii57929", cp_single_1020, 1},
+    {"afii61248", cp_single_1021, 1},
+    {"afii61289", cp_single_1022, 1},
+    {"afii61352", cp_single_1023, 1},
+    {"afii61573", cp_single_1024, 1},
+    {"afii61574", cp_single_1025, 1},
+    {"afii61575", cp_single_1026, 1},
+    {"afii61664", cp_single_1027, 1},
+    {"afii63167", cp_single_1028, 1},
+    {"afii64937", cp_single_1029, 1},
+    {"agrave", cp_single_1030, 1},
+    {"agujarati", cp_single_1031, 1},
+    {"agurmukhi", cp_single_1032, 1},
+    {"ahiragana", cp_single_1033, 1},
+    {"ahookabove", cp_single_1034, 1},
+    {"aibengali", cp_single_1035, 1},
+    {"aibopomofo", cp_single_1036, 1},
+    {"aideva", cp_single_1037, 1},
+    {"aiecyrillic", cp_single_1038, 1},
+    {"aigujarati", cp_single_1039, 1},
+    {"aigurmukhi", cp_single_1040, 1},
+    {"aimatragurmukhi", cp_single_1041, 1},
+    {"ainarabic", cp_single_1042, 1},
+    {"ainfinalarabic", cp_single_1043, 1},
+    {"aininitialarabic", cp_single_1044, 1},
+    {"ainmedialarabic", cp_single_1045, 1},
+    {"ainvertedbreve", cp_single_1046, 1},
+    {"aivowelsignbengali", cp_single_1047, 1},
+    {"aivowelsigndeva", cp_single_1048, 1},
+    {"aivowelsigngujarati", cp_single_1049, 1},
+    {"akatakana", cp_single_1050, 1},
+    {"akatakanahalfwidth", cp_single_1051, 1},
+    {"akorean", cp_single_1052, 1},
+    {"alef", cp_single_1053, 1},
+    {"alefarabic", cp_single_1054, 1},
+    {"alefdageshhebrew", cp_single_1055, 1},
+    {"aleffinalarabic", cp_single_1056, 1},
+    {"alefhamzaabovearabic", cp_single_1057, 1},
+    {"alefhamzaabovefinalarabic", cp_single_1058, 1},
+    {"alefhamzabelowarabic", cp_single_1059, 1},
+    {"alefhamzabelowfinalarabic", cp_single_1060, 1},
+    {"alefhebrew", cp_single_1061, 1},
+    {"aleflamedhebrew", cp_single_1062, 1},
+    {"alefmaddaabovearabic", cp_single_1063, 1},
+    {"alefmaddaabovefinalarabic", cp_single_1064, 1},
+    {"alefmaksuraarabic", cp_single_1065, 1},
+    {"alefmaksurafinalarabic", cp_single_1066, 1},
+    {"alefmaksurainitialarabic", cp_single_1067, 1},
+    {"alefmaksuramedialarabic", cp_single_1068, 1},
+    {"alefpatahhebrew", cp_single_1069, 1},
+    {"alefqamatshebrew", cp_single_1070, 1},
+    {"aleph", cp_single_1071, 1},
+    {"allequal", cp_single_1072, 1},
+    {"alpha", cp_single_1073, 1},
+    {"alphatonos", cp_single_1074, 1},
+    {"amacron", cp_single_1075, 1},
+    {"amonospace", cp_single_1076, 1},
+    {"ampersand", cp_single_1077, 1},
+    {"ampersandmonospace", cp_single_1078, 1},
+    {"ampersandsmall", cp_single_1079, 1},
+    {"amsquare", cp_single_1080, 1},
+    {"anbopomofo", cp_single_1081, 1},
+    {"angbopomofo", cp_single_1082, 1},
+    {"angkhankhuthai", cp_single_1083, 1},
+    {"angle", cp_single_1084, 1},
+    {"anglebracketleft", cp_single_1085, 1},
+    {"anglebracketleftvertical", cp_single_1086, 1},
+    {"anglebracketright", cp_single_1087, 1},
+    {"anglebracketrightvertical", cp_single_1088, 1},
+    {"angleleft", cp_single_1089, 1},
+    {"angleright", cp_single_1090, 1},
+    {"angstrom", cp_single_1091, 1},
+    {"anoteleia", cp_single_1092, 1},
+    {"anudattadeva", cp_single_1093, 1},
+    {"anusvarabengali", cp_single_1094, 1},
+    {"anusvaradeva", cp_single_1095, 1},
+    {"anusvaragujarati", cp_single_1096, 1},
+    {"aogonek", cp_single_1097, 1},
+    {"apaatosquare", cp_single_1098, 1},
+    {"aparen", cp_single_1099, 1},
+    {"apostrophearmenian", cp_single_1100, 1},
+    {"apostrophemod", cp_single_1101, 1},
+    {"apple", cp_single_1102, 1},
+    {"approaches", cp_single_1103, 1},
+    {"approxequal", cp_single_1104, 1},
+    {"approxequalorimage", cp_single_1105, 1},
+    {"approximatelyequal", cp_single_1106, 1},
+    {"araeaekorean", cp_single_1107, 1},
+    {"araeakorean", cp_single_1108, 1},
+    {"arc", cp_single_1109, 1},
+    {"arighthalfring", cp_single_1110, 1},
+    {"aring", cp_single_1111, 1},
+    {"aringacute", cp_single_1112, 1},
+    {"aringbelow", cp_single_1113, 1},
+    {"arrowboth", cp_single_1114, 1},
+    {"arrowdashdown", cp_single_1115, 1},
+    {"arrowdashleft", cp_single_1116, 1},
+    {"arrowdashright", cp_single_1117, 1},
+    {"arrowdashup", cp_single_1118, 1},
+    {"arrowdblboth", cp_single_1119, 1},
+    {"arrowdbldown", cp_single_1120, 1},
+    {"arrowdblleft", cp_single_1121, 1},
+    {"arrowdblright", cp_single_1122, 1},
+    {"arrowdblup", cp_single_1123, 1},
+    {"arrowdown", cp_single_1124, 1},
+    {"arrowdownleft", cp_single_1125, 1},
+    {"arrowdownright", cp_single_1126, 1},
+    {"arrowdownwhite", cp_single_1127, 1},
+    {"arrowheaddownmod", cp_single_1128, 1},
+    {"arrowheadleftmod", cp_single_1129, 1},
+    {"arrowheadrightmod", cp_single_1130, 1},
+    {"arrowheadupmod", cp_single_1131, 1},
+    {"arrowhorizex", cp_single_1132, 1},
+    {"arrowleft", cp_single_1133, 1},
+    {"arrowleftdbl", cp_single_1134, 1},
+    {"arrowleftdblstroke", cp_single_1135, 1},
+    {"arrowleftoverright", cp_single_1136, 1},
+    {"arrowleftwhite", cp_single_1137, 1},
+    {"arrowright", cp_single_1138, 1},
+    {"arrowrightdblstroke", cp_single_1139, 1},
+    {"arrowrightheavy", cp_single_1140, 1},
+    {"arrowrightoverleft", cp_single_1141, 1},
+    {"arrowrightwhite", cp_single_1142, 1},
+    {"arrowtableft", cp_single_1143, 1},
+    {"arrowtabright", cp_single_1144, 1},
+    {"arrowup", cp_single_1145, 1},
+    {"arrowupdn", cp_single_1146, 1},
+    {"arrowupdnbse", cp_single_1147, 1},
+    {"arrowupdownbase", cp_single_1148, 1},
+    {"arrowupleft", cp_single_1149, 1},
+    {"arrowupleftofdown", cp_single_1150, 1},
+    {"arrowupright", cp_single_1151, 1},
+    {"arrowupwhite", cp_single_1152, 1},
+    {"arrowvertex", cp_single_1153, 1},
+    {"asciicircum", cp_single_1154, 1},
+    {"asciicircummonospace", cp_single_1155, 1},
+    {"asciitilde", cp_single_1156, 1},
+    {"asciitildemonospace", cp_single_1157, 1},
+    {"ascript", cp_single_1158, 1},
+    {"ascriptturned", cp_single_1159, 1},
+    {"asmallhiragana", cp_single_1160, 1},
+    {"asmallkatakana", cp_single_1161, 1},
+    {"asmallkatakanahalfwidth", cp_single_1162, 1},
+    {"asterisk", cp_single_1163, 1},
+    {"asteriskaltonearabic", cp_single_1164, 1},
+    {"asteriskarabic", cp_single_1165, 1},
+    {"asteriskmath", cp_single_1166, 1},
+    {"asteriskmonospace", cp_single_1167, 1},
+    {"asterisksmall", cp_single_1168, 1},
+    {"asterism", cp_single_1169, 1},
+    {"asuperior", cp_single_1170, 1},
+    {"asymptoticallyequal", cp_single_1171, 1},
+    {"at", cp_single_1172, 1},
+    {"atilde", cp_single_1173, 1},
+    {"atmonospace", cp_single_1174, 1},
+    {"atsmall", cp_single_1175, 1},
+    {"aturned", cp_single_1176, 1},
+    {"aubengali", cp_single_1177, 1},
+    {"aubopomofo", cp_single_1178, 1},
+    {"audeva", cp_single_1179, 1},
+    {"augujarati", cp_single_1180, 1},
+    {"augurmukhi", cp_single_1181, 1},
+    {"aulengthmarkbengali", cp_single_1182, 1},
+    {"aumatragurmukhi", cp_single_1183, 1},
+    {"auvowelsignbengali", cp_single_1184, 1},
+    {"auvowelsigndeva", cp_single_1185, 1},
+    {"auvowelsigngujarati", cp_single_1186, 1},
+    {"avagrahadeva", cp_single_1187, 1},
+    {"aybarmenian", cp_single_1188, 1},
+    {"ayin", cp_single_1189, 1},
+    {"ayinaltonehebrew", cp_single_1190, 1},
+    {"ayinhebrew", cp_single_1191, 1},
+    {"b", cp_single_1192, 1},
+    {"babengali", cp_single_1193, 1},
+    {"backslash", cp_single_1194, 1},
+    {"backslashmonospace", cp_single_1195, 1},
+    {"badeva", cp_single_1196, 1},
+    {"bagujarati", cp_single_1197, 1},
+    {"bagurmukhi", cp_single_1198, 1},
+    {"bahiragana", cp_single_1199, 1},
+    {"bahtthai", cp_single_1200, 1},
+    {"bakatakana", cp_single_1201, 1},
+    {"bar", cp_single_1202, 1},
+    {"barmonospace", cp_single_1203, 1},
+    {"bbopomofo", cp_single_1204, 1},
+    {"bcircle", cp_single_1205, 1},
+    {"bdotaccent", cp_single_1206, 1},
+    {"bdotbelow", cp_single_1207, 1},
+    {"beamedsixteenthnotes", cp_single_1208, 1},
+    {"because", cp_single_1209, 1},
+    {"becyrillic", cp_single_1210, 1},
+    {"beharabic", cp_single_1211, 1},
+    {"behfinalarabic", cp_single_1212, 1},
+    {"behinitialarabic", cp_single_1213, 1},
+    {"behiragana", cp_single_1214, 1},
+    {"behmedialarabic", cp_single_1215, 1},
+    {"behmeeminitialarabic", cp_single_1216, 1},
+    {"behmeemisolatedarabic", cp_single_1217, 1},
+    {"behnoonfinalarabic", cp_single_1218, 1},
+    {"bekatakana", cp_single_1219, 1},
+    {"benarmenian", cp_single_1220, 1},
+    {"bet", cp_single_1221, 1},
+    {"beta", cp_single_1222, 1},
+    {"betasymbolgreek", cp_single_1223, 1},
+    {"betdagesh", cp_single_1224, 1},
+    {"betdageshhebrew", cp_single_1225, 1},
+    {"bethebrew", cp_single_1226, 1},
+    {"betrafehebrew", cp_single_1227, 1},
+    {"bhabengali", cp_single_1228, 1},
+    {"bhadeva", cp_single_1229, 1},
+    {"bhagujarati", cp_single_1230, 1},
+    {"bhagurmukhi", cp_single_1231, 1},
+    {"bhook", cp_single_1232, 1},
+    {"bihiragana", cp_single_1233, 1},
+    {"bikatakana", cp_single_1234, 1},
+    {"bilabialclick", cp_single_1235, 1},
+    {"bindigurmukhi", cp_single_1236, 1},
+    {"birusquare", cp_single_1237, 1},
+    {"blackcircle", cp_single_1238, 1},
+    {"blackdiamond", cp_single_1239, 1},
+    {"blackdownpointingtriangle", cp_single_1240, 1},
+    {"blackleftpointingpointer", cp_single_1241, 1},
+    {"blackleftpointingtriangle", cp_single_1242, 1},
+    {"blacklenticularbracketleft", cp_single_1243, 1},
+    {"blacklenticularbracketleftvertical", cp_single_1244, 1},
+    {"blacklenticularbracketright", cp_single_1245, 1},
+    {"blacklenticularbracketrightvertical", cp_single_1246, 1},
+    {"blacklowerlefttriangle", cp_single_1247, 1},
+    {"blacklowerrighttriangle", cp_single_1248, 1},
+    {"blackrectangle", cp_single_1249, 1},
+    {"blackrightpointingpointer", cp_single_1250, 1},
+    {"blackrightpointingtriangle", cp_single_1251, 1},
+    {"blacksmallsquare", cp_single_1252, 1},
+    {"blacksmilingface", cp_single_1253, 1},
+    {"blacksquare", cp_single_1254, 1},
+    {"blackstar", cp_single_1255, 1},
+    {"blackupperlefttriangle", cp_single_1256, 1},
+    {"blackupperrighttriangle", cp_single_1257, 1},
+    {"blackuppointingsmalltriangle", cp_single_1258, 1},
+    {"blackuppointingtriangle", cp_single_1259, 1},
+    {"blank", cp_single_1260, 1},
+    {"blinebelow", cp_single_1261, 1},
+    {"block", cp_single_1262, 1},
+    {"bmonospace", cp_single_1263, 1},
+    {"bobaimaithai", cp_single_1264, 1},
+    {"bohiragana", cp_single_1265, 1},
+    {"bokatakana", cp_single_1266, 1},
+    {"bparen", cp_single_1267, 1},
+    {"bqsquare", cp_single_1268, 1},
+    {"braceex", cp_single_1269, 1},
+    {"braceleft", cp_single_1270, 1},
+    {"braceleftbt", cp_single_1271, 1},
+    {"braceleftmid", cp_single_1272, 1},
+    {"braceleftmonospace", cp_single_1273, 1},
+    {"braceleftsmall", cp_single_1274, 1},
+    {"bracelefttp", cp_single_1275, 1},
+    {"braceleftvertical", cp_single_1276, 1},
+    {"braceright", cp_single_1277, 1},
+    {"bracerightbt", cp_single_1278, 1},
+    {"bracerightmid", cp_single_1279, 1},
+    {"bracerightmonospace", cp_single_1280, 1},
+    {"bracerightsmall", cp_single_1281, 1},
+    {"bracerighttp", cp_single_1282, 1},
+    {"bracerightvertical", cp_single_1283, 1},
+    {"bracketleft", cp_single_1284, 1},
+    {"bracketleftbt", cp_single_1285, 1},
+    {"bracketleftex", cp_single_1286, 1},
+    {"bracketleftmonospace", cp_single_1287, 1},
+    {"bracketlefttp", cp_single_1288, 1},
+    {"bracketright", cp_single_1289, 1},
+    {"bracketrightbt", cp_single_1290, 1},
+    {"bracketrightex", cp_single_1291, 1},
+    {"bracketrightmonospace", cp_single_1292, 1},
+    {"bracketrighttp", cp_single_1293, 1},
+    {"breve", cp_single_1294, 1},
+    {"brevebelowcmb", cp_single_1295, 1},
+    {"brevecmb", cp_single_1296, 1},
+    {"breveinvertedbelowcmb", cp_single_1297, 1},
+    {"breveinvertedcmb", cp_single_1298, 1},
+    {"breveinverteddoublecmb", cp_single_1299, 1},
+    {"bridgebelowcmb", cp_single_1300, 1},
+    {"bridgeinvertedbelowcmb", cp_single_1301, 1},
+    {"brokenbar", cp_single_1302, 1},
+    {"bstroke", cp_single_1303, 1},
+    {"bsuperior", cp_single_1304, 1},
+    {"btopbar", cp_single_1305, 1},
+    {"buhiragana", cp_single_1306, 1},
+    {"bukatakana", cp_single_1307, 1},
+    {"bullet", cp_single_1308, 1},
+    {"bulletinverse", cp_single_1309, 1},
+    {"bulletoperator", cp_single_1310, 1},
+    {"bullseye", cp_single_1311, 1},
+    {"c", cp_single_1312, 1},
+    {"caarmenian", cp_single_1313, 1},
+    {"cabengali", cp_single_1314, 1},
+    {"cacute", cp_single_1315, 1},
+    {"cadeva", cp_single_1316, 1},
+    {"cagujarati", cp_single_1317, 1},
+    {"cagurmukhi", cp_single_1318, 1},
+    {"calsquare", cp_single_1319, 1},
+    {"candrabindubengali", cp_single_1320, 1},
+    {"candrabinducmb", cp_single_1321, 1},
+    {"candrabindudeva", cp_single_1322, 1},
+    {"candrabindugujarati", cp_single_1323, 1},
+    {"capslock", cp_single_1324, 1},
+    {"careof", cp_single_1325, 1},
+    {"caron", cp_single_1326, 1},
+    {"caronbelowcmb", cp_single_1327, 1},
+    {"caroncmb", cp_single_1328, 1},
+    {"carriagereturn", cp_single_1329, 1},
+    {"cbopomofo", cp_single_1330, 1},
+    {"ccaron", cp_single_1331, 1},
+    {"ccedilla", cp_single_1332, 1},
+    {"ccedillaacute", cp_single_1333, 1},
+    {"ccircle", cp_single_1334, 1},
+    {"ccircumflex", cp_single_1335, 1},
+    {"ccurl", cp_single_1336, 1},
+    {"cdot", cp_single_1337, 1},
+    {"cdotaccent", cp_single_1338, 1},
+    {"cdsquare", cp_single_1339, 1},
+    {"cedilla", cp_single_1340, 1},
+    {"cedillacmb", cp_single_1341, 1},
+    {"cent", cp_single_1342, 1},
+    {"centigrade", cp_single_1343, 1},
+    {"centinferior", cp_single_1344, 1},
+    {"centmonospace", cp_single_1345, 1},
+    {"centoldstyle", cp_single_1346, 1},
+    {"centsuperior", cp_single_1347, 1},
+    {"chaarmenian", cp_single_1348, 1},
+    {"chabengali", cp_single_1349, 1},
+    {"chadeva", cp_single_1350, 1},
+    {"chagujarati", cp_single_1351, 1},
+    {"chagurmukhi", cp_single_1352, 1},
+    {"chbopomofo", cp_single_1353, 1},
+    {"cheabkhasiancyrillic", cp_single_1354, 1},
+    {"checkmark", cp_single_1355, 1},
+    {"checyrillic", cp_single_1356, 1},
+    {"chedescenderabkhasiancyrillic", cp_single_1357, 1},
+    {"chedescendercyrillic", cp_single_1358, 1},
+    {"chedieresiscyrillic", cp_single_1359, 1},
+    {"cheharmenian", cp_single_1360, 1},
+    {"chekhakassiancyrillic", cp_single_1361, 1},
+    {"cheverticalstrokecyrillic", cp_single_1362, 1},
+    {"chi", cp_single_1363, 1},
+    {"chieuchacirclekorean", cp_single_1364, 1},
+    {"chieuchaparenkorean", cp_single_1365, 1},
+    {"chieuchcirclekorean", cp_single_1366, 1},
+    {"chieuchkorean", cp_single_1367, 1},
+    {"chieuchparenkorean", cp_single_1368, 1},
+    {"chochangthai", cp_single_1369, 1},
+    {"chochanthai", cp_single_1370, 1},
+    {"chochingthai", cp_single_1371, 1},
+    {"chochoethai", cp_single_1372, 1},
+    {"chook", cp_single_1373, 1},
+    {"cieucacirclekorean", cp_single_1374, 1},
+    {"cieucaparenkorean", cp_single_1375, 1},
+    {"cieuccirclekorean", cp_single_1376, 1},
+    {"cieuckorean", cp_single_1377, 1},
+    {"cieucparenkorean", cp_single_1378, 1},
+    {"cieucuparenkorean", cp_single_1379, 1},
+    {"circle", cp_single_1380, 1},
+    {"circlemultiply", cp_single_1381, 1},
+    {"circleot", cp_single_1382, 1},
+    {"circleplus", cp_single_1383, 1},
+    {"circlepostalmark", cp_single_1384, 1},
+    {"circlewithlefthalfblack", cp_single_1385, 1},
+    {"circlewithrighthalfblack", cp_single_1386, 1},
+    {"circumflex", cp_single_1387, 1},
+    {"circumflexbelowcmb", cp_single_1388, 1},
+    {"circumflexcmb", cp_single_1389, 1},
+    {"clear", cp_single_1390, 1},
+    {"clickalveolar", cp_single_1391, 1},
+    {"clickdental", cp_single_1392, 1},
+    {"clicklateral", cp_single_1393, 1},
+    {"clickretroflex", cp_single_1394, 1},
+    {"club", cp_single_1395, 1},
+    {"clubsuitblack", cp_single_1396, 1},
+    {"clubsuitwhite", cp_single_1397, 1},
+    {"cmcubedsquare", cp_single_1398, 1},
+    {"cmonospace", cp_single_1399, 1},
+    {"cmsquaredsquare", cp_single_1400, 1},
+    {"coarmenian", cp_single_1401, 1},
+    {"colon", cp_single_1402, 1},
+    {"colonmonetary", cp_single_1403, 1},
+    {"colonmonospace", cp_single_1404, 1},
+    {"colonsign", cp_single_1405, 1},
+    {"colonsmall", cp_single_1406, 1},
+    {"colontriangularhalfmod", cp_single_1407, 1},
+    {"colontriangularmod", cp_single_1408, 1},
+    {"comma", cp_single_1409, 1},
+    {"commaabovecmb", cp_single_1410, 1},
+    {"commaaboverightcmb", cp_single_1411, 1},
+    {"commaaccent", cp_single_1412, 1},
+    {"commaarabic", cp_single_1413, 1},
+    {"commaarmenian", cp_single_1414, 1},
+    {"commainferior", cp_single_1415, 1},
+    {"commamonospace", cp_single_1416, 1},
+    {"commareversedabovecmb", cp_single_1417, 1},
+    {"commareversedmod", cp_single_1418, 1},
+    {"commasmall", cp_single_1419, 1},
+    {"commasuperior", cp_single_1420, 1},
+    {"commaturnedabovecmb", cp_single_1421, 1},
+    {"commaturnedmod", cp_single_1422, 1},
+    {"compass", cp_single_1423, 1},
+    {"congruent", cp_single_1424, 1},
+    {"contourintegral", cp_single_1425, 1},
+    {"control", cp_single_1426, 1},
+    {"controlACK", cp_single_1427, 1},
+    {"controlBEL", cp_single_1428, 1},
+    {"controlBS", cp_single_1429, 1},
+    {"controlCAN", cp_single_1430, 1},
+    {"controlCR", cp_single_1431, 1},
+    {"controlDC1", cp_single_1432, 1},
+    {"controlDC2", cp_single_1433, 1},
+    {"controlDC3", cp_single_1434, 1},
+    {"controlDC4", cp_single_1435, 1},
+    {"controlDEL", cp_single_1436, 1},
+    {"controlDLE", cp_single_1437, 1},
+    {"controlEM", cp_single_1438, 1},
+    {"controlENQ", cp_single_1439, 1},
+    {"controlEOT", cp_single_1440, 1},
+    {"controlESC", cp_single_1441, 1},
+    {"controlETB", cp_single_1442, 1},
+    {"controlETX", cp_single_1443, 1},
+    {"controlFF", cp_single_1444, 1},
+    {"controlFS", cp_single_1445, 1},
+    {"controlGS", cp_single_1446, 1},
+    {"controlHT", cp_single_1447, 1},
+    {"controlLF", cp_single_1448, 1},
+    {"controlNAK", cp_single_1449, 1},
+    {"controlRS", cp_single_1450, 1},
+    {"controlSI", cp_single_1451, 1},
+    {"controlSO", cp_single_1452, 1},
+    {"controlSOT", cp_single_1453, 1},
+    {"controlSTX", cp_single_1454, 1},
+    {"controlSUB", cp_single_1455, 1},
+    {"controlSYN", cp_single_1456, 1},
+    {"controlUS", cp_single_1457, 1},
+    {"controlVT", cp_single_1458, 1},
+    {"copyright", cp_single_1459, 1},
+    {"copyrightsans", cp_single_1460, 1},
+    {"copyrightserif", cp_single_1461, 1},
+    {"cornerbracketleft", cp_single_1462, 1},
+    {"cornerbracketlefthalfwidth", cp_single_1463, 1},
+    {"cornerbracketleftvertical", cp_single_1464, 1},
+    {"cornerbracketright", cp_single_1465, 1},
+    {"cornerbracketrighthalfwidth", cp_single_1466, 1},
+    {"cornerbracketrightvertical", cp_single_1467, 1},
+    {"corporationsquare", cp_single_1468, 1},
+    {"cosquare", cp_single_1469, 1},
+    {"coverkgsquare", cp_single_1470, 1},
+    {"cparen", cp_single_1471, 1},
+    {"cruzeiro", cp_single_1472, 1},
+    {"cstretched", cp_single_1473, 1},
+    {"curlyand", cp_single_1474, 1},
+    {"curlyor", cp_single_1475, 1},
+    {"currency", cp_single_1476, 1},
+    {"cyrBreve", cp_single_1477, 1},
+    {"cyrFlex", cp_single_1478, 1},
+    {"cyrbreve", cp_single_1479, 1},
+    {"cyrflex", cp_single_1480, 1},
+    {"d", cp_single_1481, 1},
+    {"daarmenian", cp_single_1482, 1},
+    {"dabengali", cp_single_1483, 1},
+    {"dadarabic", cp_single_1484, 1},
+    {"dadeva", cp_single_1485, 1},
+    {"dadfinalarabic", cp_single_1486, 1},
+    {"dadinitialarabic", cp_single_1487, 1},
+    {"dadmedialarabic", cp_single_1488, 1},
+    {"dagesh", cp_single_1489, 1},
+    {"dageshhebrew", cp_single_1490, 1},
+    {"dagger", cp_single_1491, 1},
+    {"daggerdbl", cp_single_1492, 1},
+    {"dagujarati", cp_single_1493, 1},
+    {"dagurmukhi", cp_single_1494, 1},
+    {"dahiragana", cp_single_1495, 1},
+    {"dakatakana", cp_single_1496, 1},
+    {"dalarabic", cp_single_1497, 1},
+    {"dalet", cp_single_1498, 1},
+    {"daletdagesh", cp_single_1499, 1},
+    {"daletdageshhebrew", cp_single_1500, 1},
     {"dalethatafpatah", cp_1501, 2},
     {"dalethatafpatahhebrew", cp_1502, 2},
     {"dalethatafsegol", cp_1503, 2},
     {"dalethatafsegolhebrew", cp_1504, 2},
-    {"dalethebrew", (const unsigned long[]){0x05d3}, 1},
+    {"dalethebrew", cp_single_1501, 1},
     {"dalethiriq", cp_1506, 2},
     {"dalethiriqhebrew", cp_1507, 2},
     {"daletholam", cp_1508, 2},
@@ -1615,1641 +5816,1641 @@ const GlyphListEntry AdobeGlyphListData[] = {
     {"daletshevahebrew", cp_1519, 2},
     {"dalettsere", cp_1520, 2},
     {"dalettserehebrew", cp_1521, 2},
-    {"dalfinalarabic", (const unsigned long[]){0xfeaa}, 1},
-    {"dammaarabic", (const unsigned long[]){0x064f}, 1},
-    {"dammalowarabic", (const unsigned long[]){0x064f}, 1},
-    {"dammatanaltonearabic", (const unsigned long[]){0x064c}, 1},
-    {"dammatanarabic", (const unsigned long[]){0x064c}, 1},
-    {"danda", (const unsigned long[]){0x0964}, 1},
-    {"dargahebrew", (const unsigned long[]){0x05a7}, 1},
-    {"dargalefthebrew", (const unsigned long[]){0x05a7}, 1},
-    {"dasiapneumatacyrilliccmb", (const unsigned long[]){0x0485}, 1},
-    {"dblGrave", (const unsigned long[]){0xf6d3}, 1},
-    {"dblanglebracketleft", (const unsigned long[]){0x300a}, 1},
-    {"dblanglebracketleftvertical", (const unsigned long[]){0xfe3d}, 1},
-    {"dblanglebracketright", (const unsigned long[]){0x300b}, 1},
-    {"dblanglebracketrightvertical", (const unsigned long[]){0xfe3e}, 1},
-    {"dblarchinvertedbelowcmb", (const unsigned long[]){0x032b}, 1},
-    {"dblarrowleft", (const unsigned long[]){0x21d4}, 1},
-    {"dblarrowright", (const unsigned long[]){0x21d2}, 1},
-    {"dbldanda", (const unsigned long[]){0x0965}, 1},
-    {"dblgrave", (const unsigned long[]){0xf6d6}, 1},
-    {"dblgravecmb", (const unsigned long[]){0x030f}, 1},
-    {"dblintegral", (const unsigned long[]){0x222c}, 1},
-    {"dbllowline", (const unsigned long[]){0x2017}, 1},
-    {"dbllowlinecmb", (const unsigned long[]){0x0333}, 1},
-    {"dbloverlinecmb", (const unsigned long[]){0x033f}, 1},
-    {"dblprimemod", (const unsigned long[]){0x02ba}, 1},
-    {"dblverticalbar", (const unsigned long[]){0x2016}, 1},
-    {"dblverticallineabovecmb", (const unsigned long[]){0x030e}, 1},
-    {"dbopomofo", (const unsigned long[]){0x3109}, 1},
-    {"dbsquare", (const unsigned long[]){0x33c8}, 1},
-    {"dcaron", (const unsigned long[]){0x010f}, 1},
-    {"dcedilla", (const unsigned long[]){0x1e11}, 1},
-    {"dcircle", (const unsigned long[]){0x24d3}, 1},
-    {"dcircumflexbelow", (const unsigned long[]){0x1e13}, 1},
-    {"dcroat", (const unsigned long[]){0x0111}, 1},
-    {"ddabengali", (const unsigned long[]){0x09a1}, 1},
-    {"ddadeva", (const unsigned long[]){0x0921}, 1},
-    {"ddagujarati", (const unsigned long[]){0x0aa1}, 1},
-    {"ddagurmukhi", (const unsigned long[]){0x0a21}, 1},
-    {"ddalarabic", (const unsigned long[]){0x0688}, 1},
-    {"ddalfinalarabic", (const unsigned long[]){0xfb89}, 1},
-    {"dddhadeva", (const unsigned long[]){0x095c}, 1},
-    {"ddhabengali", (const unsigned long[]){0x09a2}, 1},
-    {"ddhadeva", (const unsigned long[]){0x0922}, 1},
-    {"ddhagujarati", (const unsigned long[]){0x0aa2}, 1},
-    {"ddhagurmukhi", (const unsigned long[]){0x0a22}, 1},
-    {"ddotaccent", (const unsigned long[]){0x1e0b}, 1},
-    {"ddotbelow", (const unsigned long[]){0x1e0d}, 1},
-    {"decimalseparatorarabic", (const unsigned long[]){0x066b}, 1},
-    {"decimalseparatorpersian", (const unsigned long[]){0x066b}, 1},
-    {"decyrillic", (const unsigned long[]){0x0434}, 1},
-    {"degree", (const unsigned long[]){0x00b0}, 1},
-    {"dehihebrew", (const unsigned long[]){0x05ad}, 1},
-    {"dehiragana", (const unsigned long[]){0x3067}, 1},
-    {"deicoptic", (const unsigned long[]){0x03ef}, 1},
-    {"dekatakana", (const unsigned long[]){0x30c7}, 1},
-    {"deleteleft", (const unsigned long[]){0x232b}, 1},
-    {"deleteright", (const unsigned long[]){0x2326}, 1},
-    {"delta", (const unsigned long[]){0x03b4}, 1},
-    {"deltaturned", (const unsigned long[]){0x018d}, 1},
-    {"denominatorminusonenumeratorbengali", (const unsigned long[]){0x09f8}, 1},
-    {"dezh", (const unsigned long[]){0x02a4}, 1},
-    {"dhabengali", (const unsigned long[]){0x09a7}, 1},
-    {"dhadeva", (const unsigned long[]){0x0927}, 1},
-    {"dhagujarati", (const unsigned long[]){0x0aa7}, 1},
-    {"dhagurmukhi", (const unsigned long[]){0x0a27}, 1},
-    {"dhook", (const unsigned long[]){0x0257}, 1},
-    {"dialytikatonos", (const unsigned long[]){0x0385}, 1},
-    {"dialytikatonoscmb", (const unsigned long[]){0x0344}, 1},
-    {"diamond", (const unsigned long[]){0x2666}, 1},
-    {"diamondsuitwhite", (const unsigned long[]){0x2662}, 1},
-    {"dieresis", (const unsigned long[]){0x00a8}, 1},
-    {"dieresisacute", (const unsigned long[]){0xf6d7}, 1},
-    {"dieresisbelowcmb", (const unsigned long[]){0x0324}, 1},
-    {"dieresiscmb", (const unsigned long[]){0x0308}, 1},
-    {"dieresisgrave", (const unsigned long[]){0xf6d8}, 1},
-    {"dieresistonos", (const unsigned long[]){0x0385}, 1},
-    {"dihiragana", (const unsigned long[]){0x3062}, 1},
-    {"dikatakana", (const unsigned long[]){0x30c2}, 1},
-    {"dittomark", (const unsigned long[]){0x3003}, 1},
-    {"divide", (const unsigned long[]){0x00f7}, 1},
-    {"divides", (const unsigned long[]){0x2223}, 1},
-    {"divisionslash", (const unsigned long[]){0x2215}, 1},
-    {"djecyrillic", (const unsigned long[]){0x0452}, 1},
-    {"dkshade", (const unsigned long[]){0x2593}, 1},
-    {"dlinebelow", (const unsigned long[]){0x1e0f}, 1},
-    {"dlsquare", (const unsigned long[]){0x3397}, 1},
-    {"dmacron", (const unsigned long[]){0x0111}, 1},
-    {"dmonospace", (const unsigned long[]){0xff44}, 1},
-    {"dnblock", (const unsigned long[]){0x2584}, 1},
-    {"dochadathai", (const unsigned long[]){0x0e0e}, 1},
-    {"dodekthai", (const unsigned long[]){0x0e14}, 1},
-    {"dohiragana", (const unsigned long[]){0x3069}, 1},
-    {"dokatakana", (const unsigned long[]){0x30c9}, 1},
-    {"dollar", (const unsigned long[]){0x0024}, 1},
-    {"dollarinferior", (const unsigned long[]){0xf6e3}, 1},
-    {"dollarmonospace", (const unsigned long[]){0xff04}, 1},
-    {"dollaroldstyle", (const unsigned long[]){0xf724}, 1},
-    {"dollarsmall", (const unsigned long[]){0xfe69}, 1},
-    {"dollarsuperior", (const unsigned long[]){0xf6e4}, 1},
-    {"dong", (const unsigned long[]){0x20ab}, 1},
-    {"dorusquare", (const unsigned long[]){0x3326}, 1},
-    {"dotaccent", (const unsigned long[]){0x02d9}, 1},
-    {"dotaccentcmb", (const unsigned long[]){0x0307}, 1},
-    {"dotbelowcmb", (const unsigned long[]){0x0323}, 1},
-    {"dotbelowcomb", (const unsigned long[]){0x0323}, 1},
-    {"dotkatakana", (const unsigned long[]){0x30fb}, 1},
-    {"dotlessi", (const unsigned long[]){0x0131}, 1},
-    {"dotlessj", (const unsigned long[]){0xf6be}, 1},
-    {"dotlessjstrokehook", (const unsigned long[]){0x0284}, 1},
-    {"dotmath", (const unsigned long[]){0x22c5}, 1},
-    {"dottedcircle", (const unsigned long[]){0x25cc}, 1},
-    {"doubleyodpatah", (const unsigned long[]){0xfb1f}, 1},
-    {"doubleyodpatahhebrew", (const unsigned long[]){0xfb1f}, 1},
-    {"downtackbelowcmb", (const unsigned long[]){0x031e}, 1},
-    {"downtackmod", (const unsigned long[]){0x02d5}, 1},
-    {"dparen", (const unsigned long[]){0x249f}, 1},
-    {"dsuperior", (const unsigned long[]){0xf6eb}, 1},
-    {"dtail", (const unsigned long[]){0x0256}, 1},
-    {"dtopbar", (const unsigned long[]){0x018c}, 1},
-    {"duhiragana", (const unsigned long[]){0x3065}, 1},
-    {"dukatakana", (const unsigned long[]){0x30c5}, 1},
-    {"dz", (const unsigned long[]){0x01f3}, 1},
-    {"dzaltone", (const unsigned long[]){0x02a3}, 1},
-    {"dzcaron", (const unsigned long[]){0x01c6}, 1},
-    {"dzcurl", (const unsigned long[]){0x02a5}, 1},
-    {"dzeabkhasiancyrillic", (const unsigned long[]){0x04e1}, 1},
-    {"dzecyrillic", (const unsigned long[]){0x0455}, 1},
-    {"dzhecyrillic", (const unsigned long[]){0x045f}, 1},
-    {"e", (const unsigned long[]){0x0065}, 1},
-    {"eacute", (const unsigned long[]){0x00e9}, 1},
-    {"earth", (const unsigned long[]){0x2641}, 1},
-    {"ebengali", (const unsigned long[]){0x098f}, 1},
-    {"ebopomofo", (const unsigned long[]){0x311c}, 1},
-    {"ebreve", (const unsigned long[]){0x0115}, 1},
-    {"ecandradeva", (const unsigned long[]){0x090d}, 1},
-    {"ecandragujarati", (const unsigned long[]){0x0a8d}, 1},
-    {"ecandravowelsigndeva", (const unsigned long[]){0x0945}, 1},
-    {"ecandravowelsigngujarati", (const unsigned long[]){0x0ac5}, 1},
-    {"ecaron", (const unsigned long[]){0x011b}, 1},
-    {"ecedillabreve", (const unsigned long[]){0x1e1d}, 1},
-    {"echarmenian", (const unsigned long[]){0x0565}, 1},
-    {"echyiwnarmenian", (const unsigned long[]){0x0587}, 1},
-    {"ecircle", (const unsigned long[]){0x24d4}, 1},
-    {"ecircumflex", (const unsigned long[]){0x00ea}, 1},
-    {"ecircumflexacute", (const unsigned long[]){0x1ebf}, 1},
-    {"ecircumflexbelow", (const unsigned long[]){0x1e19}, 1},
-    {"ecircumflexdotbelow", (const unsigned long[]){0x1ec7}, 1},
-    {"ecircumflexgrave", (const unsigned long[]){0x1ec1}, 1},
-    {"ecircumflexhookabove", (const unsigned long[]){0x1ec3}, 1},
-    {"ecircumflextilde", (const unsigned long[]){0x1ec5}, 1},
-    {"ecyrillic", (const unsigned long[]){0x0454}, 1},
-    {"edblgrave", (const unsigned long[]){0x0205}, 1},
-    {"edeva", (const unsigned long[]){0x090f}, 1},
-    {"edieresis", (const unsigned long[]){0x00eb}, 1},
-    {"edot", (const unsigned long[]){0x0117}, 1},
-    {"edotaccent", (const unsigned long[]){0x0117}, 1},
-    {"edotbelow", (const unsigned long[]){0x1eb9}, 1},
-    {"eegurmukhi", (const unsigned long[]){0x0a0f}, 1},
-    {"eematragurmukhi", (const unsigned long[]){0x0a47}, 1},
-    {"efcyrillic", (const unsigned long[]){0x0444}, 1},
-    {"egrave", (const unsigned long[]){0x00e8}, 1},
-    {"egujarati", (const unsigned long[]){0x0a8f}, 1},
-    {"eharmenian", (const unsigned long[]){0x0567}, 1},
-    {"ehbopomofo", (const unsigned long[]){0x311d}, 1},
-    {"ehiragana", (const unsigned long[]){0x3048}, 1},
-    {"ehookabove", (const unsigned long[]){0x1ebb}, 1},
-    {"eibopomofo", (const unsigned long[]){0x311f}, 1},
-    {"eight", (const unsigned long[]){0x0038}, 1},
-    {"eightarabic", (const unsigned long[]){0x0668}, 1},
-    {"eightbengali", (const unsigned long[]){0x09ee}, 1},
-    {"eightcircle", (const unsigned long[]){0x2467}, 1},
-    {"eightcircleinversesansserif", (const unsigned long[]){0x2791}, 1},
-    {"eightdeva", (const unsigned long[]){0x096e}, 1},
-    {"eighteencircle", (const unsigned long[]){0x2471}, 1},
-    {"eighteenparen", (const unsigned long[]){0x2485}, 1},
-    {"eighteenperiod", (const unsigned long[]){0x2499}, 1},
-    {"eightgujarati", (const unsigned long[]){0x0aee}, 1},
-    {"eightgurmukhi", (const unsigned long[]){0x0a6e}, 1},
-    {"eighthackarabic", (const unsigned long[]){0x0668}, 1},
-    {"eighthangzhou", (const unsigned long[]){0x3028}, 1},
-    {"eighthnotebeamed", (const unsigned long[]){0x266b}, 1},
-    {"eightideographicparen", (const unsigned long[]){0x3227}, 1},
-    {"eightinferior", (const unsigned long[]){0x2088}, 1},
-    {"eightmonospace", (const unsigned long[]){0xff18}, 1},
-    {"eightoldstyle", (const unsigned long[]){0xf738}, 1},
-    {"eightparen", (const unsigned long[]){0x247b}, 1},
-    {"eightperiod", (const unsigned long[]){0x248f}, 1},
-    {"eightpersian", (const unsigned long[]){0x06f8}, 1},
-    {"eightroman", (const unsigned long[]){0x2177}, 1},
-    {"eightsuperior", (const unsigned long[]){0x2078}, 1},
-    {"eightthai", (const unsigned long[]){0x0e58}, 1},
-    {"einvertedbreve", (const unsigned long[]){0x0207}, 1},
-    {"eiotifiedcyrillic", (const unsigned long[]){0x0465}, 1},
-    {"ekatakana", (const unsigned long[]){0x30a8}, 1},
-    {"ekatakanahalfwidth", (const unsigned long[]){0xff74}, 1},
-    {"ekonkargurmukhi", (const unsigned long[]){0x0a74}, 1},
-    {"ekorean", (const unsigned long[]){0x3154}, 1},
-    {"elcyrillic", (const unsigned long[]){0x043b}, 1},
-    {"element", (const unsigned long[]){0x2208}, 1},
-    {"elevencircle", (const unsigned long[]){0x246a}, 1},
-    {"elevenparen", (const unsigned long[]){0x247e}, 1},
-    {"elevenperiod", (const unsigned long[]){0x2492}, 1},
-    {"elevenroman", (const unsigned long[]){0x217a}, 1},
-    {"ellipsis", (const unsigned long[]){0x2026}, 1},
-    {"ellipsisvertical", (const unsigned long[]){0x22ee}, 1},
-    {"emacron", (const unsigned long[]){0x0113}, 1},
-    {"emacronacute", (const unsigned long[]){0x1e17}, 1},
-    {"emacrongrave", (const unsigned long[]){0x1e15}, 1},
-    {"emcyrillic", (const unsigned long[]){0x043c}, 1},
-    {"emdash", (const unsigned long[]){0x2014}, 1},
-    {"emdashvertical", (const unsigned long[]){0xfe31}, 1},
-    {"emonospace", (const unsigned long[]){0xff45}, 1},
-    {"emphasismarkarmenian", (const unsigned long[]){0x055b}, 1},
-    {"emptyset", (const unsigned long[]){0x2205}, 1},
-    {"enbopomofo", (const unsigned long[]){0x3123}, 1},
-    {"encyrillic", (const unsigned long[]){0x043d}, 1},
-    {"endash", (const unsigned long[]){0x2013}, 1},
-    {"endashvertical", (const unsigned long[]){0xfe32}, 1},
-    {"endescendercyrillic", (const unsigned long[]){0x04a3}, 1},
-    {"eng", (const unsigned long[]){0x014b}, 1},
-    {"engbopomofo", (const unsigned long[]){0x3125}, 1},
-    {"enghecyrillic", (const unsigned long[]){0x04a5}, 1},
-    {"enhookcyrillic", (const unsigned long[]){0x04c8}, 1},
-    {"enspace", (const unsigned long[]){0x2002}, 1},
-    {"eogonek", (const unsigned long[]){0x0119}, 1},
-    {"eokorean", (const unsigned long[]){0x3153}, 1},
-    {"eopen", (const unsigned long[]){0x025b}, 1},
-    {"eopenclosed", (const unsigned long[]){0x029a}, 1},
-    {"eopenreversed", (const unsigned long[]){0x025c}, 1},
-    {"eopenreversedclosed", (const unsigned long[]){0x025e}, 1},
-    {"eopenreversedhook", (const unsigned long[]){0x025d}, 1},
-    {"eparen", (const unsigned long[]){0x24a0}, 1},
-    {"epsilon", (const unsigned long[]){0x03b5}, 1},
-    {"epsilontonos", (const unsigned long[]){0x03ad}, 1},
-    {"equal", (const unsigned long[]){0x003d}, 1},
-    {"equalmonospace", (const unsigned long[]){0xff1d}, 1},
-    {"equalsmall", (const unsigned long[]){0xfe66}, 1},
-    {"equalsuperior", (const unsigned long[]){0x207c}, 1},
-    {"equivalence", (const unsigned long[]){0x2261}, 1},
-    {"erbopomofo", (const unsigned long[]){0x3126}, 1},
-    {"ercyrillic", (const unsigned long[]){0x0440}, 1},
-    {"ereversed", (const unsigned long[]){0x0258}, 1},
-    {"ereversedcyrillic", (const unsigned long[]){0x044d}, 1},
-    {"escyrillic", (const unsigned long[]){0x0441}, 1},
-    {"esdescendercyrillic", (const unsigned long[]){0x04ab}, 1},
-    {"esh", (const unsigned long[]){0x0283}, 1},
-    {"eshcurl", (const unsigned long[]){0x0286}, 1},
-    {"eshortdeva", (const unsigned long[]){0x090e}, 1},
-    {"eshortvowelsigndeva", (const unsigned long[]){0x0946}, 1},
-    {"eshreversedloop", (const unsigned long[]){0x01aa}, 1},
-    {"eshsquatreversed", (const unsigned long[]){0x0285}, 1},
-    {"esmallhiragana", (const unsigned long[]){0x3047}, 1},
-    {"esmallkatakana", (const unsigned long[]){0x30a7}, 1},
-    {"esmallkatakanahalfwidth", (const unsigned long[]){0xff6a}, 1},
-    {"estimated", (const unsigned long[]){0x212e}, 1},
-    {"esuperior", (const unsigned long[]){0xf6ec}, 1},
-    {"eta", (const unsigned long[]){0x03b7}, 1},
-    {"etarmenian", (const unsigned long[]){0x0568}, 1},
-    {"etatonos", (const unsigned long[]){0x03ae}, 1},
-    {"eth", (const unsigned long[]){0x00f0}, 1},
-    {"etilde", (const unsigned long[]){0x1ebd}, 1},
-    {"etildebelow", (const unsigned long[]){0x1e1b}, 1},
-    {"etnahtafoukhhebrew", (const unsigned long[]){0x0591}, 1},
-    {"etnahtafoukhlefthebrew", (const unsigned long[]){0x0591}, 1},
-    {"etnahtahebrew", (const unsigned long[]){0x0591}, 1},
-    {"etnahtalefthebrew", (const unsigned long[]){0x0591}, 1},
-    {"eturned", (const unsigned long[]){0x01dd}, 1},
-    {"eukorean", (const unsigned long[]){0x3161}, 1},
-    {"euro", (const unsigned long[]){0x20ac}, 1},
-    {"evowelsignbengali", (const unsigned long[]){0x09c7}, 1},
-    {"evowelsigndeva", (const unsigned long[]){0x0947}, 1},
-    {"evowelsigngujarati", (const unsigned long[]){0x0ac7}, 1},
-    {"exclam", (const unsigned long[]){0x0021}, 1},
-    {"exclamarmenian", (const unsigned long[]){0x055c}, 1},
-    {"exclamdbl", (const unsigned long[]){0x203c}, 1},
-    {"exclamdown", (const unsigned long[]){0x00a1}, 1},
-    {"exclamdownsmall", (const unsigned long[]){0xf7a1}, 1},
-    {"exclammonospace", (const unsigned long[]){0xff01}, 1},
-    {"exclamsmall", (const unsigned long[]){0xf721}, 1},
-    {"existential", (const unsigned long[]){0x2203}, 1},
-    {"ezh", (const unsigned long[]){0x0292}, 1},
-    {"ezhcaron", (const unsigned long[]){0x01ef}, 1},
-    {"ezhcurl", (const unsigned long[]){0x0293}, 1},
-    {"ezhreversed", (const unsigned long[]){0x01b9}, 1},
-    {"ezhtail", (const unsigned long[]){0x01ba}, 1},
-    {"f", (const unsigned long[]){0x0066}, 1},
-    {"fadeva", (const unsigned long[]){0x095e}, 1},
-    {"fagurmukhi", (const unsigned long[]){0x0a5e}, 1},
-    {"fahrenheit", (const unsigned long[]){0x2109}, 1},
-    {"fathaarabic", (const unsigned long[]){0x064e}, 1},
-    {"fathalowarabic", (const unsigned long[]){0x064e}, 1},
-    {"fathatanarabic", (const unsigned long[]){0x064b}, 1},
-    {"fbopomofo", (const unsigned long[]){0x3108}, 1},
-    {"fcircle", (const unsigned long[]){0x24d5}, 1},
-    {"fdotaccent", (const unsigned long[]){0x1e1f}, 1},
-    {"feharabic", (const unsigned long[]){0x0641}, 1},
-    {"feharmenian", (const unsigned long[]){0x0586}, 1},
-    {"fehfinalarabic", (const unsigned long[]){0xfed2}, 1},
-    {"fehinitialarabic", (const unsigned long[]){0xfed3}, 1},
-    {"fehmedialarabic", (const unsigned long[]){0xfed4}, 1},
-    {"feicoptic", (const unsigned long[]){0x03e5}, 1},
-    {"female", (const unsigned long[]){0x2640}, 1},
-    {"ff", (const unsigned long[]){0xfb00}, 1},
-    {"ffi", (const unsigned long[]){0xfb03}, 1},
-    {"ffl", (const unsigned long[]){0xfb04}, 1},
-    {"fi", (const unsigned long[]){0xfb01}, 1},
-    {"fifteencircle", (const unsigned long[]){0x246e}, 1},
-    {"fifteenparen", (const unsigned long[]){0x2482}, 1},
-    {"fifteenperiod", (const unsigned long[]){0x2496}, 1},
-    {"figuredash", (const unsigned long[]){0x2012}, 1},
-    {"filledbox", (const unsigned long[]){0x25a0}, 1},
-    {"filledrect", (const unsigned long[]){0x25ac}, 1},
-    {"finalkaf", (const unsigned long[]){0x05da}, 1},
-    {"finalkafdagesh", (const unsigned long[]){0xfb3a}, 1},
-    {"finalkafdageshhebrew", (const unsigned long[]){0xfb3a}, 1},
-    {"finalkafhebrew", (const unsigned long[]){0x05da}, 1},
+    {"dalfinalarabic", cp_single_1502, 1},
+    {"dammaarabic", cp_single_1503, 1},
+    {"dammalowarabic", cp_single_1504, 1},
+    {"dammatanaltonearabic", cp_single_1505, 1},
+    {"dammatanarabic", cp_single_1506, 1},
+    {"danda", cp_single_1507, 1},
+    {"dargahebrew", cp_single_1508, 1},
+    {"dargalefthebrew", cp_single_1509, 1},
+    {"dasiapneumatacyrilliccmb", cp_single_1510, 1},
+    {"dblGrave", cp_single_1511, 1},
+    {"dblanglebracketleft", cp_single_1512, 1},
+    {"dblanglebracketleftvertical", cp_single_1513, 1},
+    {"dblanglebracketright", cp_single_1514, 1},
+    {"dblanglebracketrightvertical", cp_single_1515, 1},
+    {"dblarchinvertedbelowcmb", cp_single_1516, 1},
+    {"dblarrowleft", cp_single_1517, 1},
+    {"dblarrowright", cp_single_1518, 1},
+    {"dbldanda", cp_single_1519, 1},
+    {"dblgrave", cp_single_1520, 1},
+    {"dblgravecmb", cp_single_1521, 1},
+    {"dblintegral", cp_single_1522, 1},
+    {"dbllowline", cp_single_1523, 1},
+    {"dbllowlinecmb", cp_single_1524, 1},
+    {"dbloverlinecmb", cp_single_1525, 1},
+    {"dblprimemod", cp_single_1526, 1},
+    {"dblverticalbar", cp_single_1527, 1},
+    {"dblverticallineabovecmb", cp_single_1528, 1},
+    {"dbopomofo", cp_single_1529, 1},
+    {"dbsquare", cp_single_1530, 1},
+    {"dcaron", cp_single_1531, 1},
+    {"dcedilla", cp_single_1532, 1},
+    {"dcircle", cp_single_1533, 1},
+    {"dcircumflexbelow", cp_single_1534, 1},
+    {"dcroat", cp_single_1535, 1},
+    {"ddabengali", cp_single_1536, 1},
+    {"ddadeva", cp_single_1537, 1},
+    {"ddagujarati", cp_single_1538, 1},
+    {"ddagurmukhi", cp_single_1539, 1},
+    {"ddalarabic", cp_single_1540, 1},
+    {"ddalfinalarabic", cp_single_1541, 1},
+    {"dddhadeva", cp_single_1542, 1},
+    {"ddhabengali", cp_single_1543, 1},
+    {"ddhadeva", cp_single_1544, 1},
+    {"ddhagujarati", cp_single_1545, 1},
+    {"ddhagurmukhi", cp_single_1546, 1},
+    {"ddotaccent", cp_single_1547, 1},
+    {"ddotbelow", cp_single_1548, 1},
+    {"decimalseparatorarabic", cp_single_1549, 1},
+    {"decimalseparatorpersian", cp_single_1550, 1},
+    {"decyrillic", cp_single_1551, 1},
+    {"degree", cp_single_1552, 1},
+    {"dehihebrew", cp_single_1553, 1},
+    {"dehiragana", cp_single_1554, 1},
+    {"deicoptic", cp_single_1555, 1},
+    {"dekatakana", cp_single_1556, 1},
+    {"deleteleft", cp_single_1557, 1},
+    {"deleteright", cp_single_1558, 1},
+    {"delta", cp_single_1559, 1},
+    {"deltaturned", cp_single_1560, 1},
+    {"denominatorminusonenumeratorbengali", cp_single_1561, 1},
+    {"dezh", cp_single_1562, 1},
+    {"dhabengali", cp_single_1563, 1},
+    {"dhadeva", cp_single_1564, 1},
+    {"dhagujarati", cp_single_1565, 1},
+    {"dhagurmukhi", cp_single_1566, 1},
+    {"dhook", cp_single_1567, 1},
+    {"dialytikatonos", cp_single_1568, 1},
+    {"dialytikatonoscmb", cp_single_1569, 1},
+    {"diamond", cp_single_1570, 1},
+    {"diamondsuitwhite", cp_single_1571, 1},
+    {"dieresis", cp_single_1572, 1},
+    {"dieresisacute", cp_single_1573, 1},
+    {"dieresisbelowcmb", cp_single_1574, 1},
+    {"dieresiscmb", cp_single_1575, 1},
+    {"dieresisgrave", cp_single_1576, 1},
+    {"dieresistonos", cp_single_1577, 1},
+    {"dihiragana", cp_single_1578, 1},
+    {"dikatakana", cp_single_1579, 1},
+    {"dittomark", cp_single_1580, 1},
+    {"divide", cp_single_1581, 1},
+    {"divides", cp_single_1582, 1},
+    {"divisionslash", cp_single_1583, 1},
+    {"djecyrillic", cp_single_1584, 1},
+    {"dkshade", cp_single_1585, 1},
+    {"dlinebelow", cp_single_1586, 1},
+    {"dlsquare", cp_single_1587, 1},
+    {"dmacron", cp_single_1588, 1},
+    {"dmonospace", cp_single_1589, 1},
+    {"dnblock", cp_single_1590, 1},
+    {"dochadathai", cp_single_1591, 1},
+    {"dodekthai", cp_single_1592, 1},
+    {"dohiragana", cp_single_1593, 1},
+    {"dokatakana", cp_single_1594, 1},
+    {"dollar", cp_single_1595, 1},
+    {"dollarinferior", cp_single_1596, 1},
+    {"dollarmonospace", cp_single_1597, 1},
+    {"dollaroldstyle", cp_single_1598, 1},
+    {"dollarsmall", cp_single_1599, 1},
+    {"dollarsuperior", cp_single_1600, 1},
+    {"dong", cp_single_1601, 1},
+    {"dorusquare", cp_single_1602, 1},
+    {"dotaccent", cp_single_1603, 1},
+    {"dotaccentcmb", cp_single_1604, 1},
+    {"dotbelowcmb", cp_single_1605, 1},
+    {"dotbelowcomb", cp_single_1606, 1},
+    {"dotkatakana", cp_single_1607, 1},
+    {"dotlessi", cp_single_1608, 1},
+    {"dotlessj", cp_single_1609, 1},
+    {"dotlessjstrokehook", cp_single_1610, 1},
+    {"dotmath", cp_single_1611, 1},
+    {"dottedcircle", cp_single_1612, 1},
+    {"doubleyodpatah", cp_single_1613, 1},
+    {"doubleyodpatahhebrew", cp_single_1614, 1},
+    {"downtackbelowcmb", cp_single_1615, 1},
+    {"downtackmod", cp_single_1616, 1},
+    {"dparen", cp_single_1617, 1},
+    {"dsuperior", cp_single_1618, 1},
+    {"dtail", cp_single_1619, 1},
+    {"dtopbar", cp_single_1620, 1},
+    {"duhiragana", cp_single_1621, 1},
+    {"dukatakana", cp_single_1622, 1},
+    {"dz", cp_single_1623, 1},
+    {"dzaltone", cp_single_1624, 1},
+    {"dzcaron", cp_single_1625, 1},
+    {"dzcurl", cp_single_1626, 1},
+    {"dzeabkhasiancyrillic", cp_single_1627, 1},
+    {"dzecyrillic", cp_single_1628, 1},
+    {"dzhecyrillic", cp_single_1629, 1},
+    {"e", cp_single_1630, 1},
+    {"eacute", cp_single_1631, 1},
+    {"earth", cp_single_1632, 1},
+    {"ebengali", cp_single_1633, 1},
+    {"ebopomofo", cp_single_1634, 1},
+    {"ebreve", cp_single_1635, 1},
+    {"ecandradeva", cp_single_1636, 1},
+    {"ecandragujarati", cp_single_1637, 1},
+    {"ecandravowelsigndeva", cp_single_1638, 1},
+    {"ecandravowelsigngujarati", cp_single_1639, 1},
+    {"ecaron", cp_single_1640, 1},
+    {"ecedillabreve", cp_single_1641, 1},
+    {"echarmenian", cp_single_1642, 1},
+    {"echyiwnarmenian", cp_single_1643, 1},
+    {"ecircle", cp_single_1644, 1},
+    {"ecircumflex", cp_single_1645, 1},
+    {"ecircumflexacute", cp_single_1646, 1},
+    {"ecircumflexbelow", cp_single_1647, 1},
+    {"ecircumflexdotbelow", cp_single_1648, 1},
+    {"ecircumflexgrave", cp_single_1649, 1},
+    {"ecircumflexhookabove", cp_single_1650, 1},
+    {"ecircumflextilde", cp_single_1651, 1},
+    {"ecyrillic", cp_single_1652, 1},
+    {"edblgrave", cp_single_1653, 1},
+    {"edeva", cp_single_1654, 1},
+    {"edieresis", cp_single_1655, 1},
+    {"edot", cp_single_1656, 1},
+    {"edotaccent", cp_single_1657, 1},
+    {"edotbelow", cp_single_1658, 1},
+    {"eegurmukhi", cp_single_1659, 1},
+    {"eematragurmukhi", cp_single_1660, 1},
+    {"efcyrillic", cp_single_1661, 1},
+    {"egrave", cp_single_1662, 1},
+    {"egujarati", cp_single_1663, 1},
+    {"eharmenian", cp_single_1664, 1},
+    {"ehbopomofo", cp_single_1665, 1},
+    {"ehiragana", cp_single_1666, 1},
+    {"ehookabove", cp_single_1667, 1},
+    {"eibopomofo", cp_single_1668, 1},
+    {"eight", cp_single_1669, 1},
+    {"eightarabic", cp_single_1670, 1},
+    {"eightbengali", cp_single_1671, 1},
+    {"eightcircle", cp_single_1672, 1},
+    {"eightcircleinversesansserif", cp_single_1673, 1},
+    {"eightdeva", cp_single_1674, 1},
+    {"eighteencircle", cp_single_1675, 1},
+    {"eighteenparen", cp_single_1676, 1},
+    {"eighteenperiod", cp_single_1677, 1},
+    {"eightgujarati", cp_single_1678, 1},
+    {"eightgurmukhi", cp_single_1679, 1},
+    {"eighthackarabic", cp_single_1680, 1},
+    {"eighthangzhou", cp_single_1681, 1},
+    {"eighthnotebeamed", cp_single_1682, 1},
+    {"eightideographicparen", cp_single_1683, 1},
+    {"eightinferior", cp_single_1684, 1},
+    {"eightmonospace", cp_single_1685, 1},
+    {"eightoldstyle", cp_single_1686, 1},
+    {"eightparen", cp_single_1687, 1},
+    {"eightperiod", cp_single_1688, 1},
+    {"eightpersian", cp_single_1689, 1},
+    {"eightroman", cp_single_1690, 1},
+    {"eightsuperior", cp_single_1691, 1},
+    {"eightthai", cp_single_1692, 1},
+    {"einvertedbreve", cp_single_1693, 1},
+    {"eiotifiedcyrillic", cp_single_1694, 1},
+    {"ekatakana", cp_single_1695, 1},
+    {"ekatakanahalfwidth", cp_single_1696, 1},
+    {"ekonkargurmukhi", cp_single_1697, 1},
+    {"ekorean", cp_single_1698, 1},
+    {"elcyrillic", cp_single_1699, 1},
+    {"element", cp_single_1700, 1},
+    {"elevencircle", cp_single_1701, 1},
+    {"elevenparen", cp_single_1702, 1},
+    {"elevenperiod", cp_single_1703, 1},
+    {"elevenroman", cp_single_1704, 1},
+    {"ellipsis", cp_single_1705, 1},
+    {"ellipsisvertical", cp_single_1706, 1},
+    {"emacron", cp_single_1707, 1},
+    {"emacronacute", cp_single_1708, 1},
+    {"emacrongrave", cp_single_1709, 1},
+    {"emcyrillic", cp_single_1710, 1},
+    {"emdash", cp_single_1711, 1},
+    {"emdashvertical", cp_single_1712, 1},
+    {"emonospace", cp_single_1713, 1},
+    {"emphasismarkarmenian", cp_single_1714, 1},
+    {"emptyset", cp_single_1715, 1},
+    {"enbopomofo", cp_single_1716, 1},
+    {"encyrillic", cp_single_1717, 1},
+    {"endash", cp_single_1718, 1},
+    {"endashvertical", cp_single_1719, 1},
+    {"endescendercyrillic", cp_single_1720, 1},
+    {"eng", cp_single_1721, 1},
+    {"engbopomofo", cp_single_1722, 1},
+    {"enghecyrillic", cp_single_1723, 1},
+    {"enhookcyrillic", cp_single_1724, 1},
+    {"enspace", cp_single_1725, 1},
+    {"eogonek", cp_single_1726, 1},
+    {"eokorean", cp_single_1727, 1},
+    {"eopen", cp_single_1728, 1},
+    {"eopenclosed", cp_single_1729, 1},
+    {"eopenreversed", cp_single_1730, 1},
+    {"eopenreversedclosed", cp_single_1731, 1},
+    {"eopenreversedhook", cp_single_1732, 1},
+    {"eparen", cp_single_1733, 1},
+    {"epsilon", cp_single_1734, 1},
+    {"epsilontonos", cp_single_1735, 1},
+    {"equal", cp_single_1736, 1},
+    {"equalmonospace", cp_single_1737, 1},
+    {"equalsmall", cp_single_1738, 1},
+    {"equalsuperior", cp_single_1739, 1},
+    {"equivalence", cp_single_1740, 1},
+    {"erbopomofo", cp_single_1741, 1},
+    {"ercyrillic", cp_single_1742, 1},
+    {"ereversed", cp_single_1743, 1},
+    {"ereversedcyrillic", cp_single_1744, 1},
+    {"escyrillic", cp_single_1745, 1},
+    {"esdescendercyrillic", cp_single_1746, 1},
+    {"esh", cp_single_1747, 1},
+    {"eshcurl", cp_single_1748, 1},
+    {"eshortdeva", cp_single_1749, 1},
+    {"eshortvowelsigndeva", cp_single_1750, 1},
+    {"eshreversedloop", cp_single_1751, 1},
+    {"eshsquatreversed", cp_single_1752, 1},
+    {"esmallhiragana", cp_single_1753, 1},
+    {"esmallkatakana", cp_single_1754, 1},
+    {"esmallkatakanahalfwidth", cp_single_1755, 1},
+    {"estimated", cp_single_1756, 1},
+    {"esuperior", cp_single_1757, 1},
+    {"eta", cp_single_1758, 1},
+    {"etarmenian", cp_single_1759, 1},
+    {"etatonos", cp_single_1760, 1},
+    {"eth", cp_single_1761, 1},
+    {"etilde", cp_single_1762, 1},
+    {"etildebelow", cp_single_1763, 1},
+    {"etnahtafoukhhebrew", cp_single_1764, 1},
+    {"etnahtafoukhlefthebrew", cp_single_1765, 1},
+    {"etnahtahebrew", cp_single_1766, 1},
+    {"etnahtalefthebrew", cp_single_1767, 1},
+    {"eturned", cp_single_1768, 1},
+    {"eukorean", cp_single_1769, 1},
+    {"euro", cp_single_1770, 1},
+    {"evowelsignbengali", cp_single_1771, 1},
+    {"evowelsigndeva", cp_single_1772, 1},
+    {"evowelsigngujarati", cp_single_1773, 1},
+    {"exclam", cp_single_1774, 1},
+    {"exclamarmenian", cp_single_1775, 1},
+    {"exclamdbl", cp_single_1776, 1},
+    {"exclamdown", cp_single_1777, 1},
+    {"exclamdownsmall", cp_single_1778, 1},
+    {"exclammonospace", cp_single_1779, 1},
+    {"exclamsmall", cp_single_1780, 1},
+    {"existential", cp_single_1781, 1},
+    {"ezh", cp_single_1782, 1},
+    {"ezhcaron", cp_single_1783, 1},
+    {"ezhcurl", cp_single_1784, 1},
+    {"ezhreversed", cp_single_1785, 1},
+    {"ezhtail", cp_single_1786, 1},
+    {"f", cp_single_1787, 1},
+    {"fadeva", cp_single_1788, 1},
+    {"fagurmukhi", cp_single_1789, 1},
+    {"fahrenheit", cp_single_1790, 1},
+    {"fathaarabic", cp_single_1791, 1},
+    {"fathalowarabic", cp_single_1792, 1},
+    {"fathatanarabic", cp_single_1793, 1},
+    {"fbopomofo", cp_single_1794, 1},
+    {"fcircle", cp_single_1795, 1},
+    {"fdotaccent", cp_single_1796, 1},
+    {"feharabic", cp_single_1797, 1},
+    {"feharmenian", cp_single_1798, 1},
+    {"fehfinalarabic", cp_single_1799, 1},
+    {"fehinitialarabic", cp_single_1800, 1},
+    {"fehmedialarabic", cp_single_1801, 1},
+    {"feicoptic", cp_single_1802, 1},
+    {"female", cp_single_1803, 1},
+    {"ff", cp_single_1804, 1},
+    {"ffi", cp_single_1805, 1},
+    {"ffl", cp_single_1806, 1},
+    {"fi", cp_single_1807, 1},
+    {"fifteencircle", cp_single_1808, 1},
+    {"fifteenparen", cp_single_1809, 1},
+    {"fifteenperiod", cp_single_1810, 1},
+    {"figuredash", cp_single_1811, 1},
+    {"filledbox", cp_single_1812, 1},
+    {"filledrect", cp_single_1813, 1},
+    {"finalkaf", cp_single_1814, 1},
+    {"finalkafdagesh", cp_single_1815, 1},
+    {"finalkafdageshhebrew", cp_single_1816, 1},
+    {"finalkafhebrew", cp_single_1817, 1},
     {"finalkafqamats", cp_1838, 2},
     {"finalkafqamatshebrew", cp_1839, 2},
     {"finalkafsheva", cp_1840, 2},
     {"finalkafshevahebrew", cp_1841, 2},
-    {"finalmem", (const unsigned long[]){0x05dd}, 1},
-    {"finalmemhebrew", (const unsigned long[]){0x05dd}, 1},
-    {"finalnun", (const unsigned long[]){0x05df}, 1},
-    {"finalnunhebrew", (const unsigned long[]){0x05df}, 1},
-    {"finalpe", (const unsigned long[]){0x05e3}, 1},
-    {"finalpehebrew", (const unsigned long[]){0x05e3}, 1},
-    {"finaltsadi", (const unsigned long[]){0x05e5}, 1},
-    {"finaltsadihebrew", (const unsigned long[]){0x05e5}, 1},
-    {"firsttonechinese", (const unsigned long[]){0x02c9}, 1},
-    {"fisheye", (const unsigned long[]){0x25c9}, 1},
-    {"fitacyrillic", (const unsigned long[]){0x0473}, 1},
-    {"five", (const unsigned long[]){0x0035}, 1},
-    {"fivearabic", (const unsigned long[]){0x0665}, 1},
-    {"fivebengali", (const unsigned long[]){0x09eb}, 1},
-    {"fivecircle", (const unsigned long[]){0x2464}, 1},
-    {"fivecircleinversesansserif", (const unsigned long[]){0x278e}, 1},
-    {"fivedeva", (const unsigned long[]){0x096b}, 1},
-    {"fiveeighths", (const unsigned long[]){0x215d}, 1},
-    {"fivegujarati", (const unsigned long[]){0x0aeb}, 1},
-    {"fivegurmukhi", (const unsigned long[]){0x0a6b}, 1},
-    {"fivehackarabic", (const unsigned long[]){0x0665}, 1},
-    {"fivehangzhou", (const unsigned long[]){0x3025}, 1},
-    {"fiveideographicparen", (const unsigned long[]){0x3224}, 1},
-    {"fiveinferior", (const unsigned long[]){0x2085}, 1},
-    {"fivemonospace", (const unsigned long[]){0xff15}, 1},
-    {"fiveoldstyle", (const unsigned long[]){0xf735}, 1},
-    {"fiveparen", (const unsigned long[]){0x2478}, 1},
-    {"fiveperiod", (const unsigned long[]){0x248c}, 1},
-    {"fivepersian", (const unsigned long[]){0x06f5}, 1},
-    {"fiveroman", (const unsigned long[]){0x2174}, 1},
-    {"fivesuperior", (const unsigned long[]){0x2075}, 1},
-    {"fivethai", (const unsigned long[]){0x0e55}, 1},
-    {"fl", (const unsigned long[]){0xfb02}, 1},
-    {"florin", (const unsigned long[]){0x0192}, 1},
-    {"fmonospace", (const unsigned long[]){0xff46}, 1},
-    {"fmsquare", (const unsigned long[]){0x3399}, 1},
-    {"fofanthai", (const unsigned long[]){0x0e1f}, 1},
-    {"fofathai", (const unsigned long[]){0x0e1d}, 1},
-    {"fongmanthai", (const unsigned long[]){0x0e4f}, 1},
-    {"forall", (const unsigned long[]){0x2200}, 1},
-    {"four", (const unsigned long[]){0x0034}, 1},
-    {"fourarabic", (const unsigned long[]){0x0664}, 1},
-    {"fourbengali", (const unsigned long[]){0x09ea}, 1},
-    {"fourcircle", (const unsigned long[]){0x2463}, 1},
-    {"fourcircleinversesansserif", (const unsigned long[]){0x278d}, 1},
-    {"fourdeva", (const unsigned long[]){0x096a}, 1},
-    {"fourgujarati", (const unsigned long[]){0x0aea}, 1},
-    {"fourgurmukhi", (const unsigned long[]){0x0a6a}, 1},
-    {"fourhackarabic", (const unsigned long[]){0x0664}, 1},
-    {"fourhangzhou", (const unsigned long[]){0x3024}, 1},
-    {"fourideographicparen", (const unsigned long[]){0x3223}, 1},
-    {"fourinferior", (const unsigned long[]){0x2084}, 1},
-    {"fourmonospace", (const unsigned long[]){0xff14}, 1},
-    {"fournumeratorbengali", (const unsigned long[]){0x09f7}, 1},
-    {"fouroldstyle", (const unsigned long[]){0xf734}, 1},
-    {"fourparen", (const unsigned long[]){0x2477}, 1},
-    {"fourperiod", (const unsigned long[]){0x248b}, 1},
-    {"fourpersian", (const unsigned long[]){0x06f4}, 1},
-    {"fourroman", (const unsigned long[]){0x2173}, 1},
-    {"foursuperior", (const unsigned long[]){0x2074}, 1},
-    {"fourteencircle", (const unsigned long[]){0x246d}, 1},
-    {"fourteenparen", (const unsigned long[]){0x2481}, 1},
-    {"fourteenperiod", (const unsigned long[]){0x2495}, 1},
-    {"fourthai", (const unsigned long[]){0x0e54}, 1},
-    {"fourthtonechinese", (const unsigned long[]){0x02cb}, 1},
-    {"fparen", (const unsigned long[]){0x24a1}, 1},
-    {"fraction", (const unsigned long[]){0x2044}, 1},
-    {"franc", (const unsigned long[]){0x20a3}, 1},
-    {"g", (const unsigned long[]){0x0067}, 1},
-    {"gabengali", (const unsigned long[]){0x0997}, 1},
-    {"gacute", (const unsigned long[]){0x01f5}, 1},
-    {"gadeva", (const unsigned long[]){0x0917}, 1},
-    {"gafarabic", (const unsigned long[]){0x06af}, 1},
-    {"gaffinalarabic", (const unsigned long[]){0xfb93}, 1},
-    {"gafinitialarabic", (const unsigned long[]){0xfb94}, 1},
-    {"gafmedialarabic", (const unsigned long[]){0xfb95}, 1},
-    {"gagujarati", (const unsigned long[]){0x0a97}, 1},
-    {"gagurmukhi", (const unsigned long[]){0x0a17}, 1},
-    {"gahiragana", (const unsigned long[]){0x304c}, 1},
-    {"gakatakana", (const unsigned long[]){0x30ac}, 1},
-    {"gamma", (const unsigned long[]){0x03b3}, 1},
-    {"gammalatinsmall", (const unsigned long[]){0x0263}, 1},
-    {"gammasuperior", (const unsigned long[]){0x02e0}, 1},
-    {"gangiacoptic", (const unsigned long[]){0x03eb}, 1},
-    {"gbopomofo", (const unsigned long[]){0x310d}, 1},
-    {"gbreve", (const unsigned long[]){0x011f}, 1},
-    {"gcaron", (const unsigned long[]){0x01e7}, 1},
-    {"gcedilla", (const unsigned long[]){0x0123}, 1},
-    {"gcircle", (const unsigned long[]){0x24d6}, 1},
-    {"gcircumflex", (const unsigned long[]){0x011d}, 1},
-    {"gcommaaccent", (const unsigned long[]){0x0123}, 1},
-    {"gdot", (const unsigned long[]){0x0121}, 1},
-    {"gdotaccent", (const unsigned long[]){0x0121}, 1},
-    {"gecyrillic", (const unsigned long[]){0x0433}, 1},
-    {"gehiragana", (const unsigned long[]){0x3052}, 1},
-    {"gekatakana", (const unsigned long[]){0x30b2}, 1},
-    {"geometricallyequal", (const unsigned long[]){0x2251}, 1},
-    {"gereshaccenthebrew", (const unsigned long[]){0x059c}, 1},
-    {"gereshhebrew", (const unsigned long[]){0x05f3}, 1},
-    {"gereshmuqdamhebrew", (const unsigned long[]){0x059d}, 1},
-    {"germandbls", (const unsigned long[]){0x00df}, 1},
-    {"gershayimaccenthebrew", (const unsigned long[]){0x059e}, 1},
-    {"gershayimhebrew", (const unsigned long[]){0x05f4}, 1},
-    {"getamark", (const unsigned long[]){0x3013}, 1},
-    {"ghabengali", (const unsigned long[]){0x0998}, 1},
-    {"ghadarmenian", (const unsigned long[]){0x0572}, 1},
-    {"ghadeva", (const unsigned long[]){0x0918}, 1},
-    {"ghagujarati", (const unsigned long[]){0x0a98}, 1},
-    {"ghagurmukhi", (const unsigned long[]){0x0a18}, 1},
-    {"ghainarabic", (const unsigned long[]){0x063a}, 1},
-    {"ghainfinalarabic", (const unsigned long[]){0xfece}, 1},
-    {"ghaininitialarabic", (const unsigned long[]){0xfecf}, 1},
-    {"ghainmedialarabic", (const unsigned long[]){0xfed0}, 1},
-    {"ghemiddlehookcyrillic", (const unsigned long[]){0x0495}, 1},
-    {"ghestrokecyrillic", (const unsigned long[]){0x0493}, 1},
-    {"gheupturncyrillic", (const unsigned long[]){0x0491}, 1},
-    {"ghhadeva", (const unsigned long[]){0x095a}, 1},
-    {"ghhagurmukhi", (const unsigned long[]){0x0a5a}, 1},
-    {"ghook", (const unsigned long[]){0x0260}, 1},
-    {"ghzsquare", (const unsigned long[]){0x3393}, 1},
-    {"gihiragana", (const unsigned long[]){0x304e}, 1},
-    {"gikatakana", (const unsigned long[]){0x30ae}, 1},
-    {"gimarmenian", (const unsigned long[]){0x0563}, 1},
-    {"gimel", (const unsigned long[]){0x05d2}, 1},
-    {"gimeldagesh", (const unsigned long[]){0xfb32}, 1},
-    {"gimeldageshhebrew", (const unsigned long[]){0xfb32}, 1},
-    {"gimelhebrew", (const unsigned long[]){0x05d2}, 1},
-    {"gjecyrillic", (const unsigned long[]){0x0453}, 1},
-    {"glottalinvertedstroke", (const unsigned long[]){0x01be}, 1},
-    {"glottalstop", (const unsigned long[]){0x0294}, 1},
-    {"glottalstopinverted", (const unsigned long[]){0x0296}, 1},
-    {"glottalstopmod", (const unsigned long[]){0x02c0}, 1},
-    {"glottalstopreversed", (const unsigned long[]){0x0295}, 1},
-    {"glottalstopreversedmod", (const unsigned long[]){0x02c1}, 1},
-    {"glottalstopreversedsuperior", (const unsigned long[]){0x02e4}, 1},
-    {"glottalstopstroke", (const unsigned long[]){0x02a1}, 1},
-    {"glottalstopstrokereversed", (const unsigned long[]){0x02a2}, 1},
-    {"gmacron", (const unsigned long[]){0x1e21}, 1},
-    {"gmonospace", (const unsigned long[]){0xff47}, 1},
-    {"gohiragana", (const unsigned long[]){0x3054}, 1},
-    {"gokatakana", (const unsigned long[]){0x30b4}, 1},
-    {"gparen", (const unsigned long[]){0x24a2}, 1},
-    {"gpasquare", (const unsigned long[]){0x33ac}, 1},
-    {"gradient", (const unsigned long[]){0x2207}, 1},
-    {"grave", (const unsigned long[]){0x0060}, 1},
-    {"gravebelowcmb", (const unsigned long[]){0x0316}, 1},
-    {"gravecmb", (const unsigned long[]){0x0300}, 1},
-    {"gravecomb", (const unsigned long[]){0x0300}, 1},
-    {"gravedeva", (const unsigned long[]){0x0953}, 1},
-    {"gravelowmod", (const unsigned long[]){0x02ce}, 1},
-    {"gravemonospace", (const unsigned long[]){0xff40}, 1},
-    {"gravetonecmb", (const unsigned long[]){0x0340}, 1},
-    {"greater", (const unsigned long[]){0x003e}, 1},
-    {"greaterequal", (const unsigned long[]){0x2265}, 1},
-    {"greaterequalorless", (const unsigned long[]){0x22db}, 1},
-    {"greatermonospace", (const unsigned long[]){0xff1e}, 1},
-    {"greaterorequivalent", (const unsigned long[]){0x2273}, 1},
-    {"greaterorless", (const unsigned long[]){0x2277}, 1},
-    {"greateroverequal", (const unsigned long[]){0x2267}, 1},
-    {"greatersmall", (const unsigned long[]){0xfe65}, 1},
-    {"gscript", (const unsigned long[]){0x0261}, 1},
-    {"gstroke", (const unsigned long[]){0x01e5}, 1},
-    {"guhiragana", (const unsigned long[]){0x3050}, 1},
-    {"guillemotleft", (const unsigned long[]){0x00ab}, 1},
-    {"guillemotright", (const unsigned long[]){0x00bb}, 1},
-    {"guilsinglleft", (const unsigned long[]){0x2039}, 1},
-    {"guilsinglright", (const unsigned long[]){0x203a}, 1},
-    {"gukatakana", (const unsigned long[]){0x30b0}, 1},
-    {"guramusquare", (const unsigned long[]){0x3318}, 1},
-    {"gysquare", (const unsigned long[]){0x33c9}, 1},
-    {"h", (const unsigned long[]){0x0068}, 1},
-    {"haabkhasiancyrillic", (const unsigned long[]){0x04a9}, 1},
-    {"haaltonearabic", (const unsigned long[]){0x06c1}, 1},
-    {"habengali", (const unsigned long[]){0x09b9}, 1},
-    {"hadescendercyrillic", (const unsigned long[]){0x04b3}, 1},
-    {"hadeva", (const unsigned long[]){0x0939}, 1},
-    {"hagujarati", (const unsigned long[]){0x0ab9}, 1},
-    {"hagurmukhi", (const unsigned long[]){0x0a39}, 1},
-    {"haharabic", (const unsigned long[]){0x062d}, 1},
-    {"hahfinalarabic", (const unsigned long[]){0xfea2}, 1},
-    {"hahinitialarabic", (const unsigned long[]){0xfea3}, 1},
-    {"hahiragana", (const unsigned long[]){0x306f}, 1},
-    {"hahmedialarabic", (const unsigned long[]){0xfea4}, 1},
-    {"haitusquare", (const unsigned long[]){0x332a}, 1},
-    {"hakatakana", (const unsigned long[]){0x30cf}, 1},
-    {"hakatakanahalfwidth", (const unsigned long[]){0xff8a}, 1},
-    {"halantgurmukhi", (const unsigned long[]){0x0a4d}, 1},
-    {"hamzaarabic", (const unsigned long[]){0x0621}, 1},
+    {"finalmem", cp_single_1818, 1},
+    {"finalmemhebrew", cp_single_1819, 1},
+    {"finalnun", cp_single_1820, 1},
+    {"finalnunhebrew", cp_single_1821, 1},
+    {"finalpe", cp_single_1822, 1},
+    {"finalpehebrew", cp_single_1823, 1},
+    {"finaltsadi", cp_single_1824, 1},
+    {"finaltsadihebrew", cp_single_1825, 1},
+    {"firsttonechinese", cp_single_1826, 1},
+    {"fisheye", cp_single_1827, 1},
+    {"fitacyrillic", cp_single_1828, 1},
+    {"five", cp_single_1829, 1},
+    {"fivearabic", cp_single_1830, 1},
+    {"fivebengali", cp_single_1831, 1},
+    {"fivecircle", cp_single_1832, 1},
+    {"fivecircleinversesansserif", cp_single_1833, 1},
+    {"fivedeva", cp_single_1834, 1},
+    {"fiveeighths", cp_single_1835, 1},
+    {"fivegujarati", cp_single_1836, 1},
+    {"fivegurmukhi", cp_single_1837, 1},
+    {"fivehackarabic", cp_single_1838, 1},
+    {"fivehangzhou", cp_single_1839, 1},
+    {"fiveideographicparen", cp_single_1840, 1},
+    {"fiveinferior", cp_single_1841, 1},
+    {"fivemonospace", cp_single_1842, 1},
+    {"fiveoldstyle", cp_single_1843, 1},
+    {"fiveparen", cp_single_1844, 1},
+    {"fiveperiod", cp_single_1845, 1},
+    {"fivepersian", cp_single_1846, 1},
+    {"fiveroman", cp_single_1847, 1},
+    {"fivesuperior", cp_single_1848, 1},
+    {"fivethai", cp_single_1849, 1},
+    {"fl", cp_single_1850, 1},
+    {"florin", cp_single_1851, 1},
+    {"fmonospace", cp_single_1852, 1},
+    {"fmsquare", cp_single_1853, 1},
+    {"fofanthai", cp_single_1854, 1},
+    {"fofathai", cp_single_1855, 1},
+    {"fongmanthai", cp_single_1856, 1},
+    {"forall", cp_single_1857, 1},
+    {"four", cp_single_1858, 1},
+    {"fourarabic", cp_single_1859, 1},
+    {"fourbengali", cp_single_1860, 1},
+    {"fourcircle", cp_single_1861, 1},
+    {"fourcircleinversesansserif", cp_single_1862, 1},
+    {"fourdeva", cp_single_1863, 1},
+    {"fourgujarati", cp_single_1864, 1},
+    {"fourgurmukhi", cp_single_1865, 1},
+    {"fourhackarabic", cp_single_1866, 1},
+    {"fourhangzhou", cp_single_1867, 1},
+    {"fourideographicparen", cp_single_1868, 1},
+    {"fourinferior", cp_single_1869, 1},
+    {"fourmonospace", cp_single_1870, 1},
+    {"fournumeratorbengali", cp_single_1871, 1},
+    {"fouroldstyle", cp_single_1872, 1},
+    {"fourparen", cp_single_1873, 1},
+    {"fourperiod", cp_single_1874, 1},
+    {"fourpersian", cp_single_1875, 1},
+    {"fourroman", cp_single_1876, 1},
+    {"foursuperior", cp_single_1877, 1},
+    {"fourteencircle", cp_single_1878, 1},
+    {"fourteenparen", cp_single_1879, 1},
+    {"fourteenperiod", cp_single_1880, 1},
+    {"fourthai", cp_single_1881, 1},
+    {"fourthtonechinese", cp_single_1882, 1},
+    {"fparen", cp_single_1883, 1},
+    {"fraction", cp_single_1884, 1},
+    {"franc", cp_single_1885, 1},
+    {"g", cp_single_1886, 1},
+    {"gabengali", cp_single_1887, 1},
+    {"gacute", cp_single_1888, 1},
+    {"gadeva", cp_single_1889, 1},
+    {"gafarabic", cp_single_1890, 1},
+    {"gaffinalarabic", cp_single_1891, 1},
+    {"gafinitialarabic", cp_single_1892, 1},
+    {"gafmedialarabic", cp_single_1893, 1},
+    {"gagujarati", cp_single_1894, 1},
+    {"gagurmukhi", cp_single_1895, 1},
+    {"gahiragana", cp_single_1896, 1},
+    {"gakatakana", cp_single_1897, 1},
+    {"gamma", cp_single_1898, 1},
+    {"gammalatinsmall", cp_single_1899, 1},
+    {"gammasuperior", cp_single_1900, 1},
+    {"gangiacoptic", cp_single_1901, 1},
+    {"gbopomofo", cp_single_1902, 1},
+    {"gbreve", cp_single_1903, 1},
+    {"gcaron", cp_single_1904, 1},
+    {"gcedilla", cp_single_1905, 1},
+    {"gcircle", cp_single_1906, 1},
+    {"gcircumflex", cp_single_1907, 1},
+    {"gcommaaccent", cp_single_1908, 1},
+    {"gdot", cp_single_1909, 1},
+    {"gdotaccent", cp_single_1910, 1},
+    {"gecyrillic", cp_single_1911, 1},
+    {"gehiragana", cp_single_1912, 1},
+    {"gekatakana", cp_single_1913, 1},
+    {"geometricallyequal", cp_single_1914, 1},
+    {"gereshaccenthebrew", cp_single_1915, 1},
+    {"gereshhebrew", cp_single_1916, 1},
+    {"gereshmuqdamhebrew", cp_single_1917, 1},
+    {"germandbls", cp_single_1918, 1},
+    {"gershayimaccenthebrew", cp_single_1919, 1},
+    {"gershayimhebrew", cp_single_1920, 1},
+    {"getamark", cp_single_1921, 1},
+    {"ghabengali", cp_single_1922, 1},
+    {"ghadarmenian", cp_single_1923, 1},
+    {"ghadeva", cp_single_1924, 1},
+    {"ghagujarati", cp_single_1925, 1},
+    {"ghagurmukhi", cp_single_1926, 1},
+    {"ghainarabic", cp_single_1927, 1},
+    {"ghainfinalarabic", cp_single_1928, 1},
+    {"ghaininitialarabic", cp_single_1929, 1},
+    {"ghainmedialarabic", cp_single_1930, 1},
+    {"ghemiddlehookcyrillic", cp_single_1931, 1},
+    {"ghestrokecyrillic", cp_single_1932, 1},
+    {"gheupturncyrillic", cp_single_1933, 1},
+    {"ghhadeva", cp_single_1934, 1},
+    {"ghhagurmukhi", cp_single_1935, 1},
+    {"ghook", cp_single_1936, 1},
+    {"ghzsquare", cp_single_1937, 1},
+    {"gihiragana", cp_single_1938, 1},
+    {"gikatakana", cp_single_1939, 1},
+    {"gimarmenian", cp_single_1940, 1},
+    {"gimel", cp_single_1941, 1},
+    {"gimeldagesh", cp_single_1942, 1},
+    {"gimeldageshhebrew", cp_single_1943, 1},
+    {"gimelhebrew", cp_single_1944, 1},
+    {"gjecyrillic", cp_single_1945, 1},
+    {"glottalinvertedstroke", cp_single_1946, 1},
+    {"glottalstop", cp_single_1947, 1},
+    {"glottalstopinverted", cp_single_1948, 1},
+    {"glottalstopmod", cp_single_1949, 1},
+    {"glottalstopreversed", cp_single_1950, 1},
+    {"glottalstopreversedmod", cp_single_1951, 1},
+    {"glottalstopreversedsuperior", cp_single_1952, 1},
+    {"glottalstopstroke", cp_single_1953, 1},
+    {"glottalstopstrokereversed", cp_single_1954, 1},
+    {"gmacron", cp_single_1955, 1},
+    {"gmonospace", cp_single_1956, 1},
+    {"gohiragana", cp_single_1957, 1},
+    {"gokatakana", cp_single_1958, 1},
+    {"gparen", cp_single_1959, 1},
+    {"gpasquare", cp_single_1960, 1},
+    {"gradient", cp_single_1961, 1},
+    {"grave", cp_single_1962, 1},
+    {"gravebelowcmb", cp_single_1963, 1},
+    {"gravecmb", cp_single_1964, 1},
+    {"gravecomb", cp_single_1965, 1},
+    {"gravedeva", cp_single_1966, 1},
+    {"gravelowmod", cp_single_1967, 1},
+    {"gravemonospace", cp_single_1968, 1},
+    {"gravetonecmb", cp_single_1969, 1},
+    {"greater", cp_single_1970, 1},
+    {"greaterequal", cp_single_1971, 1},
+    {"greaterequalorless", cp_single_1972, 1},
+    {"greatermonospace", cp_single_1973, 1},
+    {"greaterorequivalent", cp_single_1974, 1},
+    {"greaterorless", cp_single_1975, 1},
+    {"greateroverequal", cp_single_1976, 1},
+    {"greatersmall", cp_single_1977, 1},
+    {"gscript", cp_single_1978, 1},
+    {"gstroke", cp_single_1979, 1},
+    {"guhiragana", cp_single_1980, 1},
+    {"guillemotleft", cp_single_1981, 1},
+    {"guillemotright", cp_single_1982, 1},
+    {"guilsinglleft", cp_single_1983, 1},
+    {"guilsinglright", cp_single_1984, 1},
+    {"gukatakana", cp_single_1985, 1},
+    {"guramusquare", cp_single_1986, 1},
+    {"gysquare", cp_single_1987, 1},
+    {"h", cp_single_1988, 1},
+    {"haabkhasiancyrillic", cp_single_1989, 1},
+    {"haaltonearabic", cp_single_1990, 1},
+    {"habengali", cp_single_1991, 1},
+    {"hadescendercyrillic", cp_single_1992, 1},
+    {"hadeva", cp_single_1993, 1},
+    {"hagujarati", cp_single_1994, 1},
+    {"hagurmukhi", cp_single_1995, 1},
+    {"haharabic", cp_single_1996, 1},
+    {"hahfinalarabic", cp_single_1997, 1},
+    {"hahinitialarabic", cp_single_1998, 1},
+    {"hahiragana", cp_single_1999, 1},
+    {"hahmedialarabic", cp_single_2000, 1},
+    {"haitusquare", cp_single_2001, 1},
+    {"hakatakana", cp_single_2002, 1},
+    {"hakatakanahalfwidth", cp_single_2003, 1},
+    {"halantgurmukhi", cp_single_2004, 1},
+    {"hamzaarabic", cp_single_2005, 1},
     {"hamzadammaarabic", cp_2030, 2},
     {"hamzadammatanarabic", cp_2031, 2},
     {"hamzafathaarabic", cp_2032, 2},
     {"hamzafathatanarabic", cp_2033, 2},
-    {"hamzalowarabic", (const unsigned long[]){0x0621}, 1},
+    {"hamzalowarabic", cp_single_2006, 1},
     {"hamzalowkasraarabic", cp_2035, 2},
     {"hamzalowkasratanarabic", cp_2036, 2},
     {"hamzasukunarabic", cp_2037, 2},
-    {"hangulfiller", (const unsigned long[]){0x3164}, 1},
-    {"hardsigncyrillic", (const unsigned long[]){0x044a}, 1},
-    {"harpoonleftbarbup", (const unsigned long[]){0x21bc}, 1},
-    {"harpoonrightbarbup", (const unsigned long[]){0x21c0}, 1},
-    {"hasquare", (const unsigned long[]){0x33ca}, 1},
-    {"hatafpatah", (const unsigned long[]){0x05b2}, 1},
-    {"hatafpatah16", (const unsigned long[]){0x05b2}, 1},
-    {"hatafpatah23", (const unsigned long[]){0x05b2}, 1},
-    {"hatafpatah2f", (const unsigned long[]){0x05b2}, 1},
-    {"hatafpatahhebrew", (const unsigned long[]){0x05b2}, 1},
-    {"hatafpatahnarrowhebrew", (const unsigned long[]){0x05b2}, 1},
-    {"hatafpatahquarterhebrew", (const unsigned long[]){0x05b2}, 1},
-    {"hatafpatahwidehebrew", (const unsigned long[]){0x05b2}, 1},
-    {"hatafqamats", (const unsigned long[]){0x05b3}, 1},
-    {"hatafqamats1b", (const unsigned long[]){0x05b3}, 1},
-    {"hatafqamats28", (const unsigned long[]){0x05b3}, 1},
-    {"hatafqamats34", (const unsigned long[]){0x05b3}, 1},
-    {"hatafqamatshebrew", (const unsigned long[]){0x05b3}, 1},
-    {"hatafqamatsnarrowhebrew", (const unsigned long[]){0x05b3}, 1},
-    {"hatafqamatsquarterhebrew", (const unsigned long[]){0x05b3}, 1},
-    {"hatafqamatswidehebrew", (const unsigned long[]){0x05b3}, 1},
-    {"hatafsegol", (const unsigned long[]){0x05b1}, 1},
-    {"hatafsegol17", (const unsigned long[]){0x05b1}, 1},
-    {"hatafsegol24", (const unsigned long[]){0x05b1}, 1},
-    {"hatafsegol30", (const unsigned long[]){0x05b1}, 1},
-    {"hatafsegolhebrew", (const unsigned long[]){0x05b1}, 1},
-    {"hatafsegolnarrowhebrew", (const unsigned long[]){0x05b1}, 1},
-    {"hatafsegolquarterhebrew", (const unsigned long[]){0x05b1}, 1},
-    {"hatafsegolwidehebrew", (const unsigned long[]){0x05b1}, 1},
-    {"hbar", (const unsigned long[]){0x0127}, 1},
-    {"hbopomofo", (const unsigned long[]){0x310f}, 1},
-    {"hbrevebelow", (const unsigned long[]){0x1e2b}, 1},
-    {"hcedilla", (const unsigned long[]){0x1e29}, 1},
-    {"hcircle", (const unsigned long[]){0x24d7}, 1},
-    {"hcircumflex", (const unsigned long[]){0x0125}, 1},
-    {"hdieresis", (const unsigned long[]){0x1e27}, 1},
-    {"hdotaccent", (const unsigned long[]){0x1e23}, 1},
-    {"hdotbelow", (const unsigned long[]){0x1e25}, 1},
-    {"he", (const unsigned long[]){0x05d4}, 1},
-    {"heart", (const unsigned long[]){0x2665}, 1},
-    {"heartsuitblack", (const unsigned long[]){0x2665}, 1},
-    {"heartsuitwhite", (const unsigned long[]){0x2661}, 1},
-    {"hedagesh", (const unsigned long[]){0xfb34}, 1},
-    {"hedageshhebrew", (const unsigned long[]){0xfb34}, 1},
-    {"hehaltonearabic", (const unsigned long[]){0x06c1}, 1},
-    {"heharabic", (const unsigned long[]){0x0647}, 1},
-    {"hehebrew", (const unsigned long[]){0x05d4}, 1},
-    {"hehfinalaltonearabic", (const unsigned long[]){0xfba7}, 1},
-    {"hehfinalalttwoarabic", (const unsigned long[]){0xfeea}, 1},
-    {"hehfinalarabic", (const unsigned long[]){0xfeea}, 1},
-    {"hehhamzaabovefinalarabic", (const unsigned long[]){0xfba5}, 1},
-    {"hehhamzaaboveisolatedarabic", (const unsigned long[]){0xfba4}, 1},
-    {"hehinitialaltonearabic", (const unsigned long[]){0xfba8}, 1},
-    {"hehinitialarabic", (const unsigned long[]){0xfeeb}, 1},
-    {"hehiragana", (const unsigned long[]){0x3078}, 1},
-    {"hehmedialaltonearabic", (const unsigned long[]){0xfba9}, 1},
-    {"hehmedialarabic", (const unsigned long[]){0xfeec}, 1},
-    {"heiseierasquare", (const unsigned long[]){0x337b}, 1},
-    {"hekatakana", (const unsigned long[]){0x30d8}, 1},
-    {"hekatakanahalfwidth", (const unsigned long[]){0xff8d}, 1},
-    {"hekutaarusquare", (const unsigned long[]){0x3336}, 1},
-    {"henghook", (const unsigned long[]){0x0267}, 1},
-    {"herutusquare", (const unsigned long[]){0x3339}, 1},
-    {"het", (const unsigned long[]){0x05d7}, 1},
-    {"hethebrew", (const unsigned long[]){0x05d7}, 1},
-    {"hhook", (const unsigned long[]){0x0266}, 1},
-    {"hhooksuperior", (const unsigned long[]){0x02b1}, 1},
-    {"hieuhacirclekorean", (const unsigned long[]){0x327b}, 1},
-    {"hieuhaparenkorean", (const unsigned long[]){0x321b}, 1},
-    {"hieuhcirclekorean", (const unsigned long[]){0x326d}, 1},
-    {"hieuhkorean", (const unsigned long[]){0x314e}, 1},
-    {"hieuhparenkorean", (const unsigned long[]){0x320d}, 1},
-    {"hihiragana", (const unsigned long[]){0x3072}, 1},
-    {"hikatakana", (const unsigned long[]){0x30d2}, 1},
-    {"hikatakanahalfwidth", (const unsigned long[]){0xff8b}, 1},
-    {"hiriq", (const unsigned long[]){0x05b4}, 1},
-    {"hiriq14", (const unsigned long[]){0x05b4}, 1},
-    {"hiriq21", (const unsigned long[]){0x05b4}, 1},
-    {"hiriq2d", (const unsigned long[]){0x05b4}, 1},
-    {"hiriqhebrew", (const unsigned long[]){0x05b4}, 1},
-    {"hiriqnarrowhebrew", (const unsigned long[]){0x05b4}, 1},
-    {"hiriqquarterhebrew", (const unsigned long[]){0x05b4}, 1},
-    {"hiriqwidehebrew", (const unsigned long[]){0x05b4}, 1},
-    {"hlinebelow", (const unsigned long[]){0x1e96}, 1},
-    {"hmonospace", (const unsigned long[]){0xff48}, 1},
-    {"hoarmenian", (const unsigned long[]){0x0570}, 1},
-    {"hohipthai", (const unsigned long[]){0x0e2b}, 1},
-    {"hohiragana", (const unsigned long[]){0x307b}, 1},
-    {"hokatakana", (const unsigned long[]){0x30db}, 1},
-    {"hokatakanahalfwidth", (const unsigned long[]){0xff8e}, 1},
-    {"holam", (const unsigned long[]){0x05b9}, 1},
-    {"holam19", (const unsigned long[]){0x05b9}, 1},
-    {"holam26", (const unsigned long[]){0x05b9}, 1},
-    {"holam32", (const unsigned long[]){0x05b9}, 1},
-    {"holamhebrew", (const unsigned long[]){0x05b9}, 1},
-    {"holamnarrowhebrew", (const unsigned long[]){0x05b9}, 1},
-    {"holamquarterhebrew", (const unsigned long[]){0x05b9}, 1},
-    {"holamwidehebrew", (const unsigned long[]){0x05b9}, 1},
-    {"honokhukthai", (const unsigned long[]){0x0e2e}, 1},
-    {"hookabovecomb", (const unsigned long[]){0x0309}, 1},
-    {"hookcmb", (const unsigned long[]){0x0309}, 1},
-    {"hookpalatalizedbelowcmb", (const unsigned long[]){0x0321}, 1},
-    {"hookretroflexbelowcmb", (const unsigned long[]){0x0322}, 1},
-    {"hoonsquare", (const unsigned long[]){0x3342}, 1},
-    {"horicoptic", (const unsigned long[]){0x03e9}, 1},
-    {"horizontalbar", (const unsigned long[]){0x2015}, 1},
-    {"horncmb", (const unsigned long[]){0x031b}, 1},
-    {"hotsprings", (const unsigned long[]){0x2668}, 1},
-    {"house", (const unsigned long[]){0x2302}, 1},
-    {"hparen", (const unsigned long[]){0x24a3}, 1},
-    {"hsuperior", (const unsigned long[]){0x02b0}, 1},
-    {"hturned", (const unsigned long[]){0x0265}, 1},
-    {"huhiragana", (const unsigned long[]){0x3075}, 1},
-    {"huiitosquare", (const unsigned long[]){0x3333}, 1},
-    {"hukatakana", (const unsigned long[]){0x30d5}, 1},
-    {"hukatakanahalfwidth", (const unsigned long[]){0xff8c}, 1},
-    {"hungarumlaut", (const unsigned long[]){0x02dd}, 1},
-    {"hungarumlautcmb", (const unsigned long[]){0x030b}, 1},
-    {"hv", (const unsigned long[]){0x0195}, 1},
-    {"hyphen", (const unsigned long[]){0x002d}, 1},
-    {"hypheninferior", (const unsigned long[]){0xf6e5}, 1},
-    {"hyphenmonospace", (const unsigned long[]){0xff0d}, 1},
-    {"hyphensmall", (const unsigned long[]){0xfe63}, 1},
-    {"hyphensuperior", (const unsigned long[]){0xf6e6}, 1},
-    {"hyphentwo", (const unsigned long[]){0x2010}, 1},
-    {"i", (const unsigned long[]){0x0069}, 1},
-    {"iacute", (const unsigned long[]){0x00ed}, 1},
-    {"iacyrillic", (const unsigned long[]){0x044f}, 1},
-    {"ibengali", (const unsigned long[]){0x0987}, 1},
-    {"ibopomofo", (const unsigned long[]){0x3127}, 1},
-    {"ibreve", (const unsigned long[]){0x012d}, 1},
-    {"icaron", (const unsigned long[]){0x01d0}, 1},
-    {"icircle", (const unsigned long[]){0x24d8}, 1},
-    {"icircumflex", (const unsigned long[]){0x00ee}, 1},
-    {"icyrillic", (const unsigned long[]){0x0456}, 1},
-    {"idblgrave", (const unsigned long[]){0x0209}, 1},
-    {"ideographearthcircle", (const unsigned long[]){0x328f}, 1},
-    {"ideographfirecircle", (const unsigned long[]){0x328b}, 1},
-    {"ideographicallianceparen", (const unsigned long[]){0x323f}, 1},
-    {"ideographiccallparen", (const unsigned long[]){0x323a}, 1},
-    {"ideographiccentrecircle", (const unsigned long[]){0x32a5}, 1},
-    {"ideographicclose", (const unsigned long[]){0x3006}, 1},
-    {"ideographiccomma", (const unsigned long[]){0x3001}, 1},
-    {"ideographiccommaleft", (const unsigned long[]){0xff64}, 1},
-    {"ideographiccongratulationparen", (const unsigned long[]){0x3237}, 1},
-    {"ideographiccorrectcircle", (const unsigned long[]){0x32a3}, 1},
-    {"ideographicearthparen", (const unsigned long[]){0x322f}, 1},
-    {"ideographicenterpriseparen", (const unsigned long[]){0x323d}, 1},
-    {"ideographicexcellentcircle", (const unsigned long[]){0x329d}, 1},
-    {"ideographicfestivalparen", (const unsigned long[]){0x3240}, 1},
-    {"ideographicfinancialcircle", (const unsigned long[]){0x3296}, 1},
-    {"ideographicfinancialparen", (const unsigned long[]){0x3236}, 1},
-    {"ideographicfireparen", (const unsigned long[]){0x322b}, 1},
-    {"ideographichaveparen", (const unsigned long[]){0x3232}, 1},
-    {"ideographichighcircle", (const unsigned long[]){0x32a4}, 1},
-    {"ideographiciterationmark", (const unsigned long[]){0x3005}, 1},
-    {"ideographiclaborcircle", (const unsigned long[]){0x3298}, 1},
-    {"ideographiclaborparen", (const unsigned long[]){0x3238}, 1},
-    {"ideographicleftcircle", (const unsigned long[]){0x32a7}, 1},
-    {"ideographiclowcircle", (const unsigned long[]){0x32a6}, 1},
-    {"ideographicmedicinecircle", (const unsigned long[]){0x32a9}, 1},
-    {"ideographicmetalparen", (const unsigned long[]){0x322e}, 1},
-    {"ideographicmoonparen", (const unsigned long[]){0x322a}, 1},
-    {"ideographicnameparen", (const unsigned long[]){0x3234}, 1},
-    {"ideographicperiod", (const unsigned long[]){0x3002}, 1},
-    {"ideographicprintcircle", (const unsigned long[]){0x329e}, 1},
-    {"ideographicreachparen", (const unsigned long[]){0x3243}, 1},
-    {"ideographicrepresentparen", (const unsigned long[]){0x3239}, 1},
-    {"ideographicresourceparen", (const unsigned long[]){0x323e}, 1},
-    {"ideographicrightcircle", (const unsigned long[]){0x32a8}, 1},
-    {"ideographicsecretcircle", (const unsigned long[]){0x3299}, 1},
-    {"ideographicselfparen", (const unsigned long[]){0x3242}, 1},
-    {"ideographicsocietyparen", (const unsigned long[]){0x3233}, 1},
-    {"ideographicspace", (const unsigned long[]){0x3000}, 1},
-    {"ideographicspecialparen", (const unsigned long[]){0x3235}, 1},
-    {"ideographicstockparen", (const unsigned long[]){0x3231}, 1},
-    {"ideographicstudyparen", (const unsigned long[]){0x323b}, 1},
-    {"ideographicsunparen", (const unsigned long[]){0x3230}, 1},
-    {"ideographicsuperviseparen", (const unsigned long[]){0x323c}, 1},
-    {"ideographicwaterparen", (const unsigned long[]){0x322c}, 1},
-    {"ideographicwoodparen", (const unsigned long[]){0x322d}, 1},
-    {"ideographiczero", (const unsigned long[]){0x3007}, 1},
-    {"ideographmetalcircle", (const unsigned long[]){0x328e}, 1},
-    {"ideographmooncircle", (const unsigned long[]){0x328a}, 1},
-    {"ideographnamecircle", (const unsigned long[]){0x3294}, 1},
-    {"ideographsuncircle", (const unsigned long[]){0x3290}, 1},
-    {"ideographwatercircle", (const unsigned long[]){0x328c}, 1},
-    {"ideographwoodcircle", (const unsigned long[]){0x328d}, 1},
-    {"ideva", (const unsigned long[]){0x0907}, 1},
-    {"idieresis", (const unsigned long[]){0x00ef}, 1},
-    {"idieresisacute", (const unsigned long[]){0x1e2f}, 1},
-    {"idieresiscyrillic", (const unsigned long[]){0x04e5}, 1},
-    {"idotbelow", (const unsigned long[]){0x1ecb}, 1},
-    {"iebrevecyrillic", (const unsigned long[]){0x04d7}, 1},
-    {"iecyrillic", (const unsigned long[]){0x0435}, 1},
-    {"ieungacirclekorean", (const unsigned long[]){0x3275}, 1},
-    {"ieungaparenkorean", (const unsigned long[]){0x3215}, 1},
-    {"ieungcirclekorean", (const unsigned long[]){0x3267}, 1},
-    {"ieungkorean", (const unsigned long[]){0x3147}, 1},
-    {"ieungparenkorean", (const unsigned long[]){0x3207}, 1},
-    {"igrave", (const unsigned long[]){0x00ec}, 1},
-    {"igujarati", (const unsigned long[]){0x0a87}, 1},
-    {"igurmukhi", (const unsigned long[]){0x0a07}, 1},
-    {"ihiragana", (const unsigned long[]){0x3044}, 1},
-    {"ihookabove", (const unsigned long[]){0x1ec9}, 1},
-    {"iibengali", (const unsigned long[]){0x0988}, 1},
-    {"iicyrillic", (const unsigned long[]){0x0438}, 1},
-    {"iideva", (const unsigned long[]){0x0908}, 1},
-    {"iigujarati", (const unsigned long[]){0x0a88}, 1},
-    {"iigurmukhi", (const unsigned long[]){0x0a08}, 1},
-    {"iimatragurmukhi", (const unsigned long[]){0x0a40}, 1},
-    {"iinvertedbreve", (const unsigned long[]){0x020b}, 1},
-    {"iishortcyrillic", (const unsigned long[]){0x0439}, 1},
-    {"iivowelsignbengali", (const unsigned long[]){0x09c0}, 1},
-    {"iivowelsigndeva", (const unsigned long[]){0x0940}, 1},
-    {"iivowelsigngujarati", (const unsigned long[]){0x0ac0}, 1},
-    {"ij", (const unsigned long[]){0x0133}, 1},
-    {"ikatakana", (const unsigned long[]){0x30a4}, 1},
-    {"ikatakanahalfwidth", (const unsigned long[]){0xff72}, 1},
-    {"ikorean", (const unsigned long[]){0x3163}, 1},
-    {"ilde", (const unsigned long[]){0x02dc}, 1},
-    {"iluyhebrew", (const unsigned long[]){0x05ac}, 1},
-    {"imacron", (const unsigned long[]){0x012b}, 1},
-    {"imacroncyrillic", (const unsigned long[]){0x04e3}, 1},
-    {"imageorapproximatelyequal", (const unsigned long[]){0x2253}, 1},
-    {"imatragurmukhi", (const unsigned long[]){0x0a3f}, 1},
-    {"imonospace", (const unsigned long[]){0xff49}, 1},
-    {"increment", (const unsigned long[]){0x2206}, 1},
-    {"infinity", (const unsigned long[]){0x221e}, 1},
-    {"iniarmenian", (const unsigned long[]){0x056b}, 1},
-    {"integral", (const unsigned long[]){0x222b}, 1},
-    {"integralbottom", (const unsigned long[]){0x2321}, 1},
-    {"integralbt", (const unsigned long[]){0x2321}, 1},
-    {"integralex", (const unsigned long[]){0xf8f5}, 1},
-    {"integraltop", (const unsigned long[]){0x2320}, 1},
-    {"integraltp", (const unsigned long[]){0x2320}, 1},
-    {"intersection", (const unsigned long[]){0x2229}, 1},
-    {"intisquare", (const unsigned long[]){0x3305}, 1},
-    {"invbullet", (const unsigned long[]){0x25d8}, 1},
-    {"invcircle", (const unsigned long[]){0x25d9}, 1},
-    {"invsmileface", (const unsigned long[]){0x263b}, 1},
-    {"iocyrillic", (const unsigned long[]){0x0451}, 1},
-    {"iogonek", (const unsigned long[]){0x012f}, 1},
-    {"iota", (const unsigned long[]){0x03b9}, 1},
-    {"iotadieresis", (const unsigned long[]){0x03ca}, 1},
-    {"iotadieresistonos", (const unsigned long[]){0x0390}, 1},
-    {"iotalatin", (const unsigned long[]){0x0269}, 1},
-    {"iotatonos", (const unsigned long[]){0x03af}, 1},
-    {"iparen", (const unsigned long[]){0x24a4}, 1},
-    {"irigurmukhi", (const unsigned long[]){0x0a72}, 1},
-    {"ismallhiragana", (const unsigned long[]){0x3043}, 1},
-    {"ismallkatakana", (const unsigned long[]){0x30a3}, 1},
-    {"ismallkatakanahalfwidth", (const unsigned long[]){0xff68}, 1},
-    {"issharbengali", (const unsigned long[]){0x09fa}, 1},
-    {"istroke", (const unsigned long[]){0x0268}, 1},
-    {"isuperior", (const unsigned long[]){0xf6ed}, 1},
-    {"iterationhiragana", (const unsigned long[]){0x309d}, 1},
-    {"iterationkatakana", (const unsigned long[]){0x30fd}, 1},
-    {"itilde", (const unsigned long[]){0x0129}, 1},
-    {"itildebelow", (const unsigned long[]){0x1e2d}, 1},
-    {"iubopomofo", (const unsigned long[]){0x3129}, 1},
-    {"iucyrillic", (const unsigned long[]){0x044e}, 1},
-    {"ivowelsignbengali", (const unsigned long[]){0x09bf}, 1},
-    {"ivowelsigndeva", (const unsigned long[]){0x093f}, 1},
-    {"ivowelsigngujarati", (const unsigned long[]){0x0abf}, 1},
-    {"izhitsacyrillic", (const unsigned long[]){0x0475}, 1},
-    {"izhitsadblgravecyrillic", (const unsigned long[]){0x0477}, 1},
-    {"j", (const unsigned long[]){0x006a}, 1},
-    {"jaarmenian", (const unsigned long[]){0x0571}, 1},
-    {"jabengali", (const unsigned long[]){0x099c}, 1},
-    {"jadeva", (const unsigned long[]){0x091c}, 1},
-    {"jagujarati", (const unsigned long[]){0x0a9c}, 1},
-    {"jagurmukhi", (const unsigned long[]){0x0a1c}, 1},
-    {"jbopomofo", (const unsigned long[]){0x3110}, 1},
-    {"jcaron", (const unsigned long[]){0x01f0}, 1},
-    {"jcircle", (const unsigned long[]){0x24d9}, 1},
-    {"jcircumflex", (const unsigned long[]){0x0135}, 1},
-    {"jcrossedtail", (const unsigned long[]){0x029d}, 1},
-    {"jdotlessstroke", (const unsigned long[]){0x025f}, 1},
-    {"jecyrillic", (const unsigned long[]){0x0458}, 1},
-    {"jeemarabic", (const unsigned long[]){0x062c}, 1},
-    {"jeemfinalarabic", (const unsigned long[]){0xfe9e}, 1},
-    {"jeeminitialarabic", (const unsigned long[]){0xfe9f}, 1},
-    {"jeemmedialarabic", (const unsigned long[]){0xfea0}, 1},
-    {"jeharabic", (const unsigned long[]){0x0698}, 1},
-    {"jehfinalarabic", (const unsigned long[]){0xfb8b}, 1},
-    {"jhabengali", (const unsigned long[]){0x099d}, 1},
-    {"jhadeva", (const unsigned long[]){0x091d}, 1},
-    {"jhagujarati", (const unsigned long[]){0x0a9d}, 1},
-    {"jhagurmukhi", (const unsigned long[]){0x0a1d}, 1},
-    {"jheharmenian", (const unsigned long[]){0x057b}, 1},
-    {"jis", (const unsigned long[]){0x3004}, 1},
-    {"jmonospace", (const unsigned long[]){0xff4a}, 1},
-    {"jparen", (const unsigned long[]){0x24a5}, 1},
-    {"jsuperior", (const unsigned long[]){0x02b2}, 1},
-    {"k", (const unsigned long[]){0x006b}, 1},
-    {"kabashkircyrillic", (const unsigned long[]){0x04a1}, 1},
-    {"kabengali", (const unsigned long[]){0x0995}, 1},
-    {"kacute", (const unsigned long[]){0x1e31}, 1},
-    {"kacyrillic", (const unsigned long[]){0x043a}, 1},
-    {"kadescendercyrillic", (const unsigned long[]){0x049b}, 1},
-    {"kadeva", (const unsigned long[]){0x0915}, 1},
-    {"kaf", (const unsigned long[]){0x05db}, 1},
-    {"kafarabic", (const unsigned long[]){0x0643}, 1},
-    {"kafdagesh", (const unsigned long[]){0xfb3b}, 1},
-    {"kafdageshhebrew", (const unsigned long[]){0xfb3b}, 1},
-    {"kaffinalarabic", (const unsigned long[]){0xfeda}, 1},
-    {"kafhebrew", (const unsigned long[]){0x05db}, 1},
-    {"kafinitialarabic", (const unsigned long[]){0xfedb}, 1},
-    {"kafmedialarabic", (const unsigned long[]){0xfedc}, 1},
-    {"kafrafehebrew", (const unsigned long[]){0xfb4d}, 1},
-    {"kagujarati", (const unsigned long[]){0x0a95}, 1},
-    {"kagurmukhi", (const unsigned long[]){0x0a15}, 1},
-    {"kahiragana", (const unsigned long[]){0x304b}, 1},
-    {"kahookcyrillic", (const unsigned long[]){0x04c4}, 1},
-    {"kakatakana", (const unsigned long[]){0x30ab}, 1},
-    {"kakatakanahalfwidth", (const unsigned long[]){0xff76}, 1},
-    {"kappa", (const unsigned long[]){0x03ba}, 1},
-    {"kappasymbolgreek", (const unsigned long[]){0x03f0}, 1},
-    {"kapyeounmieumkorean", (const unsigned long[]){0x3171}, 1},
-    {"kapyeounphieuphkorean", (const unsigned long[]){0x3184}, 1},
-    {"kapyeounpieupkorean", (const unsigned long[]){0x3178}, 1},
-    {"kapyeounssangpieupkorean", (const unsigned long[]){0x3179}, 1},
-    {"karoriisquare", (const unsigned long[]){0x330d}, 1},
-    {"kashidaautoarabic", (const unsigned long[]){0x0640}, 1},
-    {"kashidaautonosidebearingarabic", (const unsigned long[]){0x0640}, 1},
-    {"kasmallkatakana", (const unsigned long[]){0x30f5}, 1},
-    {"kasquare", (const unsigned long[]){0x3384}, 1},
-    {"kasraarabic", (const unsigned long[]){0x0650}, 1},
-    {"kasratanarabic", (const unsigned long[]){0x064d}, 1},
-    {"kastrokecyrillic", (const unsigned long[]){0x049f}, 1},
-    {"katahiraprolongmarkhalfwidth", (const unsigned long[]){0xff70}, 1},
-    {"kaverticalstrokecyrillic", (const unsigned long[]){0x049d}, 1},
-    {"kbopomofo", (const unsigned long[]){0x310e}, 1},
-    {"kcalsquare", (const unsigned long[]){0x3389}, 1},
-    {"kcaron", (const unsigned long[]){0x01e9}, 1},
-    {"kcedilla", (const unsigned long[]){0x0137}, 1},
-    {"kcircle", (const unsigned long[]){0x24da}, 1},
-    {"kcommaaccent", (const unsigned long[]){0x0137}, 1},
-    {"kdotbelow", (const unsigned long[]){0x1e33}, 1},
-    {"keharmenian", (const unsigned long[]){0x0584}, 1},
-    {"kehiragana", (const unsigned long[]){0x3051}, 1},
-    {"kekatakana", (const unsigned long[]){0x30b1}, 1},
-    {"kekatakanahalfwidth", (const unsigned long[]){0xff79}, 1},
-    {"kenarmenian", (const unsigned long[]){0x056f}, 1},
-    {"kesmallkatakana", (const unsigned long[]){0x30f6}, 1},
-    {"kgreenlandic", (const unsigned long[]){0x0138}, 1},
-    {"khabengali", (const unsigned long[]){0x0996}, 1},
-    {"khacyrillic", (const unsigned long[]){0x0445}, 1},
-    {"khadeva", (const unsigned long[]){0x0916}, 1},
-    {"khagujarati", (const unsigned long[]){0x0a96}, 1},
-    {"khagurmukhi", (const unsigned long[]){0x0a16}, 1},
-    {"khaharabic", (const unsigned long[]){0x062e}, 1},
-    {"khahfinalarabic", (const unsigned long[]){0xfea6}, 1},
-    {"khahinitialarabic", (const unsigned long[]){0xfea7}, 1},
-    {"khahmedialarabic", (const unsigned long[]){0xfea8}, 1},
-    {"kheicoptic", (const unsigned long[]){0x03e7}, 1},
-    {"khhadeva", (const unsigned long[]){0x0959}, 1},
-    {"khhagurmukhi", (const unsigned long[]){0x0a59}, 1},
-    {"khieukhacirclekorean", (const unsigned long[]){0x3278}, 1},
-    {"khieukhaparenkorean", (const unsigned long[]){0x3218}, 1},
-    {"khieukhcirclekorean", (const unsigned long[]){0x326a}, 1},
-    {"khieukhkorean", (const unsigned long[]){0x314b}, 1},
-    {"khieukhparenkorean", (const unsigned long[]){0x320a}, 1},
-    {"khokhaithai", (const unsigned long[]){0x0e02}, 1},
-    {"khokhonthai", (const unsigned long[]){0x0e05}, 1},
-    {"khokhuatthai", (const unsigned long[]){0x0e03}, 1},
-    {"khokhwaithai", (const unsigned long[]){0x0e04}, 1},
-    {"khomutthai", (const unsigned long[]){0x0e5b}, 1},
-    {"khook", (const unsigned long[]){0x0199}, 1},
-    {"khorakhangthai", (const unsigned long[]){0x0e06}, 1},
-    {"khzsquare", (const unsigned long[]){0x3391}, 1},
-    {"kihiragana", (const unsigned long[]){0x304d}, 1},
-    {"kikatakana", (const unsigned long[]){0x30ad}, 1},
-    {"kikatakanahalfwidth", (const unsigned long[]){0xff77}, 1},
-    {"kiroguramusquare", (const unsigned long[]){0x3315}, 1},
-    {"kiromeetorusquare", (const unsigned long[]){0x3316}, 1},
-    {"kirosquare", (const unsigned long[]){0x3314}, 1},
-    {"kiyeokacirclekorean", (const unsigned long[]){0x326e}, 1},
-    {"kiyeokaparenkorean", (const unsigned long[]){0x320e}, 1},
-    {"kiyeokcirclekorean", (const unsigned long[]){0x3260}, 1},
-    {"kiyeokkorean", (const unsigned long[]){0x3131}, 1},
-    {"kiyeokparenkorean", (const unsigned long[]){0x3200}, 1},
-    {"kiyeoksioskorean", (const unsigned long[]){0x3133}, 1},
-    {"kjecyrillic", (const unsigned long[]){0x045c}, 1},
-    {"klinebelow", (const unsigned long[]){0x1e35}, 1},
-    {"klsquare", (const unsigned long[]){0x3398}, 1},
-    {"kmcubedsquare", (const unsigned long[]){0x33a6}, 1},
-    {"kmonospace", (const unsigned long[]){0xff4b}, 1},
-    {"kmsquaredsquare", (const unsigned long[]){0x33a2}, 1},
-    {"kohiragana", (const unsigned long[]){0x3053}, 1},
-    {"kohmsquare", (const unsigned long[]){0x33c0}, 1},
-    {"kokaithai", (const unsigned long[]){0x0e01}, 1},
-    {"kokatakana", (const unsigned long[]){0x30b3}, 1},
-    {"kokatakanahalfwidth", (const unsigned long[]){0xff7a}, 1},
-    {"kooposquare", (const unsigned long[]){0x331e}, 1},
-    {"koppacyrillic", (const unsigned long[]){0x0481}, 1},
-    {"koreanstandardsymbol", (const unsigned long[]){0x327f}, 1},
-    {"koroniscmb", (const unsigned long[]){0x0343}, 1},
-    {"kparen", (const unsigned long[]){0x24a6}, 1},
-    {"kpasquare", (const unsigned long[]){0x33aa}, 1},
-    {"ksicyrillic", (const unsigned long[]){0x046f}, 1},
-    {"ktsquare", (const unsigned long[]){0x33cf}, 1},
-    {"kturned", (const unsigned long[]){0x029e}, 1},
-    {"kuhiragana", (const unsigned long[]){0x304f}, 1},
-    {"kukatakana", (const unsigned long[]){0x30af}, 1},
-    {"kukatakanahalfwidth", (const unsigned long[]){0xff78}, 1},
-    {"kvsquare", (const unsigned long[]){0x33b8}, 1},
-    {"kwsquare", (const unsigned long[]){0x33be}, 1},
-    {"l", (const unsigned long[]){0x006c}, 1},
-    {"labengali", (const unsigned long[]){0x09b2}, 1},
-    {"lacute", (const unsigned long[]){0x013a}, 1},
-    {"ladeva", (const unsigned long[]){0x0932}, 1},
-    {"lagujarati", (const unsigned long[]){0x0ab2}, 1},
-    {"lagurmukhi", (const unsigned long[]){0x0a32}, 1},
-    {"lakkhangyaothai", (const unsigned long[]){0x0e45}, 1},
-    {"lamaleffinalarabic", (const unsigned long[]){0xfefc}, 1},
-    {"lamalefhamzaabovefinalarabic", (const unsigned long[]){0xfef8}, 1},
-    {"lamalefhamzaaboveisolatedarabic", (const unsigned long[]){0xfef7}, 1},
-    {"lamalefhamzabelowfinalarabic", (const unsigned long[]){0xfefa}, 1},
-    {"lamalefhamzabelowisolatedarabic", (const unsigned long[]){0xfef9}, 1},
-    {"lamalefisolatedarabic", (const unsigned long[]){0xfefb}, 1},
-    {"lamalefmaddaabovefinalarabic", (const unsigned long[]){0xfef6}, 1},
-    {"lamalefmaddaaboveisolatedarabic", (const unsigned long[]){0xfef5}, 1},
-    {"lamarabic", (const unsigned long[]){0x0644}, 1},
-    {"lambda", (const unsigned long[]){0x03bb}, 1},
-    {"lambdastroke", (const unsigned long[]){0x019b}, 1},
-    {"lamed", (const unsigned long[]){0x05dc}, 1},
-    {"lameddagesh", (const unsigned long[]){0xfb3c}, 1},
-    {"lameddageshhebrew", (const unsigned long[]){0xfb3c}, 1},
-    {"lamedhebrew", (const unsigned long[]){0x05dc}, 1},
+    {"hangulfiller", cp_single_2007, 1},
+    {"hardsigncyrillic", cp_single_2008, 1},
+    {"harpoonleftbarbup", cp_single_2009, 1},
+    {"harpoonrightbarbup", cp_single_2010, 1},
+    {"hasquare", cp_single_2011, 1},
+    {"hatafpatah", cp_single_2012, 1},
+    {"hatafpatah16", cp_single_2013, 1},
+    {"hatafpatah23", cp_single_2014, 1},
+    {"hatafpatah2f", cp_single_2015, 1},
+    {"hatafpatahhebrew", cp_single_2016, 1},
+    {"hatafpatahnarrowhebrew", cp_single_2017, 1},
+    {"hatafpatahquarterhebrew", cp_single_2018, 1},
+    {"hatafpatahwidehebrew", cp_single_2019, 1},
+    {"hatafqamats", cp_single_2020, 1},
+    {"hatafqamats1b", cp_single_2021, 1},
+    {"hatafqamats28", cp_single_2022, 1},
+    {"hatafqamats34", cp_single_2023, 1},
+    {"hatafqamatshebrew", cp_single_2024, 1},
+    {"hatafqamatsnarrowhebrew", cp_single_2025, 1},
+    {"hatafqamatsquarterhebrew", cp_single_2026, 1},
+    {"hatafqamatswidehebrew", cp_single_2027, 1},
+    {"hatafsegol", cp_single_2028, 1},
+    {"hatafsegol17", cp_single_2029, 1},
+    {"hatafsegol24", cp_single_2030, 1},
+    {"hatafsegol30", cp_single_2031, 1},
+    {"hatafsegolhebrew", cp_single_2032, 1},
+    {"hatafsegolnarrowhebrew", cp_single_2033, 1},
+    {"hatafsegolquarterhebrew", cp_single_2034, 1},
+    {"hatafsegolwidehebrew", cp_single_2035, 1},
+    {"hbar", cp_single_2036, 1},
+    {"hbopomofo", cp_single_2037, 1},
+    {"hbrevebelow", cp_single_2038, 1},
+    {"hcedilla", cp_single_2039, 1},
+    {"hcircle", cp_single_2040, 1},
+    {"hcircumflex", cp_single_2041, 1},
+    {"hdieresis", cp_single_2042, 1},
+    {"hdotaccent", cp_single_2043, 1},
+    {"hdotbelow", cp_single_2044, 1},
+    {"he", cp_single_2045, 1},
+    {"heart", cp_single_2046, 1},
+    {"heartsuitblack", cp_single_2047, 1},
+    {"heartsuitwhite", cp_single_2048, 1},
+    {"hedagesh", cp_single_2049, 1},
+    {"hedageshhebrew", cp_single_2050, 1},
+    {"hehaltonearabic", cp_single_2051, 1},
+    {"heharabic", cp_single_2052, 1},
+    {"hehebrew", cp_single_2053, 1},
+    {"hehfinalaltonearabic", cp_single_2054, 1},
+    {"hehfinalalttwoarabic", cp_single_2055, 1},
+    {"hehfinalarabic", cp_single_2056, 1},
+    {"hehhamzaabovefinalarabic", cp_single_2057, 1},
+    {"hehhamzaaboveisolatedarabic", cp_single_2058, 1},
+    {"hehinitialaltonearabic", cp_single_2059, 1},
+    {"hehinitialarabic", cp_single_2060, 1},
+    {"hehiragana", cp_single_2061, 1},
+    {"hehmedialaltonearabic", cp_single_2062, 1},
+    {"hehmedialarabic", cp_single_2063, 1},
+    {"heiseierasquare", cp_single_2064, 1},
+    {"hekatakana", cp_single_2065, 1},
+    {"hekatakanahalfwidth", cp_single_2066, 1},
+    {"hekutaarusquare", cp_single_2067, 1},
+    {"henghook", cp_single_2068, 1},
+    {"herutusquare", cp_single_2069, 1},
+    {"het", cp_single_2070, 1},
+    {"hethebrew", cp_single_2071, 1},
+    {"hhook", cp_single_2072, 1},
+    {"hhooksuperior", cp_single_2073, 1},
+    {"hieuhacirclekorean", cp_single_2074, 1},
+    {"hieuhaparenkorean", cp_single_2075, 1},
+    {"hieuhcirclekorean", cp_single_2076, 1},
+    {"hieuhkorean", cp_single_2077, 1},
+    {"hieuhparenkorean", cp_single_2078, 1},
+    {"hihiragana", cp_single_2079, 1},
+    {"hikatakana", cp_single_2080, 1},
+    {"hikatakanahalfwidth", cp_single_2081, 1},
+    {"hiriq", cp_single_2082, 1},
+    {"hiriq14", cp_single_2083, 1},
+    {"hiriq21", cp_single_2084, 1},
+    {"hiriq2d", cp_single_2085, 1},
+    {"hiriqhebrew", cp_single_2086, 1},
+    {"hiriqnarrowhebrew", cp_single_2087, 1},
+    {"hiriqquarterhebrew", cp_single_2088, 1},
+    {"hiriqwidehebrew", cp_single_2089, 1},
+    {"hlinebelow", cp_single_2090, 1},
+    {"hmonospace", cp_single_2091, 1},
+    {"hoarmenian", cp_single_2092, 1},
+    {"hohipthai", cp_single_2093, 1},
+    {"hohiragana", cp_single_2094, 1},
+    {"hokatakana", cp_single_2095, 1},
+    {"hokatakanahalfwidth", cp_single_2096, 1},
+    {"holam", cp_single_2097, 1},
+    {"holam19", cp_single_2098, 1},
+    {"holam26", cp_single_2099, 1},
+    {"holam32", cp_single_2100, 1},
+    {"holamhebrew", cp_single_2101, 1},
+    {"holamnarrowhebrew", cp_single_2102, 1},
+    {"holamquarterhebrew", cp_single_2103, 1},
+    {"holamwidehebrew", cp_single_2104, 1},
+    {"honokhukthai", cp_single_2105, 1},
+    {"hookabovecomb", cp_single_2106, 1},
+    {"hookcmb", cp_single_2107, 1},
+    {"hookpalatalizedbelowcmb", cp_single_2108, 1},
+    {"hookretroflexbelowcmb", cp_single_2109, 1},
+    {"hoonsquare", cp_single_2110, 1},
+    {"horicoptic", cp_single_2111, 1},
+    {"horizontalbar", cp_single_2112, 1},
+    {"horncmb", cp_single_2113, 1},
+    {"hotsprings", cp_single_2114, 1},
+    {"house", cp_single_2115, 1},
+    {"hparen", cp_single_2116, 1},
+    {"hsuperior", cp_single_2117, 1},
+    {"hturned", cp_single_2118, 1},
+    {"huhiragana", cp_single_2119, 1},
+    {"huiitosquare", cp_single_2120, 1},
+    {"hukatakana", cp_single_2121, 1},
+    {"hukatakanahalfwidth", cp_single_2122, 1},
+    {"hungarumlaut", cp_single_2123, 1},
+    {"hungarumlautcmb", cp_single_2124, 1},
+    {"hv", cp_single_2125, 1},
+    {"hyphen", cp_single_2126, 1},
+    {"hypheninferior", cp_single_2127, 1},
+    {"hyphenmonospace", cp_single_2128, 1},
+    {"hyphensmall", cp_single_2129, 1},
+    {"hyphensuperior", cp_single_2130, 1},
+    {"hyphentwo", cp_single_2131, 1},
+    {"i", cp_single_2132, 1},
+    {"iacute", cp_single_2133, 1},
+    {"iacyrillic", cp_single_2134, 1},
+    {"ibengali", cp_single_2135, 1},
+    {"ibopomofo", cp_single_2136, 1},
+    {"ibreve", cp_single_2137, 1},
+    {"icaron", cp_single_2138, 1},
+    {"icircle", cp_single_2139, 1},
+    {"icircumflex", cp_single_2140, 1},
+    {"icyrillic", cp_single_2141, 1},
+    {"idblgrave", cp_single_2142, 1},
+    {"ideographearthcircle", cp_single_2143, 1},
+    {"ideographfirecircle", cp_single_2144, 1},
+    {"ideographicallianceparen", cp_single_2145, 1},
+    {"ideographiccallparen", cp_single_2146, 1},
+    {"ideographiccentrecircle", cp_single_2147, 1},
+    {"ideographicclose", cp_single_2148, 1},
+    {"ideographiccomma", cp_single_2149, 1},
+    {"ideographiccommaleft", cp_single_2150, 1},
+    {"ideographiccongratulationparen", cp_single_2151, 1},
+    {"ideographiccorrectcircle", cp_single_2152, 1},
+    {"ideographicearthparen", cp_single_2153, 1},
+    {"ideographicenterpriseparen", cp_single_2154, 1},
+    {"ideographicexcellentcircle", cp_single_2155, 1},
+    {"ideographicfestivalparen", cp_single_2156, 1},
+    {"ideographicfinancialcircle", cp_single_2157, 1},
+    {"ideographicfinancialparen", cp_single_2158, 1},
+    {"ideographicfireparen", cp_single_2159, 1},
+    {"ideographichaveparen", cp_single_2160, 1},
+    {"ideographichighcircle", cp_single_2161, 1},
+    {"ideographiciterationmark", cp_single_2162, 1},
+    {"ideographiclaborcircle", cp_single_2163, 1},
+    {"ideographiclaborparen", cp_single_2164, 1},
+    {"ideographicleftcircle", cp_single_2165, 1},
+    {"ideographiclowcircle", cp_single_2166, 1},
+    {"ideographicmedicinecircle", cp_single_2167, 1},
+    {"ideographicmetalparen", cp_single_2168, 1},
+    {"ideographicmoonparen", cp_single_2169, 1},
+    {"ideographicnameparen", cp_single_2170, 1},
+    {"ideographicperiod", cp_single_2171, 1},
+    {"ideographicprintcircle", cp_single_2172, 1},
+    {"ideographicreachparen", cp_single_2173, 1},
+    {"ideographicrepresentparen", cp_single_2174, 1},
+    {"ideographicresourceparen", cp_single_2175, 1},
+    {"ideographicrightcircle", cp_single_2176, 1},
+    {"ideographicsecretcircle", cp_single_2177, 1},
+    {"ideographicselfparen", cp_single_2178, 1},
+    {"ideographicsocietyparen", cp_single_2179, 1},
+    {"ideographicspace", cp_single_2180, 1},
+    {"ideographicspecialparen", cp_single_2181, 1},
+    {"ideographicstockparen", cp_single_2182, 1},
+    {"ideographicstudyparen", cp_single_2183, 1},
+    {"ideographicsunparen", cp_single_2184, 1},
+    {"ideographicsuperviseparen", cp_single_2185, 1},
+    {"ideographicwaterparen", cp_single_2186, 1},
+    {"ideographicwoodparen", cp_single_2187, 1},
+    {"ideographiczero", cp_single_2188, 1},
+    {"ideographmetalcircle", cp_single_2189, 1},
+    {"ideographmooncircle", cp_single_2190, 1},
+    {"ideographnamecircle", cp_single_2191, 1},
+    {"ideographsuncircle", cp_single_2192, 1},
+    {"ideographwatercircle", cp_single_2193, 1},
+    {"ideographwoodcircle", cp_single_2194, 1},
+    {"ideva", cp_single_2195, 1},
+    {"idieresis", cp_single_2196, 1},
+    {"idieresisacute", cp_single_2197, 1},
+    {"idieresiscyrillic", cp_single_2198, 1},
+    {"idotbelow", cp_single_2199, 1},
+    {"iebrevecyrillic", cp_single_2200, 1},
+    {"iecyrillic", cp_single_2201, 1},
+    {"ieungacirclekorean", cp_single_2202, 1},
+    {"ieungaparenkorean", cp_single_2203, 1},
+    {"ieungcirclekorean", cp_single_2204, 1},
+    {"ieungkorean", cp_single_2205, 1},
+    {"ieungparenkorean", cp_single_2206, 1},
+    {"igrave", cp_single_2207, 1},
+    {"igujarati", cp_single_2208, 1},
+    {"igurmukhi", cp_single_2209, 1},
+    {"ihiragana", cp_single_2210, 1},
+    {"ihookabove", cp_single_2211, 1},
+    {"iibengali", cp_single_2212, 1},
+    {"iicyrillic", cp_single_2213, 1},
+    {"iideva", cp_single_2214, 1},
+    {"iigujarati", cp_single_2215, 1},
+    {"iigurmukhi", cp_single_2216, 1},
+    {"iimatragurmukhi", cp_single_2217, 1},
+    {"iinvertedbreve", cp_single_2218, 1},
+    {"iishortcyrillic", cp_single_2219, 1},
+    {"iivowelsignbengali", cp_single_2220, 1},
+    {"iivowelsigndeva", cp_single_2221, 1},
+    {"iivowelsigngujarati", cp_single_2222, 1},
+    {"ij", cp_single_2223, 1},
+    {"ikatakana", cp_single_2224, 1},
+    {"ikatakanahalfwidth", cp_single_2225, 1},
+    {"ikorean", cp_single_2226, 1},
+    {"ilde", cp_single_2227, 1},
+    {"iluyhebrew", cp_single_2228, 1},
+    {"imacron", cp_single_2229, 1},
+    {"imacroncyrillic", cp_single_2230, 1},
+    {"imageorapproximatelyequal", cp_single_2231, 1},
+    {"imatragurmukhi", cp_single_2232, 1},
+    {"imonospace", cp_single_2233, 1},
+    {"increment", cp_single_2234, 1},
+    {"infinity", cp_single_2235, 1},
+    {"iniarmenian", cp_single_2236, 1},
+    {"integral", cp_single_2237, 1},
+    {"integralbottom", cp_single_2238, 1},
+    {"integralbt", cp_single_2239, 1},
+    {"integralex", cp_single_2240, 1},
+    {"integraltop", cp_single_2241, 1},
+    {"integraltp", cp_single_2242, 1},
+    {"intersection", cp_single_2243, 1},
+    {"intisquare", cp_single_2244, 1},
+    {"invbullet", cp_single_2245, 1},
+    {"invcircle", cp_single_2246, 1},
+    {"invsmileface", cp_single_2247, 1},
+    {"iocyrillic", cp_single_2248, 1},
+    {"iogonek", cp_single_2249, 1},
+    {"iota", cp_single_2250, 1},
+    {"iotadieresis", cp_single_2251, 1},
+    {"iotadieresistonos", cp_single_2252, 1},
+    {"iotalatin", cp_single_2253, 1},
+    {"iotatonos", cp_single_2254, 1},
+    {"iparen", cp_single_2255, 1},
+    {"irigurmukhi", cp_single_2256, 1},
+    {"ismallhiragana", cp_single_2257, 1},
+    {"ismallkatakana", cp_single_2258, 1},
+    {"ismallkatakanahalfwidth", cp_single_2259, 1},
+    {"issharbengali", cp_single_2260, 1},
+    {"istroke", cp_single_2261, 1},
+    {"isuperior", cp_single_2262, 1},
+    {"iterationhiragana", cp_single_2263, 1},
+    {"iterationkatakana", cp_single_2264, 1},
+    {"itilde", cp_single_2265, 1},
+    {"itildebelow", cp_single_2266, 1},
+    {"iubopomofo", cp_single_2267, 1},
+    {"iucyrillic", cp_single_2268, 1},
+    {"ivowelsignbengali", cp_single_2269, 1},
+    {"ivowelsigndeva", cp_single_2270, 1},
+    {"ivowelsigngujarati", cp_single_2271, 1},
+    {"izhitsacyrillic", cp_single_2272, 1},
+    {"izhitsadblgravecyrillic", cp_single_2273, 1},
+    {"j", cp_single_2274, 1},
+    {"jaarmenian", cp_single_2275, 1},
+    {"jabengali", cp_single_2276, 1},
+    {"jadeva", cp_single_2277, 1},
+    {"jagujarati", cp_single_2278, 1},
+    {"jagurmukhi", cp_single_2279, 1},
+    {"jbopomofo", cp_single_2280, 1},
+    {"jcaron", cp_single_2281, 1},
+    {"jcircle", cp_single_2282, 1},
+    {"jcircumflex", cp_single_2283, 1},
+    {"jcrossedtail", cp_single_2284, 1},
+    {"jdotlessstroke", cp_single_2285, 1},
+    {"jecyrillic", cp_single_2286, 1},
+    {"jeemarabic", cp_single_2287, 1},
+    {"jeemfinalarabic", cp_single_2288, 1},
+    {"jeeminitialarabic", cp_single_2289, 1},
+    {"jeemmedialarabic", cp_single_2290, 1},
+    {"jeharabic", cp_single_2291, 1},
+    {"jehfinalarabic", cp_single_2292, 1},
+    {"jhabengali", cp_single_2293, 1},
+    {"jhadeva", cp_single_2294, 1},
+    {"jhagujarati", cp_single_2295, 1},
+    {"jhagurmukhi", cp_single_2296, 1},
+    {"jheharmenian", cp_single_2297, 1},
+    {"jis", cp_single_2298, 1},
+    {"jmonospace", cp_single_2299, 1},
+    {"jparen", cp_single_2300, 1},
+    {"jsuperior", cp_single_2301, 1},
+    {"k", cp_single_2302, 1},
+    {"kabashkircyrillic", cp_single_2303, 1},
+    {"kabengali", cp_single_2304, 1},
+    {"kacute", cp_single_2305, 1},
+    {"kacyrillic", cp_single_2306, 1},
+    {"kadescendercyrillic", cp_single_2307, 1},
+    {"kadeva", cp_single_2308, 1},
+    {"kaf", cp_single_2309, 1},
+    {"kafarabic", cp_single_2310, 1},
+    {"kafdagesh", cp_single_2311, 1},
+    {"kafdageshhebrew", cp_single_2312, 1},
+    {"kaffinalarabic", cp_single_2313, 1},
+    {"kafhebrew", cp_single_2314, 1},
+    {"kafinitialarabic", cp_single_2315, 1},
+    {"kafmedialarabic", cp_single_2316, 1},
+    {"kafrafehebrew", cp_single_2317, 1},
+    {"kagujarati", cp_single_2318, 1},
+    {"kagurmukhi", cp_single_2319, 1},
+    {"kahiragana", cp_single_2320, 1},
+    {"kahookcyrillic", cp_single_2321, 1},
+    {"kakatakana", cp_single_2322, 1},
+    {"kakatakanahalfwidth", cp_single_2323, 1},
+    {"kappa", cp_single_2324, 1},
+    {"kappasymbolgreek", cp_single_2325, 1},
+    {"kapyeounmieumkorean", cp_single_2326, 1},
+    {"kapyeounphieuphkorean", cp_single_2327, 1},
+    {"kapyeounpieupkorean", cp_single_2328, 1},
+    {"kapyeounssangpieupkorean", cp_single_2329, 1},
+    {"karoriisquare", cp_single_2330, 1},
+    {"kashidaautoarabic", cp_single_2331, 1},
+    {"kashidaautonosidebearingarabic", cp_single_2332, 1},
+    {"kasmallkatakana", cp_single_2333, 1},
+    {"kasquare", cp_single_2334, 1},
+    {"kasraarabic", cp_single_2335, 1},
+    {"kasratanarabic", cp_single_2336, 1},
+    {"kastrokecyrillic", cp_single_2337, 1},
+    {"katahiraprolongmarkhalfwidth", cp_single_2338, 1},
+    {"kaverticalstrokecyrillic", cp_single_2339, 1},
+    {"kbopomofo", cp_single_2340, 1},
+    {"kcalsquare", cp_single_2341, 1},
+    {"kcaron", cp_single_2342, 1},
+    {"kcedilla", cp_single_2343, 1},
+    {"kcircle", cp_single_2344, 1},
+    {"kcommaaccent", cp_single_2345, 1},
+    {"kdotbelow", cp_single_2346, 1},
+    {"keharmenian", cp_single_2347, 1},
+    {"kehiragana", cp_single_2348, 1},
+    {"kekatakana", cp_single_2349, 1},
+    {"kekatakanahalfwidth", cp_single_2350, 1},
+    {"kenarmenian", cp_single_2351, 1},
+    {"kesmallkatakana", cp_single_2352, 1},
+    {"kgreenlandic", cp_single_2353, 1},
+    {"khabengali", cp_single_2354, 1},
+    {"khacyrillic", cp_single_2355, 1},
+    {"khadeva", cp_single_2356, 1},
+    {"khagujarati", cp_single_2357, 1},
+    {"khagurmukhi", cp_single_2358, 1},
+    {"khaharabic", cp_single_2359, 1},
+    {"khahfinalarabic", cp_single_2360, 1},
+    {"khahinitialarabic", cp_single_2361, 1},
+    {"khahmedialarabic", cp_single_2362, 1},
+    {"kheicoptic", cp_single_2363, 1},
+    {"khhadeva", cp_single_2364, 1},
+    {"khhagurmukhi", cp_single_2365, 1},
+    {"khieukhacirclekorean", cp_single_2366, 1},
+    {"khieukhaparenkorean", cp_single_2367, 1},
+    {"khieukhcirclekorean", cp_single_2368, 1},
+    {"khieukhkorean", cp_single_2369, 1},
+    {"khieukhparenkorean", cp_single_2370, 1},
+    {"khokhaithai", cp_single_2371, 1},
+    {"khokhonthai", cp_single_2372, 1},
+    {"khokhuatthai", cp_single_2373, 1},
+    {"khokhwaithai", cp_single_2374, 1},
+    {"khomutthai", cp_single_2375, 1},
+    {"khook", cp_single_2376, 1},
+    {"khorakhangthai", cp_single_2377, 1},
+    {"khzsquare", cp_single_2378, 1},
+    {"kihiragana", cp_single_2379, 1},
+    {"kikatakana", cp_single_2380, 1},
+    {"kikatakanahalfwidth", cp_single_2381, 1},
+    {"kiroguramusquare", cp_single_2382, 1},
+    {"kiromeetorusquare", cp_single_2383, 1},
+    {"kirosquare", cp_single_2384, 1},
+    {"kiyeokacirclekorean", cp_single_2385, 1},
+    {"kiyeokaparenkorean", cp_single_2386, 1},
+    {"kiyeokcirclekorean", cp_single_2387, 1},
+    {"kiyeokkorean", cp_single_2388, 1},
+    {"kiyeokparenkorean", cp_single_2389, 1},
+    {"kiyeoksioskorean", cp_single_2390, 1},
+    {"kjecyrillic", cp_single_2391, 1},
+    {"klinebelow", cp_single_2392, 1},
+    {"klsquare", cp_single_2393, 1},
+    {"kmcubedsquare", cp_single_2394, 1},
+    {"kmonospace", cp_single_2395, 1},
+    {"kmsquaredsquare", cp_single_2396, 1},
+    {"kohiragana", cp_single_2397, 1},
+    {"kohmsquare", cp_single_2398, 1},
+    {"kokaithai", cp_single_2399, 1},
+    {"kokatakana", cp_single_2400, 1},
+    {"kokatakanahalfwidth", cp_single_2401, 1},
+    {"kooposquare", cp_single_2402, 1},
+    {"koppacyrillic", cp_single_2403, 1},
+    {"koreanstandardsymbol", cp_single_2404, 1},
+    {"koroniscmb", cp_single_2405, 1},
+    {"kparen", cp_single_2406, 1},
+    {"kpasquare", cp_single_2407, 1},
+    {"ksicyrillic", cp_single_2408, 1},
+    {"ktsquare", cp_single_2409, 1},
+    {"kturned", cp_single_2410, 1},
+    {"kuhiragana", cp_single_2411, 1},
+    {"kukatakana", cp_single_2412, 1},
+    {"kukatakanahalfwidth", cp_single_2413, 1},
+    {"kvsquare", cp_single_2414, 1},
+    {"kwsquare", cp_single_2415, 1},
+    {"l", cp_single_2416, 1},
+    {"labengali", cp_single_2417, 1},
+    {"lacute", cp_single_2418, 1},
+    {"ladeva", cp_single_2419, 1},
+    {"lagujarati", cp_single_2420, 1},
+    {"lagurmukhi", cp_single_2421, 1},
+    {"lakkhangyaothai", cp_single_2422, 1},
+    {"lamaleffinalarabic", cp_single_2423, 1},
+    {"lamalefhamzaabovefinalarabic", cp_single_2424, 1},
+    {"lamalefhamzaaboveisolatedarabic", cp_single_2425, 1},
+    {"lamalefhamzabelowfinalarabic", cp_single_2426, 1},
+    {"lamalefhamzabelowisolatedarabic", cp_single_2427, 1},
+    {"lamalefisolatedarabic", cp_single_2428, 1},
+    {"lamalefmaddaabovefinalarabic", cp_single_2429, 1},
+    {"lamalefmaddaaboveisolatedarabic", cp_single_2430, 1},
+    {"lamarabic", cp_single_2431, 1},
+    {"lambda", cp_single_2432, 1},
+    {"lambdastroke", cp_single_2433, 1},
+    {"lamed", cp_single_2434, 1},
+    {"lameddagesh", cp_single_2435, 1},
+    {"lameddageshhebrew", cp_single_2436, 1},
+    {"lamedhebrew", cp_single_2437, 1},
     {"lamedholam", cp_2469, 2},
     {"lamedholamdagesh", cp_2470, 3},
     {"lamedholamdageshhebrew", cp_2471, 3},
     {"lamedholamhebrew", cp_2472, 2},
-    {"lamfinalarabic", (const unsigned long[]){0xfede}, 1},
-    {"lamhahinitialarabic", (const unsigned long[]){0xfcca}, 1},
-    {"laminitialarabic", (const unsigned long[]){0xfedf}, 1},
-    {"lamjeeminitialarabic", (const unsigned long[]){0xfcc9}, 1},
-    {"lamkhahinitialarabic", (const unsigned long[]){0xfccb}, 1},
-    {"lamlamhehisolatedarabic", (const unsigned long[]){0xfdf2}, 1},
-    {"lammedialarabic", (const unsigned long[]){0xfee0}, 1},
-    {"lammeemhahinitialarabic", (const unsigned long[]){0xfd88}, 1},
-    {"lammeeminitialarabic", (const unsigned long[]){0xfccc}, 1},
+    {"lamfinalarabic", cp_single_2438, 1},
+    {"lamhahinitialarabic", cp_single_2439, 1},
+    {"laminitialarabic", cp_single_2440, 1},
+    {"lamjeeminitialarabic", cp_single_2441, 1},
+    {"lamkhahinitialarabic", cp_single_2442, 1},
+    {"lamlamhehisolatedarabic", cp_single_2443, 1},
+    {"lammedialarabic", cp_single_2444, 1},
+    {"lammeemhahinitialarabic", cp_single_2445, 1},
+    {"lammeeminitialarabic", cp_single_2446, 1},
     {"lammeemjeeminitialarabic", cp_2482, 3},
     {"lammeemkhahinitialarabic", cp_2483, 3},
-    {"largecircle", (const unsigned long[]){0x25ef}, 1},
-    {"lbar", (const unsigned long[]){0x019a}, 1},
-    {"lbelt", (const unsigned long[]){0x026c}, 1},
-    {"lbopomofo", (const unsigned long[]){0x310c}, 1},
-    {"lcaron", (const unsigned long[]){0x013e}, 1},
-    {"lcedilla", (const unsigned long[]){0x013c}, 1},
-    {"lcircle", (const unsigned long[]){0x24db}, 1},
-    {"lcircumflexbelow", (const unsigned long[]){0x1e3d}, 1},
-    {"lcommaaccent", (const unsigned long[]){0x013c}, 1},
-    {"ldot", (const unsigned long[]){0x0140}, 1},
-    {"ldotaccent", (const unsigned long[]){0x0140}, 1},
-    {"ldotbelow", (const unsigned long[]){0x1e37}, 1},
-    {"ldotbelowmacron", (const unsigned long[]){0x1e39}, 1},
-    {"leftangleabovecmb", (const unsigned long[]){0x031a}, 1},
-    {"lefttackbelowcmb", (const unsigned long[]){0x0318}, 1},
-    {"less", (const unsigned long[]){0x003c}, 1},
-    {"lessequal", (const unsigned long[]){0x2264}, 1},
-    {"lessequalorgreater", (const unsigned long[]){0x22da}, 1},
-    {"lessmonospace", (const unsigned long[]){0xff1c}, 1},
-    {"lessorequivalent", (const unsigned long[]){0x2272}, 1},
-    {"lessorgreater", (const unsigned long[]){0x2276}, 1},
-    {"lessoverequal", (const unsigned long[]){0x2266}, 1},
-    {"lesssmall", (const unsigned long[]){0xfe64}, 1},
-    {"lezh", (const unsigned long[]){0x026e}, 1},
-    {"lfblock", (const unsigned long[]){0x258c}, 1},
-    {"lhookretroflex", (const unsigned long[]){0x026d}, 1},
-    {"lira", (const unsigned long[]){0x20a4}, 1},
-    {"liwnarmenian", (const unsigned long[]){0x056c}, 1},
-    {"lj", (const unsigned long[]){0x01c9}, 1},
-    {"ljecyrillic", (const unsigned long[]){0x0459}, 1},
-    {"ll", (const unsigned long[]){0xf6c0}, 1},
-    {"lladeva", (const unsigned long[]){0x0933}, 1},
-    {"llagujarati", (const unsigned long[]){0x0ab3}, 1},
-    {"llinebelow", (const unsigned long[]){0x1e3b}, 1},
-    {"llladeva", (const unsigned long[]){0x0934}, 1},
-    {"llvocalicbengali", (const unsigned long[]){0x09e1}, 1},
-    {"llvocalicdeva", (const unsigned long[]){0x0961}, 1},
-    {"llvocalicvowelsignbengali", (const unsigned long[]){0x09e3}, 1},
-    {"llvocalicvowelsigndeva", (const unsigned long[]){0x0963}, 1},
-    {"lmiddletilde", (const unsigned long[]){0x026b}, 1},
-    {"lmonospace", (const unsigned long[]){0xff4c}, 1},
-    {"lmsquare", (const unsigned long[]){0x33d0}, 1},
-    {"lochulathai", (const unsigned long[]){0x0e2c}, 1},
-    {"logicaland", (const unsigned long[]){0x2227}, 1},
-    {"logicalnot", (const unsigned long[]){0x00ac}, 1},
-    {"logicalnotreversed", (const unsigned long[]){0x2310}, 1},
-    {"logicalor", (const unsigned long[]){0x2228}, 1},
-    {"lolingthai", (const unsigned long[]){0x0e25}, 1},
-    {"longs", (const unsigned long[]){0x017f}, 1},
-    {"lowlinecenterline", (const unsigned long[]){0xfe4e}, 1},
-    {"lowlinecmb", (const unsigned long[]){0x0332}, 1},
-    {"lowlinedashed", (const unsigned long[]){0xfe4d}, 1},
-    {"lozenge", (const unsigned long[]){0x25ca}, 1},
-    {"lparen", (const unsigned long[]){0x24a7}, 1},
-    {"lslash", (const unsigned long[]){0x0142}, 1},
-    {"lsquare", (const unsigned long[]){0x2113}, 1},
-    {"lsuperior", (const unsigned long[]){0xf6ee}, 1},
-    {"ltshade", (const unsigned long[]){0x2591}, 1},
-    {"luthai", (const unsigned long[]){0x0e26}, 1},
-    {"lvocalicbengali", (const unsigned long[]){0x098c}, 1},
-    {"lvocalicdeva", (const unsigned long[]){0x090c}, 1},
-    {"lvocalicvowelsignbengali", (const unsigned long[]){0x09e2}, 1},
-    {"lvocalicvowelsigndeva", (const unsigned long[]){0x0962}, 1},
-    {"lxsquare", (const unsigned long[]){0x33d3}, 1},
-    {"m", (const unsigned long[]){0x006d}, 1},
-    {"mabengali", (const unsigned long[]){0x09ae}, 1},
-    {"macron", (const unsigned long[]){0x00af}, 1},
-    {"macronbelowcmb", (const unsigned long[]){0x0331}, 1},
-    {"macroncmb", (const unsigned long[]){0x0304}, 1},
-    {"macronlowmod", (const unsigned long[]){0x02cd}, 1},
-    {"macronmonospace", (const unsigned long[]){0xffe3}, 1},
-    {"macute", (const unsigned long[]){0x1e3f}, 1},
-    {"madeva", (const unsigned long[]){0x092e}, 1},
-    {"magujarati", (const unsigned long[]){0x0aae}, 1},
-    {"magurmukhi", (const unsigned long[]){0x0a2e}, 1},
-    {"mahapakhhebrew", (const unsigned long[]){0x05a4}, 1},
-    {"mahapakhlefthebrew", (const unsigned long[]){0x05a4}, 1},
-    {"mahiragana", (const unsigned long[]){0x307e}, 1},
-    {"maichattawalowleftthai", (const unsigned long[]){0xf895}, 1},
-    {"maichattawalowrightthai", (const unsigned long[]){0xf894}, 1},
-    {"maichattawathai", (const unsigned long[]){0x0e4b}, 1},
-    {"maichattawaupperleftthai", (const unsigned long[]){0xf893}, 1},
-    {"maieklowleftthai", (const unsigned long[]){0xf88c}, 1},
-    {"maieklowrightthai", (const unsigned long[]){0xf88b}, 1},
-    {"maiekthai", (const unsigned long[]){0x0e48}, 1},
-    {"maiekupperleftthai", (const unsigned long[]){0xf88a}, 1},
-    {"maihanakatleftthai", (const unsigned long[]){0xf884}, 1},
-    {"maihanakatthai", (const unsigned long[]){0x0e31}, 1},
-    {"maitaikhuleftthai", (const unsigned long[]){0xf889}, 1},
-    {"maitaikhuthai", (const unsigned long[]){0x0e47}, 1},
-    {"maitholowleftthai", (const unsigned long[]){0xf88f}, 1},
-    {"maitholowrightthai", (const unsigned long[]){0xf88e}, 1},
-    {"maithothai", (const unsigned long[]){0x0e49}, 1},
-    {"maithoupperleftthai", (const unsigned long[]){0xf88d}, 1},
-    {"maitrilowleftthai", (const unsigned long[]){0xf892}, 1},
-    {"maitrilowrightthai", (const unsigned long[]){0xf891}, 1},
-    {"maitrithai", (const unsigned long[]){0x0e4a}, 1},
-    {"maitriupperleftthai", (const unsigned long[]){0xf890}, 1},
-    {"maiyamokthai", (const unsigned long[]){0x0e46}, 1},
-    {"makatakana", (const unsigned long[]){0x30de}, 1},
-    {"makatakanahalfwidth", (const unsigned long[]){0xff8f}, 1},
-    {"male", (const unsigned long[]){0x2642}, 1},
-    {"mansyonsquare", (const unsigned long[]){0x3347}, 1},
-    {"maqafhebrew", (const unsigned long[]){0x05be}, 1},
-    {"mars", (const unsigned long[]){0x2642}, 1},
-    {"masoracirclehebrew", (const unsigned long[]){0x05af}, 1},
-    {"masquare", (const unsigned long[]){0x3383}, 1},
-    {"mbopomofo", (const unsigned long[]){0x3107}, 1},
-    {"mbsquare", (const unsigned long[]){0x33d4}, 1},
-    {"mcircle", (const unsigned long[]){0x24dc}, 1},
-    {"mcubedsquare", (const unsigned long[]){0x33a5}, 1},
-    {"mdotaccent", (const unsigned long[]){0x1e41}, 1},
-    {"mdotbelow", (const unsigned long[]){0x1e43}, 1},
-    {"meemarabic", (const unsigned long[]){0x0645}, 1},
-    {"meemfinalarabic", (const unsigned long[]){0xfee2}, 1},
-    {"meeminitialarabic", (const unsigned long[]){0xfee3}, 1},
-    {"meemmedialarabic", (const unsigned long[]){0xfee4}, 1},
-    {"meemmeeminitialarabic", (const unsigned long[]){0xfcd1}, 1},
-    {"meemmeemisolatedarabic", (const unsigned long[]){0xfc48}, 1},
-    {"meetorusquare", (const unsigned long[]){0x334d}, 1},
-    {"mehiragana", (const unsigned long[]){0x3081}, 1},
-    {"meizierasquare", (const unsigned long[]){0x337e}, 1},
-    {"mekatakana", (const unsigned long[]){0x30e1}, 1},
-    {"mekatakanahalfwidth", (const unsigned long[]){0xff92}, 1},
-    {"mem", (const unsigned long[]){0x05de}, 1},
-    {"memdagesh", (const unsigned long[]){0xfb3e}, 1},
-    {"memdageshhebrew", (const unsigned long[]){0xfb3e}, 1},
-    {"memhebrew", (const unsigned long[]){0x05de}, 1},
-    {"menarmenian", (const unsigned long[]){0x0574}, 1},
-    {"merkhahebrew", (const unsigned long[]){0x05a5}, 1},
-    {"merkhakefulahebrew", (const unsigned long[]){0x05a6}, 1},
-    {"merkhakefulalefthebrew", (const unsigned long[]){0x05a6}, 1},
-    {"merkhalefthebrew", (const unsigned long[]){0x05a5}, 1},
-    {"mhook", (const unsigned long[]){0x0271}, 1},
-    {"mhzsquare", (const unsigned long[]){0x3392}, 1},
-    {"middledotkatakanahalfwidth", (const unsigned long[]){0xff65}, 1},
-    {"middot", (const unsigned long[]){0x00b7}, 1},
-    {"mieumacirclekorean", (const unsigned long[]){0x3272}, 1},
-    {"mieumaparenkorean", (const unsigned long[]){0x3212}, 1},
-    {"mieumcirclekorean", (const unsigned long[]){0x3264}, 1},
-    {"mieumkorean", (const unsigned long[]){0x3141}, 1},
-    {"mieumpansioskorean", (const unsigned long[]){0x3170}, 1},
-    {"mieumparenkorean", (const unsigned long[]){0x3204}, 1},
-    {"mieumpieupkorean", (const unsigned long[]){0x316e}, 1},
-    {"mieumsioskorean", (const unsigned long[]){0x316f}, 1},
-    {"mihiragana", (const unsigned long[]){0x307f}, 1},
-    {"mikatakana", (const unsigned long[]){0x30df}, 1},
-    {"mikatakanahalfwidth", (const unsigned long[]){0xff90}, 1},
-    {"minus", (const unsigned long[]){0x2212}, 1},
-    {"minusbelowcmb", (const unsigned long[]){0x0320}, 1},
-    {"minuscircle", (const unsigned long[]){0x2296}, 1},
-    {"minusmod", (const unsigned long[]){0x02d7}, 1},
-    {"minusplus", (const unsigned long[]){0x2213}, 1},
-    {"minute", (const unsigned long[]){0x2032}, 1},
-    {"miribaarusquare", (const unsigned long[]){0x334a}, 1},
-    {"mirisquare", (const unsigned long[]){0x3349}, 1},
-    {"mlonglegturned", (const unsigned long[]){0x0270}, 1},
-    {"mlsquare", (const unsigned long[]){0x3396}, 1},
-    {"mmcubedsquare", (const unsigned long[]){0x33a3}, 1},
-    {"mmonospace", (const unsigned long[]){0xff4d}, 1},
-    {"mmsquaredsquare", (const unsigned long[]){0x339f}, 1},
-    {"mohiragana", (const unsigned long[]){0x3082}, 1},
-    {"mohmsquare", (const unsigned long[]){0x33c1}, 1},
-    {"mokatakana", (const unsigned long[]){0x30e2}, 1},
-    {"mokatakanahalfwidth", (const unsigned long[]){0xff93}, 1},
-    {"molsquare", (const unsigned long[]){0x33d6}, 1},
-    {"momathai", (const unsigned long[]){0x0e21}, 1},
-    {"moverssquare", (const unsigned long[]){0x33a7}, 1},
-    {"moverssquaredsquare", (const unsigned long[]){0x33a8}, 1},
-    {"mparen", (const unsigned long[]){0x24a8}, 1},
-    {"mpasquare", (const unsigned long[]){0x33ab}, 1},
-    {"mssquare", (const unsigned long[]){0x33b3}, 1},
-    {"msuperior", (const unsigned long[]){0xf6ef}, 1},
-    {"mturned", (const unsigned long[]){0x026f}, 1},
-    {"mu", (const unsigned long[]){0x00b5}, 1},
-    {"mu1", (const unsigned long[]){0x00b5}, 1},
-    {"muasquare", (const unsigned long[]){0x3382}, 1},
-    {"muchgreater", (const unsigned long[]){0x226b}, 1},
-    {"muchless", (const unsigned long[]){0x226a}, 1},
-    {"mufsquare", (const unsigned long[]){0x338c}, 1},
-    {"mugreek", (const unsigned long[]){0x03bc}, 1},
-    {"mugsquare", (const unsigned long[]){0x338d}, 1},
-    {"muhiragana", (const unsigned long[]){0x3080}, 1},
-    {"mukatakana", (const unsigned long[]){0x30e0}, 1},
-    {"mukatakanahalfwidth", (const unsigned long[]){0xff91}, 1},
-    {"mulsquare", (const unsigned long[]){0x3395}, 1},
-    {"multiply", (const unsigned long[]){0x00d7}, 1},
-    {"mumsquare", (const unsigned long[]){0x339b}, 1},
-    {"munahhebrew", (const unsigned long[]){0x05a3}, 1},
-    {"munahlefthebrew", (const unsigned long[]){0x05a3}, 1},
-    {"musicalnote", (const unsigned long[]){0x266a}, 1},
-    {"musicalnotedbl", (const unsigned long[]){0x266b}, 1},
-    {"musicflatsign", (const unsigned long[]){0x266d}, 1},
-    {"musicsharpsign", (const unsigned long[]){0x266f}, 1},
-    {"mussquare", (const unsigned long[]){0x33b2}, 1},
-    {"muvsquare", (const unsigned long[]){0x33b6}, 1},
-    {"muwsquare", (const unsigned long[]){0x33bc}, 1},
-    {"mvmegasquare", (const unsigned long[]){0x33b9}, 1},
-    {"mvsquare", (const unsigned long[]){0x33b7}, 1},
-    {"mwmegasquare", (const unsigned long[]){0x33bf}, 1},
-    {"mwsquare", (const unsigned long[]){0x33bd}, 1},
-    {"n", (const unsigned long[]){0x006e}, 1},
-    {"nabengali", (const unsigned long[]){0x09a8}, 1},
-    {"nabla", (const unsigned long[]){0x2207}, 1},
-    {"nacute", (const unsigned long[]){0x0144}, 1},
-    {"nadeva", (const unsigned long[]){0x0928}, 1},
-    {"nagujarati", (const unsigned long[]){0x0aa8}, 1},
-    {"nagurmukhi", (const unsigned long[]){0x0a28}, 1},
-    {"nahiragana", (const unsigned long[]){0x306a}, 1},
-    {"nakatakana", (const unsigned long[]){0x30ca}, 1},
-    {"nakatakanahalfwidth", (const unsigned long[]){0xff85}, 1},
-    {"napostrophe", (const unsigned long[]){0x0149}, 1},
-    {"nasquare", (const unsigned long[]){0x3381}, 1},
-    {"nbopomofo", (const unsigned long[]){0x310b}, 1},
-    {"nbspace", (const unsigned long[]){0x00a0}, 1},
-    {"ncaron", (const unsigned long[]){0x0148}, 1},
-    {"ncedilla", (const unsigned long[]){0x0146}, 1},
-    {"ncircle", (const unsigned long[]){0x24dd}, 1},
-    {"ncircumflexbelow", (const unsigned long[]){0x1e4b}, 1},
-    {"ncommaaccent", (const unsigned long[]){0x0146}, 1},
-    {"ndotaccent", (const unsigned long[]){0x1e45}, 1},
-    {"ndotbelow", (const unsigned long[]){0x1e47}, 1},
-    {"nehiragana", (const unsigned long[]){0x306d}, 1},
-    {"nekatakana", (const unsigned long[]){0x30cd}, 1},
-    {"nekatakanahalfwidth", (const unsigned long[]){0xff88}, 1},
-    {"newsheqelsign", (const unsigned long[]){0x20aa}, 1},
-    {"nfsquare", (const unsigned long[]){0x338b}, 1},
-    {"ngabengali", (const unsigned long[]){0x0999}, 1},
-    {"ngadeva", (const unsigned long[]){0x0919}, 1},
-    {"ngagujarati", (const unsigned long[]){0x0a99}, 1},
-    {"ngagurmukhi", (const unsigned long[]){0x0a19}, 1},
-    {"ngonguthai", (const unsigned long[]){0x0e07}, 1},
-    {"nhiragana", (const unsigned long[]){0x3093}, 1},
-    {"nhookleft", (const unsigned long[]){0x0272}, 1},
-    {"nhookretroflex", (const unsigned long[]){0x0273}, 1},
-    {"nieunacirclekorean", (const unsigned long[]){0x326f}, 1},
-    {"nieunaparenkorean", (const unsigned long[]){0x320f}, 1},
-    {"nieuncieuckorean", (const unsigned long[]){0x3135}, 1},
-    {"nieuncirclekorean", (const unsigned long[]){0x3261}, 1},
-    {"nieunhieuhkorean", (const unsigned long[]){0x3136}, 1},
-    {"nieunkorean", (const unsigned long[]){0x3134}, 1},
-    {"nieunpansioskorean", (const unsigned long[]){0x3168}, 1},
-    {"nieunparenkorean", (const unsigned long[]){0x3201}, 1},
-    {"nieunsioskorean", (const unsigned long[]){0x3167}, 1},
-    {"nieuntikeutkorean", (const unsigned long[]){0x3166}, 1},
-    {"nihiragana", (const unsigned long[]){0x306b}, 1},
-    {"nikatakana", (const unsigned long[]){0x30cb}, 1},
-    {"nikatakanahalfwidth", (const unsigned long[]){0xff86}, 1},
-    {"nikhahitleftthai", (const unsigned long[]){0xf899}, 1},
-    {"nikhahitthai", (const unsigned long[]){0x0e4d}, 1},
-    {"nine", (const unsigned long[]){0x0039}, 1},
-    {"ninearabic", (const unsigned long[]){0x0669}, 1},
-    {"ninebengali", (const unsigned long[]){0x09ef}, 1},
-    {"ninecircle", (const unsigned long[]){0x2468}, 1},
-    {"ninecircleinversesansserif", (const unsigned long[]){0x2792}, 1},
-    {"ninedeva", (const unsigned long[]){0x096f}, 1},
-    {"ninegujarati", (const unsigned long[]){0x0aef}, 1},
-    {"ninegurmukhi", (const unsigned long[]){0x0a6f}, 1},
-    {"ninehackarabic", (const unsigned long[]){0x0669}, 1},
-    {"ninehangzhou", (const unsigned long[]){0x3029}, 1},
-    {"nineideographicparen", (const unsigned long[]){0x3228}, 1},
-    {"nineinferior", (const unsigned long[]){0x2089}, 1},
-    {"ninemonospace", (const unsigned long[]){0xff19}, 1},
-    {"nineoldstyle", (const unsigned long[]){0xf739}, 1},
-    {"nineparen", (const unsigned long[]){0x247c}, 1},
-    {"nineperiod", (const unsigned long[]){0x2490}, 1},
-    {"ninepersian", (const unsigned long[]){0x06f9}, 1},
-    {"nineroman", (const unsigned long[]){0x2178}, 1},
-    {"ninesuperior", (const unsigned long[]){0x2079}, 1},
-    {"nineteencircle", (const unsigned long[]){0x2472}, 1},
-    {"nineteenparen", (const unsigned long[]){0x2486}, 1},
-    {"nineteenperiod", (const unsigned long[]){0x249a}, 1},
-    {"ninethai", (const unsigned long[]){0x0e59}, 1},
-    {"nj", (const unsigned long[]){0x01cc}, 1},
-    {"njecyrillic", (const unsigned long[]){0x045a}, 1},
-    {"nkatakana", (const unsigned long[]){0x30f3}, 1},
-    {"nkatakanahalfwidth", (const unsigned long[]){0xff9d}, 1},
-    {"nlegrightlong", (const unsigned long[]){0x019e}, 1},
-    {"nlinebelow", (const unsigned long[]){0x1e49}, 1},
-    {"nmonospace", (const unsigned long[]){0xff4e}, 1},
-    {"nmsquare", (const unsigned long[]){0x339a}, 1},
-    {"nnabengali", (const unsigned long[]){0x09a3}, 1},
-    {"nnadeva", (const unsigned long[]){0x0923}, 1},
-    {"nnagujarati", (const unsigned long[]){0x0aa3}, 1},
-    {"nnagurmukhi", (const unsigned long[]){0x0a23}, 1},
-    {"nnnadeva", (const unsigned long[]){0x0929}, 1},
-    {"nohiragana", (const unsigned long[]){0x306e}, 1},
-    {"nokatakana", (const unsigned long[]){0x30ce}, 1},
-    {"nokatakanahalfwidth", (const unsigned long[]){0xff89}, 1},
-    {"nonbreakingspace", (const unsigned long[]){0x00a0}, 1},
-    {"nonenthai", (const unsigned long[]){0x0e13}, 1},
-    {"nonuthai", (const unsigned long[]){0x0e19}, 1},
-    {"noonarabic", (const unsigned long[]){0x0646}, 1},
-    {"noonfinalarabic", (const unsigned long[]){0xfee6}, 1},
-    {"noonghunnaarabic", (const unsigned long[]){0x06ba}, 1},
-    {"noonghunnafinalarabic", (const unsigned long[]){0xfb9f}, 1},
+    {"largecircle", cp_single_2447, 1},
+    {"lbar", cp_single_2448, 1},
+    {"lbelt", cp_single_2449, 1},
+    {"lbopomofo", cp_single_2450, 1},
+    {"lcaron", cp_single_2451, 1},
+    {"lcedilla", cp_single_2452, 1},
+    {"lcircle", cp_single_2453, 1},
+    {"lcircumflexbelow", cp_single_2454, 1},
+    {"lcommaaccent", cp_single_2455, 1},
+    {"ldot", cp_single_2456, 1},
+    {"ldotaccent", cp_single_2457, 1},
+    {"ldotbelow", cp_single_2458, 1},
+    {"ldotbelowmacron", cp_single_2459, 1},
+    {"leftangleabovecmb", cp_single_2460, 1},
+    {"lefttackbelowcmb", cp_single_2461, 1},
+    {"less", cp_single_2462, 1},
+    {"lessequal", cp_single_2463, 1},
+    {"lessequalorgreater", cp_single_2464, 1},
+    {"lessmonospace", cp_single_2465, 1},
+    {"lessorequivalent", cp_single_2466, 1},
+    {"lessorgreater", cp_single_2467, 1},
+    {"lessoverequal", cp_single_2468, 1},
+    {"lesssmall", cp_single_2469, 1},
+    {"lezh", cp_single_2470, 1},
+    {"lfblock", cp_single_2471, 1},
+    {"lhookretroflex", cp_single_2472, 1},
+    {"lira", cp_single_2473, 1},
+    {"liwnarmenian", cp_single_2474, 1},
+    {"lj", cp_single_2475, 1},
+    {"ljecyrillic", cp_single_2476, 1},
+    {"ll", cp_single_2477, 1},
+    {"lladeva", cp_single_2478, 1},
+    {"llagujarati", cp_single_2479, 1},
+    {"llinebelow", cp_single_2480, 1},
+    {"llladeva", cp_single_2481, 1},
+    {"llvocalicbengali", cp_single_2482, 1},
+    {"llvocalicdeva", cp_single_2483, 1},
+    {"llvocalicvowelsignbengali", cp_single_2484, 1},
+    {"llvocalicvowelsigndeva", cp_single_2485, 1},
+    {"lmiddletilde", cp_single_2486, 1},
+    {"lmonospace", cp_single_2487, 1},
+    {"lmsquare", cp_single_2488, 1},
+    {"lochulathai", cp_single_2489, 1},
+    {"logicaland", cp_single_2490, 1},
+    {"logicalnot", cp_single_2491, 1},
+    {"logicalnotreversed", cp_single_2492, 1},
+    {"logicalor", cp_single_2493, 1},
+    {"lolingthai", cp_single_2494, 1},
+    {"longs", cp_single_2495, 1},
+    {"lowlinecenterline", cp_single_2496, 1},
+    {"lowlinecmb", cp_single_2497, 1},
+    {"lowlinedashed", cp_single_2498, 1},
+    {"lozenge", cp_single_2499, 1},
+    {"lparen", cp_single_2500, 1},
+    {"lslash", cp_single_2501, 1},
+    {"lsquare", cp_single_2502, 1},
+    {"lsuperior", cp_single_2503, 1},
+    {"ltshade", cp_single_2504, 1},
+    {"luthai", cp_single_2505, 1},
+    {"lvocalicbengali", cp_single_2506, 1},
+    {"lvocalicdeva", cp_single_2507, 1},
+    {"lvocalicvowelsignbengali", cp_single_2508, 1},
+    {"lvocalicvowelsigndeva", cp_single_2509, 1},
+    {"lxsquare", cp_single_2510, 1},
+    {"m", cp_single_2511, 1},
+    {"mabengali", cp_single_2512, 1},
+    {"macron", cp_single_2513, 1},
+    {"macronbelowcmb", cp_single_2514, 1},
+    {"macroncmb", cp_single_2515, 1},
+    {"macronlowmod", cp_single_2516, 1},
+    {"macronmonospace", cp_single_2517, 1},
+    {"macute", cp_single_2518, 1},
+    {"madeva", cp_single_2519, 1},
+    {"magujarati", cp_single_2520, 1},
+    {"magurmukhi", cp_single_2521, 1},
+    {"mahapakhhebrew", cp_single_2522, 1},
+    {"mahapakhlefthebrew", cp_single_2523, 1},
+    {"mahiragana", cp_single_2524, 1},
+    {"maichattawalowleftthai", cp_single_2525, 1},
+    {"maichattawalowrightthai", cp_single_2526, 1},
+    {"maichattawathai", cp_single_2527, 1},
+    {"maichattawaupperleftthai", cp_single_2528, 1},
+    {"maieklowleftthai", cp_single_2529, 1},
+    {"maieklowrightthai", cp_single_2530, 1},
+    {"maiekthai", cp_single_2531, 1},
+    {"maiekupperleftthai", cp_single_2532, 1},
+    {"maihanakatleftthai", cp_single_2533, 1},
+    {"maihanakatthai", cp_single_2534, 1},
+    {"maitaikhuleftthai", cp_single_2535, 1},
+    {"maitaikhuthai", cp_single_2536, 1},
+    {"maitholowleftthai", cp_single_2537, 1},
+    {"maitholowrightthai", cp_single_2538, 1},
+    {"maithothai", cp_single_2539, 1},
+    {"maithoupperleftthai", cp_single_2540, 1},
+    {"maitrilowleftthai", cp_single_2541, 1},
+    {"maitrilowrightthai", cp_single_2542, 1},
+    {"maitrithai", cp_single_2543, 1},
+    {"maitriupperleftthai", cp_single_2544, 1},
+    {"maiyamokthai", cp_single_2545, 1},
+    {"makatakana", cp_single_2546, 1},
+    {"makatakanahalfwidth", cp_single_2547, 1},
+    {"male", cp_single_2548, 1},
+    {"mansyonsquare", cp_single_2549, 1},
+    {"maqafhebrew", cp_single_2550, 1},
+    {"mars", cp_single_2551, 1},
+    {"masoracirclehebrew", cp_single_2552, 1},
+    {"masquare", cp_single_2553, 1},
+    {"mbopomofo", cp_single_2554, 1},
+    {"mbsquare", cp_single_2555, 1},
+    {"mcircle", cp_single_2556, 1},
+    {"mcubedsquare", cp_single_2557, 1},
+    {"mdotaccent", cp_single_2558, 1},
+    {"mdotbelow", cp_single_2559, 1},
+    {"meemarabic", cp_single_2560, 1},
+    {"meemfinalarabic", cp_single_2561, 1},
+    {"meeminitialarabic", cp_single_2562, 1},
+    {"meemmedialarabic", cp_single_2563, 1},
+    {"meemmeeminitialarabic", cp_single_2564, 1},
+    {"meemmeemisolatedarabic", cp_single_2565, 1},
+    {"meetorusquare", cp_single_2566, 1},
+    {"mehiragana", cp_single_2567, 1},
+    {"meizierasquare", cp_single_2568, 1},
+    {"mekatakana", cp_single_2569, 1},
+    {"mekatakanahalfwidth", cp_single_2570, 1},
+    {"mem", cp_single_2571, 1},
+    {"memdagesh", cp_single_2572, 1},
+    {"memdageshhebrew", cp_single_2573, 1},
+    {"memhebrew", cp_single_2574, 1},
+    {"menarmenian", cp_single_2575, 1},
+    {"merkhahebrew", cp_single_2576, 1},
+    {"merkhakefulahebrew", cp_single_2577, 1},
+    {"merkhakefulalefthebrew", cp_single_2578, 1},
+    {"merkhalefthebrew", cp_single_2579, 1},
+    {"mhook", cp_single_2580, 1},
+    {"mhzsquare", cp_single_2581, 1},
+    {"middledotkatakanahalfwidth", cp_single_2582, 1},
+    {"middot", cp_single_2583, 1},
+    {"mieumacirclekorean", cp_single_2584, 1},
+    {"mieumaparenkorean", cp_single_2585, 1},
+    {"mieumcirclekorean", cp_single_2586, 1},
+    {"mieumkorean", cp_single_2587, 1},
+    {"mieumpansioskorean", cp_single_2588, 1},
+    {"mieumparenkorean", cp_single_2589, 1},
+    {"mieumpieupkorean", cp_single_2590, 1},
+    {"mieumsioskorean", cp_single_2591, 1},
+    {"mihiragana", cp_single_2592, 1},
+    {"mikatakana", cp_single_2593, 1},
+    {"mikatakanahalfwidth", cp_single_2594, 1},
+    {"minus", cp_single_2595, 1},
+    {"minusbelowcmb", cp_single_2596, 1},
+    {"minuscircle", cp_single_2597, 1},
+    {"minusmod", cp_single_2598, 1},
+    {"minusplus", cp_single_2599, 1},
+    {"minute", cp_single_2600, 1},
+    {"miribaarusquare", cp_single_2601, 1},
+    {"mirisquare", cp_single_2602, 1},
+    {"mlonglegturned", cp_single_2603, 1},
+    {"mlsquare", cp_single_2604, 1},
+    {"mmcubedsquare", cp_single_2605, 1},
+    {"mmonospace", cp_single_2606, 1},
+    {"mmsquaredsquare", cp_single_2607, 1},
+    {"mohiragana", cp_single_2608, 1},
+    {"mohmsquare", cp_single_2609, 1},
+    {"mokatakana", cp_single_2610, 1},
+    {"mokatakanahalfwidth", cp_single_2611, 1},
+    {"molsquare", cp_single_2612, 1},
+    {"momathai", cp_single_2613, 1},
+    {"moverssquare", cp_single_2614, 1},
+    {"moverssquaredsquare", cp_single_2615, 1},
+    {"mparen", cp_single_2616, 1},
+    {"mpasquare", cp_single_2617, 1},
+    {"mssquare", cp_single_2618, 1},
+    {"msuperior", cp_single_2619, 1},
+    {"mturned", cp_single_2620, 1},
+    {"mu", cp_single_2621, 1},
+    {"mu1", cp_single_2622, 1},
+    {"muasquare", cp_single_2623, 1},
+    {"muchgreater", cp_single_2624, 1},
+    {"muchless", cp_single_2625, 1},
+    {"mufsquare", cp_single_2626, 1},
+    {"mugreek", cp_single_2627, 1},
+    {"mugsquare", cp_single_2628, 1},
+    {"muhiragana", cp_single_2629, 1},
+    {"mukatakana", cp_single_2630, 1},
+    {"mukatakanahalfwidth", cp_single_2631, 1},
+    {"mulsquare", cp_single_2632, 1},
+    {"multiply", cp_single_2633, 1},
+    {"mumsquare", cp_single_2634, 1},
+    {"munahhebrew", cp_single_2635, 1},
+    {"munahlefthebrew", cp_single_2636, 1},
+    {"musicalnote", cp_single_2637, 1},
+    {"musicalnotedbl", cp_single_2638, 1},
+    {"musicflatsign", cp_single_2639, 1},
+    {"musicsharpsign", cp_single_2640, 1},
+    {"mussquare", cp_single_2641, 1},
+    {"muvsquare", cp_single_2642, 1},
+    {"muwsquare", cp_single_2643, 1},
+    {"mvmegasquare", cp_single_2644, 1},
+    {"mvsquare", cp_single_2645, 1},
+    {"mwmegasquare", cp_single_2646, 1},
+    {"mwsquare", cp_single_2647, 1},
+    {"n", cp_single_2648, 1},
+    {"nabengali", cp_single_2649, 1},
+    {"nabla", cp_single_2650, 1},
+    {"nacute", cp_single_2651, 1},
+    {"nadeva", cp_single_2652, 1},
+    {"nagujarati", cp_single_2653, 1},
+    {"nagurmukhi", cp_single_2654, 1},
+    {"nahiragana", cp_single_2655, 1},
+    {"nakatakana", cp_single_2656, 1},
+    {"nakatakanahalfwidth", cp_single_2657, 1},
+    {"napostrophe", cp_single_2658, 1},
+    {"nasquare", cp_single_2659, 1},
+    {"nbopomofo", cp_single_2660, 1},
+    {"nbspace", cp_single_2661, 1},
+    {"ncaron", cp_single_2662, 1},
+    {"ncedilla", cp_single_2663, 1},
+    {"ncircle", cp_single_2664, 1},
+    {"ncircumflexbelow", cp_single_2665, 1},
+    {"ncommaaccent", cp_single_2666, 1},
+    {"ndotaccent", cp_single_2667, 1},
+    {"ndotbelow", cp_single_2668, 1},
+    {"nehiragana", cp_single_2669, 1},
+    {"nekatakana", cp_single_2670, 1},
+    {"nekatakanahalfwidth", cp_single_2671, 1},
+    {"newsheqelsign", cp_single_2672, 1},
+    {"nfsquare", cp_single_2673, 1},
+    {"ngabengali", cp_single_2674, 1},
+    {"ngadeva", cp_single_2675, 1},
+    {"ngagujarati", cp_single_2676, 1},
+    {"ngagurmukhi", cp_single_2677, 1},
+    {"ngonguthai", cp_single_2678, 1},
+    {"nhiragana", cp_single_2679, 1},
+    {"nhookleft", cp_single_2680, 1},
+    {"nhookretroflex", cp_single_2681, 1},
+    {"nieunacirclekorean", cp_single_2682, 1},
+    {"nieunaparenkorean", cp_single_2683, 1},
+    {"nieuncieuckorean", cp_single_2684, 1},
+    {"nieuncirclekorean", cp_single_2685, 1},
+    {"nieunhieuhkorean", cp_single_2686, 1},
+    {"nieunkorean", cp_single_2687, 1},
+    {"nieunpansioskorean", cp_single_2688, 1},
+    {"nieunparenkorean", cp_single_2689, 1},
+    {"nieunsioskorean", cp_single_2690, 1},
+    {"nieuntikeutkorean", cp_single_2691, 1},
+    {"nihiragana", cp_single_2692, 1},
+    {"nikatakana", cp_single_2693, 1},
+    {"nikatakanahalfwidth", cp_single_2694, 1},
+    {"nikhahitleftthai", cp_single_2695, 1},
+    {"nikhahitthai", cp_single_2696, 1},
+    {"nine", cp_single_2697, 1},
+    {"ninearabic", cp_single_2698, 1},
+    {"ninebengali", cp_single_2699, 1},
+    {"ninecircle", cp_single_2700, 1},
+    {"ninecircleinversesansserif", cp_single_2701, 1},
+    {"ninedeva", cp_single_2702, 1},
+    {"ninegujarati", cp_single_2703, 1},
+    {"ninegurmukhi", cp_single_2704, 1},
+    {"ninehackarabic", cp_single_2705, 1},
+    {"ninehangzhou", cp_single_2706, 1},
+    {"nineideographicparen", cp_single_2707, 1},
+    {"nineinferior", cp_single_2708, 1},
+    {"ninemonospace", cp_single_2709, 1},
+    {"nineoldstyle", cp_single_2710, 1},
+    {"nineparen", cp_single_2711, 1},
+    {"nineperiod", cp_single_2712, 1},
+    {"ninepersian", cp_single_2713, 1},
+    {"nineroman", cp_single_2714, 1},
+    {"ninesuperior", cp_single_2715, 1},
+    {"nineteencircle", cp_single_2716, 1},
+    {"nineteenparen", cp_single_2717, 1},
+    {"nineteenperiod", cp_single_2718, 1},
+    {"ninethai", cp_single_2719, 1},
+    {"nj", cp_single_2720, 1},
+    {"njecyrillic", cp_single_2721, 1},
+    {"nkatakana", cp_single_2722, 1},
+    {"nkatakanahalfwidth", cp_single_2723, 1},
+    {"nlegrightlong", cp_single_2724, 1},
+    {"nlinebelow", cp_single_2725, 1},
+    {"nmonospace", cp_single_2726, 1},
+    {"nmsquare", cp_single_2727, 1},
+    {"nnabengali", cp_single_2728, 1},
+    {"nnadeva", cp_single_2729, 1},
+    {"nnagujarati", cp_single_2730, 1},
+    {"nnagurmukhi", cp_single_2731, 1},
+    {"nnnadeva", cp_single_2732, 1},
+    {"nohiragana", cp_single_2733, 1},
+    {"nokatakana", cp_single_2734, 1},
+    {"nokatakanahalfwidth", cp_single_2735, 1},
+    {"nonbreakingspace", cp_single_2736, 1},
+    {"nonenthai", cp_single_2737, 1},
+    {"nonuthai", cp_single_2738, 1},
+    {"noonarabic", cp_single_2739, 1},
+    {"noonfinalarabic", cp_single_2740, 1},
+    {"noonghunnaarabic", cp_single_2741, 1},
+    {"noonghunnafinalarabic", cp_single_2742, 1},
     {"noonhehinitialarabic", cp_2780, 2},
-    {"nooninitialarabic", (const unsigned long[]){0xfee7}, 1},
-    {"noonjeeminitialarabic", (const unsigned long[]){0xfcd2}, 1},
-    {"noonjeemisolatedarabic", (const unsigned long[]){0xfc4b}, 1},
-    {"noonmedialarabic", (const unsigned long[]){0xfee8}, 1},
-    {"noonmeeminitialarabic", (const unsigned long[]){0xfcd5}, 1},
-    {"noonmeemisolatedarabic", (const unsigned long[]){0xfc4e}, 1},
-    {"noonnoonfinalarabic", (const unsigned long[]){0xfc8d}, 1},
-    {"notcontains", (const unsigned long[]){0x220c}, 1},
-    {"notelement", (const unsigned long[]){0x2209}, 1},
-    {"notelementof", (const unsigned long[]){0x2209}, 1},
-    {"notequal", (const unsigned long[]){0x2260}, 1},
-    {"notgreater", (const unsigned long[]){0x226f}, 1},
-    {"notgreaternorequal", (const unsigned long[]){0x2271}, 1},
-    {"notgreaternorless", (const unsigned long[]){0x2279}, 1},
-    {"notidentical", (const unsigned long[]){0x2262}, 1},
-    {"notless", (const unsigned long[]){0x226e}, 1},
-    {"notlessnorequal", (const unsigned long[]){0x2270}, 1},
-    {"notparallel", (const unsigned long[]){0x2226}, 1},
-    {"notprecedes", (const unsigned long[]){0x2280}, 1},
-    {"notsubset", (const unsigned long[]){0x2284}, 1},
-    {"notsucceeds", (const unsigned long[]){0x2281}, 1},
-    {"notsuperset", (const unsigned long[]){0x2285}, 1},
-    {"nowarmenian", (const unsigned long[]){0x0576}, 1},
-    {"nparen", (const unsigned long[]){0x24a9}, 1},
-    {"nssquare", (const unsigned long[]){0x33b1}, 1},
-    {"nsuperior", (const unsigned long[]){0x207f}, 1},
-    {"ntilde", (const unsigned long[]){0x00f1}, 1},
-    {"nu", (const unsigned long[]){0x03bd}, 1},
-    {"nuhiragana", (const unsigned long[]){0x306c}, 1},
-    {"nukatakana", (const unsigned long[]){0x30cc}, 1},
-    {"nukatakanahalfwidth", (const unsigned long[]){0xff87}, 1},
-    {"nuktabengali", (const unsigned long[]){0x09bc}, 1},
-    {"nuktadeva", (const unsigned long[]){0x093c}, 1},
-    {"nuktagujarati", (const unsigned long[]){0x0abc}, 1},
-    {"nuktagurmukhi", (const unsigned long[]){0x0a3c}, 1},
-    {"numbersign", (const unsigned long[]){0x0023}, 1},
-    {"numbersignmonospace", (const unsigned long[]){0xff03}, 1},
-    {"numbersignsmall", (const unsigned long[]){0xfe5f}, 1},
-    {"numeralsigngreek", (const unsigned long[]){0x0374}, 1},
-    {"numeralsignlowergreek", (const unsigned long[]){0x0375}, 1},
-    {"numero", (const unsigned long[]){0x2116}, 1},
-    {"nun", (const unsigned long[]){0x05e0}, 1},
-    {"nundagesh", (const unsigned long[]){0xfb40}, 1},
-    {"nundageshhebrew", (const unsigned long[]){0xfb40}, 1},
-    {"nunhebrew", (const unsigned long[]){0x05e0}, 1},
-    {"nvsquare", (const unsigned long[]){0x33b5}, 1},
-    {"nwsquare", (const unsigned long[]){0x33bb}, 1},
-    {"nyabengali", (const unsigned long[]){0x099e}, 1},
-    {"nyadeva", (const unsigned long[]){0x091e}, 1},
-    {"nyagujarati", (const unsigned long[]){0x0a9e}, 1},
-    {"nyagurmukhi", (const unsigned long[]){0x0a1e}, 1},
-    {"o", (const unsigned long[]){0x006f}, 1},
-    {"oacute", (const unsigned long[]){0x00f3}, 1},
-    {"oangthai", (const unsigned long[]){0x0e2d}, 1},
-    {"obarred", (const unsigned long[]){0x0275}, 1},
-    {"obarredcyrillic", (const unsigned long[]){0x04e9}, 1},
-    {"obarreddieresiscyrillic", (const unsigned long[]){0x04eb}, 1},
-    {"obengali", (const unsigned long[]){0x0993}, 1},
-    {"obopomofo", (const unsigned long[]){0x311b}, 1},
-    {"obreve", (const unsigned long[]){0x014f}, 1},
-    {"ocandradeva", (const unsigned long[]){0x0911}, 1},
-    {"ocandragujarati", (const unsigned long[]){0x0a91}, 1},
-    {"ocandravowelsigndeva", (const unsigned long[]){0x0949}, 1},
-    {"ocandravowelsigngujarati", (const unsigned long[]){0x0ac9}, 1},
-    {"ocaron", (const unsigned long[]){0x01d2}, 1},
-    {"ocircle", (const unsigned long[]){0x24de}, 1},
-    {"ocircumflex", (const unsigned long[]){0x00f4}, 1},
-    {"ocircumflexacute", (const unsigned long[]){0x1ed1}, 1},
-    {"ocircumflexdotbelow", (const unsigned long[]){0x1ed9}, 1},
-    {"ocircumflexgrave", (const unsigned long[]){0x1ed3}, 1},
-    {"ocircumflexhookabove", (const unsigned long[]){0x1ed5}, 1},
-    {"ocircumflextilde", (const unsigned long[]){0x1ed7}, 1},
-    {"ocyrillic", (const unsigned long[]){0x043e}, 1},
-    {"odblacute", (const unsigned long[]){0x0151}, 1},
-    {"odblgrave", (const unsigned long[]){0x020d}, 1},
-    {"odeva", (const unsigned long[]){0x0913}, 1},
-    {"odieresis", (const unsigned long[]){0x00f6}, 1},
-    {"odieresiscyrillic", (const unsigned long[]){0x04e7}, 1},
-    {"odotbelow", (const unsigned long[]){0x1ecd}, 1},
-    {"oe", (const unsigned long[]){0x0153}, 1},
-    {"oekorean", (const unsigned long[]){0x315a}, 1},
-    {"ogonek", (const unsigned long[]){0x02db}, 1},
-    {"ogonekcmb", (const unsigned long[]){0x0328}, 1},
-    {"ograve", (const unsigned long[]){0x00f2}, 1},
-    {"ogujarati", (const unsigned long[]){0x0a93}, 1},
-    {"oharmenian", (const unsigned long[]){0x0585}, 1},
-    {"ohiragana", (const unsigned long[]){0x304a}, 1},
-    {"ohookabove", (const unsigned long[]){0x1ecf}, 1},
-    {"ohorn", (const unsigned long[]){0x01a1}, 1},
-    {"ohornacute", (const unsigned long[]){0x1edb}, 1},
-    {"ohorndotbelow", (const unsigned long[]){0x1ee3}, 1},
-    {"ohorngrave", (const unsigned long[]){0x1edd}, 1},
-    {"ohornhookabove", (const unsigned long[]){0x1edf}, 1},
-    {"ohorntilde", (const unsigned long[]){0x1ee1}, 1},
-    {"ohungarumlaut", (const unsigned long[]){0x0151}, 1},
-    {"oi", (const unsigned long[]){0x01a3}, 1},
-    {"oinvertedbreve", (const unsigned long[]){0x020f}, 1},
-    {"okatakana", (const unsigned long[]){0x30aa}, 1},
-    {"okatakanahalfwidth", (const unsigned long[]){0xff75}, 1},
-    {"okorean", (const unsigned long[]){0x3157}, 1},
-    {"olehebrew", (const unsigned long[]){0x05ab}, 1},
-    {"omacron", (const unsigned long[]){0x014d}, 1},
-    {"omacronacute", (const unsigned long[]){0x1e53}, 1},
-    {"omacrongrave", (const unsigned long[]){0x1e51}, 1},
-    {"omdeva", (const unsigned long[]){0x0950}, 1},
-    {"omega", (const unsigned long[]){0x03c9}, 1},
-    {"omega1", (const unsigned long[]){0x03d6}, 1},
-    {"omegacyrillic", (const unsigned long[]){0x0461}, 1},
-    {"omegalatinclosed", (const unsigned long[]){0x0277}, 1},
-    {"omegaroundcyrillic", (const unsigned long[]){0x047b}, 1},
-    {"omegatitlocyrillic", (const unsigned long[]){0x047d}, 1},
-    {"omegatonos", (const unsigned long[]){0x03ce}, 1},
-    {"omgujarati", (const unsigned long[]){0x0ad0}, 1},
-    {"omicron", (const unsigned long[]){0x03bf}, 1},
-    {"omicrontonos", (const unsigned long[]){0x03cc}, 1},
-    {"omonospace", (const unsigned long[]){0xff4f}, 1},
-    {"one", (const unsigned long[]){0x0031}, 1},
-    {"onearabic", (const unsigned long[]){0x0661}, 1},
-    {"onebengali", (const unsigned long[]){0x09e7}, 1},
-    {"onecircle", (const unsigned long[]){0x2460}, 1},
-    {"onecircleinversesansserif", (const unsigned long[]){0x278a}, 1},
-    {"onedeva", (const unsigned long[]){0x0967}, 1},
-    {"onedotenleader", (const unsigned long[]){0x2024}, 1},
-    {"oneeighth", (const unsigned long[]){0x215b}, 1},
-    {"onefitted", (const unsigned long[]){0xf6dc}, 1},
-    {"onegujarati", (const unsigned long[]){0x0ae7}, 1},
-    {"onegurmukhi", (const unsigned long[]){0x0a67}, 1},
-    {"onehackarabic", (const unsigned long[]){0x0661}, 1},
-    {"onehalf", (const unsigned long[]){0x00bd}, 1},
-    {"onehangzhou", (const unsigned long[]){0x3021}, 1},
-    {"oneideographicparen", (const unsigned long[]){0x3220}, 1},
-    {"oneinferior", (const unsigned long[]){0x2081}, 1},
-    {"onemonospace", (const unsigned long[]){0xff11}, 1},
-    {"onenumeratorbengali", (const unsigned long[]){0x09f4}, 1},
-    {"oneoldstyle", (const unsigned long[]){0xf731}, 1},
-    {"oneparen", (const unsigned long[]){0x2474}, 1},
-    {"oneperiod", (const unsigned long[]){0x2488}, 1},
-    {"onepersian", (const unsigned long[]){0x06f1}, 1},
-    {"onequarter", (const unsigned long[]){0x00bc}, 1},
-    {"oneroman", (const unsigned long[]){0x2170}, 1},
-    {"onesuperior", (const unsigned long[]){0x00b9}, 1},
-    {"onethai", (const unsigned long[]){0x0e51}, 1},
-    {"onethird", (const unsigned long[]){0x2153}, 1},
-    {"oogonek", (const unsigned long[]){0x01eb}, 1},
-    {"oogonekmacron", (const unsigned long[]){0x01ed}, 1},
-    {"oogurmukhi", (const unsigned long[]){0x0a13}, 1},
-    {"oomatragurmukhi", (const unsigned long[]){0x0a4b}, 1},
-    {"oopen", (const unsigned long[]){0x0254}, 1},
-    {"oparen", (const unsigned long[]){0x24aa}, 1},
-    {"openbullet", (const unsigned long[]){0x25e6}, 1},
-    {"option", (const unsigned long[]){0x2325}, 1},
-    {"ordfeminine", (const unsigned long[]){0x00aa}, 1},
-    {"ordmasculine", (const unsigned long[]){0x00ba}, 1},
-    {"orthogonal", (const unsigned long[]){0x221f}, 1},
-    {"oshortdeva", (const unsigned long[]){0x0912}, 1},
-    {"oshortvowelsigndeva", (const unsigned long[]){0x094a}, 1},
-    {"oslash", (const unsigned long[]){0x00f8}, 1},
-    {"oslashacute", (const unsigned long[]){0x01ff}, 1},
-    {"osmallhiragana", (const unsigned long[]){0x3049}, 1},
-    {"osmallkatakana", (const unsigned long[]){0x30a9}, 1},
-    {"osmallkatakanahalfwidth", (const unsigned long[]){0xff6b}, 1},
-    {"ostrokeacute", (const unsigned long[]){0x01ff}, 1},
-    {"osuperior", (const unsigned long[]){0xf6f0}, 1},
-    {"otcyrillic", (const unsigned long[]){0x047f}, 1},
-    {"otilde", (const unsigned long[]){0x00f5}, 1},
-    {"otildeacute", (const unsigned long[]){0x1e4d}, 1},
-    {"otildedieresis", (const unsigned long[]){0x1e4f}, 1},
-    {"oubopomofo", (const unsigned long[]){0x3121}, 1},
-    {"overline", (const unsigned long[]){0x203e}, 1},
-    {"overlinecenterline", (const unsigned long[]){0xfe4a}, 1},
-    {"overlinecmb", (const unsigned long[]){0x0305}, 1},
-    {"overlinedashed", (const unsigned long[]){0xfe49}, 1},
-    {"overlinedblwavy", (const unsigned long[]){0xfe4c}, 1},
-    {"overlinewavy", (const unsigned long[]){0xfe4b}, 1},
-    {"overscore", (const unsigned long[]){0x00af}, 1},
-    {"ovowelsignbengali", (const unsigned long[]){0x09cb}, 1},
-    {"ovowelsigndeva", (const unsigned long[]){0x094b}, 1},
-    {"ovowelsigngujarati", (const unsigned long[]){0x0acb}, 1},
-    {"p", (const unsigned long[]){0x0070}, 1},
-    {"paampssquare", (const unsigned long[]){0x3380}, 1},
-    {"paasentosquare", (const unsigned long[]){0x332b}, 1},
-    {"pabengali", (const unsigned long[]){0x09aa}, 1},
-    {"pacute", (const unsigned long[]){0x1e55}, 1},
-    {"padeva", (const unsigned long[]){0x092a}, 1},
-    {"pagedown", (const unsigned long[]){0x21df}, 1},
-    {"pageup", (const unsigned long[]){0x21de}, 1},
-    {"pagujarati", (const unsigned long[]){0x0aaa}, 1},
-    {"pagurmukhi", (const unsigned long[]){0x0a2a}, 1},
-    {"pahiragana", (const unsigned long[]){0x3071}, 1},
-    {"paiyannoithai", (const unsigned long[]){0x0e2f}, 1},
-    {"pakatakana", (const unsigned long[]){0x30d1}, 1},
-    {"palatalizationcyrilliccmb", (const unsigned long[]){0x0484}, 1},
-    {"palochkacyrillic", (const unsigned long[]){0x04c0}, 1},
-    {"pansioskorean", (const unsigned long[]){0x317f}, 1},
-    {"paragraph", (const unsigned long[]){0x00b6}, 1},
-    {"parallel", (const unsigned long[]){0x2225}, 1},
-    {"parenleft", (const unsigned long[]){0x0028}, 1},
-    {"parenleftaltonearabic", (const unsigned long[]){0xfd3e}, 1},
-    {"parenleftbt", (const unsigned long[]){0xf8ed}, 1},
-    {"parenleftex", (const unsigned long[]){0xf8ec}, 1},
-    {"parenleftinferior", (const unsigned long[]){0x208d}, 1},
-    {"parenleftmonospace", (const unsigned long[]){0xff08}, 1},
-    {"parenleftsmall", (const unsigned long[]){0xfe59}, 1},
-    {"parenleftsuperior", (const unsigned long[]){0x207d}, 1},
-    {"parenlefttp", (const unsigned long[]){0xf8eb}, 1},
-    {"parenleftvertical", (const unsigned long[]){0xfe35}, 1},
-    {"parenright", (const unsigned long[]){0x0029}, 1},
-    {"parenrightaltonearabic", (const unsigned long[]){0xfd3f}, 1},
-    {"parenrightbt", (const unsigned long[]){0xf8f8}, 1},
-    {"parenrightex", (const unsigned long[]){0xf8f7}, 1},
-    {"parenrightinferior", (const unsigned long[]){0x208e}, 1},
-    {"parenrightmonospace", (const unsigned long[]){0xff09}, 1},
-    {"parenrightsmall", (const unsigned long[]){0xfe5a}, 1},
-    {"parenrightsuperior", (const unsigned long[]){0x207e}, 1},
-    {"parenrighttp", (const unsigned long[]){0xf8f6}, 1},
-    {"parenrightvertical", (const unsigned long[]){0xfe36}, 1},
-    {"partialdiff", (const unsigned long[]){0x2202}, 1},
-    {"paseqhebrew", (const unsigned long[]){0x05c0}, 1},
-    {"pashtahebrew", (const unsigned long[]){0x0599}, 1},
-    {"pasquare", (const unsigned long[]){0x33a9}, 1},
-    {"patah", (const unsigned long[]){0x05b7}, 1},
-    {"patah11", (const unsigned long[]){0x05b7}, 1},
-    {"patah1d", (const unsigned long[]){0x05b7}, 1},
-    {"patah2a", (const unsigned long[]){0x05b7}, 1},
-    {"patahhebrew", (const unsigned long[]){0x05b7}, 1},
-    {"patahnarrowhebrew", (const unsigned long[]){0x05b7}, 1},
-    {"patahquarterhebrew", (const unsigned long[]){0x05b7}, 1},
-    {"patahwidehebrew", (const unsigned long[]){0x05b7}, 1},
-    {"pazerhebrew", (const unsigned long[]){0x05a1}, 1},
-    {"pbopomofo", (const unsigned long[]){0x3106}, 1},
-    {"pcircle", (const unsigned long[]){0x24df}, 1},
-    {"pdotaccent", (const unsigned long[]){0x1e57}, 1},
-    {"pe", (const unsigned long[]){0x05e4}, 1},
-    {"pecyrillic", (const unsigned long[]){0x043f}, 1},
-    {"pedagesh", (const unsigned long[]){0xfb44}, 1},
-    {"pedageshhebrew", (const unsigned long[]){0xfb44}, 1},
-    {"peezisquare", (const unsigned long[]){0x333b}, 1},
-    {"pefinaldageshhebrew", (const unsigned long[]){0xfb43}, 1},
-    {"peharabic", (const unsigned long[]){0x067e}, 1},
-    {"peharmenian", (const unsigned long[]){0x057a}, 1},
-    {"pehebrew", (const unsigned long[]){0x05e4}, 1},
-    {"pehfinalarabic", (const unsigned long[]){0xfb57}, 1},
-    {"pehinitialarabic", (const unsigned long[]){0xfb58}, 1},
-    {"pehiragana", (const unsigned long[]){0x307a}, 1},
-    {"pehmedialarabic", (const unsigned long[]){0xfb59}, 1},
-    {"pekatakana", (const unsigned long[]){0x30da}, 1},
-    {"pemiddlehookcyrillic", (const unsigned long[]){0x04a7}, 1},
-    {"perafehebrew", (const unsigned long[]){0xfb4e}, 1},
-    {"percent", (const unsigned long[]){0x0025}, 1},
-    {"percentarabic", (const unsigned long[]){0x066a}, 1},
-    {"percentmonospace", (const unsigned long[]){0xff05}, 1},
-    {"percentsmall", (const unsigned long[]){0xfe6a}, 1},
-    {"period", (const unsigned long[]){0x002e}, 1},
-    {"periodarmenian", (const unsigned long[]){0x0589}, 1},
-    {"periodcentered", (const unsigned long[]){0x00b7}, 1},
-    {"periodhalfwidth", (const unsigned long[]){0xff61}, 1},
-    {"periodinferior", (const unsigned long[]){0xf6e7}, 1},
-    {"periodmonospace", (const unsigned long[]){0xff0e}, 1},
-    {"periodsmall", (const unsigned long[]){0xfe52}, 1},
-    {"periodsuperior", (const unsigned long[]){0xf6e8}, 1},
-    {"perispomenigreekcmb", (const unsigned long[]){0x0342}, 1},
-    {"perpendicular", (const unsigned long[]){0x22a5}, 1},
-    {"perthousand", (const unsigned long[]){0x2030}, 1},
-    {"peseta", (const unsigned long[]){0x20a7}, 1},
-    {"pfsquare", (const unsigned long[]){0x338a}, 1},
-    {"phabengali", (const unsigned long[]){0x09ab}, 1},
-    {"phadeva", (const unsigned long[]){0x092b}, 1},
-    {"phagujarati", (const unsigned long[]){0x0aab}, 1},
-    {"phagurmukhi", (const unsigned long[]){0x0a2b}, 1},
-    {"phi", (const unsigned long[]){0x03c6}, 1},
-    {"phi1", (const unsigned long[]){0x03d5}, 1},
-    {"phieuphacirclekorean", (const unsigned long[]){0x327a}, 1},
-    {"phieuphaparenkorean", (const unsigned long[]){0x321a}, 1},
-    {"phieuphcirclekorean", (const unsigned long[]){0x326c}, 1},
-    {"phieuphkorean", (const unsigned long[]){0x314d}, 1},
-    {"phieuphparenkorean", (const unsigned long[]){0x320c}, 1},
-    {"philatin", (const unsigned long[]){0x0278}, 1},
-    {"phinthuthai", (const unsigned long[]){0x0e3a}, 1},
-    {"phisymbolgreek", (const unsigned long[]){0x03d5}, 1},
-    {"phook", (const unsigned long[]){0x01a5}, 1},
-    {"phophanthai", (const unsigned long[]){0x0e1e}, 1},
-    {"phophungthai", (const unsigned long[]){0x0e1c}, 1},
-    {"phosamphaothai", (const unsigned long[]){0x0e20}, 1},
-    {"pi", (const unsigned long[]){0x03c0}, 1},
-    {"pieupacirclekorean", (const unsigned long[]){0x3273}, 1},
-    {"pieupaparenkorean", (const unsigned long[]){0x3213}, 1},
-    {"pieupcieuckorean", (const unsigned long[]){0x3176}, 1},
-    {"pieupcirclekorean", (const unsigned long[]){0x3265}, 1},
-    {"pieupkiyeokkorean", (const unsigned long[]){0x3172}, 1},
-    {"pieupkorean", (const unsigned long[]){0x3142}, 1},
-    {"pieupparenkorean", (const unsigned long[]){0x3205}, 1},
-    {"pieupsioskiyeokkorean", (const unsigned long[]){0x3174}, 1},
-    {"pieupsioskorean", (const unsigned long[]){0x3144}, 1},
-    {"pieupsiostikeutkorean", (const unsigned long[]){0x3175}, 1},
-    {"pieupthieuthkorean", (const unsigned long[]){0x3177}, 1},
-    {"pieuptikeutkorean", (const unsigned long[]){0x3173}, 1},
-    {"pihiragana", (const unsigned long[]){0x3074}, 1},
-    {"pikatakana", (const unsigned long[]){0x30d4}, 1},
-    {"pisymbolgreek", (const unsigned long[]){0x03d6}, 1},
-    {"piwrarmenian", (const unsigned long[]){0x0583}, 1},
-    {"plus", (const unsigned long[]){0x002b}, 1},
-    {"plusbelowcmb", (const unsigned long[]){0x031f}, 1},
-    {"pluscircle", (const unsigned long[]){0x2295}, 1},
-    {"plusminus", (const unsigned long[]){0x00b1}, 1},
-    {"plusmod", (const unsigned long[]){0x02d6}, 1},
-    {"plusmonospace", (const unsigned long[]){0xff0b}, 1},
-    {"plussmall", (const unsigned long[]){0xfe62}, 1},
-    {"plussuperior", (const unsigned long[]){0x207a}, 1},
-    {"pmonospace", (const unsigned long[]){0xff50}, 1},
-    {"pmsquare", (const unsigned long[]){0x33d8}, 1},
-    {"pohiragana", (const unsigned long[]){0x307d}, 1},
-    {"pointingindexdownwhite", (const unsigned long[]){0x261f}, 1},
-    {"pointingindexleftwhite", (const unsigned long[]){0x261c}, 1},
-    {"pointingindexrightwhite", (const unsigned long[]){0x261e}, 1},
-    {"pointingindexupwhite", (const unsigned long[]){0x261d}, 1},
-    {"pokatakana", (const unsigned long[]){0x30dd}, 1},
-    {"poplathai", (const unsigned long[]){0x0e1b}, 1},
-    {"postalmark", (const unsigned long[]){0x3012}, 1},
-    {"postalmarkface", (const unsigned long[]){0x3020}, 1},
-    {"pparen", (const unsigned long[]){0x24ab}, 1},
-    {"precedes", (const unsigned long[]){0x227a}, 1},
-    {"prescription", (const unsigned long[]){0x211e}, 1},
-    {"primemod", (const unsigned long[]){0x02b9}, 1},
-    {"primereversed", (const unsigned long[]){0x2035}, 1},
-    {"product", (const unsigned long[]){0x220f}, 1},
-    {"projective", (const unsigned long[]){0x2305}, 1},
-    {"prolongedkana", (const unsigned long[]){0x30fc}, 1},
-    {"propellor", (const unsigned long[]){0x2318}, 1},
-    {"propersubset", (const unsigned long[]){0x2282}, 1},
-    {"propersuperset", (const unsigned long[]){0x2283}, 1},
-    {"proportion", (const unsigned long[]){0x2237}, 1},
-    {"proportional", (const unsigned long[]){0x221d}, 1},
-    {"psi", (const unsigned long[]){0x03c8}, 1},
-    {"psicyrillic", (const unsigned long[]){0x0471}, 1},
-    {"psilipneumatacyrilliccmb", (const unsigned long[]){0x0486}, 1},
-    {"pssquare", (const unsigned long[]){0x33b0}, 1},
-    {"puhiragana", (const unsigned long[]){0x3077}, 1},
-    {"pukatakana", (const unsigned long[]){0x30d7}, 1},
-    {"pvsquare", (const unsigned long[]){0x33b4}, 1},
-    {"pwsquare", (const unsigned long[]){0x33ba}, 1},
-    {"q", (const unsigned long[]){0x0071}, 1},
-    {"qadeva", (const unsigned long[]){0x0958}, 1},
-    {"qadmahebrew", (const unsigned long[]){0x05a8}, 1},
-    {"qafarabic", (const unsigned long[]){0x0642}, 1},
-    {"qaffinalarabic", (const unsigned long[]){0xfed6}, 1},
-    {"qafinitialarabic", (const unsigned long[]){0xfed7}, 1},
-    {"qafmedialarabic", (const unsigned long[]){0xfed8}, 1},
-    {"qamats", (const unsigned long[]){0x05b8}, 1},
-    {"qamats10", (const unsigned long[]){0x05b8}, 1},
-    {"qamats1a", (const unsigned long[]){0x05b8}, 1},
-    {"qamats1c", (const unsigned long[]){0x05b8}, 1},
-    {"qamats27", (const unsigned long[]){0x05b8}, 1},
-    {"qamats29", (const unsigned long[]){0x05b8}, 1},
-    {"qamats33", (const unsigned long[]){0x05b8}, 1},
-    {"qamatsde", (const unsigned long[]){0x05b8}, 1},
-    {"qamatshebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qamatsnarrowhebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qamatsqatanhebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qamatsqatannarrowhebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qamatsqatanquarterhebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qamatsqatanwidehebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qamatsquarterhebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qamatswidehebrew", (const unsigned long[]){0x05b8}, 1},
-    {"qarneyparahebrew", (const unsigned long[]){0x059f}, 1},
-    {"qbopomofo", (const unsigned long[]){0x3111}, 1},
-    {"qcircle", (const unsigned long[]){0x24e0}, 1},
-    {"qhook", (const unsigned long[]){0x02a0}, 1},
-    {"qmonospace", (const unsigned long[]){0xff51}, 1},
-    {"qof", (const unsigned long[]){0x05e7}, 1},
-    {"qofdagesh", (const unsigned long[]){0xfb47}, 1},
-    {"qofdageshhebrew", (const unsigned long[]){0xfb47}, 1},
+    {"nooninitialarabic", cp_single_2743, 1},
+    {"noonjeeminitialarabic", cp_single_2744, 1},
+    {"noonjeemisolatedarabic", cp_single_2745, 1},
+    {"noonmedialarabic", cp_single_2746, 1},
+    {"noonmeeminitialarabic", cp_single_2747, 1},
+    {"noonmeemisolatedarabic", cp_single_2748, 1},
+    {"noonnoonfinalarabic", cp_single_2749, 1},
+    {"notcontains", cp_single_2750, 1},
+    {"notelement", cp_single_2751, 1},
+    {"notelementof", cp_single_2752, 1},
+    {"notequal", cp_single_2753, 1},
+    {"notgreater", cp_single_2754, 1},
+    {"notgreaternorequal", cp_single_2755, 1},
+    {"notgreaternorless", cp_single_2756, 1},
+    {"notidentical", cp_single_2757, 1},
+    {"notless", cp_single_2758, 1},
+    {"notlessnorequal", cp_single_2759, 1},
+    {"notparallel", cp_single_2760, 1},
+    {"notprecedes", cp_single_2761, 1},
+    {"notsubset", cp_single_2762, 1},
+    {"notsucceeds", cp_single_2763, 1},
+    {"notsuperset", cp_single_2764, 1},
+    {"nowarmenian", cp_single_2765, 1},
+    {"nparen", cp_single_2766, 1},
+    {"nssquare", cp_single_2767, 1},
+    {"nsuperior", cp_single_2768, 1},
+    {"ntilde", cp_single_2769, 1},
+    {"nu", cp_single_2770, 1},
+    {"nuhiragana", cp_single_2771, 1},
+    {"nukatakana", cp_single_2772, 1},
+    {"nukatakanahalfwidth", cp_single_2773, 1},
+    {"nuktabengali", cp_single_2774, 1},
+    {"nuktadeva", cp_single_2775, 1},
+    {"nuktagujarati", cp_single_2776, 1},
+    {"nuktagurmukhi", cp_single_2777, 1},
+    {"numbersign", cp_single_2778, 1},
+    {"numbersignmonospace", cp_single_2779, 1},
+    {"numbersignsmall", cp_single_2780, 1},
+    {"numeralsigngreek", cp_single_2781, 1},
+    {"numeralsignlowergreek", cp_single_2782, 1},
+    {"numero", cp_single_2783, 1},
+    {"nun", cp_single_2784, 1},
+    {"nundagesh", cp_single_2785, 1},
+    {"nundageshhebrew", cp_single_2786, 1},
+    {"nunhebrew", cp_single_2787, 1},
+    {"nvsquare", cp_single_2788, 1},
+    {"nwsquare", cp_single_2789, 1},
+    {"nyabengali", cp_single_2790, 1},
+    {"nyadeva", cp_single_2791, 1},
+    {"nyagujarati", cp_single_2792, 1},
+    {"nyagurmukhi", cp_single_2793, 1},
+    {"o", cp_single_2794, 1},
+    {"oacute", cp_single_2795, 1},
+    {"oangthai", cp_single_2796, 1},
+    {"obarred", cp_single_2797, 1},
+    {"obarredcyrillic", cp_single_2798, 1},
+    {"obarreddieresiscyrillic", cp_single_2799, 1},
+    {"obengali", cp_single_2800, 1},
+    {"obopomofo", cp_single_2801, 1},
+    {"obreve", cp_single_2802, 1},
+    {"ocandradeva", cp_single_2803, 1},
+    {"ocandragujarati", cp_single_2804, 1},
+    {"ocandravowelsigndeva", cp_single_2805, 1},
+    {"ocandravowelsigngujarati", cp_single_2806, 1},
+    {"ocaron", cp_single_2807, 1},
+    {"ocircle", cp_single_2808, 1},
+    {"ocircumflex", cp_single_2809, 1},
+    {"ocircumflexacute", cp_single_2810, 1},
+    {"ocircumflexdotbelow", cp_single_2811, 1},
+    {"ocircumflexgrave", cp_single_2812, 1},
+    {"ocircumflexhookabove", cp_single_2813, 1},
+    {"ocircumflextilde", cp_single_2814, 1},
+    {"ocyrillic", cp_single_2815, 1},
+    {"odblacute", cp_single_2816, 1},
+    {"odblgrave", cp_single_2817, 1},
+    {"odeva", cp_single_2818, 1},
+    {"odieresis", cp_single_2819, 1},
+    {"odieresiscyrillic", cp_single_2820, 1},
+    {"odotbelow", cp_single_2821, 1},
+    {"oe", cp_single_2822, 1},
+    {"oekorean", cp_single_2823, 1},
+    {"ogonek", cp_single_2824, 1},
+    {"ogonekcmb", cp_single_2825, 1},
+    {"ograve", cp_single_2826, 1},
+    {"ogujarati", cp_single_2827, 1},
+    {"oharmenian", cp_single_2828, 1},
+    {"ohiragana", cp_single_2829, 1},
+    {"ohookabove", cp_single_2830, 1},
+    {"ohorn", cp_single_2831, 1},
+    {"ohornacute", cp_single_2832, 1},
+    {"ohorndotbelow", cp_single_2833, 1},
+    {"ohorngrave", cp_single_2834, 1},
+    {"ohornhookabove", cp_single_2835, 1},
+    {"ohorntilde", cp_single_2836, 1},
+    {"ohungarumlaut", cp_single_2837, 1},
+    {"oi", cp_single_2838, 1},
+    {"oinvertedbreve", cp_single_2839, 1},
+    {"okatakana", cp_single_2840, 1},
+    {"okatakanahalfwidth", cp_single_2841, 1},
+    {"okorean", cp_single_2842, 1},
+    {"olehebrew", cp_single_2843, 1},
+    {"omacron", cp_single_2844, 1},
+    {"omacronacute", cp_single_2845, 1},
+    {"omacrongrave", cp_single_2846, 1},
+    {"omdeva", cp_single_2847, 1},
+    {"omega", cp_single_2848, 1},
+    {"omega1", cp_single_2849, 1},
+    {"omegacyrillic", cp_single_2850, 1},
+    {"omegalatinclosed", cp_single_2851, 1},
+    {"omegaroundcyrillic", cp_single_2852, 1},
+    {"omegatitlocyrillic", cp_single_2853, 1},
+    {"omegatonos", cp_single_2854, 1},
+    {"omgujarati", cp_single_2855, 1},
+    {"omicron", cp_single_2856, 1},
+    {"omicrontonos", cp_single_2857, 1},
+    {"omonospace", cp_single_2858, 1},
+    {"one", cp_single_2859, 1},
+    {"onearabic", cp_single_2860, 1},
+    {"onebengali", cp_single_2861, 1},
+    {"onecircle", cp_single_2862, 1},
+    {"onecircleinversesansserif", cp_single_2863, 1},
+    {"onedeva", cp_single_2864, 1},
+    {"onedotenleader", cp_single_2865, 1},
+    {"oneeighth", cp_single_2866, 1},
+    {"onefitted", cp_single_2867, 1},
+    {"onegujarati", cp_single_2868, 1},
+    {"onegurmukhi", cp_single_2869, 1},
+    {"onehackarabic", cp_single_2870, 1},
+    {"onehalf", cp_single_2871, 1},
+    {"onehangzhou", cp_single_2872, 1},
+    {"oneideographicparen", cp_single_2873, 1},
+    {"oneinferior", cp_single_2874, 1},
+    {"onemonospace", cp_single_2875, 1},
+    {"onenumeratorbengali", cp_single_2876, 1},
+    {"oneoldstyle", cp_single_2877, 1},
+    {"oneparen", cp_single_2878, 1},
+    {"oneperiod", cp_single_2879, 1},
+    {"onepersian", cp_single_2880, 1},
+    {"onequarter", cp_single_2881, 1},
+    {"oneroman", cp_single_2882, 1},
+    {"onesuperior", cp_single_2883, 1},
+    {"onethai", cp_single_2884, 1},
+    {"onethird", cp_single_2885, 1},
+    {"oogonek", cp_single_2886, 1},
+    {"oogonekmacron", cp_single_2887, 1},
+    {"oogurmukhi", cp_single_2888, 1},
+    {"oomatragurmukhi", cp_single_2889, 1},
+    {"oopen", cp_single_2890, 1},
+    {"oparen", cp_single_2891, 1},
+    {"openbullet", cp_single_2892, 1},
+    {"option", cp_single_2893, 1},
+    {"ordfeminine", cp_single_2894, 1},
+    {"ordmasculine", cp_single_2895, 1},
+    {"orthogonal", cp_single_2896, 1},
+    {"oshortdeva", cp_single_2897, 1},
+    {"oshortvowelsigndeva", cp_single_2898, 1},
+    {"oslash", cp_single_2899, 1},
+    {"oslashacute", cp_single_2900, 1},
+    {"osmallhiragana", cp_single_2901, 1},
+    {"osmallkatakana", cp_single_2902, 1},
+    {"osmallkatakanahalfwidth", cp_single_2903, 1},
+    {"ostrokeacute", cp_single_2904, 1},
+    {"osuperior", cp_single_2905, 1},
+    {"otcyrillic", cp_single_2906, 1},
+    {"otilde", cp_single_2907, 1},
+    {"otildeacute", cp_single_2908, 1},
+    {"otildedieresis", cp_single_2909, 1},
+    {"oubopomofo", cp_single_2910, 1},
+    {"overline", cp_single_2911, 1},
+    {"overlinecenterline", cp_single_2912, 1},
+    {"overlinecmb", cp_single_2913, 1},
+    {"overlinedashed", cp_single_2914, 1},
+    {"overlinedblwavy", cp_single_2915, 1},
+    {"overlinewavy", cp_single_2916, 1},
+    {"overscore", cp_single_2917, 1},
+    {"ovowelsignbengali", cp_single_2918, 1},
+    {"ovowelsigndeva", cp_single_2919, 1},
+    {"ovowelsigngujarati", cp_single_2920, 1},
+    {"p", cp_single_2921, 1},
+    {"paampssquare", cp_single_2922, 1},
+    {"paasentosquare", cp_single_2923, 1},
+    {"pabengali", cp_single_2924, 1},
+    {"pacute", cp_single_2925, 1},
+    {"padeva", cp_single_2926, 1},
+    {"pagedown", cp_single_2927, 1},
+    {"pageup", cp_single_2928, 1},
+    {"pagujarati", cp_single_2929, 1},
+    {"pagurmukhi", cp_single_2930, 1},
+    {"pahiragana", cp_single_2931, 1},
+    {"paiyannoithai", cp_single_2932, 1},
+    {"pakatakana", cp_single_2933, 1},
+    {"palatalizationcyrilliccmb", cp_single_2934, 1},
+    {"palochkacyrillic", cp_single_2935, 1},
+    {"pansioskorean", cp_single_2936, 1},
+    {"paragraph", cp_single_2937, 1},
+    {"parallel", cp_single_2938, 1},
+    {"parenleft", cp_single_2939, 1},
+    {"parenleftaltonearabic", cp_single_2940, 1},
+    {"parenleftbt", cp_single_2941, 1},
+    {"parenleftex", cp_single_2942, 1},
+    {"parenleftinferior", cp_single_2943, 1},
+    {"parenleftmonospace", cp_single_2944, 1},
+    {"parenleftsmall", cp_single_2945, 1},
+    {"parenleftsuperior", cp_single_2946, 1},
+    {"parenlefttp", cp_single_2947, 1},
+    {"parenleftvertical", cp_single_2948, 1},
+    {"parenright", cp_single_2949, 1},
+    {"parenrightaltonearabic", cp_single_2950, 1},
+    {"parenrightbt", cp_single_2951, 1},
+    {"parenrightex", cp_single_2952, 1},
+    {"parenrightinferior", cp_single_2953, 1},
+    {"parenrightmonospace", cp_single_2954, 1},
+    {"parenrightsmall", cp_single_2955, 1},
+    {"parenrightsuperior", cp_single_2956, 1},
+    {"parenrighttp", cp_single_2957, 1},
+    {"parenrightvertical", cp_single_2958, 1},
+    {"partialdiff", cp_single_2959, 1},
+    {"paseqhebrew", cp_single_2960, 1},
+    {"pashtahebrew", cp_single_2961, 1},
+    {"pasquare", cp_single_2962, 1},
+    {"patah", cp_single_2963, 1},
+    {"patah11", cp_single_2964, 1},
+    {"patah1d", cp_single_2965, 1},
+    {"patah2a", cp_single_2966, 1},
+    {"patahhebrew", cp_single_2967, 1},
+    {"patahnarrowhebrew", cp_single_2968, 1},
+    {"patahquarterhebrew", cp_single_2969, 1},
+    {"patahwidehebrew", cp_single_2970, 1},
+    {"pazerhebrew", cp_single_2971, 1},
+    {"pbopomofo", cp_single_2972, 1},
+    {"pcircle", cp_single_2973, 1},
+    {"pdotaccent", cp_single_2974, 1},
+    {"pe", cp_single_2975, 1},
+    {"pecyrillic", cp_single_2976, 1},
+    {"pedagesh", cp_single_2977, 1},
+    {"pedageshhebrew", cp_single_2978, 1},
+    {"peezisquare", cp_single_2979, 1},
+    {"pefinaldageshhebrew", cp_single_2980, 1},
+    {"peharabic", cp_single_2981, 1},
+    {"peharmenian", cp_single_2982, 1},
+    {"pehebrew", cp_single_2983, 1},
+    {"pehfinalarabic", cp_single_2984, 1},
+    {"pehinitialarabic", cp_single_2985, 1},
+    {"pehiragana", cp_single_2986, 1},
+    {"pehmedialarabic", cp_single_2987, 1},
+    {"pekatakana", cp_single_2988, 1},
+    {"pemiddlehookcyrillic", cp_single_2989, 1},
+    {"perafehebrew", cp_single_2990, 1},
+    {"percent", cp_single_2991, 1},
+    {"percentarabic", cp_single_2992, 1},
+    {"percentmonospace", cp_single_2993, 1},
+    {"percentsmall", cp_single_2994, 1},
+    {"period", cp_single_2995, 1},
+    {"periodarmenian", cp_single_2996, 1},
+    {"periodcentered", cp_single_2997, 1},
+    {"periodhalfwidth", cp_single_2998, 1},
+    {"periodinferior", cp_single_2999, 1},
+    {"periodmonospace", cp_single_3000, 1},
+    {"periodsmall", cp_single_3001, 1},
+    {"periodsuperior", cp_single_3002, 1},
+    {"perispomenigreekcmb", cp_single_3003, 1},
+    {"perpendicular", cp_single_3004, 1},
+    {"perthousand", cp_single_3005, 1},
+    {"peseta", cp_single_3006, 1},
+    {"pfsquare", cp_single_3007, 1},
+    {"phabengali", cp_single_3008, 1},
+    {"phadeva", cp_single_3009, 1},
+    {"phagujarati", cp_single_3010, 1},
+    {"phagurmukhi", cp_single_3011, 1},
+    {"phi", cp_single_3012, 1},
+    {"phi1", cp_single_3013, 1},
+    {"phieuphacirclekorean", cp_single_3014, 1},
+    {"phieuphaparenkorean", cp_single_3015, 1},
+    {"phieuphcirclekorean", cp_single_3016, 1},
+    {"phieuphkorean", cp_single_3017, 1},
+    {"phieuphparenkorean", cp_single_3018, 1},
+    {"philatin", cp_single_3019, 1},
+    {"phinthuthai", cp_single_3020, 1},
+    {"phisymbolgreek", cp_single_3021, 1},
+    {"phook", cp_single_3022, 1},
+    {"phophanthai", cp_single_3023, 1},
+    {"phophungthai", cp_single_3024, 1},
+    {"phosamphaothai", cp_single_3025, 1},
+    {"pi", cp_single_3026, 1},
+    {"pieupacirclekorean", cp_single_3027, 1},
+    {"pieupaparenkorean", cp_single_3028, 1},
+    {"pieupcieuckorean", cp_single_3029, 1},
+    {"pieupcirclekorean", cp_single_3030, 1},
+    {"pieupkiyeokkorean", cp_single_3031, 1},
+    {"pieupkorean", cp_single_3032, 1},
+    {"pieupparenkorean", cp_single_3033, 1},
+    {"pieupsioskiyeokkorean", cp_single_3034, 1},
+    {"pieupsioskorean", cp_single_3035, 1},
+    {"pieupsiostikeutkorean", cp_single_3036, 1},
+    {"pieupthieuthkorean", cp_single_3037, 1},
+    {"pieuptikeutkorean", cp_single_3038, 1},
+    {"pihiragana", cp_single_3039, 1},
+    {"pikatakana", cp_single_3040, 1},
+    {"pisymbolgreek", cp_single_3041, 1},
+    {"piwrarmenian", cp_single_3042, 1},
+    {"plus", cp_single_3043, 1},
+    {"plusbelowcmb", cp_single_3044, 1},
+    {"pluscircle", cp_single_3045, 1},
+    {"plusminus", cp_single_3046, 1},
+    {"plusmod", cp_single_3047, 1},
+    {"plusmonospace", cp_single_3048, 1},
+    {"plussmall", cp_single_3049, 1},
+    {"plussuperior", cp_single_3050, 1},
+    {"pmonospace", cp_single_3051, 1},
+    {"pmsquare", cp_single_3052, 1},
+    {"pohiragana", cp_single_3053, 1},
+    {"pointingindexdownwhite", cp_single_3054, 1},
+    {"pointingindexleftwhite", cp_single_3055, 1},
+    {"pointingindexrightwhite", cp_single_3056, 1},
+    {"pointingindexupwhite", cp_single_3057, 1},
+    {"pokatakana", cp_single_3058, 1},
+    {"poplathai", cp_single_3059, 1},
+    {"postalmark", cp_single_3060, 1},
+    {"postalmarkface", cp_single_3061, 1},
+    {"pparen", cp_single_3062, 1},
+    {"precedes", cp_single_3063, 1},
+    {"prescription", cp_single_3064, 1},
+    {"primemod", cp_single_3065, 1},
+    {"primereversed", cp_single_3066, 1},
+    {"product", cp_single_3067, 1},
+    {"projective", cp_single_3068, 1},
+    {"prolongedkana", cp_single_3069, 1},
+    {"propellor", cp_single_3070, 1},
+    {"propersubset", cp_single_3071, 1},
+    {"propersuperset", cp_single_3072, 1},
+    {"proportion", cp_single_3073, 1},
+    {"proportional", cp_single_3074, 1},
+    {"psi", cp_single_3075, 1},
+    {"psicyrillic", cp_single_3076, 1},
+    {"psilipneumatacyrilliccmb", cp_single_3077, 1},
+    {"pssquare", cp_single_3078, 1},
+    {"puhiragana", cp_single_3079, 1},
+    {"pukatakana", cp_single_3080, 1},
+    {"pvsquare", cp_single_3081, 1},
+    {"pwsquare", cp_single_3082, 1},
+    {"q", cp_single_3083, 1},
+    {"qadeva", cp_single_3084, 1},
+    {"qadmahebrew", cp_single_3085, 1},
+    {"qafarabic", cp_single_3086, 1},
+    {"qaffinalarabic", cp_single_3087, 1},
+    {"qafinitialarabic", cp_single_3088, 1},
+    {"qafmedialarabic", cp_single_3089, 1},
+    {"qamats", cp_single_3090, 1},
+    {"qamats10", cp_single_3091, 1},
+    {"qamats1a", cp_single_3092, 1},
+    {"qamats1c", cp_single_3093, 1},
+    {"qamats27", cp_single_3094, 1},
+    {"qamats29", cp_single_3095, 1},
+    {"qamats33", cp_single_3096, 1},
+    {"qamatsde", cp_single_3097, 1},
+    {"qamatshebrew", cp_single_3098, 1},
+    {"qamatsnarrowhebrew", cp_single_3099, 1},
+    {"qamatsqatanhebrew", cp_single_3100, 1},
+    {"qamatsqatannarrowhebrew", cp_single_3101, 1},
+    {"qamatsqatanquarterhebrew", cp_single_3102, 1},
+    {"qamatsqatanwidehebrew", cp_single_3103, 1},
+    {"qamatsquarterhebrew", cp_single_3104, 1},
+    {"qamatswidehebrew", cp_single_3105, 1},
+    {"qarneyparahebrew", cp_single_3106, 1},
+    {"qbopomofo", cp_single_3107, 1},
+    {"qcircle", cp_single_3108, 1},
+    {"qhook", cp_single_3109, 1},
+    {"qmonospace", cp_single_3110, 1},
+    {"qof", cp_single_3111, 1},
+    {"qofdagesh", cp_single_3112, 1},
+    {"qofdageshhebrew", cp_single_3113, 1},
     {"qofhatafpatah", cp_3152, 2},
     {"qofhatafpatahhebrew", cp_3153, 2},
     {"qofhatafsegol", cp_3154, 2},
     {"qofhatafsegolhebrew", cp_3155, 2},
-    {"qofhebrew", (const unsigned long[]){0x05e7}, 1},
+    {"qofhebrew", cp_single_3114, 1},
     {"qofhiriq", cp_3157, 2},
     {"qofhiriqhebrew", cp_3158, 2},
     {"qofholam", cp_3159, 2},
@@ -3266,89 +7467,89 @@ const GlyphListEntry AdobeGlyphListData[] = {
     {"qofshevahebrew", cp_3170, 2},
     {"qoftsere", cp_3171, 2},
     {"qoftserehebrew", cp_3172, 2},
-    {"qparen", (const unsigned long[]){0x24ac}, 1},
-    {"quarternote", (const unsigned long[]){0x2669}, 1},
-    {"qubuts", (const unsigned long[]){0x05bb}, 1},
-    {"qubuts18", (const unsigned long[]){0x05bb}, 1},
-    {"qubuts25", (const unsigned long[]){0x05bb}, 1},
-    {"qubuts31", (const unsigned long[]){0x05bb}, 1},
-    {"qubutshebrew", (const unsigned long[]){0x05bb}, 1},
-    {"qubutsnarrowhebrew", (const unsigned long[]){0x05bb}, 1},
-    {"qubutsquarterhebrew", (const unsigned long[]){0x05bb}, 1},
-    {"qubutswidehebrew", (const unsigned long[]){0x05bb}, 1},
-    {"question", (const unsigned long[]){0x003f}, 1},
-    {"questionarabic", (const unsigned long[]){0x061f}, 1},
-    {"questionarmenian", (const unsigned long[]){0x055e}, 1},
-    {"questiondown", (const unsigned long[]){0x00bf}, 1},
-    {"questiondownsmall", (const unsigned long[]){0xf7bf}, 1},
-    {"questiongreek", (const unsigned long[]){0x037e}, 1},
-    {"questionmonospace", (const unsigned long[]){0xff1f}, 1},
-    {"questionsmall", (const unsigned long[]){0xf73f}, 1},
-    {"quotedbl", (const unsigned long[]){0x0022}, 1},
-    {"quotedblbase", (const unsigned long[]){0x201e}, 1},
-    {"quotedblleft", (const unsigned long[]){0x201c}, 1},
-    {"quotedblmonospace", (const unsigned long[]){0xff02}, 1},
-    {"quotedblprime", (const unsigned long[]){0x301e}, 1},
-    {"quotedblprimereversed", (const unsigned long[]){0x301d}, 1},
-    {"quotedblright", (const unsigned long[]){0x201d}, 1},
-    {"quoteleft", (const unsigned long[]){0x2018}, 1},
-    {"quoteleftreversed", (const unsigned long[]){0x201b}, 1},
-    {"quotereversed", (const unsigned long[]){0x201b}, 1},
-    {"quoteright", (const unsigned long[]){0x2019}, 1},
-    {"quoterightn", (const unsigned long[]){0x0149}, 1},
-    {"quotesinglbase", (const unsigned long[]){0x201a}, 1},
-    {"quotesingle", (const unsigned long[]){0x0027}, 1},
-    {"quotesinglemonospace", (const unsigned long[]){0xff07}, 1},
-    {"r", (const unsigned long[]){0x0072}, 1},
-    {"raarmenian", (const unsigned long[]){0x057c}, 1},
-    {"rabengali", (const unsigned long[]){0x09b0}, 1},
-    {"racute", (const unsigned long[]){0x0155}, 1},
-    {"radeva", (const unsigned long[]){0x0930}, 1},
-    {"radical", (const unsigned long[]){0x221a}, 1},
-    {"radicalex", (const unsigned long[]){0xf8e5}, 1},
-    {"radoverssquare", (const unsigned long[]){0x33ae}, 1},
-    {"radoverssquaredsquare", (const unsigned long[]){0x33af}, 1},
-    {"radsquare", (const unsigned long[]){0x33ad}, 1},
-    {"rafe", (const unsigned long[]){0x05bf}, 1},
-    {"rafehebrew", (const unsigned long[]){0x05bf}, 1},
-    {"ragujarati", (const unsigned long[]){0x0ab0}, 1},
-    {"ragurmukhi", (const unsigned long[]){0x0a30}, 1},
-    {"rahiragana", (const unsigned long[]){0x3089}, 1},
-    {"rakatakana", (const unsigned long[]){0x30e9}, 1},
-    {"rakatakanahalfwidth", (const unsigned long[]){0xff97}, 1},
-    {"ralowerdiagonalbengali", (const unsigned long[]){0x09f1}, 1},
-    {"ramiddlediagonalbengali", (const unsigned long[]){0x09f0}, 1},
-    {"ramshorn", (const unsigned long[]){0x0264}, 1},
-    {"ratio", (const unsigned long[]){0x2236}, 1},
-    {"rbopomofo", (const unsigned long[]){0x3116}, 1},
-    {"rcaron", (const unsigned long[]){0x0159}, 1},
-    {"rcedilla", (const unsigned long[]){0x0157}, 1},
-    {"rcircle", (const unsigned long[]){0x24e1}, 1},
-    {"rcommaaccent", (const unsigned long[]){0x0157}, 1},
-    {"rdblgrave", (const unsigned long[]){0x0211}, 1},
-    {"rdotaccent", (const unsigned long[]){0x1e59}, 1},
-    {"rdotbelow", (const unsigned long[]){0x1e5b}, 1},
-    {"rdotbelowmacron", (const unsigned long[]){0x1e5d}, 1},
-    {"referencemark", (const unsigned long[]){0x203b}, 1},
-    {"reflexsubset", (const unsigned long[]){0x2286}, 1},
-    {"reflexsuperset", (const unsigned long[]){0x2287}, 1},
-    {"registered", (const unsigned long[]){0x00ae}, 1},
-    {"registersans", (const unsigned long[]){0xf8e8}, 1},
-    {"registerserif", (const unsigned long[]){0xf6da}, 1},
-    {"reharabic", (const unsigned long[]){0x0631}, 1},
-    {"reharmenian", (const unsigned long[]){0x0580}, 1},
-    {"rehfinalarabic", (const unsigned long[]){0xfeae}, 1},
-    {"rehiragana", (const unsigned long[]){0x308c}, 1},
+    {"qparen", cp_single_3115, 1},
+    {"quarternote", cp_single_3116, 1},
+    {"qubuts", cp_single_3117, 1},
+    {"qubuts18", cp_single_3118, 1},
+    {"qubuts25", cp_single_3119, 1},
+    {"qubuts31", cp_single_3120, 1},
+    {"qubutshebrew", cp_single_3121, 1},
+    {"qubutsnarrowhebrew", cp_single_3122, 1},
+    {"qubutsquarterhebrew", cp_single_3123, 1},
+    {"qubutswidehebrew", cp_single_3124, 1},
+    {"question", cp_single_3125, 1},
+    {"questionarabic", cp_single_3126, 1},
+    {"questionarmenian", cp_single_3127, 1},
+    {"questiondown", cp_single_3128, 1},
+    {"questiondownsmall", cp_single_3129, 1},
+    {"questiongreek", cp_single_3130, 1},
+    {"questionmonospace", cp_single_3131, 1},
+    {"questionsmall", cp_single_3132, 1},
+    {"quotedbl", cp_single_3133, 1},
+    {"quotedblbase", cp_single_3134, 1},
+    {"quotedblleft", cp_single_3135, 1},
+    {"quotedblmonospace", cp_single_3136, 1},
+    {"quotedblprime", cp_single_3137, 1},
+    {"quotedblprimereversed", cp_single_3138, 1},
+    {"quotedblright", cp_single_3139, 1},
+    {"quoteleft", cp_single_3140, 1},
+    {"quoteleftreversed", cp_single_3141, 1},
+    {"quotereversed", cp_single_3142, 1},
+    {"quoteright", cp_single_3143, 1},
+    {"quoterightn", cp_single_3144, 1},
+    {"quotesinglbase", cp_single_3145, 1},
+    {"quotesingle", cp_single_3146, 1},
+    {"quotesinglemonospace", cp_single_3147, 1},
+    {"r", cp_single_3148, 1},
+    {"raarmenian", cp_single_3149, 1},
+    {"rabengali", cp_single_3150, 1},
+    {"racute", cp_single_3151, 1},
+    {"radeva", cp_single_3152, 1},
+    {"radical", cp_single_3153, 1},
+    {"radicalex", cp_single_3154, 1},
+    {"radoverssquare", cp_single_3155, 1},
+    {"radoverssquaredsquare", cp_single_3156, 1},
+    {"radsquare", cp_single_3157, 1},
+    {"rafe", cp_single_3158, 1},
+    {"rafehebrew", cp_single_3159, 1},
+    {"ragujarati", cp_single_3160, 1},
+    {"ragurmukhi", cp_single_3161, 1},
+    {"rahiragana", cp_single_3162, 1},
+    {"rakatakana", cp_single_3163, 1},
+    {"rakatakanahalfwidth", cp_single_3164, 1},
+    {"ralowerdiagonalbengali", cp_single_3165, 1},
+    {"ramiddlediagonalbengali", cp_single_3166, 1},
+    {"ramshorn", cp_single_3167, 1},
+    {"ratio", cp_single_3168, 1},
+    {"rbopomofo", cp_single_3169, 1},
+    {"rcaron", cp_single_3170, 1},
+    {"rcedilla", cp_single_3171, 1},
+    {"rcircle", cp_single_3172, 1},
+    {"rcommaaccent", cp_single_3173, 1},
+    {"rdblgrave", cp_single_3174, 1},
+    {"rdotaccent", cp_single_3175, 1},
+    {"rdotbelow", cp_single_3176, 1},
+    {"rdotbelowmacron", cp_single_3177, 1},
+    {"referencemark", cp_single_3178, 1},
+    {"reflexsubset", cp_single_3179, 1},
+    {"reflexsuperset", cp_single_3180, 1},
+    {"registered", cp_single_3181, 1},
+    {"registersans", cp_single_3182, 1},
+    {"registerserif", cp_single_3183, 1},
+    {"reharabic", cp_single_3184, 1},
+    {"reharmenian", cp_single_3185, 1},
+    {"rehfinalarabic", cp_single_3186, 1},
+    {"rehiragana", cp_single_3187, 1},
     {"rehyehaleflamarabic", cp_3246, 4},
-    {"rekatakana", (const unsigned long[]){0x30ec}, 1},
-    {"rekatakanahalfwidth", (const unsigned long[]){0xff9a}, 1},
-    {"resh", (const unsigned long[]){0x05e8}, 1},
-    {"reshdageshhebrew", (const unsigned long[]){0xfb48}, 1},
+    {"rekatakana", cp_single_3188, 1},
+    {"rekatakanahalfwidth", cp_single_3189, 1},
+    {"resh", cp_single_3190, 1},
+    {"reshdageshhebrew", cp_single_3191, 1},
     {"reshhatafpatah", cp_3251, 2},
     {"reshhatafpatahhebrew", cp_3252, 2},
     {"reshhatafsegol", cp_3253, 2},
     {"reshhatafsegolhebrew", cp_3254, 2},
-    {"reshhebrew", (const unsigned long[]){0x05e8}, 1},
+    {"reshhebrew", cp_single_3192, 1},
     {"reshhiriq", cp_3256, 2},
     {"reshhiriqhebrew", cp_3257, 2},
     {"reshholam", cp_3258, 2},
@@ -3365,1015 +7566,1015 @@ const GlyphListEntry AdobeGlyphListData[] = {
     {"reshshevahebrew", cp_3269, 2},
     {"reshtsere", cp_3270, 2},
     {"reshtserehebrew", cp_3271, 2},
-    {"reversedtilde", (const unsigned long[]){0x223d}, 1},
-    {"reviahebrew", (const unsigned long[]){0x0597}, 1},
-    {"reviamugrashhebrew", (const unsigned long[]){0x0597}, 1},
-    {"revlogicalnot", (const unsigned long[]){0x2310}, 1},
-    {"rfishhook", (const unsigned long[]){0x027e}, 1},
-    {"rfishhookreversed", (const unsigned long[]){0x027f}, 1},
-    {"rhabengali", (const unsigned long[]){0x09dd}, 1},
-    {"rhadeva", (const unsigned long[]){0x095d}, 1},
-    {"rho", (const unsigned long[]){0x03c1}, 1},
-    {"rhook", (const unsigned long[]){0x027d}, 1},
-    {"rhookturned", (const unsigned long[]){0x027b}, 1},
-    {"rhookturnedsuperior", (const unsigned long[]){0x02b5}, 1},
-    {"rhosymbolgreek", (const unsigned long[]){0x03f1}, 1},
-    {"rhotichookmod", (const unsigned long[]){0x02de}, 1},
-    {"rieulacirclekorean", (const unsigned long[]){0x3271}, 1},
-    {"rieulaparenkorean", (const unsigned long[]){0x3211}, 1},
-    {"rieulcirclekorean", (const unsigned long[]){0x3263}, 1},
-    {"rieulhieuhkorean", (const unsigned long[]){0x3140}, 1},
-    {"rieulkiyeokkorean", (const unsigned long[]){0x313a}, 1},
-    {"rieulkiyeoksioskorean", (const unsigned long[]){0x3169}, 1},
-    {"rieulkorean", (const unsigned long[]){0x3139}, 1},
-    {"rieulmieumkorean", (const unsigned long[]){0x313b}, 1},
-    {"rieulpansioskorean", (const unsigned long[]){0x316c}, 1},
-    {"rieulparenkorean", (const unsigned long[]){0x3203}, 1},
-    {"rieulphieuphkorean", (const unsigned long[]){0x313f}, 1},
-    {"rieulpieupkorean", (const unsigned long[]){0x313c}, 1},
-    {"rieulpieupsioskorean", (const unsigned long[]){0x316b}, 1},
-    {"rieulsioskorean", (const unsigned long[]){0x313d}, 1},
-    {"rieulthieuthkorean", (const unsigned long[]){0x313e}, 1},
-    {"rieultikeutkorean", (const unsigned long[]){0x316a}, 1},
-    {"rieulyeorinhieuhkorean", (const unsigned long[]){0x316d}, 1},
-    {"rightangle", (const unsigned long[]){0x221f}, 1},
-    {"righttackbelowcmb", (const unsigned long[]){0x0319}, 1},
-    {"righttriangle", (const unsigned long[]){0x22bf}, 1},
-    {"rihiragana", (const unsigned long[]){0x308a}, 1},
-    {"rikatakana", (const unsigned long[]){0x30ea}, 1},
-    {"rikatakanahalfwidth", (const unsigned long[]){0xff98}, 1},
-    {"ring", (const unsigned long[]){0x02da}, 1},
-    {"ringbelowcmb", (const unsigned long[]){0x0325}, 1},
-    {"ringcmb", (const unsigned long[]){0x030a}, 1},
-    {"ringhalfleft", (const unsigned long[]){0x02bf}, 1},
-    {"ringhalfleftarmenian", (const unsigned long[]){0x0559}, 1},
-    {"ringhalfleftbelowcmb", (const unsigned long[]){0x031c}, 1},
-    {"ringhalfleftcentered", (const unsigned long[]){0x02d3}, 1},
-    {"ringhalfright", (const unsigned long[]){0x02be}, 1},
-    {"ringhalfrightbelowcmb", (const unsigned long[]){0x0339}, 1},
-    {"ringhalfrightcentered", (const unsigned long[]){0x02d2}, 1},
-    {"rinvertedbreve", (const unsigned long[]){0x0213}, 1},
-    {"rittorusquare", (const unsigned long[]){0x3351}, 1},
-    {"rlinebelow", (const unsigned long[]){0x1e5f}, 1},
-    {"rlongleg", (const unsigned long[]){0x027c}, 1},
-    {"rlonglegturned", (const unsigned long[]){0x027a}, 1},
-    {"rmonospace", (const unsigned long[]){0xff52}, 1},
-    {"rohiragana", (const unsigned long[]){0x308d}, 1},
-    {"rokatakana", (const unsigned long[]){0x30ed}, 1},
-    {"rokatakanahalfwidth", (const unsigned long[]){0xff9b}, 1},
-    {"roruathai", (const unsigned long[]){0x0e23}, 1},
-    {"rparen", (const unsigned long[]){0x24ad}, 1},
-    {"rrabengali", (const unsigned long[]){0x09dc}, 1},
-    {"rradeva", (const unsigned long[]){0x0931}, 1},
-    {"rragurmukhi", (const unsigned long[]){0x0a5c}, 1},
-    {"rreharabic", (const unsigned long[]){0x0691}, 1},
-    {"rrehfinalarabic", (const unsigned long[]){0xfb8d}, 1},
-    {"rrvocalicbengali", (const unsigned long[]){0x09e0}, 1},
-    {"rrvocalicdeva", (const unsigned long[]){0x0960}, 1},
-    {"rrvocalicgujarati", (const unsigned long[]){0x0ae0}, 1},
-    {"rrvocalicvowelsignbengali", (const unsigned long[]){0x09c4}, 1},
-    {"rrvocalicvowelsigndeva", (const unsigned long[]){0x0944}, 1},
-    {"rrvocalicvowelsigngujarati", (const unsigned long[]){0x0ac4}, 1},
-    {"rsuperior", (const unsigned long[]){0xf6f1}, 1},
-    {"rtblock", (const unsigned long[]){0x2590}, 1},
-    {"rturned", (const unsigned long[]){0x0279}, 1},
-    {"rturnedsuperior", (const unsigned long[]){0x02b4}, 1},
-    {"ruhiragana", (const unsigned long[]){0x308b}, 1},
-    {"rukatakana", (const unsigned long[]){0x30eb}, 1},
-    {"rukatakanahalfwidth", (const unsigned long[]){0xff99}, 1},
-    {"rupeemarkbengali", (const unsigned long[]){0x09f2}, 1},
-    {"rupeesignbengali", (const unsigned long[]){0x09f3}, 1},
-    {"rupiah", (const unsigned long[]){0xf6dd}, 1},
-    {"ruthai", (const unsigned long[]){0x0e24}, 1},
-    {"rvocalicbengali", (const unsigned long[]){0x098b}, 1},
-    {"rvocalicdeva", (const unsigned long[]){0x090b}, 1},
-    {"rvocalicgujarati", (const unsigned long[]){0x0a8b}, 1},
-    {"rvocalicvowelsignbengali", (const unsigned long[]){0x09c3}, 1},
-    {"rvocalicvowelsigndeva", (const unsigned long[]){0x0943}, 1},
-    {"rvocalicvowelsigngujarati", (const unsigned long[]){0x0ac3}, 1},
-    {"s", (const unsigned long[]){0x0073}, 1},
-    {"sabengali", (const unsigned long[]){0x09b8}, 1},
-    {"sacute", (const unsigned long[]){0x015b}, 1},
-    {"sacutedotaccent", (const unsigned long[]){0x1e65}, 1},
-    {"sadarabic", (const unsigned long[]){0x0635}, 1},
-    {"sadeva", (const unsigned long[]){0x0938}, 1},
-    {"sadfinalarabic", (const unsigned long[]){0xfeba}, 1},
-    {"sadinitialarabic", (const unsigned long[]){0xfebb}, 1},
-    {"sadmedialarabic", (const unsigned long[]){0xfebc}, 1},
-    {"sagujarati", (const unsigned long[]){0x0ab8}, 1},
-    {"sagurmukhi", (const unsigned long[]){0x0a38}, 1},
-    {"sahiragana", (const unsigned long[]){0x3055}, 1},
-    {"sakatakana", (const unsigned long[]){0x30b5}, 1},
-    {"sakatakanahalfwidth", (const unsigned long[]){0xff7b}, 1},
-    {"sallallahoualayhewasallamarabic", (const unsigned long[]){0xfdfa}, 1},
-    {"samekh", (const unsigned long[]){0x05e1}, 1},
-    {"samekhdagesh", (const unsigned long[]){0xfb41}, 1},
-    {"samekhdageshhebrew", (const unsigned long[]){0xfb41}, 1},
-    {"samekhhebrew", (const unsigned long[]){0x05e1}, 1},
-    {"saraaathai", (const unsigned long[]){0x0e32}, 1},
-    {"saraaethai", (const unsigned long[]){0x0e41}, 1},
-    {"saraaimaimalaithai", (const unsigned long[]){0x0e44}, 1},
-    {"saraaimaimuanthai", (const unsigned long[]){0x0e43}, 1},
-    {"saraamthai", (const unsigned long[]){0x0e33}, 1},
-    {"saraathai", (const unsigned long[]){0x0e30}, 1},
-    {"saraethai", (const unsigned long[]){0x0e40}, 1},
-    {"saraiileftthai", (const unsigned long[]){0xf886}, 1},
-    {"saraiithai", (const unsigned long[]){0x0e35}, 1},
-    {"saraileftthai", (const unsigned long[]){0xf885}, 1},
-    {"saraithai", (const unsigned long[]){0x0e34}, 1},
-    {"saraothai", (const unsigned long[]){0x0e42}, 1},
-    {"saraueeleftthai", (const unsigned long[]){0xf888}, 1},
-    {"saraueethai", (const unsigned long[]){0x0e37}, 1},
-    {"saraueleftthai", (const unsigned long[]){0xf887}, 1},
-    {"sarauethai", (const unsigned long[]){0x0e36}, 1},
-    {"sarauthai", (const unsigned long[]){0x0e38}, 1},
-    {"sarauuthai", (const unsigned long[]){0x0e39}, 1},
-    {"sbopomofo", (const unsigned long[]){0x3119}, 1},
-    {"scaron", (const unsigned long[]){0x0161}, 1},
-    {"scarondotaccent", (const unsigned long[]){0x1e67}, 1},
-    {"scedilla", (const unsigned long[]){0x015f}, 1},
-    {"schwa", (const unsigned long[]){0x0259}, 1},
-    {"schwacyrillic", (const unsigned long[]){0x04d9}, 1},
-    {"schwadieresiscyrillic", (const unsigned long[]){0x04db}, 1},
-    {"schwahook", (const unsigned long[]){0x025a}, 1},
-    {"scircle", (const unsigned long[]){0x24e2}, 1},
-    {"scircumflex", (const unsigned long[]){0x015d}, 1},
-    {"scommaaccent", (const unsigned long[]){0x0219}, 1},
-    {"sdotaccent", (const unsigned long[]){0x1e61}, 1},
-    {"sdotbelow", (const unsigned long[]){0x1e63}, 1},
-    {"sdotbelowdotaccent", (const unsigned long[]){0x1e69}, 1},
-    {"seagullbelowcmb", (const unsigned long[]){0x033c}, 1},
-    {"second", (const unsigned long[]){0x2033}, 1},
-    {"secondtonechinese", (const unsigned long[]){0x02ca}, 1},
-    {"section", (const unsigned long[]){0x00a7}, 1},
-    {"seenarabic", (const unsigned long[]){0x0633}, 1},
-    {"seenfinalarabic", (const unsigned long[]){0xfeb2}, 1},
-    {"seeninitialarabic", (const unsigned long[]){0xfeb3}, 1},
-    {"seenmedialarabic", (const unsigned long[]){0xfeb4}, 1},
-    {"segol", (const unsigned long[]){0x05b6}, 1},
-    {"segol13", (const unsigned long[]){0x05b6}, 1},
-    {"segol1f", (const unsigned long[]){0x05b6}, 1},
-    {"segol2c", (const unsigned long[]){0x05b6}, 1},
-    {"segolhebrew", (const unsigned long[]){0x05b6}, 1},
-    {"segolnarrowhebrew", (const unsigned long[]){0x05b6}, 1},
-    {"segolquarterhebrew", (const unsigned long[]){0x05b6}, 1},
-    {"segoltahebrew", (const unsigned long[]){0x0592}, 1},
-    {"segolwidehebrew", (const unsigned long[]){0x05b6}, 1},
-    {"seharmenian", (const unsigned long[]){0x057d}, 1},
-    {"sehiragana", (const unsigned long[]){0x305b}, 1},
-    {"sekatakana", (const unsigned long[]){0x30bb}, 1},
-    {"sekatakanahalfwidth", (const unsigned long[]){0xff7e}, 1},
-    {"semicolon", (const unsigned long[]){0x003b}, 1},
-    {"semicolonarabic", (const unsigned long[]){0x061b}, 1},
-    {"semicolonmonospace", (const unsigned long[]){0xff1b}, 1},
-    {"semicolonsmall", (const unsigned long[]){0xfe54}, 1},
-    {"semivoicedmarkkana", (const unsigned long[]){0x309c}, 1},
-    {"semivoicedmarkkanahalfwidth", (const unsigned long[]){0xff9f}, 1},
-    {"sentisquare", (const unsigned long[]){0x3322}, 1},
-    {"sentosquare", (const unsigned long[]){0x3323}, 1},
-    {"seven", (const unsigned long[]){0x0037}, 1},
-    {"sevenarabic", (const unsigned long[]){0x0667}, 1},
-    {"sevenbengali", (const unsigned long[]){0x09ed}, 1},
-    {"sevencircle", (const unsigned long[]){0x2466}, 1},
-    {"sevencircleinversesansserif", (const unsigned long[]){0x2790}, 1},
-    {"sevendeva", (const unsigned long[]){0x096d}, 1},
-    {"seveneighths", (const unsigned long[]){0x215e}, 1},
-    {"sevengujarati", (const unsigned long[]){0x0aed}, 1},
-    {"sevengurmukhi", (const unsigned long[]){0x0a6d}, 1},
-    {"sevenhackarabic", (const unsigned long[]){0x0667}, 1},
-    {"sevenhangzhou", (const unsigned long[]){0x3027}, 1},
-    {"sevenideographicparen", (const unsigned long[]){0x3226}, 1},
-    {"seveninferior", (const unsigned long[]){0x2087}, 1},
-    {"sevenmonospace", (const unsigned long[]){0xff17}, 1},
-    {"sevenoldstyle", (const unsigned long[]){0xf737}, 1},
-    {"sevenparen", (const unsigned long[]){0x247a}, 1},
-    {"sevenperiod", (const unsigned long[]){0x248e}, 1},
-    {"sevenpersian", (const unsigned long[]){0x06f7}, 1},
-    {"sevenroman", (const unsigned long[]){0x2176}, 1},
-    {"sevensuperior", (const unsigned long[]){0x2077}, 1},
-    {"seventeencircle", (const unsigned long[]){0x2470}, 1},
-    {"seventeenparen", (const unsigned long[]){0x2484}, 1},
-    {"seventeenperiod", (const unsigned long[]){0x2498}, 1},
-    {"seventhai", (const unsigned long[]){0x0e57}, 1},
-    {"sfthyphen", (const unsigned long[]){0x00ad}, 1},
-    {"shaarmenian", (const unsigned long[]){0x0577}, 1},
-    {"shabengali", (const unsigned long[]){0x09b6}, 1},
-    {"shacyrillic", (const unsigned long[]){0x0448}, 1},
-    {"shaddaarabic", (const unsigned long[]){0x0651}, 1},
-    {"shaddadammaarabic", (const unsigned long[]){0xfc61}, 1},
-    {"shaddadammatanarabic", (const unsigned long[]){0xfc5e}, 1},
-    {"shaddafathaarabic", (const unsigned long[]){0xfc60}, 1},
+    {"reversedtilde", cp_single_3193, 1},
+    {"reviahebrew", cp_single_3194, 1},
+    {"reviamugrashhebrew", cp_single_3195, 1},
+    {"revlogicalnot", cp_single_3196, 1},
+    {"rfishhook", cp_single_3197, 1},
+    {"rfishhookreversed", cp_single_3198, 1},
+    {"rhabengali", cp_single_3199, 1},
+    {"rhadeva", cp_single_3200, 1},
+    {"rho", cp_single_3201, 1},
+    {"rhook", cp_single_3202, 1},
+    {"rhookturned", cp_single_3203, 1},
+    {"rhookturnedsuperior", cp_single_3204, 1},
+    {"rhosymbolgreek", cp_single_3205, 1},
+    {"rhotichookmod", cp_single_3206, 1},
+    {"rieulacirclekorean", cp_single_3207, 1},
+    {"rieulaparenkorean", cp_single_3208, 1},
+    {"rieulcirclekorean", cp_single_3209, 1},
+    {"rieulhieuhkorean", cp_single_3210, 1},
+    {"rieulkiyeokkorean", cp_single_3211, 1},
+    {"rieulkiyeoksioskorean", cp_single_3212, 1},
+    {"rieulkorean", cp_single_3213, 1},
+    {"rieulmieumkorean", cp_single_3214, 1},
+    {"rieulpansioskorean", cp_single_3215, 1},
+    {"rieulparenkorean", cp_single_3216, 1},
+    {"rieulphieuphkorean", cp_single_3217, 1},
+    {"rieulpieupkorean", cp_single_3218, 1},
+    {"rieulpieupsioskorean", cp_single_3219, 1},
+    {"rieulsioskorean", cp_single_3220, 1},
+    {"rieulthieuthkorean", cp_single_3221, 1},
+    {"rieultikeutkorean", cp_single_3222, 1},
+    {"rieulyeorinhieuhkorean", cp_single_3223, 1},
+    {"rightangle", cp_single_3224, 1},
+    {"righttackbelowcmb", cp_single_3225, 1},
+    {"righttriangle", cp_single_3226, 1},
+    {"rihiragana", cp_single_3227, 1},
+    {"rikatakana", cp_single_3228, 1},
+    {"rikatakanahalfwidth", cp_single_3229, 1},
+    {"ring", cp_single_3230, 1},
+    {"ringbelowcmb", cp_single_3231, 1},
+    {"ringcmb", cp_single_3232, 1},
+    {"ringhalfleft", cp_single_3233, 1},
+    {"ringhalfleftarmenian", cp_single_3234, 1},
+    {"ringhalfleftbelowcmb", cp_single_3235, 1},
+    {"ringhalfleftcentered", cp_single_3236, 1},
+    {"ringhalfright", cp_single_3237, 1},
+    {"ringhalfrightbelowcmb", cp_single_3238, 1},
+    {"ringhalfrightcentered", cp_single_3239, 1},
+    {"rinvertedbreve", cp_single_3240, 1},
+    {"rittorusquare", cp_single_3241, 1},
+    {"rlinebelow", cp_single_3242, 1},
+    {"rlongleg", cp_single_3243, 1},
+    {"rlonglegturned", cp_single_3244, 1},
+    {"rmonospace", cp_single_3245, 1},
+    {"rohiragana", cp_single_3246, 1},
+    {"rokatakana", cp_single_3247, 1},
+    {"rokatakanahalfwidth", cp_single_3248, 1},
+    {"roruathai", cp_single_3249, 1},
+    {"rparen", cp_single_3250, 1},
+    {"rrabengali", cp_single_3251, 1},
+    {"rradeva", cp_single_3252, 1},
+    {"rragurmukhi", cp_single_3253, 1},
+    {"rreharabic", cp_single_3254, 1},
+    {"rrehfinalarabic", cp_single_3255, 1},
+    {"rrvocalicbengali", cp_single_3256, 1},
+    {"rrvocalicdeva", cp_single_3257, 1},
+    {"rrvocalicgujarati", cp_single_3258, 1},
+    {"rrvocalicvowelsignbengali", cp_single_3259, 1},
+    {"rrvocalicvowelsigndeva", cp_single_3260, 1},
+    {"rrvocalicvowelsigngujarati", cp_single_3261, 1},
+    {"rsuperior", cp_single_3262, 1},
+    {"rtblock", cp_single_3263, 1},
+    {"rturned", cp_single_3264, 1},
+    {"rturnedsuperior", cp_single_3265, 1},
+    {"ruhiragana", cp_single_3266, 1},
+    {"rukatakana", cp_single_3267, 1},
+    {"rukatakanahalfwidth", cp_single_3268, 1},
+    {"rupeemarkbengali", cp_single_3269, 1},
+    {"rupeesignbengali", cp_single_3270, 1},
+    {"rupiah", cp_single_3271, 1},
+    {"ruthai", cp_single_3272, 1},
+    {"rvocalicbengali", cp_single_3273, 1},
+    {"rvocalicdeva", cp_single_3274, 1},
+    {"rvocalicgujarati", cp_single_3275, 1},
+    {"rvocalicvowelsignbengali", cp_single_3276, 1},
+    {"rvocalicvowelsigndeva", cp_single_3277, 1},
+    {"rvocalicvowelsigngujarati", cp_single_3278, 1},
+    {"s", cp_single_3279, 1},
+    {"sabengali", cp_single_3280, 1},
+    {"sacute", cp_single_3281, 1},
+    {"sacutedotaccent", cp_single_3282, 1},
+    {"sadarabic", cp_single_3283, 1},
+    {"sadeva", cp_single_3284, 1},
+    {"sadfinalarabic", cp_single_3285, 1},
+    {"sadinitialarabic", cp_single_3286, 1},
+    {"sadmedialarabic", cp_single_3287, 1},
+    {"sagujarati", cp_single_3288, 1},
+    {"sagurmukhi", cp_single_3289, 1},
+    {"sahiragana", cp_single_3290, 1},
+    {"sakatakana", cp_single_3291, 1},
+    {"sakatakanahalfwidth", cp_single_3292, 1},
+    {"sallallahoualayhewasallamarabic", cp_single_3293, 1},
+    {"samekh", cp_single_3294, 1},
+    {"samekhdagesh", cp_single_3295, 1},
+    {"samekhdageshhebrew", cp_single_3296, 1},
+    {"samekhhebrew", cp_single_3297, 1},
+    {"saraaathai", cp_single_3298, 1},
+    {"saraaethai", cp_single_3299, 1},
+    {"saraaimaimalaithai", cp_single_3300, 1},
+    {"saraaimaimuanthai", cp_single_3301, 1},
+    {"saraamthai", cp_single_3302, 1},
+    {"saraathai", cp_single_3303, 1},
+    {"saraethai", cp_single_3304, 1},
+    {"saraiileftthai", cp_single_3305, 1},
+    {"saraiithai", cp_single_3306, 1},
+    {"saraileftthai", cp_single_3307, 1},
+    {"saraithai", cp_single_3308, 1},
+    {"saraothai", cp_single_3309, 1},
+    {"saraueeleftthai", cp_single_3310, 1},
+    {"saraueethai", cp_single_3311, 1},
+    {"saraueleftthai", cp_single_3312, 1},
+    {"sarauethai", cp_single_3313, 1},
+    {"sarauthai", cp_single_3314, 1},
+    {"sarauuthai", cp_single_3315, 1},
+    {"sbopomofo", cp_single_3316, 1},
+    {"scaron", cp_single_3317, 1},
+    {"scarondotaccent", cp_single_3318, 1},
+    {"scedilla", cp_single_3319, 1},
+    {"schwa", cp_single_3320, 1},
+    {"schwacyrillic", cp_single_3321, 1},
+    {"schwadieresiscyrillic", cp_single_3322, 1},
+    {"schwahook", cp_single_3323, 1},
+    {"scircle", cp_single_3324, 1},
+    {"scircumflex", cp_single_3325, 1},
+    {"scommaaccent", cp_single_3326, 1},
+    {"sdotaccent", cp_single_3327, 1},
+    {"sdotbelow", cp_single_3328, 1},
+    {"sdotbelowdotaccent", cp_single_3329, 1},
+    {"seagullbelowcmb", cp_single_3330, 1},
+    {"second", cp_single_3331, 1},
+    {"secondtonechinese", cp_single_3332, 1},
+    {"section", cp_single_3333, 1},
+    {"seenarabic", cp_single_3334, 1},
+    {"seenfinalarabic", cp_single_3335, 1},
+    {"seeninitialarabic", cp_single_3336, 1},
+    {"seenmedialarabic", cp_single_3337, 1},
+    {"segol", cp_single_3338, 1},
+    {"segol13", cp_single_3339, 1},
+    {"segol1f", cp_single_3340, 1},
+    {"segol2c", cp_single_3341, 1},
+    {"segolhebrew", cp_single_3342, 1},
+    {"segolnarrowhebrew", cp_single_3343, 1},
+    {"segolquarterhebrew", cp_single_3344, 1},
+    {"segoltahebrew", cp_single_3345, 1},
+    {"segolwidehebrew", cp_single_3346, 1},
+    {"seharmenian", cp_single_3347, 1},
+    {"sehiragana", cp_single_3348, 1},
+    {"sekatakana", cp_single_3349, 1},
+    {"sekatakanahalfwidth", cp_single_3350, 1},
+    {"semicolon", cp_single_3351, 1},
+    {"semicolonarabic", cp_single_3352, 1},
+    {"semicolonmonospace", cp_single_3353, 1},
+    {"semicolonsmall", cp_single_3354, 1},
+    {"semivoicedmarkkana", cp_single_3355, 1},
+    {"semivoicedmarkkanahalfwidth", cp_single_3356, 1},
+    {"sentisquare", cp_single_3357, 1},
+    {"sentosquare", cp_single_3358, 1},
+    {"seven", cp_single_3359, 1},
+    {"sevenarabic", cp_single_3360, 1},
+    {"sevenbengali", cp_single_3361, 1},
+    {"sevencircle", cp_single_3362, 1},
+    {"sevencircleinversesansserif", cp_single_3363, 1},
+    {"sevendeva", cp_single_3364, 1},
+    {"seveneighths", cp_single_3365, 1},
+    {"sevengujarati", cp_single_3366, 1},
+    {"sevengurmukhi", cp_single_3367, 1},
+    {"sevenhackarabic", cp_single_3368, 1},
+    {"sevenhangzhou", cp_single_3369, 1},
+    {"sevenideographicparen", cp_single_3370, 1},
+    {"seveninferior", cp_single_3371, 1},
+    {"sevenmonospace", cp_single_3372, 1},
+    {"sevenoldstyle", cp_single_3373, 1},
+    {"sevenparen", cp_single_3374, 1},
+    {"sevenperiod", cp_single_3375, 1},
+    {"sevenpersian", cp_single_3376, 1},
+    {"sevenroman", cp_single_3377, 1},
+    {"sevensuperior", cp_single_3378, 1},
+    {"seventeencircle", cp_single_3379, 1},
+    {"seventeenparen", cp_single_3380, 1},
+    {"seventeenperiod", cp_single_3381, 1},
+    {"seventhai", cp_single_3382, 1},
+    {"sfthyphen", cp_single_3383, 1},
+    {"shaarmenian", cp_single_3384, 1},
+    {"shabengali", cp_single_3385, 1},
+    {"shacyrillic", cp_single_3386, 1},
+    {"shaddaarabic", cp_single_3387, 1},
+    {"shaddadammaarabic", cp_single_3388, 1},
+    {"shaddadammatanarabic", cp_single_3389, 1},
+    {"shaddafathaarabic", cp_single_3390, 1},
     {"shaddafathatanarabic", cp_3470, 2},
-    {"shaddakasraarabic", (const unsigned long[]){0xfc62}, 1},
-    {"shaddakasratanarabic", (const unsigned long[]){0xfc5f}, 1},
-    {"shade", (const unsigned long[]){0x2592}, 1},
-    {"shadedark", (const unsigned long[]){0x2593}, 1},
-    {"shadelight", (const unsigned long[]){0x2591}, 1},
-    {"shademedium", (const unsigned long[]){0x2592}, 1},
-    {"shadeva", (const unsigned long[]){0x0936}, 1},
-    {"shagujarati", (const unsigned long[]){0x0ab6}, 1},
-    {"shagurmukhi", (const unsigned long[]){0x0a36}, 1},
-    {"shalshelethebrew", (const unsigned long[]){0x0593}, 1},
-    {"shbopomofo", (const unsigned long[]){0x3115}, 1},
-    {"shchacyrillic", (const unsigned long[]){0x0449}, 1},
-    {"sheenarabic", (const unsigned long[]){0x0634}, 1},
-    {"sheenfinalarabic", (const unsigned long[]){0xfeb6}, 1},
-    {"sheeninitialarabic", (const unsigned long[]){0xfeb7}, 1},
-    {"sheenmedialarabic", (const unsigned long[]){0xfeb8}, 1},
-    {"sheicoptic", (const unsigned long[]){0x03e3}, 1},
-    {"sheqel", (const unsigned long[]){0x20aa}, 1},
-    {"sheqelhebrew", (const unsigned long[]){0x20aa}, 1},
-    {"sheva", (const unsigned long[]){0x05b0}, 1},
-    {"sheva115", (const unsigned long[]){0x05b0}, 1},
-    {"sheva15", (const unsigned long[]){0x05b0}, 1},
-    {"sheva22", (const unsigned long[]){0x05b0}, 1},
-    {"sheva2e", (const unsigned long[]){0x05b0}, 1},
-    {"shevahebrew", (const unsigned long[]){0x05b0}, 1},
-    {"shevanarrowhebrew", (const unsigned long[]){0x05b0}, 1},
-    {"shevaquarterhebrew", (const unsigned long[]){0x05b0}, 1},
-    {"shevawidehebrew", (const unsigned long[]){0x05b0}, 1},
-    {"shhacyrillic", (const unsigned long[]){0x04bb}, 1},
-    {"shimacoptic", (const unsigned long[]){0x03ed}, 1},
-    {"shin", (const unsigned long[]){0x05e9}, 1},
-    {"shindagesh", (const unsigned long[]){0xfb49}, 1},
-    {"shindageshhebrew", (const unsigned long[]){0xfb49}, 1},
-    {"shindageshshindot", (const unsigned long[]){0xfb2c}, 1},
-    {"shindageshshindothebrew", (const unsigned long[]){0xfb2c}, 1},
-    {"shindageshsindot", (const unsigned long[]){0xfb2d}, 1},
-    {"shindageshsindothebrew", (const unsigned long[]){0xfb2d}, 1},
-    {"shindothebrew", (const unsigned long[]){0x05c1}, 1},
-    {"shinhebrew", (const unsigned long[]){0x05e9}, 1},
-    {"shinshindot", (const unsigned long[]){0xfb2a}, 1},
-    {"shinshindothebrew", (const unsigned long[]){0xfb2a}, 1},
-    {"shinsindot", (const unsigned long[]){0xfb2b}, 1},
-    {"shinsindothebrew", (const unsigned long[]){0xfb2b}, 1},
-    {"shook", (const unsigned long[]){0x0282}, 1},
-    {"sigma", (const unsigned long[]){0x03c3}, 1},
-    {"sigma1", (const unsigned long[]){0x03c2}, 1},
-    {"sigmafinal", (const unsigned long[]){0x03c2}, 1},
-    {"sigmalunatesymbolgreek", (const unsigned long[]){0x03f2}, 1},
-    {"sihiragana", (const unsigned long[]){0x3057}, 1},
-    {"sikatakana", (const unsigned long[]){0x30b7}, 1},
-    {"sikatakanahalfwidth", (const unsigned long[]){0xff7c}, 1},
-    {"siluqhebrew", (const unsigned long[]){0x05bd}, 1},
-    {"siluqlefthebrew", (const unsigned long[]){0x05bd}, 1},
-    {"similar", (const unsigned long[]){0x223c}, 1},
-    {"sindothebrew", (const unsigned long[]){0x05c2}, 1},
-    {"siosacirclekorean", (const unsigned long[]){0x3274}, 1},
-    {"siosaparenkorean", (const unsigned long[]){0x3214}, 1},
-    {"sioscieuckorean", (const unsigned long[]){0x317e}, 1},
-    {"sioscirclekorean", (const unsigned long[]){0x3266}, 1},
-    {"sioskiyeokkorean", (const unsigned long[]){0x317a}, 1},
-    {"sioskorean", (const unsigned long[]){0x3145}, 1},
-    {"siosnieunkorean", (const unsigned long[]){0x317b}, 1},
-    {"siosparenkorean", (const unsigned long[]){0x3206}, 1},
-    {"siospieupkorean", (const unsigned long[]){0x317d}, 1},
-    {"siostikeutkorean", (const unsigned long[]){0x317c}, 1},
-    {"six", (const unsigned long[]){0x0036}, 1},
-    {"sixarabic", (const unsigned long[]){0x0666}, 1},
-    {"sixbengali", (const unsigned long[]){0x09ec}, 1},
-    {"sixcircle", (const unsigned long[]){0x2465}, 1},
-    {"sixcircleinversesansserif", (const unsigned long[]){0x278f}, 1},
-    {"sixdeva", (const unsigned long[]){0x096c}, 1},
-    {"sixgujarati", (const unsigned long[]){0x0aec}, 1},
-    {"sixgurmukhi", (const unsigned long[]){0x0a6c}, 1},
-    {"sixhackarabic", (const unsigned long[]){0x0666}, 1},
-    {"sixhangzhou", (const unsigned long[]){0x3026}, 1},
-    {"sixideographicparen", (const unsigned long[]){0x3225}, 1},
-    {"sixinferior", (const unsigned long[]){0x2086}, 1},
-    {"sixmonospace", (const unsigned long[]){0xff16}, 1},
-    {"sixoldstyle", (const unsigned long[]){0xf736}, 1},
-    {"sixparen", (const unsigned long[]){0x2479}, 1},
-    {"sixperiod", (const unsigned long[]){0x248d}, 1},
-    {"sixpersian", (const unsigned long[]){0x06f6}, 1},
-    {"sixroman", (const unsigned long[]){0x2175}, 1},
-    {"sixsuperior", (const unsigned long[]){0x2076}, 1},
-    {"sixteencircle", (const unsigned long[]){0x246f}, 1},
-    {"sixteencurrencydenominatorbengali", (const unsigned long[]){0x09f9}, 1},
-    {"sixteenparen", (const unsigned long[]){0x2483}, 1},
-    {"sixteenperiod", (const unsigned long[]){0x2497}, 1},
-    {"sixthai", (const unsigned long[]){0x0e56}, 1},
-    {"slash", (const unsigned long[]){0x002f}, 1},
-    {"slashmonospace", (const unsigned long[]){0xff0f}, 1},
-    {"slong", (const unsigned long[]){0x017f}, 1},
-    {"slongdotaccent", (const unsigned long[]){0x1e9b}, 1},
-    {"smileface", (const unsigned long[]){0x263a}, 1},
-    {"smonospace", (const unsigned long[]){0xff53}, 1},
-    {"sofpasuqhebrew", (const unsigned long[]){0x05c3}, 1},
-    {"softhyphen", (const unsigned long[]){0x00ad}, 1},
-    {"softsigncyrillic", (const unsigned long[]){0x044c}, 1},
-    {"sohiragana", (const unsigned long[]){0x305d}, 1},
-    {"sokatakana", (const unsigned long[]){0x30bd}, 1},
-    {"sokatakanahalfwidth", (const unsigned long[]){0xff7f}, 1},
-    {"soliduslongoverlaycmb", (const unsigned long[]){0x0338}, 1},
-    {"solidusshortoverlaycmb", (const unsigned long[]){0x0337}, 1},
-    {"sorusithai", (const unsigned long[]){0x0e29}, 1},
-    {"sosalathai", (const unsigned long[]){0x0e28}, 1},
-    {"sosothai", (const unsigned long[]){0x0e0b}, 1},
-    {"sosuathai", (const unsigned long[]){0x0e2a}, 1},
-    {"space", (const unsigned long[]){0x0020}, 1},
-    {"spacehackarabic", (const unsigned long[]){0x0020}, 1},
-    {"spade", (const unsigned long[]){0x2660}, 1},
-    {"spadesuitblack", (const unsigned long[]){0x2660}, 1},
-    {"spadesuitwhite", (const unsigned long[]){0x2664}, 1},
-    {"sparen", (const unsigned long[]){0x24ae}, 1},
-    {"squarebelowcmb", (const unsigned long[]){0x033b}, 1},
-    {"squarecc", (const unsigned long[]){0x33c4}, 1},
-    {"squarecm", (const unsigned long[]){0x339d}, 1},
-    {"squarediagonalcrosshatchfill", (const unsigned long[]){0x25a9}, 1},
-    {"squarehorizontalfill", (const unsigned long[]){0x25a4}, 1},
-    {"squarekg", (const unsigned long[]){0x338f}, 1},
-    {"squarekm", (const unsigned long[]){0x339e}, 1},
-    {"squarekmcapital", (const unsigned long[]){0x33ce}, 1},
-    {"squareln", (const unsigned long[]){0x33d1}, 1},
-    {"squarelog", (const unsigned long[]){0x33d2}, 1},
-    {"squaremg", (const unsigned long[]){0x338e}, 1},
-    {"squaremil", (const unsigned long[]){0x33d5}, 1},
-    {"squaremm", (const unsigned long[]){0x339c}, 1},
-    {"squaremsquared", (const unsigned long[]){0x33a1}, 1},
-    {"squareorthogonalcrosshatchfill", (const unsigned long[]){0x25a6}, 1},
-    {"squareupperlefttolowerrightfill", (const unsigned long[]){0x25a7}, 1},
-    {"squareupperrighttolowerleftfill", (const unsigned long[]){0x25a8}, 1},
-    {"squareverticalfill", (const unsigned long[]){0x25a5}, 1},
-    {"squarewhitewithsmallblack", (const unsigned long[]){0x25a3}, 1},
-    {"srsquare", (const unsigned long[]){0x33db}, 1},
-    {"ssabengali", (const unsigned long[]){0x09b7}, 1},
-    {"ssadeva", (const unsigned long[]){0x0937}, 1},
-    {"ssagujarati", (const unsigned long[]){0x0ab7}, 1},
-    {"ssangcieuckorean", (const unsigned long[]){0x3149}, 1},
-    {"ssanghieuhkorean", (const unsigned long[]){0x3185}, 1},
-    {"ssangieungkorean", (const unsigned long[]){0x3180}, 1},
-    {"ssangkiyeokkorean", (const unsigned long[]){0x3132}, 1},
-    {"ssangnieunkorean", (const unsigned long[]){0x3165}, 1},
-    {"ssangpieupkorean", (const unsigned long[]){0x3143}, 1},
-    {"ssangsioskorean", (const unsigned long[]){0x3146}, 1},
-    {"ssangtikeutkorean", (const unsigned long[]){0x3138}, 1},
-    {"ssuperior", (const unsigned long[]){0xf6f2}, 1},
-    {"sterling", (const unsigned long[]){0x00a3}, 1},
-    {"sterlingmonospace", (const unsigned long[]){0xffe1}, 1},
-    {"strokelongoverlaycmb", (const unsigned long[]){0x0336}, 1},
-    {"strokeshortoverlaycmb", (const unsigned long[]){0x0335}, 1},
-    {"subset", (const unsigned long[]){0x2282}, 1},
-    {"subsetnotequal", (const unsigned long[]){0x228a}, 1},
-    {"subsetorequal", (const unsigned long[]){0x2286}, 1},
-    {"succeeds", (const unsigned long[]){0x227b}, 1},
-    {"suchthat", (const unsigned long[]){0x220b}, 1},
-    {"suhiragana", (const unsigned long[]){0x3059}, 1},
-    {"sukatakana", (const unsigned long[]){0x30b9}, 1},
-    {"sukatakanahalfwidth", (const unsigned long[]){0xff7d}, 1},
-    {"sukunarabic", (const unsigned long[]){0x0652}, 1},
-    {"summation", (const unsigned long[]){0x2211}, 1},
-    {"sun", (const unsigned long[]){0x263c}, 1},
-    {"superset", (const unsigned long[]){0x2283}, 1},
-    {"supersetnotequal", (const unsigned long[]){0x228b}, 1},
-    {"supersetorequal", (const unsigned long[]){0x2287}, 1},
-    {"svsquare", (const unsigned long[]){0x33dc}, 1},
-    {"syouwaerasquare", (const unsigned long[]){0x337c}, 1},
-    {"t", (const unsigned long[]){0x0074}, 1},
-    {"tabengali", (const unsigned long[]){0x09a4}, 1},
-    {"tackdown", (const unsigned long[]){0x22a4}, 1},
-    {"tackleft", (const unsigned long[]){0x22a3}, 1},
-    {"tadeva", (const unsigned long[]){0x0924}, 1},
-    {"tagujarati", (const unsigned long[]){0x0aa4}, 1},
-    {"tagurmukhi", (const unsigned long[]){0x0a24}, 1},
-    {"taharabic", (const unsigned long[]){0x0637}, 1},
-    {"tahfinalarabic", (const unsigned long[]){0xfec2}, 1},
-    {"tahinitialarabic", (const unsigned long[]){0xfec3}, 1},
-    {"tahiragana", (const unsigned long[]){0x305f}, 1},
-    {"tahmedialarabic", (const unsigned long[]){0xfec4}, 1},
-    {"taisyouerasquare", (const unsigned long[]){0x337d}, 1},
-    {"takatakana", (const unsigned long[]){0x30bf}, 1},
-    {"takatakanahalfwidth", (const unsigned long[]){0xff80}, 1},
-    {"tatweelarabic", (const unsigned long[]){0x0640}, 1},
-    {"tau", (const unsigned long[]){0x03c4}, 1},
-    {"tav", (const unsigned long[]){0x05ea}, 1},
-    {"tavdages", (const unsigned long[]){0xfb4a}, 1},
-    {"tavdagesh", (const unsigned long[]){0xfb4a}, 1},
-    {"tavdageshhebrew", (const unsigned long[]){0xfb4a}, 1},
-    {"tavhebrew", (const unsigned long[]){0x05ea}, 1},
-    {"tbar", (const unsigned long[]){0x0167}, 1},
-    {"tbopomofo", (const unsigned long[]){0x310a}, 1},
-    {"tcaron", (const unsigned long[]){0x0165}, 1},
-    {"tccurl", (const unsigned long[]){0x02a8}, 1},
-    {"tcedilla", (const unsigned long[]){0x0163}, 1},
-    {"tcheharabic", (const unsigned long[]){0x0686}, 1},
-    {"tchehfinalarabic", (const unsigned long[]){0xfb7b}, 1},
-    {"tchehinitialarabic", (const unsigned long[]){0xfb7c}, 1},
-    {"tchehmedialarabic", (const unsigned long[]){0xfb7d}, 1},
+    {"shaddakasraarabic", cp_single_3391, 1},
+    {"shaddakasratanarabic", cp_single_3392, 1},
+    {"shade", cp_single_3393, 1},
+    {"shadedark", cp_single_3394, 1},
+    {"shadelight", cp_single_3395, 1},
+    {"shademedium", cp_single_3396, 1},
+    {"shadeva", cp_single_3397, 1},
+    {"shagujarati", cp_single_3398, 1},
+    {"shagurmukhi", cp_single_3399, 1},
+    {"shalshelethebrew", cp_single_3400, 1},
+    {"shbopomofo", cp_single_3401, 1},
+    {"shchacyrillic", cp_single_3402, 1},
+    {"sheenarabic", cp_single_3403, 1},
+    {"sheenfinalarabic", cp_single_3404, 1},
+    {"sheeninitialarabic", cp_single_3405, 1},
+    {"sheenmedialarabic", cp_single_3406, 1},
+    {"sheicoptic", cp_single_3407, 1},
+    {"sheqel", cp_single_3408, 1},
+    {"sheqelhebrew", cp_single_3409, 1},
+    {"sheva", cp_single_3410, 1},
+    {"sheva115", cp_single_3411, 1},
+    {"sheva15", cp_single_3412, 1},
+    {"sheva22", cp_single_3413, 1},
+    {"sheva2e", cp_single_3414, 1},
+    {"shevahebrew", cp_single_3415, 1},
+    {"shevanarrowhebrew", cp_single_3416, 1},
+    {"shevaquarterhebrew", cp_single_3417, 1},
+    {"shevawidehebrew", cp_single_3418, 1},
+    {"shhacyrillic", cp_single_3419, 1},
+    {"shimacoptic", cp_single_3420, 1},
+    {"shin", cp_single_3421, 1},
+    {"shindagesh", cp_single_3422, 1},
+    {"shindageshhebrew", cp_single_3423, 1},
+    {"shindageshshindot", cp_single_3424, 1},
+    {"shindageshshindothebrew", cp_single_3425, 1},
+    {"shindageshsindot", cp_single_3426, 1},
+    {"shindageshsindothebrew", cp_single_3427, 1},
+    {"shindothebrew", cp_single_3428, 1},
+    {"shinhebrew", cp_single_3429, 1},
+    {"shinshindot", cp_single_3430, 1},
+    {"shinshindothebrew", cp_single_3431, 1},
+    {"shinsindot", cp_single_3432, 1},
+    {"shinsindothebrew", cp_single_3433, 1},
+    {"shook", cp_single_3434, 1},
+    {"sigma", cp_single_3435, 1},
+    {"sigma1", cp_single_3436, 1},
+    {"sigmafinal", cp_single_3437, 1},
+    {"sigmalunatesymbolgreek", cp_single_3438, 1},
+    {"sihiragana", cp_single_3439, 1},
+    {"sikatakana", cp_single_3440, 1},
+    {"sikatakanahalfwidth", cp_single_3441, 1},
+    {"siluqhebrew", cp_single_3442, 1},
+    {"siluqlefthebrew", cp_single_3443, 1},
+    {"similar", cp_single_3444, 1},
+    {"sindothebrew", cp_single_3445, 1},
+    {"siosacirclekorean", cp_single_3446, 1},
+    {"siosaparenkorean", cp_single_3447, 1},
+    {"sioscieuckorean", cp_single_3448, 1},
+    {"sioscirclekorean", cp_single_3449, 1},
+    {"sioskiyeokkorean", cp_single_3450, 1},
+    {"sioskorean", cp_single_3451, 1},
+    {"siosnieunkorean", cp_single_3452, 1},
+    {"siosparenkorean", cp_single_3453, 1},
+    {"siospieupkorean", cp_single_3454, 1},
+    {"siostikeutkorean", cp_single_3455, 1},
+    {"six", cp_single_3456, 1},
+    {"sixarabic", cp_single_3457, 1},
+    {"sixbengali", cp_single_3458, 1},
+    {"sixcircle", cp_single_3459, 1},
+    {"sixcircleinversesansserif", cp_single_3460, 1},
+    {"sixdeva", cp_single_3461, 1},
+    {"sixgujarati", cp_single_3462, 1},
+    {"sixgurmukhi", cp_single_3463, 1},
+    {"sixhackarabic", cp_single_3464, 1},
+    {"sixhangzhou", cp_single_3465, 1},
+    {"sixideographicparen", cp_single_3466, 1},
+    {"sixinferior", cp_single_3467, 1},
+    {"sixmonospace", cp_single_3468, 1},
+    {"sixoldstyle", cp_single_3469, 1},
+    {"sixparen", cp_single_3470, 1},
+    {"sixperiod", cp_single_3471, 1},
+    {"sixpersian", cp_single_3472, 1},
+    {"sixroman", cp_single_3473, 1},
+    {"sixsuperior", cp_single_3474, 1},
+    {"sixteencircle", cp_single_3475, 1},
+    {"sixteencurrencydenominatorbengali", cp_single_3476, 1},
+    {"sixteenparen", cp_single_3477, 1},
+    {"sixteenperiod", cp_single_3478, 1},
+    {"sixthai", cp_single_3479, 1},
+    {"slash", cp_single_3480, 1},
+    {"slashmonospace", cp_single_3481, 1},
+    {"slong", cp_single_3482, 1},
+    {"slongdotaccent", cp_single_3483, 1},
+    {"smileface", cp_single_3484, 1},
+    {"smonospace", cp_single_3485, 1},
+    {"sofpasuqhebrew", cp_single_3486, 1},
+    {"softhyphen", cp_single_3487, 1},
+    {"softsigncyrillic", cp_single_3488, 1},
+    {"sohiragana", cp_single_3489, 1},
+    {"sokatakana", cp_single_3490, 1},
+    {"sokatakanahalfwidth", cp_single_3491, 1},
+    {"soliduslongoverlaycmb", cp_single_3492, 1},
+    {"solidusshortoverlaycmb", cp_single_3493, 1},
+    {"sorusithai", cp_single_3494, 1},
+    {"sosalathai", cp_single_3495, 1},
+    {"sosothai", cp_single_3496, 1},
+    {"sosuathai", cp_single_3497, 1},
+    {"space", cp_single_3498, 1},
+    {"spacehackarabic", cp_single_3499, 1},
+    {"spade", cp_single_3500, 1},
+    {"spadesuitblack", cp_single_3501, 1},
+    {"spadesuitwhite", cp_single_3502, 1},
+    {"sparen", cp_single_3503, 1},
+    {"squarebelowcmb", cp_single_3504, 1},
+    {"squarecc", cp_single_3505, 1},
+    {"squarecm", cp_single_3506, 1},
+    {"squarediagonalcrosshatchfill", cp_single_3507, 1},
+    {"squarehorizontalfill", cp_single_3508, 1},
+    {"squarekg", cp_single_3509, 1},
+    {"squarekm", cp_single_3510, 1},
+    {"squarekmcapital", cp_single_3511, 1},
+    {"squareln", cp_single_3512, 1},
+    {"squarelog", cp_single_3513, 1},
+    {"squaremg", cp_single_3514, 1},
+    {"squaremil", cp_single_3515, 1},
+    {"squaremm", cp_single_3516, 1},
+    {"squaremsquared", cp_single_3517, 1},
+    {"squareorthogonalcrosshatchfill", cp_single_3518, 1},
+    {"squareupperlefttolowerrightfill", cp_single_3519, 1},
+    {"squareupperrighttolowerleftfill", cp_single_3520, 1},
+    {"squareverticalfill", cp_single_3521, 1},
+    {"squarewhitewithsmallblack", cp_single_3522, 1},
+    {"srsquare", cp_single_3523, 1},
+    {"ssabengali", cp_single_3524, 1},
+    {"ssadeva", cp_single_3525, 1},
+    {"ssagujarati", cp_single_3526, 1},
+    {"ssangcieuckorean", cp_single_3527, 1},
+    {"ssanghieuhkorean", cp_single_3528, 1},
+    {"ssangieungkorean", cp_single_3529, 1},
+    {"ssangkiyeokkorean", cp_single_3530, 1},
+    {"ssangnieunkorean", cp_single_3531, 1},
+    {"ssangpieupkorean", cp_single_3532, 1},
+    {"ssangsioskorean", cp_single_3533, 1},
+    {"ssangtikeutkorean", cp_single_3534, 1},
+    {"ssuperior", cp_single_3535, 1},
+    {"sterling", cp_single_3536, 1},
+    {"sterlingmonospace", cp_single_3537, 1},
+    {"strokelongoverlaycmb", cp_single_3538, 1},
+    {"strokeshortoverlaycmb", cp_single_3539, 1},
+    {"subset", cp_single_3540, 1},
+    {"subsetnotequal", cp_single_3541, 1},
+    {"subsetorequal", cp_single_3542, 1},
+    {"succeeds", cp_single_3543, 1},
+    {"suchthat", cp_single_3544, 1},
+    {"suhiragana", cp_single_3545, 1},
+    {"sukatakana", cp_single_3546, 1},
+    {"sukatakanahalfwidth", cp_single_3547, 1},
+    {"sukunarabic", cp_single_3548, 1},
+    {"summation", cp_single_3549, 1},
+    {"sun", cp_single_3550, 1},
+    {"superset", cp_single_3551, 1},
+    {"supersetnotequal", cp_single_3552, 1},
+    {"supersetorequal", cp_single_3553, 1},
+    {"svsquare", cp_single_3554, 1},
+    {"syouwaerasquare", cp_single_3555, 1},
+    {"t", cp_single_3556, 1},
+    {"tabengali", cp_single_3557, 1},
+    {"tackdown", cp_single_3558, 1},
+    {"tackleft", cp_single_3559, 1},
+    {"tadeva", cp_single_3560, 1},
+    {"tagujarati", cp_single_3561, 1},
+    {"tagurmukhi", cp_single_3562, 1},
+    {"taharabic", cp_single_3563, 1},
+    {"tahfinalarabic", cp_single_3564, 1},
+    {"tahinitialarabic", cp_single_3565, 1},
+    {"tahiragana", cp_single_3566, 1},
+    {"tahmedialarabic", cp_single_3567, 1},
+    {"taisyouerasquare", cp_single_3568, 1},
+    {"takatakana", cp_single_3569, 1},
+    {"takatakanahalfwidth", cp_single_3570, 1},
+    {"tatweelarabic", cp_single_3571, 1},
+    {"tau", cp_single_3572, 1},
+    {"tav", cp_single_3573, 1},
+    {"tavdages", cp_single_3574, 1},
+    {"tavdagesh", cp_single_3575, 1},
+    {"tavdageshhebrew", cp_single_3576, 1},
+    {"tavhebrew", cp_single_3577, 1},
+    {"tbar", cp_single_3578, 1},
+    {"tbopomofo", cp_single_3579, 1},
+    {"tcaron", cp_single_3580, 1},
+    {"tccurl", cp_single_3581, 1},
+    {"tcedilla", cp_single_3582, 1},
+    {"tcheharabic", cp_single_3583, 1},
+    {"tchehfinalarabic", cp_single_3584, 1},
+    {"tchehinitialarabic", cp_single_3585, 1},
+    {"tchehmedialarabic", cp_single_3586, 1},
     {"tchehmeeminitialarabic", cp_3667, 2},
-    {"tcircle", (const unsigned long[]){0x24e3}, 1},
-    {"tcircumflexbelow", (const unsigned long[]){0x1e71}, 1},
-    {"tcommaaccent", (const unsigned long[]){0x0163}, 1},
-    {"tdieresis", (const unsigned long[]){0x1e97}, 1},
-    {"tdotaccent", (const unsigned long[]){0x1e6b}, 1},
-    {"tdotbelow", (const unsigned long[]){0x1e6d}, 1},
-    {"tecyrillic", (const unsigned long[]){0x0442}, 1},
-    {"tedescendercyrillic", (const unsigned long[]){0x04ad}, 1},
-    {"teharabic", (const unsigned long[]){0x062a}, 1},
-    {"tehfinalarabic", (const unsigned long[]){0xfe96}, 1},
-    {"tehhahinitialarabic", (const unsigned long[]){0xfca2}, 1},
-    {"tehhahisolatedarabic", (const unsigned long[]){0xfc0c}, 1},
-    {"tehinitialarabic", (const unsigned long[]){0xfe97}, 1},
-    {"tehiragana", (const unsigned long[]){0x3066}, 1},
-    {"tehjeeminitialarabic", (const unsigned long[]){0xfca1}, 1},
-    {"tehjeemisolatedarabic", (const unsigned long[]){0xfc0b}, 1},
-    {"tehmarbutaarabic", (const unsigned long[]){0x0629}, 1},
-    {"tehmarbutafinalarabic", (const unsigned long[]){0xfe94}, 1},
-    {"tehmedialarabic", (const unsigned long[]){0xfe98}, 1},
-    {"tehmeeminitialarabic", (const unsigned long[]){0xfca4}, 1},
-    {"tehmeemisolatedarabic", (const unsigned long[]){0xfc0e}, 1},
-    {"tehnoonfinalarabic", (const unsigned long[]){0xfc73}, 1},
-    {"tekatakana", (const unsigned long[]){0x30c6}, 1},
-    {"tekatakanahalfwidth", (const unsigned long[]){0xff83}, 1},
-    {"telephone", (const unsigned long[]){0x2121}, 1},
-    {"telephoneblack", (const unsigned long[]){0x260e}, 1},
-    {"telishagedolahebrew", (const unsigned long[]){0x05a0}, 1},
-    {"telishaqetanahebrew", (const unsigned long[]){0x05a9}, 1},
-    {"tencircle", (const unsigned long[]){0x2469}, 1},
-    {"tenideographicparen", (const unsigned long[]){0x3229}, 1},
-    {"tenparen", (const unsigned long[]){0x247d}, 1},
-    {"tenperiod", (const unsigned long[]){0x2491}, 1},
-    {"tenroman", (const unsigned long[]){0x2179}, 1},
-    {"tesh", (const unsigned long[]){0x02a7}, 1},
-    {"tet", (const unsigned long[]){0x05d8}, 1},
-    {"tetdagesh", (const unsigned long[]){0xfb38}, 1},
-    {"tetdageshhebrew", (const unsigned long[]){0xfb38}, 1},
-    {"tethebrew", (const unsigned long[]){0x05d8}, 1},
-    {"tetsecyrillic", (const unsigned long[]){0x04b5}, 1},
-    {"tevirhebrew", (const unsigned long[]){0x059b}, 1},
-    {"tevirlefthebrew", (const unsigned long[]){0x059b}, 1},
-    {"thabengali", (const unsigned long[]){0x09a5}, 1},
-    {"thadeva", (const unsigned long[]){0x0925}, 1},
-    {"thagujarati", (const unsigned long[]){0x0aa5}, 1},
-    {"thagurmukhi", (const unsigned long[]){0x0a25}, 1},
-    {"thalarabic", (const unsigned long[]){0x0630}, 1},
-    {"thalfinalarabic", (const unsigned long[]){0xfeac}, 1},
-    {"thanthakhatlowleftthai", (const unsigned long[]){0xf898}, 1},
-    {"thanthakhatlowrightthai", (const unsigned long[]){0xf897}, 1},
-    {"thanthakhatthai", (const unsigned long[]){0x0e4c}, 1},
-    {"thanthakhatupperleftthai", (const unsigned long[]){0xf896}, 1},
-    {"theharabic", (const unsigned long[]){0x062b}, 1},
-    {"thehfinalarabic", (const unsigned long[]){0xfe9a}, 1},
-    {"thehinitialarabic", (const unsigned long[]){0xfe9b}, 1},
-    {"thehmedialarabic", (const unsigned long[]){0xfe9c}, 1},
-    {"thereexists", (const unsigned long[]){0x2203}, 1},
-    {"therefore", (const unsigned long[]){0x2234}, 1},
-    {"theta", (const unsigned long[]){0x03b8}, 1},
-    {"theta1", (const unsigned long[]){0x03d1}, 1},
-    {"thetasymbolgreek", (const unsigned long[]){0x03d1}, 1},
-    {"thieuthacirclekorean", (const unsigned long[]){0x3279}, 1},
-    {"thieuthaparenkorean", (const unsigned long[]){0x3219}, 1},
-    {"thieuthcirclekorean", (const unsigned long[]){0x326b}, 1},
-    {"thieuthkorean", (const unsigned long[]){0x314c}, 1},
-    {"thieuthparenkorean", (const unsigned long[]){0x320b}, 1},
-    {"thirteencircle", (const unsigned long[]){0x246c}, 1},
-    {"thirteenparen", (const unsigned long[]){0x2480}, 1},
-    {"thirteenperiod", (const unsigned long[]){0x2494}, 1},
-    {"thonangmonthothai", (const unsigned long[]){0x0e11}, 1},
-    {"thook", (const unsigned long[]){0x01ad}, 1},
-    {"thophuthaothai", (const unsigned long[]){0x0e12}, 1},
-    {"thorn", (const unsigned long[]){0x00fe}, 1},
-    {"thothahanthai", (const unsigned long[]){0x0e17}, 1},
-    {"thothanthai", (const unsigned long[]){0x0e10}, 1},
-    {"thothongthai", (const unsigned long[]){0x0e18}, 1},
-    {"thothungthai", (const unsigned long[]){0x0e16}, 1},
-    {"thousandcyrillic", (const unsigned long[]){0x0482}, 1},
-    {"thousandsseparatorarabic", (const unsigned long[]){0x066c}, 1},
-    {"thousandsseparatorpersian", (const unsigned long[]){0x066c}, 1},
-    {"three", (const unsigned long[]){0x0033}, 1},
-    {"threearabic", (const unsigned long[]){0x0663}, 1},
-    {"threebengali", (const unsigned long[]){0x09e9}, 1},
-    {"threecircle", (const unsigned long[]){0x2462}, 1},
-    {"threecircleinversesansserif", (const unsigned long[]){0x278c}, 1},
-    {"threedeva", (const unsigned long[]){0x0969}, 1},
-    {"threeeighths", (const unsigned long[]){0x215c}, 1},
-    {"threegujarati", (const unsigned long[]){0x0ae9}, 1},
-    {"threegurmukhi", (const unsigned long[]){0x0a69}, 1},
-    {"threehackarabic", (const unsigned long[]){0x0663}, 1},
-    {"threehangzhou", (const unsigned long[]){0x3023}, 1},
-    {"threeideographicparen", (const unsigned long[]){0x3222}, 1},
-    {"threeinferior", (const unsigned long[]){0x2083}, 1},
-    {"threemonospace", (const unsigned long[]){0xff13}, 1},
-    {"threenumeratorbengali", (const unsigned long[]){0x09f6}, 1},
-    {"threeoldstyle", (const unsigned long[]){0xf733}, 1},
-    {"threeparen", (const unsigned long[]){0x2476}, 1},
-    {"threeperiod", (const unsigned long[]){0x248a}, 1},
-    {"threepersian", (const unsigned long[]){0x06f3}, 1},
-    {"threequarters", (const unsigned long[]){0x00be}, 1},
-    {"threequartersemdash", (const unsigned long[]){0xf6de}, 1},
-    {"threeroman", (const unsigned long[]){0x2172}, 1},
-    {"threesuperior", (const unsigned long[]){0x00b3}, 1},
-    {"threethai", (const unsigned long[]){0x0e53}, 1},
-    {"thzsquare", (const unsigned long[]){0x3394}, 1},
-    {"tihiragana", (const unsigned long[]){0x3061}, 1},
-    {"tikatakana", (const unsigned long[]){0x30c1}, 1},
-    {"tikatakanahalfwidth", (const unsigned long[]){0xff81}, 1},
-    {"tikeutacirclekorean", (const unsigned long[]){0x3270}, 1},
-    {"tikeutaparenkorean", (const unsigned long[]){0x3210}, 1},
-    {"tikeutcirclekorean", (const unsigned long[]){0x3262}, 1},
-    {"tikeutkorean", (const unsigned long[]){0x3137}, 1},
-    {"tikeutparenkorean", (const unsigned long[]){0x3202}, 1},
-    {"tilde", (const unsigned long[]){0x02dc}, 1},
-    {"tildebelowcmb", (const unsigned long[]){0x0330}, 1},
-    {"tildecmb", (const unsigned long[]){0x0303}, 1},
-    {"tildecomb", (const unsigned long[]){0x0303}, 1},
-    {"tildedoublecmb", (const unsigned long[]){0x0360}, 1},
-    {"tildeoperator", (const unsigned long[]){0x223c}, 1},
-    {"tildeoverlaycmb", (const unsigned long[]){0x0334}, 1},
-    {"tildeverticalcmb", (const unsigned long[]){0x033e}, 1},
-    {"timescircle", (const unsigned long[]){0x2297}, 1},
-    {"tipehahebrew", (const unsigned long[]){0x0596}, 1},
-    {"tipehalefthebrew", (const unsigned long[]){0x0596}, 1},
-    {"tippigurmukhi", (const unsigned long[]){0x0a70}, 1},
-    {"titlocyrilliccmb", (const unsigned long[]){0x0483}, 1},
-    {"tiwnarmenian", (const unsigned long[]){0x057f}, 1},
-    {"tlinebelow", (const unsigned long[]){0x1e6f}, 1},
-    {"tmonospace", (const unsigned long[]){0xff54}, 1},
-    {"toarmenian", (const unsigned long[]){0x0569}, 1},
-    {"tohiragana", (const unsigned long[]){0x3068}, 1},
-    {"tokatakana", (const unsigned long[]){0x30c8}, 1},
-    {"tokatakanahalfwidth", (const unsigned long[]){0xff84}, 1},
-    {"tonebarextrahighmod", (const unsigned long[]){0x02e5}, 1},
-    {"tonebarextralowmod", (const unsigned long[]){0x02e9}, 1},
-    {"tonebarhighmod", (const unsigned long[]){0x02e6}, 1},
-    {"tonebarlowmod", (const unsigned long[]){0x02e8}, 1},
-    {"tonebarmidmod", (const unsigned long[]){0x02e7}, 1},
-    {"tonefive", (const unsigned long[]){0x01bd}, 1},
-    {"tonesix", (const unsigned long[]){0x0185}, 1},
-    {"tonetwo", (const unsigned long[]){0x01a8}, 1},
-    {"tonos", (const unsigned long[]){0x0384}, 1},
-    {"tonsquare", (const unsigned long[]){0x3327}, 1},
-    {"topatakthai", (const unsigned long[]){0x0e0f}, 1},
-    {"tortoiseshellbracketleft", (const unsigned long[]){0x3014}, 1},
-    {"tortoiseshellbracketleftsmall", (const unsigned long[]){0xfe5d}, 1},
-    {"tortoiseshellbracketleftvertical", (const unsigned long[]){0xfe39}, 1},
-    {"tortoiseshellbracketright", (const unsigned long[]){0x3015}, 1},
-    {"tortoiseshellbracketrightsmall", (const unsigned long[]){0xfe5e}, 1},
-    {"tortoiseshellbracketrightvertical", (const unsigned long[]){0xfe3a}, 1},
-    {"totaothai", (const unsigned long[]){0x0e15}, 1},
-    {"tpalatalhook", (const unsigned long[]){0x01ab}, 1},
-    {"tparen", (const unsigned long[]){0x24af}, 1},
-    {"trademark", (const unsigned long[]){0x2122}, 1},
-    {"trademarksans", (const unsigned long[]){0xf8ea}, 1},
-    {"trademarkserif", (const unsigned long[]){0xf6db}, 1},
-    {"tretroflexhook", (const unsigned long[]){0x0288}, 1},
-    {"triagdn", (const unsigned long[]){0x25bc}, 1},
-    {"triaglf", (const unsigned long[]){0x25c4}, 1},
-    {"triagrt", (const unsigned long[]){0x25ba}, 1},
-    {"triagup", (const unsigned long[]){0x25b2}, 1},
-    {"ts", (const unsigned long[]){0x02a6}, 1},
-    {"tsadi", (const unsigned long[]){0x05e6}, 1},
-    {"tsadidagesh", (const unsigned long[]){0xfb46}, 1},
-    {"tsadidageshhebrew", (const unsigned long[]){0xfb46}, 1},
-    {"tsadihebrew", (const unsigned long[]){0x05e6}, 1},
-    {"tsecyrillic", (const unsigned long[]){0x0446}, 1},
-    {"tsere", (const unsigned long[]){0x05b5}, 1},
-    {"tsere12", (const unsigned long[]){0x05b5}, 1},
-    {"tsere1e", (const unsigned long[]){0x05b5}, 1},
-    {"tsere2b", (const unsigned long[]){0x05b5}, 1},
-    {"tserehebrew", (const unsigned long[]){0x05b5}, 1},
-    {"tserenarrowhebrew", (const unsigned long[]){0x05b5}, 1},
-    {"tserequarterhebrew", (const unsigned long[]){0x05b5}, 1},
-    {"tserewidehebrew", (const unsigned long[]){0x05b5}, 1},
-    {"tshecyrillic", (const unsigned long[]){0x045b}, 1},
-    {"tsuperior", (const unsigned long[]){0xf6f3}, 1},
-    {"ttabengali", (const unsigned long[]){0x099f}, 1},
-    {"ttadeva", (const unsigned long[]){0x091f}, 1},
-    {"ttagujarati", (const unsigned long[]){0x0a9f}, 1},
-    {"ttagurmukhi", (const unsigned long[]){0x0a1f}, 1},
-    {"tteharabic", (const unsigned long[]){0x0679}, 1},
-    {"ttehfinalarabic", (const unsigned long[]){0xfb67}, 1},
-    {"ttehinitialarabic", (const unsigned long[]){0xfb68}, 1},
-    {"ttehmedialarabic", (const unsigned long[]){0xfb69}, 1},
-    {"tthabengali", (const unsigned long[]){0x09a0}, 1},
-    {"tthadeva", (const unsigned long[]){0x0920}, 1},
-    {"tthagujarati", (const unsigned long[]){0x0aa0}, 1},
-    {"tthagurmukhi", (const unsigned long[]){0x0a20}, 1},
-    {"tturned", (const unsigned long[]){0x0287}, 1},
-    {"tuhiragana", (const unsigned long[]){0x3064}, 1},
-    {"tukatakana", (const unsigned long[]){0x30c4}, 1},
-    {"tukatakanahalfwidth", (const unsigned long[]){0xff82}, 1},
-    {"tusmallhiragana", (const unsigned long[]){0x3063}, 1},
-    {"tusmallkatakana", (const unsigned long[]){0x30c3}, 1},
-    {"tusmallkatakanahalfwidth", (const unsigned long[]){0xff6f}, 1},
-    {"twelvecircle", (const unsigned long[]){0x246b}, 1},
-    {"twelveparen", (const unsigned long[]){0x247f}, 1},
-    {"twelveperiod", (const unsigned long[]){0x2493}, 1},
-    {"twelveroman", (const unsigned long[]){0x217b}, 1},
-    {"twentycircle", (const unsigned long[]){0x2473}, 1},
-    {"twentyhangzhou", (const unsigned long[]){0x5344}, 1},
-    {"twentyparen", (const unsigned long[]){0x2487}, 1},
-    {"twentyperiod", (const unsigned long[]){0x249b}, 1},
-    {"two", (const unsigned long[]){0x0032}, 1},
-    {"twoarabic", (const unsigned long[]){0x0662}, 1},
-    {"twobengali", (const unsigned long[]){0x09e8}, 1},
-    {"twocircle", (const unsigned long[]){0x2461}, 1},
-    {"twocircleinversesansserif", (const unsigned long[]){0x278b}, 1},
-    {"twodeva", (const unsigned long[]){0x0968}, 1},
-    {"twodotenleader", (const unsigned long[]){0x2025}, 1},
-    {"twodotleader", (const unsigned long[]){0x2025}, 1},
-    {"twodotleadervertical", (const unsigned long[]){0xfe30}, 1},
-    {"twogujarati", (const unsigned long[]){0x0ae8}, 1},
-    {"twogurmukhi", (const unsigned long[]){0x0a68}, 1},
-    {"twohackarabic", (const unsigned long[]){0x0662}, 1},
-    {"twohangzhou", (const unsigned long[]){0x3022}, 1},
-    {"twoideographicparen", (const unsigned long[]){0x3221}, 1},
-    {"twoinferior", (const unsigned long[]){0x2082}, 1},
-    {"twomonospace", (const unsigned long[]){0xff12}, 1},
-    {"twonumeratorbengali", (const unsigned long[]){0x09f5}, 1},
-    {"twooldstyle", (const unsigned long[]){0xf732}, 1},
-    {"twoparen", (const unsigned long[]){0x2475}, 1},
-    {"twoperiod", (const unsigned long[]){0x2489}, 1},
-    {"twopersian", (const unsigned long[]){0x06f2}, 1},
-    {"tworoman", (const unsigned long[]){0x2171}, 1},
-    {"twostroke", (const unsigned long[]){0x01bb}, 1},
-    {"twosuperior", (const unsigned long[]){0x00b2}, 1},
-    {"twothai", (const unsigned long[]){0x0e52}, 1},
-    {"twothirds", (const unsigned long[]){0x2154}, 1},
-    {"u", (const unsigned long[]){0x0075}, 1},
-    {"uacute", (const unsigned long[]){0x00fa}, 1},
-    {"ubar", (const unsigned long[]){0x0289}, 1},
-    {"ubengali", (const unsigned long[]){0x0989}, 1},
-    {"ubopomofo", (const unsigned long[]){0x3128}, 1},
-    {"ubreve", (const unsigned long[]){0x016d}, 1},
-    {"ucaron", (const unsigned long[]){0x01d4}, 1},
-    {"ucircle", (const unsigned long[]){0x24e4}, 1},
-    {"ucircumflex", (const unsigned long[]){0x00fb}, 1},
-    {"ucircumflexbelow", (const unsigned long[]){0x1e77}, 1},
-    {"ucyrillic", (const unsigned long[]){0x0443}, 1},
-    {"udattadeva", (const unsigned long[]){0x0951}, 1},
-    {"udblacute", (const unsigned long[]){0x0171}, 1},
-    {"udblgrave", (const unsigned long[]){0x0215}, 1},
-    {"udeva", (const unsigned long[]){0x0909}, 1},
-    {"udieresis", (const unsigned long[]){0x00fc}, 1},
-    {"udieresisacute", (const unsigned long[]){0x01d8}, 1},
-    {"udieresisbelow", (const unsigned long[]){0x1e73}, 1},
-    {"udieresiscaron", (const unsigned long[]){0x01da}, 1},
-    {"udieresiscyrillic", (const unsigned long[]){0x04f1}, 1},
-    {"udieresisgrave", (const unsigned long[]){0x01dc}, 1},
-    {"udieresismacron", (const unsigned long[]){0x01d6}, 1},
-    {"udotbelow", (const unsigned long[]){0x1ee5}, 1},
-    {"ugrave", (const unsigned long[]){0x00f9}, 1},
-    {"ugujarati", (const unsigned long[]){0x0a89}, 1},
-    {"ugurmukhi", (const unsigned long[]){0x0a09}, 1},
-    {"uhiragana", (const unsigned long[]){0x3046}, 1},
-    {"uhookabove", (const unsigned long[]){0x1ee7}, 1},
-    {"uhorn", (const unsigned long[]){0x01b0}, 1},
-    {"uhornacute", (const unsigned long[]){0x1ee9}, 1},
-    {"uhorndotbelow", (const unsigned long[]){0x1ef1}, 1},
-    {"uhorngrave", (const unsigned long[]){0x1eeb}, 1},
-    {"uhornhookabove", (const unsigned long[]){0x1eed}, 1},
-    {"uhorntilde", (const unsigned long[]){0x1eef}, 1},
-    {"uhungarumlaut", (const unsigned long[]){0x0171}, 1},
-    {"uhungarumlautcyrillic", (const unsigned long[]){0x04f3}, 1},
-    {"uinvertedbreve", (const unsigned long[]){0x0217}, 1},
-    {"ukatakana", (const unsigned long[]){0x30a6}, 1},
-    {"ukatakanahalfwidth", (const unsigned long[]){0xff73}, 1},
-    {"ukcyrillic", (const unsigned long[]){0x0479}, 1},
-    {"ukorean", (const unsigned long[]){0x315c}, 1},
-    {"umacron", (const unsigned long[]){0x016b}, 1},
-    {"umacroncyrillic", (const unsigned long[]){0x04ef}, 1},
-    {"umacrondieresis", (const unsigned long[]){0x1e7b}, 1},
-    {"umatragurmukhi", (const unsigned long[]){0x0a41}, 1},
-    {"umonospace", (const unsigned long[]){0xff55}, 1},
-    {"underscore", (const unsigned long[]){0x005f}, 1},
-    {"underscoredbl", (const unsigned long[]){0x2017}, 1},
-    {"underscoremonospace", (const unsigned long[]){0xff3f}, 1},
-    {"underscorevertical", (const unsigned long[]){0xfe33}, 1},
-    {"underscorewavy", (const unsigned long[]){0xfe4f}, 1},
-    {"union", (const unsigned long[]){0x222a}, 1},
-    {"universal", (const unsigned long[]){0x2200}, 1},
-    {"uogonek", (const unsigned long[]){0x0173}, 1},
-    {"uparen", (const unsigned long[]){0x24b0}, 1},
-    {"upblock", (const unsigned long[]){0x2580}, 1},
-    {"upperdothebrew", (const unsigned long[]){0x05c4}, 1},
-    {"upsilon", (const unsigned long[]){0x03c5}, 1},
-    {"upsilondieresis", (const unsigned long[]){0x03cb}, 1},
-    {"upsilondieresistonos", (const unsigned long[]){0x03b0}, 1},
-    {"upsilonlatin", (const unsigned long[]){0x028a}, 1},
-    {"upsilontonos", (const unsigned long[]){0x03cd}, 1},
-    {"uptackbelowcmb", (const unsigned long[]){0x031d}, 1},
-    {"uptackmod", (const unsigned long[]){0x02d4}, 1},
-    {"uragurmukhi", (const unsigned long[]){0x0a73}, 1},
-    {"uring", (const unsigned long[]){0x016f}, 1},
-    {"ushortcyrillic", (const unsigned long[]){0x045e}, 1},
-    {"usmallhiragana", (const unsigned long[]){0x3045}, 1},
-    {"usmallkatakana", (const unsigned long[]){0x30a5}, 1},
-    {"usmallkatakanahalfwidth", (const unsigned long[]){0xff69}, 1},
-    {"ustraightcyrillic", (const unsigned long[]){0x04af}, 1},
-    {"ustraightstrokecyrillic", (const unsigned long[]){0x04b1}, 1},
-    {"utilde", (const unsigned long[]){0x0169}, 1},
-    {"utildeacute", (const unsigned long[]){0x1e79}, 1},
-    {"utildebelow", (const unsigned long[]){0x1e75}, 1},
-    {"uubengali", (const unsigned long[]){0x098a}, 1},
-    {"uudeva", (const unsigned long[]){0x090a}, 1},
-    {"uugujarati", (const unsigned long[]){0x0a8a}, 1},
-    {"uugurmukhi", (const unsigned long[]){0x0a0a}, 1},
-    {"uumatragurmukhi", (const unsigned long[]){0x0a42}, 1},
-    {"uuvowelsignbengali", (const unsigned long[]){0x09c2}, 1},
-    {"uuvowelsigndeva", (const unsigned long[]){0x0942}, 1},
-    {"uuvowelsigngujarati", (const unsigned long[]){0x0ac2}, 1},
-    {"uvowelsignbengali", (const unsigned long[]){0x09c1}, 1},
-    {"uvowelsigndeva", (const unsigned long[]){0x0941}, 1},
-    {"uvowelsigngujarati", (const unsigned long[]){0x0ac1}, 1},
-    {"v", (const unsigned long[]){0x0076}, 1},
-    {"vadeva", (const unsigned long[]){0x0935}, 1},
-    {"vagujarati", (const unsigned long[]){0x0ab5}, 1},
-    {"vagurmukhi", (const unsigned long[]){0x0a35}, 1},
-    {"vakatakana", (const unsigned long[]){0x30f7}, 1},
-    {"vav", (const unsigned long[]){0x05d5}, 1},
-    {"vavdagesh", (const unsigned long[]){0xfb35}, 1},
-    {"vavdagesh65", (const unsigned long[]){0xfb35}, 1},
-    {"vavdageshhebrew", (const unsigned long[]){0xfb35}, 1},
-    {"vavhebrew", (const unsigned long[]){0x05d5}, 1},
-    {"vavholam", (const unsigned long[]){0xfb4b}, 1},
-    {"vavholamhebrew", (const unsigned long[]){0xfb4b}, 1},
-    {"vavvavhebrew", (const unsigned long[]){0x05f0}, 1},
-    {"vavyodhebrew", (const unsigned long[]){0x05f1}, 1},
-    {"vcircle", (const unsigned long[]){0x24e5}, 1},
-    {"vdotbelow", (const unsigned long[]){0x1e7f}, 1},
-    {"vecyrillic", (const unsigned long[]){0x0432}, 1},
-    {"veharabic", (const unsigned long[]){0x06a4}, 1},
-    {"vehfinalarabic", (const unsigned long[]){0xfb6b}, 1},
-    {"vehinitialarabic", (const unsigned long[]){0xfb6c}, 1},
-    {"vehmedialarabic", (const unsigned long[]){0xfb6d}, 1},
-    {"vekatakana", (const unsigned long[]){0x30f9}, 1},
-    {"venus", (const unsigned long[]){0x2640}, 1},
-    {"verticalbar", (const unsigned long[]){0x007c}, 1},
-    {"verticallineabovecmb", (const unsigned long[]){0x030d}, 1},
-    {"verticallinebelowcmb", (const unsigned long[]){0x0329}, 1},
-    {"verticallinelowmod", (const unsigned long[]){0x02cc}, 1},
-    {"verticallinemod", (const unsigned long[]){0x02c8}, 1},
-    {"vewarmenian", (const unsigned long[]){0x057e}, 1},
-    {"vhook", (const unsigned long[]){0x028b}, 1},
-    {"vikatakana", (const unsigned long[]){0x30f8}, 1},
-    {"viramabengali", (const unsigned long[]){0x09cd}, 1},
-    {"viramadeva", (const unsigned long[]){0x094d}, 1},
-    {"viramagujarati", (const unsigned long[]){0x0acd}, 1},
-    {"visargabengali", (const unsigned long[]){0x0983}, 1},
-    {"visargadeva", (const unsigned long[]){0x0903}, 1},
-    {"visargagujarati", (const unsigned long[]){0x0a83}, 1},
-    {"vmonospace", (const unsigned long[]){0xff56}, 1},
-    {"voarmenian", (const unsigned long[]){0x0578}, 1},
-    {"voicediterationhiragana", (const unsigned long[]){0x309e}, 1},
-    {"voicediterationkatakana", (const unsigned long[]){0x30fe}, 1},
-    {"voicedmarkkana", (const unsigned long[]){0x309b}, 1},
-    {"voicedmarkkanahalfwidth", (const unsigned long[]){0xff9e}, 1},
-    {"vokatakana", (const unsigned long[]){0x30fa}, 1},
-    {"vparen", (const unsigned long[]){0x24b1}, 1},
-    {"vtilde", (const unsigned long[]){0x1e7d}, 1},
-    {"vturned", (const unsigned long[]){0x028c}, 1},
-    {"vuhiragana", (const unsigned long[]){0x3094}, 1},
-    {"vukatakana", (const unsigned long[]){0x30f4}, 1},
-    {"w", (const unsigned long[]){0x0077}, 1},
-    {"wacute", (const unsigned long[]){0x1e83}, 1},
-    {"waekorean", (const unsigned long[]){0x3159}, 1},
-    {"wahiragana", (const unsigned long[]){0x308f}, 1},
-    {"wakatakana", (const unsigned long[]){0x30ef}, 1},
-    {"wakatakanahalfwidth", (const unsigned long[]){0xff9c}, 1},
-    {"wakorean", (const unsigned long[]){0x3158}, 1},
-    {"wasmallhiragana", (const unsigned long[]){0x308e}, 1},
-    {"wasmallkatakana", (const unsigned long[]){0x30ee}, 1},
-    {"wattosquare", (const unsigned long[]){0x3357}, 1},
-    {"wavedash", (const unsigned long[]){0x301c}, 1},
-    {"wavyunderscorevertical", (const unsigned long[]){0xfe34}, 1},
-    {"wawarabic", (const unsigned long[]){0x0648}, 1},
-    {"wawfinalarabic", (const unsigned long[]){0xfeee}, 1},
-    {"wawhamzaabovearabic", (const unsigned long[]){0x0624}, 1},
-    {"wawhamzaabovefinalarabic", (const unsigned long[]){0xfe86}, 1},
-    {"wbsquare", (const unsigned long[]){0x33dd}, 1},
-    {"wcircle", (const unsigned long[]){0x24e6}, 1},
-    {"wcircumflex", (const unsigned long[]){0x0175}, 1},
-    {"wdieresis", (const unsigned long[]){0x1e85}, 1},
-    {"wdotaccent", (const unsigned long[]){0x1e87}, 1},
-    {"wdotbelow", (const unsigned long[]){0x1e89}, 1},
-    {"wehiragana", (const unsigned long[]){0x3091}, 1},
-    {"weierstrass", (const unsigned long[]){0x2118}, 1},
-    {"wekatakana", (const unsigned long[]){0x30f1}, 1},
-    {"wekorean", (const unsigned long[]){0x315e}, 1},
-    {"weokorean", (const unsigned long[]){0x315d}, 1},
-    {"wgrave", (const unsigned long[]){0x1e81}, 1},
-    {"whitebullet", (const unsigned long[]){0x25e6}, 1},
-    {"whitecircle", (const unsigned long[]){0x25cb}, 1},
-    {"whitecircleinverse", (const unsigned long[]){0x25d9}, 1},
-    {"whitecornerbracketleft", (const unsigned long[]){0x300e}, 1},
-    {"whitecornerbracketleftvertical", (const unsigned long[]){0xfe43}, 1},
-    {"whitecornerbracketright", (const unsigned long[]){0x300f}, 1},
-    {"whitecornerbracketrightvertical", (const unsigned long[]){0xfe44}, 1},
-    {"whitediamond", (const unsigned long[]){0x25c7}, 1},
-    {"whitediamondcontainingblacksmalldiamond", (const unsigned long[]){0x25c8}, 1},
-    {"whitedownpointingsmalltriangle", (const unsigned long[]){0x25bf}, 1},
-    {"whitedownpointingtriangle", (const unsigned long[]){0x25bd}, 1},
-    {"whiteleftpointingsmalltriangle", (const unsigned long[]){0x25c3}, 1},
-    {"whiteleftpointingtriangle", (const unsigned long[]){0x25c1}, 1},
-    {"whitelenticularbracketleft", (const unsigned long[]){0x3016}, 1},
-    {"whitelenticularbracketright", (const unsigned long[]){0x3017}, 1},
-    {"whiterightpointingsmalltriangle", (const unsigned long[]){0x25b9}, 1},
-    {"whiterightpointingtriangle", (const unsigned long[]){0x25b7}, 1},
-    {"whitesmallsquare", (const unsigned long[]){0x25ab}, 1},
-    {"whitesmilingface", (const unsigned long[]){0x263a}, 1},
-    {"whitesquare", (const unsigned long[]){0x25a1}, 1},
-    {"whitestar", (const unsigned long[]){0x2606}, 1},
-    {"whitetelephone", (const unsigned long[]){0x260f}, 1},
-    {"whitetortoiseshellbracketleft", (const unsigned long[]){0x3018}, 1},
-    {"whitetortoiseshellbracketright", (const unsigned long[]){0x3019}, 1},
-    {"whiteuppointingsmalltriangle", (const unsigned long[]){0x25b5}, 1},
-    {"whiteuppointingtriangle", (const unsigned long[]){0x25b3}, 1},
-    {"wihiragana", (const unsigned long[]){0x3090}, 1},
-    {"wikatakana", (const unsigned long[]){0x30f0}, 1},
-    {"wikorean", (const unsigned long[]){0x315f}, 1},
-    {"wmonospace", (const unsigned long[]){0xff57}, 1},
-    {"wohiragana", (const unsigned long[]){0x3092}, 1},
-    {"wokatakana", (const unsigned long[]){0x30f2}, 1},
-    {"wokatakanahalfwidth", (const unsigned long[]){0xff66}, 1},
-    {"won", (const unsigned long[]){0x20a9}, 1},
-    {"wonmonospace", (const unsigned long[]){0xffe6}, 1},
-    {"wowaenthai", (const unsigned long[]){0x0e27}, 1},
-    {"wparen", (const unsigned long[]){0x24b2}, 1},
-    {"wring", (const unsigned long[]){0x1e98}, 1},
-    {"wsuperior", (const unsigned long[]){0x02b7}, 1},
-    {"wturned", (const unsigned long[]){0x028d}, 1},
-    {"wynn", (const unsigned long[]){0x01bf}, 1},
-    {"x", (const unsigned long[]){0x0078}, 1},
-    {"xabovecmb", (const unsigned long[]){0x033d}, 1},
-    {"xbopomofo", (const unsigned long[]){0x3112}, 1},
-    {"xcircle", (const unsigned long[]){0x24e7}, 1},
-    {"xdieresis", (const unsigned long[]){0x1e8d}, 1},
-    {"xdotaccent", (const unsigned long[]){0x1e8b}, 1},
-    {"xeharmenian", (const unsigned long[]){0x056d}, 1},
-    {"xi", (const unsigned long[]){0x03be}, 1},
-    {"xmonospace", (const unsigned long[]){0xff58}, 1},
-    {"xparen", (const unsigned long[]){0x24b3}, 1},
-    {"xsuperior", (const unsigned long[]){0x02e3}, 1},
-    {"y", (const unsigned long[]){0x0079}, 1},
-    {"yaadosquare", (const unsigned long[]){0x334e}, 1},
-    {"yabengali", (const unsigned long[]){0x09af}, 1},
-    {"yacute", (const unsigned long[]){0x00fd}, 1},
-    {"yadeva", (const unsigned long[]){0x092f}, 1},
-    {"yaekorean", (const unsigned long[]){0x3152}, 1},
-    {"yagujarati", (const unsigned long[]){0x0aaf}, 1},
-    {"yagurmukhi", (const unsigned long[]){0x0a2f}, 1},
-    {"yahiragana", (const unsigned long[]){0x3084}, 1},
-    {"yakatakana", (const unsigned long[]){0x30e4}, 1},
-    {"yakatakanahalfwidth", (const unsigned long[]){0xff94}, 1},
-    {"yakorean", (const unsigned long[]){0x3151}, 1},
-    {"yamakkanthai", (const unsigned long[]){0x0e4e}, 1},
-    {"yasmallhiragana", (const unsigned long[]){0x3083}, 1},
-    {"yasmallkatakana", (const unsigned long[]){0x30e3}, 1},
-    {"yasmallkatakanahalfwidth", (const unsigned long[]){0xff6c}, 1},
-    {"yatcyrillic", (const unsigned long[]){0x0463}, 1},
-    {"ycircle", (const unsigned long[]){0x24e8}, 1},
-    {"ycircumflex", (const unsigned long[]){0x0177}, 1},
-    {"ydieresis", (const unsigned long[]){0x00ff}, 1},
-    {"ydotaccent", (const unsigned long[]){0x1e8f}, 1},
-    {"ydotbelow", (const unsigned long[]){0x1ef5}, 1},
-    {"yeharabic", (const unsigned long[]){0x064a}, 1},
-    {"yehbarreearabic", (const unsigned long[]){0x06d2}, 1},
-    {"yehbarreefinalarabic", (const unsigned long[]){0xfbaf}, 1},
-    {"yehfinalarabic", (const unsigned long[]){0xfef2}, 1},
-    {"yehhamzaabovearabic", (const unsigned long[]){0x0626}, 1},
-    {"yehhamzaabovefinalarabic", (const unsigned long[]){0xfe8a}, 1},
-    {"yehhamzaaboveinitialarabic", (const unsigned long[]){0xfe8b}, 1},
-    {"yehhamzaabovemedialarabic", (const unsigned long[]){0xfe8c}, 1},
-    {"yehinitialarabic", (const unsigned long[]){0xfef3}, 1},
-    {"yehmedialarabic", (const unsigned long[]){0xfef4}, 1},
-    {"yehmeeminitialarabic", (const unsigned long[]){0xfcdd}, 1},
-    {"yehmeemisolatedarabic", (const unsigned long[]){0xfc58}, 1},
-    {"yehnoonfinalarabic", (const unsigned long[]){0xfc94}, 1},
-    {"yehthreedotsbelowarabic", (const unsigned long[]){0x06d1}, 1},
-    {"yekorean", (const unsigned long[]){0x3156}, 1},
-    {"yen", (const unsigned long[]){0x00a5}, 1},
-    {"yenmonospace", (const unsigned long[]){0xffe5}, 1},
-    {"yeokorean", (const unsigned long[]){0x3155}, 1},
-    {"yeorinhieuhkorean", (const unsigned long[]){0x3186}, 1},
-    {"yerahbenyomohebrew", (const unsigned long[]){0x05aa}, 1},
-    {"yerahbenyomolefthebrew", (const unsigned long[]){0x05aa}, 1},
-    {"yericyrillic", (const unsigned long[]){0x044b}, 1},
-    {"yerudieresiscyrillic", (const unsigned long[]){0x04f9}, 1},
-    {"yesieungkorean", (const unsigned long[]){0x3181}, 1},
-    {"yesieungpansioskorean", (const unsigned long[]){0x3183}, 1},
-    {"yesieungsioskorean", (const unsigned long[]){0x3182}, 1},
-    {"yetivhebrew", (const unsigned long[]){0x059a}, 1},
-    {"ygrave", (const unsigned long[]){0x1ef3}, 1},
-    {"yhook", (const unsigned long[]){0x01b4}, 1},
-    {"yhookabove", (const unsigned long[]){0x1ef7}, 1},
-    {"yiarmenian", (const unsigned long[]){0x0575}, 1},
-    {"yicyrillic", (const unsigned long[]){0x0457}, 1},
-    {"yikorean", (const unsigned long[]){0x3162}, 1},
-    {"yinyang", (const unsigned long[]){0x262f}, 1},
-    {"yiwnarmenian", (const unsigned long[]){0x0582}, 1},
-    {"ymonospace", (const unsigned long[]){0xff59}, 1},
-    {"yod", (const unsigned long[]){0x05d9}, 1},
-    {"yoddagesh", (const unsigned long[]){0xfb39}, 1},
-    {"yoddageshhebrew", (const unsigned long[]){0xfb39}, 1},
-    {"yodhebrew", (const unsigned long[]){0x05d9}, 1},
-    {"yodyodhebrew", (const unsigned long[]){0x05f2}, 1},
-    {"yodyodpatahhebrew", (const unsigned long[]){0xfb1f}, 1},
-    {"yohiragana", (const unsigned long[]){0x3088}, 1},
-    {"yoikorean", (const unsigned long[]){0x3189}, 1},
-    {"yokatakana", (const unsigned long[]){0x30e8}, 1},
-    {"yokatakanahalfwidth", (const unsigned long[]){0xff96}, 1},
-    {"yokorean", (const unsigned long[]){0x315b}, 1},
-    {"yosmallhiragana", (const unsigned long[]){0x3087}, 1},
-    {"yosmallkatakana", (const unsigned long[]){0x30e7}, 1},
-    {"yosmallkatakanahalfwidth", (const unsigned long[]){0xff6e}, 1},
-    {"yotgreek", (const unsigned long[]){0x03f3}, 1},
-    {"yoyaekorean", (const unsigned long[]){0x3188}, 1},
-    {"yoyakorean", (const unsigned long[]){0x3187}, 1},
-    {"yoyakthai", (const unsigned long[]){0x0e22}, 1},
-    {"yoyingthai", (const unsigned long[]){0x0e0d}, 1},
-    {"yparen", (const unsigned long[]){0x24b4}, 1},
-    {"ypogegrammeni", (const unsigned long[]){0x037a}, 1},
-    {"ypogegrammenigreekcmb", (const unsigned long[]){0x0345}, 1},
-    {"yr", (const unsigned long[]){0x01a6}, 1},
-    {"yring", (const unsigned long[]){0x1e99}, 1},
-    {"ysuperior", (const unsigned long[]){0x02b8}, 1},
-    {"ytilde", (const unsigned long[]){0x1ef9}, 1},
-    {"yturned", (const unsigned long[]){0x028e}, 1},
-    {"yuhiragana", (const unsigned long[]){0x3086}, 1},
-    {"yuikorean", (const unsigned long[]){0x318c}, 1},
-    {"yukatakana", (const unsigned long[]){0x30e6}, 1},
-    {"yukatakanahalfwidth", (const unsigned long[]){0xff95}, 1},
-    {"yukorean", (const unsigned long[]){0x3160}, 1},
-    {"yusbigcyrillic", (const unsigned long[]){0x046b}, 1},
-    {"yusbigiotifiedcyrillic", (const unsigned long[]){0x046d}, 1},
-    {"yuslittlecyrillic", (const unsigned long[]){0x0467}, 1},
-    {"yuslittleiotifiedcyrillic", (const unsigned long[]){0x0469}, 1},
-    {"yusmallhiragana", (const unsigned long[]){0x3085}, 1},
-    {"yusmallkatakana", (const unsigned long[]){0x30e5}, 1},
-    {"yusmallkatakanahalfwidth", (const unsigned long[]){0xff6d}, 1},
-    {"yuyekorean", (const unsigned long[]){0x318b}, 1},
-    {"yuyeokorean", (const unsigned long[]){0x318a}, 1},
-    {"yyabengali", (const unsigned long[]){0x09df}, 1},
-    {"yyadeva", (const unsigned long[]){0x095f}, 1},
-    {"z", (const unsigned long[]){0x007a}, 1},
-    {"zaarmenian", (const unsigned long[]){0x0566}, 1},
-    {"zacute", (const unsigned long[]){0x017a}, 1},
-    {"zadeva", (const unsigned long[]){0x095b}, 1},
-    {"zagurmukhi", (const unsigned long[]){0x0a5b}, 1},
-    {"zaharabic", (const unsigned long[]){0x0638}, 1},
-    {"zahfinalarabic", (const unsigned long[]){0xfec6}, 1},
-    {"zahinitialarabic", (const unsigned long[]){0xfec7}, 1},
-    {"zahiragana", (const unsigned long[]){0x3056}, 1},
-    {"zahmedialarabic", (const unsigned long[]){0xfec8}, 1},
-    {"zainarabic", (const unsigned long[]){0x0632}, 1},
-    {"zainfinalarabic", (const unsigned long[]){0xfeb0}, 1},
-    {"zakatakana", (const unsigned long[]){0x30b6}, 1},
-    {"zaqefgadolhebrew", (const unsigned long[]){0x0595}, 1},
-    {"zaqefqatanhebrew", (const unsigned long[]){0x0594}, 1},
-    {"zarqahebrew", (const unsigned long[]){0x0598}, 1},
-    {"zayin", (const unsigned long[]){0x05d6}, 1},
-    {"zayindagesh", (const unsigned long[]){0xfb36}, 1},
-    {"zayindageshhebrew", (const unsigned long[]){0xfb36}, 1},
-    {"zayinhebrew", (const unsigned long[]){0x05d6}, 1},
-    {"zbopomofo", (const unsigned long[]){0x3117}, 1},
-    {"zcaron", (const unsigned long[]){0x017e}, 1},
-    {"zcircle", (const unsigned long[]){0x24e9}, 1},
-    {"zcircumflex", (const unsigned long[]){0x1e91}, 1},
-    {"zcurl", (const unsigned long[]){0x0291}, 1},
-    {"zdot", (const unsigned long[]){0x017c}, 1},
-    {"zdotaccent", (const unsigned long[]){0x017c}, 1},
-    {"zdotbelow", (const unsigned long[]){0x1e93}, 1},
-    {"zecyrillic", (const unsigned long[]){0x0437}, 1},
-    {"zedescendercyrillic", (const unsigned long[]){0x0499}, 1},
-    {"zedieresiscyrillic", (const unsigned long[]){0x04df}, 1},
-    {"zehiragana", (const unsigned long[]){0x305c}, 1},
-    {"zekatakana", (const unsigned long[]){0x30bc}, 1},
-    {"zero", (const unsigned long[]){0x0030}, 1},
-    {"zeroarabic", (const unsigned long[]){0x0660}, 1},
-    {"zerobengali", (const unsigned long[]){0x09e6}, 1},
-    {"zerodeva", (const unsigned long[]){0x0966}, 1},
-    {"zerogujarati", (const unsigned long[]){0x0ae6}, 1},
-    {"zerogurmukhi", (const unsigned long[]){0x0a66}, 1},
-    {"zerohackarabic", (const unsigned long[]){0x0660}, 1},
-    {"zeroinferior", (const unsigned long[]){0x2080}, 1},
-    {"zeromonospace", (const unsigned long[]){0xff10}, 1},
-    {"zerooldstyle", (const unsigned long[]){0xf730}, 1},
-    {"zeropersian", (const unsigned long[]){0x06f0}, 1},
-    {"zerosuperior", (const unsigned long[]){0x2070}, 1},
-    {"zerothai", (const unsigned long[]){0x0e50}, 1},
-    {"zerowidthjoiner", (const unsigned long[]){0xfeff}, 1},
-    {"zerowidthnonjoiner", (const unsigned long[]){0x200c}, 1},
-    {"zerowidthspace", (const unsigned long[]){0x200b}, 1},
-    {"zeta", (const unsigned long[]){0x03b6}, 1},
-    {"zhbopomofo", (const unsigned long[]){0x3113}, 1},
-    {"zhearmenian", (const unsigned long[]){0x056a}, 1},
-    {"zhebrevecyrillic", (const unsigned long[]){0x04c2}, 1},
-    {"zhecyrillic", (const unsigned long[]){0x0436}, 1},
-    {"zhedescendercyrillic", (const unsigned long[]){0x0497}, 1},
-    {"zhedieresiscyrillic", (const unsigned long[]){0x04dd}, 1},
-    {"zihiragana", (const unsigned long[]){0x3058}, 1},
-    {"zikatakana", (const unsigned long[]){0x30b8}, 1},
-    {"zinorhebrew", (const unsigned long[]){0x05ae}, 1},
-    {"zlinebelow", (const unsigned long[]){0x1e95}, 1},
-    {"zmonospace", (const unsigned long[]){0xff5a}, 1},
-    {"zohiragana", (const unsigned long[]){0x305e}, 1},
-    {"zokatakana", (const unsigned long[]){0x30be}, 1},
-    {"zparen", (const unsigned long[]){0x24b5}, 1},
-    {"zretroflexhook", (const unsigned long[]){0x0290}, 1},
-    {"zstroke", (const unsigned long[]){0x01b6}, 1},
-    {"zuhiragana", (const unsigned long[]){0x305a}, 1},
-    {"zukatakana", (const unsigned long[]){0x30ba}, 1},
+    {"tcircle", cp_single_3587, 1},
+    {"tcircumflexbelow", cp_single_3588, 1},
+    {"tcommaaccent", cp_single_3589, 1},
+    {"tdieresis", cp_single_3590, 1},
+    {"tdotaccent", cp_single_3591, 1},
+    {"tdotbelow", cp_single_3592, 1},
+    {"tecyrillic", cp_single_3593, 1},
+    {"tedescendercyrillic", cp_single_3594, 1},
+    {"teharabic", cp_single_3595, 1},
+    {"tehfinalarabic", cp_single_3596, 1},
+    {"tehhahinitialarabic", cp_single_3597, 1},
+    {"tehhahisolatedarabic", cp_single_3598, 1},
+    {"tehinitialarabic", cp_single_3599, 1},
+    {"tehiragana", cp_single_3600, 1},
+    {"tehjeeminitialarabic", cp_single_3601, 1},
+    {"tehjeemisolatedarabic", cp_single_3602, 1},
+    {"tehmarbutaarabic", cp_single_3603, 1},
+    {"tehmarbutafinalarabic", cp_single_3604, 1},
+    {"tehmedialarabic", cp_single_3605, 1},
+    {"tehmeeminitialarabic", cp_single_3606, 1},
+    {"tehmeemisolatedarabic", cp_single_3607, 1},
+    {"tehnoonfinalarabic", cp_single_3608, 1},
+    {"tekatakana", cp_single_3609, 1},
+    {"tekatakanahalfwidth", cp_single_3610, 1},
+    {"telephone", cp_single_3611, 1},
+    {"telephoneblack", cp_single_3612, 1},
+    {"telishagedolahebrew", cp_single_3613, 1},
+    {"telishaqetanahebrew", cp_single_3614, 1},
+    {"tencircle", cp_single_3615, 1},
+    {"tenideographicparen", cp_single_3616, 1},
+    {"tenparen", cp_single_3617, 1},
+    {"tenperiod", cp_single_3618, 1},
+    {"tenroman", cp_single_3619, 1},
+    {"tesh", cp_single_3620, 1},
+    {"tet", cp_single_3621, 1},
+    {"tetdagesh", cp_single_3622, 1},
+    {"tetdageshhebrew", cp_single_3623, 1},
+    {"tethebrew", cp_single_3624, 1},
+    {"tetsecyrillic", cp_single_3625, 1},
+    {"tevirhebrew", cp_single_3626, 1},
+    {"tevirlefthebrew", cp_single_3627, 1},
+    {"thabengali", cp_single_3628, 1},
+    {"thadeva", cp_single_3629, 1},
+    {"thagujarati", cp_single_3630, 1},
+    {"thagurmukhi", cp_single_3631, 1},
+    {"thalarabic", cp_single_3632, 1},
+    {"thalfinalarabic", cp_single_3633, 1},
+    {"thanthakhatlowleftthai", cp_single_3634, 1},
+    {"thanthakhatlowrightthai", cp_single_3635, 1},
+    {"thanthakhatthai", cp_single_3636, 1},
+    {"thanthakhatupperleftthai", cp_single_3637, 1},
+    {"theharabic", cp_single_3638, 1},
+    {"thehfinalarabic", cp_single_3639, 1},
+    {"thehinitialarabic", cp_single_3640, 1},
+    {"thehmedialarabic", cp_single_3641, 1},
+    {"thereexists", cp_single_3642, 1},
+    {"therefore", cp_single_3643, 1},
+    {"theta", cp_single_3644, 1},
+    {"theta1", cp_single_3645, 1},
+    {"thetasymbolgreek", cp_single_3646, 1},
+    {"thieuthacirclekorean", cp_single_3647, 1},
+    {"thieuthaparenkorean", cp_single_3648, 1},
+    {"thieuthcirclekorean", cp_single_3649, 1},
+    {"thieuthkorean", cp_single_3650, 1},
+    {"thieuthparenkorean", cp_single_3651, 1},
+    {"thirteencircle", cp_single_3652, 1},
+    {"thirteenparen", cp_single_3653, 1},
+    {"thirteenperiod", cp_single_3654, 1},
+    {"thonangmonthothai", cp_single_3655, 1},
+    {"thook", cp_single_3656, 1},
+    {"thophuthaothai", cp_single_3657, 1},
+    {"thorn", cp_single_3658, 1},
+    {"thothahanthai", cp_single_3659, 1},
+    {"thothanthai", cp_single_3660, 1},
+    {"thothongthai", cp_single_3661, 1},
+    {"thothungthai", cp_single_3662, 1},
+    {"thousandcyrillic", cp_single_3663, 1},
+    {"thousandsseparatorarabic", cp_single_3664, 1},
+    {"thousandsseparatorpersian", cp_single_3665, 1},
+    {"three", cp_single_3666, 1},
+    {"threearabic", cp_single_3667, 1},
+    {"threebengali", cp_single_3668, 1},
+    {"threecircle", cp_single_3669, 1},
+    {"threecircleinversesansserif", cp_single_3670, 1},
+    {"threedeva", cp_single_3671, 1},
+    {"threeeighths", cp_single_3672, 1},
+    {"threegujarati", cp_single_3673, 1},
+    {"threegurmukhi", cp_single_3674, 1},
+    {"threehackarabic", cp_single_3675, 1},
+    {"threehangzhou", cp_single_3676, 1},
+    {"threeideographicparen", cp_single_3677, 1},
+    {"threeinferior", cp_single_3678, 1},
+    {"threemonospace", cp_single_3679, 1},
+    {"threenumeratorbengali", cp_single_3680, 1},
+    {"threeoldstyle", cp_single_3681, 1},
+    {"threeparen", cp_single_3682, 1},
+    {"threeperiod", cp_single_3683, 1},
+    {"threepersian", cp_single_3684, 1},
+    {"threequarters", cp_single_3685, 1},
+    {"threequartersemdash", cp_single_3686, 1},
+    {"threeroman", cp_single_3687, 1},
+    {"threesuperior", cp_single_3688, 1},
+    {"threethai", cp_single_3689, 1},
+    {"thzsquare", cp_single_3690, 1},
+    {"tihiragana", cp_single_3691, 1},
+    {"tikatakana", cp_single_3692, 1},
+    {"tikatakanahalfwidth", cp_single_3693, 1},
+    {"tikeutacirclekorean", cp_single_3694, 1},
+    {"tikeutaparenkorean", cp_single_3695, 1},
+    {"tikeutcirclekorean", cp_single_3696, 1},
+    {"tikeutkorean", cp_single_3697, 1},
+    {"tikeutparenkorean", cp_single_3698, 1},
+    {"tilde", cp_single_3699, 1},
+    {"tildebelowcmb", cp_single_3700, 1},
+    {"tildecmb", cp_single_3701, 1},
+    {"tildecomb", cp_single_3702, 1},
+    {"tildedoublecmb", cp_single_3703, 1},
+    {"tildeoperator", cp_single_3704, 1},
+    {"tildeoverlaycmb", cp_single_3705, 1},
+    {"tildeverticalcmb", cp_single_3706, 1},
+    {"timescircle", cp_single_3707, 1},
+    {"tipehahebrew", cp_single_3708, 1},
+    {"tipehalefthebrew", cp_single_3709, 1},
+    {"tippigurmukhi", cp_single_3710, 1},
+    {"titlocyrilliccmb", cp_single_3711, 1},
+    {"tiwnarmenian", cp_single_3712, 1},
+    {"tlinebelow", cp_single_3713, 1},
+    {"tmonospace", cp_single_3714, 1},
+    {"toarmenian", cp_single_3715, 1},
+    {"tohiragana", cp_single_3716, 1},
+    {"tokatakana", cp_single_3717, 1},
+    {"tokatakanahalfwidth", cp_single_3718, 1},
+    {"tonebarextrahighmod", cp_single_3719, 1},
+    {"tonebarextralowmod", cp_single_3720, 1},
+    {"tonebarhighmod", cp_single_3721, 1},
+    {"tonebarlowmod", cp_single_3722, 1},
+    {"tonebarmidmod", cp_single_3723, 1},
+    {"tonefive", cp_single_3724, 1},
+    {"tonesix", cp_single_3725, 1},
+    {"tonetwo", cp_single_3726, 1},
+    {"tonos", cp_single_3727, 1},
+    {"tonsquare", cp_single_3728, 1},
+    {"topatakthai", cp_single_3729, 1},
+    {"tortoiseshellbracketleft", cp_single_3730, 1},
+    {"tortoiseshellbracketleftsmall", cp_single_3731, 1},
+    {"tortoiseshellbracketleftvertical", cp_single_3732, 1},
+    {"tortoiseshellbracketright", cp_single_3733, 1},
+    {"tortoiseshellbracketrightsmall", cp_single_3734, 1},
+    {"tortoiseshellbracketrightvertical", cp_single_3735, 1},
+    {"totaothai", cp_single_3736, 1},
+    {"tpalatalhook", cp_single_3737, 1},
+    {"tparen", cp_single_3738, 1},
+    {"trademark", cp_single_3739, 1},
+    {"trademarksans", cp_single_3740, 1},
+    {"trademarkserif", cp_single_3741, 1},
+    {"tretroflexhook", cp_single_3742, 1},
+    {"triagdn", cp_single_3743, 1},
+    {"triaglf", cp_single_3744, 1},
+    {"triagrt", cp_single_3745, 1},
+    {"triagup", cp_single_3746, 1},
+    {"ts", cp_single_3747, 1},
+    {"tsadi", cp_single_3748, 1},
+    {"tsadidagesh", cp_single_3749, 1},
+    {"tsadidageshhebrew", cp_single_3750, 1},
+    {"tsadihebrew", cp_single_3751, 1},
+    {"tsecyrillic", cp_single_3752, 1},
+    {"tsere", cp_single_3753, 1},
+    {"tsere12", cp_single_3754, 1},
+    {"tsere1e", cp_single_3755, 1},
+    {"tsere2b", cp_single_3756, 1},
+    {"tserehebrew", cp_single_3757, 1},
+    {"tserenarrowhebrew", cp_single_3758, 1},
+    {"tserequarterhebrew", cp_single_3759, 1},
+    {"tserewidehebrew", cp_single_3760, 1},
+    {"tshecyrillic", cp_single_3761, 1},
+    {"tsuperior", cp_single_3762, 1},
+    {"ttabengali", cp_single_3763, 1},
+    {"ttadeva", cp_single_3764, 1},
+    {"ttagujarati", cp_single_3765, 1},
+    {"ttagurmukhi", cp_single_3766, 1},
+    {"tteharabic", cp_single_3767, 1},
+    {"ttehfinalarabic", cp_single_3768, 1},
+    {"ttehinitialarabic", cp_single_3769, 1},
+    {"ttehmedialarabic", cp_single_3770, 1},
+    {"tthabengali", cp_single_3771, 1},
+    {"tthadeva", cp_single_3772, 1},
+    {"tthagujarati", cp_single_3773, 1},
+    {"tthagurmukhi", cp_single_3774, 1},
+    {"tturned", cp_single_3775, 1},
+    {"tuhiragana", cp_single_3776, 1},
+    {"tukatakana", cp_single_3777, 1},
+    {"tukatakanahalfwidth", cp_single_3778, 1},
+    {"tusmallhiragana", cp_single_3779, 1},
+    {"tusmallkatakana", cp_single_3780, 1},
+    {"tusmallkatakanahalfwidth", cp_single_3781, 1},
+    {"twelvecircle", cp_single_3782, 1},
+    {"twelveparen", cp_single_3783, 1},
+    {"twelveperiod", cp_single_3784, 1},
+    {"twelveroman", cp_single_3785, 1},
+    {"twentycircle", cp_single_3786, 1},
+    {"twentyhangzhou", cp_single_3787, 1},
+    {"twentyparen", cp_single_3788, 1},
+    {"twentyperiod", cp_single_3789, 1},
+    {"two", cp_single_3790, 1},
+    {"twoarabic", cp_single_3791, 1},
+    {"twobengali", cp_single_3792, 1},
+    {"twocircle", cp_single_3793, 1},
+    {"twocircleinversesansserif", cp_single_3794, 1},
+    {"twodeva", cp_single_3795, 1},
+    {"twodotenleader", cp_single_3796, 1},
+    {"twodotleader", cp_single_3797, 1},
+    {"twodotleadervertical", cp_single_3798, 1},
+    {"twogujarati", cp_single_3799, 1},
+    {"twogurmukhi", cp_single_3800, 1},
+    {"twohackarabic", cp_single_3801, 1},
+    {"twohangzhou", cp_single_3802, 1},
+    {"twoideographicparen", cp_single_3803, 1},
+    {"twoinferior", cp_single_3804, 1},
+    {"twomonospace", cp_single_3805, 1},
+    {"twonumeratorbengali", cp_single_3806, 1},
+    {"twooldstyle", cp_single_3807, 1},
+    {"twoparen", cp_single_3808, 1},
+    {"twoperiod", cp_single_3809, 1},
+    {"twopersian", cp_single_3810, 1},
+    {"tworoman", cp_single_3811, 1},
+    {"twostroke", cp_single_3812, 1},
+    {"twosuperior", cp_single_3813, 1},
+    {"twothai", cp_single_3814, 1},
+    {"twothirds", cp_single_3815, 1},
+    {"u", cp_single_3816, 1},
+    {"uacute", cp_single_3817, 1},
+    {"ubar", cp_single_3818, 1},
+    {"ubengali", cp_single_3819, 1},
+    {"ubopomofo", cp_single_3820, 1},
+    {"ubreve", cp_single_3821, 1},
+    {"ucaron", cp_single_3822, 1},
+    {"ucircle", cp_single_3823, 1},
+    {"ucircumflex", cp_single_3824, 1},
+    {"ucircumflexbelow", cp_single_3825, 1},
+    {"ucyrillic", cp_single_3826, 1},
+    {"udattadeva", cp_single_3827, 1},
+    {"udblacute", cp_single_3828, 1},
+    {"udblgrave", cp_single_3829, 1},
+    {"udeva", cp_single_3830, 1},
+    {"udieresis", cp_single_3831, 1},
+    {"udieresisacute", cp_single_3832, 1},
+    {"udieresisbelow", cp_single_3833, 1},
+    {"udieresiscaron", cp_single_3834, 1},
+    {"udieresiscyrillic", cp_single_3835, 1},
+    {"udieresisgrave", cp_single_3836, 1},
+    {"udieresismacron", cp_single_3837, 1},
+    {"udotbelow", cp_single_3838, 1},
+    {"ugrave", cp_single_3839, 1},
+    {"ugujarati", cp_single_3840, 1},
+    {"ugurmukhi", cp_single_3841, 1},
+    {"uhiragana", cp_single_3842, 1},
+    {"uhookabove", cp_single_3843, 1},
+    {"uhorn", cp_single_3844, 1},
+    {"uhornacute", cp_single_3845, 1},
+    {"uhorndotbelow", cp_single_3846, 1},
+    {"uhorngrave", cp_single_3847, 1},
+    {"uhornhookabove", cp_single_3848, 1},
+    {"uhorntilde", cp_single_3849, 1},
+    {"uhungarumlaut", cp_single_3850, 1},
+    {"uhungarumlautcyrillic", cp_single_3851, 1},
+    {"uinvertedbreve", cp_single_3852, 1},
+    {"ukatakana", cp_single_3853, 1},
+    {"ukatakanahalfwidth", cp_single_3854, 1},
+    {"ukcyrillic", cp_single_3855, 1},
+    {"ukorean", cp_single_3856, 1},
+    {"umacron", cp_single_3857, 1},
+    {"umacroncyrillic", cp_single_3858, 1},
+    {"umacrondieresis", cp_single_3859, 1},
+    {"umatragurmukhi", cp_single_3860, 1},
+    {"umonospace", cp_single_3861, 1},
+    {"underscore", cp_single_3862, 1},
+    {"underscoredbl", cp_single_3863, 1},
+    {"underscoremonospace", cp_single_3864, 1},
+    {"underscorevertical", cp_single_3865, 1},
+    {"underscorewavy", cp_single_3866, 1},
+    {"union", cp_single_3867, 1},
+    {"universal", cp_single_3868, 1},
+    {"uogonek", cp_single_3869, 1},
+    {"uparen", cp_single_3870, 1},
+    {"upblock", cp_single_3871, 1},
+    {"upperdothebrew", cp_single_3872, 1},
+    {"upsilon", cp_single_3873, 1},
+    {"upsilondieresis", cp_single_3874, 1},
+    {"upsilondieresistonos", cp_single_3875, 1},
+    {"upsilonlatin", cp_single_3876, 1},
+    {"upsilontonos", cp_single_3877, 1},
+    {"uptackbelowcmb", cp_single_3878, 1},
+    {"uptackmod", cp_single_3879, 1},
+    {"uragurmukhi", cp_single_3880, 1},
+    {"uring", cp_single_3881, 1},
+    {"ushortcyrillic", cp_single_3882, 1},
+    {"usmallhiragana", cp_single_3883, 1},
+    {"usmallkatakana", cp_single_3884, 1},
+    {"usmallkatakanahalfwidth", cp_single_3885, 1},
+    {"ustraightcyrillic", cp_single_3886, 1},
+    {"ustraightstrokecyrillic", cp_single_3887, 1},
+    {"utilde", cp_single_3888, 1},
+    {"utildeacute", cp_single_3889, 1},
+    {"utildebelow", cp_single_3890, 1},
+    {"uubengali", cp_single_3891, 1},
+    {"uudeva", cp_single_3892, 1},
+    {"uugujarati", cp_single_3893, 1},
+    {"uugurmukhi", cp_single_3894, 1},
+    {"uumatragurmukhi", cp_single_3895, 1},
+    {"uuvowelsignbengali", cp_single_3896, 1},
+    {"uuvowelsigndeva", cp_single_3897, 1},
+    {"uuvowelsigngujarati", cp_single_3898, 1},
+    {"uvowelsignbengali", cp_single_3899, 1},
+    {"uvowelsigndeva", cp_single_3900, 1},
+    {"uvowelsigngujarati", cp_single_3901, 1},
+    {"v", cp_single_3902, 1},
+    {"vadeva", cp_single_3903, 1},
+    {"vagujarati", cp_single_3904, 1},
+    {"vagurmukhi", cp_single_3905, 1},
+    {"vakatakana", cp_single_3906, 1},
+    {"vav", cp_single_3907, 1},
+    {"vavdagesh", cp_single_3908, 1},
+    {"vavdagesh65", cp_single_3909, 1},
+    {"vavdageshhebrew", cp_single_3910, 1},
+    {"vavhebrew", cp_single_3911, 1},
+    {"vavholam", cp_single_3912, 1},
+    {"vavholamhebrew", cp_single_3913, 1},
+    {"vavvavhebrew", cp_single_3914, 1},
+    {"vavyodhebrew", cp_single_3915, 1},
+    {"vcircle", cp_single_3916, 1},
+    {"vdotbelow", cp_single_3917, 1},
+    {"vecyrillic", cp_single_3918, 1},
+    {"veharabic", cp_single_3919, 1},
+    {"vehfinalarabic", cp_single_3920, 1},
+    {"vehinitialarabic", cp_single_3921, 1},
+    {"vehmedialarabic", cp_single_3922, 1},
+    {"vekatakana", cp_single_3923, 1},
+    {"venus", cp_single_3924, 1},
+    {"verticalbar", cp_single_3925, 1},
+    {"verticallineabovecmb", cp_single_3926, 1},
+    {"verticallinebelowcmb", cp_single_3927, 1},
+    {"verticallinelowmod", cp_single_3928, 1},
+    {"verticallinemod", cp_single_3929, 1},
+    {"vewarmenian", cp_single_3930, 1},
+    {"vhook", cp_single_3931, 1},
+    {"vikatakana", cp_single_3932, 1},
+    {"viramabengali", cp_single_3933, 1},
+    {"viramadeva", cp_single_3934, 1},
+    {"viramagujarati", cp_single_3935, 1},
+    {"visargabengali", cp_single_3936, 1},
+    {"visargadeva", cp_single_3937, 1},
+    {"visargagujarati", cp_single_3938, 1},
+    {"vmonospace", cp_single_3939, 1},
+    {"voarmenian", cp_single_3940, 1},
+    {"voicediterationhiragana", cp_single_3941, 1},
+    {"voicediterationkatakana", cp_single_3942, 1},
+    {"voicedmarkkana", cp_single_3943, 1},
+    {"voicedmarkkanahalfwidth", cp_single_3944, 1},
+    {"vokatakana", cp_single_3945, 1},
+    {"vparen", cp_single_3946, 1},
+    {"vtilde", cp_single_3947, 1},
+    {"vturned", cp_single_3948, 1},
+    {"vuhiragana", cp_single_3949, 1},
+    {"vukatakana", cp_single_3950, 1},
+    {"w", cp_single_3951, 1},
+    {"wacute", cp_single_3952, 1},
+    {"waekorean", cp_single_3953, 1},
+    {"wahiragana", cp_single_3954, 1},
+    {"wakatakana", cp_single_3955, 1},
+    {"wakatakanahalfwidth", cp_single_3956, 1},
+    {"wakorean", cp_single_3957, 1},
+    {"wasmallhiragana", cp_single_3958, 1},
+    {"wasmallkatakana", cp_single_3959, 1},
+    {"wattosquare", cp_single_3960, 1},
+    {"wavedash", cp_single_3961, 1},
+    {"wavyunderscorevertical", cp_single_3962, 1},
+    {"wawarabic", cp_single_3963, 1},
+    {"wawfinalarabic", cp_single_3964, 1},
+    {"wawhamzaabovearabic", cp_single_3965, 1},
+    {"wawhamzaabovefinalarabic", cp_single_3966, 1},
+    {"wbsquare", cp_single_3967, 1},
+    {"wcircle", cp_single_3968, 1},
+    {"wcircumflex", cp_single_3969, 1},
+    {"wdieresis", cp_single_3970, 1},
+    {"wdotaccent", cp_single_3971, 1},
+    {"wdotbelow", cp_single_3972, 1},
+    {"wehiragana", cp_single_3973, 1},
+    {"weierstrass", cp_single_3974, 1},
+    {"wekatakana", cp_single_3975, 1},
+    {"wekorean", cp_single_3976, 1},
+    {"weokorean", cp_single_3977, 1},
+    {"wgrave", cp_single_3978, 1},
+    {"whitebullet", cp_single_3979, 1},
+    {"whitecircle", cp_single_3980, 1},
+    {"whitecircleinverse", cp_single_3981, 1},
+    {"whitecornerbracketleft", cp_single_3982, 1},
+    {"whitecornerbracketleftvertical", cp_single_3983, 1},
+    {"whitecornerbracketright", cp_single_3984, 1},
+    {"whitecornerbracketrightvertical", cp_single_3985, 1},
+    {"whitediamond", cp_single_3986, 1},
+    {"whitediamondcontainingblacksmalldiamond", cp_single_3987, 1},
+    {"whitedownpointingsmalltriangle", cp_single_3988, 1},
+    {"whitedownpointingtriangle", cp_single_3989, 1},
+    {"whiteleftpointingsmalltriangle", cp_single_3990, 1},
+    {"whiteleftpointingtriangle", cp_single_3991, 1},
+    {"whitelenticularbracketleft", cp_single_3992, 1},
+    {"whitelenticularbracketright", cp_single_3993, 1},
+    {"whiterightpointingsmalltriangle", cp_single_3994, 1},
+    {"whiterightpointingtriangle", cp_single_3995, 1},
+    {"whitesmallsquare", cp_single_3996, 1},
+    {"whitesmilingface", cp_single_3997, 1},
+    {"whitesquare", cp_single_3998, 1},
+    {"whitestar", cp_single_3999, 1},
+    {"whitetelephone", cp_single_4000, 1},
+    {"whitetortoiseshellbracketleft", cp_single_4001, 1},
+    {"whitetortoiseshellbracketright", cp_single_4002, 1},
+    {"whiteuppointingsmalltriangle", cp_single_4003, 1},
+    {"whiteuppointingtriangle", cp_single_4004, 1},
+    {"wihiragana", cp_single_4005, 1},
+    {"wikatakana", cp_single_4006, 1},
+    {"wikorean", cp_single_4007, 1},
+    {"wmonospace", cp_single_4008, 1},
+    {"wohiragana", cp_single_4009, 1},
+    {"wokatakana", cp_single_4010, 1},
+    {"wokatakanahalfwidth", cp_single_4011, 1},
+    {"won", cp_single_4012, 1},
+    {"wonmonospace", cp_single_4013, 1},
+    {"wowaenthai", cp_single_4014, 1},
+    {"wparen", cp_single_4015, 1},
+    {"wring", cp_single_4016, 1},
+    {"wsuperior", cp_single_4017, 1},
+    {"wturned", cp_single_4018, 1},
+    {"wynn", cp_single_4019, 1},
+    {"x", cp_single_4020, 1},
+    {"xabovecmb", cp_single_4021, 1},
+    {"xbopomofo", cp_single_4022, 1},
+    {"xcircle", cp_single_4023, 1},
+    {"xdieresis", cp_single_4024, 1},
+    {"xdotaccent", cp_single_4025, 1},
+    {"xeharmenian", cp_single_4026, 1},
+    {"xi", cp_single_4027, 1},
+    {"xmonospace", cp_single_4028, 1},
+    {"xparen", cp_single_4029, 1},
+    {"xsuperior", cp_single_4030, 1},
+    {"y", cp_single_4031, 1},
+    {"yaadosquare", cp_single_4032, 1},
+    {"yabengali", cp_single_4033, 1},
+    {"yacute", cp_single_4034, 1},
+    {"yadeva", cp_single_4035, 1},
+    {"yaekorean", cp_single_4036, 1},
+    {"yagujarati", cp_single_4037, 1},
+    {"yagurmukhi", cp_single_4038, 1},
+    {"yahiragana", cp_single_4039, 1},
+    {"yakatakana", cp_single_4040, 1},
+    {"yakatakanahalfwidth", cp_single_4041, 1},
+    {"yakorean", cp_single_4042, 1},
+    {"yamakkanthai", cp_single_4043, 1},
+    {"yasmallhiragana", cp_single_4044, 1},
+    {"yasmallkatakana", cp_single_4045, 1},
+    {"yasmallkatakanahalfwidth", cp_single_4046, 1},
+    {"yatcyrillic", cp_single_4047, 1},
+    {"ycircle", cp_single_4048, 1},
+    {"ycircumflex", cp_single_4049, 1},
+    {"ydieresis", cp_single_4050, 1},
+    {"ydotaccent", cp_single_4051, 1},
+    {"ydotbelow", cp_single_4052, 1},
+    {"yeharabic", cp_single_4053, 1},
+    {"yehbarreearabic", cp_single_4054, 1},
+    {"yehbarreefinalarabic", cp_single_4055, 1},
+    {"yehfinalarabic", cp_single_4056, 1},
+    {"yehhamzaabovearabic", cp_single_4057, 1},
+    {"yehhamzaabovefinalarabic", cp_single_4058, 1},
+    {"yehhamzaaboveinitialarabic", cp_single_4059, 1},
+    {"yehhamzaabovemedialarabic", cp_single_4060, 1},
+    {"yehinitialarabic", cp_single_4061, 1},
+    {"yehmedialarabic", cp_single_4062, 1},
+    {"yehmeeminitialarabic", cp_single_4063, 1},
+    {"yehmeemisolatedarabic", cp_single_4064, 1},
+    {"yehnoonfinalarabic", cp_single_4065, 1},
+    {"yehthreedotsbelowarabic", cp_single_4066, 1},
+    {"yekorean", cp_single_4067, 1},
+    {"yen", cp_single_4068, 1},
+    {"yenmonospace", cp_single_4069, 1},
+    {"yeokorean", cp_single_4070, 1},
+    {"yeorinhieuhkorean", cp_single_4071, 1},
+    {"yerahbenyomohebrew", cp_single_4072, 1},
+    {"yerahbenyomolefthebrew", cp_single_4073, 1},
+    {"yericyrillic", cp_single_4074, 1},
+    {"yerudieresiscyrillic", cp_single_4075, 1},
+    {"yesieungkorean", cp_single_4076, 1},
+    {"yesieungpansioskorean", cp_single_4077, 1},
+    {"yesieungsioskorean", cp_single_4078, 1},
+    {"yetivhebrew", cp_single_4079, 1},
+    {"ygrave", cp_single_4080, 1},
+    {"yhook", cp_single_4081, 1},
+    {"yhookabove", cp_single_4082, 1},
+    {"yiarmenian", cp_single_4083, 1},
+    {"yicyrillic", cp_single_4084, 1},
+    {"yikorean", cp_single_4085, 1},
+    {"yinyang", cp_single_4086, 1},
+    {"yiwnarmenian", cp_single_4087, 1},
+    {"ymonospace", cp_single_4088, 1},
+    {"yod", cp_single_4089, 1},
+    {"yoddagesh", cp_single_4090, 1},
+    {"yoddageshhebrew", cp_single_4091, 1},
+    {"yodhebrew", cp_single_4092, 1},
+    {"yodyodhebrew", cp_single_4093, 1},
+    {"yodyodpatahhebrew", cp_single_4094, 1},
+    {"yohiragana", cp_single_4095, 1},
+    {"yoikorean", cp_single_4096, 1},
+    {"yokatakana", cp_single_4097, 1},
+    {"yokatakanahalfwidth", cp_single_4098, 1},
+    {"yokorean", cp_single_4099, 1},
+    {"yosmallhiragana", cp_single_4100, 1},
+    {"yosmallkatakana", cp_single_4101, 1},
+    {"yosmallkatakanahalfwidth", cp_single_4102, 1},
+    {"yotgreek", cp_single_4103, 1},
+    {"yoyaekorean", cp_single_4104, 1},
+    {"yoyakorean", cp_single_4105, 1},
+    {"yoyakthai", cp_single_4106, 1},
+    {"yoyingthai", cp_single_4107, 1},
+    {"yparen", cp_single_4108, 1},
+    {"ypogegrammeni", cp_single_4109, 1},
+    {"ypogegrammenigreekcmb", cp_single_4110, 1},
+    {"yr", cp_single_4111, 1},
+    {"yring", cp_single_4112, 1},
+    {"ysuperior", cp_single_4113, 1},
+    {"ytilde", cp_single_4114, 1},
+    {"yturned", cp_single_4115, 1},
+    {"yuhiragana", cp_single_4116, 1},
+    {"yuikorean", cp_single_4117, 1},
+    {"yukatakana", cp_single_4118, 1},
+    {"yukatakanahalfwidth", cp_single_4119, 1},
+    {"yukorean", cp_single_4120, 1},
+    {"yusbigcyrillic", cp_single_4121, 1},
+    {"yusbigiotifiedcyrillic", cp_single_4122, 1},
+    {"yuslittlecyrillic", cp_single_4123, 1},
+    {"yuslittleiotifiedcyrillic", cp_single_4124, 1},
+    {"yusmallhiragana", cp_single_4125, 1},
+    {"yusmallkatakana", cp_single_4126, 1},
+    {"yusmallkatakanahalfwidth", cp_single_4127, 1},
+    {"yuyekorean", cp_single_4128, 1},
+    {"yuyeokorean", cp_single_4129, 1},
+    {"yyabengali", cp_single_4130, 1},
+    {"yyadeva", cp_single_4131, 1},
+    {"z", cp_single_4132, 1},
+    {"zaarmenian", cp_single_4133, 1},
+    {"zacute", cp_single_4134, 1},
+    {"zadeva", cp_single_4135, 1},
+    {"zagurmukhi", cp_single_4136, 1},
+    {"zaharabic", cp_single_4137, 1},
+    {"zahfinalarabic", cp_single_4138, 1},
+    {"zahinitialarabic", cp_single_4139, 1},
+    {"zahiragana", cp_single_4140, 1},
+    {"zahmedialarabic", cp_single_4141, 1},
+    {"zainarabic", cp_single_4142, 1},
+    {"zainfinalarabic", cp_single_4143, 1},
+    {"zakatakana", cp_single_4144, 1},
+    {"zaqefgadolhebrew", cp_single_4145, 1},
+    {"zaqefqatanhebrew", cp_single_4146, 1},
+    {"zarqahebrew", cp_single_4147, 1},
+    {"zayin", cp_single_4148, 1},
+    {"zayindagesh", cp_single_4149, 1},
+    {"zayindageshhebrew", cp_single_4150, 1},
+    {"zayinhebrew", cp_single_4151, 1},
+    {"zbopomofo", cp_single_4152, 1},
+    {"zcaron", cp_single_4153, 1},
+    {"zcircle", cp_single_4154, 1},
+    {"zcircumflex", cp_single_4155, 1},
+    {"zcurl", cp_single_4156, 1},
+    {"zdot", cp_single_4157, 1},
+    {"zdotaccent", cp_single_4158, 1},
+    {"zdotbelow", cp_single_4159, 1},
+    {"zecyrillic", cp_single_4160, 1},
+    {"zedescendercyrillic", cp_single_4161, 1},
+    {"zedieresiscyrillic", cp_single_4162, 1},
+    {"zehiragana", cp_single_4163, 1},
+    {"zekatakana", cp_single_4164, 1},
+    {"zero", cp_single_4165, 1},
+    {"zeroarabic", cp_single_4166, 1},
+    {"zerobengali", cp_single_4167, 1},
+    {"zerodeva", cp_single_4168, 1},
+    {"zerogujarati", cp_single_4169, 1},
+    {"zerogurmukhi", cp_single_4170, 1},
+    {"zerohackarabic", cp_single_4171, 1},
+    {"zeroinferior", cp_single_4172, 1},
+    {"zeromonospace", cp_single_4173, 1},
+    {"zerooldstyle", cp_single_4174, 1},
+    {"zeropersian", cp_single_4175, 1},
+    {"zerosuperior", cp_single_4176, 1},
+    {"zerothai", cp_single_4177, 1},
+    {"zerowidthjoiner", cp_single_4178, 1},
+    {"zerowidthnonjoiner", cp_single_4179, 1},
+    {"zerowidthspace", cp_single_4180, 1},
+    {"zeta", cp_single_4181, 1},
+    {"zhbopomofo", cp_single_4182, 1},
+    {"zhearmenian", cp_single_4183, 1},
+    {"zhebrevecyrillic", cp_single_4184, 1},
+    {"zhecyrillic", cp_single_4185, 1},
+    {"zhedescendercyrillic", cp_single_4186, 1},
+    {"zhedieresiscyrillic", cp_single_4187, 1},
+    {"zihiragana", cp_single_4188, 1},
+    {"zikatakana", cp_single_4189, 1},
+    {"zinorhebrew", cp_single_4190, 1},
+    {"zlinebelow", cp_single_4191, 1},
+    {"zmonospace", cp_single_4192, 1},
+    {"zohiragana", cp_single_4193, 1},
+    {"zokatakana", cp_single_4194, 1},
+    {"zparen", cp_single_4195, 1},
+    {"zretroflexhook", cp_single_4196, 1},
+    {"zstroke", cp_single_4197, 1},
+    {"zuhiragana", cp_single_4198, 1},
+    {"zukatakana", cp_single_4199, 1},
 };
 
 const size_t AdobeGlyphListSize = sizeof(AdobeGlyphListData) / sizeof(GlyphListEntry);
