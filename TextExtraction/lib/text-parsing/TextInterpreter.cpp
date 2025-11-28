@@ -89,7 +89,7 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
         double ascentPlacement = (decoder->ascent + item.textState.rise)*item.textState.fontSize/1000;
         double spaceWidth = (decoder->spaceWidth*item.textState.fontSize + item.textState.charSpace + item.textState.wordSpace)*item.textState.scale/100; 
 
-        PlacedTextCommandArgumentList::const_iterator argumentIt = item.text.begin();
+        PlacedTextCommandArgumentVector::const_iterator argumentIt = item.text.begin();
         for(;argumentIt != item.text.end() && shouldContinue;++argumentIt) {
             if(argumentIt->isText) {
                 // compute text argument

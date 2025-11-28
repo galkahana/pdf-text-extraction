@@ -126,7 +126,7 @@ private:
     bool EndTextElement();
 
     void RecordTextPlacement(const PlacedTextCommandArgument& inTextPlacementOperation);
-    void RecordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations);
+    void RecordTextPlacement(const PlacedTextCommandArgumentVector& inTextPlacementOperations);
 
     bool PaintCurrentPath(bool inShouldStroke, bool inShouldFill, EFillMethod inFillMethod);
 };

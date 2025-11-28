@@ -421,12 +421,12 @@ bool GraphicContentInterpreter::TStarCommand() {
 }
 
 void GraphicContentInterpreter::RecordTextPlacement(const PlacedTextCommandArgument& inTextPlacementOperation) {
-    PlacedTextCommandArgumentList placements;
+    PlacedTextCommandArgumentVector placements;
     placements.push_back(inTextPlacementOperation);
     RecordTextPlacement(placements);
 }
 
-void GraphicContentInterpreter::RecordTextPlacement(const PlacedTextCommandArgumentList& inTextPlacementOperations) {
+void GraphicContentInterpreter::RecordTextPlacement(const PlacedTextCommandArgumentVector& inTextPlacementOperations) {
     PlacedTextCommand el = {
         inTextPlacementOperations,
         ContentGraphicState(CurrentGraphicState()),
@@ -470,7 +470,7 @@ bool GraphicContentInterpreter::TJCommand(const PDFObjectVector& inOperands) {
     if(inOperands.size() < 1)
         return true; // too few params? ignore
     
-    PlacedTextCommandArgumentList placements;
+    PlacedTextCommandArgumentVector placements;
     PDFObjectCastPtr<PDFArray> arg;
 
     arg = inOperands.back();
