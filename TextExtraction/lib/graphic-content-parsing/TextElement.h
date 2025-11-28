@@ -7,6 +7,7 @@
 
 #include <string>
 #include <list>
+#include <vector>
 
 // PlacedTextCommandArgument matches an argument to a text placement command.
 // Mostly it'll be text, but for TJ it might be a text or a position
@@ -31,7 +32,7 @@ struct PlacedTextCommandArgument {
     double pos;
 };
 
-typedef std::list<PlacedTextCommandArgument> PlacedTextCommandArgumentList;
+typedef std::vector<PlacedTextCommandArgument> PlacedTextCommandArgumentVector;
 
 
 // PlacedTextCommand matches a text placement command like TJ, Tj etc.
@@ -39,7 +40,7 @@ typedef std::list<PlacedTextCommandArgument> PlacedTextCommandArgumentList;
 // text, but for TJ it might be an array of text of position
 // graphicState and textState are snapshots of the current graphic and text states
 struct PlacedTextCommand {
-    PlacedTextCommandArgumentList text;
+    PlacedTextCommandArgumentVector text;
     ContentGraphicState graphicState;
     TextGraphicState textState;
 };

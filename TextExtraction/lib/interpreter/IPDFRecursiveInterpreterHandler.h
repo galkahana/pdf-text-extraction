@@ -14,7 +14,6 @@ class PDFDictionary;
 class PDFObjectParser;
 
 typedef std::vector<PDFObject*> PDFObjectVector;
-typedef std::list<std::string> StringList;
 
 class IInterpreterContext {
     public:
