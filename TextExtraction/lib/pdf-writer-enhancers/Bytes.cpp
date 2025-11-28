@@ -7,26 +7,20 @@
 using namespace std;
 
 ByteList ToBytesList(PDFObject* inObject) {
-    ByteList result;
-    
     switch(inObject->GetType())
     {
         case PDFObject::ePDFObjectLiteralString: {
-            string str = ((PDFLiteralString*)inObject)->GetValue();
-            for(string::iterator it = str.begin();it != str.end(); ++it)
-                result.push_back((IOBasicTypes::Byte)(*it));
+            return stringToByteList(((PDFLiteralString*)inObject)->GetValue());
             break;
         }
         case PDFObject::ePDFObjectHexString: {
-            string str = ((PDFHexString*)inObject)->GetValue();
-            for(string::iterator it = str.begin();it != str.end(); ++it)
-                result.push_back((IOBasicTypes::Byte)(*it));
+            return stringToByteList(((PDFHexString*)inObject)->GetValue());
             break;
         }
         default: {
             // nothing
+            return ByteList();
         }
     }
 
-    return result;  
 }
