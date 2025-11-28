@@ -241,6 +241,35 @@ void FontDecoder::ParseFontDescriptor(PDFParser* inParser, PDFDictionary* inFont
             descent = ParsedPrimitiveHelper(descentObject.GetPtr()).GetAsDouble();
         if(!!ascentObject)
             ascent = ParsedPrimitiveHelper(ascentObject.GetPtr()).GetAsDouble(); 
+        
+        // Handle malformed fonts with 0 ascent/descent, by falling back on other font metrics
+        if(ascent == 0 || descent == 0) {
+
+            // attempt to fallback on FontBBox
+            PDFObjectCastPtr<PDFArray> fontBBox = inParser->QueryDictionaryObject(fontDescriptor.GetPtr(),"FontBBox");
+            if(!!fontBBox) {
+                if(fontBBox->GetLength() >= 4) {
+                    double bboxBottom = ParsedPrimitiveHelper(inParser->QueryArrayObject(fontBBox.GetPtr(), 1)).GetAsDouble();
+                    double bboxTop = ParsedPrimitiveHelper(inParser->QueryArrayObject(fontBBox.GetPtr(), 3)).GetAsDouble();
+                    
+                    if(ascent == 0 && bboxTop > 0)
+                        ascent = bboxTop;
+                    if(descent == 0 && bboxBottom < 0)
+                        descent = bboxBottom;
+                }
+            }
+            
+            // If ascent still 0, try CapHeight as fallback
+            if(ascent == 0) {
+                RefCountPtr<PDFObject> capHeightObject = inParser->QueryDictionaryObject(fontDescriptor.GetPtr(),"CapHeight");
+                if(!!capHeightObject) {
+                    double capHeight = ParsedPrimitiveHelper(capHeightObject.GetPtr()).GetAsDouble();
+                    if(capHeight > 0)
+                        ascent = capHeight;
+                }
+            }
+        }
+        
         if(!!missingWidthObject) {
             defaultWidth = ParsedPrimitiveHelper(missingWidthObject.GetPtr()).GetAsDouble(); 
         }
