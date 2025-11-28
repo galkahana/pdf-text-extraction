@@ -162,8 +162,8 @@ void TextComposer::MergeLineStreamToResultString(
 ) {
     BidiConversion bidi;
 
-    // add spaces before line, per distance from last line
-    if(shouldAddSpacesPerLines && BoxTop(inLineBox) < BoxBottom(inPrevLineBox)) {
+    // add spaces before line, per distance from last line (verify that we have non zero height to avoid infinite loops)
+    if(shouldAddSpacesPerLines && BoxTop(inLineBox) < BoxBottom(inPrevLineBox) && BoxHeight(inPrevLineBox) > 0) {
         unsigned long verticalLines = floor((BoxBottom(inPrevLineBox) - BoxTop(inLineBox))/BoxHeight(inPrevLineBox));
         for(unsigned long i=0;i<verticalLines;++i)
             outStream<<scCRLN;
