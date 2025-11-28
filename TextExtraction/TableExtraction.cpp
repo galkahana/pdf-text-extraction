@@ -195,13 +195,12 @@ void TableExtraction::ComposeTables() {
 
 static const string scCRLN = "\r\n";
 
-string TableExtraction::GetTableAsCSVText(const Table& inTable, int bidiFlag, TextComposer::ESpacing spacingFlag) {
+void TableExtraction::GetTableAsCSVText(const Table& inTable, int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream) {
     TableCSVExport exporter(bidiFlag, spacingFlag);
-    exporter.ComposeTableText(inTable);
-    return exporter.GetText();  
+    exporter.ComposeTableText(inTable, outStream);
 }
 
-string TableExtraction::GetAllAsCSVText(int bidiFlag, TextComposer::ESpacing spacingFlag) {
+void TableExtraction::GetAllAsCSVText(int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream) {
     TableCSVExport exporter(bidiFlag, spacingFlag);
 
     TableListList::iterator itPages = tablesForPages.begin();
@@ -209,15 +208,13 @@ string TableExtraction::GetAllAsCSVText(int bidiFlag, TextComposer::ESpacing spa
     for(; itPages != tablesForPages.end(); ++itPages) {
         TableList::iterator itTables = itPages->begin();
         for(; itTables != itPages->end(); ++itTables) {
-            exporter.ComposeTableText(*itTables);
-            exporter.AppendText(scCRLN); // two newlines to separate tables on the same page
-            exporter.AppendText(scCRLN);
+            exporter.ComposeTableText(*itTables, outStream);
+            outStream<<scCRLN; // two newlines to separate tables on the same page
+            outStream<<scCRLN;
         }
-        exporter.AppendText(scCRLN); // 4 newlines to separate pages
-        exporter.AppendText(scCRLN);
-        exporter.AppendText(scCRLN);
-        exporter.AppendText(scCRLN);
+        outStream<<scCRLN; // 4 newlines to separate pages
+        outStream<<scCRLN;
+        outStream<<scCRLN;
+        outStream<<scCRLN;
     }
-
-    return exporter.GetText();
 }

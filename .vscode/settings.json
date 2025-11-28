@@ -72,6 +72,10 @@
         "functional": "cpp",
         "iterator": "cpp",
         "xstring": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "__verbose_abort": "cpp",
+        "print": "cpp",
+        "execution": "cpp",
+        "queue": "cpp"
     }
 }

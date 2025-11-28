@@ -157,7 +157,8 @@ void TextComposer::MergeLineStreamToResultString(
     int bidiFlag,
     bool shouldAddSpacesPerLines, 
     const double (&inLineBox)[4],
-    const double (&inPrevLineBox)[4]
+    const double (&inPrevLineBox)[4],
+    std::ostream& outStream
 ) {
     BidiConversion bidi;
 
@@ -165,21 +166,21 @@ void TextComposer::MergeLineStreamToResultString(
     if(shouldAddSpacesPerLines && BoxTop(inLineBox) < BoxBottom(inPrevLineBox)) {
         unsigned long verticalLines = floor((BoxBottom(inPrevLineBox) - BoxTop(inLineBox))/BoxHeight(inPrevLineBox));
         for(unsigned long i=0;i<verticalLines;++i)
-            buffer<<scCRLN;
+            outStream<<scCRLN;
     }
 
 
     if(bidiFlag == -1) {
-        buffer<<inStream.str();
+        outStream<<inStream.str();
     }
     else {
         string bidiResult;
         bidi.ConvertVisualToLogical(inStream.str(), bidiFlag, bidiResult); // returning status may be used to convey that's succeeded
-        buffer<<bidiResult;
+        outStream<<bidiResult;
     }
 }
 
-void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) {
+void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements, std::ostream& outStream) {
     double lineBox[4];
     double prevLineBox[4];
     bool isFirstLine;
@@ -210,8 +211,8 @@ void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) 
             UnionLeftBoxToRight(itCommands->globalBbox, lineBox);
         } else {
             // merge complete line to accumulated text, and start a fresh line with fresh accumulators
-            MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox);
-            buffer<<scCRLN;
+            MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox, outStream);
+            outStream<<scCRLN;
             lineResult.str(scEmpty);
             CopyBox(lineBox, prevLineBox);
             CopyBox(itCommands->globalBbox, lineBox);
@@ -220,18 +221,7 @@ void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements) 
         lineResult<<itCommands->text;
         latestItem = *itCommands;
     }
-    MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox);
+    MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox, outStream);
 
 }
 
-void TextComposer::AppendText(const std::string inText) {
-    buffer<<inText;
-}
-
-std::string TextComposer::GetText() {
-    return buffer.str();
-}
-
-void TextComposer::Reset() {
-    buffer.str(scEmpty);
-}

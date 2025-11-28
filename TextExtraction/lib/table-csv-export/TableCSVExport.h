@@ -2,6 +2,7 @@
 
 #include "../text-composition/TextComposer.h"
 #include "../table-composition/Table.h"
+#include <ostream>
 
 class TableCSVExport {
     public:
@@ -9,18 +10,12 @@ class TableCSVExport {
         virtual ~TableCSVExport();
 
 
-        void ComposeTableText(const Table& inTable);
-
-        void AppendText(const std::string inText); // use this for extra chars
-
-        std::string GetText();
-        void Reset();
+        void ComposeTableText(const Table& inTable, std::ostream& outStream);
 
     private:
         TextComposer textComposer;
-        std::stringstream buffer;
 
         std::string GetCellText(const CellInRow& inCell);
-        void Quote(const std::string& inString);
+        void Quote(const std::string& inString, std::ostream& outStream);
 
 };

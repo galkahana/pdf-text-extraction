@@ -5,6 +5,7 @@
 #include <string>
 #include <list>
 #include <sstream>
+#include <ostream>
 
 class TextComposer {
     public:
@@ -21,24 +22,19 @@ class TextComposer {
         virtual ~TextComposer();
 
 
-        void ComposeText(const ParsedTextPlacementList& inTextPlacements);
-
-        void AppendText(const std::string inText); // use this for extra chars
-
-        std::string GetText();
-        void Reset();
+        void ComposeText(const ParsedTextPlacementList& inTextPlacements, std::ostream& outStream);
 
     private:
         int bidiFlag;
         ESpacing spacingFlag;
-        std::stringstream buffer;
 
     void MergeLineStreamToResultString(
         const std::stringstream& inStream, 
         int bidiFlag,
         bool shouldAddSpacesPerLines, 
         const double (&inLineBox)[4],
-        const double (&inPrevLineBox)[4]
+        const double (&inPrevLineBox)[4],
+        std::ostream& outStream
     );
 
 

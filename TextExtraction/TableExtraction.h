@@ -54,8 +54,8 @@ class TableExtraction : public ITextInterpreterHandler, IGraphicContentInterpret
         virtual bool OnParsedHorizontalLinePlacementComplete(const ParsedLinePlacement& inParsedLine); 
         virtual bool OnParsedVerticalLinePlacementComplete(const ParsedLinePlacement& inParsedLine); 
 
-        std::string GetTableAsCSVText(const Table& inTable, int bidiFlag, TextComposer::ESpacing spacingFlag);
-        std::string GetAllAsCSVText(int bidiFlag, TextComposer::ESpacing spacingFlag);
+        void GetTableAsCSVText(const Table& inTable, int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream);
+        void GetAllAsCSVText(int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream);
 
     private:
         TextInterpeter textInterpeter;

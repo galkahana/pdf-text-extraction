@@ -17,58 +17,46 @@ TableCSVExport::~TableCSVExport() {
 
 }
 
-void TableCSVExport::Quote(const string& inString) {
+void TableCSVExport::Quote(const string& inString, std::ostream& outStream) {
     if(inString.length() == 0) {
-        // don't quote if there's nothing and no need to introduce anything into the buffer
+        // don't quote if there's nothing and no need to introduce anything into the stream
         return;
     }
 
-    buffer<<scDoubleQuote;
+    outStream<<scDoubleQuote;
     string::const_iterator it = inString.begin();
     for(; it != inString.end();++it) {
         if(*it == scDoubleQuoteChar)
-            buffer<<scDoubleQuote<<scDoubleQuote;
+            outStream<<scDoubleQuote<<scDoubleQuote;
         else
-            buffer<<*it;
+            outStream<<*it;
     }
-    buffer<<scDoubleQuote;
+    outStream<<scDoubleQuote;
 }
 
 string TableCSVExport::GetCellText(const CellInRow& inCell) {
-    textComposer.ComposeText(inCell.textPlacements);
-    string cellText = textComposer.GetText();
-    textComposer.Reset();
-
-    return cellText;
+    std::stringstream cellStream;
+    textComposer.ComposeText(inCell.textPlacements, cellStream);
+    return cellStream.str();
 }
 
-void TableCSVExport::ComposeTableText(const Table& inTable) {
+void TableCSVExport::ComposeTableText(const Table& inTable, std::ostream& outStream) {
     RowVector::const_iterator itRows = inTable.rows.begin();
 
     for(; itRows != inTable.rows.end(); ++itRows) {
         CellInRowVector::const_iterator itCols = itRows->cells.begin();
-        Quote(GetCellText(*itCols));
+        Quote(GetCellText(*itCols), outStream);
         ++itCols;
         for(; itCols != itRows->cells.end(); ++itCols) {
-            buffer<<scComma;
-            Quote(GetCellText(*itCols));
+            outStream<<scComma;
+            Quote(GetCellText(*itCols), outStream);
             for(int i = 1; i < itCols->colSpan;++i)
-                buffer<<scComma;
+                outStream<<scComma;
         }
-        buffer<<scCRLN;
+        outStream<<scCRLN;
     }
 }
 
-void TableCSVExport::AppendText(const std::string inText) {
-    buffer<<inText;
-}
 
-std::string TableCSVExport::GetText() {
-    return buffer.str();
-}
-
-void TableCSVExport::Reset() {
-    buffer.str(scEmpty);
-}
 
 
