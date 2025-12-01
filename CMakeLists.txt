@@ -10,8 +10,8 @@ option(SHOULD_PARSE_INTERNAL_TABLES  "should table parsing read internal tables"
 include(FetchContent)
 FetchContent_Declare(
   PDFHummus
-  URL https://github.com/galkahana/PDF-Writer/archive/refs/tags/v4.8.0.tar.gz
-  URL_HASH SHA256=67809a216025a4046b1662446544b76a47729eb6ba86d0aebb982b945dca8470
+  URL https://github.com/galkahana/PDF-Writer/archive/refs/tags/v4.8.1.tar.gz
+  URL_HASH SHA256=9b96c040cb04ca116450c0ed53462b6aa66b299c555401bf498b14db847f0898
   DOWNLOAD_EXTRACT_TIMESTAMP FALSE
   FIND_PACKAGE_ARGS
 )
