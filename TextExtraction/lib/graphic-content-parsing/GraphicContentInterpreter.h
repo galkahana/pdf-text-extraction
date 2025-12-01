@@ -13,9 +13,9 @@
 #include <list>
 #include <map>
 
-typedef std::list<TextGraphicState> TextGraphicStateList;
-typedef std::list<ContentGraphicState> GraphicStateList;
-typedef std::list<Resources> ResourcesList;
+typedef std::vector<TextGraphicState> TextGraphicStateList;
+typedef std::vector<ContentGraphicState> GraphicStateList;
+typedef std::vector<Resources> ResourcesList;
 
 
 class GraphicContentInterpreter: public IPDFRecursiveInterpreterHandler {

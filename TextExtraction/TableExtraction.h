@@ -22,10 +22,10 @@ class IByteReaderWithPosition;
 #include <string>
 #include <list>
 
-typedef std::list<ParsedTextPlacementList> ParsedTextPlacementListList;
-typedef std::list<TableList> TableListList;
-typedef std::list<ExtractionWarning> ExtractionWarningList;
-typedef std::list<PDFRectangle> PDFRectangleList;
+typedef std::vector<ParsedTextPlacementList> ParsedTextPlacementListList;
+typedef std::vector<TableList> TableListList;
+typedef std::vector<ExtractionWarning> ExtractionWarningList;
+typedef std::vector<PDFRectangle> PDFRectangleList;
 
 class TableExtraction : public ITextInterpreterHandler, IGraphicContentInterpreterHandler, ITableLineInterpreterHandler {
 

@@ -31,4 +31,4 @@ struct ParsedTextPlacement {
 };
 
 
-typedef std::list<ParsedTextPlacement> ParsedTextPlacementList;
+typedef std::vector<ParsedTextPlacement> ParsedTextPlacementList;

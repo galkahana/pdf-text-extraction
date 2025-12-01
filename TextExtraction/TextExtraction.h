@@ -17,8 +17,8 @@ class IByteReaderWithPosition;
 #include <string>
 #include <list>
 
-typedef std::list<ParsedTextPlacementList> ParsedTextPlacementListList;
-typedef std::list<ExtractionWarning> ExtractionWarningList;
+typedef std::vector<ParsedTextPlacementList> ParsedTextPlacementListList;
+typedef std::vector<ExtractionWarning> ExtractionWarningList;
 
 
 class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterpreterHandler {

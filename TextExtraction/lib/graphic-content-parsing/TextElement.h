@@ -45,7 +45,7 @@ struct PlacedTextCommand {
     TextGraphicState textState;
 };
 
-typedef std::list<PlacedTextCommand> PlacedTextCommandList;
+typedef std::vector<PlacedTextCommand> PlacedTextCommandList;
 
 // TextElement matches a pdf text element, which is what's between an BT...ET sequance.
 struct TextElement {

@@ -52,5 +52,5 @@ struct Table {
     RowVector rows;
 };
 
-typedef std::list<Table> TableList;
+typedef std::vector<Table> TableList;
 

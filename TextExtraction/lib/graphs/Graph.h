@@ -7,7 +7,7 @@
 template <typename T>
 struct GraphNode {
     T value;
-    std::list<GraphNode<T> *> neighbors;
+    std::vector<GraphNode<T> *> neighbors;
 };
 
 /**
@@ -33,7 +33,7 @@ std::set<GraphNode<T> *> FindReachableNodes(GraphNode<T>* inSource) {
             continue; // visited already, continue
 
         visited.insert(visitedNode);
-        typename std::list<GraphNode<T> *>::iterator it = visitedNode->neighbors.begin();
+        typename std::vector<GraphNode<T> *>::iterator it = visitedNode->neighbors.begin();
         for(;it != visitedNode->neighbors.end();++it)
             visitQueue.Enqueue(*it);
     }

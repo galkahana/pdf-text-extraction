@@ -13,8 +13,8 @@ class PDFParser;
 class PDFDictionary;
 class PDFStreamInput;
 
-typedef std::list<unsigned long> ULongList;
-typedef std::map<unsigned long, ULongList> ULongToULongListMap;
+typedef std::vector<unsigned long> ULongVector;
+typedef std::map<unsigned long, ULongVector> ULongToULongVectorMap;
 typedef std::map<IOBasicTypes::Byte, std::string> ByteToStringMap;
 typedef std::map<unsigned long,double> ULongToDoubleMap;
 
@@ -23,7 +23,7 @@ struct DispositionResult {
     unsigned long code;
 };
 
-typedef std::list<DispositionResult> DispositionResultList;
+typedef std::vector<DispositionResult> DispositionResultList;
 
 struct FontDecoderResult {
     std::string asText;
@@ -45,7 +45,7 @@ private:
     bool isSimpleFont;
     bool hasToUnicode;
     bool hasSimpleEncoding;
-    ULongToULongListMap toUnicodeMap;
+    ULongToULongVectorMap toUnicodeMap;
     ByteToStringMap fromSimpleEncodingMap;
 
     bool isMonospaced;

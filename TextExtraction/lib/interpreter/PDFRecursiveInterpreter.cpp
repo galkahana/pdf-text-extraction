@@ -237,7 +237,7 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                 PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = inContext->FindResource(formName, "XObject");
                 ObjectIDType formObjectID = !xobjectRef ? 0 : xobjectRef->mObjectID;
                 if(!!mNestingContext) {
-                    ObjectIDTypeList::iterator itFindInStack = find(mNestingContext->nestedXObjects.begin(), mNestingContext->nestedXObjects.end(), formObjectID);
+                    ObjectIDTypeVector::iterator itFindInStack = find(mNestingContext->nestedXObjects.begin(), mNestingContext->nestedXObjects.end(), formObjectID);
                     if(itFindInStack != mNestingContext->nestedXObjects.end()) {
                         // orcish mischief! looping. halt
                         shouldContinue = false;

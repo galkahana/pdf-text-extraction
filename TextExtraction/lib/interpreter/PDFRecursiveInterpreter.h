@@ -4,7 +4,7 @@
 #include "IOBasicTypes.h"
 #include "IPDFRecursiveInterpreterHandler.h"
 
-typedef std::list<ObjectIDType> ObjectIDTypeList;
+typedef std::vector<ObjectIDType> ObjectIDTypeVector;
 
 class PDFParser;
 class PDFDictionary;
@@ -29,7 +29,7 @@ public:
 
 private:
     struct PDFNestingContext {
-        ObjectIDTypeList nestedXObjects;
+        ObjectIDTypeVector nestedXObjects;
     };
 
     PDFNestingContext* mNestingContext;

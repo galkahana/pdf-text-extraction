@@ -48,7 +48,7 @@ struct PathComponent {
 };
 
 
-typedef std::list<PathComponent> PathComponentList;
+typedef std::vector<PathComponent> PathComponentList;
 
 struct SubPath {
     SubPath():components() {
@@ -65,7 +65,7 @@ struct SubPath {
 };
 
 
-typedef std::list<SubPath> SubPathList;
+typedef std::vector<SubPath> SubPathList;
 
 /**
  *  A bit about how paths and subpaths and current point n such are expected to work in this representation.

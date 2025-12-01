@@ -8584,7 +8584,7 @@ const size_t AdobeGlyphListSize = sizeof(AdobeGlyphListData) / sizeof(GlyphListE
 void initAdobeGlyphList(Encoding& encoding) {
     for (size_t i = 0; i < AdobeGlyphListSize; ++i) {
         const auto& entry = AdobeGlyphListData[i];
-        ULongList list;
+        ULongVector list;
         for (size_t j = 0; j < entry.count; ++j) {
             list.push_back(entry.codepoints[j]);
         }

@@ -39,9 +39,9 @@ static unsigned long beToNum(const ByteList& inBytes) {
 
 }
 
-static ULongList besToUnicodes(const ByteList& inBytes) {
+static ULongVector besToUnicodes(const ByteList& inBytes) {
     ByteList::const_iterator it = inBytes.begin();
-    ULongList unicodes;
+    ULongVector unicodes;
 
     while(it != inBytes.end()) {
         ByteList buffer;
@@ -102,14 +102,14 @@ static const ByteToStringMap*  GetStandardEncodingMap(const string& inEncodingNa
 class UnicodeMapReader : public IPDFInterpreterHandler {
     public:
 
-    UnicodeMapReader(ULongToULongListMap& inResult);
+    UnicodeMapReader(ULongToULongVectorMap& inResult);
 
     virtual bool OnOperation(const std::string& inOperation, const PDFObjectVector& inOperands);
 
-    ULongToULongListMap& result;
+    ULongToULongVectorMap& result;
 };
 
-UnicodeMapReader::UnicodeMapReader(ULongToULongListMap& inResult):result(inResult) {}
+UnicodeMapReader::UnicodeMapReader(ULongToULongVectorMap& inResult):result(inResult) {}
 
 bool UnicodeMapReader::OnOperation(const std::string& inOperation, const PDFObjectVector& inOperands) {
     if(inOperation == "endbfchar") {
@@ -143,9 +143,9 @@ bool UnicodeMapReader::OnOperation(const std::string& inOperation, const PDFObje
             }
             else {
                 // code range
-                ULongList unicodes = besToUnicodes(ToBytesList(inOperands[i+2]));
+                ULongVector unicodes = besToUnicodes(ToBytesList(inOperands[i+2]));
                 for(unsigned long j = startCode; j<=endCode;++j) {
-                    result[j] = ULongList(unicodes);
+                    result[j] = ULongVector(unicodes);
                     ++unicodes.back();
                 }
             }
@@ -391,7 +391,7 @@ Result<unsigned long> FontDecoder::FindSpaceCharGlyphCode() {
     // attempt to find space char within the codes
     if(hasToUnicode) {
         // search in unicode map
-        ULongToULongListMap::const_iterator itEntry = toUnicodeMap.begin();
+        ULongToULongVectorMap::const_iterator itEntry = toUnicodeMap.begin();
         for(; itEntry != toUnicodeMap.end(); ++itEntry) {
             if(itEntry->second.size() == 1 && itEntry->second.front() == SPACE_CODE)
                 return Result<unsigned long>(itEntry->first);
@@ -429,7 +429,7 @@ string FontDecoder::ToUnicodeEncoding(const ByteList& inAsBytes) {
             value = value*256 + *it;
             ++it;
         }
-        ULongToULongListMap::const_iterator itEntry = toUnicodeMap.find(value);
+        ULongToULongVectorMap::const_iterator itEntry = toUnicodeMap.find(value);
         if(itEntry != toUnicodeMap.end()) {
             buffer.insert(buffer.end(), itEntry->second.begin(), itEntry->second.end());
         }
@@ -445,9 +445,9 @@ string FontDecoder::ToSimpleEncoding(const ByteList& inAsBytes) {
     for(; it!= inAsBytes.end();++it) {
         ByteToStringMap::iterator entryIt = fromSimpleEncodingMap.find(*it);
         if(entryIt != fromSimpleEncodingMap.end()) {
-            StringToULongListMap::const_iterator aglIt = scEncoding.AdobeGlyphList.find(entryIt->second);
+            StringToULongVectorMap::const_iterator aglIt = scEncoding.AdobeGlyphList.find(entryIt->second);
             if(aglIt != scEncoding.AdobeGlyphList.end()) {
-                const ULongList& mapping = aglIt->second;
+                const ULongVector& mapping = aglIt->second;
                 buffer.insert(buffer.end(), mapping.begin(), mapping.end());
             }
         }

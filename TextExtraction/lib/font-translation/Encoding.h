@@ -7,8 +7,8 @@
 #include <map>
 
 typedef std::map<IOBasicTypes::Byte, std::string> ByteToStringMap;
-typedef std::list<unsigned long> ULongList;
-typedef std::map<std::string, ULongList> StringToULongListMap;
+typedef std::vector<unsigned long> ULongVector;
+typedef std::map<std::string, ULongVector> StringToULongVectorMap;
 
 class Encoding {
 public:
@@ -20,6 +20,6 @@ public:
     ByteToStringMap SymbolEncoding;
     ByteToStringMap WinAnsiEncoding;
 
-    StringToULongListMap AdobeGlyphList;
+    StringToULongVectorMap AdobeGlyphList;
 };
 
