@@ -18,6 +18,21 @@
             "MIMode": "lldb"
         },
         {
+            "name": "(ctest-lldb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "presentation": {
+                "hidden": true
+            },
+            "program": "${cmake.testProgram}",
+            "args": [
+                "${cmake.testArgs}"
+            ],
+            "cwd": "${cmake.testWorkingDirectory}",
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
             "name": "(msvc) Launch",
             "type": "cppvsdbg",
             "request": "launch",
@@ -28,6 +43,20 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "console": "integratedTerminal"
-        }        
+        },
+        {
+            "name": "(ctest-msvc) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "presentation": {
+                "hidden": true
+            },
+            "program": "${cmake.testProgram}",
+            "args": [
+                "${cmake.testArgs}"
+            ],
+            "cwd": "${cmake.testWorkingDirectory}",
+            "console": "integratedTerminal"
+        }
     ]
 }
