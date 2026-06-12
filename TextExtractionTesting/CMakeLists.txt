@@ -36,7 +36,6 @@ set_property (TEST FuzzTest_output-output-dummy.txt-34544.pdf PROPERTY PASS_REGU
 set_property (TEST FuzzTest_radamsa-dummy-20507.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 set_property (TEST FuzzTest_radamsa-dummy-27773.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 set_property (TEST FuzzTest_radamsa-dummy-47574.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
-set_property (TEST FuzzTest_radamsa-dummy-48570.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 set_property (TEST FuzzTest_radamsa-dummy-8532.pdf PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed to parse file")
 
 # crash
