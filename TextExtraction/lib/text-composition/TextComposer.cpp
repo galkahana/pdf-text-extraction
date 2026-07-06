@@ -2,6 +2,7 @@
 
 
 #include "../bidi/BidiConversion.h"
+#include "Newline.h"
 
 #include <algorithm>
 #include <vector>
@@ -42,9 +43,10 @@ double BoxBottom(const double (&inBox)[4]) {
 }
 
 
-TextComposer::TextComposer(int inBidiFlag, ESpacing inSpacingFlag) {
+TextComposer::TextComposer(int inBidiFlag, ESpacing inSpacingFlag, ENewLineStyle inNewLineStyle) {
     bidiFlag = inBidiFlag;
     spacingFlag = inSpacingFlag;
+    newLineStyle = inNewLineStyle;
 }
 
 TextComposer::~TextComposer() {
@@ -150,7 +152,13 @@ unsigned long GuessHorizontalSpacingBetweenPlacements(const ParsedTextPlacement&
     return (unsigned long)floor(distance/spaceWidth);
 }
 
-static const string scCRLN = "\r\n";
+const char* TextComposer::GetNewLine() const {
+    if(newLineStyle == eNewLineCRLF)
+        return Newline::CRLF();
+    if(newLineStyle == eNewLineLF)
+        return Newline::LF();
+    return Newline::Native();
+}
 
 void TextComposer::MergeLineStreamToResultString(
     const stringstream& inStream, 
@@ -166,7 +174,7 @@ void TextComposer::MergeLineStreamToResultString(
     if(shouldAddSpacesPerLines && BoxTop(inLineBox) < BoxBottom(inPrevLineBox) && BoxHeight(inPrevLineBox) > 0) {
         unsigned long verticalLines = floor((BoxBottom(inPrevLineBox) - BoxTop(inLineBox))/BoxHeight(inPrevLineBox));
         for(unsigned long i=0;i<verticalLines;++i)
-            outStream<<scCRLN;
+            outStream<<GetNewLine();
     }
 
 
@@ -212,7 +220,7 @@ void TextComposer::ComposeText(const ParsedTextPlacementList& inTextPlacements, 
         } else {
             // merge complete line to accumulated text, and start a fresh line with fresh accumulators
             MergeLineStreamToResultString(lineResult, bidiFlag ,addVerticalSpaces && hasPreviousLineInPage, lineBox, prevLineBox, outStream);
-            outStream<<scCRLN;
+            outStream<<GetNewLine();
             lineResult.str(scEmpty);
             CopyBox(lineBox, prevLineBox);
             CopyBox(itCommands->globalBbox, lineBox);

@@ -12,7 +12,4 @@ class BidiConversion {
 
         PDFHummus::EStatusCode ConvertVisualToLogical(const std::string& inVisualString, int inDirection, std::string& outResult);
 
-        static const int scDirectionLTR;
-        static const int scDirectionRTL;
-
 };

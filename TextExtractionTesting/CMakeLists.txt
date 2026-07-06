@@ -1,6 +1,8 @@
 ## testing
 enable_testing()
 
+set(TEXT_EXTRACTION_NEWLINE_REGEX "[\r\n]+")
+
 # dummy target to make sure we got TextExtraction going
 add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} -C $<CONFIG> DEPENDS TextExtractionCLI)
 
@@ -18,11 +20,11 @@ set_property (TEST TextExtractionCVInputPrintsText PROPERTY PASS_REGULAR_EXPRESS
 
 # simple (google doc) table test
 add_test(NAME TextExtractionTableInputPrintsTableData COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table.pdf -t) 
-set_property (TEST TextExtractionTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\" Header 1 \",\" Header 2 \",\" Header 3 \"[\r\n]+\"[ \t]*D[ \t]*ata row 1 col 1 \",\"[ \t]*D[ \t]*ata row 1 col 2 \",\"[ \t]*D[ \t]*ata row 1 col 3 \"")
+set_property (TEST TextExtractionTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\" Header 1 \",\" Header 2 \",\" Header 3 \"${TEXT_EXTRACTION_NEWLINE_REGEX}\"[ \t]*D[ \t]*ata row 1 col 1 \",\"[ \t]*D[ \t]*ata row 1 col 2 \",\"[ \t]*D[ \t]*ata row 1 col 3 \"")
 
 # simple (ms word) table text 
 add_test(NAME TextExtractionWordTableInputPrintsTableData COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/test_table_2.pdf -t) 
-set_property (TEST TextExtractionWordTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\"Head 1 \",\"Head 2 \",\"Head 3 \",\"Head 4 \",\"Head 5 \"[\r\n]+\"Row 1 Col 1 \",\"Row 1 Col 2 \",\"Row 1 Col 3 \",\"Row 1 Col 4 \",\"Row 1 Col 5 \"")
+set_property (TEST TextExtractionWordTableInputPrintsTableData PROPERTY PASS_REGULAR_EXPRESSION "\"Head 1 \",\"Head 2 \",\"Head 3 \",\"Head 4 \",\"Head 5 \"${TEXT_EXTRACTION_NEWLINE_REGEX}\"Row 1 Col 1 \",\"Row 1 Col 2 \",\"Row 1 Col 3 \",\"Row 1 Col 4 \",\"Row 1 Col 5 \"")
 
 # fuzz testing
 file(GLOB fuzztestfiles ${CMAKE_CURRENT_SOURCE_DIR}/Materials/FuzzTests/*)

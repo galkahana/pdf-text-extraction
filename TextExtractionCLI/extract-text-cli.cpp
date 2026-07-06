@@ -23,6 +23,7 @@ static void ShowUsage(const string& name)
               << "\t-b, --bidi <RTL|LTR>\t\t\tuse bidi algo to convert visual to logical. provide default direction per document writing direction.\n"
 #endif
               << "\t-p, --spacing <BOTH|HOR|VER|NONE>\tadd spaces between pieces of text considering their relative positions. default is BOTH\n"
+              << "\t-n, --newline <NATIVE|LF|CRLF>\tset output newline style. NATIVE is platform default (CRLF on Windows, LF on Linux/macOS). default is NATIVE for text and CRLF for tables (CSV)\n"
               << "\t-t, --tables\t\t\t\textract tables instead of text. Each table is represented in CSV\n"
               << "\t-o, --output /path/to/file\t\twrite result to output file (or files for tables export)\n"
               << "\t-q, --quiet\t\t\t\tquiet run. only shows errors and warnings\n"
@@ -37,6 +38,9 @@ static const string SPACING_BOTH = "BOTH";
 static const string SPACING_HOR = "HOR";
 static const string SPACING_VER = "VER";
 static const string SPACING_NONE = "NONE";
+static const string NEWLINE_NATIVE = "NATIVE";
+static const string NEWLINE_LF = "LF";
+static const string NEWLINE_CRLF = "CRLF";
 
 static const string scCSVExtension = ".csv";
 static const string scDot = ".";
@@ -61,6 +65,8 @@ int main(int argc, char* argv[])
     bool quiet = false;
     long bidiFlag = -1;
     bool extractTables = false;
+    bool hasNewLineOverride = false;
+    TextComposer::ENewLineStyle requestedNewLineStyle = TextComposer::eNewLineNative;
 
     for (int i = 2; i < argc; ++i) {
         std::string arg = argv[i];
@@ -122,6 +128,25 @@ int main(int argc, char* argv[])
                 return 1;                 
             }            
 
+        } else if((arg == "-n") || (arg == "--newline")) {
+            if (i + 1 < argc) {
+                string argString = argv[++i];
+                if(argString == NEWLINE_NATIVE)
+                    requestedNewLineStyle = TextComposer::eNewLineNative;
+                else if(argString == NEWLINE_LF)
+                    requestedNewLineStyle = TextComposer::eNewLineLF;
+                else if(argString == NEWLINE_CRLF)
+                    requestedNewLineStyle = TextComposer::eNewLineCRLF;
+                else {
+                    std::cerr << "--newline option requires one argument. Use either NATIVE, LF, or CRLF." << std::endl;
+                    return 1;
+                }
+                hasNewLineOverride = true;
+            } else {
+                std::cerr << "--newline option requires one argument. Use either NATIVE, LF, or CRLF." << std::endl;
+                return 1;
+            }
+
         } else if((arg == "-d") || (arg == "--debug")) {
             debugging = true;
             if (i + 1 < argc) {
@@ -152,6 +177,7 @@ int main(int argc, char* argv[])
     } else {
         if(extractTables) {
             TableExtraction tableExtraction;
+            TextComposer::ENewLineStyle tableNewLineStyle = hasNewLineOverride ? requestedNewLineStyle : TextComposer::eNewLineCRLF;
             status = tableExtraction.ExtractTables(filePath, startPage, endPage);
 
             if(status != eSuccess) {
@@ -181,7 +207,7 @@ int main(int argc, char* argv[])
                                 status = eFailure;
                             } else {
                                 outputFile.write((const char*)scUTF8Bom, 3);
-                                tableExtraction.GetTableAsCSVText(*itTables, bidiFlag, spacing, outputFile);
+                                tableExtraction.GetTableAsCSVText(*itTables, bidiFlag, spacing, outputFile, tableNewLineStyle);
                                 outputFile.close();
                                 cerr << "Wrote table to " << fileFullPath.c_str() << endl;
                             }
@@ -190,12 +216,13 @@ int main(int argc, char* argv[])
                         }
                     }
                 } else if(!quiet) {
-                    tableExtraction.GetAllAsCSVText(bidiFlag, spacing, cout);
+                    tableExtraction.GetAllAsCSVText(bidiFlag, spacing, cout, tableNewLineStyle);
                 }
             }
 
         } else {
             TextExtraction textExtraction;
+            TextComposer::ENewLineStyle textNewLineStyle = hasNewLineOverride ? requestedNewLineStyle : TextComposer::eNewLineNative;
             status = textExtraction.ExtractText(filePath, startPage, endPage);
 
             if(status != eSuccess) {
@@ -215,14 +242,14 @@ int main(int argc, char* argv[])
                     }
                     else {
                         outputFile.write((const char*)scUTF8Bom, 3);
-                        textExtraction.GetResultsAsText(bidiFlag, spacing, outputFile);
+                        textExtraction.GetResultsAsText(bidiFlag, spacing, outputFile, textNewLineStyle);
                         outputFile.close();
                         cout <<"Wrote text to " << outputFilePath.c_str() << endl;
                     }
 
                 }
                 else if(!quiet) {
-                    textExtraction.GetResultsAsText(bidiFlag, spacing, cout);
+                    textExtraction.GetResultsAsText(bidiFlag, spacing, cout, textNewLineStyle);
                 }
             }
         }

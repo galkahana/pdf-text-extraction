@@ -17,9 +17,18 @@ class TextComposer {
             eSpacingVertical = 2,
             eSpacingBoth = 3
         };
+
+        enum ENewLineStyle
+        {
+            eNewLineNative = 0,
+            eNewLineLF = 1,
+            eNewLineCRLF = 2
+        };
     
-        TextComposer(int inBidiFlag, ESpacing inSpacingFlag);
+        TextComposer(int inBidiFlag, ESpacing inSpacingFlag, ENewLineStyle inNewLineStyle);
         virtual ~TextComposer();
+
+        const char* GetNewLine() const;
 
 
         void ComposeText(const ParsedTextPlacementList& inTextPlacements, std::ostream& outStream);
@@ -27,6 +36,7 @@ class TextComposer {
     private:
         int bidiFlag;
         ESpacing spacingFlag;
+        ENewLineStyle newLineStyle;
 
     void MergeLineStreamToResultString(
         const std::stringstream& inStream, 

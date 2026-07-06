@@ -43,7 +43,12 @@ class TextExtraction : public ITextInterpreterHandler, IGraphicContentInterprete
             const std::string& inTargetOutputFilePath
         );
 
-        void GetResultsAsText(int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream);
+        void GetResultsAsText(
+            int bidiFlag,
+            TextComposer::ESpacing spacingFlag,
+            std::ostream& outStream,
+            TextComposer::ENewLineStyle newLineStyle
+        );
 
         // IGraphicContentInterpreterHandler implementation
         virtual bool OnTextElementComplete(const TextElement& inTextElement);

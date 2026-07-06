@@ -18,9 +18,6 @@ BidiConversion::~BidiConversion() {
 
 #if (SUPPORT_ICU_BIDI==1)
 
-static const int scDirectionLTR = UBIDI_DEFAULT_LTR;
-static const int scDirectionRTL = UBIDI_DEFAULT_RTL;
-
 EStatusCode BidiConversion::ConvertVisualToLogical(const string& inVisualString, int inDirection, string& result) {
     result = inVisualString;
 
@@ -79,9 +76,6 @@ EStatusCode BidiConversion::ConvertVisualToLogical(const string& inVisualString,
     return errorCode == U_ZERO_ERROR ? eSuccess: eFailure;
 }
 #else // SUPPORT_ICU_BIDI
-
-static const int scDirectionLTR = 0;
-static const int scDirectionRTL = 1;
 
 EStatusCode BidiConversion::ConvertVisualToLogical(const std::string& inVisualString, int inDirection, string& result) {
     result = inVisualString;

@@ -7,9 +7,12 @@ static const string scEmpty = "";
 static const string scDoubleQuote = "\"";
 static const char scDoubleQuoteChar = '\"';
 static const string scComma = ",";
-static const string scCRLN = "\r\n";
 
-TableCSVExport::TableCSVExport(int inBidiFlag, TextComposer::ESpacing inSpacingFlag):textComposer(inBidiFlag, inSpacingFlag) {
+TableCSVExport::TableCSVExport(
+    int inBidiFlag,
+    TextComposer::ESpacing inSpacingFlag,
+    TextComposer::ENewLineStyle inNewLineStyle
+):textComposer(inBidiFlag, inSpacingFlag, inNewLineStyle) {
 
 }
 
@@ -44,6 +47,7 @@ void TableCSVExport::ComposeTableText(const Table& inTable, std::ostream& outStr
     RowVector::const_iterator itRows = inTable.rows.begin();
 
     for(; itRows != inTable.rows.end(); ++itRows) {
+        const char* lineBreak = textComposer.GetNewLine();
         CellInRowVector::const_iterator itCols = itRows->cells.begin();
         Quote(GetCellText(*itCols), outStream);
         ++itCols;
@@ -53,7 +57,7 @@ void TableCSVExport::ComposeTableText(const Table& inTable, std::ostream& outStr
             for(int i = 1; i < itCols->colSpan;++i)
                 outStream<<scComma;
         }
-        outStream<<scCRLN;
+        outStream<<lineBreak;
     }
 }
 
