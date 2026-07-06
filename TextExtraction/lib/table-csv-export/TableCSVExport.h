@@ -6,7 +6,11 @@
 
 class TableCSVExport {
     public:
-        TableCSVExport(int inBidiFlag, TextComposer::ESpacing inSpacingFlag);
+        TableCSVExport(
+            int inBidiFlag,
+            TextComposer::ESpacing inSpacingFlag,
+            TextComposer::ENewLineStyle inNewLineStyle
+        );
         virtual ~TableCSVExport();
 
 

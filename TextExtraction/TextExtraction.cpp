@@ -151,15 +151,18 @@ PDFHummus::EStatusCode TextExtraction::ExtractText(IByteReaderWithPosition* inSt
     return status;
 }
 
-static const string scCRLN = "\r\n";
-
-void TextExtraction::GetResultsAsText(int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream) {
+void TextExtraction::GetResultsAsText(
+    int bidiFlag,
+    TextComposer::ESpacing spacingFlag,
+    std::ostream& outStream,
+    TextComposer::ENewLineStyle newLineStyle
+) {
     ParsedTextPlacementListList::iterator itPages = textsForPages.begin();
-    TextComposer composer(bidiFlag, spacingFlag);
+    TextComposer composer(bidiFlag, spacingFlag, newLineStyle);
 
     for(; itPages != textsForPages.end();++itPages) {
         composer.ComposeText(*itPages, outStream);
-        outStream<<scCRLN;
+        outStream<<composer.GetNewLine();
     }
 }
 

@@ -10,6 +10,7 @@ Options:
         -e, --end <d>                           end text extraction upto page index. use negative numbers to subtract from pages count
         -b, --bidi <RTL|LTR>                    use bidi algo to convert visual to logical. provide default direction per document writing direction.
         -p, --spacing <BOTH|HOR|VER|NONE>       add spaces between pieces of text considering their relative positions. default is BOTH
+        -n, --newline <NATIVE|LF|CRLF>          set output newline style. NATIVE is platform default (CRLF on Windows, LF on Linux/macOS). default is NATIVE for text and CRLF for tables (CSV)
         -t, --tables				extract tables instead of text. Each table is represented in CSV
         -o, --output /path/to/file              write result to output file (or files for tables export)
         -q, --quiet                             quiet run. only shows errors and warnings

@@ -10,11 +10,20 @@
 #include "./lib/graphic-content-parsing/GraphicContentInterpreter.h"
 #include "./lib/table-csv-export/TableCSVExport.h"
 #include "./lib/table-composition/TableComposer.h"
+#include "./lib/text-composition/Newline.h"
 
 
 
 using namespace std;
 using namespace PDFHummus;
+
+static const char* GetLineBreakFromStyle(TextComposer::ENewLineStyle style) {
+    if(style == TextComposer::eNewLineCRLF)
+        return Newline::CRLF();
+    if(style == TextComposer::eNewLineLF)
+        return Newline::LF();
+    return Newline::Native();
+}
 
 
 TableExtraction::TableExtraction():
@@ -193,15 +202,25 @@ void TableExtraction::ComposeTables() {
     }
 }
 
-static const string scCRLN = "\r\n";
-
-void TableExtraction::GetTableAsCSVText(const Table& inTable, int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream) {
-    TableCSVExport exporter(bidiFlag, spacingFlag);
+void TableExtraction::GetTableAsCSVText(
+    const Table& inTable,
+    int bidiFlag,
+    TextComposer::ESpacing spacingFlag,
+    std::ostream& outStream,
+    TextComposer::ENewLineStyle newLineStyle
+) {
+    TableCSVExport exporter(bidiFlag, spacingFlag, newLineStyle);
     exporter.ComposeTableText(inTable, outStream);
 }
 
-void TableExtraction::GetAllAsCSVText(int bidiFlag, TextComposer::ESpacing spacingFlag, std::ostream& outStream) {
-    TableCSVExport exporter(bidiFlag, spacingFlag);
+void TableExtraction::GetAllAsCSVText(
+    int bidiFlag,
+    TextComposer::ESpacing spacingFlag,
+    std::ostream& outStream,
+    TextComposer::ENewLineStyle newLineStyle
+) {
+    TableCSVExport exporter(bidiFlag, spacingFlag, newLineStyle);
+    const char* lineBreak = GetLineBreakFromStyle(newLineStyle);
 
     TableListList::iterator itPages = tablesForPages.begin();
 
@@ -209,12 +228,12 @@ void TableExtraction::GetAllAsCSVText(int bidiFlag, TextComposer::ESpacing spaci
         TableList::iterator itTables = itPages->begin();
         for(; itTables != itPages->end(); ++itTables) {
             exporter.ComposeTableText(*itTables, outStream);
-            outStream<<scCRLN; // two newlines to separate tables on the same page
-            outStream<<scCRLN;
+            outStream<<lineBreak; // two newlines to separate tables on the same page
+            outStream<<lineBreak;
         }
-        outStream<<scCRLN; // 4 newlines to separate pages
-        outStream<<scCRLN;
-        outStream<<scCRLN;
-        outStream<<scCRLN;
+        outStream<<lineBreak; // 4 newlines to separate pages
+        outStream<<lineBreak;
+        outStream<<lineBreak;
+        outStream<<lineBreak;
     }
 }

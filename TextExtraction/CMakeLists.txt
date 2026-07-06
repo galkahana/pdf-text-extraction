@@ -57,6 +57,7 @@ lib/table-composition/Table.cpp
 lib/table-composition/Table.h
 lib/table-composition/TableComposer.cpp
 lib/table-composition/TableComposer.h
+lib/text-composition/Newline.h
 lib/text-composition/TextComposer.cpp
 lib/text-composition/TextComposer.h
 lib/text-parsing/ITextInterpreterHandler.h
