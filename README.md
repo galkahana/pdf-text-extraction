@@ -28,6 +28,32 @@ When asking for table extraction only tables are output as CSV. std output will 
 to files each file will contain a single table. The output file name is the first table output file, where later tables file names will use
 the file name as base file name along with an ordinal (starting from 1).
 
+# Claude Code skill
+
+This repo ships a [Claude Code](https://claude.com/claude-code) skill so you can just ask Claude to extract text (or tables) from a PDF, and it'll drive `textextraction` for you — downloading the binary first (after asking your permission) if it isn't already installed. Since this parses the PDF's content streams directly instead of rendering pages to images, it's faster and more precise than vision-based reading for text-based PDFs (it won't help with scanned/image-only PDFs, which have no text to parse).
+
+It lives at [`.claude/skills/pdf-text-extraction`](./.claude/skills/pdf-text-extraction).
+
+**If you already have this repo cloned**, there's nothing else to do — Claude Code picks up `.claude/skills/` automatically.
+
+**If you just want the skill** and not the rest of the project, grab only that folder into wherever you want Claude to see it: a specific project's `.claude/skills/`, or `~/.claude/skills/` to make it available everywhere.
+
+```bash
+# plain git, no extra tools needed
+git clone --depth 1 --filter=blob:none --sparse https://github.com/galkahana/pdf-text-extraction.git /tmp/pdf-text-extraction-skill
+git -C /tmp/pdf-text-extraction-skill sparse-checkout set .claude/skills/pdf-text-extraction
+cp -r /tmp/pdf-text-extraction-skill/.claude/skills/pdf-text-extraction ~/.claude/skills/pdf-text-extraction
+rm -rf /tmp/pdf-text-extraction-skill
+```
+
+or, if you have `npx` available:
+
+```bash
+npx degit galkahana/pdf-text-extraction/.claude/skills/pdf-text-extraction ~/.claude/skills/pdf-text-extraction
+```
+
+Either way, once the folder is in place just ask Claude to extract text from a PDF — it'll find `textextraction` on your PATH, or install it itself if needed.
+
 # First time around
 
 This is a C++ Project using CMake as project builder.
