@@ -58,3 +58,7 @@ set_property (TEST TextExtractionCIDFontDefaultWidth PROPERTY PASS_REGULAR_EXPRE
 # the space width comes from the real space (code 3), not from .notdef (code 0) that also maps to U+0020
 add_test(NAME TextExtractionNotdefIsNotSpace COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_notdef_space.pdf)
 set_property (TEST TextExtractionNotdefIsNotSpace PROPERTY PASS_REGULAR_EXPRESSION "B A")
+
+# an /Encoding name that is not one of the standard ones falls back to the font's built-in encoding
+add_test(NAME TextExtractionUnknownEncodingName COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/unknown_encoding_name.pdf)
+set_property (TEST TextExtractionUnknownEncodingName PROPERTY PASS_REGULAR_EXPRESSION "Hello")

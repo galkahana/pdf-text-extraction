@@ -170,6 +170,28 @@ void FontDecoder::ParseToUnicodeMap(PDFParser* inParser, PDFStreamInput* inUnico
 
 }
 
+// the built-in encoding of the font, which applies when there's no usable /Encoding or /BaseEncoding
+static const ByteToStringMap& GetBuiltInEncodingMap(PDFParser* inParser, PDFDictionary* inFont) {
+    // use standard or symbol. i'm gonna use either standard encoding or symbol encoding.
+    // i know the right thing is to check first the font native encoding...but that's too much of a hassle
+    // so i'll take the shortcut and rely on font flags. if it is ever a problem - improve
+    PDFObjectCastPtr<PDFDictionary> fontDescriptor = inParser->QueryDictionaryObject(inFont, "FontDescriptor");
+    if(!!fontDescriptor) {
+        // check font descriptor to determine whether this is a symbolic font. if so, use symbol encoding. otherwise - standard
+        RefCountPtr<PDFObject> flagsObject =  inParser->QueryDictionaryObject(fontDescriptor.GetPtr(), "Flags");
+        long long flags = ParsedPrimitiveHelper(flagsObject.GetPtr()).GetAsInteger();
+        if(flags & (1<<2)) {
+            return scEncoding.SymbolEncoding;
+        }
+        else {
+            return scEncoding.StandardEncoding;
+        }            
+    }
+    else {
+        return scEncoding.StandardEncoding;
+    }
+}
+
 void FontDecoder::SetupDifferencesEncodingMap(PDFParser* inParser, PDFDictionary* inEncoding, PDFDictionary* inFont) {
     PDFObjectCastPtr<PDFName> baseEncoding = inParser->QueryDictionaryObject(inEncoding, "BaseEncoding");
     bool initialized = false;
@@ -184,24 +206,8 @@ void FontDecoder::SetupDifferencesEncodingMap(PDFParser* inParser, PDFDictionary
     }
 
     if(!initialized) {
-        // no base encoding. use standard or symbol. i'm gonna use either standard encoding or symbol encoding.
-        // i know the right thing is to check first the font native encoding...but that's too much of a hassle
-        // so i'll take the shortcut and rely on font flags. if it is ever a problem - improve
-        PDFObjectCastPtr<PDFDictionary> fontDescriptor = inParser->QueryDictionaryObject(inFont, "FontDescriptor");
-        if(!!fontDescriptor) {
-            // check font descriptor to determine whether this is a symbolic font. if so, use symbol encoding. otherwise - standard
-            RefCountPtr<PDFObject> flagsObject =  inParser->QueryDictionaryObject(fontDescriptor.GetPtr(), "Flags");
-            long long flags = ParsedPrimitiveHelper(flagsObject.GetPtr()).GetAsInteger();
-            if(flags & (1<<2)) {
-                fromSimpleEncodingMap = scEncoding.SymbolEncoding;
-            }
-            else {
-                fromSimpleEncodingMap = scEncoding.StandardEncoding;
-            }            
-        }
-        else {
-            fromSimpleEncodingMap = scEncoding.StandardEncoding;
-        }
+        // no base encoding
+        fromSimpleEncodingMap = GetBuiltInEncodingMap(inParser, inFont);
     }
 
     PDFObjectCastPtr<PDFArray> differences = inParser->QueryDictionaryObject(inEncoding, "Differences");
@@ -222,7 +228,9 @@ void FontDecoder::SetupDifferencesEncodingMap(PDFParser* inParser, PDFDictionary
 
 void FontDecoder::ParseSimpleFontEncoding(PDFParser* inParser, PDFObject* inEncoding, PDFDictionary* inFont) {
     if(inEncoding->GetType() == PDFObject::ePDFObjectName) {
-        fromSimpleEncodingMap = *(GetStandardEncodingMap(((PDFName*)inEncoding)->GetValue()));
+        // a name other than the standard ones is as good as no /Encoding: the built-in encoding applies
+        const ByteToStringMap* standardMap = GetStandardEncodingMap(((PDFName*)inEncoding)->GetValue());
+        fromSimpleEncodingMap = !!standardMap ? *standardMap : GetBuiltInEncodingMap(inParser, inFont);
         hasSimpleEncoding = true;
     } else if(inEncoding->GetType() == PDFObject::ePDFObjectDictionary) {
         SetupDifferencesEncodingMap(inParser, (PDFDictionary*)inEncoding, inFont);
