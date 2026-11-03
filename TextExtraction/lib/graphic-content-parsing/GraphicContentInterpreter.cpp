@@ -11,6 +11,9 @@
 #include "PDFIndirectObjectReference.h"
 #include "PDFParser.h"
 #include "PDFStreamInput.h"
+#include "PDFInteger.h"
+
+#include <climits>
 
 
 #include "../math/Transformations.h"
@@ -48,6 +51,8 @@ bool GraphicContentInterpreter::InterpretPageContents(
 void GraphicContentInterpreter::InitInterpretationState() {
     graphicStateStack.push_back(ContentGraphicState());
     isInTextElement = false;
+    markedContentStack.clear();
+    markedContentFormDepths.clear();
 }
 
 void GraphicContentInterpreter::ClearCurrentPath() {
@@ -63,6 +68,8 @@ void GraphicContentInterpreter::ResetInterpretationState() {
     textGraphicStateStack.clear();
     isInTextElement = false;
     currentTextElementCommands.clear();
+    markedContentStack.clear();
+    markedContentFormDepths.clear();
 }
 
 
@@ -104,6 +111,13 @@ bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  con
         return csCommand(inOperands);
     } else if(inOperation == "sc" || inOperation == "scn") {
         return scCommand(inOperands);
+    } else if(inOperation == "BMC") {
+        // marked content operators
+        return BMCCommand(inOperands);
+    } else if(inOperation == "BDC") {
+        return BDCCommand(inOperands);
+    } else if(inOperation == "EMC") {
+        return EMCCommand();
     } else if(inOperation == "BT") {
         return BTCommand();
     } else if(inOperation == "ET") {
@@ -386,6 +400,81 @@ bool GraphicContentInterpreter::scCommand(const PDFObjectVector& inOperands) {
     return SetFillColor(components, inOperands);
 }
 
+// an /MCID value: an integer in [0, INT_MAX]. -1 (none) for anything else
+static int MCIDValue(PDFObject* inValue) {
+    if(inValue->GetType() != PDFObject::ePDFObjectInteger)
+        return -1;
+    long long value = ((PDFInteger*)inValue)->GetValue();
+    return value >= 0 && value <= INT_MAX ? (int)value : -1;
+}
+
+void GraphicContentInterpreter::PushMarkedContent(const string& inTag, int inMCID) {
+    MarkedContent entry = {-1, false};
+    if(!markedContentStack.empty())
+        entry = markedContentStack.back();
+    if(inMCID >= 0)
+        entry.mcid = inMCID; // innermost wins
+    if(inTag == "Artifact")
+        entry.artifact = true;
+    markedContentStack.push_back(entry);
+}
+
+int GraphicContentInterpreter::MCIDOfProperties(PDFObject* inProperties) {
+    if(inProperties->GetType() == PDFObject::ePDFObjectDictionary) {
+        // inline property list. holds direct objects only, so no parsing needed
+        RefCountPtr<PDFObject> mcid(((PDFDictionary*)inProperties)->QueryDirectObject("MCID"));
+        if(!mcid)
+            return -1;
+        return MCIDValue(mcid.GetPtr());
+    }
+
+    if(inProperties->GetType() == PDFObject::ePDFObjectName && !resourcesStack.empty()) {
+        // named property list, read in advance from the resources' /Properties
+        Resources& currentResources = resourcesStack.back();
+        StringToIntMap::iterator it = currentResources.propertiesMCIDs.find(ParsedPrimitiveHelper(inProperties).ToString());
+        if(it != currentResources.propertiesMCIDs.end())
+            return it->second;
+    }
+    return -1;
+}
+
+bool GraphicContentInterpreter::BMCCommand(const PDFObjectVector& inOperands) {
+    // a malformed BMC still opens a sequence, so that its EMC stays balanced
+    PushMarkedContent(inOperands.size() < 1 ? "" : ParsedPrimitiveHelper(inOperands.back()).ToString(), -1);
+    return true;
+}
+
+bool GraphicContentInterpreter::BDCCommand(const PDFObjectVector& inOperands) {
+    // a malformed BDC still opens a sequence, so that its EMC stays balanced
+    string tag;
+    int mcid = -1;
+    if(inOperands.size() >= 2) {
+        tag = ParsedPrimitiveHelper(inOperands[inOperands.size()-2]).ToString();
+        mcid = MCIDOfProperties(inOperands.back());
+    } else if(inOperands.size() == 1) {
+        tag = ParsedPrimitiveHelper(inOperands.back()).ToString();
+    }
+    PushMarkedContent(tag, mcid);
+    return true;
+}
+
+bool GraphicContentInterpreter::EMCCommand() {
+    // an EMC with no open sequence (in this page, or in this form) is ignored
+    size_t floor = markedContentFormDepths.empty() ? 0 : markedContentFormDepths.back();
+    if(markedContentStack.size() > floor)
+        markedContentStack.pop_back();
+    return true;
+}
+
+ContentGraphicState GraphicContentInterpreter::SnapshotGraphicState() {
+    ContentGraphicState snapshot(CurrentGraphicState());
+    if(!markedContentStack.empty()) {
+        snapshot.mcid = markedContentStack.back().mcid;
+        snapshot.artifact = markedContentStack.back().artifact;
+    }
+    return snapshot;
+}
+
 void GraphicContentInterpreter::StartTextElement() {
     isInTextElement = true;
     currentTextElementCommands.clear();
@@ -506,7 +595,7 @@ void GraphicContentInterpreter::RecordTextPlacement(const PlacedTextCommandArgum
 void GraphicContentInterpreter::RecordTextPlacement(const PlacedTextCommandArgumentVector& inTextPlacementOperations) {
     PlacedTextCommand el = {
         inTextPlacementOperations,
-        ContentGraphicState(CurrentGraphicState()),
+        SnapshotGraphicState(),
         TextGraphicState(CurrentTextState())
     };
     currentTextElementCommands.push_back(el);
@@ -724,7 +813,7 @@ bool GraphicContentInterpreter::PaintCurrentPath(bool inShouldStroke, bool inSho
 
     PathElement pathElement = {
         Path(currentPath),
-        ContentGraphicState(CurrentGraphicState()),
+        SnapshotGraphicState(),
         inShouldStroke,
         inShouldFill,
         inFillMethod
@@ -861,7 +950,26 @@ bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) 
 
             currentResources.fonts.insert(StringToFontMap::value_type(it.GetKey()->GetValue(), Font(fontRef)));
         }
-    }    
+    }
+
+    // read property lists for their MCID, for BDC with a named property list. done here and not in BDC,
+    // as parsing objects in the middle of a content stream would move the parser away from it
+    RefCountPtr<PDFDictionary> propertiesCategoryDict = inContext->FindResourceCategory("Properties");
+    if(!!propertiesCategoryDict) {
+        MapIterator<PDFNameToPDFObjectMap> it = propertiesCategoryDict->GetIterator();
+
+        while(it.MoveNext()) {
+            PDFObjectCastPtr<PDFDictionary> properties(inContext->GetParser()->QueryDictionaryObject(propertiesCategoryDict.GetPtr(), it.GetKey()->GetValue()));
+            if(!properties)
+                continue;
+            RefCountPtr<PDFObject> mcid(inContext->GetParser()->QueryDictionaryObject(properties.GetPtr(), "MCID"));
+            if(!mcid)
+                continue;
+            int value = MCIDValue(mcid.GetPtr());
+            if(value >= 0)
+                currentResources.propertiesMCIDs.insert(StringToIntMap::value_type(it.GetKey()->GetValue(), value));
+        }
+    }
 
     return handler->OnResourcesRead(currentResources, inContext);
 }
@@ -874,6 +982,7 @@ bool GraphicContentInterpreter::OnXObjectDoStart(
     // the equivalent of q, so any internal transformations do not effect the outside. specifically what im gonna
     // do now to emulate form placement matrix changes
     PushGraphicState();
+    markedContentFormDepths.push_back(markedContentStack.size());
 
     // apply form matrix
     RefCountPtr<PDFDictionary> formDict = inXObject->QueryStreamDictionary();
@@ -902,5 +1011,11 @@ void GraphicContentInterpreter::OnXObjectDoEnd(
 
     // the equivalent of Q removing all artifacts of the form state changes
     PopGraphicState();
+
+    // marked content does not cross content streams. drop what the form left open
+    if(!markedContentFormDepths.empty()) {
+        markedContentStack.resize(markedContentFormDepths.back());
+        markedContentFormDepths.pop_back();
+    }
 
 }

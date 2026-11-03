@@ -12,10 +12,21 @@
 
 #include <list>
 #include <map>
+#include <string>
+#include <vector>
 
 typedef std::list<TextGraphicState> TextGraphicStateList;
 typedef std::list<ContentGraphicState> GraphicStateList;
 typedef std::list<Resources> ResourcesList;
+
+// an open marked content sequence (BMC/BDC ... EMC), with the values that apply to what is drawn in it:
+// the innermost MCID so far, and whether this or an enclosing sequence is an /Artifact
+struct MarkedContent {
+    int mcid;
+    bool artifact;
+};
+
+typedef std::vector<MarkedContent> MarkedContentStack;
 
 
 class GraphicContentInterpreter: public IPDFRecursiveInterpreterHandler {
@@ -51,6 +62,11 @@ private:
     GraphicStateList graphicStateStack;
     TextGraphicStateList textGraphicStateStack;
     Path currentPath;
+    // marked content. not saved by q/Q, and reset per page. a form xobject inherits the sequences it is drawn
+    // in (they span the Do), and what it leaves open, or closes beyond its start, is undone at its end.
+    // markedContentFormDepths holds the stack depth at the start of each open form
+    MarkedContentStack markedContentStack;
+    std::vector<size_t> markedContentFormDepths;
 
     bool isInTextElement;
     PlacedTextCommandList currentTextElementCommands;
@@ -79,6 +95,9 @@ private:
     bool kCommand(const PDFObjectVector& inOperands);
     bool csCommand(const PDFObjectVector& inOperands);
     bool scCommand(const PDFObjectVector& inOperands);
+    bool BMCCommand(const PDFObjectVector& inOperands);
+    bool BDCCommand(const PDFObjectVector& inOperands);
+    bool EMCCommand();
     bool BTCommand();
     bool ETCommand();
     bool TdCommand(const PDFObjectVector& inOperands);
@@ -128,6 +147,9 @@ private:
     void TStar();
     void Quote(PDFObject* inObject);
     bool SetFillColor(int inComponents, const PDFObjectVector& inOperands);
+    void PushMarkedContent(const std::string& inTag, int inMCID);
+    int MCIDOfProperties(PDFObject* inProperties);
+    ContentGraphicState SnapshotGraphicState();
 
     void StartTextElement();
     bool EndTextElement();
