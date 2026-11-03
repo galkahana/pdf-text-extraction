@@ -73,6 +73,12 @@ private:
     bool TLCommand(const PDFObjectVector& inOperands);
     bool TsCommand(const PDFObjectVector& inOperands);
     bool TfCommand(const PDFObjectVector& inOperands);
+    bool TrCommand(const PDFObjectVector& inOperands);
+    bool gCommand(const PDFObjectVector& inOperands);
+    bool rgCommand(const PDFObjectVector& inOperands);
+    bool kCommand(const PDFObjectVector& inOperands);
+    bool csCommand(const PDFObjectVector& inOperands);
+    bool scCommand(const PDFObjectVector& inOperands);
     bool BTCommand();
     bool ETCommand();
     bool TdCommand(const PDFObjectVector& inOperands);
@@ -121,6 +127,7 @@ private:
     void setTm(const double (&matrix)[6]);
     void TStar();
     void Quote(PDFObject* inObject);
+    bool SetFillColor(int inComponents, const PDFObjectVector& inOperands);
 
     void StartTextElement();
     bool EndTextElement();

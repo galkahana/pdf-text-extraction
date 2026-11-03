@@ -142,8 +142,9 @@ bool TextInterpeter::OnTextElementComplete(const TextElement& inTextElement) {
                         localBBox,
                         globalBBox,
                         spaceWidth,
-                        globalWidthVector
-
+                        globalWidthVector,
+                        item.textState,
+                        item.graphicState
                 );
 
                 shouldContinue = handler->OnParsedTextPlacementComplete(placement);

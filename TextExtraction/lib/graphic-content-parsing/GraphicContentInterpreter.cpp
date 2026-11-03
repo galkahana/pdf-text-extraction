@@ -91,6 +91,19 @@ bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  con
         return TsCommand(inOperands);
     } else if(inOperation == "Tf") {
         return TfCommand(inOperands);
+    } else if(inOperation == "Tr") {
+        return TrCommand(inOperands);
+    } else if(inOperation == "g") {
+        // color operators (nonstroking)
+        return gCommand(inOperands);
+    } else if(inOperation == "rg") {
+        return rgCommand(inOperands);
+    } else if(inOperation == "k") {
+        return kCommand(inOperands);
+    } else if(inOperation == "cs") {
+        return csCommand(inOperands);
+    } else if(inOperation == "sc" || inOperation == "scn") {
+        return scCommand(inOperands);
     } else if(inOperation == "BT") {
         return BTCommand();
     } else if(inOperation == "ET") {
@@ -310,6 +323,69 @@ bool GraphicContentInterpreter::TfCommand(const PDFObjectVector& inOperands) {
     return true;
 }
 
+bool GraphicContentInterpreter::TrCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 1)
+        return true; // too few params? ignore
+
+    CurrentTextState().renderMode = (int)ParsedPrimitiveHelper(inOperands.back()).GetAsInteger();
+    return true;
+}
+
+bool GraphicContentInterpreter::SetFillColor(int inComponents, const PDFObjectVector& inOperands) {
+    if(inOperands.size() < (size_t)inComponents)
+        return true; // too few params? ignore
+
+    ContentGraphicState& state = CurrentGraphicState();
+    state.fillColorComponents = inComponents;
+    size_t first = inOperands.size() - inComponents;
+    for(int i=0;i<inComponents;++i)
+        state.fillColor[i] = ParsedPrimitiveHelper(inOperands[first + i]).GetAsDouble();
+    return true;
+}
+
+bool GraphicContentInterpreter::gCommand(const PDFObjectVector& inOperands) {
+    return SetFillColor(1, inOperands);
+}
+
+bool GraphicContentInterpreter::rgCommand(const PDFObjectVector& inOperands) {
+    return SetFillColor(3, inOperands);
+}
+
+bool GraphicContentInterpreter::kCommand(const PDFObjectVector& inOperands) {
+    return SetFillColor(4, inOperands);
+}
+
+bool GraphicContentInterpreter::csCommand(const PDFObjectVector& inOperands) {
+    if(inOperands.size() < 1)
+        return true; // too few params? ignore
+
+    // setting the color space also sets its initial color, black for the Device spaces.
+    // other spaces (named resources, ICCBased, Pattern...) are not resolved, and the fill color becomes unknown
+    string space = ParsedPrimitiveHelper(inOperands.back()).ToString();
+    ContentGraphicState& state = CurrentGraphicState();
+    state.fillColor[0] = state.fillColor[1] = state.fillColor[2] = state.fillColor[3] = 0;
+    if(space == "DeviceGray") {
+        state.fillColorComponents = 1;
+    } else if(space == "DeviceRGB") {
+        state.fillColorComponents = 3;
+    } else if(space == "DeviceCMYK") {
+        state.fillColorComponents = 4;
+        state.fillColor[3] = 1;
+    } else {
+        state.fillColorComponents = 0;
+    }
+    return true;
+}
+
+bool GraphicContentInterpreter::scCommand(const PDFObjectVector& inOperands) {
+    // only meaningful in a Device space, where the number of components is known.
+    // a pattern name operand (scn) means the color space is not a Device one
+    int components = CurrentGraphicState().fillColorComponents;
+    if(components == 0 || inOperands.size() != (size_t)components)
+        return true;
+    return SetFillColor(components, inOperands);
+}
+
 void GraphicContentInterpreter::StartTextElement() {
     isInTextElement = true;
     currentTextElementCommands.clear();
@@ -340,6 +416,7 @@ bool GraphicContentInterpreter::EndTextElement() {
     target.rise = source.rise;
     target.fontRef = source.fontRef;
     target.fontSize = source.fontSize;
+    target.renderMode = source.renderMode;
 
     // prep result
     TextElement el = {PlacedTextCommandList(currentTextElementCommands)};
