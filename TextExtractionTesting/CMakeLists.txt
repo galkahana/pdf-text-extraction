@@ -50,3 +50,22 @@ set_property (TEST FuzzTest_uaf1 PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed
 # scan with text overlay
 add_test(NAME TextExtractionImageWithOverlayPrintsText COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/ouk6210324m9i73.pdf)
 set_property (TEST TextExtractionImageWithOverlayPrintsText PROPERTY PASS_REGULAR_EXPRESSION "EDICT")
+
+# a form that draws itself is skipped where it loops, and the page goes on after it
+add_test(NAME TextExtractionFormLoopIsSkipped COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/form_self_loop.pdf)
+set_property (TEST TextExtractionFormLoopIsSkipped PROPERTY PASS_REGULAR_EXPRESSION "After")
+
+# forms nested 20 deep: the first 16 are drawn
+add_test(NAME TextExtractionFormDepthLimit COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/form_deep_chain.pdf)
+set_property (TEST TextExtractionFormDepthLimit PROPERTY PASS_REGULAR_EXPRESSION "L16")
+set_property (TEST TextExtractionFormDepthLimit PROPERTY FAIL_REGULAR_EXPRESSION "L17")
+
+# a /W range up to 4294967295, and a bfrange of 2^32 codes, are skipped instead of looping (and allocating) for hours
+add_test(NAME TextExtractionHugeWidthsRange COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_w_huge_range.pdf)
+set_property (TEST TextExtractionHugeWidthsRange PROPERTY TIMEOUT 60)
+add_test(NAME TextExtractionHugeToUnicodeRange COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/tounicode_huge_bfrange.pdf)
+set_property (TEST TextExtractionHugeToUnicodeRange PROPERTY TIMEOUT 60)
+
+# forms drawn some 5000 times, each with a direct font: each font is decoded once per page, not on every Do
+add_test(NAME TextExtractionFormDirectFontDecodedOnce COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/form_fanout_direct_font.pdf)
+set_property (TEST TextExtractionFormDirectFontDecodedOnce PROPERTY TIMEOUT 30)

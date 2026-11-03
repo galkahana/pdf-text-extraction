@@ -99,6 +99,23 @@ static const ByteToStringMap*  GetStandardEncodingMap(const string& inEncodingNa
 }  
 
 
+// bounds on what a malformed font can make the decoder allocate. CIDs are 0..0xFFFF (ISO 32000-1 9.7.4.3),
+// a bfrange spans that many codes at most, and a ToUnicode map holds at most twice that
+static const unsigned long scMaxCID = 0xFFFF;
+static const unsigned long scMaxRangeSpan = 0xFFFF; // endCode - startCode
+static const size_t scMaxMappedCodes = 0x20000;
+
+// a /W CID: an integer in [0, scMaxCID]
+static bool ReadCID(PDFObject* inObject, unsigned long& outCID) {
+    if(inObject->GetType() != PDFObject::ePDFObjectInteger)
+        return false;
+    long long value = ParsedPrimitiveHelper(inObject).GetAsInteger();
+    if(value < 0 || value > (long long)scMaxCID)
+        return false;
+    outCID = (unsigned long)value;
+    return true;
+}
+
 class UnicodeMapReader : public IPDFInterpreterHandler {
     public:
 
@@ -118,7 +135,7 @@ bool UnicodeMapReader::OnOperation(const std::string& inOperation, const PDFObje
         // make sure i got pairs. skip last one if not
         unsigned long limit = inOperands.size() - inOperands.size() % 2;
 
-        for(unsigned long i=0;i<limit;i+=2) {
+        for(unsigned long i=0;i<limit && result.size() < scMaxMappedCodes;i+=2) {
             ByteList byteCode = ToBytesList(inOperands[i]);
             ByteList unicodes = ToBytesList(inOperands[i+1]);
 
@@ -130,22 +147,27 @@ bool UnicodeMapReader::OnOperation(const std::string& inOperation, const PDFObje
         // make sure i got 3s. skip last one if not
         unsigned long limit = inOperands.size() - inOperands.size() % 3;
 
-        for(unsigned long i=0;i<limit;i+=3) {
+        for(unsigned long i=0;i<limit && result.size() < scMaxMappedCodes;i+=3) {
             unsigned long startCode = beToNum(ToBytesList(inOperands[i]));
             unsigned long endCode = beToNum(ToBytesList(inOperands[i+1]));
+            if(endCode < startCode || endCode - startCode > scMaxRangeSpan) // backwards, or too wide
+                continue;
 
             if(inOperands[i+2]->GetType() == PDFObject::ePDFObjectArray) {
                 // specific codes
                 PDFArray* unicodeArray = (PDFArray*)inOperands[i+2];
-                for(unsigned long j=0;j<unicodeArray->GetLength();++j) {
+                for(unsigned long j=0;j<unicodeArray->GetLength() && j <= endCode - startCode;++j) {
                     result[startCode+j] = besToUnicodes(ToBytesList(unicodeArray->QueryObject(j)));
                 }
             }
             else {
                 // code range
                 ULongList unicodes = besToUnicodes(ToBytesList(inOperands[i+2]));
-                for(unsigned long j = startCode; j<=endCode;++j) {
-                    result[j] = ULongList(unicodes);
+                if(unicodes.empty()) // an empty destination string maps nothing
+                    continue;
+                // count the codes, rather than compare with endCode, which may be the largest unsigned long
+                for(unsigned long j = 0; j <= endCode - startCode; ++j) {
+                    result[startCode + j] = ULongList(unicodes);
                     ++unicodes.back();
                 }
             }
@@ -311,7 +333,13 @@ void FontDecoder::ParseSimpleFontDimensions(PDFParser* inParser, PDFDictionary* 
 void FontDecoder::ParseCIDFontDimensions(PDFParser* inParser, PDFDictionary* inFont) {
     // get the descendents font
     PDFObjectCastPtr<PDFArray> descendentFonts = inParser->QueryDictionaryObject(inFont, "DescendantFonts");
+    // no descendant font means nothing to read widths from. every glyph gets the default width
+    defaultWidth = 1000;
+    if(!descendentFonts || descendentFonts->GetLength() == 0)
+        return;
     PDFObjectCastPtr<PDFDictionary> descendentFont = inParser->QueryArrayObject(descendentFonts.GetPtr(), 0);
+    if(!descendentFont)
+        return;
     // default width is easily accessible directly via DW
     RefCountPtr<PDFObject> defaultWidthObject = inParser->QueryDictionaryObject(descendentFont.GetPtr(), "DW");
     defaultWidth = !!defaultWidthObject ? ParsedPrimitiveHelper(defaultWidthObject.GetPtr()).GetAsDouble() : 1000;
@@ -321,8 +349,10 @@ void FontDecoder::ParseCIDFontDimensions(PDFParser* inParser, PDFDictionary* inF
         SingleValueContainerIterator<PDFObjectVector> it = widthsArray->GetIterator();
         it.MoveNext();
         while(!it.IsFinished()) {
-            unsigned long cFirst = (unsigned long)ParsedPrimitiveHelper(it.GetItem()).GetAsInteger();
-            it.MoveNext();
+            unsigned long cFirst = 0;
+            bool hasFirst = ReadCID(it.GetItem(), cFirst); // out of range, the entry is skipped
+            if(!it.MoveNext()) // c with nothing after it
+                break;
             if(it.GetItem()->GetType() == PDFObject::ePDFObjectArray) {
                 // specified widths
                 PDFArray* asArray = (PDFArray*)it.GetItem();
@@ -330,17 +360,19 @@ void FontDecoder::ParseCIDFontDimensions(PDFParser* inParser, PDFDictionary* inF
                 
                 SingleValueContainerIterator<PDFObjectVector> itArray = asArray->GetIterator();
                 unsigned long j=0;
-                while(itArray.MoveNext()) {
+                while(hasFirst && cFirst + j <= scMaxCID && itArray.MoveNext()) {
                     widths[cFirst + j] = ParsedPrimitiveHelper(itArray.GetItem()).GetAsDouble();
                     ++j;
                 }
             } else {
                 // same width for range
-                unsigned long cLast = (unsigned long)ParsedPrimitiveHelper(it.GetItem()).GetAsInteger();
-                it.MoveNext();
+                unsigned long cLast = 0;
+                bool hasLast = ReadCID(it.GetItem(), cLast);
+                if(!it.MoveNext()) // c_first c_last with no width
+                    break;
                 double width = ParsedPrimitiveHelper(it.GetItem()).GetAsDouble();
                 it.MoveNext();
-                for(unsigned long j=cFirst;j<=cLast;++j) {
+                for(unsigned long j=cFirst;hasFirst && hasLast && j<=cLast;++j) { // cLast <= scMaxCID, so no wrap around
                     widths[j] = width;
                 }
             }
@@ -353,7 +385,7 @@ void FontDecoder::ParseCIDFontDimensions(PDFParser* inParser, PDFDictionary* inF
 void FontDecoder::ParseFontData(PDFParser* inParser, PDFDictionary* inFont) {
 
     RefCountPtr<PDFObject> subType = inFont->QueryDirectObject("Subtype");
-    isSimpleFont = ParsedPrimitiveHelper(subType.GetPtr()).ToString() != "Type0";
+    isSimpleFont = !subType || ParsedPrimitiveHelper(subType.GetPtr()).ToString() != "Type0"; // no Subtype, take as simple
 
     hasToUnicode = false;
     hasSimpleEncoding = false;
@@ -528,7 +560,8 @@ DispositionResultList FontDecoder::ComputeDisplacements(const ByteList& inAsByte
         // default to 2 bytes. though i shuld be reading the cmap. and so also get the writing mode
         for(; it!= inAsBytes.end();++it) {
             unsigned long value = *it;
-            ++it;
+            if(++it == inAsBytes.end()) // an odd byte at the end is no code
+                break;
             value = value*256 + *it;
             DispositionResult item = {
                 (isMonospaced ? monospaceWidth : GetCodeWidth(value)) / 1000.00

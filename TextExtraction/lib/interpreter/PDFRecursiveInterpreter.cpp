@@ -21,6 +21,11 @@ static const string scContents = "Contents";
 static const string scDo = "Do";
 static const string scID = "ID";
 static const string scEI = "EI";
+// most form xobjects open at once. a Do deeper than this is skipped
+static const size_t scMaxFormDepth = 16;
+// most operands pending at once. no content stream operator takes more than a few dozen, so a stream
+// that piles up more is malformed, and its interpretation stops
+static const size_t scMaxOperands = 1024;
 
 static void FreeObjectVector(PDFObjectVector& ioVector) {
 	PDFObjectVector::iterator it = ioVector.begin();
@@ -32,22 +37,8 @@ static void FreeObjectVector(PDFObjectVector& ioVector) {
 }
 
 static PDFObject* FindInheritedResources(PDFParser* inParser,PDFDictionary* inDictionary) {
-	if(inDictionary->Exists("Resources")) {
-		return inParser->QueryDictionaryObject(inDictionary, "Resources");
-	}
-	else {
-		PDFObjectCastPtr<PDFDictionary> parentDict(
-			inDictionary->Exists("Parent") ? 
-				inParser->QueryDictionaryObject(inDictionary, "Parent"): 
-				NULL);
-		if(!parentDict) {
-			return NULL;
-		}
-		else {
-			return FindInheritedResources(inParser,parentDict.GetPtr());
-		}
-		
-	}
+	// the parser's lookup up the /Parent chain stops at a loop, and at a maximum depth
+	return inParser->QueryInheritedDictionaryEntry(inDictionary, "Resources");
 }
 
 // internal class implementation for interpreter context
@@ -95,6 +86,8 @@ PDFDictionary* InterpreterContext::FindResourceCategory(const string& inResource
 
 PDFObject* InterpreterContext::FindResource(const string& inResourceName, const string& inResourceCategory) {
     RefCountPtr<PDFDictionary> categoryDict = FindResourceCategory(inResourceCategory);
+    if(!categoryDict)
+        return NULL;
 
     return categoryDict->QueryDirectObject(inResourceName);
 }
@@ -174,10 +167,10 @@ static const string scForm = "Form";
 static bool IsForm(PDFStreamInput* formCandidate) {
     // check its subtype...don't wanna get into an image....
     RefCountPtr<PDFDictionary> formDict = formCandidate->QueryStreamDictionary();
-    if(!formCandidate)
+    if(!formDict)
         return false;
     PDFObjectCastPtr<PDFName> formSubtype = formDict->QueryDirectObject("Subtype"); 
-    return formSubtype->GetValue() == scForm;
+    return !!formSubtype && formSubtype->GetValue() == scForm;
 }
 
 bool PDFRecursiveInterpreter::InterpretContentStream(
@@ -236,34 +229,39 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                 LongFilePositionType currentPosition = inParser->GetParserStream()->GetCurrentPosition();
                 PDFObjectCastPtr<PDFIndirectObjectReference> xobjectRef = inContext->FindResource(formName, "XObject");
                 ObjectIDType formObjectID = !xobjectRef ? 0 : xobjectRef->mObjectID;
+                // a form that is already open (orcish mischief! looping), or one past the depth limit, is skipped:
+                // drawn as nothing, and the content stream goes on
+                bool shouldSkipForm = false;
                 if(!!mNestingContext) {
                     ObjectIDTypeList::iterator itFindInStack = find(mNestingContext->nestedXObjects.begin(), mNestingContext->nestedXObjects.end(), formObjectID);
-                    if(itFindInStack != mNestingContext->nestedXObjects.end()) {
-                        // orcish mischief! looping. halt
-                        shouldContinue = false;
-                        break;
-                    }
+                    shouldSkipForm = itFindInStack != mNestingContext->nestedXObjects.end() ||
+                                     mNestingContext->nestedXObjects.size() >= scMaxFormDepth;
 
                     // add this form to the nesting stack
-                    mNestingContext->nestedXObjects.push_back(formObjectID);
+                    if(!shouldSkipForm)
+                        mNestingContext->nestedXObjects.push_back(formObjectID);
                 }
 
-                PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
-                if(!!formObject && IsForm(formObject.GetPtr())) {  
-                    bool shouldRecurse = inHandler->OnXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);
-                    if(shouldRecurse) {
-                        PDFRecursiveInterpreter subordinateInterpreter;
-                        shouldContinue = subordinateInterpreter.InterpretXObjectContents(
-                            inParser,
-                            formObject.GetPtr(),
-                            inHandler
-                        );
+                if(!shouldSkipForm) {
+                    PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
+                    if(!!formObject && IsForm(formObject.GetPtr())) {
+                        bool shouldRecurse = inHandler->OnXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);
+                        if(shouldRecurse) {
+                            // pass the nesting context down. a fresh one per form would never see a loop
+                            PDFRecursiveInterpreter subordinateInterpreter;
+                            shouldContinue = subordinateInterpreter.InterpretXObjectContents(
+                                inParser,
+                                formObject.GetPtr(),
+                                inHandler,
+                                mNestingContext
+                            );
+                        }
+                        inHandler->OnXObjectDoEnd(formName, formObjectID, formObject.GetPtr(), inParser);
                     }
-                    inHandler->OnXObjectDoEnd(formName, formObjectID, formObject.GetPtr(), inParser);
-                }
-                
-                if(!!mNestingContext) {
-                    mNestingContext->nestedXObjects.pop_back();
+
+                    if(!!mNestingContext) {
+                        mNestingContext->nestedXObjects.pop_back();
+                    }
                 }
 
 
@@ -276,6 +274,11 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
             }
         }
         else {
+            if(operandsStack.size() >= scMaxOperands) {
+                anObject->Release();
+                shouldContinue = false;
+                break;
+            }
             operandsStack.push_back(anObject);
         }
         anObject = inObjectParser->ParseNewObject();
@@ -301,14 +304,20 @@ bool PDFRecursiveInterpreter::InterpretPageContents(
     InterpreterContext context(inParser, inPage);
     inHandler->OnResourcesRead(&context);
 
+    // the page is the root of form nesting. the forms it draws, and theirs, are checked against one
+    // context for loops and depth
+    PDFNestingContext pageNestingContext;
+    mNestingContext = &pageNestingContext;
+    bool result = true;
     if(contents->GetType() == PDFObject::ePDFObjectArray) {
-        return InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStreams((PDFArray*)contents.GetPtr()),&context, inHandler);
+        result = InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStreams((PDFArray*)contents.GetPtr()),&context, inHandler);
     }
     else if(contents->GetType() == PDFObject::ePDFObjectStream) {
-        return InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStream((PDFStreamInput*)contents.GetPtr()),&context , inHandler);
+        result = InterpretContentStream(inParser, inPage, inParser->StartReadingObjectsFromStream((PDFStreamInput*)contents.GetPtr()),&context , inHandler);
     }
+    mNestingContext = NULL;
 
-    return true;
+    return result;
 }
 
 bool PDFRecursiveInterpreter::InterpretXObjectContents(

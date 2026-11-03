@@ -71,6 +71,7 @@ EStatusCode TextExtraction::ExtractTextPlacements(PDFParser* inParser, long inSt
         textsForPages.push_back(ParsedTextPlacementList());
         // the interpreter will trigger the textInterpreter which in turn will trigger this object to collect text elements
         interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), this);  
+        textInterpeter.ResetDirectFontDecoders(); // the next page parses its own
     }    
 
     textInterpeter.ResetInterpretationState();

@@ -39,6 +39,10 @@ class TextInterpeter {
         bool OnResourcesRead(const Resources& inResources, IInterpreterContext* inContext);
 
         void ResetInterpretationState();
+        // drops the decoders of direct (not referenced) font dictionaries. those are parsed anew with the
+        // page or form that holds them, so a later page never finds them again. call it between pages,
+        // or they pile up for the whole document
+        void ResetDirectFontDecoders();
     private:
         ITextInterpreterHandler* handler;
 
