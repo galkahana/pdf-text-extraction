@@ -22,6 +22,7 @@ using namespace std;
 GraphicContentInterpreter::GraphicContentInterpreter(void) {
     handler = NULL;
     isInTextElement = false;
+    nextFormObjectID = 0;
 }
 
 GraphicContentInterpreter::~GraphicContentInterpreter(void) {
@@ -63,6 +64,8 @@ void GraphicContentInterpreter::ResetInterpretationState() {
     textGraphicStateStack.clear();
     isInTextElement = false;
     currentTextElementCommands.clear();
+    formDirectFonts.clear();
+    nextFormObjectID = 0;
 }
 
 
@@ -720,6 +723,10 @@ bool GraphicContentInterpreter::nCommand(const PDFObjectVector& inOperands) {
 }
 
 bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) {
+    // the form these resources belong to. 0 for the page's, which are read first
+    ObjectIDType formObjectID = resourcesStack.empty() ? 0 : nextFormObjectID;
+    nextFormObjectID = 0;
+
     resourcesStack.push_back(Resources()); // pushs on page start, and also on any drawn xobject start
 
     Resources& currentResources = resourcesStack.back();
@@ -784,6 +791,17 @@ bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) 
             RefCountPtr<PDFObject> fontRef;
             fontRef = it.GetValue();
 
+            // for a direct font of a form, use the one first seen for it in this page, so that handlers
+            // caching per font object (as TextInterpeter does with its decoders) find it again on the next Do
+            if(formObjectID != 0 && fontRef->GetType() == PDFObject::ePDFObjectDictionary) {
+                ObjectIDTypeAndString key(formObjectID, it.GetKey()->GetValue());
+                ObjectIDTypeAndStringToPDFObjectMap::iterator itSeen = formDirectFonts.find(key);
+                if(itSeen == formDirectFonts.end())
+                    formDirectFonts.insert(ObjectIDTypeAndStringToPDFObjectMap::value_type(key, fontRef));
+                else
+                    fontRef = itSeen->second;
+            }
+
             currentResources.fonts.insert(StringToFontMap::value_type(it.GetKey()->GetValue(), Font(fontRef)));
         }
     }    
@@ -796,6 +814,8 @@ bool GraphicContentInterpreter::OnXObjectDoStart(
         ObjectIDType inXObjectObjectID,
         PDFStreamInput* inXObject,
         PDFParser* inParser) {
+    nextFormObjectID = inXObjectObjectID; // its resources are read next
+
     // the equivalent of q, so any internal transformations do not effect the outside. specifically what im gonna
     // do now to emulate form placement matrix changes
     PushGraphicState();

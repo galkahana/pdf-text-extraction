@@ -36,6 +36,10 @@ void TextInterpeter::ResetInterpretationState() {
     embeddedFontDecoders.clear();
 }
 
+void TextInterpeter::ResetDirectFontDecoders() {
+    embeddedFontDecoders.clear();
+}
+
 FontDecoder* TextInterpeter::GetDecoderForFont(PDFObject* inFontReference) {
     if(!inFontReference)
         return NULL;

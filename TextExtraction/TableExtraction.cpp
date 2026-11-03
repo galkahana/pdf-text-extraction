@@ -95,6 +95,7 @@ EStatusCode TableExtraction::ExtractTablePlacements(PDFParser* inParser, long in
         tableLinesForPages.push_back(Lines());
         // the interpreter will trigger the textInterpreter which in turn will trigger this object to collect text elements
         interpreter.InterpretPageContents(inParser, pageObject.GetPtr(), this);  
+        textInterpeter.ResetDirectFontDecoders(); // the next page parses its own
     }    
 
     textInterpeter.ResetInterpretationState();

@@ -12,6 +12,11 @@
 
 #include <list>
 #include <map>
+#include <string>
+#include <utility>
+#include "ObjectsBasicTypes.h"
+#include "RefCountPtr.h"
+#include "PDFObject.h"
 
 typedef std::list<TextGraphicState> TextGraphicStateList;
 typedef std::list<ContentGraphicState> GraphicStateList;
@@ -54,6 +59,14 @@ private:
 
     bool isInTextElement;
     PlacedTextCommandList currentTextElementCommands;
+
+    // a form is parsed again on every Do, so its direct (not referenced) fonts are new objects each time.
+    // formDirectFonts holds, for the page, the one seen first for each (form object ID, font resource name),
+    // and the resources hand that one out again. nextFormObjectID is the form whose resources are read next
+    typedef std::pair<ObjectIDType, std::string> ObjectIDTypeAndString;
+    typedef std::map<ObjectIDTypeAndString, RefCountPtr<PDFObject> > ObjectIDTypeAndStringToPDFObjectMap;
+    ObjectIDTypeAndStringToPDFObjectMap formDirectFonts;
+    ObjectIDType nextFormObjectID;
 
     IGraphicContentInterpreterHandler* handler;
 

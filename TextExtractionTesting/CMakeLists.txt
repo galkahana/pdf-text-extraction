@@ -65,3 +65,7 @@ add_test(NAME TextExtractionHugeWidthsRange COMMAND TextExtractionCLI ${CMAKE_CU
 set_property (TEST TextExtractionHugeWidthsRange PROPERTY TIMEOUT 60)
 add_test(NAME TextExtractionHugeToUnicodeRange COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/tounicode_huge_bfrange.pdf)
 set_property (TEST TextExtractionHugeToUnicodeRange PROPERTY TIMEOUT 60)
+
+# forms drawn some 5000 times, each with a direct font: each font is decoded once per page, not on every Do
+add_test(NAME TextExtractionFormDirectFontDecodedOnce COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/form_fanout_direct_font.pdf)
+set_property (TEST TextExtractionFormDirectFontDecodedOnce PROPERTY TIMEOUT 30)
