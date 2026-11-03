@@ -389,12 +389,22 @@ void FontDecoder::ParseFontData(PDFParser* inParser, PDFDictionary* inFont) {
 Result<unsigned long> FontDecoder::FindSpaceCharGlyphCode() {
     // attempt to find space char within the codes
     if(hasToUnicode) {
-        // search in unicode map
+        // search in unicode map.
+        // code 0 is normally .notdef (CID 0, GID 0), yet producers map it to U+0020 as well, next to the
+        // real space. so take code 0 only when no other code maps to the space
+        bool isNotdefSpace = false;
         ULongToULongListMap::const_iterator itEntry = toUnicodeMap.begin();
         for(; itEntry != toUnicodeMap.end(); ++itEntry) {
-            if(itEntry->second.size() == 1 && itEntry->second.front() == SPACE_CODE)
+            if(itEntry->second.size() == 1 && itEntry->second.front() == SPACE_CODE) {
+                if(itEntry->first == 0) {
+                    isNotdefSpace = true;
+                    continue;
+                }
                 return Result<unsigned long>(itEntry->first);
+            }
         }
+        if(isNotdefSpace)
+            return Result<unsigned long>(0UL);
     }
     else if(hasSimpleEncoding) {
         ByteToStringMap::const_iterator itEntry = fromSimpleEncodingMap.begin();

@@ -54,3 +54,7 @@ set_property (TEST TextExtractionImageWithOverlayPrintsText PROPERTY PASS_REGULA
 # a CIDFont glyph missing from /W is /DW wide: no gap between B and A
 add_test(NAME TextExtractionCIDFontDefaultWidth COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_default_width.pdf)
 set_property (TEST TextExtractionCIDFontDefaultWidth PROPERTY PASS_REGULAR_EXPRESSION "BA")
+
+# the space width comes from the real space (code 3), not from .notdef (code 0) that also maps to U+0020
+add_test(NAME TextExtractionNotdefIsNotSpace COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_notdef_space.pdf)
+set_property (TEST TextExtractionNotdefIsNotSpace PROPERTY PASS_REGULAR_EXPRESSION "B A")
