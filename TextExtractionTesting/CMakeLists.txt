@@ -62,3 +62,15 @@ set_property (TEST TextExtractionNotdefIsNotSpace PROPERTY PASS_REGULAR_EXPRESSI
 # an /Encoding name that is not one of the standard ones falls back to the font's built-in encoding
 add_test(NAME TextExtractionUnknownEncodingName COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/unknown_encoding_name.pdf)
 set_property (TEST TextExtractionUnknownEncodingName PROPERTY PASS_REGULAR_EXPRESSION "Hello")
+
+# an /Encoding dictionary may have no /Differences
+add_test(NAME TextExtractionEncodingWithoutDifferences COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/encoding_without_differences.pdf)
+set_property (TEST TextExtractionEncodingWithoutDifferences PROPERTY PASS_REGULAR_EXPRESSION "Hello")
+
+# /StandardEncoding is standard encoding, also for a font flagged symbolic
+add_test(NAME TextExtractionStandardEncodingName COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/standard_encoding_symbolic.pdf)
+set_property (TEST TextExtractionStandardEncodingName PROPERTY PASS_REGULAR_EXPRESSION "Hello")
+
+# a font descriptor may have no /Flags
+add_test(NAME TextExtractionDescriptorWithoutFlags COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/descriptor_without_flags.pdf)
+set_property (TEST TextExtractionDescriptorWithoutFlags PROPERTY PASS_REGULAR_EXPRESSION "Hello")

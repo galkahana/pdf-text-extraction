@@ -95,6 +95,10 @@ static const ByteToStringMap*  GetStandardEncodingMap(const string& inEncodingNa
     if(inEncodingName == "MacRomanEncoding")
         return &(scEncoding.MacRomanEncoding);
 
+    // not one of the names the spec allows, but producers write it, meaning standard encoding
+    if(inEncodingName == "StandardEncoding")
+        return &(scEncoding.StandardEncoding);
+
     return NULL; 
 }  
 
@@ -179,7 +183,7 @@ static const ByteToStringMap& GetBuiltInEncodingMap(PDFParser* inParser, PDFDict
     if(!!fontDescriptor) {
         // check font descriptor to determine whether this is a symbolic font. if so, use symbol encoding. otherwise - standard
         RefCountPtr<PDFObject> flagsObject =  inParser->QueryDictionaryObject(fontDescriptor.GetPtr(), "Flags");
-        long long flags = ParsedPrimitiveHelper(flagsObject.GetPtr()).GetAsInteger();
+        long long flags = !!flagsObject ? ParsedPrimitiveHelper(flagsObject.GetPtr()).GetAsInteger() : 0;
         if(flags & (1<<2)) {
             return scEncoding.SymbolEncoding;
         }
@@ -211,6 +215,8 @@ void FontDecoder::SetupDifferencesEncodingMap(PDFParser* inParser, PDFDictionary
     }
 
     PDFObjectCastPtr<PDFArray> differences = inParser->QueryDictionaryObject(inEncoding, "Differences");
+    if(!differences) // Differences is optional
+        return;
 
     SingleValueContainerIterator<PDFObjectVector> it = differences->GetIterator();
     it.MoveNext();
