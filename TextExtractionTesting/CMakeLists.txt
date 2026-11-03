@@ -50,3 +50,27 @@ set_property (TEST FuzzTest_uaf1 PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed
 # scan with text overlay
 add_test(NAME TextExtractionImageWithOverlayPrintsText COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/ouk6210324m9i73.pdf)
 set_property (TEST TextExtractionImageWithOverlayPrintsText PROPERTY PASS_REGULAR_EXPRESSION "EDICT")
+
+# a CIDFont glyph missing from /W is /DW wide: no gap between B and A
+add_test(NAME TextExtractionCIDFontDefaultWidth COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_default_width.pdf)
+set_property (TEST TextExtractionCIDFontDefaultWidth PROPERTY PASS_REGULAR_EXPRESSION "BA")
+
+# the space width comes from the real space (code 3), not from .notdef (code 0) that also maps to U+0020
+add_test(NAME TextExtractionNotdefIsNotSpace COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_notdef_space.pdf)
+set_property (TEST TextExtractionNotdefIsNotSpace PROPERTY PASS_REGULAR_EXPRESSION "B A")
+
+# an /Encoding name that is not one of the standard ones falls back to the font's built-in encoding
+add_test(NAME TextExtractionUnknownEncodingName COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/unknown_encoding_name.pdf)
+set_property (TEST TextExtractionUnknownEncodingName PROPERTY PASS_REGULAR_EXPRESSION "Hello")
+
+# an /Encoding dictionary may have no /Differences
+add_test(NAME TextExtractionEncodingWithoutDifferences COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/encoding_without_differences.pdf)
+set_property (TEST TextExtractionEncodingWithoutDifferences PROPERTY PASS_REGULAR_EXPRESSION "Hello")
+
+# /StandardEncoding is standard encoding, also for a font flagged symbolic
+add_test(NAME TextExtractionStandardEncodingName COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/standard_encoding_symbolic.pdf)
+set_property (TEST TextExtractionStandardEncodingName PROPERTY PASS_REGULAR_EXPRESSION "Hello")
+
+# a font descriptor may have no /Flags
+add_test(NAME TextExtractionDescriptorWithoutFlags COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/descriptor_without_flags.pdf)
+set_property (TEST TextExtractionDescriptorWithoutFlags PROPERTY PASS_REGULAR_EXPRESSION "Hello")
