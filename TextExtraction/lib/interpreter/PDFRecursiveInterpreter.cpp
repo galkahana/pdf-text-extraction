@@ -23,6 +23,9 @@ static const string scID = "ID";
 static const string scEI = "EI";
 // most form xobjects open at once. a Do deeper than this is skipped
 static const size_t scMaxFormDepth = 16;
+// most operands pending at once. no content stream operator takes more than a few dozen, so a stream
+// that piles up more is malformed, and its interpretation stops
+static const size_t scMaxOperands = 1024;
 
 static void FreeObjectVector(PDFObjectVector& ioVector) {
 	PDFObjectVector::iterator it = ioVector.begin();
@@ -271,6 +274,11 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
             }
         }
         else {
+            if(operandsStack.size() >= scMaxOperands) {
+                anObject->Release();
+                shouldContinue = false;
+                break;
+            }
             operandsStack.push_back(anObject);
         }
         anObject = inObjectParser->ParseNewObject();

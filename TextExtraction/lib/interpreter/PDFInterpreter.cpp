@@ -16,6 +16,9 @@ using namespace std;
 using namespace PDFHummus;
 
 static const string scContents = "Contents";
+// most operands pending at once. a CMap block may list many codes, so the bound is wide. a stream
+// that piles up more is malformed, and its interpretation stops
+static const size_t scMaxOperands = 0x30000;
 
 static void FreeObjectVector(PDFObjectVector& ioVector) {
 	PDFObjectVector::iterator it = ioVector.begin();
@@ -57,6 +60,10 @@ void PDFInterpreter::InterpretContentStream(
                 break;
         }
         else {
+            if(operandsStack.size() >= scMaxOperands) {
+                anObject->Release();
+                break;
+            }
             operandsStack.push_back(anObject);
         }
         anObject = inObjectParser->ParseNewObject();

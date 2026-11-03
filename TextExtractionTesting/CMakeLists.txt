@@ -59,3 +59,9 @@ set_property (TEST TextExtractionFormLoopIsSkipped PROPERTY PASS_REGULAR_EXPRESS
 add_test(NAME TextExtractionFormDepthLimit COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/form_deep_chain.pdf)
 set_property (TEST TextExtractionFormDepthLimit PROPERTY PASS_REGULAR_EXPRESSION "L16")
 set_property (TEST TextExtractionFormDepthLimit PROPERTY FAIL_REGULAR_EXPRESSION "L17")
+
+# a /W range up to 4294967295, and a bfrange of 2^32 codes, are skipped instead of looping (and allocating) for hours
+add_test(NAME TextExtractionHugeWidthsRange COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_w_huge_range.pdf)
+set_property (TEST TextExtractionHugeWidthsRange PROPERTY TIMEOUT 60)
+add_test(NAME TextExtractionHugeToUnicodeRange COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/tounicode_huge_bfrange.pdf)
+set_property (TEST TextExtractionHugeToUnicodeRange PROPERTY TIMEOUT 60)
