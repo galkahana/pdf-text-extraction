@@ -38,6 +38,9 @@ void PDFInterpreter::InterpretContentStream(
     PDFObjectParser* inObjectParser,
     IPDFInterpreterHandler* inHandler
 ) {
+    if(!inObjectParser) // stream could not be opened (e.g. unknown filter), nothing to read
+        return;
+
     PDFObjectVector operandsStack;
 
     PDFObject* anObject = inObjectParser->ParseNewObject();

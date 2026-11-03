@@ -471,11 +471,11 @@ bool GraphicContentInterpreter::TJCommand(const PDFObjectVector& inOperands) {
         return true; // too few params? ignore
     
     PlacedTextCommandArgumentVector placements;
-    PDFObjectCastPtr<PDFArray> arg;
-
-    arg = inOperands.back();
-    if(!arg)
+    // check the type before casting. a PDFObjectCastPtr that fails to cast releases the object,
+    // and the operands are owned by the operands stack
+    if(inOperands.back()->GetType() != PDFObject::ePDFObjectArray)
         return true;
+    PDFArray* arg = (PDFArray*)inOperands.back();
     SingleValueContainerIterator<PDFObjectVector> it = arg->GetIterator();
     while(it.MoveNext()) {
         PDFObject* item = it.GetItem();
@@ -732,14 +732,16 @@ bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) 
         while(it.MoveNext()) {
             PDFObject* gsInCat = it.GetValue();
 
-            PDFDictionary* gsAsDict;
+            PDFDictionary* gsAsDict = NULL; // stays NULL for an entry that's neither a dictionary nor a reference to one
             if(gsInCat->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
                 PDFObjectCastPtr<PDFDictionary> gsAsDictQ = inContext->GetParser()->ParseNewObject(((PDFIndirectObjectReference*)gsInCat)->mObjectID);
                 gsAsDict = gsAsDictQ.GetPtr();
-                gsAsDictQ->AddRef();
+                if(gsAsDict)
+                    gsAsDict->AddRef();
             }
             else if(gsInCat->GetType() == PDFObject::ePDFObjectDictionary) {
                 gsAsDict = (PDFDictionary*)gsInCat;
+                gsAsDict->AddRef(); // released below, like the parsed one
             }
 
             if(gsAsDict) {
@@ -750,7 +752,7 @@ bool GraphicContentInterpreter::OnResourcesRead(IInterpreterContext* inContext) 
                 if(!!fontDesc || !!lineWidthDesc) {
                     GSState gState;
 
-                    if(!!fontDesc) {
+                    if(!!fontDesc && fontDesc->GetLength() >= 2) { // Font is [font size]
                         RefCountPtr<PDFObject> fontRef = fontDesc->QueryObject(0);
                         RefCountPtr<PDFObject> size = fontDesc->QueryObject(1);
                         double fontSize = ParsedPrimitiveHelper(size.GetPtr()).GetAsDouble();

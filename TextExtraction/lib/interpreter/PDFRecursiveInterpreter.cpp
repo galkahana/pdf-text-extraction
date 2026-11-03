@@ -95,6 +95,8 @@ PDFDictionary* InterpreterContext::FindResourceCategory(const string& inResource
 
 PDFObject* InterpreterContext::FindResource(const string& inResourceName, const string& inResourceCategory) {
     RefCountPtr<PDFDictionary> categoryDict = FindResourceCategory(inResourceCategory);
+    if(!categoryDict)
+        return NULL;
 
     return categoryDict->QueryDirectObject(inResourceName);
 }
@@ -174,10 +176,10 @@ static const string scForm = "Form";
 static bool IsForm(PDFStreamInput* formCandidate) {
     // check its subtype...don't wanna get into an image....
     RefCountPtr<PDFDictionary> formDict = formCandidate->QueryStreamDictionary();
-    if(!formCandidate)
+    if(!formDict)
         return false;
     PDFObjectCastPtr<PDFName> formSubtype = formDict->QueryDirectObject("Subtype"); 
-    return formSubtype->GetValue() == scForm;
+    return !!formSubtype && formSubtype->GetValue() == scForm;
 }
 
 bool PDFRecursiveInterpreter::InterpretContentStream(

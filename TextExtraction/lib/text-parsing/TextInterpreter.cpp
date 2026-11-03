@@ -43,7 +43,10 @@ FontDecoder* TextInterpeter::GetDecoderForFont(PDFObject* inFontReference) {
     // This should normally end up with a proper decoder, otherwise there wouldn't be a ref at all.
     // so the "null returns" below should imply an earlier failure to parse a certain font
     if(inFontReference->GetType() == PDFObject::ePDFObjectDictionary) {
-        PDFObjectToFontDecoderMap::iterator it = embeddedFontDecoders.find(inFontReference);
+        // the key takes a reference of its own. constructing it from the raw pointer would take none, yet release one
+        RefCountPtr<PDFObject> key;
+        key = inFontReference;
+        PDFObjectToFontDecoderMap::iterator it = embeddedFontDecoders.find(key);
         return it == embeddedFontDecoders.end() ? NULL : &(it->second);
     }
     else if(inFontReference->GetType() == PDFObject::ePDFObjectIndirectObjectReference) {
@@ -174,7 +177,8 @@ bool TextInterpeter::OnResourcesRead(const Resources& inResources, IInterpreterC
         // 
 
         if(it->second.fontRef.GetPtr()->GetType() == PDFObject::ePDFObjectDictionary) {
-            RefCountPtr<PDFObject> fontDict = it->second.fontRef.GetPtr();
+            // a reference, not a copy constructed from the raw pointer, which would take no reference yet release one
+            const RefCountPtr<PDFObject>& fontDict = it->second.fontRef;
             // embedded, check cache first
             PDFObjectToFontDecoderMap::const_iterator itFont = embeddedFontDecoders.find(fontDict);
             if(itFont == embeddedFontDecoders.end()) {
