@@ -50,3 +50,7 @@ set_property (TEST FuzzTest_uaf1 PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed
 # scan with text overlay
 add_test(NAME TextExtractionImageWithOverlayPrintsText COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/ouk6210324m9i73.pdf)
 set_property (TEST TextExtractionImageWithOverlayPrintsText PROPERTY PASS_REGULAR_EXPRESSION "EDICT")
+
+# a CIDFont glyph missing from /W is /DW wide: no gap between B and A
+add_test(NAME TextExtractionCIDFontDefaultWidth COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/cid_default_width.pdf)
+set_property (TEST TextExtractionCIDFontDefaultWidth PROPERTY PASS_REGULAR_EXPRESSION "BA")

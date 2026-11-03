@@ -270,11 +270,10 @@ void FontDecoder::ParseFontDescriptor(PDFParser* inParser, PDFDictionary* inFont
             }
         }
         
-        if(!!missingWidthObject) {
+        // MissingWidth is the default width of a simple font. a CIDFont's default width is its DW,
+        // already read by ParseCIDFontDimensions, so leave it be
+        if(isSimpleFont && !!missingWidthObject) {
             defaultWidth = ParsedPrimitiveHelper(missingWidthObject.GetPtr()).GetAsDouble(); 
-        }
-        else {
-            defaultWidth = 0;
         }
     }
 }
