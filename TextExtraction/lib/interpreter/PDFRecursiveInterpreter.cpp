@@ -8,6 +8,9 @@
 #include "PDFStreamInput.h"
 #include "PDFSymbol.h"
 #include "PDFIndirectObjectReference.h"
+#include "PDFObjectParser.h"
+#include "PDFParserTokenizer.h"
+#include "InputByteArrayStream.h"
 
 #include "IPDFRecursiveInterpreterHandler.h"
 
@@ -137,6 +140,34 @@ static const bool IsEIFinishSample(Byte (&buffer)[3]) {
     );
 }
 
+static bool IsWhiteSpace(Byte inByte) {
+    for(int i=0; i < 6; ++i)
+        if(scWhiteSpaces[i] == inByte)
+            return true;
+    return false;
+}
+
+static const Byte scDelimiters[10] = {'(',')','<','>','[',']','{','}','/','%'};
+
+static bool IsDelimiter(Byte inByte) {
+    for(int i=0; i < 10; ++i)
+        if(scDelimiters[i] == inByte)
+            return true;
+    return false;
+}
+
+// gives inByte back to the object parser, as the next byte it reads: a tokenizer
+// that read a token which inByte ends keeps inByte buffered, and the parser takes
+// that state over
+static void UnreadByte(PDFObjectParser* inObjectParser, Byte inByte) {
+    Byte bytes[2] = {'x', inByte};
+    InputByteArrayStream stream(bytes, 2);
+    PDFParserTokenizer tokenizer;
+    tokenizer.SetReadStream(&stream);
+    tokenizer.GetNextToken();
+    inObjectParser->ResetReadState(tokenizer);
+}
+
 void PDFRecursiveInterpreter::SkipInlinImageTillEI(PDFObjectParser* inObjectParser) {
     /*
         So, what we're gonna do is this.
@@ -149,24 +180,43 @@ void PDFRecursiveInterpreter::SkipInlinImageTillEI(PDFObjectParser* inObjectPars
     */
    IByteReader* reader = inObjectParser->StartExternalRead();
    Byte buffer[3];
+   // EI ends the image only when a space, a delimiter or the end of the stream follows it:
+   // the image data may hold a space and EI too. a delimiter is given back to the parser
+   bool hasDelimiter = false;
+   Byte delimiter = 0;
 
     do {
         // read first 3 bytes
         if(reader->Read(buffer,3) != 3)
             break;
 
-        // read next chars, 1 at a time till finiding EI after a space/el
-        while(!IsEIFinishSample(buffer)) {
+        // read next chars, 1 at a time till finiding EI after a space/el, and before a space,
+        // a delimiter or the end
+        for(;;) {
+            Byte next;
+            if(IsEIFinishSample(buffer)) {
+                if(reader->Read(&next,1) != 1 || IsWhiteSpace(next))
+                    break;
+                if(IsDelimiter(next)) {
+                    hasDelimiter = true;
+                    delimiter = next;
+                    break;
+                }
+                // not the end. the byte joins the sample, which moves on
+            } else if(reader->Read(&next,1) != 1) {
+                break;
+            }
             buffer[0] = buffer[1];
             buffer[1] = buffer[2];
-            if(reader->Read(buffer+2,1) != 1)
-                break;
+            buffer[2] = next;
         }
 
 
     } while(false);
 
    inObjectParser->EndExternalRead();
+   if(hasDelimiter)
+       UnreadByte(inObjectParser, delimiter);
 }
 
 static const string scForm = "Form";
