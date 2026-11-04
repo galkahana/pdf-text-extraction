@@ -50,3 +50,10 @@ set_property (TEST FuzzTest_uaf1 PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed
 # scan with text overlay
 add_test(NAME TextExtractionImageWithOverlayPrintsText COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/ouk6210324m9i73.pdf)
 set_property (TEST TextExtractionImageWithOverlayPrintsText PROPERTY PASS_REGULAR_EXPRESSION "EDICT")
+
+# image data may hold a space and EI too: the image ends at an EI followed by a space, a delimiter or the end
+add_test(NAME TextExtractionInlineImageEIInData COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/inline_image_ei_in_data.pdf)
+set_property (TEST TextExtractionInlineImageEIInData PROPERTY PASS_REGULAR_EXPRESSION "Hello[ \t\r\n]+After")
+set_property (TEST TextExtractionInlineImageEIInData PROPERTY FAIL_REGULAR_EXPRESSION "Bogus")
+add_test(NAME TextExtractionInlineImageAtEnd COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/inline_image_ei_at_end.pdf)
+set_property (TEST TextExtractionInlineImageAtEnd PROPERTY PASS_REGULAR_EXPRESSION "Hello")
