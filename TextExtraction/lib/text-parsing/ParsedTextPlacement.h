@@ -1,6 +1,8 @@
 #pragma once
 
 #include "../math/Transformations.h"
+#include "../graphic-content-parsing/ContentGraphicState.h"
+#include "../graphic-content-parsing/TextGraphicState.h"
 
 #include <string>
 #include <list>
@@ -12,8 +14,10 @@ struct ParsedTextPlacement {
         const double (&inLocalBox)[4],
         const double (&inGlobalBox)[4],
         const double inSpaceWidth,
-        const double (&inGlobalSpaceWidth)[2]
-    ) {
+        const double (&inGlobalSpaceWidth)[2],
+        const TextGraphicState& inTextState,
+        const ContentGraphicState& inGraphicState
+    ): textState(inTextState), graphicState(inGraphicState) {
         text = inText;
         CopyMatrix(inMatrix, matrix);
         CopyBox(inLocalBox, localBbox);
@@ -28,6 +32,9 @@ struct ParsedTextPlacement {
     double globalBbox[4];
     double spaceWidth;
     double globalSpaceWidth[2];
+    // the states the text was placed with: font (fontRef, fontSize), render mode, fill color, ctm...
+    TextGraphicState textState;
+    ContentGraphicState graphicState;
 };
 
 

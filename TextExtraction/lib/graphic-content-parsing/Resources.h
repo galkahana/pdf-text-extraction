@@ -35,7 +35,10 @@ struct Font {
 
 typedef std::map<std::string, Font> StringToFontMap;
 
+typedef std::map<std::string, int> StringToIntMap;
+
 struct Resources {
     StringToGStateMap gStates;
     StringToFontMap fonts;
+    StringToIntMap propertiesMCIDs; // /Properties entries that have an MCID
 };

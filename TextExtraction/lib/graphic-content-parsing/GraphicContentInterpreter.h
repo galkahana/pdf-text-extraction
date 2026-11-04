@@ -12,10 +12,21 @@
 
 #include <list>
 #include <map>
+#include <string>
+#include <vector>
 
 typedef std::list<TextGraphicState> TextGraphicStateList;
 typedef std::list<ContentGraphicState> GraphicStateList;
 typedef std::list<Resources> ResourcesList;
+
+// an open marked content sequence (BMC/BDC ... EMC), with the values that apply to what is drawn in it:
+// the innermost MCID so far, and whether this or an enclosing sequence is an /Artifact
+struct MarkedContent {
+    int mcid;
+    bool artifact;
+};
+
+typedef std::vector<MarkedContent> MarkedContentStack;
 
 
 class GraphicContentInterpreter: public IPDFRecursiveInterpreterHandler {
@@ -46,14 +57,31 @@ public:
         PDFStreamInput* inXObject,
         PDFParser* inParser);        
 
+    virtual bool OnXObjectImage(
+        const std::string& inXObjectRefName,
+        ObjectIDType inXObjectObjectID,
+        PDFStreamInput* inXObject,
+        PDFParser* inParser);
+
+    // the number of inline images (BI) met since the last InterpretPageContents started, its forms included
+    unsigned long GetInlineImagesCount() const;
+
 private:
     ResourcesList resourcesStack;
     GraphicStateList graphicStateStack;
     TextGraphicStateList textGraphicStateStack;
     Path currentPath;
+    // marked content. not saved by q/Q, and reset per page. a form xobject inherits the sequences it is drawn
+    // in (they span the Do), and what it leaves open, or closes beyond its start, is undone at its end.
+    // markedContentFormDepths holds the stack depth at the start of each open form
+    MarkedContentStack markedContentStack;
+    std::vector<size_t> markedContentFormDepths;
 
     bool isInTextElement;
     PlacedTextCommandList currentTextElementCommands;
+
+    // reset when a page starts, not when it ends, so that it can be read after the page
+    unsigned long inlineImagesCount;
 
     IGraphicContentInterpreterHandler* handler;
 
@@ -73,6 +101,15 @@ private:
     bool TLCommand(const PDFObjectVector& inOperands);
     bool TsCommand(const PDFObjectVector& inOperands);
     bool TfCommand(const PDFObjectVector& inOperands);
+    bool TrCommand(const PDFObjectVector& inOperands);
+    bool gCommand(const PDFObjectVector& inOperands);
+    bool rgCommand(const PDFObjectVector& inOperands);
+    bool kCommand(const PDFObjectVector& inOperands);
+    bool csCommand(const PDFObjectVector& inOperands);
+    bool scCommand(const PDFObjectVector& inOperands);
+    bool BMCCommand(const PDFObjectVector& inOperands);
+    bool BDCCommand(const PDFObjectVector& inOperands);
+    bool EMCCommand();
     bool BTCommand();
     bool ETCommand();
     bool TdCommand(const PDFObjectVector& inOperands);
@@ -121,6 +158,10 @@ private:
     void setTm(const double (&matrix)[6]);
     void TStar();
     void Quote(PDFObject* inObject);
+    bool SetFillColor(int inComponents, const PDFObjectVector& inOperands);
+    void PushMarkedContent(const std::string& inTag, int inMCID);
+    int MCIDOfProperties(PDFObject* inProperties);
+    ContentGraphicState SnapshotGraphicState();
 
     void StartTextElement();
     bool EndTextElement();

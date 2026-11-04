@@ -16,6 +16,7 @@ struct TextGraphicState {
         tmDirty = true;
         tlmDirty = true;
         fontSize = 0;
+        renderMode = 0;
     }
 
     TextGraphicState(const TextGraphicState& inOther) {
@@ -30,6 +31,7 @@ struct TextGraphicState {
         tlmDirty = inOther.tlmDirty;
         fontRef = inOther.fontRef;
         fontSize = inOther.fontSize;
+        renderMode = inOther.renderMode;
     }
 
     double charSpace;
@@ -44,4 +46,5 @@ struct TextGraphicState {
     bool tlmDirty;
     RefCountPtr<PDFObject> fontRef;
     double fontSize;
+    int renderMode; // Tr
 };

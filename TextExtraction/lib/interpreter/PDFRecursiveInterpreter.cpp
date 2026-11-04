@@ -170,14 +170,16 @@ void PDFRecursiveInterpreter::SkipInlinImageTillEI(PDFObjectParser* inObjectPars
 }
 
 static const string scForm = "Form";
+static const string scImage = "Image";
 
-static bool IsForm(PDFStreamInput* formCandidate) {
-    // check its subtype...don't wanna get into an image....
-    RefCountPtr<PDFDictionary> formDict = formCandidate->QueryStreamDictionary();
-    if(!formCandidate)
-        return false;
-    PDFObjectCastPtr<PDFName> formSubtype = formDict->QueryDirectObject("Subtype"); 
-    return formSubtype->GetValue() == scForm;
+// the XObject's /Subtype, or an empty string when it has none. tells a form (recursed into)
+// from an image (reported) from anything else
+static string XObjectSubtype(PDFStreamInput* inXObject) {
+    RefCountPtr<PDFDictionary> xobjectDict = inXObject->QueryStreamDictionary();
+    if(!xobjectDict)
+        return string();
+    PDFObjectCastPtr<PDFName> subtype = xobjectDict->QueryDirectObject("Subtype");
+    return !subtype ? string() : subtype->GetValue();
 }
 
 bool PDFRecursiveInterpreter::InterpretContentStream(
@@ -249,7 +251,8 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                 }
 
                 PDFObjectCastPtr<PDFStreamInput> formObject(inParser->ParseNewObject(formObjectID));
-                if(!!formObject && IsForm(formObject.GetPtr())) {  
+                string subtype = !formObject ? string() : XObjectSubtype(formObject.GetPtr());
+                if(subtype == scForm) {
                     bool shouldRecurse = inHandler->OnXObjectDoStart(formName, formObjectID, formObject.GetPtr(), inParser);
                     if(shouldRecurse) {
                         PDFRecursiveInterpreter subordinateInterpreter;
@@ -260,6 +263,8 @@ bool PDFRecursiveInterpreter::InterpretContentStream(
                         );
                     }
                     inHandler->OnXObjectDoEnd(formName, formObjectID, formObject.GetPtr(), inParser);
+                } else if(subtype == scImage) {
+                    shouldContinue = inHandler->OnXObjectImage(formName, formObjectID, formObject.GetPtr(), inParser);
                 }
                 
                 if(!!mNestingContext) {
