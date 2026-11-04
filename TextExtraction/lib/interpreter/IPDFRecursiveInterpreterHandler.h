@@ -67,6 +67,14 @@ public:
         PDFStreamInput* inXObject,
         PDFParser* inParser) {}
 
+    // a Do of an image XObject (/Subtype /Image). inXObject is the image stream, not read. the parser may be used
+    // here, as the stream position is restored after the Do. bool allows you to stop interpretation
+    virtual bool OnXObjectImage(
+        const std::string& inXObjectRefName,
+        ObjectIDType inXObjectObjectID,
+        PDFStreamInput* inXObject,
+        PDFParser* inParser) {return true;}
+
     // prior to starting content parsing, use this chance to read resources
     // that are important to the task you're implementing.
     // onResourcesRead allows access to IInterpreterContext which in turn can FindResources.

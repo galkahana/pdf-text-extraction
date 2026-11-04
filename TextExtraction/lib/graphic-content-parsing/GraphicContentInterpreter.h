@@ -57,6 +57,15 @@ public:
         PDFStreamInput* inXObject,
         PDFParser* inParser);        
 
+    virtual bool OnXObjectImage(
+        const std::string& inXObjectRefName,
+        ObjectIDType inXObjectObjectID,
+        PDFStreamInput* inXObject,
+        PDFParser* inParser);
+
+    // the number of inline images (BI) met since the last InterpretPageContents started, its forms included
+    unsigned long GetInlineImagesCount() const;
+
 private:
     ResourcesList resourcesStack;
     GraphicStateList graphicStateStack;
@@ -70,6 +79,9 @@ private:
 
     bool isInTextElement;
     PlacedTextCommandList currentTextElementCommands;
+
+    // reset when a page starts, not when it ends, so that it can be read after the page
+    unsigned long inlineImagesCount;
 
     IGraphicContentInterpreterHandler* handler;
 

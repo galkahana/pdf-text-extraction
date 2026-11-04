@@ -25,6 +25,7 @@ using namespace std;
 GraphicContentInterpreter::GraphicContentInterpreter(void) {
     handler = NULL;
     isInTextElement = false;
+    inlineImagesCount = 0;
 }
 
 GraphicContentInterpreter::~GraphicContentInterpreter(void) {
@@ -53,6 +54,7 @@ void GraphicContentInterpreter::InitInterpretationState() {
     isInTextElement = false;
     markedContentStack.clear();
     markedContentFormDepths.clear();
+    inlineImagesCount = 0;
 }
 
 void GraphicContentInterpreter::ClearCurrentPath() {
@@ -118,6 +120,10 @@ bool GraphicContentInterpreter::OnOperation(const std::string& inOperation,  con
         return BDCCommand(inOperands);
     } else if(inOperation == "EMC") {
         return EMCCommand();
+    } else if(inOperation == "BI") {
+        // inline image: counted. the interpreter skips its data
+        ++inlineImagesCount;
+        return true;
     } else if(inOperation == "BT") {
         return BTCommand();
     } else if(inOperation == "ET") {
@@ -1018,4 +1024,21 @@ void GraphicContentInterpreter::OnXObjectDoEnd(
         markedContentFormDepths.pop_back();
     }
 
+}
+
+bool GraphicContentInterpreter::OnXObjectImage(
+    const std::string& inXObjectRefName,
+    ObjectIDType inXObjectObjectID,
+    PDFStreamInput* inXObject,
+    PDFParser* inParser) {
+    ImageElement imageElement = {
+        inXObjectObjectID,
+        inXObject,
+        SnapshotGraphicState()
+    };
+    return handler->OnImagePainted(imageElement);
+}
+
+unsigned long GraphicContentInterpreter::GetInlineImagesCount() const {
+    return inlineImagesCount;
 }

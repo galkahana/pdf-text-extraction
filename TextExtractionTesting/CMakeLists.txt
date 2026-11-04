@@ -50,3 +50,8 @@ set_property (TEST FuzzTest_uaf1 PROPERTY PASS_REGULAR_EXPRESSION "Error: Failed
 # scan with text overlay
 add_test(NAME TextExtractionImageWithOverlayPrintsText COMMAND TextExtractionCLI ${CMAKE_CURRENT_SOURCE_DIR}/Materials/ouk6210324m9i73.pdf)
 set_property (TEST TextExtractionImageWithOverlayPrintsText PROPERTY PASS_REGULAR_EXPRESSION "EDICT")
+
+# image XObjects are reported with their placement, and inline images counted. these are only visible through the API
+add_executable(ImageReportTest ImageReportTest.cpp)
+target_link_libraries(ImageReportTest TextExtraction::TextExtraction)
+add_test(NAME TextExtractionImagesReported COMMAND ImageReportTest ${CMAKE_CURRENT_SOURCE_DIR}/Materials/image_xobjects.pdf)

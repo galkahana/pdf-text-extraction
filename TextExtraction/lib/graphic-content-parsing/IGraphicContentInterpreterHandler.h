@@ -3,6 +3,7 @@
 #include "TextElement.h"
 #include "Resources.h"
 #include "PathElement.h"
+#include "ImageElement.h"
 
 class IInterpreterContext;
 
@@ -15,6 +16,10 @@ public:
 
     // called for each path on finish with the collected path and respective drawing verb
     virtual bool OnPathPainted(const PathElement& inPathElement) = 0;
+
+    // called for each image XObject painted with Do, with its placement. optional, and the image data is not read.
+    // inline images (BI ... EI) are not reported here. GraphicContentInterpreter::GetInlineImagesCount counts them
+    virtual bool OnImagePainted(const ImageElement& inImageElement){return true;}
 
     // gets called for and interprested page or an xobject that gets drawn during this page. will provide
     // chance for the handler to safely read resources and do some parsing in advance to support application 
